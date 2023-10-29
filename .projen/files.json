@@ -15,6 +15,7 @@
     ".projen/files.json",
     ".projen/tasks.json",
     "action.yml",
+    "jest.config.json",
     "LICENSE",
     "tsconfig.dev.json",
     "tsconfig.json"

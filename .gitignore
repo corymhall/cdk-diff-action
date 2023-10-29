@@ -33,6 +33,7 @@ jspm_packages/
 !/.projenrc.js
 /test-reports/
 junit.xml
+!/jest.config.json
 /coverage/
 !/.github/workflows/build.yml
 !/.github/workflows/release.yml
