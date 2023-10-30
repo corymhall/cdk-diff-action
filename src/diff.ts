@@ -54,15 +54,21 @@ export class StackDiff {
     const cmd = new GetTemplateCommand({
       StackName: this.stack.name,
     });
-    const res = await this.client.send(cmd);
-    const newTemplate = res.TemplateBody ?
-      JSON.parse(res.TemplateBody) : {};
-    const diff = diffTemplate(newTemplate, JSON.parse(this.stack.content));
-    const changes = this.evaluateDiff(this.stack.name, diff);
-    return {
-      diff,
-      destructiveChanges: changes,
-    };
+    try {
+      const res = await this.client.send(cmd);
+      const newTemplate = res.TemplateBody ?
+        JSON.parse(res.TemplateBody) : {};
+      const diff = diffTemplate(newTemplate, JSON.parse(this.stack.content));
+      const changes = this.evaluateDiff(this.stack.name, diff);
+      return {
+        diff,
+        destructiveChanges: changes,
+      };
+
+    } catch (e: any) {
+      console.error('Error getting remote template: ', e);
+      throw e;
+    }
   }
 
   private evaluateDiff(templateId: string, templateDiff: TemplateDiff): DestructiveChange[] {
@@ -130,9 +136,14 @@ export class StageProcessor {
   public async processStages() {
     for (const stage of this.stages) {
       for (const stack of stage.stacks) {
-        const { comment, changes } = await this.diffStack(stack);
-        this.stageComments[stage.name].comment.push(...comment);
-        this.stageComments[stage.name].destructiveChanges += changes;
+        try {
+          const { comment, changes } = await this.diffStack(stack);
+          this.stageComments[stage.name].comment.push(...comment);
+          this.stageComments[stage.name].destructiveChanges += changes;
+        } catch (e: any) {
+          console.error('Error processing stages: ', e);
+          throw e;
+        }
       }
     }
   }
@@ -147,12 +158,18 @@ export class StageProcessor {
   }
 
   private async diffStack(stack: StackInfo): Promise<{comment: string[]; changes: number}> {
-    const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
-    const { diff, destructiveChanges } = await stackDiff.diffStack();
-    return {
-      comment: this.formatStackComment(stack.name, diff, destructiveChanges),
-      changes: destructiveChanges.length,
-    };
+    try {
+      const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
+      const { diff, destructiveChanges } = await stackDiff.diffStack();
+      return {
+        comment: this.formatStackComment(stack.name, diff, destructiveChanges),
+        changes: destructiveChanges.length,
+      };
+
+    } catch (e: any) {
+      console.error('Error performing stack diff: ', e);
+      throw e;
+    }
   }
 
   private formatStackComment(stackName: string, diff: TemplateDiff, changes: DestructiveChange[]): string[] {
