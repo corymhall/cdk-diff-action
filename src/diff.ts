@@ -58,7 +58,7 @@ export class StackDiff {
       const res = await this.client.send(cmd);
       const newTemplate = res.TemplateBody ?
         JSON.parse(res.TemplateBody) : {};
-      const diff = diffTemplate(newTemplate, JSON.parse(this.stack.content));
+      const diff = diffTemplate(newTemplate, this.stack.content);
       const changes = this.evaluateDiff(this.stack.name, diff);
       return {
         diff,

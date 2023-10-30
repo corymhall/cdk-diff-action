@@ -13,7 +13,7 @@ beforeEach(() => {
 describe('StackDiff', () => {
   const stackInfo: StackInfo = {
     name: 'my-stack',
-    content: JSON.stringify({
+    content: {
       Resources: {
         MyRole: {
           Type: 'AWS::IAM::Role',
@@ -22,12 +22,12 @@ describe('StackDiff', () => {
           },
         },
       },
-    }),
+    },
   };
   test('no template diff', async () => {
     cfnMock.on(GetTemplateCommand)
       .resolves({
-        TemplateBody: stackInfo.content,
+        TemplateBody: JSON.stringify(stackInfo.content),
       });
     const stackDiff = new StackDiff(stackInfo, []);
     const { diff, destructiveChanges } = await stackDiff.diffStack();
@@ -38,11 +38,11 @@ describe('StackDiff', () => {
   test('diff with no destructive changes', async () => {
     cfnMock.on(GetTemplateCommand)
       .resolves({
-        TemplateBody: stackInfo.content,
+        TemplateBody: JSON.stringify(stackInfo.content),
       });
     const stackDiff = new StackDiff({
       name: 'my-stack',
-      content: JSON.stringify({
+      content: {
         Resources: {
           MyRole: {
             Type: 'AWS::IAM::Role',
@@ -52,7 +52,7 @@ describe('StackDiff', () => {
             },
           },
         },
-      }),
+      },
     }, []);
     const { diff, destructiveChanges } = await stackDiff.diffStack();
     expect(diff.isEmpty).toEqual(false);
@@ -64,11 +64,11 @@ describe('StackDiff', () => {
   test('diff with destructive changes', async () => {
     cfnMock.on(GetTemplateCommand)
       .resolves({
-        TemplateBody: stackInfo.content,
+        TemplateBody: JSON.stringify(stackInfo.content),
       });
     const stackDiff = new StackDiff({
       name: 'my-stack',
-      content: JSON.stringify({
+      content: {
         Resources: {
           MyRole: {
             Type: 'AWS::IAM::Role',
@@ -77,7 +77,7 @@ describe('StackDiff', () => {
             },
           },
         },
-      }),
+      },
     }, []);
     const { diff, destructiveChanges } = await stackDiff.diffStack();
     expect(diff.isEmpty).toEqual(false);
@@ -93,11 +93,11 @@ describe('StackDiff', () => {
   test('diff with allowed destructive changes', async () => {
     cfnMock.on(GetTemplateCommand)
       .resolves({
-        TemplateBody: stackInfo.content,
+        TemplateBody: JSON.stringify(stackInfo.content),
       });
     const stackDiff = new StackDiff({
       name: 'my-stack',
-      content: JSON.stringify({
+      content: {
         Resources: {
           MyRole: {
             Type: 'AWS::IAM::Role',
@@ -106,7 +106,7 @@ describe('StackDiff', () => {
             },
           },
         },
-      }),
+      },
     }, ['AWS::IAM::Role']);
     const { diff, destructiveChanges } = await stackDiff.diffStack();
     expect(diff.isEmpty).toEqual(false);
@@ -119,7 +119,7 @@ describe('StackDiff', () => {
 describe('StageProcessor', () => {
   const stackInfo: StackInfo = {
     name: 'my-stack',
-    content: JSON.stringify({
+    content: {
       Resources: {
         MyRole: {
           Type: 'AWS::IAM::Role',
@@ -128,13 +128,13 @@ describe('StageProcessor', () => {
           },
         },
       },
-    }),
+    },
   };
 
   test('stage with no diffs', async () => {
     cfnMock.on(GetTemplateCommand)
       .resolves({
-        TemplateBody: stackInfo.content,
+        TemplateBody: JSON.stringify(stackInfo.content),
       });
     const processor = new StageProcessor([
       {
@@ -153,14 +153,14 @@ describe('StageProcessor', () => {
   test('stage with no diff', async () => {
     cfnMock.on(GetTemplateCommand)
       .resolves({
-        TemplateBody: stackInfo.content,
+        TemplateBody: JSON.stringify(stackInfo.content),
       });
     const processor = new StageProcessor([
       {
         name: 'Stage1',
         stacks: [{
           name: 'my-stack',
-          content: JSON.stringify({
+          content: {
             Resources: {
               MyRole: {
                 Type: 'AWS::IAM::Role',
@@ -169,7 +169,7 @@ describe('StageProcessor', () => {
                 },
               },
             },
-          }),
+          },
         }],
       },
     ], []);

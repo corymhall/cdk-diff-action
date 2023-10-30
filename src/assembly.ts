@@ -103,5 +103,5 @@ export interface StageInfo {
 export interface StackInfo {
   name: string;
   lookupRole?: BootstrapRole;
-  content: string;
+  content: { [key: string]: any };
 }
