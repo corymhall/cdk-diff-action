@@ -41,7 +41,7 @@ export class StackDiff {
         RoleArn: stack.lookupRole.arn.replace('${AWS::Partition}', 'aws'),
         RoleSessionName: 'cdk-diff-action',
         ExternalId: stack.lookupRole.assumeRoleExternalId,
-        DurationSeconds: 300,
+        DurationSeconds: 900,
       },
     }) : undefined;
     this.client = new CloudFormationClient({
