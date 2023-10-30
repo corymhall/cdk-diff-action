@@ -71,8 +71,14 @@ export class AssemblyManifestReader {
       if (artifact.type !== ArtifactType.AWS_CLOUDFORMATION_STACK) { continue; }
       const props = artifact.properties as AwsCloudFormationStackProperties;
       const template = fs.readJSONSync(path.resolve(this.directory, props.templateFile));
+      const env = artifact.environment?.split(/\/\/?/);
+      let region = env && env.length === 3 ? env[2] : undefined;
+      if (region === 'unknown-region') {
+        region = undefined;
+      }
       stacks.push({
         content: template,
+        region,
         lookupRole: props.lookupRole,
         name: props.stackName ?? artifactId,
       });
@@ -102,6 +108,7 @@ export interface StageInfo {
 
 export interface StackInfo {
   name: string;
+  region?: string;
   lookupRole?: BootstrapRole;
   content: { [key: string]: any };
 }

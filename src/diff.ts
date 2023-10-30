@@ -46,6 +46,7 @@ export class StackDiff {
     }) : undefined;
     this.client = new CloudFormationClient({
       credentials,
+      region: this.stack.region,
     });
 
   }

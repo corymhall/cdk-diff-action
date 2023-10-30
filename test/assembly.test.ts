@@ -42,7 +42,7 @@ describe('cloud assembly manifest reader', () => {
             },
             'test-stack': {
               type: 'aws:cloudformation:stack',
-              environment: 'aws://unknown-account/unknown-region',
+              environment: 'aws://1234567891012/us-east-1',
               properties: {
                 templateFile: 'test-stack.template.json',
                 validateOnSynth: false,
@@ -95,6 +95,7 @@ describe('cloud assembly manifest reader', () => {
       {
         name: 'test-stack',
         content: { data: 'data' },
+        region: 'us-east-1',
         lookupRole: expect.objectContaining({
           arn: lookupRoleArn,
         }),
@@ -107,6 +108,7 @@ describe('cloud assembly manifest reader', () => {
     expect(manifest.stages).toEqual([
       {
         name: 'SomeStage',
+        region: undefined,
         stacks: [{
           name: 'test-stack2',
           content: { data: 'data' },
