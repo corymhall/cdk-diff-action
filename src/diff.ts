@@ -2,7 +2,7 @@ import * as crypto from 'crypto';
 import { Writable, WritableOptions } from 'stream';
 import { StringDecoder } from 'string_decoder';
 import { ResourceDifference, ResourceImpact, TemplateDiff, diffTemplate, formatDifferences } from '@aws-cdk/cloudformation-diff';
-import { CloudFormationClient, GetTemplateCommand } from '@aws-sdk/client-cloudformation';
+import { CloudFormationClient, GetTemplateCommand, StackNotFoundException } from '@aws-sdk/client-cloudformation';
 import { fromTemporaryCredentials } from '@aws-sdk/credential-providers';
 import { AwsCredentialIdentityProvider } from '@smithy/types';
 import chalk from 'chalk';
@@ -54,11 +54,17 @@ export class StackDiff {
     const cmd = new GetTemplateCommand({
       StackName: this.stack.name,
     });
+    let existingTemplate: { [key: string]: any } = {};
     try {
       const res = await this.client.send(cmd);
-      const newTemplate = res.TemplateBody ?
-        JSON.parse(res.TemplateBody) : {};
-      const diff = diffTemplate(newTemplate, this.stack.content);
+      existingTemplate = res.TemplateBody ? JSON.parse(res.TemplateBody) : {};
+    } catch (e: any) {
+      if (e instanceof StackNotFoundException) {
+        existingTemplate = {};
+      }
+    }
+    try {
+      const diff = diffTemplate(existingTemplate, this.stack.content);
       const changes = this.evaluateDiff(this.stack.name, diff);
       return {
         diff,
