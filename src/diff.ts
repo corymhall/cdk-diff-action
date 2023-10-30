@@ -137,6 +137,15 @@ export class StageProcessor {
     }
   }
 
+  public get hasDestructiveChanges(): boolean {
+    for (const comments of Object.values(this.stageComments)) {
+      if (comments.destructiveChanges) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   private async diffStack(stack: StackInfo): Promise<{comment: string[]; changes: number}> {
     const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
     const { diff, destructiveChanges } = await stackDiff.diffStack();

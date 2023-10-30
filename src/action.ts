@@ -26,6 +26,9 @@ export async function run() {
   const processor = new StageProcessor(stages, inputs.allowedDestroyTypes);
   await processor.processStages();
   await processor.commentStages(comments);
+  if (processor.hasDestructiveChanges && inputs.failOnDestructiveChanges) {
+    throw new Error('There are destructive changes! See PR comment for details.');
+  }
   return;
 }
 

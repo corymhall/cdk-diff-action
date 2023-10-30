@@ -73,5 +73,5 @@ jestConfig?.patch(JsonPatch.add('/transform', {
   '^.+\\.(t|j)sx?$': new Transform('@swc/jest'),
 }));
 const actionYml = project.tryFindObjectFile('action.yml');
-actionYml?.addOverride('runs.using', 'node18');
+actionYml?.addOverride('runs.using', 'node20');
 project.synth();
