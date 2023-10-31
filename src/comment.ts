@@ -22,7 +22,7 @@ export class Comments {
       ...this.context.repo,
       issue_number: this.issueNumber,
     });
-    return comments.data.find(comment => comment.body_text?.includes(hash))?.id;
+    return comments.data.find(comment => comment.body?.includes(hash))?.id;
   }
 
   public async updateComment(commentId: number, hash: string, content: string[]) {

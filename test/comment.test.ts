@@ -35,11 +35,11 @@ const commentDataWithTag = {
   data: [
     {
       id: 1,
-      body_text: 'some comment',
+      body: 'some comment',
     },
     {
       id: 2,
-      body_text: `<!-- cdk diff action with hash ${hash} -->\nprevious-message`,
+      body: `<!-- cdk diff action with hash ${hash} -->\nprevious-message`,
     },
   ],
 };
@@ -48,11 +48,11 @@ const commentDataWithUnMatchedTag = {
   data: [
     {
       id: 1,
-      body_text: 'some comment',
+      body: 'some comment',
     },
     {
       id: 2,
-      body_text: '<!-- cdk diff action with hash SOME-DIFFERENT-HASH -->\nprevious-message',
+      body: '<!-- cdk diff action with hash SOME-DIFFERENT-HASH -->\nprevious-message',
     },
   ],
 };
