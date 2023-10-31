@@ -9,6 +9,12 @@ import chalk from 'chalk';
 import { StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
 
+interface ChangeDetails {
+  updatedResources: number;
+  removedResources: number;
+  createdResources: number;
+}
+
 /**
  * Information on any destructive changes
  */
@@ -78,7 +84,15 @@ export class StackDiff {
     }
   }
 
-  private evaluateDiff(templateId: string, templateDiff: TemplateDiff): DestructiveChange[] {
+  private evaluateDiff(templateId: string, templateDiff: TemplateDiff): {
+    destructiveChanges: DestructiveChange[];
+    changes: ChangeDetails;
+  } {
+    const changes: ChangeDetails = {
+      createdResources: 0,
+      removedResources: 0,
+      updatedResources: 0,
+    };
     const destructiveChanges: DestructiveChange[] = [];
     // go through all the resource differences and check for any
     // "destructive" changes
