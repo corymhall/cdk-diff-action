@@ -135,7 +135,18 @@ export class StageProcessor {
       this.stageComments[stage.name] = {
         destructiveChanges: 0,
         comment: [],
-        hash: md5Hash(JSON.stringify(stage)),
+        hash: md5Hash(JSON.stringify({
+          stageName: stage.name,
+          ...stage.stacks.reduce((prev, curr) => {
+            prev.stacks.push({
+              name: curr.name,
+              lookupRole: curr.lookupRole,
+              region: curr.region,
+            });
+            return prev;
+          }, { stacks: [] } as { stacks: Omit<StackInfo, 'content'>[] }),
+
+        })),
       };
     });
   }
@@ -182,6 +193,7 @@ export class StageProcessor {
   private formatStackComment(stackName: string, diff: TemplateDiff, changes: DestructiveChange[]): string[] {
     const output: string[] = [];
     if (diff.isEmpty) {
+      output.push(`No Changes for stack: ${stackName}`);
       return output;
     }
     output.push(`\n<details><summary>Diff for stack: ${stackName}</summary>\n`);

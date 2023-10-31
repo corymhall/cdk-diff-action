@@ -147,10 +147,10 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       Stage1: expect.any(Object),
     });
-    expect(p.Stage1.comment.length).toEqual(0);
+    expect(p.Stage1.comment).toEqual(['No Changes for stack: my-stack']);
   });
 
-  test('stage with no diff', async () => {
+  test('stage with diff', async () => {
     cfnMock.on(GetTemplateCommand)
       .resolves({
         TemplateBody: JSON.stringify(stackInfo.content),
