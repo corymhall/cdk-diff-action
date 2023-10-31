@@ -16,10 +16,11 @@ const context: Context = {
       full_name: 'some-repo',
     },
     pull_request: {
+      head: { sha: '123' },
       number: 1,
     },
   },
-} as Context;
+} as unknown as Context;
 // const pullRequestData = {
 //   data: {
 //     items: [
@@ -89,6 +90,8 @@ describe('comments', () => {
       body: [
         `<!-- cdk diff action with hash ${hash} -->`,
         'message',
+        '',
+        `_Generated for commit ${context.payload.pull_request?.head.sha}_`,
       ].join('\n'),
       comment_id: 1,
     });
@@ -103,6 +106,8 @@ describe('comments', () => {
       body: [
         `<!-- cdk diff action with hash ${hash} -->`,
         'message',
+        '',
+        `_Generated for commit ${context.payload.pull_request?.head.sha}_`,
       ].join('\n'),
       issue_number: context.payload.pull_request?.number,
     });

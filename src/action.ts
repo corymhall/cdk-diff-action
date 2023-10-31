@@ -13,7 +13,6 @@ export async function run() {
   };
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
-
   try {
     const assembly = AssemblyManifestReader.fromPath('cdk.out');
     let stages = assembly.stages;

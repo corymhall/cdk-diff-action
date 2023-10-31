@@ -1,13 +1,17 @@
 import { Context } from '@actions/github/lib/context';
 import { GitHub } from '@actions/github/lib/utils';
+import { PullRequestEvent } from '@octokit/webhooks-definitions/schema';
 
 export class Comments {
   private readonly issueNumber: number;
+  private readonly commitSha: string;
   constructor(
     private readonly octokit: InstanceType<typeof GitHub>,
     private readonly context: Context,
   ) {
-    if (!context.payload.pull_request?.number) {
+    const payload = context.payload as PullRequestEvent;
+    this.commitSha = payload.pull_request.head.sha;
+    if (!payload.pull_request.number) {
       throw new Error('Cannot find PR number, is this from a pull request?');
     }
     this.issueNumber = this.context.payload.pull_request?.number!;
@@ -27,6 +31,8 @@ export class Comments {
       body: [
         `<!-- cdk diff action with hash ${hash} -->`,
         ...content,
+        '',
+        `_Generated for commit ${this.commitSha}_`,
       ].join('\n'),
       comment_id: commentId,
     });
@@ -38,6 +44,8 @@ export class Comments {
       body: [
         `<!-- cdk diff action with hash ${hash} -->`,
         ...content,
+        '',
+        `_Generated for commit ${this.commitSha}_`,
       ].join('\n'),
       issue_number: this.issueNumber,
     });
