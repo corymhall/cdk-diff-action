@@ -62,6 +62,7 @@
     "@aws-cdk/cloudformation-diff": "^2.103.1",
     "@aws-sdk/client-cloudformation": "^3.437.0",
     "@aws-sdk/credential-providers": "^3.437.0",
+    "@octokit/webhooks-definitions": "^3.67.3",
     "@smithy/types": "^2.4.0",
     "chalk": "^4",
     "fs-extra": "^11.1.1"

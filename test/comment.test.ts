@@ -16,10 +16,11 @@ const context: Context = {
       full_name: 'some-repo',
     },
     pull_request: {
+      head: { sha: '123' },
       number: 1,
     },
   },
-} as Context;
+} as unknown as Context;
 // const pullRequestData = {
 //   data: {
 //     items: [
@@ -34,11 +35,11 @@ const commentDataWithTag = {
   data: [
     {
       id: 1,
-      body_text: 'some comment',
+      body: 'some comment',
     },
     {
       id: 2,
-      body_text: `<!-- cdk diff action with hash ${hash} -->\nprevious-message`,
+      body: `<!-- cdk diff action with hash ${hash} -->\nprevious-message`,
     },
   ],
 };
@@ -47,11 +48,11 @@ const commentDataWithUnMatchedTag = {
   data: [
     {
       id: 1,
-      body_text: 'some comment',
+      body: 'some comment',
     },
     {
       id: 2,
-      body_text: '<!-- cdk diff action with hash SOME-DIFFERENT-HASH -->\nprevious-message',
+      body: '<!-- cdk diff action with hash SOME-DIFFERENT-HASH -->\nprevious-message',
     },
   ],
 };
@@ -89,6 +90,8 @@ describe('comments', () => {
       body: [
         `<!-- cdk diff action with hash ${hash} -->`,
         'message',
+        '',
+        `_Generated for commit ${context.payload.pull_request?.head.sha}_`,
       ].join('\n'),
       comment_id: 1,
     });
@@ -103,6 +106,8 @@ describe('comments', () => {
       body: [
         `<!-- cdk diff action with hash ${hash} -->`,
         'message',
+        '',
+        `_Generated for commit ${context.payload.pull_request?.head.sha}_`,
       ].join('\n'),
       issue_number: context.payload.pull_request?.number,
     });

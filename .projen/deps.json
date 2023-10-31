@@ -149,6 +149,10 @@
       "type": "runtime"
     },
     {
+      "name": "@octokit/webhooks-definitions",
+      "type": "runtime"
+    },
+    {
       "name": "@smithy/types",
       "type": "runtime"
     },
