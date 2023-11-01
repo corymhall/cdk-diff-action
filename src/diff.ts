@@ -5,7 +5,6 @@ import { ResourceDifference, ResourceImpact, TemplateDiff, diffTemplate, formatD
 import { CloudFormationClient, GetTemplateCommand, StackNotFoundException } from '@aws-sdk/client-cloudformation';
 import { fromTemporaryCredentials } from '@aws-sdk/credential-providers';
 import { AwsCredentialIdentityProvider } from '@smithy/types';
-import chalk from 'chalk';
 import { StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
 
@@ -221,14 +220,12 @@ export class StageProcessor {
       '</summary>\n',
     ]);
     if (changes.destructiveChanges.length) {
-      output.push(`${chalk.red('\n\n!!!Destructive Changes!!!\n')}`),
-      output.push('```shell\n');
+      output.push('\n\n> [!WARNING]\n> ***Destructive Changes!!!***\n'),
       changes.destructiveChanges.forEach(change => {
         output.push(
-          chalk.yellow(`Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact: ${change.impact}\n`),
+          `> Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact: ${change.impact}\n`,
         );
       });
-      output.push('```');
       output.push('\n\n');
     }
     const writable = new StringWritable({});
@@ -262,7 +259,7 @@ export class StageProcessor {
     output.push(`### Diff for stage: ${stageName}\n`);
 
     if (stageComments.destructiveChanges) {
-      output.push(`${chalk.red(`\n\n!!!Destructive Changes: ${chalk.bold(stageComments.destructiveChanges)}!!!\n`)}`);
+      output.push(`\n\n> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes\n`);
     }
     return output.concat(stageComments.comment);
   }
