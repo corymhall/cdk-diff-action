@@ -30,9 +30,47 @@ describe('StackDiff', () => {
         TemplateBody: JSON.stringify(stackInfo.content),
       });
     const stackDiff = new StackDiff(stackInfo, []);
-    const { diff, destructiveChanges } = await stackDiff.diffStack();
+    const { diff, changes } = await stackDiff.diffStack();
     expect(diff.isEmpty).toEqual(true);
-    expect(destructiveChanges).toEqual([]);
+    expect(changes).toEqual({
+      updatedResources: 0,
+      removedResources: 0,
+      createdResources: 0,
+      destructiveChanges: [],
+    });
+  });
+
+  test('diff with changes', async () => {
+    cfnMock.on(GetTemplateCommand)
+      .resolves({
+        TemplateBody: JSON.stringify(stackInfo.content),
+      });
+    const stackDiff = new StackDiff({
+      name: 'my-stack',
+      content: {
+        Resources: {
+          MyRole2: {
+            Type: 'AWS::IAM::Role',
+            Properties: {
+              RoleName: 'MyCustomName',
+              Description: 'New Description',
+            },
+          },
+        },
+      },
+    }, []);
+    const { diff, changes } = await stackDiff.diffStack();
+    expect(diff.isEmpty).toEqual(false);
+    expect(changes).toEqual({
+      updatedResources: 0,
+      removedResources: 1,
+      createdResources: 1,
+      destructiveChanges: [{
+        impact: ResourceImpact.WILL_DESTROY,
+        logicalId: 'MyRole',
+        stackName: 'my-stack',
+      }],
+    });
   });
 
   test('diff with no destructive changes', async () => {
@@ -54,11 +92,16 @@ describe('StackDiff', () => {
         },
       },
     }, []);
-    const { diff, destructiveChanges } = await stackDiff.diffStack();
+    const { diff, changes } = await stackDiff.diffStack();
     expect(diff.isEmpty).toEqual(false);
     expect(diff.differenceCount).toEqual(1);
     expect(diff.resources.changes.MyRole.changeImpact).toEqual(ResourceImpact.WILL_UPDATE);
-    expect(destructiveChanges).toEqual([]);
+    expect(changes).toEqual({
+      updatedResources: 1,
+      removedResources: 0,
+      createdResources: 0,
+      destructiveChanges: [],
+    });
   });
 
   test('diff with destructive changes', async () => {
@@ -79,15 +122,20 @@ describe('StackDiff', () => {
         },
       },
     }, []);
-    const { diff, destructiveChanges } = await stackDiff.diffStack();
+    const { diff, changes } = await stackDiff.diffStack();
     expect(diff.isEmpty).toEqual(false);
     expect(diff.differenceCount).toEqual(1);
     expect(diff.resources.changes.MyRole.changeImpact).toEqual(ResourceImpact.WILL_REPLACE);
-    expect(destructiveChanges).toEqual([{
-      impact: ResourceImpact.WILL_REPLACE,
-      logicalId: 'MyRole',
-      stackName: 'my-stack',
-    }]);
+    expect(changes).toEqual({
+      updatedResources: 1,
+      removedResources: 0,
+      createdResources: 0,
+      destructiveChanges: [{
+        impact: ResourceImpact.WILL_REPLACE,
+        logicalId: 'MyRole',
+        stackName: 'my-stack',
+      }],
+    });
   });
 
   test('diff with allowed destructive changes', async () => {
@@ -108,11 +156,16 @@ describe('StackDiff', () => {
         },
       },
     }, ['AWS::IAM::Role']);
-    const { diff, destructiveChanges } = await stackDiff.diffStack();
+    const { diff, changes } = await stackDiff.diffStack();
     expect(diff.isEmpty).toEqual(false);
     expect(diff.differenceCount).toEqual(1);
     expect(diff.resources.changes.MyRole.changeImpact).toEqual(ResourceImpact.WILL_REPLACE);
-    expect(destructiveChanges).toEqual([]);
+    expect(changes).toEqual({
+      updatedResources: 1,
+      removedResources: 0,
+      createdResources: 0,
+      destructiveChanges: [],
+    });
   });
 });
 
