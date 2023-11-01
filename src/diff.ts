@@ -215,15 +215,18 @@ export class StageProcessor {
       return output;
     }
     output.push(...[
-      `<details><summary>Diff for stack: ${stackName}`,
-      `${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy`,
+      '<details><summary>',
+      '',
+      `#### Diff for stack: ${stackName} - `+
+      `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***`,
+      '',
       '</summary>\n',
     ]);
     if (changes.destructiveChanges.length) {
-      output.push('\n\n> [!WARNING]\n> ***Destructive Changes!!!***\n'),
+      output.push('\n\n> [!WARNING]\n> ***Destructive Changes!!!***'),
       changes.destructiveChanges.forEach(change => {
         output.push(
-          `> Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact: ${change.impact}\n`,
+          `> Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact: ${change.impact}`,
         );
       });
       output.push('\n\n');
