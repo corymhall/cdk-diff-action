@@ -226,7 +226,7 @@ export class StageProcessor {
       output.push('\n\n> [!WARNING]\n> ***Destructive Changes!!!***'),
       changes.destructiveChanges.forEach(change => {
         output.push(
-          `> Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact: ${change.impact}`,
+          `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
         );
       });
       output.push('\n\n');
