@@ -94,6 +94,23 @@ export class StackDiff {
     // go through all the resource differences and check for any
     // "destructive" changes
     templateDiff.resources.forEachDifference((logicalId: string, change: ResourceDifference) => {
+      // if the change is a removal it will not show up as a 'changeImpact'
+      // so need to check for it separately, unless it is a resourceType that
+      // has been "allowed" to be destroyed
+      const resourceType = change.oldValue?.Type ?? change.newValue?.Type;
+      switch (resourceType) {
+        case 'AWS::CDK::Metadata':
+          return;
+        case 'AWS::Lambda::Function':
+          const keys = Object.keys(change.propertyUpdates);
+          if (
+            keys.length <= 2 &&
+            keys.includes('Code') ||
+            keys.includes('Metadata')
+          ) {
+            return;
+          }
+      }
       if (change.isUpdate) {
         changes.updatedResources += 1;
       } else if (change.isRemoval) {
@@ -101,13 +118,10 @@ export class StackDiff {
       } else if (change.isAddition) {
         changes.createdResources += 1;
       }
-      // if the change is a removal it will not show up as a 'changeImpact'
-      // so need to check for it separately, unless it is a resourceType that
-      // has been "allowed" to be destroyed
-      const resourceType = change.oldValue?.Type ?? change.newValue?.Type;
       if (resourceType && this.allowedDestroyTypes.includes(resourceType)) {
         return;
       }
+
       if (change.isRemoval) {
         changes.destructiveChanges.push({
           impact: ResourceImpact.WILL_DESTROY,

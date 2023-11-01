@@ -167,6 +167,141 @@ describe('StackDiff', () => {
       destructiveChanges: [],
     });
   });
+
+  test('diff with code only changes', async () => {
+    cfnMock.on(GetTemplateCommand)
+      .resolves({
+        TemplateBody: JSON.stringify({
+          Resources: {
+            MyRole: {
+              Type: 'AWS::Lambda::Function',
+              Properties: {
+                Code: {
+                  S3Bucket: 'bucket',
+                  S3Key: 'abcdefg.zip',
+                },
+              },
+            },
+          },
+
+        }),
+      });
+    const stackDiff = new StackDiff({
+      name: 'my-stack',
+      content: {
+        Resources: {
+          MyRole: {
+            Type: 'AWS::Lambda::Function',
+            Properties: {
+              Code: {
+                S3Bucket: 'bucket',
+                S3Key: 'abcd.zip',
+              },
+            },
+          },
+        },
+      },
+    }, []);
+    const { diff, changes } = await stackDiff.diffStack();
+    expect(diff.isEmpty).toEqual(false);
+    expect(diff.differenceCount).toEqual(1);
+    expect(changes).toEqual({
+      updatedResources: 0,
+      removedResources: 0,
+      createdResources: 0,
+      destructiveChanges: [],
+    });
+  });
+
+  test('diff with code & metadata only changes', async () => {
+    cfnMock.on(GetTemplateCommand)
+      .resolves({
+        TemplateBody: JSON.stringify({
+          Resources: {
+            MyRole: {
+              Type: 'AWS::Lambda::Function',
+              Properties: {
+                Code: {
+                  S3Bucket: 'bucket',
+                  S3Key: 'abcdefg.zip',
+                },
+                Metadata: {
+                  'aws:asset:path': '../asset.abcdefg.zip',
+                },
+              },
+            },
+          },
+
+        }),
+      });
+    const stackDiff = new StackDiff({
+      name: 'my-stack',
+      content: {
+        Resources: {
+          MyRole: {
+            Type: 'AWS::Lambda::Function',
+            Properties: {
+              Code: {
+                S3Bucket: 'bucket',
+                S3Key: 'abcd.zip',
+              },
+              Metadata: {
+                'aws:asset:path': '../asset.abcd.zip',
+              },
+            },
+          },
+        },
+      },
+    }, []);
+    const { diff, changes } = await stackDiff.diffStack();
+    expect(diff.isEmpty).toEqual(false);
+    expect(diff.differenceCount).toEqual(1);
+    expect(changes).toEqual({
+      updatedResources: 0,
+      removedResources: 0,
+      createdResources: 0,
+      destructiveChanges: [],
+    });
+  });
+
+  test('diff with cdk metadata change equals no diff', async () => {
+    cfnMock.on(GetTemplateCommand)
+      .resolves({
+        TemplateBody: JSON.stringify({
+          Resources: {
+            MyRole: {
+              Type: 'AWS::CDK::Metadata',
+              Properties: {
+                Analytics: 'v2:default64:abcd',
+              },
+            },
+          },
+
+        }),
+      });
+    const stackDiff = new StackDiff({
+      name: 'my-stack',
+      content: {
+        Resources: {
+          MyRole: {
+            Type: 'AWS::CDK::Metadata',
+            Properties: {
+              Analytics: 'v2:default64:abcdefg',
+            },
+          },
+        },
+      },
+    }, []);
+    const { diff, changes } = await stackDiff.diffStack();
+    expect(diff.isEmpty).toEqual(false);
+    expect(diff.differenceCount).toEqual(1);
+    expect(changes).toEqual({
+      updatedResources: 0,
+      removedResources: 0,
+      createdResources: 0,
+      destructiveChanges: [],
+    });
+  });
 });
 
 describe('StageProcessor', () => {
