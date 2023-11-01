@@ -5,9 +5,15 @@ import { ResourceDifference, ResourceImpact, TemplateDiff, diffTemplate, formatD
 import { CloudFormationClient, GetTemplateCommand, StackNotFoundException } from '@aws-sdk/client-cloudformation';
 import { fromTemporaryCredentials } from '@aws-sdk/credential-providers';
 import { AwsCredentialIdentityProvider } from '@smithy/types';
-import chalk from 'chalk';
 import { StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
+
+interface ChangeDetails {
+  updatedResources: number;
+  removedResources: number;
+  createdResources: number;
+  destructiveChanges: DestructiveChange[];
+}
 
 /**
  * Information on any destructive changes
@@ -51,7 +57,7 @@ export class StackDiff {
 
   }
 
-  public async diffStack(): Promise<{ diff: TemplateDiff; destructiveChanges: DestructiveChange[] }> {
+  public async diffStack(): Promise<{ diff: TemplateDiff; changes: ChangeDetails }> {
     const cmd = new GetTemplateCommand({
       StackName: this.stack.name,
     });
@@ -69,7 +75,7 @@ export class StackDiff {
       const changes = this.evaluateDiff(this.stack.name, diff);
       return {
         diff,
-        destructiveChanges: changes,
+        changes,
       };
 
     } catch (e: any) {
@@ -78,20 +84,46 @@ export class StackDiff {
     }
   }
 
-  private evaluateDiff(templateId: string, templateDiff: TemplateDiff): DestructiveChange[] {
-    const destructiveChanges: DestructiveChange[] = [];
+  private evaluateDiff(templateId: string, templateDiff: TemplateDiff): ChangeDetails {
+    const changes: ChangeDetails = {
+      createdResources: 0,
+      removedResources: 0,
+      updatedResources: 0,
+      destructiveChanges: [],
+    };
     // go through all the resource differences and check for any
     // "destructive" changes
     templateDiff.resources.forEachDifference((logicalId: string, change: ResourceDifference) => {
-    // if the change is a removal it will not show up as a 'changeImpact'
-    // so need to check for it separately, unless it is a resourceType that
-    // has been "allowed" to be destroyed
+      // if the change is a removal it will not show up as a 'changeImpact'
+      // so need to check for it separately, unless it is a resourceType that
+      // has been "allowed" to be destroyed
       const resourceType = change.oldValue?.Type ?? change.newValue?.Type;
+      switch (resourceType) {
+        case 'AWS::CDK::Metadata':
+          return;
+        case 'AWS::Lambda::Function':
+          const keys = Object.keys(change.propertyUpdates);
+          if (
+            keys.length <= 2 &&
+            keys.includes('Code') ||
+            keys.includes('Metadata')
+          ) {
+            return;
+          }
+      }
+      if (change.isUpdate) {
+        changes.updatedResources += 1;
+      } else if (change.isRemoval) {
+        changes.removedResources += 1;
+      } else if (change.isAddition) {
+        changes.createdResources += 1;
+      }
       if (resourceType && this.allowedDestroyTypes.includes(resourceType)) {
         return;
       }
+
       if (change.isRemoval) {
-        destructiveChanges.push({
+        changes.destructiveChanges.push({
           impact: ResourceImpact.WILL_DESTROY,
           logicalId,
           stackName: templateId,
@@ -102,7 +134,7 @@ export class StackDiff {
           case ResourceImpact.WILL_ORPHAN:
           case ResourceImpact.WILL_DESTROY:
           case ResourceImpact.WILL_REPLACE:
-            destructiveChanges.push({
+            changes.destructiveChanges.push({
               impact: change.changeImpact,
               logicalId,
               stackName: templateId,
@@ -111,7 +143,7 @@ export class StackDiff {
         }
       }
     });
-    return destructiveChanges;
+    return changes;
   }
 }
 
@@ -178,10 +210,10 @@ export class StageProcessor {
   private async diffStack(stack: StackInfo): Promise<{comment: string[]; changes: number}> {
     try {
       const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
-      const { diff, destructiveChanges } = await stackDiff.diffStack();
+      const { diff, changes } = await stackDiff.diffStack();
       return {
-        comment: this.formatStackComment(stack.name, diff, destructiveChanges),
-        changes: destructiveChanges.length,
+        comment: this.formatStackComment(stack.name, diff, changes),
+        changes: changes.destructiveChanges.length,
       };
 
     } catch (e: any) {
@@ -190,22 +222,27 @@ export class StageProcessor {
     }
   }
 
-  private formatStackComment(stackName: string, diff: TemplateDiff, changes: DestructiveChange[]): string[] {
+  private formatStackComment(stackName: string, diff: TemplateDiff, changes: ChangeDetails): string[] {
     const output: string[] = [];
     if (diff.isEmpty) {
       output.push(`No Changes for stack: ${stackName}`);
       return output;
     }
-    output.push(`\n<details><summary>Diff for stack: ${stackName}</summary>\n`);
-    if (changes.length) {
-      output.push(`${chalk.red('\n\n!!!Destructive Changes!!!\n')}`),
-      output.push('```shell\n');
-      changes.forEach(change => {
+    output.push(...[
+      '<details><summary>',
+      '',
+      `#### Diff for stack: ${stackName} - `+
+      `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***`,
+      '',
+      '</summary>\n',
+    ]);
+    if (changes.destructiveChanges.length) {
+      output.push('\n\n> [!WARNING]\n> ***Destructive Changes!!!***'),
+      changes.destructiveChanges.forEach(change => {
         output.push(
-          chalk.yellow(`Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact: ${change.impact}\n`),
+          `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
         );
       });
-      output.push('```');
       output.push('\n\n');
     }
     const writable = new StringWritable({});
@@ -239,7 +276,7 @@ export class StageProcessor {
     output.push(`### Diff for stage: ${stageName}\n`);
 
     if (stageComments.destructiveChanges) {
-      output.push(`${chalk.red(`\n\n!!!Destructive Changes: ${chalk.bold(stageComments.destructiveChanges)}!!!\n`)}`);
+      output.push(`\n\n> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes\n`);
     }
     return output.concat(stageComments.comment);
   }
