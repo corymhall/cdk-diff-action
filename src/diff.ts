@@ -222,36 +222,47 @@ export class StageProcessor {
     }
   }
 
+  private getEmoji(changes: ChangeDetails): string {
+    if (changes.destructiveChanges.length || changes.removedResources) {
+      return ':x:';
+    } else if (changes.updatedResources) {
+      return ':yellow_circle:';
+    } else if (changes.createdResources) {
+      return ':sparkle:';
+    }
+    return ':white_check_mark:';
+  }
+
   private formatStackComment(stackName: string, diff: TemplateDiff, changes: ChangeDetails): string[] {
     const output: string[] = [];
+    const emoji = this.getEmoji(changes);
     if (diff.isEmpty) {
       output.push(`No Changes for stack: ${stackName}`);
       return output;
     }
     output.push(...[
-      '<details><summary>',
-      '',
       `#### Diff for stack: ${stackName} - `+
-      `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***`,
+        `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***  `+
+        emoji,
+      '<details><summary>Details</summary>',
       '',
-      '</summary>\n',
     ]);
     if (changes.destructiveChanges.length) {
-      output.push('\n\n> [!WARNING]\n> ***Destructive Changes!!!***'),
+      output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),
       changes.destructiveChanges.forEach(change => {
         output.push(
           `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
         );
       });
-      output.push('\n\n');
     }
     const writable = new StringWritable({});
     formatDifferences(writable, diff);
 
-    output.push('```shell\n');
+    output.push('```shell');
     output.push(writable.data);
-    output.push('\n```\n');
-    output.push('</details>\n');
+    output.push('```');
+    output.push('</details>');
+    output.push('');
     return output;
   }
 
@@ -273,10 +284,10 @@ export class StageProcessor {
     if (!stageComments.comment.length) {
       return output;
     }
-    output.push(`### Diff for stage: ${stageName}\n`);
+    output.push(`### Diff for stage: ${stageName}`);
 
     if (stageComments.destructiveChanges) {
-      output.push(`\n\n> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes\n`);
+      output.push(`> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes`);
     }
     return output.concat(stageComments.comment);
   }
