@@ -223,7 +223,7 @@ export class StageProcessor {
   }
 
   private getEmoji(changes: ChangeDetails): string {
-    if (changes.destructiveChanges || changes.removedResources) {
+    if (changes.destructiveChanges.length || changes.removedResources) {
       return ':x:';
     } else if (changes.updatedResources) {
       return ':yellow_circle:';
@@ -248,7 +248,7 @@ export class StageProcessor {
       '',
     ]);
     if (changes.destructiveChanges.length) {
-      output.push('> [!WARNING]\n> ***Destructive Changes!!!***'),
+      output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),
       changes.destructiveChanges.forEach(change => {
         output.push(
           `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
