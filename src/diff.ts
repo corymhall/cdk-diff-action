@@ -242,7 +242,7 @@ export class StageProcessor {
     }
     output.push(...[
       `#### Diff for stack: ${stackName} - `+
-        `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy*** `+
+        `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***  `+
         emoji,
       '<details><summary>Details</summary>',
       '',
