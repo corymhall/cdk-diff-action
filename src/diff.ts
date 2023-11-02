@@ -232,6 +232,7 @@ export class StageProcessor {
       `#### Diff for stack: ${stackName} - `+
         `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***`,
       '<details><summary>Details</summary>',
+      '',
     ]);
     if (changes.destructiveChanges.length) {
       output.push('> [!WARNING]\n> ***Destructive Changes!!!***'),
@@ -248,6 +249,7 @@ export class StageProcessor {
     output.push(writable.data);
     output.push('```');
     output.push('</details>');
+    output.push('');
     return output;
   }
 
