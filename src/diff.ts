@@ -222,15 +222,28 @@ export class StageProcessor {
     }
   }
 
+  private getEmoji(changes: ChangeDetails): string {
+    if (changes.destructiveChanges || changes.removedResources) {
+      return ':x:';
+    } else if (changes.updatedResources) {
+      return ':yellow_circle:';
+    } else if (changes.createdResources) {
+      return ':sparkle:';
+    }
+    return ':white_check_mark:';
+  }
+
   private formatStackComment(stackName: string, diff: TemplateDiff, changes: ChangeDetails): string[] {
     const output: string[] = [];
+    const emoji = this.getEmoji(changes);
     if (diff.isEmpty) {
       output.push(`No Changes for stack: ${stackName}`);
       return output;
     }
     output.push(...[
       `#### Diff for stack: ${stackName} - `+
-        `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***`,
+        `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy*** `+
+        emoji,
       '<details><summary>Details</summary>',
       '',
     ]);
