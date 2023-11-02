@@ -229,29 +229,25 @@ export class StageProcessor {
       return output;
     }
     output.push(...[
-      '<details><summary>',
-      '',
       `#### Diff for stack: ${stackName} - `+
-      `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***`,
-      '',
-      '</summary>\n',
+        `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***`,
+      '<details><summary>Details</summary>',
     ]);
     if (changes.destructiveChanges.length) {
-      output.push('\n\n> [!WARNING]\n> ***Destructive Changes!!!***'),
+      output.push('> [!WARNING]\n> ***Destructive Changes!!!***'),
       changes.destructiveChanges.forEach(change => {
         output.push(
           `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
         );
       });
-      output.push('\n\n');
     }
     const writable = new StringWritable({});
     formatDifferences(writable, diff);
 
-    output.push('```shell\n');
+    output.push('```shell');
     output.push(writable.data);
-    output.push('\n```\n');
-    output.push('</details>\n');
+    output.push('```');
+    output.push('</details>');
     return output;
   }
 
@@ -273,10 +269,10 @@ export class StageProcessor {
     if (!stageComments.comment.length) {
       return output;
     }
-    output.push(`### Diff for stage: ${stageName}\n`);
+    output.push(`### Diff for stage: ${stageName}`);
 
     if (stageComments.destructiveChanges) {
-      output.push(`\n\n> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes\n`);
+      output.push(`> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes`);
     }
     return output.concat(stageComments.comment);
   }
