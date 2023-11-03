@@ -2,8 +2,8 @@ import { getInput, getBooleanInput } from '@actions/core';
 import * as github from '@actions/github';
 import { AssemblyManifestReader } from './assembly';
 import { Comments } from './comment';
-import { StageProcessor } from './diff';
 import { Inputs } from './inputs';
+import { StageProcessor } from './stage-processor';
 
 export async function run() {
   const inputs: Inputs = {

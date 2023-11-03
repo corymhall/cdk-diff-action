@@ -3,6 +3,7 @@ import { Transform } from 'projen/lib/javascript';
 import { JsonPatch } from 'projen/lib/json-patch';
 import { GitHubActionTypeScriptProject, RunsUsing } from 'projen-github-action-typescript';
 const project = new GitHubActionTypeScriptProject({
+  majorVersion: 1,
   defaultReleaseBranch: 'main',
   authorEmail: '43035978+corymhall@users.noreply.github.com',
   authorName: 'Cory Hall',
@@ -10,15 +11,20 @@ const project = new GitHubActionTypeScriptProject({
   projenrcTs: true,
   actionMetadata: {
     author: 'Cory Hall',
+    branding: {
+      color: 'orange',
+      icon: 'message-square',
+    },
     description:
       'The CDK Diff GitHub Action allows you to run CDK diff as part of your CI/CD workflow.',
+    name: 'cdk-diff-action',
     inputs: {
       githubToken: {
         description: 'github token',
         required: true,
       },
       allowedDestroyTypes: {
-        description: 'Resource types that are allowed to be destroyed',
+        description: 'Comma delimited list of resource types that are allowed to be destroyed',
         required: false,
         default: '',
       },
@@ -29,7 +35,7 @@ const project = new GitHubActionTypeScriptProject({
       },
     },
     runs: {
-      using: RunsUsing.NODE_16, // overwrite to node18
+      using: RunsUsing.NODE_16, // overwrite to node20
       main: 'dist/index.js',
     },
   },
@@ -60,10 +66,6 @@ const project = new GitHubActionTypeScriptProject({
     configFilePath: 'jest.config.json',
   },
   minNodeVersion: '18.12.0',
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // packageName: undefined,  /* The "name" in package.json. */
 });
 
 const projenProject = project as unknown as typescript.TypeScriptProject;

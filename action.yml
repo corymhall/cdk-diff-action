@@ -6,12 +6,15 @@ runs:
   using: node20
   main: dist/index.js
 author: Cory Hall
+branding:
+  color: orange
+  icon: message-square
 inputs:
   githubToken:
     description: github token
     required: true
   allowedDestroyTypes:
-    description: Resource types that are allowed to be destroyed
+    description: Comma delimited list of resource types that are allowed to be destroyed
     required: false
     default: ""
   failOnDestructiveChanges:
