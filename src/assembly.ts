@@ -3,17 +3,48 @@ import { AssemblyManifest, Manifest, ArtifactType, AwsCloudFormationStackPropert
 import * as fs from 'fs-extra';
 
 /**
- * Trace information for stack
- * map of resource logicalId to trace message
+ * Information on the CDK Stage
  */
-export type StackTrace = Map<string, string>;
+export interface StageInfo {
+  /**
+   * The name of the stage
+   */
+  name: string;
+
+  /**
+   * The stacks within the stage
+   */
+  stacks: StackInfo[];
+}
 
 /**
- * Trace information for a assembly
- *
- * map of stackId to StackTrace
+ * Information on a stack
  */
-export type ManifestTrace = Map<string, StackTrace>;
+export interface StackInfo {
+  /**
+   * The name of the stack
+   */
+  name: string;
+
+  /**
+   * The region the stack is deployed to
+   *
+   * @default - unknown-region
+   */
+  region?: string;
+
+  /**
+   * The lookup role to use
+   *
+   * @default - no lookup role
+   */
+  lookupRole?: BootstrapRole;
+
+  /**
+   * The JSON content of the stack
+   */
+  content: { [key: string]: any };
+}
 
 /**
  * Reads a Cloud Assembly manifest
@@ -86,6 +117,9 @@ export class AssemblyManifestReader {
     return stacks;
   }
 
+  /**
+   * Get the stages in the assembly
+   */
   public get stages(): StageInfo[] {
     const stages: StageInfo[] = [];
     for (const [artifactId, artifact] of Object.entries(this.manifest.artifacts ?? {})) {
@@ -99,16 +133,4 @@ export class AssemblyManifestReader {
     }
     return stages;
   }
-}
-
-export interface StageInfo {
-  name: string;
-  stacks: StackInfo[];
-}
-
-export interface StackInfo {
-  name: string;
-  region?: string;
-  lookupRole?: BootstrapRole;
-  content: { [key: string]: any };
 }

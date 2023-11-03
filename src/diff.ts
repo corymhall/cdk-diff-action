@@ -1,17 +1,31 @@
-import * as crypto from 'crypto';
-import { Writable, WritableOptions } from 'stream';
-import { StringDecoder } from 'string_decoder';
-import { ResourceDifference, ResourceImpact, TemplateDiff, diffTemplate, formatDifferences } from '@aws-cdk/cloudformation-diff';
+import { ResourceDifference, ResourceImpact, TemplateDiff, diffTemplate } from '@aws-cdk/cloudformation-diff';
 import { CloudFormationClient, GetTemplateCommand, StackNotFoundException } from '@aws-sdk/client-cloudformation';
 import { fromTemporaryCredentials } from '@aws-sdk/credential-providers';
 import { AwsCredentialIdentityProvider } from '@smithy/types';
-import { StackInfo, StageInfo } from './assembly';
-import { Comments } from './comment';
+import { StackInfo } from './assembly';
 
-interface ChangeDetails {
+/**
+ * Details on what changes are occurring in this stack
+ */
+export interface ChangeDetails {
+  /**
+   * The number of resources that are being updated
+   */
   updatedResources: number;
+
+  /**
+   * The number of resources that are being removed
+   */
   removedResources: number;
+
+  /**
+   * The number of resources that are being created
+   */
   createdResources: number;
+
+  /**
+   * Information on any destructive changes
+   */
   destructiveChanges: DestructiveChange[];
 }
 
@@ -35,6 +49,9 @@ export interface DestructiveChange {
   readonly impact: ResourceImpact;
 }
 
+/**
+ * StackDiff performs the diff on a stack
+ */
 export class StackDiff {
   private readonly client: CloudFormationClient;
   constructor(
@@ -42,6 +59,8 @@ export class StackDiff {
     private readonly allowedDestroyTypes: string[],
   ) {
     let credentials: AwsCredentialIdentityProvider | undefined;
+    // if there is a lookup role then assume that, otherwise
+    // just use the default credentials
     credentials = stack.lookupRole ? fromTemporaryCredentials({
       params: {
         RoleArn: stack.lookupRole.arn.replace('${AWS::Partition}', 'aws'),
@@ -54,9 +73,12 @@ export class StackDiff {
       credentials,
       region: this.stack.region,
     });
-
   }
 
+  /** Performs the diff on the CloudFormation stack
+   * This reads the existing stack from CFN and then uses the cloudformation-diff
+   * package to perform the diff and collect additional information on the type of changes
+   */
   public async diffStack(): Promise<{ diff: TemplateDiff; changes: ChangeDetails }> {
     const cmd = new GetTemplateCommand({
       StackName: this.stack.name,
@@ -144,175 +166,5 @@ export class StackDiff {
       }
     });
     return changes;
-  }
-}
-
-interface StageComment {
-  comment: string[];
-  hash: string;
-  destructiveChanges: number;
-}
-
-
-function md5Hash(val: string): string {
-  return crypto.createHash('md5').update(val).digest('hex');
-};
-export class StageProcessor {
-  private readonly stageComments: { [stageName: string]: StageComment } = {};
-  constructor(
-    private readonly stages: StageInfo[],
-    private readonly allowedDestroyTypes: string[],
-  ) {
-    this.stages.forEach(stage => {
-      this.stageComments[stage.name] = {
-        destructiveChanges: 0,
-        comment: [],
-        hash: md5Hash(JSON.stringify({
-          stageName: stage.name,
-          ...stage.stacks.reduce((prev, curr) => {
-            prev.stacks.push({
-              name: curr.name,
-              lookupRole: curr.lookupRole,
-              region: curr.region,
-            });
-            return prev;
-          }, { stacks: [] } as { stacks: Omit<StackInfo, 'content'>[] }),
-
-        })),
-      };
-    });
-  }
-
-  public async processStages() {
-    for (const stage of this.stages) {
-      for (const stack of stage.stacks) {
-        try {
-          const { comment, changes } = await this.diffStack(stack);
-          this.stageComments[stage.name].comment.push(...comment);
-          this.stageComments[stage.name].destructiveChanges += changes;
-        } catch (e: any) {
-          console.error('Error processing stages: ', e);
-          throw e;
-        }
-      }
-    }
-  }
-
-  public get hasDestructiveChanges(): boolean {
-    for (const comments of Object.values(this.stageComments)) {
-      if (comments.destructiveChanges) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  private async diffStack(stack: StackInfo): Promise<{comment: string[]; changes: number}> {
-    try {
-      const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
-      const { diff, changes } = await stackDiff.diffStack();
-      return {
-        comment: this.formatStackComment(stack.name, diff, changes),
-        changes: changes.destructiveChanges.length,
-      };
-
-    } catch (e: any) {
-      console.error('Error performing stack diff: ', e);
-      throw e;
-    }
-  }
-
-  private getEmoji(changes: ChangeDetails): string {
-    if (changes.destructiveChanges.length || changes.removedResources) {
-      return ':x:';
-    } else if (changes.updatedResources) {
-      return ':yellow_circle:';
-    } else if (changes.createdResources) {
-      return ':sparkle:';
-    }
-    return ':white_check_mark:';
-  }
-
-  private formatStackComment(stackName: string, diff: TemplateDiff, changes: ChangeDetails): string[] {
-    const output: string[] = [];
-    const emoji = this.getEmoji(changes);
-    if (diff.isEmpty) {
-      output.push(`No Changes for stack: ${stackName}`);
-      return output;
-    }
-    output.push(...[
-      `#### Diff for stack: ${stackName} - `+
-        `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***  `+
-        emoji,
-      '<details><summary>Details</summary>',
-      '',
-    ]);
-    if (changes.destructiveChanges.length) {
-      output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),
-      changes.destructiveChanges.forEach(change => {
-        output.push(
-          `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
-        );
-      });
-    }
-    const writable = new StringWritable({});
-    formatDifferences(writable, diff);
-
-    output.push('```shell');
-    output.push(writable.data);
-    output.push('```');
-    output.push('</details>');
-    output.push('');
-    return output;
-  }
-
-  public async commentStages(comments: Comments) {
-    for (const [stageName, info] of Object.entries(this.stageComments)) {
-      const stageComment = this.getCommentForStage(stageName);
-      const previous = await comments.findPrevious(info.hash);
-      if (previous) {
-        await comments.updateComment(previous, info.hash, stageComment);
-      } else {
-        await comments.createComment(info.hash, stageComment);
-      }
-    }
-  }
-
-  private getCommentForStage(stageName: string): string[] {
-    const output: string[] = [];
-    const stageComments = this.stageComments[stageName];
-    if (!stageComments.comment.length) {
-      return output;
-    }
-    output.push(`### Diff for stage: ${stageName}`);
-
-    if (stageComments.destructiveChanges) {
-      output.push(`> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes`);
-    }
-    return output.concat(stageComments.comment);
-  }
-}
-
-class StringWritable extends Writable {
-  public data: string;
-  private _decoder: StringDecoder;
-  constructor(options: WritableOptions) {
-    super(options);
-    this._decoder = new StringDecoder();
-    this.data = '';
-  }
-
-  _write(chunk: any, encoding: string, callback: (error?: Error | null) => void): void {
-    if (encoding === 'buffer') {
-      chunk = this._decoder.write(chunk);
-    }
-
-    this.data += chunk;
-    callback();
-  }
-
-  _final(callback: (error?: Error | null) => void): void {
-    this.data += this._decoder.end();
-    callback();
   }
 }
