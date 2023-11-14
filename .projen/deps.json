@@ -49,8 +49,7 @@
       "type": "build"
     },
     {
-      "name": "constructs",
-      "version": "^10.0.0",
+      "name": "eslint-import-resolver-node",
       "type": "build"
     },
     {

@@ -115,6 +115,8 @@ const autoMergeJob: github.workflows.Job = {
   ],
 };
 
+projenProject.github?.tryFindWorkflow('auto-approve')?.file?.patch(JsonPatch.replace('/jobs/approve/steps/0/uses', 'hmarr/auto-approve-action@v3'));
+
 const workflow = projenProject.github?.addWorkflow('auto-merge');
 workflow?.on({
   // The 'pull request' event gives the workflow 'read-only' permissions on some
