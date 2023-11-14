@@ -53,7 +53,7 @@ jobs:
           role-to-assume: arn:aws:iam::1234567891012:role/cdk_github_actions
           role-session-name: github
       - name: Diff
-        uses: corymhall/cdk-diff-action@v1
+        uses: corymhall/cdk-diff-action@v1.0.0
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
