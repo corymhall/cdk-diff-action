@@ -96,6 +96,8 @@ project.github?.tryFindWorkflow('build')?.on({
   },
 });
 
+projenProject.github?.tryFindWorkflow('auto-approve')?.file?.patch(JsonPatch.replace('/jobs/approve/steps/0/uses', 'hmarr/auto-approve-action@v3'));
+
 const autoMergeJob: github.workflows.Job = {
   name: 'Set AutoMerge on PR #${{ github.event.number }}',
   runsOn: ['ubuntu-latest'],
