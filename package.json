@@ -45,7 +45,7 @@
     "jest-junit": "^15",
     "mock-fs": "^5",
     "npm-check-updates": "^16",
-    "projen": "^0.76.0",
+    "projen": "^0.76.27",
     "projen-github-action-typescript": "^0.0.392",
     "standard-version": "^9",
     "ts-jest": "^29.1.1",

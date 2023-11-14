@@ -3021,6 +3021,11 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
+constructs@^10.0.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.3.0.tgz#4c246fce9cf8e77711ad45944e9fbd41f1501965"
+  integrity sha512-vbK8i3rIb/xwZxSpTjz3SagHn1qq9BChLEfy5Hf6fB3/2eFbrwt2n9kHwQcS0CPTRBesreeAcsJfMq2229FnbQ==
+
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"
   resolved "https://registry.yarnpkg.com/conventional-changelog-angular/-/conventional-changelog-angular-5.0.13.tgz#896885d63b914a70d4934b59d2fe7bde1832b28c"
@@ -6163,15 +6168,16 @@ projen@^0.72.28:
     yaml "^2.2.2"
     yargs "^17.7.2"
 
-projen@^0.76.0:
-  version "0.76.0"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.76.0.tgz#9e16e09f1fd873eb5df86c97b7f35645d13032c2"
-  integrity sha512-j5PFs/cLJhWtb6yTMxFBTgERLO8kPmKfTDKvvtgNwp33W8bykESiznPAEJVOyzpkxKxi9a7qq+jwwDovHK494w==
+projen@^0.76.27:
+  version "0.76.27"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.76.27.tgz#b3b4dace99ef22170b1f2e8a15a9b8a2e655a0e2"
+  integrity sha512-f/9MibFkrEk1KYIXcvYI9gWQgb0MU6Vhk/vB3L4CxUla8N5BvfihgWHRAlwTTRBiuwOE1/nQ7u/bskurugxCTw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
     chalk "^4.1.2"
     comment-json "4.2.2"
+    constructs "^10.0.0"
     conventional-changelog-config-spec "^2.1.0"
     fast-json-patch "^3.1.1"
     glob "^8"
