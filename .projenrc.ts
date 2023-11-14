@@ -1,5 +1,5 @@
-import { typescript } from 'projen';
-import { Transform } from 'projen/lib/javascript';
+import { github, typescript } from 'projen';
+import { Transform, UpgradeDependenciesSchedule } from 'projen/lib/javascript';
 import { JsonPatch } from 'projen/lib/json-patch';
 import { GitHubActionTypeScriptProject, RunsUsing } from 'projen-github-action-typescript';
 const project = new GitHubActionTypeScriptProject({
@@ -9,6 +9,16 @@ const project = new GitHubActionTypeScriptProject({
   authorName: 'Cory Hall',
   name: 'cdk-diff-action',
   projenrcTs: true,
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ['auto-approve'],
+      schedule: UpgradeDependenciesSchedule.WEEKLY,
+    },
+  },
+  autoApproveOptions: {
+    label: 'auto-approve',
+    allowedUsernames: ['corymhall'],
+  },
   actionMetadata: {
     author: 'Cory Hall',
     branding: {
@@ -68,6 +78,7 @@ const project = new GitHubActionTypeScriptProject({
   minNodeVersion: '18.12.0',
 });
 
+
 const projenProject = project as unknown as typescript.TypeScriptProject;
 const jestConfig = projenProject.tryFindObjectFile('jest.config.json');
 jestConfig?.patch(JsonPatch.remove('/preset'));
@@ -77,4 +88,52 @@ jestConfig?.patch(JsonPatch.add('/transform', {
 }));
 const actionYml = project.tryFindObjectFile('action.yml');
 actionYml?.addOverride('runs.using', 'node20');
+
+// setup merge queue
+project.github?.tryFindWorkflow('build')?.on({
+  mergeGroup: {
+    branches: ['main'],
+  },
+});
+
+const autoMergeJob: github.workflows.Job = {
+  name: 'Set AutoMerge on PR #${{ github.event.number }}',
+  runsOn: ['ubuntu-latest'],
+  permissions: {
+    pullRequests: github.workflows.JobPermission.WRITE,
+    contents: github.workflows.JobPermission.WRITE,
+  },
+  steps: [
+    {
+      uses: 'peter-evans/enable-pull-request-automerge@v2',
+      with: {
+        'token': '${{ secrets.GITHUB_TOKEN }}',
+        'pull-request-number': '${{ github.event.number }}',
+        'merge-method': 'SQUASH',
+      },
+    },
+  ],
+};
+
+const workflow = projenProject.github?.addWorkflow('auto-merge');
+workflow?.on({
+  // The 'pull request' event gives the workflow 'read-only' permissions on some
+  // pull requests (such as the ones from dependabot) when using the `GITHUB_TOKEN`
+  // security token. This prevents the workflow from approving these pull requests.
+  // Github has placed this guard so as to prevent security attacks by simply opening
+  // a pull request and triggering a workflow on a commit that was not vetted to make
+  // unintended changes to the repository.
+  //
+  // Instead use the 'pull request target' event here that gives the Github workflow
+  // 'read-write' permissions. This is safe because, this event, unlike the 'pull request'
+  // event references the BASE commit of the pull request and not the HEAD commit.
+  //
+  // We only enable auto-merge when a PR is opened, reopened or moving from Draft to Ready.
+  // That way a user can always disable auto-merge if they want to and the workflow will
+  // not automatically re-enable it, unless one of the events occurs.
+  pullRequestTarget: {
+    types: ['opened', 'reopened', 'ready_for_review'],
+  },
+});
+workflow?.addJobs({ enableAutoMerge: autoMergeJob });
 project.synth();
