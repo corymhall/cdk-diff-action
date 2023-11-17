@@ -57,3 +57,79 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+You can also use the `v1-beta` branch to keep up to date.
+
+```yml
+jobs:
+  Synth:
+    steps:
+      - name: Diff
+        uses: corymhall/cdk-diff-action@v1-beta
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### Allow Destroy Types
+
+You can optionally allow certain resource types to be destroyed without failing
+the build.
+
+```yml
+jobs:
+  Synth:
+    steps:
+      - name: Diff
+        uses: corymhall/cdk-diff-action@v1-beta
+        with:
+          allowedDestroyTypes: "AWS::ECS::TaskDefinition,AWS::CloudWatch::Dashboard"
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+```
+
+### Disable showing diff for stages
+
+You can disable displaying the diff for certain stages by using `noDiffForStages`
+
+```yml
+jobs:
+  Synth:
+    steps:
+      - name: Diff
+        uses: corymhall/cdk-diff-action@v1-beta
+        with:
+          noDiffForStages: "Stage1,Stage2"
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### Don't fail for destructive changes in certain stages
+
+If you still want to show the diff for certain stages, but do not want destructive
+changes to fail the build, you can use `noFailOnDestructiveChanges`.
+
+```yml
+jobs:
+  Synth:
+    steps:
+      - name: Diff
+        uses: corymhall/cdk-diff-action@v1-beta
+        with:
+          noFailOnDestructiveChanges: "Stage1,Stage2"
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### Don't fail workflow
+
+If you want to show the diffs, but never want to fail the workflow (even if
+there are destructive changes) you can disable the workflow failure feature.
+
+```yml
+jobs:
+  Synth:
+    steps:
+      - name: Diff
+        uses: corymhall/cdk-diff-action@v1-beta
+        with:
+          failOnDestructiveChanges: false
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+```
