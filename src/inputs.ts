@@ -22,4 +22,18 @@ export interface Inputs {
    * @default true
    */
   failOnDestructiveChanges: boolean;
+
+  /**
+   * List of stages to ignore and not show a diff for
+   *
+   * @default - show diff for all stages
+   */
+  noDiffForStages: string[];
+
+  /**
+   * List of stages where breaking changes will not fail the build
+   *
+   * @default - breaking changes on any stage will fail the build
+   */
+  noFailOnDestructiveChanges: string[];
 }

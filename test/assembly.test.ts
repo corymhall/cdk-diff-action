@@ -1,12 +1,12 @@
 import * as path from 'path';
-import mockfs from 'mock-fs';
+import mock from 'mock-fs';
 import { AssemblyManifestReader } from '../src/assembly';
 
 describe('cloud assembly manifest reader', () => {
   const manifestFile = 'cdk.out/manifest.json';
   const lookupRoleArn = 'arn:${AWS::Partition}:iam::123456789012:role/cdk-hnb659fds-lookup-role-123456789012-us-east-1';
   beforeEach(() => {
-    mockfs({
+    mock({
       ['cdk.out']: {
         ['assembly-SomeStage']: {
           ['manifest.json']: JSON.stringify({
@@ -62,7 +62,7 @@ describe('cloud assembly manifest reader', () => {
   });
 
   afterEach(() => {
-    mockfs.restore();
+    mock.restore();
   });
 
   test('can read manifest from file', () => {

@@ -43,6 +43,16 @@ const project = new GitHubActionTypeScriptProject({
         required: false,
         default: 'true',
       },
+      noDiffForStages: {
+        description: 'List of stages to ignore and not show a diff for',
+        required: false,
+        default: '',
+      },
+      noFailOnDestructiveChanges: {
+        description: '',
+        required: false,
+        default: 'List of stages where breaking changes will not fail the build',
+      },
     },
     runs: {
       using: RunsUsing.NODE_16, // overwrite to node20

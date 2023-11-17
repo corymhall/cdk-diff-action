@@ -10,6 +10,8 @@ export async function run() {
     allowedDestroyTypes: getInput('allowedDestroyTypes').split(','),
     failOnDestructiveChanges: getBooleanInput('failOnDestructiveChanges'),
     githubToken: getInput('githubToken'),
+    noDiffForStages: getInput('noDiffForStages').split(','),
+    noFailOnDestructiveChanges: getInput('noFailOnDestructiveChanges').split(','),
   };
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
