@@ -61,13 +61,15 @@ export class StageProcessor {
    * Process all of the stages. Once this has been run
    * the comment can be created with `commentStages()`
    */
-  public async processStages() {
+  public async processStages(ignoreDestructiveChanges: string[] = []) {
     for (const stage of this.stages) {
       for (const stack of stage.stacks) {
         try {
           const { comment, changes } = await this.diffStack(stack);
           this.stageComments[stage.name].comment.push(...comment);
-          this.stageComments[stage.name].destructiveChanges += changes;
+          if (!ignoreDestructiveChanges.includes(stage.name)) {
+            this.stageComments[stage.name].destructiveChanges += changes;
+          }
         } catch (e: any) {
           console.error('Error processing stages: ', e);
           throw e;
@@ -144,16 +146,19 @@ export class StageProcessor {
       '',
     ]);
     if (changes.destructiveChanges.length) {
+      output.push('');
       output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),
       changes.destructiveChanges.forEach(change => {
         output.push(
           `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
         );
+        output.push('');
       });
     }
     const writable = new StringWritable({});
     formatDifferences(writable, diff);
 
+    output.push('');
     output.push('```shell');
     output.push(writable.data);
     output.push('```');
