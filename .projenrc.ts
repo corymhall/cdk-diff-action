@@ -62,8 +62,8 @@ const project = new GitHubActionTypeScriptProject({
   },
   deps: [
     '@octokit/webhooks-definitions',
-    '@aws-cdk/cloudformation-diff@v2.108.0',
-    '@aws-cdk/cloud-assembly-schema@v2.108.0',
+    '@aws-cdk/cloudformation-diff@v2.105.0',
+    '@aws-cdk/cloud-assembly-schema@v2.105.0',
     '@actions/exec@^1.1.1',
     '@actions/io@^1.1.3',
     '@actions/tool-cache@^2.0.0',
