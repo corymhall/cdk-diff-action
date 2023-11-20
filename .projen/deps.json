@@ -134,6 +134,10 @@
       "type": "runtime"
     },
     {
+      "name": "@aws-cdk/aws-service-spec",
+      "type": "runtime"
+    },
+    {
       "name": "@aws-cdk/cloud-assembly-schema",
       "type": "runtime"
     },

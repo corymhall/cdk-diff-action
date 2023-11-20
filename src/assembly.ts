@@ -1,5 +1,6 @@
 import * as path from 'path';
-import { AssemblyManifest, Manifest, ArtifactType, AwsCloudFormationStackProperties, NestedCloudAssemblyProperties, BootstrapRole } from '@aws-cdk/cloud-assembly-schema';
+import { AssemblyManifest, ArtifactType, AwsCloudFormationStackProperties, NestedCloudAssemblyProperties, BootstrapRole } from '@aws-cdk/cloud-assembly-schema/lib/cloud-assembly';
+import { Manifest } from '@aws-cdk/cloud-assembly-schema/lib/manifest';
 import * as fs from 'fs-extra';
 
 /**

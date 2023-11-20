@@ -73,6 +73,14 @@
     "@aws-cdk/service-spec-types" "^0.0.29"
     "@cdklabs/tskb" "^0.0.3"
 
+"@aws-cdk/aws-service-spec@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-service-spec/-/aws-service-spec-0.0.30.tgz#bd2d05a43802b3bbde2aeebc111af6cf03a76272"
+  integrity sha512-pxFZs0eLDb2R4Fz+f7LoE35JdtEix+w5JXl2LGr5M7qEF7ZNL78+M0KgEA+0CwNmJdGB9bSmzgpGPQRfYTKI2A==
+  dependencies:
+    "@aws-cdk/service-spec-types" "^0.0.30"
+    "@cdklabs/tskb" "^0.0.3"
+
 "@aws-cdk/cloud-assembly-schema@^2.110.0":
   version "2.110.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-2.110.0.tgz#3d2b609631e12f2d3fb0d257197ca6b218fa8ef0"
@@ -98,6 +106,13 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@aws-cdk/service-spec-types/-/service-spec-types-0.0.29.tgz#4fa65491e7198ad69aab409be04d6671e12b3bf4"
   integrity sha512-qvt2dV2QuqtxzY6l8ZBuxKA965sFZH72pCcaxM9unGCFuF5ucrxeh9Zc4AYsma/MZCCbMx2i/+fvjCVzJX9soQ==
+  dependencies:
+    "@cdklabs/tskb" "^0.0.3"
+
+"@aws-cdk/service-spec-types@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/service-spec-types/-/service-spec-types-0.0.30.tgz#5f08a73a7ad3ed3bf2cc84e13887fb79fbf7bee8"
+  integrity sha512-ScGhIBmoxL0xtBcR4hLWAaLqLEUi7DEAYibETZUUxGM26wsOsX5iici0R+xRZeCPY1wF9XbVTozLqKYq1EQTmg==
   dependencies:
     "@cdklabs/tskb" "^0.0.3"
 
