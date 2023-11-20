@@ -65,28 +65,28 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aws-cdk/cfnspec@2.105.0-alpha.0":
-  version "2.105.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-2.105.0-alpha.0.tgz#041556c1f7b55c03f9d209e456820e0f846b44ee"
-  integrity sha512-q8ac9sVbt/jlmtMU4MOq4aPwptQ3zUU9v2ZsJzvCNqpC9LpknWXZvFKcejk/mm0dh/nAdUJ0MdSDUnTKRM2IbA==
+"@aws-cdk/cfnspec@2.103.1-alpha.0":
+  version "2.103.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-2.103.1-alpha.0.tgz#4a5a0fd46d187a6b6a8b82c18607282ca67e3e20"
+  integrity sha512-57jRkYmmZgeFkkqacPrstIPIeKmbSBro1koC/qjRDg65YJfIdruXzzE5M3Cv0rhk4lcPGsyzobJ4szAOFF6pQQ==
   dependencies:
     fs-extra "^9.1.0"
     md5 "^2.3.0"
 
-"@aws-cdk/cloud-assembly-schema@v2.105.0":
-  version "2.105.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-2.105.0.tgz#5f5fc81bd5c911799f0a07285d25e78ac7eb3810"
-  integrity sha512-ZbX+CZ9XYMM0XvGgasBPp59ld9L8NEJuTuFUDi1HdExkqhsL1e0Ly7pieKcIQfc+gVak8kWGpJ0bUuTHh6Hikw==
+"@aws-cdk/cloud-assembly-schema@v2.103.1":
+  version "2.103.1"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-2.103.1.tgz#160fcc567ddce2080ea387f0662afc74ef4305be"
+  integrity sha512-suG6LI7lW1OTWd+STusIFTNy+nM+NftBRFqz6cj+qMDNYVEF38sckY0EmvdRxlA+58Ddg3NS7B6gZyNJZ69Gqw==
   dependencies:
     jsonschema "^1.4.1"
     semver "^7.5.4"
 
-"@aws-cdk/cloudformation-diff@v2.105.0":
-  version "2.105.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-2.105.0.tgz#d9d75570290a0bab2e66c48b2d770f126480a334"
-  integrity sha512-mjYkQSgtql4q1OkHoRRVFJM5FaobiZ5bKon+e9Y7BEvKE+rdLElUSYbNhfeVLvNH5PWHLGYdOdxuvzvUEC8Vpg==
+"@aws-cdk/cloudformation-diff@v2.103.1":
+  version "2.103.1"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-2.103.1.tgz#456d22ed45dd5350c6971b9f5045f9542a7e2533"
+  integrity sha512-U8hSla3i1Jd1Vhh+8tzVYWyGm/wkuY3wUfVTif0gNAnPgInhw/dFTOKLEeryhLbVT1xHAHaFWcemDUuwrnmDKw==
   dependencies:
-    "@aws-cdk/cfnspec" "2.105.0-alpha.0"
+    "@aws-cdk/cfnspec" "2.103.1-alpha.0"
     chalk "^4"
     diff "^5.1.0"
     fast-deep-equal "^3.1.3"
