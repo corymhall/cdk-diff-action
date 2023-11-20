@@ -2753,6 +2753,65 @@ function isLoopbackAddress(host) {
 
 /***/ }),
 
+/***/ 45617:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.loadAwsServiceSpecSync = exports.loadAwsServiceSpec = void 0;
+const node_fs_1 = __nccwpck_require__(87561);
+const path = __importStar(__nccwpck_require__(49411));
+const node_zlib_1 = __nccwpck_require__(65628);
+const service_spec_types_1 = __nccwpck_require__(504);
+const DB_COMPRESSED = 'db.json.gz';
+const DB_PATH = path.join(__dirname, '..', DB_COMPRESSED);
+/**
+ * Load the provided built-in database
+ */
+async function loadAwsServiceSpec() {
+    return loadBufferIntoDatabase(await node_fs_1.promises.readFile(DB_PATH));
+}
+exports.loadAwsServiceSpec = loadAwsServiceSpec;
+/**
+ * Synchronously load the provided built-in database
+ */
+function loadAwsServiceSpecSync() {
+    return loadBufferIntoDatabase((0, node_fs_1.readFileSync)(DB_PATH));
+}
+exports.loadAwsServiceSpecSync = loadAwsServiceSpecSync;
+function loadBufferIntoDatabase(spec) {
+    const db = (0, service_spec_types_1.emptyDatabase)();
+    db.load(JSON.parse((0, node_zlib_1.gunzipSync)(spec).toString('utf-8')));
+    return db;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxxQ0FBdUQ7QUFDdkQsZ0RBQWtDO0FBQ2xDLHlDQUF1QztBQUN2QyxvRUFBMEU7QUFFMUUsTUFBTSxhQUFhLEdBQUcsWUFBWSxDQUFDO0FBQ25DLE1BQU0sT0FBTyxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxFQUFFLElBQUksRUFBRSxhQUFhLENBQUMsQ0FBQztBQUUxRDs7R0FFRztBQUNJLEtBQUssVUFBVSxrQkFBa0I7SUFDdEMsT0FBTyxzQkFBc0IsQ0FBQyxNQUFNLGtCQUFFLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7QUFDNUQsQ0FBQztBQUZELGdEQUVDO0FBRUQ7O0dBRUc7QUFDSCxTQUFnQixzQkFBc0I7SUFDcEMsT0FBTyxzQkFBc0IsQ0FBQyxJQUFBLHNCQUFZLEVBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztBQUN2RCxDQUFDO0FBRkQsd0RBRUM7QUFFRCxTQUFTLHNCQUFzQixDQUFDLElBQVk7SUFDMUMsTUFBTSxFQUFFLEdBQUcsSUFBQSxrQ0FBYSxHQUFFLENBQUM7SUFDM0IsRUFBRSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUEsc0JBQVUsRUFBQyxJQUFJLENBQUMsQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ3hELE9BQU8sRUFBRSxDQUFDO0FBQ1osQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHByb21pc2VzIGFzIGZzLCByZWFkRmlsZVN5bmMgfSBmcm9tICdub2RlOmZzJztcbmltcG9ydCAqIGFzIHBhdGggZnJvbSAnbm9kZTpwYXRoJztcbmltcG9ydCB7IGd1bnppcFN5bmMgfSBmcm9tICdub2RlOnpsaWInO1xuaW1wb3J0IHsgZW1wdHlEYXRhYmFzZSwgU3BlY0RhdGFiYXNlIH0gZnJvbSAnQGF3cy1jZGsvc2VydmljZS1zcGVjLXR5cGVzJztcblxuY29uc3QgREJfQ09NUFJFU1NFRCA9ICdkYi5qc29uLmd6JztcbmNvbnN0IERCX1BBVEggPSBwYXRoLmpvaW4oX19kaXJuYW1lLCAnLi4nLCBEQl9DT01QUkVTU0VEKTtcblxuLyoqXG4gKiBMb2FkIHRoZSBwcm92aWRlZCBidWlsdC1pbiBkYXRhYmFzZVxuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gbG9hZEF3c1NlcnZpY2VTcGVjKCk6IFByb21pc2U8U3BlY0RhdGFiYXNlPiB7XG4gIHJldHVybiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKGF3YWl0IGZzLnJlYWRGaWxlKERCX1BBVEgpKTtcbn1cblxuLyoqXG4gKiBTeW5jaHJvbm91c2x5IGxvYWQgdGhlIHByb3ZpZGVkIGJ1aWx0LWluIGRhdGFiYXNlXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBsb2FkQXdzU2VydmljZVNwZWNTeW5jKCk6IFNwZWNEYXRhYmFzZSB7XG4gIHJldHVybiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKHJlYWRGaWxlU3luYyhEQl9QQVRIKSk7XG59XG5cbmZ1bmN0aW9uIGxvYWRCdWZmZXJJbnRvRGF0YWJhc2Uoc3BlYzogQnVmZmVyKTogU3BlY0RhdGFiYXNlIHtcbiAgY29uc3QgZGIgPSBlbXB0eURhdGFiYXNlKCk7XG4gIGRiLmxvYWQoSlNPTi5wYXJzZShndW56aXBTeW5jKHNwZWMpLnRvU3RyaW5nKCd1dGYtOCcpKSk7XG4gIHJldHVybiBkYjtcbn1cbiJdfQ==
+
+/***/ }),
+
 /***/ 34146:
 /***/ ((module) => {
 
@@ -3656,7 +3715,7 @@ class Manifest {
 }
 exports.Manifest = Manifest;
 _a = JSII_RTTI_SYMBOL_1;
-Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "2.110.0" };
+Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "2.108.0" };
 function mapValues(xs, fn) {
     if (!xs) {
         return undefined;
@@ -9567,7 +9626,7 @@ function onlyChanges(xs) {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.loadResourceModel = exports.mangleLikeCloudFormation = exports.unionOf = exports.diffKeyedEntities = exports.deepEqual = void 0;
-const aws_service_spec_1 = __nccwpck_require__(62044);
+const aws_service_spec_1 = __nccwpck_require__(45617);
 /**
  * Compares two objects for equality, deeply. The function handles arguments that are
  * +null+, +undefined+, arrays and objects. For objects, the function will not take the
@@ -11322,65 +11381,6 @@ function flatMap(xs, f) {
 }
 exports.flatMap = flatMap;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInV0aWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUE7O0dBRUc7QUFDSCxTQUFnQixjQUFjLENBQU8sS0FBb0I7SUFDdkQsT0FBTyxDQUFDLENBQUksRUFBRSxDQUFJLEVBQUUsRUFBRTtRQUNwQixNQUFNLElBQUksR0FBRyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUM7UUFDdEIsTUFBTSxJQUFJLEdBQUcsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBQ3RCLE1BQU0sR0FBRyxHQUFHLElBQUksQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLE1BQU0sRUFBRSxJQUFJLENBQUMsTUFBTSxDQUFDLENBQUM7UUFFL0MsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLEdBQUcsRUFBRSxDQUFDLEVBQUUsRUFBRTtZQUM1QixNQUFNLENBQUMsR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1lBQ3BDLElBQUksQ0FBQyxLQUFLLENBQUMsRUFBRTtnQkFBRSxPQUFPLENBQUMsQ0FBQzthQUFFO1NBQzNCO1FBRUQsd0VBQXdFO1FBQ3hFLE9BQU8sSUFBSSxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDO0lBQ25DLENBQUMsQ0FBQztBQUNKLENBQUM7QUFkRCx3Q0FjQztBQUVELFNBQVMsT0FBTyxDQUFJLENBQUksRUFBRSxDQUFJO0lBQzVCLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRTtRQUFFLE9BQU8sQ0FBQyxDQUFDLENBQUM7S0FBRTtJQUN6QixJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUU7UUFBRSxPQUFPLENBQUMsQ0FBQztLQUFFO0lBQ3hCLE9BQU8sQ0FBQyxDQUFDO0FBQ1gsQ0FBQztBQUVELFNBQWdCLFdBQVcsQ0FBSSxFQUFPO0lBQ3BDLE9BQU8sRUFBRSxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsU0FBUyxDQUFDO0FBQ3hDLENBQUM7QUFGRCxrQ0FFQztBQUVELFNBQWdCLG1CQUFtQixDQUFDLENBQU07SUFDeEMsSUFBSSxPQUFPLENBQUMsS0FBSyxTQUFTLElBQUksQ0FBQyxLQUFLLElBQUksRUFBRTtRQUFFLE9BQU8sQ0FBQyxDQUFDO0tBQUU7SUFDdkQsSUFBSSxLQUFLLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxFQUFFO1FBQUUsT0FBTyxDQUFDLENBQUMsR0FBRyxDQUFDLG1CQUFtQixDQUFDLENBQUM7S0FBRTtJQUM1RCxJQUFJLE9BQU8sQ0FBQyxLQUFLLFFBQVEsRUFBRTtRQUN6QixLQUFLLE1BQU0sQ0FBQyxHQUFHLEVBQUUsS0FBSyxDQUFDLElBQUksTUFBTSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsRUFBRTtZQUM1QyxDQUFDLENBQUMsR0FBRyxDQUFDLEdBQUcsbUJBQW1CLENBQUMsS0FBSyxDQUFDLENBQUM7WUFDcEMsSUFBSSxDQUFDLENBQUMsR0FBRyxDQUFDLEtBQUssU0FBUyxFQUFFO2dCQUFFLE9BQU8sQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDO2FBQUU7U0FDN0M7UUFDRCxPQUFPLENBQUMsQ0FBQztLQUNWO0lBQ0QsT0FBTyxDQUFDLENBQUM7QUFDWCxDQUFDO0FBWEQsa0RBV0M7QUFFRCxTQUFnQixPQUFPLENBQU8sRUFBTyxFQUFFLENBQWdCO0lBQ3JELE1BQU0sR0FBRyxHQUFHLElBQUksS0FBSyxFQUFLLENBQUM7SUFDM0IsS0FBSyxNQUFNLENBQUMsSUFBSSxFQUFFLEVBQUU7UUFDbEIsR0FBRyxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO0tBQ25CO0lBQ0QsT0FBTyxHQUFHLENBQUM7QUFDYixDQUFDO0FBTkQsMEJBTUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIFR1cm4gYSAobXVsdGkta2V5KSBleHRyYWN0aW9uIGZ1bmN0aW9uIGludG8gYSBjb21wYXJhdG9yIGZvciB1c2UgaW4gQXJyYXkuc29ydCgpXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBtYWtlQ29tcGFyYXRvcjxULCBVPihrZXlGbjogKHg6IFQpID0+IFVbXSkge1xuICByZXR1cm4gKGE6IFQsIGI6IFQpID0+IHtcbiAgICBjb25zdCBrZXlBID0ga2V5Rm4oYSk7XG4gICAgY29uc3Qga2V5QiA9IGtleUZuKGIpO1xuICAgIGNvbnN0IGxlbiA9IE1hdGgubWluKGtleUEubGVuZ3RoLCBrZXlCLmxlbmd0aCk7XG5cbiAgICBmb3IgKGxldCBpID0gMDsgaSA8IGxlbjsgaSsrKSB7XG4gICAgICBjb25zdCBjID0gY29tcGFyZShrZXlBW2ldLCBrZXlCW2ldKTtcbiAgICAgIGlmIChjICE9PSAwKSB7IHJldHVybiBjOyB9XG4gICAgfVxuXG4gICAgLy8gQXJyYXlzIGFyZSB0aGUgc2FtZSB1cCB0byB0aGUgbWluIGxlbmd0aCAtLSBzaG9ydGVyIGFycmF5IHNvcnRzIGZpcnN0XG4gICAgcmV0dXJuIGtleUEubGVuZ3RoIC0ga2V5Qi5sZW5ndGg7XG4gIH07XG59XG5cbmZ1bmN0aW9uIGNvbXBhcmU8VD4oYTogVCwgYjogVCkge1xuICBpZiAoYSA8IGIpIHsgcmV0dXJuIC0xOyB9XG4gIGlmIChiIDwgYSkgeyByZXR1cm4gMTsgfVxuICByZXR1cm4gMDtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGRyb3BJZkVtcHR5PFQ+KHhzOiBUW10pOiBUW10gfCB1bmRlZmluZWQge1xuICByZXR1cm4geHMubGVuZ3RoID4gMCA/IHhzIDogdW5kZWZpbmVkO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gZGVlcFJlbW92ZVVuZGVmaW5lZCh4OiBhbnkpOiBhbnkge1xuICBpZiAodHlwZW9mIHggPT09IHVuZGVmaW5lZCB8fCB4ID09PSBudWxsKSB7IHJldHVybiB4OyB9XG4gIGlmIChBcnJheS5pc0FycmF5KHgpKSB7IHJldHVybiB4Lm1hcChkZWVwUmVtb3ZlVW5kZWZpbmVkKTsgfVxuICBpZiAodHlwZW9mIHggPT09ICdvYmplY3QnKSB7XG4gICAgZm9yIChjb25zdCBba2V5LCB2YWx1ZV0gb2YgT2JqZWN0LmVudHJpZXMoeCkpIHtcbiAgICAgIHhba2V5XSA9IGRlZXBSZW1vdmVVbmRlZmluZWQodmFsdWUpO1xuICAgICAgaWYgKHhba2V5XSA9PT0gdW5kZWZpbmVkKSB7IGRlbGV0ZSB4W2tleV07IH1cbiAgICB9XG4gICAgcmV0dXJuIHg7XG4gIH1cbiAgcmV0dXJuIHg7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBmbGF0TWFwPFQsIFU+KHhzOiBUW10sIGY6ICh4OiBUKSA9PiBVW10pOiBVW10ge1xuICBjb25zdCByZXQgPSBuZXcgQXJyYXk8VT4oKTtcbiAgZm9yIChjb25zdCB4IG9mIHhzKSB7XG4gICAgcmV0LnB1c2goLi4uZih4KSk7XG4gIH1cbiAgcmV0dXJuIHJldDtcbn1cbiJdfQ==
-
-/***/ }),
-
-/***/ 62044:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.loadAwsServiceSpecSync = exports.loadAwsServiceSpec = void 0;
-const node_fs_1 = __nccwpck_require__(87561);
-const path = __importStar(__nccwpck_require__(49411));
-const node_zlib_1 = __nccwpck_require__(65628);
-const service_spec_types_1 = __nccwpck_require__(504);
-const DB_COMPRESSED = 'db.json.gz';
-const DB_PATH = path.join(__dirname, '..', DB_COMPRESSED);
-/**
- * Load the provided built-in database
- */
-async function loadAwsServiceSpec() {
-    return loadBufferIntoDatabase(await node_fs_1.promises.readFile(DB_PATH));
-}
-exports.loadAwsServiceSpec = loadAwsServiceSpec;
-/**
- * Synchronously load the provided built-in database
- */
-function loadAwsServiceSpecSync() {
-    return loadBufferIntoDatabase((0, node_fs_1.readFileSync)(DB_PATH));
-}
-exports.loadAwsServiceSpecSync = loadAwsServiceSpecSync;
-function loadBufferIntoDatabase(spec) {
-    const db = (0, service_spec_types_1.emptyDatabase)();
-    db.load(JSON.parse((0, node_zlib_1.gunzipSync)(spec).toString('utf-8')));
-    return db;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxxQ0FBdUQ7QUFDdkQsZ0RBQWtDO0FBQ2xDLHlDQUF1QztBQUN2QyxvRUFBMEU7QUFFMUUsTUFBTSxhQUFhLEdBQUcsWUFBWSxDQUFDO0FBQ25DLE1BQU0sT0FBTyxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxFQUFFLElBQUksRUFBRSxhQUFhLENBQUMsQ0FBQztBQUUxRDs7R0FFRztBQUNJLEtBQUssVUFBVSxrQkFBa0I7SUFDdEMsT0FBTyxzQkFBc0IsQ0FBQyxNQUFNLGtCQUFFLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7QUFDNUQsQ0FBQztBQUZELGdEQUVDO0FBRUQ7O0dBRUc7QUFDSCxTQUFnQixzQkFBc0I7SUFDcEMsT0FBTyxzQkFBc0IsQ0FBQyxJQUFBLHNCQUFZLEVBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztBQUN2RCxDQUFDO0FBRkQsd0RBRUM7QUFFRCxTQUFTLHNCQUFzQixDQUFDLElBQVk7SUFDMUMsTUFBTSxFQUFFLEdBQUcsSUFBQSxrQ0FBYSxHQUFFLENBQUM7SUFDM0IsRUFBRSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUEsc0JBQVUsRUFBQyxJQUFJLENBQUMsQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ3hELE9BQU8sRUFBRSxDQUFDO0FBQ1osQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHByb21pc2VzIGFzIGZzLCByZWFkRmlsZVN5bmMgfSBmcm9tICdub2RlOmZzJztcbmltcG9ydCAqIGFzIHBhdGggZnJvbSAnbm9kZTpwYXRoJztcbmltcG9ydCB7IGd1bnppcFN5bmMgfSBmcm9tICdub2RlOnpsaWInO1xuaW1wb3J0IHsgZW1wdHlEYXRhYmFzZSwgU3BlY0RhdGFiYXNlIH0gZnJvbSAnQGF3cy1jZGsvc2VydmljZS1zcGVjLXR5cGVzJztcblxuY29uc3QgREJfQ09NUFJFU1NFRCA9ICdkYi5qc29uLmd6JztcbmNvbnN0IERCX1BBVEggPSBwYXRoLmpvaW4oX19kaXJuYW1lLCAnLi4nLCBEQl9DT01QUkVTU0VEKTtcblxuLyoqXG4gKiBMb2FkIHRoZSBwcm92aWRlZCBidWlsdC1pbiBkYXRhYmFzZVxuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gbG9hZEF3c1NlcnZpY2VTcGVjKCk6IFByb21pc2U8U3BlY0RhdGFiYXNlPiB7XG4gIHJldHVybiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKGF3YWl0IGZzLnJlYWRGaWxlKERCX1BBVEgpKTtcbn1cblxuLyoqXG4gKiBTeW5jaHJvbm91c2x5IGxvYWQgdGhlIHByb3ZpZGVkIGJ1aWx0LWluIGRhdGFiYXNlXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBsb2FkQXdzU2VydmljZVNwZWNTeW5jKCk6IFNwZWNEYXRhYmFzZSB7XG4gIHJldHVybiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKHJlYWRGaWxlU3luYyhEQl9QQVRIKSk7XG59XG5cbmZ1bmN0aW9uIGxvYWRCdWZmZXJJbnRvRGF0YWJhc2Uoc3BlYzogQnVmZmVyKTogU3BlY0RhdGFiYXNlIHtcbiAgY29uc3QgZGIgPSBlbXB0eURhdGFiYXNlKCk7XG4gIGRiLmxvYWQoSlNPTi5wYXJzZShndW56aXBTeW5jKHNwZWMpLnRvU3RyaW5nKCd1dGYtOCcpKSk7XG4gIHJldHVybiBkYjtcbn1cbiJdfQ==
 
 /***/ }),
 

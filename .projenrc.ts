@@ -10,6 +10,7 @@ const project = new GitHubActionTypeScriptProject({
   name: 'cdk-diff-action',
   projenrcTs: true,
   depsUpgradeOptions: {
+    exclude: ['@aws-cdk/cloudformation-diff', '@aws-cdk/cloud-assembly-schema'],
     workflowOptions: {
       labels: ['auto-approve'],
       schedule: UpgradeDependenciesSchedule.WEEKLY,
@@ -61,9 +62,8 @@ const project = new GitHubActionTypeScriptProject({
   },
   deps: [
     '@octokit/webhooks-definitions',
-    '@aws-cdk/cloudformation-diff',
-    '@aws-cdk/cloud-assembly-schema',
-    '@aws-cdk/aws-service-spec',
+    '@aws-cdk/cloudformation-diff@v2.108.0',
+    '@aws-cdk/cloud-assembly-schema@v2.108.0',
     '@actions/exec@^1.1.1',
     '@actions/io@^1.1.3',
     '@actions/tool-cache@^2.0.0',

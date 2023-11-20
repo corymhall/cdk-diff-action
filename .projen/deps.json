@@ -134,15 +134,13 @@
       "type": "runtime"
     },
     {
-      "name": "@aws-cdk/aws-service-spec",
-      "type": "runtime"
-    },
-    {
       "name": "@aws-cdk/cloud-assembly-schema",
+      "version": "v2.108.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/cloudformation-diff",
+      "version": "v2.108.0",
       "type": "runtime"
     },
     {
