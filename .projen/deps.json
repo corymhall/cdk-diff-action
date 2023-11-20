@@ -135,10 +135,12 @@
     },
     {
       "name": "@aws-cdk/cloud-assembly-schema",
+      "version": "v2.103.1",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/cloudformation-diff",
+      "version": "v2.103.1",
       "type": "runtime"
     },
     {
