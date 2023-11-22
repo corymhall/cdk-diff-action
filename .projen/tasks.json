@@ -135,7 +135,7 @@
       "description": "Creates the distribution package",
       "steps": [
         {
-          "exec": "ncc build --license licenses.txt"
+          "exec": "cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build --source-map --license licenses.txt"
         }
       ]
     },
