@@ -1,4 +1,4 @@
-require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 39139:
@@ -2750,65 +2750,6 @@ function isLoopbackAddress(host) {
         hostLower.startsWith('[0:0:0:0:0:0:0:1]'));
 }
 //# sourceMappingURL=proxy.js.map
-
-/***/ }),
-
-/***/ 45617:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.loadAwsServiceSpecSync = exports.loadAwsServiceSpec = void 0;
-const node_fs_1 = __nccwpck_require__(87561);
-const path = __importStar(__nccwpck_require__(49411));
-const node_zlib_1 = __nccwpck_require__(65628);
-const service_spec_types_1 = __nccwpck_require__(504);
-const DB_COMPRESSED = 'db.json.gz';
-const DB_PATH = path.join(__dirname, '..', DB_COMPRESSED);
-/**
- * Load the provided built-in database
- */
-async function loadAwsServiceSpec() {
-    return loadBufferIntoDatabase(await node_fs_1.promises.readFile(DB_PATH));
-}
-exports.loadAwsServiceSpec = loadAwsServiceSpec;
-/**
- * Synchronously load the provided built-in database
- */
-function loadAwsServiceSpecSync() {
-    return loadBufferIntoDatabase((0, node_fs_1.readFileSync)(DB_PATH));
-}
-exports.loadAwsServiceSpecSync = loadAwsServiceSpecSync;
-function loadBufferIntoDatabase(spec) {
-    const db = (0, service_spec_types_1.emptyDatabase)();
-    db.load(JSON.parse((0, node_zlib_1.gunzipSync)(spec).toString('utf-8')));
-    return db;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxxQ0FBdUQ7QUFDdkQsZ0RBQWtDO0FBQ2xDLHlDQUF1QztBQUN2QyxvRUFBMEU7QUFFMUUsTUFBTSxhQUFhLEdBQUcsWUFBWSxDQUFDO0FBQ25DLE1BQU0sT0FBTyxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxFQUFFLElBQUksRUFBRSxhQUFhLENBQUMsQ0FBQztBQUUxRDs7R0FFRztBQUNJLEtBQUssVUFBVSxrQkFBa0I7SUFDdEMsT0FBTyxzQkFBc0IsQ0FBQyxNQUFNLGtCQUFFLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7QUFDNUQsQ0FBQztBQUZELGdEQUVDO0FBRUQ7O0dBRUc7QUFDSCxTQUFnQixzQkFBc0I7SUFDcEMsT0FBTyxzQkFBc0IsQ0FBQyxJQUFBLHNCQUFZLEVBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztBQUN2RCxDQUFDO0FBRkQsd0RBRUM7QUFFRCxTQUFTLHNCQUFzQixDQUFDLElBQVk7SUFDMUMsTUFBTSxFQUFFLEdBQUcsSUFBQSxrQ0FBYSxHQUFFLENBQUM7SUFDM0IsRUFBRSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUEsc0JBQVUsRUFBQyxJQUFJLENBQUMsQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ3hELE9BQU8sRUFBRSxDQUFDO0FBQ1osQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHByb21pc2VzIGFzIGZzLCByZWFkRmlsZVN5bmMgfSBmcm9tICdub2RlOmZzJztcbmltcG9ydCAqIGFzIHBhdGggZnJvbSAnbm9kZTpwYXRoJztcbmltcG9ydCB7IGd1bnppcFN5bmMgfSBmcm9tICdub2RlOnpsaWInO1xuaW1wb3J0IHsgZW1wdHlEYXRhYmFzZSwgU3BlY0RhdGFiYXNlIH0gZnJvbSAnQGF3cy1jZGsvc2VydmljZS1zcGVjLXR5cGVzJztcblxuY29uc3QgREJfQ09NUFJFU1NFRCA9ICdkYi5qc29uLmd6JztcbmNvbnN0IERCX1BBVEggPSBwYXRoLmpvaW4oX19kaXJuYW1lLCAnLi4nLCBEQl9DT01QUkVTU0VEKTtcblxuLyoqXG4gKiBMb2FkIHRoZSBwcm92aWRlZCBidWlsdC1pbiBkYXRhYmFzZVxuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gbG9hZEF3c1NlcnZpY2VTcGVjKCk6IFByb21pc2U8U3BlY0RhdGFiYXNlPiB7XG4gIHJldHVybiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKGF3YWl0IGZzLnJlYWRGaWxlKERCX1BBVEgpKTtcbn1cblxuLyoqXG4gKiBTeW5jaHJvbm91c2x5IGxvYWQgdGhlIHByb3ZpZGVkIGJ1aWx0LWluIGRhdGFiYXNlXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBsb2FkQXdzU2VydmljZVNwZWNTeW5jKCk6IFNwZWNEYXRhYmFzZSB7XG4gIHJldHVybiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKHJlYWRGaWxlU3luYyhEQl9QQVRIKSk7XG59XG5cbmZ1bmN0aW9uIGxvYWRCdWZmZXJJbnRvRGF0YWJhc2Uoc3BlYzogQnVmZmVyKTogU3BlY0RhdGFiYXNlIHtcbiAgY29uc3QgZGIgPSBlbXB0eURhdGFiYXNlKCk7XG4gIGRiLmxvYWQoSlNPTi5wYXJzZShndW56aXBTeW5jKHNwZWMpLnRvU3RyaW5nKCd1dGYtOCcpKSk7XG4gIHJldHVybiBkYjtcbn1cbiJdfQ==
 
 /***/ }),
 
@@ -9626,7 +9567,7 @@ function onlyChanges(xs) {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.loadResourceModel = exports.mangleLikeCloudFormation = exports.unionOf = exports.diffKeyedEntities = exports.deepEqual = void 0;
-const aws_service_spec_1 = __nccwpck_require__(45617);
+const aws_service_spec_1 = __nccwpck_require__(12675);
 /**
  * Compares two objects for equality, deeply. The function handles arguments that are
  * +null+, +undefined+, arrays and objects. For objects, the function will not take the
@@ -89881,6 +89822,14 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 12675:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@aws-cdk/aws-service-spec");
+
+/***/ }),
+
 /***/ 39491:
 /***/ ((module) => {
 
@@ -90009,22 +89958,6 @@ module.exports = require("node:events");
 
 /***/ }),
 
-/***/ 87561:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("node:fs");
-
-/***/ }),
-
-/***/ 49411:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("node:path");
-
-/***/ }),
-
 /***/ 84492:
 /***/ ((module) => {
 
@@ -90038,14 +89971,6 @@ module.exports = require("node:stream");
 
 "use strict";
 module.exports = require("node:util");
-
-/***/ }),
-
-/***/ 65628:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("node:zlib");
 
 /***/ }),
 
@@ -91919,4 +91844,3 @@ module.exports = JSON.parse('{"partitions":[{"id":"aws","outputs":{"dnsSuffix":"
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map

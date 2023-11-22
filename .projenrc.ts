@@ -147,5 +147,8 @@ workflow?.on({
     types: ['opened', 'reopened', 'ready_for_review'],
   },
 });
+
+projenProject.packageTask.reset();
+projenProject.packageTask.exec('ncc build --license licenses.txt --external @aws-cdk/aws-service-spec');
 workflow?.addJobs({ enableAutoMerge: autoMergeJob });
 project.synth();
