@@ -27,7 +27,7 @@ export async function run() {
     const comments = new Comments(octokit, context);
     const processor = new StageProcessor(stages, inputs.allowedDestroyTypes);
     try {
-      await processor.processStages();
+      await processor.processStages(inputs.noFailOnDestructiveChanges);
     } catch (e: any) {
       console.error('Error running process stages: ', e);
       throw e;
