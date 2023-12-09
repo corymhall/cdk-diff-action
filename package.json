@@ -8,6 +8,7 @@
     "default": "npx projen default",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "gh-release": "npx projen gh-release",
     "package": "npx projen package",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
