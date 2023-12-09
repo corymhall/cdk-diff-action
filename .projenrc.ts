@@ -110,10 +110,19 @@ project.github?.tryFindWorkflow('build')?.on({
 });
 
 project.tasks.tryFind('release')?.spawn(project.addTask('copy-files', {
-  exec: 'cp package.json dist/ && cp -r projenrc dist/',
+  exec: 'cp package.json dist/ && cp -r projenrc dist/ && cp -r .git dist/',
 }));
 
-project.github?.tryFindWorkflow('release')?.file?.patch(JsonPatch.replace('/jobs/release_github/steps/3/run', 'mv dist/package.json ./ && mv dist/projenrc ./ && yarn install && npx ts-node projenrc/release-version.ts'));
+project.github?.tryFindWorkflow('release')?.file?.patch(JsonPatch.replace(
+  '/jobs/release_github/steps/3/run',
+  [
+    'mv dist/package.json ./',
+    'mv dist/projenrc ./',
+    'mv dist/.git ./',
+    'yarn install',
+    'npx ts-node projenrc/release-version.ts',
+  ].join(' && '),
+));
 project.gitignore.exclude('dist/package.json');
 project.gitignore.exclude('dist/projenrc');
 

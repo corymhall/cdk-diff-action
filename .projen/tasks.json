@@ -86,7 +86,7 @@
       "name": "copy-files",
       "steps": [
         {
-          "exec": "cp package.json dist/ && cp -r projenrc dist/"
+          "exec": "cp package.json dist/ && cp -r projenrc dist/ && cp -r .git dist/"
         }
       ]
     },
