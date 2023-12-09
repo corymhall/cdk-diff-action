@@ -73,6 +73,9 @@ const project = new GitHubActionTypeScriptProject({
     '@aws-sdk/credential-providers',
   ],
   devDeps: [
+    'commit-and-tag-version',
+    '@types/conventional-changelog-config-spec',
+    'conventional-changelog-config-spec',
     'mock-fs@^5',
     'aws-sdk-client-mock',
     '@types/mock-fs@^4',
@@ -98,6 +101,9 @@ jestConfig?.patch(JsonPatch.add('/transform', {
 }));
 const actionYml = project.tryFindObjectFile('action.yml');
 actionYml?.addOverride('runs.using', 'node20');
+project.tasks.addTask('gh-release', {
+  exec: 'ts-node projenrc/release-version.ts'
+})
 
 // setup merge queue
 project.github?.tryFindWorkflow('build')?.on({
@@ -105,6 +111,8 @@ project.github?.tryFindWorkflow('build')?.on({
     branches: ['main'],
   },
 });
+
+project.github?.tryFindWorkflow('release')?.file?.patch(JsonPatch.replace("/jobs/release_github/steps/3/run", "npx ts-node projenrc/release-version.ts"))
 
 const autoMergeJob: github.workflows.Job = {
   name: 'Set AutoMerge on PR #${{ github.event.number }}',
