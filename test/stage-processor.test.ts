@@ -40,7 +40,7 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       Stage1: expect.any(Object),
     });
-    expect(p.Stage1.comment).toEqual(['No Changes for stack: my-stack']);
+    expect(p.Stage1.comment).toEqual(['No Changes for stack: my-stack :white_check_mark:']);
   });
 
   test('stage with diff', async () => {

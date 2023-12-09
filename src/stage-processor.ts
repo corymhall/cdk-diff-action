@@ -135,7 +135,7 @@ export class StageProcessor {
     const output: string[] = [];
     const emoji = this.getEmoji(changes);
     if (diff.isEmpty) {
-      output.push(`No Changes for stack: ${stackName}`);
+      output.push(`No Changes for stack: ${stackName} ${emoji}`);
       return output;
     }
     output.push(...[
@@ -178,6 +178,7 @@ export class StageProcessor {
 
     if (stageComments.destructiveChanges) {
       output.push(`> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes`);
+      output.push('');
     }
     return output.concat(stageComments.comment);
   }
