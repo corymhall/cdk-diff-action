@@ -33,7 +33,7 @@ export interface BumpOptions {
  * @param options options
  */
 export async function release(cwd: string, options: BumpOptions) {
-  const releaseTagFile = join(cwd, options.releaseTagFile ?? 'dist/releasetag.txt');
+  const releaseTagFile = join(cwd, options.releaseTagFile ?? 'releasetag.txt');
 
   const tagVersion = (await fs.readFile(releaseTagFile, 'utf-8')).trim();
 

@@ -109,7 +109,7 @@ project.github?.tryFindWorkflow('build')?.on({
   },
 });
 
-project.github?.tryFindWorkflow('release')?.file?.patch(JsonPatch.replace('/jobs/release_github/steps/3/run', 'npx ts-node projenrc/release-version.ts'));
+project.github?.tryFindWorkflow('release')?.file?.patch(JsonPatch.replace('/jobs/release_github/steps/3/run', 'yarn install && npx ts-node projenrc/release-version.ts'));
 
 const autoMergeJob: github.workflows.Job = {
   name: 'Set AutoMerge on PR #${{ github.event.number }}',
