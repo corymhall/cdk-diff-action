@@ -9,10 +9,6 @@
       "type": "build"
     },
     {
-      "name": "@types/conventional-changelog-config-spec",
-      "type": "build"
-    },
-    {
       "name": "@types/fs-extra",
       "type": "build"
     },
@@ -53,16 +49,8 @@
       "type": "build"
     },
     {
-      "name": "commit-and-tag-version",
-      "type": "build"
-    },
-    {
       "name": "constructs",
       "version": "^10.0.0",
-      "type": "build"
-    },
-    {
-      "name": "conventional-changelog-config-spec",
       "type": "build"
     },
     {
