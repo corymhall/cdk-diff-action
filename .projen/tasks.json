@@ -82,6 +82,14 @@
         }
       ]
     },
+    "copy-files": {
+      "name": "copy-files",
+      "steps": [
+        {
+          "exec": "cp package.json dist/ && cp -r projenrc dist/"
+        }
+      ]
+    },
     "default": {
       "name": "default",
       "description": "Synthesize project files",
@@ -181,6 +189,9 @@
         },
         {
           "exec": "git diff --ignore-space-at-eol --exit-code"
+        },
+        {
+          "spawn": "copy-files"
         }
       ]
     },

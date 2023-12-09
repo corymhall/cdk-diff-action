@@ -49,4 +49,6 @@ junit.xml
 !/.eslintrc.json
 !/dist/
 !/action.yml
+dist/package.json
+dist/projenrc
 !/.github/workflows/auto-merge.yml
