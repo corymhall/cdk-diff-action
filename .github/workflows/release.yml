@@ -69,4 +69,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF: ${{ github.ref }}
-        run: mv dist/package.json ./ && mv dist/projenrc ./ && mv dist/.git ./ && yarn install && npx ts-node projenrc/release-version.ts
+        run: mv dist/package.json ./ && mv dist/projenrc ./ && mv dist/.git ./ && git config user.name "github-actions" && git config user.email "github-actions@github.com" && yarn install && npx ts-node projenrc/release-version.ts
