@@ -73,7 +73,7 @@ if (!githubRef) {
 }
 
 const opts: BumpOptions = {
-  dryRun: dryRun != '',
+  dryRun: dryRun == 'true',
   releaseTagFile,
   githubRef,
   githubRepo,
