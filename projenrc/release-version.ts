@@ -23,6 +23,11 @@ export interface BumpOptions {
    */
   readonly githubRepo: string;
 
+  /**
+   * If this is true, then commands will be printed and not executed
+   *
+   * @default false
+   */
   readonly dryRun: boolean;
 }
 
@@ -45,7 +50,7 @@ export async function release(cwd: string, options: BumpOptions) {
   const [majorVersion, minorVersion] = tagVersion.split('.');
 
   const cmds = [
-    // `gh release create ${tagVersion} -R ${options.githubRepo} -F dist/changelog.md -t ${tagVersion} --target ${options.githubRef}`,
+    `gh release create ${tagVersion} -R ${options.githubRepo} -F dist/changelog.md -t ${tagVersion} --target ${options.githubRef}`,
     tagCmd(options.githubRepo, majorVersion, cwd),
     tagCmd(options.githubRepo, `${majorVersion}.${minorVersion}`, cwd),
   ];
