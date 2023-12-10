@@ -119,12 +119,11 @@ project.github?.tryFindWorkflow('release')?.file?.patch(JsonPatch.replace(
     'mv dist/package.json ./',
     'mv dist/projenrc ./',
     'mv dist/.git ./',
-    'git config user.name "github-actions"',
-    'git config user.email "github-actions@github.com"',
     'yarn install',
     'npx ts-node projenrc/release-version.ts',
   ].join(' && '),
 ));
+
 project.gitignore.exclude('dist/package.json');
 project.gitignore.exclude('dist/projenrc');
 

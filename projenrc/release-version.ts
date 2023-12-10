@@ -40,13 +40,14 @@ export async function release(cwd: string, options: BumpOptions) {
   logging.info(
     `${releaseTagFile} has resolved version: ${tagVersion}`,
   );
+  logging.info(JSON.stringify(options));
 
   const [majorVersion, minorVersion] = tagVersion.split('.');
+
   const cmds = [
-    `gh release create ${tagVersion} -R ${options.githubRepo} -F dist/changelog.md -t ${tagVersion} --target ${options.githubRef}`,
-    `git tag ${majorVersion} --force`,
-    `git tag ${majorVersion}.${minorVersion} --force`,
-    'git push origin --tags',
+    // `gh release create ${tagVersion} -R ${options.githubRepo} -F dist/changelog.md -t ${tagVersion} --target ${options.githubRef}`,
+    createTagCmd(options.githubRepo, majorVersion, options.githubRef),
+    createTagCmd(options.githubRepo, `${majorVersion}.${minorVersion}`, options.githubRef),
   ];
   if (options.dryRun) {
     cmds.forEach(cmd => {
@@ -54,9 +55,23 @@ export async function release(cwd: string, options: BumpOptions) {
     });
   } else {
     cmds.forEach(cmd => {
+      logging.info(cmd);
       exec(cmd, { cwd });
     });
   }
+}
+
+function createTagCmd(repo: string, tagValue: string, ref: string): string {
+  return [
+    'gh api',
+    '--method POST',
+    '-H "Accept: application/vnd.github+json"',
+    '-H "X-GitHub-Api-Version: 2022-11-28"',
+    `/repos/${repo}/git/refs`,
+    `-f ref='refs/tags/${tagValue}'`,
+    `-f sha='${ref}'`,
+    '-F force=true',
+  ].join(' ');
 }
 
 const releaseTagFile = process.env.RELEASETAG;
@@ -73,7 +88,7 @@ if (!githubRef) {
 }
 
 const opts: BumpOptions = {
-  dryRun: dryRun == 'true',
+  dryRun: dryRun === 'true',
   releaseTagFile,
   githubRef,
   githubRepo,
