@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import { join } from 'path';
 import * as logging from 'projen/lib/logging';
-import { exec } from 'projen/lib/util';
+import { exec, execCapture, execOrUndefined } from 'projen/lib/util';
 
 export interface BumpOptions {
   /**
@@ -46,8 +46,8 @@ export async function release(cwd: string, options: BumpOptions) {
 
   const cmds = [
     // `gh release create ${tagVersion} -R ${options.githubRepo} -F dist/changelog.md -t ${tagVersion} --target ${options.githubRef}`,
-    createTagCmd(options.githubRepo, majorVersion, options.githubRef),
-    createTagCmd(options.githubRepo, `${majorVersion}.${minorVersion}`, options.githubRef),
+    tagCmd(options.githubRepo, majorVersion, cwd),
+    tagCmd(options.githubRepo, `${majorVersion}.${minorVersion}`, cwd),
   ];
   if (options.dryRun) {
     cmds.forEach(cmd => {
@@ -61,7 +61,15 @@ export async function release(cwd: string, options: BumpOptions) {
   }
 }
 
-function createTagCmd(repo: string, tagValue: string, ref: string): string {
+function tagCmd(repo: string, tagValue: string, cwd: string): string {
+  if (tagExists(repo, tagValue, cwd)) {
+    return updateTagCmd(repo, tagValue, cwd);
+  }
+  return createTagCmd(repo, tagValue, cwd);
+}
+
+function createTagCmd(repo: string, tagValue: string, cwd: string): string {
+  const sha = getShaFromRef(repo, cwd);
   return [
     'gh api',
     '--method POST',
@@ -69,9 +77,45 @@ function createTagCmd(repo: string, tagValue: string, ref: string): string {
     '-H "X-GitHub-Api-Version: 2022-11-28"',
     `/repos/${repo}/git/refs`,
     `-f ref='refs/tags/${tagValue}'`,
-    `-f sha='${ref}'`,
+    `-f sha='${sha}'`,
+  ].join(' ');
+}
+
+function updateTagCmd(repo: string, tagValue: string, cwd: string): string {
+  const sha = getShaFromRef(repo, cwd);
+  return [
+    'gh api',
+    '--method PATCH',
+    '-H "Accept: application/vnd.github+json"',
+    '-H "X-GitHub-Api-Version: 2022-11-28"',
+    `/repos/${repo}/git/refs/tags/${tagValue}`,
+    `-f sha='${sha}'`,
     '-F force=true',
   ].join(' ');
+}
+
+function getShaFromRef(repo: string, cwd: string): string {
+  const shaCmd = [
+    'gh api',
+    '-H "Accept: application/vnd.github+json"',
+    '-H "X-GitHub-Api-Version: 2022-11-28"',
+    `/repos/${repo}/git/matching-refs/heads/main`,
+  ].join(' ');
+  const res = execCapture(shaCmd, { cwd }).toString('utf-8');
+  const shaRes = JSON.parse(res);
+  logging.info(res, shaRes);
+  return shaRes[0].object.sha;
+}
+
+function tagExists(repo: string, tag: string, cwd: string): boolean {
+  const cmd = [
+    'gh api',
+    '-H "Accept: application/vnd.github+json"',
+    '-H "X-GitHub-Api-Version: 2022-11-28"',
+    `/repos/${repo}/git/ref/tags/${tag}`,
+  ].join(' ');
+  const ok = execOrUndefined(cmd, { cwd });
+  return ok != undefined;
 }
 
 const releaseTagFile = process.env.RELEASETAG;
