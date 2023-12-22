@@ -6,14 +6,17 @@ import { StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
 import { ChangeDetails, StackDiff } from './diff';
 
+// the max comment length allowed by GitHub
+const MAX_COMMENT_LENGTH = 65536;
+
 /**
  * Information needed to make a comment for a CDK Stage
  */
 interface StageComment {
   /**
-   * The full comment. The list will be joined with \n
+   * The full comment for each stack. The list will be joined with \n
    */
-  comment: string[];
+  stackComments: { [stackName: string]: string[] };
 
   /**
    * The unique hash for the stage comment
@@ -41,7 +44,10 @@ export class StageProcessor {
     this.stages.forEach(stage => {
       this.stageComments[stage.name] = {
         destructiveChanges: 0,
-        comment: [],
+        stackComments: stage.stacks.reduce((prev, curr) => {
+          prev[curr.name] = [];
+          return prev;
+        }, {} as { [stackName: string]: string[] }),
         hash: md5Hash(JSON.stringify({
           stageName: stage.name,
           ...stage.stacks.reduce((prev, curr) => {
@@ -66,7 +72,7 @@ export class StageProcessor {
       for (const stack of stage.stacks) {
         try {
           const { comment, changes } = await this.diffStack(stack);
-          this.stageComments[stage.name].comment.push(...comment);
+          this.stageComments[stage.name].stackComments[stack.name].push(...comment);
           if (!ignoreDestructiveChanges.includes(stage.name)) {
             this.stageComments[stage.name].destructiveChanges += changes;
           }
@@ -78,17 +84,50 @@ export class StageProcessor {
     }
   }
 
+  private async commentStacks(comments: Comments) {
+    for (const [stageName, stage] of Object.entries(this.stageComments)) {
+      for (const [stackName, comment] of Object.entries(stage.stackComments)) {
+        const hash = md5Hash(JSON.stringify({
+          stageName,
+          stackName,
+        }));
+        const stackComment = this.getCommentForStack(stageName, stackName, comment);
+        if (stackComment.join('\n').length > MAX_COMMENT_LENGTH) {
+          throw new Error(`Comment for stack ${stackName} is too long, please report this as a bug https://github.com/corymhall/cdk-diff-action/issues/new`);
+        }
+        const previous = await comments.findPrevious(hash);
+        if (previous) {
+          await comments.updateComment(previous, hash, stackComment);
+        } else {
+          await comments.createComment(hash, stackComment);
+        }
+      }
+    }
+  }
+
+  private async commentStage(comments: Comments, hash: string, comment: string[]) {
+    const previous = await comments.findPrevious(hash);
+    if (previous) {
+      await comments.updateComment(previous, hash, comment);
+    } else {
+      await comments.createComment(hash, comment);
+    }
+
+  }
+
   /**
    * Create the GitHub comment for the stage
+   * This will try to create a single comment per stage, but if the comment
+   * is too long it will create a comment per stack
+   * @param comments the comments object to use to create the comment
    */
   public async commentStages(comments: Comments) {
     for (const [stageName, info] of Object.entries(this.stageComments)) {
       const stageComment = this.getCommentForStage(stageName);
-      const previous = await comments.findPrevious(info.hash);
-      if (previous) {
-        await comments.updateComment(previous, info.hash, stageComment);
+      if (stageComment.join('\n').length > MAX_COMMENT_LENGTH) {
+        await this.commentStacks(comments);
       } else {
-        await comments.createComment(info.hash, stageComment);
+        await this.commentStage(comments, info.hash, stageComment);
       }
     }
   }
@@ -167,11 +206,21 @@ export class StageProcessor {
     return output;
   }
 
+  private getCommentForStack(stageName: string, stackName: string, comment: string[]): string[] {
+    const output: string[] = [];
+    if (!comment.length) {
+      return output;
+    }
+    output.push(`### Diff for stack: ${stageName} / ${stackName}`);
+
+    return output.concat(comment);
+  }
 
   private getCommentForStage(stageName: string): string[] {
     const output: string[] = [];
     const stageComments = this.stageComments[stageName];
-    if (!stageComments.comment.length) {
+    const comments = Object.values(this.stageComments[stageName].stackComments).flatMap(x => x);
+    if (!comments.length) {
       return output;
     }
     output.push(`### Diff for stage: ${stageName}`);
@@ -180,7 +229,7 @@ export class StageProcessor {
       output.push(`> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes`);
       output.push('');
     }
-    return output.concat(stageComments.comment);
+    return output.concat(comments);
   }
 }
 
