@@ -41,6 +41,7 @@ jobs:
         with:
           name: .repo.patch
           path: .repo.patch
+          retention-days: 1
       - name: Fail build on mutation
         if: steps.self_mutation.outputs.self_mutation_happened
         run: |-

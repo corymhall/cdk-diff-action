@@ -45,6 +45,7 @@ jobs:
         with:
           name: build-artifact
           path: dist
+          retention-days: 1
   release_github:
     name: Publish to GitHub Releases
     needs: release
