@@ -115,12 +115,19 @@ buildWorkflow?.file?.patch(JsonPatch.replace(
     'git diff --staged --patch --binary --exit-code > .repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT',
   ].join('\n'),
 ));
+buildWorkflow?.file?.patch(JsonPatch.add(
+  '/jobs/build/steps/5/with/retention-days', 1,
+));
 
 project.tasks.tryFind('release')?.spawn(project.addTask('copy-files', {
   exec: 'cp package.json dist/ && cp -r projenrc dist/ && cp -r .git dist/',
 }));
 
-project.github?.tryFindWorkflow('release')?.file?.patch(JsonPatch.replace(
+const releaseWorkflow = project.github?.tryFindWorkflow('release');
+releaseWorkflow?.file?.patch(JsonPatch.add(
+  '/jobs/release/steps/7/with/retention-days', 1,
+));
+releaseWorkflow?.file?.patch(JsonPatch.replace(
   '/jobs/release_github/steps/3/run',
   [
     'mv dist/package.json ./',
