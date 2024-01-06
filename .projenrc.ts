@@ -103,11 +103,18 @@ project.tasks.addTask('gh-release', {
 });
 
 // setup merge queue
-project.github?.tryFindWorkflow('build')?.on({
+const buildWorkflow = project.github?.tryFindWorkflow('build');
+buildWorkflow?.on({
   mergeGroup: {
     branches: ['main'],
   },
 });
+buildWorkflow?.file?.patch(JsonPatch.replace(
+  '/jobs/build/steps/4/run', [
+    'git add .',
+    'git diff --staged --patch --binary --exit-code > .repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT',
+  ].join('\n'),
+));
 
 project.tasks.tryFind('release')?.spawn(project.addTask('copy-files', {
   exec: 'cp package.json dist/ && cp -r projenrc dist/ && cp -r .git dist/',
@@ -121,7 +128,7 @@ project.github?.tryFindWorkflow('release')?.file?.patch(JsonPatch.replace(
     'mv dist/.git ./',
     'yarn install',
     'npx ts-node projenrc/release-version.ts',
-  ].join(' && '),
+  ].join('\n'),
 ));
 
 project.gitignore.exclude('dist/package.json');
