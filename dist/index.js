@@ -3453,7 +3453,7 @@ var ArtifactMetadataEntryType;
      */
     ArtifactMetadataEntryType["STACK_TAGS"] = "aws:cdk:stack-tags";
 })(ArtifactMetadataEntryType || (exports.ArtifactMetadataEntryType = ArtifactMetadataEntryType = {}));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWV0YWRhdGEtc2NoZW1hLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibWV0YWRhdGEtc2NoZW1hLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQW9RQTs7R0FFRztBQUNILElBQVkseUJBOEJYO0FBOUJELFdBQVkseUJBQXlCO0lBQ25DOztPQUVHO0lBQ0gsb0RBQXVCLENBQUE7SUFFdkI7O09BRUc7SUFDSCxrREFBcUIsQ0FBQTtJQUVyQjs7T0FFRztJQUNILHFEQUF3QixDQUFBO0lBRXhCOztPQUVHO0lBQ0gsb0RBQXVCLENBQUE7SUFFdkI7O09BRUc7SUFDSCw2REFBZ0MsQ0FBQTtJQUVoQzs7T0FFRztJQUNILDhEQUFpQyxDQUFBO0FBQ25DLENBQUMsRUE5QlcseUJBQXlCLHlDQUF6Qix5QkFBeUIsUUE4QnBDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBDb21tb24gcHJvcGVydGllcyBmb3IgYXNzZXQgbWV0YWRhdGEuXG4gKi9cbmludGVyZmFjZSBCYXNlQXNzZXRNZXRhZGF0YUVudHJ5IHtcbiAgLyoqXG4gICAqIFJlcXVlc3RlZCBwYWNrYWdpbmcgc3R5bGVcbiAgICovXG4gIHJlYWRvbmx5IHBhY2thZ2luZzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBMb2dpY2FsIGlkZW50aWZpZXIgZm9yIHRoZSBhc3NldFxuICAgKi9cbiAgcmVhZG9ubHkgaWQ6IHN0cmluZztcblxuICAvKipcbiAgICogVGhlIGhhc2ggb2YgdGhlIGFzc2V0IHNvdXJjZS5cbiAgICovXG4gIHJlYWRvbmx5IHNvdXJjZUhhc2g6IHN0cmluZztcblxuICAvKipcbiAgICogUGF0aCBvbiBkaXNrIHRvIHRoZSBhc3NldFxuICAgKi9cbiAgcmVhZG9ubHkgcGF0aDogc3RyaW5nO1xufVxuXG4vKipcbiAqIE1ldGFkYXRhIEVudHJ5IHNwZWMgZm9yIGZpbGVzLlxuICpcbiAqIEBleGFtcGxlXG4gKiBjb25zdCBlbnRyeSA9IHtcbiAqICAgcGFja2FnaW5nOiAnZmlsZScsXG4gKiAgIHMzQnVja2V0UGFyYW1ldGVyOiAnYnVja2V0LXBhcmFtZXRlcicsXG4gKiAgIHMzS2V5UGFyYW1lbnRlcjogJ2tleS1wYXJhbWV0ZXInLFxuICogICBhcnRpZmFjdEhhc2hQYXJhbWV0ZXI6ICdoYXNoLXBhcmFtZXRlcicsXG4gKiB9XG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRmlsZUFzc2V0TWV0YWRhdGFFbnRyeSBleHRlbmRzIEJhc2VBc3NldE1ldGFkYXRhRW50cnkge1xuICAvKipcbiAgICogUmVxdWVzdGVkIHBhY2thZ2luZyBzdHlsZVxuICAgKi9cbiAgcmVhZG9ubHkgcGFja2FnaW5nOiAnemlwJyB8ICdmaWxlJztcblxuICAvKipcbiAgICogTmFtZSBvZiBwYXJhbWV0ZXIgd2hlcmUgUzMgYnVja2V0IHNob3VsZCBiZSBwYXNzZWQgaW5cbiAgICovXG4gIHJlYWRvbmx5IHMzQnVja2V0UGFyYW1ldGVyOiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIE5hbWUgb2YgcGFyYW1ldGVyIHdoZXJlIFMzIGtleSBzaG91bGQgYmUgcGFzc2VkIGluXG4gICAqL1xuICByZWFkb25seSBzM0tleVBhcmFtZXRlcjogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgcGFyYW1ldGVyIHdoZXJlIHRoZSBoYXNoIG9mIHRoZSBidW5kbGVkIGFzc2V0IHNob3VsZCBiZSBwYXNzZWQgaW4uXG4gICAqL1xuICByZWFkb25seSBhcnRpZmFjdEhhc2hQYXJhbWV0ZXI6IHN0cmluZztcbn1cblxuLyoqXG4gKiBNZXRhZGF0YSBFbnRyeSBzcGVjIGZvciBzdGFjayB0YWcuXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgVGFnIHtcbiAgLyoqXG4gICAqIFRhZyBrZXkuXG4gICAqXG4gICAqIChJbiB0aGUgYWN0dWFsIGZpbGUgb24gZGlzayB0aGlzIHdpbGwgYmUgY2FzZWQgYXMgXCJLZXlcIiwgYW5kIHRoZSBzdHJ1Y3R1cmUgaXNcbiAgICogcGF0Y2hlZCB0byBtYXRjaCB0aGlzIHN0cnVjdHVyZSB1cG9uIGxvYWRpbmc6XG4gICAqIGh0dHBzOi8vZ2l0aHViLmNvbS9hd3MvYXdzLWNkay9ibG9iLzRhYWRhYTc3OWI0OGYzNTgzOGNjY2Q0ZTI1MTA3YjIzMzhmMDU1NDcvcGFja2FnZXMvJTQwYXdzLWNkay9jbG91ZC1hc3NlbWJseS1zY2hlbWEvbGliL21hbmlmZXN0LnRzI0wxMzcpXG4gICAqL1xuICByZWFkb25seSBrZXk6IHN0cmluZ1xuXG4gIC8qKlxuICAgKiBUYWcgdmFsdWUuXG4gICAqXG4gICAqIChJbiB0aGUgYWN0dWFsIGZpbGUgb24gZGlzayB0aGlzIHdpbGwgYmUgY2FzZWQgYXMgXCJWYWx1ZVwiLCBhbmQgdGhlIHN0cnVjdHVyZSBpc1xuICAgKiBwYXRjaGVkIHRvIG1hdGNoIHRoaXMgc3RydWN0dXJlIHVwb24gbG9hZGluZzpcbiAgICogaHR0cHM6Ly9naXRodWIuY29tL2F3cy9hd3MtY2RrL2Jsb2IvNGFhZGFhNzc5YjQ4ZjM1ODM4Y2NjZDRlMjUxMDdiMjMzOGYwNTU0Ny9wYWNrYWdlcy8lNDBhd3MtY2RrL2Nsb3VkLWFzc2VtYmx5LXNjaGVtYS9saWIvbWFuaWZlc3QudHMjTDEzNylcbiAgICovXG4gIHJlYWRvbmx5IHZhbHVlOiBzdHJpbmdcbn1cblxuLyoqXG4gKiBPcHRpb25zIGZvciBjb25maWd1cmluZyB0aGUgRG9ja2VyIGNhY2hlIGJhY2tlbmRcbiAqL1xuZXhwb3J0IGludGVyZmFjZSBDb250YWluZXJJbWFnZUFzc2V0Q2FjaGVPcHRpb24ge1xuICAvKipcbiAgICogVGhlIHR5cGUgb2YgY2FjaGUgdG8gdXNlLlxuICAgKiBSZWZlciB0byBodHRwczovL2RvY3MuZG9ja2VyLmNvbS9idWlsZC9jYWNoZS9iYWNrZW5kcy8gZm9yIGZ1bGwgbGlzdCBvZiBiYWNrZW5kcy5cbiAgICogQGRlZmF1bHQgLSB1bnNwZWNpZmllZFxuICAgKlxuICAgKiBAZXhhbXBsZSAncmVnaXN0cnknXG4gICAqL1xuICByZWFkb25seSB0eXBlOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBBbnkgcGFyYW1ldGVycyB0byBwYXNzIGludG8gdGhlIGRvY2tlciBjYWNoZSBiYWNrZW5kIGNvbmZpZ3VyYXRpb24uXG4gICAqIFJlZmVyIHRvIGh0dHBzOi8vZG9jcy5kb2NrZXIuY29tL2J1aWxkL2NhY2hlL2JhY2tlbmRzLyBmb3IgY2FjaGUgYmFja2VuZCBjb25maWd1cmF0aW9uLlxuICAgKiBAZGVmYXVsdCB7fSBObyBvcHRpb25zIHByb3ZpZGVkXG4gICAqXG4gICAqIEBleGFtcGxlXG4gICAqIGRlY2xhcmUgY29uc3QgYnJhbmNoOiBzdHJpbmc7XG4gICAqXG4gICAqIGNvbnN0IHBhcmFtcyA9IHtcbiAgICogICByZWY6IGAxMjM0NTY3OC5ka3IuZWNyLnVzLXdlc3QtMi5hbWF6b25hd3MuY29tL2NhY2hlOiR7YnJhbmNofWAsXG4gICAqICAgbW9kZTogXCJtYXhcIixcbiAgICogfTtcbiAgICovXG4gIHJlYWRvbmx5IHBhcmFtcz86IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH07XG59XG5cbi8qKlxuICogTWV0YWRhdGEgRW50cnkgc3BlYyBmb3IgY29udGFpbmVyIGltYWdlcy5cbiAqXG4gKiBAZXhhbXBsZVxuICogY29uc3QgZW50cnkgPSB7XG4gKiAgIHBhY2thZ2luZzogJ2NvbnRhaW5lci1pbWFnZScsXG4gKiAgIHJlcG9zaXRvcnlOYW1lOiAncmVwb3NpdG9yeS1uYW1lJyxcbiAqICAgaW1hZ2VUYWc6ICd0YWcnLFxuICogfVxuICovXG5leHBvcnQgaW50ZXJmYWNlIENvbnRhaW5lckltYWdlQXNzZXRNZXRhZGF0YUVudHJ5IGV4dGVuZHMgQmFzZUFzc2V0TWV0YWRhdGFFbnRyeSB7XG4gIC8qKlxuICAgKiBUeXBlIG9mIGFzc2V0XG4gICAqL1xuICByZWFkb25seSBwYWNrYWdpbmc6ICdjb250YWluZXItaW1hZ2UnO1xuXG4gIC8qKlxuICAgKiBFQ1IgUmVwb3NpdG9yeSBuYW1lIGFuZCByZXBvIGRpZ2VzdCAoc2VwYXJhdGVkIGJ5IFwiQHNoYTI1NjpcIikgd2hlcmUgdGhpc1xuICAgKiBpbWFnZSBpcyBzdG9yZWQuXG4gICAqXG4gICAqIEBkZWZhdWx0IHVuZGVmaW5lZCBJZiBub3Qgc3BlY2lmaWVkLCBgcmVwb3NpdG9yeU5hbWVgIGFuZCBgaW1hZ2VUYWdgIGFyZVxuICAgKiByZXF1aXJlZCBiZWNhdXNlIG90aGVyd2lzZSBob3cgd2lsbCB0aGUgc3RhY2sga25vdyB3aGVyZSB0byBmaW5kIHRoZSBhc3NldCxcbiAgICogaGE/XG4gICAqIEBkZXByZWNhdGVkIHNwZWNpZnkgYHJlcG9zaXRvcnlOYW1lYCBhbmQgYGltYWdlVGFnYCBpbnN0ZWFkLCBhbmQgdGhlbiB5b3VcbiAgICoga25vdyB3aGVyZSB0aGUgaW1hZ2Ugd2lsbCBnby5cbiAgICovXG4gIHJlYWRvbmx5IGltYWdlTmFtZVBhcmFtZXRlcj86IHN0cmluZztcblxuICAvKipcbiAgICogRUNSIHJlcG9zaXRvcnkgbmFtZSwgaWYgb21pdHRlZCBhIGRlZmF1bHQgbmFtZSBiYXNlZCBvbiB0aGUgYXNzZXQncyBJRCBpc1xuICAgKiB1c2VkIGluc3RlYWQuIFNwZWNpZnkgdGhpcyBwcm9wZXJ0eSBpZiB5b3UgbmVlZCB0byBzdGF0aWNhbGx5IGFkZHJlc3MgdGhlXG4gICAqIGltYWdlLCBlLmcuIGZyb20gYSBLdWJlcm5ldGVzIFBvZC4gTm90ZSwgdGhpcyBpcyBvbmx5IHRoZSByZXBvc2l0b3J5IG5hbWUsXG4gICAqIHdpdGhvdXQgdGhlIHJlZ2lzdHJ5IGFuZCB0aGUgdGFnIHBhcnRzLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIHRoaXMgcGFyYW1ldGVyIGlzIFJFUVVJUkVEIGFmdGVyIDEuMjEuMFxuICAgKi9cbiAgcmVhZG9ubHkgcmVwb3NpdG9yeU5hbWU/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFRoZSBkb2NrZXIgaW1hZ2UgdGFnIHRvIHVzZSBmb3IgdGFnZ2luZyBwdXNoZWQgaW1hZ2VzLiBUaGlzIGZpZWxkIGlzXG4gICAqIHJlcXVpcmVkIGlmIGBpbWFnZVBhcmFtZXRlck5hbWVgIGlzIG9tbWl0ZWQgKG90aGVyd2lzZSwgdGhlIGFwcCB3b24ndCBiZVxuICAgKiBhYmxlIHRvIGZpbmQgdGhlIGltYWdlKS5cbiAgICpcbiAgICogQGRlZmF1bHQgLSB0aGlzIHBhcmFtZXRlciBpcyBSRVFVSVJFRCBhZnRlciAxLjIxLjBcbiAgICovXG4gIHJlYWRvbmx5IGltYWdlVGFnPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBCdWlsZCBhcmdzIHRvIHBhc3MgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmRcbiAgICpcbiAgICogQGRlZmF1bHQgbm8gYnVpbGQgYXJncyBhcmUgcGFzc2VkXG4gICAqL1xuICByZWFkb25seSBidWlsZEFyZ3M/OiB7IFtrZXk6IHN0cmluZ106IHN0cmluZyB9O1xuXG4gIC8qKlxuICAgKiBTU0ggYWdlbnQgc29ja2V0IG9yIGtleXMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZFxuICAgKlxuICAgKiBAZGVmYXVsdCBubyBzc2ggYXJnIGlzIHBhc3NlZFxuICAgKi9cbiAgcmVhZG9ubHkgYnVpbGRTc2g/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIEJ1aWxkIHNlY3JldHMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZFxuICAgKlxuICAgKiBAZGVmYXVsdCBubyBidWlsZCBzZWNyZXRzIGFyZSBwYXNzZWRcbiAgICovXG4gIHJlYWRvbmx5IGJ1aWxkU2VjcmV0cz86IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH07XG5cbiAgLyoqXG4gICAqIERvY2tlciB0YXJnZXQgdG8gYnVpbGQgdG9cbiAgICpcbiAgICogQGRlZmF1bHQgbm8gYnVpbGQgdGFyZ2V0XG4gICAqL1xuICByZWFkb25seSB0YXJnZXQ/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFBhdGggdG8gdGhlIERvY2tlcmZpbGUgKHJlbGF0aXZlIHRvIHRoZSBkaXJlY3RvcnkpLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIG5vIGZpbGUgaXMgcGFzc2VkXG4gICAqL1xuICByZWFkb25seSBmaWxlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBOZXR3b3JraW5nIG1vZGUgZm9yIHRoZSBSVU4gY29tbWFuZHMgZHVyaW5nIGJ1aWxkLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIG5vIG5ldHdvcmtpbmcgbW9kZSBzcGVjaWZpZWRcbiAgICovXG4gIHJlYWRvbmx5IG5ldHdvcmtNb2RlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBQbGF0Zm9ybSB0byBidWlsZCBmb3IuIF9SZXF1aXJlcyBEb2NrZXIgQnVpbGR4Xy5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBjdXJyZW50IG1hY2hpbmUgcGxhdGZvcm1cbiAgICovXG4gIHJlYWRvbmx5IHBsYXRmb3JtPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBPdXRwdXRzIHRvIHBhc3MgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gb3V0cHV0cyBhcmUgcGFzc2VkIHRvIHRoZSBidWlsZCBjb21tYW5kIChkZWZhdWx0IG91dHB1dHMgYXJlIHVzZWQpXG4gICAqIEBzZWUgaHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9jb21tYW5kbGluZS9idWlsZC8jY3VzdG9tLWJ1aWxkLW91dHB1dHNcbiAgICovXG4gIHJlYWRvbmx5IG91dHB1dHM/OiBzdHJpbmdbXTtcblxuICAvKipcbiAgICogQ2FjaGUgZnJvbSBvcHRpb25zIHRvIHBhc3MgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gY2FjaGUgZnJvbSBvcHRpb25zIGFyZSBwYXNzZWQgdG8gdGhlIGJ1aWxkIGNvbW1hbmRcbiAgICogQHNlZSBodHRwczovL2RvY3MuZG9ja2VyLmNvbS9idWlsZC9jYWNoZS9iYWNrZW5kcy9cbiAgICovXG4gIHJlYWRvbmx5IGNhY2hlRnJvbT86IENvbnRhaW5lckltYWdlQXNzZXRDYWNoZU9wdGlvbltdO1xuXG4gIC8qKlxuICAgKiBDYWNoZSB0byBvcHRpb25zIHRvIHBhc3MgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gY2FjaGUgdG8gb3B0aW9ucyBhcmUgcGFzc2VkIHRvIHRoZSBidWlsZCBjb21tYW5kXG4gICAqIEBzZWUgaHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vYnVpbGQvY2FjaGUvYmFja2VuZHMvXG4gICAqL1xuICByZWFkb25seSBjYWNoZVRvPzogQ29udGFpbmVySW1hZ2VBc3NldENhY2hlT3B0aW9uO1xufVxuXG4vKipcbiAqIEBzZWUgQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZS5BU1NFVFxuICovXG5leHBvcnQgdHlwZSBBc3NldE1ldGFkYXRhRW50cnkgPSBGaWxlQXNzZXRNZXRhZGF0YUVudHJ5IHwgQ29udGFpbmVySW1hZ2VBc3NldE1ldGFkYXRhRW50cnk7XG5cbi8vIFR5cGUgYWxpYXNlcyBmb3IgbWV0YWRhdGEgZW50cmllcy5cbi8vIFVzZWQgc2ltcGx5IHRvIGFzc2lnbiBuYW1lcyB0byBkYXRhIHR5cGVzIGZvciBtb3JlIGNsYXJpdHkuXG5cbi8qKlxuICogQHNlZSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlLklORk9cbiAqIEBzZWUgQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZS5XQVJOXG4gKiBAc2VlIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuRVJST1JcbiAqL1xuZXhwb3J0IHR5cGUgTG9nTWVzc2FnZU1ldGFkYXRhRW50cnkgPSBzdHJpbmc7XG5cbi8qKlxuICogQHNlZSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlLkxPR0lDQUxfSURcbiAqL1xuZXhwb3J0IHR5cGUgTG9naWNhbElkTWV0YWRhdGFFbnRyeSA9IHN0cmluZztcblxuLyoqXG4gKiBAc2VlIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuU1RBQ0tfVEFHU1xuICovXG5leHBvcnQgdHlwZSBTdGFja1RhZ3NNZXRhZGF0YUVudHJ5ID0gVGFnW107XG5cbi8qKlxuICogVW5pb24gdHlwZSBmb3IgYWxsIG1ldGFkYXRhIGVudHJpZXMgdGhhdCBtaWdodCBleGlzdCBpbiB0aGUgbWFuaWZlc3QuXG4gKi9cbmV4cG9ydCB0eXBlIE1ldGFkYXRhRW50cnlEYXRhID0gQXNzZXRNZXRhZGF0YUVudHJ5IHwgTG9nTWVzc2FnZU1ldGFkYXRhRW50cnkgfCBMb2dpY2FsSWRNZXRhZGF0YUVudHJ5IHwgU3RhY2tUYWdzTWV0YWRhdGFFbnRyeTtcblxuLyoqXG4gKiBUeXBlIG9mIGFydGlmYWN0IG1ldGFkYXRhIGVudHJ5LlxuICovXG5leHBvcnQgZW51bSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlIHtcbiAgLyoqXG4gICAqIEFzc2V0IGluIG1ldGFkYXRhLlxuICAgKi9cbiAgQVNTRVQgPSAnYXdzOmNkazphc3NldCcsXG5cbiAgLyoqXG4gICAqIE1ldGFkYXRhIGtleSB1c2VkIHRvIHByaW50IElORk8tbGV2ZWwgbWVzc2FnZXMgYnkgdGhlIHRvb2xraXQgd2hlbiBhbiBhcHAgaXMgc3ludGhlaXplZC5cbiAgICovXG4gIElORk8gPSAnYXdzOmNkazppbmZvJyxcblxuICAvKipcbiAgICogTWV0YWRhdGEga2V5IHVzZWQgdG8gcHJpbnQgV0FSTklORy1sZXZlbCBtZXNzYWdlcyBieSB0aGUgdG9vbGtpdCB3aGVuIGFuIGFwcCBpcyBzeW50aGVpemVkLlxuICAgKi9cbiAgV0FSTiA9ICdhd3M6Y2RrOndhcm5pbmcnLFxuXG4gIC8qKlxuICAgKiBNZXRhZGF0YSBrZXkgdXNlZCB0byBwcmludCBFUlJPUi1sZXZlbCBtZXNzYWdlcyBieSB0aGUgdG9vbGtpdCB3aGVuIGFuIGFwcCBpcyBzeW50aGVpemVkLlxuICAgKi9cbiAgRVJST1IgPSAnYXdzOmNkazplcnJvcicsXG5cbiAgLyoqXG4gICAqIFJlcHJlc2VudHMgdGhlIENsb3VkRm9ybWF0aW9uIGxvZ2ljYWwgSUQgb2YgYSByZXNvdXJjZSBhdCBhIGNlcnRhaW4gcGF0aC5cbiAgICovXG4gIExPR0lDQUxfSUQgPSAnYXdzOmNkazpsb2dpY2FsSWQnLFxuXG4gIC8qKlxuICAgKiBSZXByZXNlbnRzIHRhZ3Mgb2YgYSBzdGFjay5cbiAgICovXG4gIFNUQUNLX1RBR1MgPSAnYXdzOmNkazpzdGFjay10YWdzJ1xufVxuXG4vKipcbiAqIEEgbWV0YWRhdGEgZW50cnkgaW4gYSBjbG91ZCBhc3NlbWJseSBhcnRpZmFjdC5cbiAqL1xuZXhwb3J0IGludGVyZmFjZSBNZXRhZGF0YUVudHJ5IHtcbiAgLyoqXG4gICAqIFRoZSB0eXBlIG9mIHRoZSBtZXRhZGF0YSBlbnRyeS5cbiAgICovXG4gIHJlYWRvbmx5IHR5cGU6IHN0cmluZztcblxuICAvKipcbiAgICogVGhlIGRhdGEuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gZGF0YS5cbiAgICovXG4gIHJlYWRvbmx5IGRhdGE/OiBNZXRhZGF0YUVudHJ5RGF0YTtcblxuICAvKipcbiAgICogQSBzdGFjayB0cmFjZSBmb3Igd2hlbiB0aGUgZW50cnkgd2FzIGNyZWF0ZWQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gdHJhY2UuXG4gICAqL1xuICByZWFkb25seSB0cmFjZT86IHN0cmluZ1tdO1xufVxuIl19
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWV0YWRhdGEtc2NoZW1hLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibWV0YWRhdGEtc2NoZW1hLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQTJRQTs7R0FFRztBQUNILElBQVkseUJBOEJYO0FBOUJELFdBQVkseUJBQXlCO0lBQ25DOztPQUVHO0lBQ0gsb0RBQXVCLENBQUE7SUFFdkI7O09BRUc7SUFDSCxrREFBcUIsQ0FBQTtJQUVyQjs7T0FFRztJQUNILHFEQUF3QixDQUFBO0lBRXhCOztPQUVHO0lBQ0gsb0RBQXVCLENBQUE7SUFFdkI7O09BRUc7SUFDSCw2REFBZ0MsQ0FBQTtJQUVoQzs7T0FFRztJQUNILDhEQUFpQyxDQUFBO0FBQ25DLENBQUMsRUE5QlcseUJBQXlCLHlDQUF6Qix5QkFBeUIsUUE4QnBDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBDb21tb24gcHJvcGVydGllcyBmb3IgYXNzZXQgbWV0YWRhdGEuXG4gKi9cbmludGVyZmFjZSBCYXNlQXNzZXRNZXRhZGF0YUVudHJ5IHtcbiAgLyoqXG4gICAqIFJlcXVlc3RlZCBwYWNrYWdpbmcgc3R5bGVcbiAgICovXG4gIHJlYWRvbmx5IHBhY2thZ2luZzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBMb2dpY2FsIGlkZW50aWZpZXIgZm9yIHRoZSBhc3NldFxuICAgKi9cbiAgcmVhZG9ubHkgaWQ6IHN0cmluZztcblxuICAvKipcbiAgICogVGhlIGhhc2ggb2YgdGhlIGFzc2V0IHNvdXJjZS5cbiAgICovXG4gIHJlYWRvbmx5IHNvdXJjZUhhc2g6IHN0cmluZztcblxuICAvKipcbiAgICogUGF0aCBvbiBkaXNrIHRvIHRoZSBhc3NldFxuICAgKi9cbiAgcmVhZG9ubHkgcGF0aDogc3RyaW5nO1xufVxuXG4vKipcbiAqIE1ldGFkYXRhIEVudHJ5IHNwZWMgZm9yIGZpbGVzLlxuICpcbiAqIEBleGFtcGxlXG4gKiBjb25zdCBlbnRyeSA9IHtcbiAqICAgcGFja2FnaW5nOiAnZmlsZScsXG4gKiAgIHMzQnVja2V0UGFyYW1ldGVyOiAnYnVja2V0LXBhcmFtZXRlcicsXG4gKiAgIHMzS2V5UGFyYW1lbnRlcjogJ2tleS1wYXJhbWV0ZXInLFxuICogICBhcnRpZmFjdEhhc2hQYXJhbWV0ZXI6ICdoYXNoLXBhcmFtZXRlcicsXG4gKiB9XG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRmlsZUFzc2V0TWV0YWRhdGFFbnRyeSBleHRlbmRzIEJhc2VBc3NldE1ldGFkYXRhRW50cnkge1xuICAvKipcbiAgICogUmVxdWVzdGVkIHBhY2thZ2luZyBzdHlsZVxuICAgKi9cbiAgcmVhZG9ubHkgcGFja2FnaW5nOiAnemlwJyB8ICdmaWxlJztcblxuICAvKipcbiAgICogTmFtZSBvZiBwYXJhbWV0ZXIgd2hlcmUgUzMgYnVja2V0IHNob3VsZCBiZSBwYXNzZWQgaW5cbiAgICovXG4gIHJlYWRvbmx5IHMzQnVja2V0UGFyYW1ldGVyOiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIE5hbWUgb2YgcGFyYW1ldGVyIHdoZXJlIFMzIGtleSBzaG91bGQgYmUgcGFzc2VkIGluXG4gICAqL1xuICByZWFkb25seSBzM0tleVBhcmFtZXRlcjogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgcGFyYW1ldGVyIHdoZXJlIHRoZSBoYXNoIG9mIHRoZSBidW5kbGVkIGFzc2V0IHNob3VsZCBiZSBwYXNzZWQgaW4uXG4gICAqL1xuICByZWFkb25seSBhcnRpZmFjdEhhc2hQYXJhbWV0ZXI6IHN0cmluZztcbn1cblxuLyoqXG4gKiBNZXRhZGF0YSBFbnRyeSBzcGVjIGZvciBzdGFjayB0YWcuXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgVGFnIHtcbiAgLyoqXG4gICAqIFRhZyBrZXkuXG4gICAqXG4gICAqIChJbiB0aGUgYWN0dWFsIGZpbGUgb24gZGlzayB0aGlzIHdpbGwgYmUgY2FzZWQgYXMgXCJLZXlcIiwgYW5kIHRoZSBzdHJ1Y3R1cmUgaXNcbiAgICogcGF0Y2hlZCB0byBtYXRjaCB0aGlzIHN0cnVjdHVyZSB1cG9uIGxvYWRpbmc6XG4gICAqIGh0dHBzOi8vZ2l0aHViLmNvbS9hd3MvYXdzLWNkay9ibG9iLzRhYWRhYTc3OWI0OGYzNTgzOGNjY2Q0ZTI1MTA3YjIzMzhmMDU1NDcvcGFja2FnZXMvJTQwYXdzLWNkay9jbG91ZC1hc3NlbWJseS1zY2hlbWEvbGliL21hbmlmZXN0LnRzI0wxMzcpXG4gICAqL1xuICByZWFkb25seSBrZXk6IHN0cmluZ1xuXG4gIC8qKlxuICAgKiBUYWcgdmFsdWUuXG4gICAqXG4gICAqIChJbiB0aGUgYWN0dWFsIGZpbGUgb24gZGlzayB0aGlzIHdpbGwgYmUgY2FzZWQgYXMgXCJWYWx1ZVwiLCBhbmQgdGhlIHN0cnVjdHVyZSBpc1xuICAgKiBwYXRjaGVkIHRvIG1hdGNoIHRoaXMgc3RydWN0dXJlIHVwb24gbG9hZGluZzpcbiAgICogaHR0cHM6Ly9naXRodWIuY29tL2F3cy9hd3MtY2RrL2Jsb2IvNGFhZGFhNzc5YjQ4ZjM1ODM4Y2NjZDRlMjUxMDdiMjMzOGYwNTU0Ny9wYWNrYWdlcy8lNDBhd3MtY2RrL2Nsb3VkLWFzc2VtYmx5LXNjaGVtYS9saWIvbWFuaWZlc3QudHMjTDEzNylcbiAgICovXG4gIHJlYWRvbmx5IHZhbHVlOiBzdHJpbmdcbn1cblxuLyoqXG4gKiBPcHRpb25zIGZvciBjb25maWd1cmluZyB0aGUgRG9ja2VyIGNhY2hlIGJhY2tlbmRcbiAqL1xuZXhwb3J0IGludGVyZmFjZSBDb250YWluZXJJbWFnZUFzc2V0Q2FjaGVPcHRpb24ge1xuICAvKipcbiAgICogVGhlIHR5cGUgb2YgY2FjaGUgdG8gdXNlLlxuICAgKiBSZWZlciB0byBodHRwczovL2RvY3MuZG9ja2VyLmNvbS9idWlsZC9jYWNoZS9iYWNrZW5kcy8gZm9yIGZ1bGwgbGlzdCBvZiBiYWNrZW5kcy5cbiAgICogQGRlZmF1bHQgLSB1bnNwZWNpZmllZFxuICAgKlxuICAgKiBAZXhhbXBsZSAncmVnaXN0cnknXG4gICAqL1xuICByZWFkb25seSB0eXBlOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBBbnkgcGFyYW1ldGVycyB0byBwYXNzIGludG8gdGhlIGRvY2tlciBjYWNoZSBiYWNrZW5kIGNvbmZpZ3VyYXRpb24uXG4gICAqIFJlZmVyIHRvIGh0dHBzOi8vZG9jcy5kb2NrZXIuY29tL2J1aWxkL2NhY2hlL2JhY2tlbmRzLyBmb3IgY2FjaGUgYmFja2VuZCBjb25maWd1cmF0aW9uLlxuICAgKiBAZGVmYXVsdCB7fSBObyBvcHRpb25zIHByb3ZpZGVkXG4gICAqXG4gICAqIEBleGFtcGxlXG4gICAqIGRlY2xhcmUgY29uc3QgYnJhbmNoOiBzdHJpbmc7XG4gICAqXG4gICAqIGNvbnN0IHBhcmFtcyA9IHtcbiAgICogICByZWY6IGAxMjM0NTY3OC5ka3IuZWNyLnVzLXdlc3QtMi5hbWF6b25hd3MuY29tL2NhY2hlOiR7YnJhbmNofWAsXG4gICAqICAgbW9kZTogXCJtYXhcIixcbiAgICogfTtcbiAgICovXG4gIHJlYWRvbmx5IHBhcmFtcz86IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH07XG59XG5cbi8qKlxuICogTWV0YWRhdGEgRW50cnkgc3BlYyBmb3IgY29udGFpbmVyIGltYWdlcy5cbiAqXG4gKiBAZXhhbXBsZVxuICogY29uc3QgZW50cnkgPSB7XG4gKiAgIHBhY2thZ2luZzogJ2NvbnRhaW5lci1pbWFnZScsXG4gKiAgIHJlcG9zaXRvcnlOYW1lOiAncmVwb3NpdG9yeS1uYW1lJyxcbiAqICAgaW1hZ2VUYWc6ICd0YWcnLFxuICogfVxuICovXG5leHBvcnQgaW50ZXJmYWNlIENvbnRhaW5lckltYWdlQXNzZXRNZXRhZGF0YUVudHJ5IGV4dGVuZHMgQmFzZUFzc2V0TWV0YWRhdGFFbnRyeSB7XG4gIC8qKlxuICAgKiBUeXBlIG9mIGFzc2V0XG4gICAqL1xuICByZWFkb25seSBwYWNrYWdpbmc6ICdjb250YWluZXItaW1hZ2UnO1xuXG4gIC8qKlxuICAgKiBFQ1IgUmVwb3NpdG9yeSBuYW1lIGFuZCByZXBvIGRpZ2VzdCAoc2VwYXJhdGVkIGJ5IFwiQHNoYTI1NjpcIikgd2hlcmUgdGhpc1xuICAgKiBpbWFnZSBpcyBzdG9yZWQuXG4gICAqXG4gICAqIEBkZWZhdWx0IHVuZGVmaW5lZCBJZiBub3Qgc3BlY2lmaWVkLCBgcmVwb3NpdG9yeU5hbWVgIGFuZCBgaW1hZ2VUYWdgIGFyZVxuICAgKiByZXF1aXJlZCBiZWNhdXNlIG90aGVyd2lzZSBob3cgd2lsbCB0aGUgc3RhY2sga25vdyB3aGVyZSB0byBmaW5kIHRoZSBhc3NldCxcbiAgICogaGE/XG4gICAqIEBkZXByZWNhdGVkIHNwZWNpZnkgYHJlcG9zaXRvcnlOYW1lYCBhbmQgYGltYWdlVGFnYCBpbnN0ZWFkLCBhbmQgdGhlbiB5b3VcbiAgICoga25vdyB3aGVyZSB0aGUgaW1hZ2Ugd2lsbCBnby5cbiAgICovXG4gIHJlYWRvbmx5IGltYWdlTmFtZVBhcmFtZXRlcj86IHN0cmluZztcblxuICAvKipcbiAgICogRUNSIHJlcG9zaXRvcnkgbmFtZSwgaWYgb21pdHRlZCBhIGRlZmF1bHQgbmFtZSBiYXNlZCBvbiB0aGUgYXNzZXQncyBJRCBpc1xuICAgKiB1c2VkIGluc3RlYWQuIFNwZWNpZnkgdGhpcyBwcm9wZXJ0eSBpZiB5b3UgbmVlZCB0byBzdGF0aWNhbGx5IGFkZHJlc3MgdGhlXG4gICAqIGltYWdlLCBlLmcuIGZyb20gYSBLdWJlcm5ldGVzIFBvZC4gTm90ZSwgdGhpcyBpcyBvbmx5IHRoZSByZXBvc2l0b3J5IG5hbWUsXG4gICAqIHdpdGhvdXQgdGhlIHJlZ2lzdHJ5IGFuZCB0aGUgdGFnIHBhcnRzLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIHRoaXMgcGFyYW1ldGVyIGlzIFJFUVVJUkVEIGFmdGVyIDEuMjEuMFxuICAgKi9cbiAgcmVhZG9ubHkgcmVwb3NpdG9yeU5hbWU/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFRoZSBkb2NrZXIgaW1hZ2UgdGFnIHRvIHVzZSBmb3IgdGFnZ2luZyBwdXNoZWQgaW1hZ2VzLiBUaGlzIGZpZWxkIGlzXG4gICAqIHJlcXVpcmVkIGlmIGBpbWFnZVBhcmFtZXRlck5hbWVgIGlzIG9tbWl0ZWQgKG90aGVyd2lzZSwgdGhlIGFwcCB3b24ndCBiZVxuICAgKiBhYmxlIHRvIGZpbmQgdGhlIGltYWdlKS5cbiAgICpcbiAgICogQGRlZmF1bHQgLSB0aGlzIHBhcmFtZXRlciBpcyBSRVFVSVJFRCBhZnRlciAxLjIxLjBcbiAgICovXG4gIHJlYWRvbmx5IGltYWdlVGFnPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBCdWlsZCBhcmdzIHRvIHBhc3MgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmRcbiAgICpcbiAgICogQGRlZmF1bHQgbm8gYnVpbGQgYXJncyBhcmUgcGFzc2VkXG4gICAqL1xuICByZWFkb25seSBidWlsZEFyZ3M/OiB7IFtrZXk6IHN0cmluZ106IHN0cmluZyB9O1xuXG4gIC8qKlxuICAgKiBTU0ggYWdlbnQgc29ja2V0IG9yIGtleXMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZFxuICAgKlxuICAgKiBAZGVmYXVsdCBubyBzc2ggYXJnIGlzIHBhc3NlZFxuICAgKi9cbiAgcmVhZG9ubHkgYnVpbGRTc2g/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIEJ1aWxkIHNlY3JldHMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZFxuICAgKlxuICAgKiBAZGVmYXVsdCBubyBidWlsZCBzZWNyZXRzIGFyZSBwYXNzZWRcbiAgICovXG4gIHJlYWRvbmx5IGJ1aWxkU2VjcmV0cz86IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH07XG5cbiAgLyoqXG4gICAqIERvY2tlciB0YXJnZXQgdG8gYnVpbGQgdG9cbiAgICpcbiAgICogQGRlZmF1bHQgbm8gYnVpbGQgdGFyZ2V0XG4gICAqL1xuICByZWFkb25seSB0YXJnZXQ/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFBhdGggdG8gdGhlIERvY2tlcmZpbGUgKHJlbGF0aXZlIHRvIHRoZSBkaXJlY3RvcnkpLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIG5vIGZpbGUgaXMgcGFzc2VkXG4gICAqL1xuICByZWFkb25seSBmaWxlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBOZXR3b3JraW5nIG1vZGUgZm9yIHRoZSBSVU4gY29tbWFuZHMgZHVyaW5nIGJ1aWxkLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIG5vIG5ldHdvcmtpbmcgbW9kZSBzcGVjaWZpZWRcbiAgICovXG4gIHJlYWRvbmx5IG5ldHdvcmtNb2RlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBQbGF0Zm9ybSB0byBidWlsZCBmb3IuIF9SZXF1aXJlcyBEb2NrZXIgQnVpbGR4Xy5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBjdXJyZW50IG1hY2hpbmUgcGxhdGZvcm1cbiAgICovXG4gIHJlYWRvbmx5IHBsYXRmb3JtPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBPdXRwdXRzIHRvIHBhc3MgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gb3V0cHV0cyBhcmUgcGFzc2VkIHRvIHRoZSBidWlsZCBjb21tYW5kIChkZWZhdWx0IG91dHB1dHMgYXJlIHVzZWQpXG4gICAqIEBzZWUgaHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9jb21tYW5kbGluZS9idWlsZC8jY3VzdG9tLWJ1aWxkLW91dHB1dHNcbiAgICovXG4gIHJlYWRvbmx5IG91dHB1dHM/OiBzdHJpbmdbXTtcblxuICAvKipcbiAgICogQ2FjaGUgZnJvbSBvcHRpb25zIHRvIHBhc3MgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gY2FjaGUgZnJvbSBvcHRpb25zIGFyZSBwYXNzZWQgdG8gdGhlIGJ1aWxkIGNvbW1hbmRcbiAgICogQHNlZSBodHRwczovL2RvY3MuZG9ja2VyLmNvbS9idWlsZC9jYWNoZS9iYWNrZW5kcy9cbiAgICovXG4gIHJlYWRvbmx5IGNhY2hlRnJvbT86IENvbnRhaW5lckltYWdlQXNzZXRDYWNoZU9wdGlvbltdO1xuXG4gIC8qKlxuICAgKiBDYWNoZSB0byBvcHRpb25zIHRvIHBhc3MgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gY2FjaGUgdG8gb3B0aW9ucyBhcmUgcGFzc2VkIHRvIHRoZSBidWlsZCBjb21tYW5kXG4gICAqIEBzZWUgaHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vYnVpbGQvY2FjaGUvYmFja2VuZHMvXG4gICAqL1xuICByZWFkb25seSBjYWNoZVRvPzogQ29udGFpbmVySW1hZ2VBc3NldENhY2hlT3B0aW9uO1xuXG4gIC8qKlxuICAgKiBEaXNhYmxlIHRoZSBjYWNoZSBhbmQgcGFzcyBgLS1uby1jYWNoZWAgdG8gdGhlIGBkb2NrZXIgYnVpbGRgIGNvbW1hbmQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gY2FjaGUgaXMgdXNlZFxuICAgKi9cbiAgcmVhZG9ubHkgY2FjaGVEaXNhYmxlZD86IGJvb2xlYW47XG59XG5cbi8qKlxuICogQHNlZSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlLkFTU0VUXG4gKi9cbmV4cG9ydCB0eXBlIEFzc2V0TWV0YWRhdGFFbnRyeSA9IEZpbGVBc3NldE1ldGFkYXRhRW50cnkgfCBDb250YWluZXJJbWFnZUFzc2V0TWV0YWRhdGFFbnRyeTtcblxuLy8gVHlwZSBhbGlhc2VzIGZvciBtZXRhZGF0YSBlbnRyaWVzLlxuLy8gVXNlZCBzaW1wbHkgdG8gYXNzaWduIG5hbWVzIHRvIGRhdGEgdHlwZXMgZm9yIG1vcmUgY2xhcml0eS5cblxuLyoqXG4gKiBAc2VlIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuSU5GT1xuICogQHNlZSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlLldBUk5cbiAqIEBzZWUgQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZS5FUlJPUlxuICovXG5leHBvcnQgdHlwZSBMb2dNZXNzYWdlTWV0YWRhdGFFbnRyeSA9IHN0cmluZztcblxuLyoqXG4gKiBAc2VlIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuTE9HSUNBTF9JRFxuICovXG5leHBvcnQgdHlwZSBMb2dpY2FsSWRNZXRhZGF0YUVudHJ5ID0gc3RyaW5nO1xuXG4vKipcbiAqIEBzZWUgQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZS5TVEFDS19UQUdTXG4gKi9cbmV4cG9ydCB0eXBlIFN0YWNrVGFnc01ldGFkYXRhRW50cnkgPSBUYWdbXTtcblxuLyoqXG4gKiBVbmlvbiB0eXBlIGZvciBhbGwgbWV0YWRhdGEgZW50cmllcyB0aGF0IG1pZ2h0IGV4aXN0IGluIHRoZSBtYW5pZmVzdC5cbiAqL1xuZXhwb3J0IHR5cGUgTWV0YWRhdGFFbnRyeURhdGEgPSBBc3NldE1ldGFkYXRhRW50cnkgfCBMb2dNZXNzYWdlTWV0YWRhdGFFbnRyeSB8IExvZ2ljYWxJZE1ldGFkYXRhRW50cnkgfCBTdGFja1RhZ3NNZXRhZGF0YUVudHJ5O1xuXG4vKipcbiAqIFR5cGUgb2YgYXJ0aWZhY3QgbWV0YWRhdGEgZW50cnkuXG4gKi9cbmV4cG9ydCBlbnVtIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUge1xuICAvKipcbiAgICogQXNzZXQgaW4gbWV0YWRhdGEuXG4gICAqL1xuICBBU1NFVCA9ICdhd3M6Y2RrOmFzc2V0JyxcblxuICAvKipcbiAgICogTWV0YWRhdGEga2V5IHVzZWQgdG8gcHJpbnQgSU5GTy1sZXZlbCBtZXNzYWdlcyBieSB0aGUgdG9vbGtpdCB3aGVuIGFuIGFwcCBpcyBzeW50aGVpemVkLlxuICAgKi9cbiAgSU5GTyA9ICdhd3M6Y2RrOmluZm8nLFxuXG4gIC8qKlxuICAgKiBNZXRhZGF0YSBrZXkgdXNlZCB0byBwcmludCBXQVJOSU5HLWxldmVsIG1lc3NhZ2VzIGJ5IHRoZSB0b29sa2l0IHdoZW4gYW4gYXBwIGlzIHN5bnRoZWl6ZWQuXG4gICAqL1xuICBXQVJOID0gJ2F3czpjZGs6d2FybmluZycsXG5cbiAgLyoqXG4gICAqIE1ldGFkYXRhIGtleSB1c2VkIHRvIHByaW50IEVSUk9SLWxldmVsIG1lc3NhZ2VzIGJ5IHRoZSB0b29sa2l0IHdoZW4gYW4gYXBwIGlzIHN5bnRoZWl6ZWQuXG4gICAqL1xuICBFUlJPUiA9ICdhd3M6Y2RrOmVycm9yJyxcblxuICAvKipcbiAgICogUmVwcmVzZW50cyB0aGUgQ2xvdWRGb3JtYXRpb24gbG9naWNhbCBJRCBvZiBhIHJlc291cmNlIGF0IGEgY2VydGFpbiBwYXRoLlxuICAgKi9cbiAgTE9HSUNBTF9JRCA9ICdhd3M6Y2RrOmxvZ2ljYWxJZCcsXG5cbiAgLyoqXG4gICAqIFJlcHJlc2VudHMgdGFncyBvZiBhIHN0YWNrLlxuICAgKi9cbiAgU1RBQ0tfVEFHUyA9ICdhd3M6Y2RrOnN0YWNrLXRhZ3MnXG59XG5cbi8qKlxuICogQSBtZXRhZGF0YSBlbnRyeSBpbiBhIGNsb3VkIGFzc2VtYmx5IGFydGlmYWN0LlxuICovXG5leHBvcnQgaW50ZXJmYWNlIE1ldGFkYXRhRW50cnkge1xuICAvKipcbiAgICogVGhlIHR5cGUgb2YgdGhlIG1ldGFkYXRhIGVudHJ5LlxuICAgKi9cbiAgcmVhZG9ubHkgdHlwZTogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgZGF0YS5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyBkYXRhLlxuICAgKi9cbiAgcmVhZG9ubHkgZGF0YT86IE1ldGFkYXRhRW50cnlEYXRhO1xuXG4gIC8qKlxuICAgKiBBIHN0YWNrIHRyYWNlIGZvciB3aGVuIHRoZSBlbnRyeSB3YXMgY3JlYXRlZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyB0cmFjZS5cbiAgICovXG4gIHJlYWRvbmx5IHRyYWNlPzogc3RyaW5nW107XG59XG4iXX0=
 
 /***/ }),
 
@@ -3762,7 +3762,7 @@ class Manifest {
 }
 exports.Manifest = Manifest;
 _a = JSII_RTTI_SYMBOL_1;
-Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "2.115.0" };
+Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "2.117.0" };
 function mapValues(xs, fn) {
     if (!xs) {
         return undefined;
@@ -12699,48 +12699,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ActivateOrganizationsAccessCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ActivateOrganizationsAccessCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ActivateOrganizationsAccessCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ActivateOrganizationsAccess",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ActivateOrganizationsAccessCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ActivateOrganizationsAccessCommand)(output, context);
-    }
+class ActivateOrganizationsAccessCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ActivateOrganizationsAccess", {})
+    .n("CloudFormationClient", "ActivateOrganizationsAccessCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ActivateOrganizationsAccessCommand)
+    .de(Aws_query_1.de_ActivateOrganizationsAccessCommand)
+    .build() {
 }
 exports.ActivateOrganizationsAccessCommand = ActivateOrganizationsAccessCommand;
 
@@ -12758,48 +12735,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ActivateTypeCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ActivateTypeCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ActivateTypeCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ActivateType",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ActivateTypeCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ActivateTypeCommand)(output, context);
-    }
+class ActivateTypeCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ActivateType", {})
+    .n("CloudFormationClient", "ActivateTypeCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ActivateTypeCommand)
+    .de(Aws_query_1.de_ActivateTypeCommand)
+    .build() {
 }
 exports.ActivateTypeCommand = ActivateTypeCommand;
 
@@ -12817,48 +12771,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class BatchDescribeTypeConfigurationsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, BatchDescribeTypeConfigurationsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "BatchDescribeTypeConfigurationsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "BatchDescribeTypeConfigurations",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_BatchDescribeTypeConfigurationsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_BatchDescribeTypeConfigurationsCommand)(output, context);
-    }
+class BatchDescribeTypeConfigurationsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "BatchDescribeTypeConfigurations", {})
+    .n("CloudFormationClient", "BatchDescribeTypeConfigurationsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_BatchDescribeTypeConfigurationsCommand)
+    .de(Aws_query_1.de_BatchDescribeTypeConfigurationsCommand)
+    .build() {
 }
 exports.BatchDescribeTypeConfigurationsCommand = BatchDescribeTypeConfigurationsCommand;
 
@@ -12876,48 +12807,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class CancelUpdateStackCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CancelUpdateStackCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "CancelUpdateStackCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "CancelUpdateStack",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_CancelUpdateStackCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_CancelUpdateStackCommand)(output, context);
-    }
+class CancelUpdateStackCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "CancelUpdateStack", {})
+    .n("CloudFormationClient", "CancelUpdateStackCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_CancelUpdateStackCommand)
+    .de(Aws_query_1.de_CancelUpdateStackCommand)
+    .build() {
 }
 exports.CancelUpdateStackCommand = CancelUpdateStackCommand;
 
@@ -12935,48 +12843,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ContinueUpdateRollbackCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ContinueUpdateRollbackCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ContinueUpdateRollbackCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ContinueUpdateRollback",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ContinueUpdateRollbackCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ContinueUpdateRollbackCommand)(output, context);
-    }
+class ContinueUpdateRollbackCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ContinueUpdateRollback", {})
+    .n("CloudFormationClient", "ContinueUpdateRollbackCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ContinueUpdateRollbackCommand)
+    .de(Aws_query_1.de_ContinueUpdateRollbackCommand)
+    .build() {
 }
 exports.ContinueUpdateRollbackCommand = ContinueUpdateRollbackCommand;
 
@@ -12994,48 +12879,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class CreateChangeSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateChangeSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "CreateChangeSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "CreateChangeSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_CreateChangeSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_CreateChangeSetCommand)(output, context);
-    }
+class CreateChangeSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "CreateChangeSet", {})
+    .n("CloudFormationClient", "CreateChangeSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_CreateChangeSetCommand)
+    .de(Aws_query_1.de_CreateChangeSetCommand)
+    .build() {
 }
 exports.CreateChangeSetCommand = CreateChangeSetCommand;
 
@@ -13053,48 +12915,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class CreateStackCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateStackCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "CreateStackCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "CreateStack",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_CreateStackCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_CreateStackCommand)(output, context);
-    }
+class CreateStackCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "CreateStack", {})
+    .n("CloudFormationClient", "CreateStackCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_CreateStackCommand)
+    .de(Aws_query_1.de_CreateStackCommand)
+    .build() {
 }
 exports.CreateStackCommand = CreateStackCommand;
 
@@ -13112,48 +12951,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class CreateStackInstancesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateStackInstancesCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "CreateStackInstancesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "CreateStackInstances",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_CreateStackInstancesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_CreateStackInstancesCommand)(output, context);
-    }
+class CreateStackInstancesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "CreateStackInstances", {})
+    .n("CloudFormationClient", "CreateStackInstancesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_CreateStackInstancesCommand)
+    .de(Aws_query_1.de_CreateStackInstancesCommand)
+    .build() {
 }
 exports.CreateStackInstancesCommand = CreateStackInstancesCommand;
 
@@ -13171,48 +12987,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class CreateStackSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateStackSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "CreateStackSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "CreateStackSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_CreateStackSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_CreateStackSetCommand)(output, context);
-    }
+class CreateStackSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "CreateStackSet", {})
+    .n("CloudFormationClient", "CreateStackSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_CreateStackSetCommand)
+    .de(Aws_query_1.de_CreateStackSetCommand)
+    .build() {
 }
 exports.CreateStackSetCommand = CreateStackSetCommand;
 
@@ -13230,48 +13023,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DeactivateOrganizationsAccessCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeactivateOrganizationsAccessCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DeactivateOrganizationsAccessCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DeactivateOrganizationsAccess",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DeactivateOrganizationsAccessCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DeactivateOrganizationsAccessCommand)(output, context);
-    }
+class DeactivateOrganizationsAccessCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DeactivateOrganizationsAccess", {})
+    .n("CloudFormationClient", "DeactivateOrganizationsAccessCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DeactivateOrganizationsAccessCommand)
+    .de(Aws_query_1.de_DeactivateOrganizationsAccessCommand)
+    .build() {
 }
 exports.DeactivateOrganizationsAccessCommand = DeactivateOrganizationsAccessCommand;
 
@@ -13289,48 +13059,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DeactivateTypeCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeactivateTypeCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DeactivateTypeCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DeactivateType",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DeactivateTypeCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DeactivateTypeCommand)(output, context);
-    }
+class DeactivateTypeCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DeactivateType", {})
+    .n("CloudFormationClient", "DeactivateTypeCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DeactivateTypeCommand)
+    .de(Aws_query_1.de_DeactivateTypeCommand)
+    .build() {
 }
 exports.DeactivateTypeCommand = DeactivateTypeCommand;
 
@@ -13348,48 +13095,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DeleteChangeSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteChangeSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DeleteChangeSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DeleteChangeSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DeleteChangeSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DeleteChangeSetCommand)(output, context);
-    }
+class DeleteChangeSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DeleteChangeSet", {})
+    .n("CloudFormationClient", "DeleteChangeSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DeleteChangeSetCommand)
+    .de(Aws_query_1.de_DeleteChangeSetCommand)
+    .build() {
 }
 exports.DeleteChangeSetCommand = DeleteChangeSetCommand;
 
@@ -13407,48 +13131,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DeleteStackCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteStackCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DeleteStackCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DeleteStack",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DeleteStackCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DeleteStackCommand)(output, context);
-    }
+class DeleteStackCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DeleteStack", {})
+    .n("CloudFormationClient", "DeleteStackCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DeleteStackCommand)
+    .de(Aws_query_1.de_DeleteStackCommand)
+    .build() {
 }
 exports.DeleteStackCommand = DeleteStackCommand;
 
@@ -13466,48 +13167,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DeleteStackInstancesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteStackInstancesCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DeleteStackInstancesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DeleteStackInstances",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DeleteStackInstancesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DeleteStackInstancesCommand)(output, context);
-    }
+class DeleteStackInstancesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DeleteStackInstances", {})
+    .n("CloudFormationClient", "DeleteStackInstancesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DeleteStackInstancesCommand)
+    .de(Aws_query_1.de_DeleteStackInstancesCommand)
+    .build() {
 }
 exports.DeleteStackInstancesCommand = DeleteStackInstancesCommand;
 
@@ -13525,48 +13203,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DeleteStackSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteStackSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DeleteStackSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DeleteStackSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DeleteStackSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DeleteStackSetCommand)(output, context);
-    }
+class DeleteStackSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DeleteStackSet", {})
+    .n("CloudFormationClient", "DeleteStackSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DeleteStackSetCommand)
+    .de(Aws_query_1.de_DeleteStackSetCommand)
+    .build() {
 }
 exports.DeleteStackSetCommand = DeleteStackSetCommand;
 
@@ -13584,48 +13239,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DeregisterTypeCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeregisterTypeCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DeregisterTypeCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DeregisterType",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DeregisterTypeCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DeregisterTypeCommand)(output, context);
-    }
+class DeregisterTypeCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DeregisterType", {})
+    .n("CloudFormationClient", "DeregisterTypeCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DeregisterTypeCommand)
+    .de(Aws_query_1.de_DeregisterTypeCommand)
+    .build() {
 }
 exports.DeregisterTypeCommand = DeregisterTypeCommand;
 
@@ -13643,48 +13275,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeAccountLimitsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeAccountLimitsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeAccountLimitsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeAccountLimits",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeAccountLimitsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeAccountLimitsCommand)(output, context);
-    }
+class DescribeAccountLimitsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeAccountLimits", {})
+    .n("CloudFormationClient", "DescribeAccountLimitsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeAccountLimitsCommand)
+    .de(Aws_query_1.de_DescribeAccountLimitsCommand)
+    .build() {
 }
 exports.DescribeAccountLimitsCommand = DescribeAccountLimitsCommand;
 
@@ -13702,48 +13311,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeChangeSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeChangeSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeChangeSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeChangeSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeChangeSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeChangeSetCommand)(output, context);
-    }
+class DescribeChangeSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeChangeSet", {})
+    .n("CloudFormationClient", "DescribeChangeSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeChangeSetCommand)
+    .de(Aws_query_1.de_DescribeChangeSetCommand)
+    .build() {
 }
 exports.DescribeChangeSetCommand = DescribeChangeSetCommand;
 
@@ -13761,48 +13347,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeChangeSetHooksCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeChangeSetHooksCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeChangeSetHooksCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeChangeSetHooks",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeChangeSetHooksCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeChangeSetHooksCommand)(output, context);
-    }
+class DescribeChangeSetHooksCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeChangeSetHooks", {})
+    .n("CloudFormationClient", "DescribeChangeSetHooksCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeChangeSetHooksCommand)
+    .de(Aws_query_1.de_DescribeChangeSetHooksCommand)
+    .build() {
 }
 exports.DescribeChangeSetHooksCommand = DescribeChangeSetHooksCommand;
 
@@ -13820,48 +13383,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeOrganizationsAccessCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeOrganizationsAccessCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeOrganizationsAccessCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeOrganizationsAccess",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeOrganizationsAccessCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeOrganizationsAccessCommand)(output, context);
-    }
+class DescribeOrganizationsAccessCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeOrganizationsAccess", {})
+    .n("CloudFormationClient", "DescribeOrganizationsAccessCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeOrganizationsAccessCommand)
+    .de(Aws_query_1.de_DescribeOrganizationsAccessCommand)
+    .build() {
 }
 exports.DescribeOrganizationsAccessCommand = DescribeOrganizationsAccessCommand;
 
@@ -13879,48 +13419,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribePublisherCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribePublisherCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribePublisherCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribePublisher",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribePublisherCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribePublisherCommand)(output, context);
-    }
+class DescribePublisherCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribePublisher", {})
+    .n("CloudFormationClient", "DescribePublisherCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribePublisherCommand)
+    .de(Aws_query_1.de_DescribePublisherCommand)
+    .build() {
 }
 exports.DescribePublisherCommand = DescribePublisherCommand;
 
@@ -13938,48 +13455,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStackDriftDetectionStatusCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackDriftDetectionStatusCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStackDriftDetectionStatusCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStackDriftDetectionStatus",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStackDriftDetectionStatusCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStackDriftDetectionStatusCommand)(output, context);
-    }
+class DescribeStackDriftDetectionStatusCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStackDriftDetectionStatus", {})
+    .n("CloudFormationClient", "DescribeStackDriftDetectionStatusCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStackDriftDetectionStatusCommand)
+    .de(Aws_query_1.de_DescribeStackDriftDetectionStatusCommand)
+    .build() {
 }
 exports.DescribeStackDriftDetectionStatusCommand = DescribeStackDriftDetectionStatusCommand;
 
@@ -13997,48 +13491,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStackEventsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackEventsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStackEventsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStackEvents",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStackEventsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStackEventsCommand)(output, context);
-    }
+class DescribeStackEventsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStackEvents", {})
+    .n("CloudFormationClient", "DescribeStackEventsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStackEventsCommand)
+    .de(Aws_query_1.de_DescribeStackEventsCommand)
+    .build() {
 }
 exports.DescribeStackEventsCommand = DescribeStackEventsCommand;
 
@@ -14056,48 +13527,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStackInstanceCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackInstanceCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStackInstanceCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStackInstance",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStackInstanceCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStackInstanceCommand)(output, context);
-    }
+class DescribeStackInstanceCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStackInstance", {})
+    .n("CloudFormationClient", "DescribeStackInstanceCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStackInstanceCommand)
+    .de(Aws_query_1.de_DescribeStackInstanceCommand)
+    .build() {
 }
 exports.DescribeStackInstanceCommand = DescribeStackInstanceCommand;
 
@@ -14115,48 +13563,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStackResourceCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackResourceCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStackResourceCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStackResource",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStackResourceCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStackResourceCommand)(output, context);
-    }
+class DescribeStackResourceCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStackResource", {})
+    .n("CloudFormationClient", "DescribeStackResourceCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStackResourceCommand)
+    .de(Aws_query_1.de_DescribeStackResourceCommand)
+    .build() {
 }
 exports.DescribeStackResourceCommand = DescribeStackResourceCommand;
 
@@ -14174,48 +13599,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStackResourceDriftsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackResourceDriftsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStackResourceDriftsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStackResourceDrifts",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStackResourceDriftsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStackResourceDriftsCommand)(output, context);
-    }
+class DescribeStackResourceDriftsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStackResourceDrifts", {})
+    .n("CloudFormationClient", "DescribeStackResourceDriftsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStackResourceDriftsCommand)
+    .de(Aws_query_1.de_DescribeStackResourceDriftsCommand)
+    .build() {
 }
 exports.DescribeStackResourceDriftsCommand = DescribeStackResourceDriftsCommand;
 
@@ -14233,48 +13635,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStackResourcesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackResourcesCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStackResourcesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStackResources",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStackResourcesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStackResourcesCommand)(output, context);
-    }
+class DescribeStackResourcesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStackResources", {})
+    .n("CloudFormationClient", "DescribeStackResourcesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStackResourcesCommand)
+    .de(Aws_query_1.de_DescribeStackResourcesCommand)
+    .build() {
 }
 exports.DescribeStackResourcesCommand = DescribeStackResourcesCommand;
 
@@ -14292,48 +13671,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStackSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStackSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStackSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStackSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStackSetCommand)(output, context);
-    }
+class DescribeStackSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStackSet", {})
+    .n("CloudFormationClient", "DescribeStackSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStackSetCommand)
+    .de(Aws_query_1.de_DescribeStackSetCommand)
+    .build() {
 }
 exports.DescribeStackSetCommand = DescribeStackSetCommand;
 
@@ -14351,48 +13707,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStackSetOperationCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStackSetOperationCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStackSetOperationCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStackSetOperation",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStackSetOperationCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStackSetOperationCommand)(output, context);
-    }
+class DescribeStackSetOperationCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStackSetOperation", {})
+    .n("CloudFormationClient", "DescribeStackSetOperationCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStackSetOperationCommand)
+    .de(Aws_query_1.de_DescribeStackSetOperationCommand)
+    .build() {
 }
 exports.DescribeStackSetOperationCommand = DescribeStackSetOperationCommand;
 
@@ -14410,48 +13743,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeStacksCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeStacksCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeStacksCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeStacks",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeStacksCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeStacksCommand)(output, context);
-    }
+class DescribeStacksCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeStacks", {})
+    .n("CloudFormationClient", "DescribeStacksCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeStacksCommand)
+    .de(Aws_query_1.de_DescribeStacksCommand)
+    .build() {
 }
 exports.DescribeStacksCommand = DescribeStacksCommand;
 
@@ -14469,48 +13779,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeTypeCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeTypeCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeTypeCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeType",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeTypeCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeTypeCommand)(output, context);
-    }
+class DescribeTypeCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeType", {})
+    .n("CloudFormationClient", "DescribeTypeCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeTypeCommand)
+    .de(Aws_query_1.de_DescribeTypeCommand)
+    .build() {
 }
 exports.DescribeTypeCommand = DescribeTypeCommand;
 
@@ -14528,48 +13815,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DescribeTypeRegistrationCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeTypeRegistrationCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DescribeTypeRegistrationCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DescribeTypeRegistration",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DescribeTypeRegistrationCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DescribeTypeRegistrationCommand)(output, context);
-    }
+class DescribeTypeRegistrationCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DescribeTypeRegistration", {})
+    .n("CloudFormationClient", "DescribeTypeRegistrationCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DescribeTypeRegistrationCommand)
+    .de(Aws_query_1.de_DescribeTypeRegistrationCommand)
+    .build() {
 }
 exports.DescribeTypeRegistrationCommand = DescribeTypeRegistrationCommand;
 
@@ -14587,48 +13851,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DetectStackDriftCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DetectStackDriftCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DetectStackDriftCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DetectStackDrift",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DetectStackDriftCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DetectStackDriftCommand)(output, context);
-    }
+class DetectStackDriftCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DetectStackDrift", {})
+    .n("CloudFormationClient", "DetectStackDriftCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DetectStackDriftCommand)
+    .de(Aws_query_1.de_DetectStackDriftCommand)
+    .build() {
 }
 exports.DetectStackDriftCommand = DetectStackDriftCommand;
 
@@ -14646,48 +13887,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DetectStackResourceDriftCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DetectStackResourceDriftCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DetectStackResourceDriftCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DetectStackResourceDrift",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DetectStackResourceDriftCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DetectStackResourceDriftCommand)(output, context);
-    }
+class DetectStackResourceDriftCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DetectStackResourceDrift", {})
+    .n("CloudFormationClient", "DetectStackResourceDriftCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DetectStackResourceDriftCommand)
+    .de(Aws_query_1.de_DetectStackResourceDriftCommand)
+    .build() {
 }
 exports.DetectStackResourceDriftCommand = DetectStackResourceDriftCommand;
 
@@ -14705,48 +13923,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class DetectStackSetDriftCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DetectStackSetDriftCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "DetectStackSetDriftCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "DetectStackSetDrift",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DetectStackSetDriftCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DetectStackSetDriftCommand)(output, context);
-    }
+class DetectStackSetDriftCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "DetectStackSetDrift", {})
+    .n("CloudFormationClient", "DetectStackSetDriftCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DetectStackSetDriftCommand)
+    .de(Aws_query_1.de_DetectStackSetDriftCommand)
+    .build() {
 }
 exports.DetectStackSetDriftCommand = DetectStackSetDriftCommand;
 
@@ -14764,48 +13959,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class EstimateTemplateCostCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, EstimateTemplateCostCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "EstimateTemplateCostCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "EstimateTemplateCost",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_EstimateTemplateCostCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_EstimateTemplateCostCommand)(output, context);
-    }
+class EstimateTemplateCostCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "EstimateTemplateCost", {})
+    .n("CloudFormationClient", "EstimateTemplateCostCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_EstimateTemplateCostCommand)
+    .de(Aws_query_1.de_EstimateTemplateCostCommand)
+    .build() {
 }
 exports.EstimateTemplateCostCommand = EstimateTemplateCostCommand;
 
@@ -14823,48 +13995,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ExecuteChangeSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ExecuteChangeSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ExecuteChangeSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ExecuteChangeSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ExecuteChangeSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ExecuteChangeSetCommand)(output, context);
-    }
+class ExecuteChangeSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ExecuteChangeSet", {})
+    .n("CloudFormationClient", "ExecuteChangeSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ExecuteChangeSetCommand)
+    .de(Aws_query_1.de_ExecuteChangeSetCommand)
+    .build() {
 }
 exports.ExecuteChangeSetCommand = ExecuteChangeSetCommand;
 
@@ -14882,48 +14031,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class GetStackPolicyCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetStackPolicyCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "GetStackPolicyCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "GetStackPolicy",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_GetStackPolicyCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_GetStackPolicyCommand)(output, context);
-    }
+class GetStackPolicyCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "GetStackPolicy", {})
+    .n("CloudFormationClient", "GetStackPolicyCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_GetStackPolicyCommand)
+    .de(Aws_query_1.de_GetStackPolicyCommand)
+    .build() {
 }
 exports.GetStackPolicyCommand = GetStackPolicyCommand;
 
@@ -14941,48 +14067,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class GetTemplateCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetTemplateCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "GetTemplateCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "GetTemplate",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_GetTemplateCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_GetTemplateCommand)(output, context);
-    }
+class GetTemplateCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "GetTemplate", {})
+    .n("CloudFormationClient", "GetTemplateCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_GetTemplateCommand)
+    .de(Aws_query_1.de_GetTemplateCommand)
+    .build() {
 }
 exports.GetTemplateCommand = GetTemplateCommand;
 
@@ -15000,48 +14103,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class GetTemplateSummaryCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetTemplateSummaryCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "GetTemplateSummaryCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "GetTemplateSummary",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_GetTemplateSummaryCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_GetTemplateSummaryCommand)(output, context);
-    }
+class GetTemplateSummaryCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "GetTemplateSummary", {})
+    .n("CloudFormationClient", "GetTemplateSummaryCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_GetTemplateSummaryCommand)
+    .de(Aws_query_1.de_GetTemplateSummaryCommand)
+    .build() {
 }
 exports.GetTemplateSummaryCommand = GetTemplateSummaryCommand;
 
@@ -15059,48 +14139,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ImportStacksToStackSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ImportStacksToStackSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ImportStacksToStackSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ImportStacksToStackSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ImportStacksToStackSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ImportStacksToStackSetCommand)(output, context);
-    }
+class ImportStacksToStackSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ImportStacksToStackSet", {})
+    .n("CloudFormationClient", "ImportStacksToStackSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ImportStacksToStackSetCommand)
+    .de(Aws_query_1.de_ImportStacksToStackSetCommand)
+    .build() {
 }
 exports.ImportStacksToStackSetCommand = ImportStacksToStackSetCommand;
 
@@ -15118,48 +14175,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListChangeSetsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListChangeSetsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListChangeSetsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListChangeSets",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListChangeSetsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListChangeSetsCommand)(output, context);
-    }
+class ListChangeSetsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListChangeSets", {})
+    .n("CloudFormationClient", "ListChangeSetsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListChangeSetsCommand)
+    .de(Aws_query_1.de_ListChangeSetsCommand)
+    .build() {
 }
 exports.ListChangeSetsCommand = ListChangeSetsCommand;
 
@@ -15177,48 +14211,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListExportsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListExportsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListExportsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListExports",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListExportsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListExportsCommand)(output, context);
-    }
+class ListExportsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListExports", {})
+    .n("CloudFormationClient", "ListExportsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListExportsCommand)
+    .de(Aws_query_1.de_ListExportsCommand)
+    .build() {
 }
 exports.ListExportsCommand = ListExportsCommand;
 
@@ -15236,48 +14247,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListImportsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListImportsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListImportsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListImports",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListImportsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListImportsCommand)(output, context);
-    }
+class ListImportsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListImports", {})
+    .n("CloudFormationClient", "ListImportsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListImportsCommand)
+    .de(Aws_query_1.de_ListImportsCommand)
+    .build() {
 }
 exports.ListImportsCommand = ListImportsCommand;
 
@@ -15295,48 +14283,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListStackInstanceResourceDriftsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackInstanceResourceDriftsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListStackInstanceResourceDriftsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListStackInstanceResourceDrifts",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListStackInstanceResourceDriftsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListStackInstanceResourceDriftsCommand)(output, context);
-    }
+class ListStackInstanceResourceDriftsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListStackInstanceResourceDrifts", {})
+    .n("CloudFormationClient", "ListStackInstanceResourceDriftsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListStackInstanceResourceDriftsCommand)
+    .de(Aws_query_1.de_ListStackInstanceResourceDriftsCommand)
+    .build() {
 }
 exports.ListStackInstanceResourceDriftsCommand = ListStackInstanceResourceDriftsCommand;
 
@@ -15354,48 +14319,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListStackInstancesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackInstancesCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListStackInstancesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListStackInstances",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListStackInstancesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListStackInstancesCommand)(output, context);
-    }
+class ListStackInstancesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListStackInstances", {})
+    .n("CloudFormationClient", "ListStackInstancesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListStackInstancesCommand)
+    .de(Aws_query_1.de_ListStackInstancesCommand)
+    .build() {
 }
 exports.ListStackInstancesCommand = ListStackInstancesCommand;
 
@@ -15413,48 +14355,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListStackResourcesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackResourcesCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListStackResourcesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListStackResources",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListStackResourcesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListStackResourcesCommand)(output, context);
-    }
+class ListStackResourcesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListStackResources", {})
+    .n("CloudFormationClient", "ListStackResourcesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListStackResourcesCommand)
+    .de(Aws_query_1.de_ListStackResourcesCommand)
+    .build() {
 }
 exports.ListStackResourcesCommand = ListStackResourcesCommand;
 
@@ -15472,48 +14391,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListStackSetOperationResultsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackSetOperationResultsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListStackSetOperationResultsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListStackSetOperationResults",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListStackSetOperationResultsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListStackSetOperationResultsCommand)(output, context);
-    }
+class ListStackSetOperationResultsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListStackSetOperationResults", {})
+    .n("CloudFormationClient", "ListStackSetOperationResultsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListStackSetOperationResultsCommand)
+    .de(Aws_query_1.de_ListStackSetOperationResultsCommand)
+    .build() {
 }
 exports.ListStackSetOperationResultsCommand = ListStackSetOperationResultsCommand;
 
@@ -15531,48 +14427,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListStackSetOperationsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackSetOperationsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListStackSetOperationsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListStackSetOperations",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListStackSetOperationsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListStackSetOperationsCommand)(output, context);
-    }
+class ListStackSetOperationsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListStackSetOperations", {})
+    .n("CloudFormationClient", "ListStackSetOperationsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListStackSetOperationsCommand)
+    .de(Aws_query_1.de_ListStackSetOperationsCommand)
+    .build() {
 }
 exports.ListStackSetOperationsCommand = ListStackSetOperationsCommand;
 
@@ -15590,48 +14463,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListStackSetsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStackSetsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListStackSetsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListStackSets",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListStackSetsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListStackSetsCommand)(output, context);
-    }
+class ListStackSetsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListStackSets", {})
+    .n("CloudFormationClient", "ListStackSetsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListStackSetsCommand)
+    .de(Aws_query_1.de_ListStackSetsCommand)
+    .build() {
 }
 exports.ListStackSetsCommand = ListStackSetsCommand;
 
@@ -15649,48 +14499,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListStacksCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListStacksCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListStacksCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListStacks",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListStacksCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListStacksCommand)(output, context);
-    }
+class ListStacksCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListStacks", {})
+    .n("CloudFormationClient", "ListStacksCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListStacksCommand)
+    .de(Aws_query_1.de_ListStacksCommand)
+    .build() {
 }
 exports.ListStacksCommand = ListStacksCommand;
 
@@ -15708,48 +14535,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListTypeRegistrationsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListTypeRegistrationsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListTypeRegistrationsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListTypeRegistrations",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListTypeRegistrationsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListTypeRegistrationsCommand)(output, context);
-    }
+class ListTypeRegistrationsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListTypeRegistrations", {})
+    .n("CloudFormationClient", "ListTypeRegistrationsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListTypeRegistrationsCommand)
+    .de(Aws_query_1.de_ListTypeRegistrationsCommand)
+    .build() {
 }
 exports.ListTypeRegistrationsCommand = ListTypeRegistrationsCommand;
 
@@ -15767,48 +14571,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListTypeVersionsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListTypeVersionsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListTypeVersionsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListTypeVersions",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListTypeVersionsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListTypeVersionsCommand)(output, context);
-    }
+class ListTypeVersionsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListTypeVersions", {})
+    .n("CloudFormationClient", "ListTypeVersionsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListTypeVersionsCommand)
+    .de(Aws_query_1.de_ListTypeVersionsCommand)
+    .build() {
 }
 exports.ListTypeVersionsCommand = ListTypeVersionsCommand;
 
@@ -15826,48 +14607,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ListTypesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListTypesCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ListTypesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ListTypes",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ListTypesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ListTypesCommand)(output, context);
-    }
+class ListTypesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ListTypes", {})
+    .n("CloudFormationClient", "ListTypesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ListTypesCommand)
+    .de(Aws_query_1.de_ListTypesCommand)
+    .build() {
 }
 exports.ListTypesCommand = ListTypesCommand;
 
@@ -15885,48 +14643,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class PublishTypeCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, PublishTypeCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "PublishTypeCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "PublishType",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_PublishTypeCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_PublishTypeCommand)(output, context);
-    }
+class PublishTypeCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "PublishType", {})
+    .n("CloudFormationClient", "PublishTypeCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_PublishTypeCommand)
+    .de(Aws_query_1.de_PublishTypeCommand)
+    .build() {
 }
 exports.PublishTypeCommand = PublishTypeCommand;
 
@@ -15944,48 +14679,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class RecordHandlerProgressCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, RecordHandlerProgressCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "RecordHandlerProgressCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "RecordHandlerProgress",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_RecordHandlerProgressCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_RecordHandlerProgressCommand)(output, context);
-    }
+class RecordHandlerProgressCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "RecordHandlerProgress", {})
+    .n("CloudFormationClient", "RecordHandlerProgressCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_RecordHandlerProgressCommand)
+    .de(Aws_query_1.de_RecordHandlerProgressCommand)
+    .build() {
 }
 exports.RecordHandlerProgressCommand = RecordHandlerProgressCommand;
 
@@ -16003,48 +14715,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class RegisterPublisherCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, RegisterPublisherCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "RegisterPublisherCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "RegisterPublisher",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_RegisterPublisherCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_RegisterPublisherCommand)(output, context);
-    }
+class RegisterPublisherCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "RegisterPublisher", {})
+    .n("CloudFormationClient", "RegisterPublisherCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_RegisterPublisherCommand)
+    .de(Aws_query_1.de_RegisterPublisherCommand)
+    .build() {
 }
 exports.RegisterPublisherCommand = RegisterPublisherCommand;
 
@@ -16062,48 +14751,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class RegisterTypeCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, RegisterTypeCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "RegisterTypeCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "RegisterType",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_RegisterTypeCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_RegisterTypeCommand)(output, context);
-    }
+class RegisterTypeCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "RegisterType", {})
+    .n("CloudFormationClient", "RegisterTypeCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_RegisterTypeCommand)
+    .de(Aws_query_1.de_RegisterTypeCommand)
+    .build() {
 }
 exports.RegisterTypeCommand = RegisterTypeCommand;
 
@@ -16121,48 +14787,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class RollbackStackCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, RollbackStackCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "RollbackStackCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "RollbackStack",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_RollbackStackCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_RollbackStackCommand)(output, context);
-    }
+class RollbackStackCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "RollbackStack", {})
+    .n("CloudFormationClient", "RollbackStackCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_RollbackStackCommand)
+    .de(Aws_query_1.de_RollbackStackCommand)
+    .build() {
 }
 exports.RollbackStackCommand = RollbackStackCommand;
 
@@ -16180,48 +14823,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class SetStackPolicyCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SetStackPolicyCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "SetStackPolicyCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "SetStackPolicy",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_SetStackPolicyCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_SetStackPolicyCommand)(output, context);
-    }
+class SetStackPolicyCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "SetStackPolicy", {})
+    .n("CloudFormationClient", "SetStackPolicyCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_SetStackPolicyCommand)
+    .de(Aws_query_1.de_SetStackPolicyCommand)
+    .build() {
 }
 exports.SetStackPolicyCommand = SetStackPolicyCommand;
 
@@ -16239,48 +14859,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class SetTypeConfigurationCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SetTypeConfigurationCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "SetTypeConfigurationCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "SetTypeConfiguration",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_SetTypeConfigurationCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_SetTypeConfigurationCommand)(output, context);
-    }
+class SetTypeConfigurationCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "SetTypeConfiguration", {})
+    .n("CloudFormationClient", "SetTypeConfigurationCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_SetTypeConfigurationCommand)
+    .de(Aws_query_1.de_SetTypeConfigurationCommand)
+    .build() {
 }
 exports.SetTypeConfigurationCommand = SetTypeConfigurationCommand;
 
@@ -16298,48 +14895,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class SetTypeDefaultVersionCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SetTypeDefaultVersionCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "SetTypeDefaultVersionCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "SetTypeDefaultVersion",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_SetTypeDefaultVersionCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_SetTypeDefaultVersionCommand)(output, context);
-    }
+class SetTypeDefaultVersionCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "SetTypeDefaultVersion", {})
+    .n("CloudFormationClient", "SetTypeDefaultVersionCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_SetTypeDefaultVersionCommand)
+    .de(Aws_query_1.de_SetTypeDefaultVersionCommand)
+    .build() {
 }
 exports.SetTypeDefaultVersionCommand = SetTypeDefaultVersionCommand;
 
@@ -16357,48 +14931,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class SignalResourceCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SignalResourceCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "SignalResourceCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "SignalResource",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_SignalResourceCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_SignalResourceCommand)(output, context);
-    }
+class SignalResourceCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "SignalResource", {})
+    .n("CloudFormationClient", "SignalResourceCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_SignalResourceCommand)
+    .de(Aws_query_1.de_SignalResourceCommand)
+    .build() {
 }
 exports.SignalResourceCommand = SignalResourceCommand;
 
@@ -16416,48 +14967,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class StopStackSetOperationCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, StopStackSetOperationCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "StopStackSetOperationCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "StopStackSetOperation",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_StopStackSetOperationCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_StopStackSetOperationCommand)(output, context);
-    }
+class StopStackSetOperationCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "StopStackSetOperation", {})
+    .n("CloudFormationClient", "StopStackSetOperationCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_StopStackSetOperationCommand)
+    .de(Aws_query_1.de_StopStackSetOperationCommand)
+    .build() {
 }
 exports.StopStackSetOperationCommand = StopStackSetOperationCommand;
 
@@ -16475,48 +15003,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class TestTypeCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, TestTypeCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "TestTypeCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "TestType",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_TestTypeCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_TestTypeCommand)(output, context);
-    }
+class TestTypeCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "TestType", {})
+    .n("CloudFormationClient", "TestTypeCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_TestTypeCommand)
+    .de(Aws_query_1.de_TestTypeCommand)
+    .build() {
 }
 exports.TestTypeCommand = TestTypeCommand;
 
@@ -16534,48 +15039,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class UpdateStackCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateStackCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "UpdateStackCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "UpdateStack",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_UpdateStackCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_UpdateStackCommand)(output, context);
-    }
+class UpdateStackCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "UpdateStack", {})
+    .n("CloudFormationClient", "UpdateStackCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_UpdateStackCommand)
+    .de(Aws_query_1.de_UpdateStackCommand)
+    .build() {
 }
 exports.UpdateStackCommand = UpdateStackCommand;
 
@@ -16593,48 +15075,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class UpdateStackInstancesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateStackInstancesCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "UpdateStackInstancesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "UpdateStackInstances",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_UpdateStackInstancesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_UpdateStackInstancesCommand)(output, context);
-    }
+class UpdateStackInstancesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "UpdateStackInstances", {})
+    .n("CloudFormationClient", "UpdateStackInstancesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_UpdateStackInstancesCommand)
+    .de(Aws_query_1.de_UpdateStackInstancesCommand)
+    .build() {
 }
 exports.UpdateStackInstancesCommand = UpdateStackInstancesCommand;
 
@@ -16652,48 +15111,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class UpdateStackSetCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateStackSetCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "UpdateStackSetCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "UpdateStackSet",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_UpdateStackSetCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_UpdateStackSetCommand)(output, context);
-    }
+class UpdateStackSetCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "UpdateStackSet", {})
+    .n("CloudFormationClient", "UpdateStackSetCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_UpdateStackSetCommand)
+    .de(Aws_query_1.de_UpdateStackSetCommand)
+    .build() {
 }
 exports.UpdateStackSetCommand = UpdateStackSetCommand;
 
@@ -16711,48 +15147,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class UpdateTerminationProtectionCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateTerminationProtectionCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "UpdateTerminationProtectionCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "UpdateTerminationProtection",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_UpdateTerminationProtectionCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_UpdateTerminationProtectionCommand)(output, context);
-    }
+class UpdateTerminationProtectionCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "UpdateTerminationProtection", {})
+    .n("CloudFormationClient", "UpdateTerminationProtectionCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_UpdateTerminationProtectionCommand)
+    .de(Aws_query_1.de_UpdateTerminationProtectionCommand)
+    .build() {
 }
 exports.UpdateTerminationProtectionCommand = UpdateTerminationProtectionCommand;
 
@@ -16770,48 +15183,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(49066);
 const Aws_query_1 = __nccwpck_require__(46110);
-class ValidateTemplateCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ValidateTemplateCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CloudFormationClient";
-        const commandName = "ValidateTemplateCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "CloudFormation",
-                operation: "ValidateTemplate",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_ValidateTemplateCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_ValidateTemplateCommand)(output, context);
-    }
+class ValidateTemplateCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("CloudFormation", "ValidateTemplate", {})
+    .n("CloudFormationClient", "ValidateTemplateCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_ValidateTemplateCommand)
+    .de(Aws_query_1.de_ValidateTemplateCommand)
+    .build() {
 }
 exports.ValidateTemplateCommand = ValidateTemplateCommand;
 
@@ -16905,7 +15295,7 @@ tslib_1.__exportStar(__nccwpck_require__(11609), exports);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.resolveClientEndpointParameters = void 0;
+exports.commonParams = exports.resolveClientEndpointParameters = void 0;
 const resolveClientEndpointParameters = (options) => {
     return {
         ...options,
@@ -16915,6 +15305,12 @@ const resolveClientEndpointParameters = (options) => {
     };
 };
 exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
+exports.commonParams = {
+    UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+    Endpoint: { type: "builtInParams", name: "endpoint" },
+    Region: { type: "builtInParams", name: "region" },
+    UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+};
 
 
 /***/ }),
@@ -17684,31 +16080,10 @@ exports.ResourceSignalStatus = {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeAccountLimits = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const DescribeAccountLimitsCommand_1 = __nccwpck_require__(90664);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new DescribeAccountLimitsCommand_1.DescribeAccountLimitsCommand(input), ...args);
-};
-async function* paginateDescribeAccountLimits(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateDescribeAccountLimits = paginateDescribeAccountLimits;
+exports.paginateDescribeAccountLimits = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, DescribeAccountLimitsCommand_1.DescribeAccountLimitsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
@@ -17720,31 +16095,10 @@ exports.paginateDescribeAccountLimits = paginateDescribeAccountLimits;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStackEvents = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const DescribeStackEventsCommand_1 = __nccwpck_require__(87929);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new DescribeStackEventsCommand_1.DescribeStackEventsCommand(input), ...args);
-};
-async function* paginateDescribeStackEvents(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateDescribeStackEvents = paginateDescribeStackEvents;
+exports.paginateDescribeStackEvents = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, DescribeStackEventsCommand_1.DescribeStackEventsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
@@ -17756,32 +16110,10 @@ exports.paginateDescribeStackEvents = paginateDescribeStackEvents;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStackResourceDrifts = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const DescribeStackResourceDriftsCommand_1 = __nccwpck_require__(22837);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new DescribeStackResourceDriftsCommand_1.DescribeStackResourceDriftsCommand(input), ...args);
-};
-async function* paginateDescribeStackResourceDrifts(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateDescribeStackResourceDrifts = paginateDescribeStackResourceDrifts;
+exports.paginateDescribeStackResourceDrifts = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, DescribeStackResourceDriftsCommand_1.DescribeStackResourceDriftsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -17793,31 +16125,10 @@ exports.paginateDescribeStackResourceDrifts = paginateDescribeStackResourceDrift
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateDescribeStacks = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const DescribeStacksCommand_1 = __nccwpck_require__(79769);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new DescribeStacksCommand_1.DescribeStacksCommand(input), ...args);
-};
-async function* paginateDescribeStacks(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateDescribeStacks = paginateDescribeStacks;
+exports.paginateDescribeStacks = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, DescribeStacksCommand_1.DescribeStacksCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
@@ -17839,31 +16150,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListChangeSets = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListChangeSetsCommand_1 = __nccwpck_require__(87882);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListChangeSetsCommand_1.ListChangeSetsCommand(input), ...args);
-};
-async function* paginateListChangeSets(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListChangeSets = paginateListChangeSets;
+exports.paginateListChangeSets = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListChangeSetsCommand_1.ListChangeSetsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
@@ -17875,31 +16165,10 @@ exports.paginateListChangeSets = paginateListChangeSets;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListExports = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListExportsCommand_1 = __nccwpck_require__(81426);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListExportsCommand_1.ListExportsCommand(input), ...args);
-};
-async function* paginateListExports(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListExports = paginateListExports;
+exports.paginateListExports = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListExportsCommand_1.ListExportsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
@@ -17911,31 +16180,10 @@ exports.paginateListExports = paginateListExports;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListImports = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListImportsCommand_1 = __nccwpck_require__(21574);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListImportsCommand_1.ListImportsCommand(input), ...args);
-};
-async function* paginateListImports(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListImports = paginateListImports;
+exports.paginateListImports = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListImportsCommand_1.ListImportsCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
@@ -17947,32 +16195,10 @@ exports.paginateListImports = paginateListImports;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackInstances = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackInstancesCommand_1 = __nccwpck_require__(70488);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListStackInstancesCommand_1.ListStackInstancesCommand(input), ...args);
-};
-async function* paginateListStackInstances(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListStackInstances = paginateListStackInstances;
+exports.paginateListStackInstances = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackInstancesCommand_1.ListStackInstancesCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -17984,31 +16210,10 @@ exports.paginateListStackInstances = paginateListStackInstances;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackResources = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackResourcesCommand_1 = __nccwpck_require__(12602);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListStackResourcesCommand_1.ListStackResourcesCommand(input), ...args);
-};
-async function* paginateListStackResources(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListStackResources = paginateListStackResources;
+exports.paginateListStackResources = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackResourcesCommand_1.ListStackResourcesCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
@@ -18020,32 +16225,10 @@ exports.paginateListStackResources = paginateListStackResources;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSetOperationResults = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackSetOperationResultsCommand_1 = __nccwpck_require__(12200);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListStackSetOperationResultsCommand_1.ListStackSetOperationResultsCommand(input), ...args);
-};
-async function* paginateListStackSetOperationResults(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListStackSetOperationResults = paginateListStackSetOperationResults;
+exports.paginateListStackSetOperationResults = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackSetOperationResultsCommand_1.ListStackSetOperationResultsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -18057,32 +16240,10 @@ exports.paginateListStackSetOperationResults = paginateListStackSetOperationResu
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSetOperations = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackSetOperationsCommand_1 = __nccwpck_require__(65603);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListStackSetOperationsCommand_1.ListStackSetOperationsCommand(input), ...args);
-};
-async function* paginateListStackSetOperations(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListStackSetOperations = paginateListStackSetOperations;
+exports.paginateListStackSetOperations = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackSetOperationsCommand_1.ListStackSetOperationsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -18094,32 +16255,10 @@ exports.paginateListStackSetOperations = paginateListStackSetOperations;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStackSets = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStackSetsCommand_1 = __nccwpck_require__(25005);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListStackSetsCommand_1.ListStackSetsCommand(input), ...args);
-};
-async function* paginateListStackSets(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListStackSets = paginateListStackSets;
+exports.paginateListStackSets = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStackSetsCommand_1.ListStackSetsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -18131,31 +16270,10 @@ exports.paginateListStackSets = paginateListStackSets;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListStacks = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListStacksCommand_1 = __nccwpck_require__(11276);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListStacksCommand_1.ListStacksCommand(input), ...args);
-};
-async function* paginateListStacks(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListStacks = paginateListStacks;
+exports.paginateListStacks = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListStacksCommand_1.ListStacksCommand, "NextToken", "NextToken", "");
 
 
 /***/ }),
@@ -18167,32 +16285,10 @@ exports.paginateListStacks = paginateListStacks;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypeRegistrations = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListTypeRegistrationsCommand_1 = __nccwpck_require__(53280);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListTypeRegistrationsCommand_1.ListTypeRegistrationsCommand(input), ...args);
-};
-async function* paginateListTypeRegistrations(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListTypeRegistrations = paginateListTypeRegistrations;
+exports.paginateListTypeRegistrations = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListTypeRegistrationsCommand_1.ListTypeRegistrationsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -18204,32 +16300,10 @@ exports.paginateListTypeRegistrations = paginateListTypeRegistrations;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypeVersions = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListTypeVersionsCommand_1 = __nccwpck_require__(31414);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListTypeVersionsCommand_1.ListTypeVersionsCommand(input), ...args);
-};
-async function* paginateListTypeVersions(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListTypeVersions = paginateListTypeVersions;
+exports.paginateListTypeVersions = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListTypeVersionsCommand_1.ListTypeVersionsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -18241,32 +16315,10 @@ exports.paginateListTypeVersions = paginateListTypeVersions;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListTypes = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CloudFormationClient_1 = __nccwpck_require__(10456);
 const ListTypesCommand_1 = __nccwpck_require__(53520);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListTypesCommand_1.ListTypesCommand(input), ...args);
-};
-async function* paginateListTypes(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CloudFormationClient_1.CloudFormationClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListTypes = paginateListTypes;
+exports.paginateListTypes = (0, core_1.createPaginator)(CloudFormationClient_1.CloudFormationClient, ListTypesCommand_1.ListTypesCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -18319,8 +16371,8 @@ const se_ActivateOrganizationsAccessCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ActivateOrganizationsAccessInput(input, context),
-        Action: "ActivateOrganizationsAccess",
-        Version: "2010-05-15",
+        [_A]: _AOA,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18330,8 +16382,8 @@ const se_ActivateTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ActivateTypeInput(input, context),
-        Action: "ActivateType",
-        Version: "2010-05-15",
+        [_A]: _AT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18341,8 +16393,8 @@ const se_BatchDescribeTypeConfigurationsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_BatchDescribeTypeConfigurationsInput(input, context),
-        Action: "BatchDescribeTypeConfigurations",
-        Version: "2010-05-15",
+        [_A]: _BDTC,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18352,8 +16404,8 @@ const se_CancelUpdateStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CancelUpdateStackInput(input, context),
-        Action: "CancelUpdateStack",
-        Version: "2010-05-15",
+        [_A]: _CUS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18363,8 +16415,8 @@ const se_ContinueUpdateRollbackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ContinueUpdateRollbackInput(input, context),
-        Action: "ContinueUpdateRollback",
-        Version: "2010-05-15",
+        [_A]: _CUR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18374,8 +16426,8 @@ const se_CreateChangeSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateChangeSetInput(input, context),
-        Action: "CreateChangeSet",
-        Version: "2010-05-15",
+        [_A]: _CCS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18385,8 +16437,8 @@ const se_CreateStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackInput(input, context),
-        Action: "CreateStack",
-        Version: "2010-05-15",
+        [_A]: _CS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18396,8 +16448,8 @@ const se_CreateStackInstancesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackInstancesInput(input, context),
-        Action: "CreateStackInstances",
-        Version: "2010-05-15",
+        [_A]: _CSI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18407,8 +16459,8 @@ const se_CreateStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_CreateStackSetInput(input, context),
-        Action: "CreateStackSet",
-        Version: "2010-05-15",
+        [_A]: _CSS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18418,8 +16470,8 @@ const se_DeactivateOrganizationsAccessCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeactivateOrganizationsAccessInput(input, context),
-        Action: "DeactivateOrganizationsAccess",
-        Version: "2010-05-15",
+        [_A]: _DOA,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18429,8 +16481,8 @@ const se_DeactivateTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeactivateTypeInput(input, context),
-        Action: "DeactivateType",
-        Version: "2010-05-15",
+        [_A]: _DT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18440,8 +16492,8 @@ const se_DeleteChangeSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteChangeSetInput(input, context),
-        Action: "DeleteChangeSet",
-        Version: "2010-05-15",
+        [_A]: _DCS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18451,8 +16503,8 @@ const se_DeleteStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackInput(input, context),
-        Action: "DeleteStack",
-        Version: "2010-05-15",
+        [_A]: _DS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18462,8 +16514,8 @@ const se_DeleteStackInstancesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackInstancesInput(input, context),
-        Action: "DeleteStackInstances",
-        Version: "2010-05-15",
+        [_A]: _DSI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18473,8 +16525,8 @@ const se_DeleteStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeleteStackSetInput(input, context),
-        Action: "DeleteStackSet",
-        Version: "2010-05-15",
+        [_A]: _DSS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18484,8 +16536,8 @@ const se_DeregisterTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DeregisterTypeInput(input, context),
-        Action: "DeregisterType",
-        Version: "2010-05-15",
+        [_A]: _DTe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18495,8 +16547,8 @@ const se_DescribeAccountLimitsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeAccountLimitsInput(input, context),
-        Action: "DescribeAccountLimits",
-        Version: "2010-05-15",
+        [_A]: _DAL,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18506,8 +16558,8 @@ const se_DescribeChangeSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeChangeSetInput(input, context),
-        Action: "DescribeChangeSet",
-        Version: "2010-05-15",
+        [_A]: _DCSe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18517,8 +16569,8 @@ const se_DescribeChangeSetHooksCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeChangeSetHooksInput(input, context),
-        Action: "DescribeChangeSetHooks",
-        Version: "2010-05-15",
+        [_A]: _DCSH,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18528,8 +16580,8 @@ const se_DescribeOrganizationsAccessCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeOrganizationsAccessInput(input, context),
-        Action: "DescribeOrganizationsAccess",
-        Version: "2010-05-15",
+        [_A]: _DOAe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18539,8 +16591,8 @@ const se_DescribePublisherCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribePublisherInput(input, context),
-        Action: "DescribePublisher",
-        Version: "2010-05-15",
+        [_A]: _DP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18550,8 +16602,8 @@ const se_DescribeStackDriftDetectionStatusCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackDriftDetectionStatusInput(input, context),
-        Action: "DescribeStackDriftDetectionStatus",
-        Version: "2010-05-15",
+        [_A]: _DSDDS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18561,8 +16613,8 @@ const se_DescribeStackEventsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackEventsInput(input, context),
-        Action: "DescribeStackEvents",
-        Version: "2010-05-15",
+        [_A]: _DSE,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18572,8 +16624,8 @@ const se_DescribeStackInstanceCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackInstanceInput(input, context),
-        Action: "DescribeStackInstance",
-        Version: "2010-05-15",
+        [_A]: _DSIe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18583,8 +16635,8 @@ const se_DescribeStackResourceCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourceInput(input, context),
-        Action: "DescribeStackResource",
-        Version: "2010-05-15",
+        [_A]: _DSR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18594,8 +16646,8 @@ const se_DescribeStackResourceDriftsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourceDriftsInput(input, context),
-        Action: "DescribeStackResourceDrifts",
-        Version: "2010-05-15",
+        [_A]: _DSRD,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18605,8 +16657,8 @@ const se_DescribeStackResourcesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackResourcesInput(input, context),
-        Action: "DescribeStackResources",
-        Version: "2010-05-15",
+        [_A]: _DSRe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18616,8 +16668,8 @@ const se_DescribeStacksCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStacksInput(input, context),
-        Action: "DescribeStacks",
-        Version: "2010-05-15",
+        [_A]: _DSe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18627,8 +16679,8 @@ const se_DescribeStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackSetInput(input, context),
-        Action: "DescribeStackSet",
-        Version: "2010-05-15",
+        [_A]: _DSSe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18638,8 +16690,8 @@ const se_DescribeStackSetOperationCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeStackSetOperationInput(input, context),
-        Action: "DescribeStackSetOperation",
-        Version: "2010-05-15",
+        [_A]: _DSSO,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18649,8 +16701,8 @@ const se_DescribeTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeTypeInput(input, context),
-        Action: "DescribeType",
-        Version: "2010-05-15",
+        [_A]: _DTes,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18660,8 +16712,8 @@ const se_DescribeTypeRegistrationCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DescribeTypeRegistrationInput(input, context),
-        Action: "DescribeTypeRegistration",
-        Version: "2010-05-15",
+        [_A]: _DTR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18671,8 +16723,8 @@ const se_DetectStackDriftCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackDriftInput(input, context),
-        Action: "DetectStackDrift",
-        Version: "2010-05-15",
+        [_A]: _DSD,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18682,8 +16734,8 @@ const se_DetectStackResourceDriftCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackResourceDriftInput(input, context),
-        Action: "DetectStackResourceDrift",
-        Version: "2010-05-15",
+        [_A]: _DSRDe,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18693,8 +16745,8 @@ const se_DetectStackSetDriftCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DetectStackSetDriftInput(input, context),
-        Action: "DetectStackSetDrift",
-        Version: "2010-05-15",
+        [_A]: _DSSD,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18704,8 +16756,8 @@ const se_EstimateTemplateCostCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_EstimateTemplateCostInput(input, context),
-        Action: "EstimateTemplateCost",
-        Version: "2010-05-15",
+        [_A]: _ETC,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18715,8 +16767,8 @@ const se_ExecuteChangeSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ExecuteChangeSetInput(input, context),
-        Action: "ExecuteChangeSet",
-        Version: "2010-05-15",
+        [_A]: _ECS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18726,8 +16778,8 @@ const se_GetStackPolicyCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetStackPolicyInput(input, context),
-        Action: "GetStackPolicy",
-        Version: "2010-05-15",
+        [_A]: _GSP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18737,8 +16789,8 @@ const se_GetTemplateCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetTemplateInput(input, context),
-        Action: "GetTemplate",
-        Version: "2010-05-15",
+        [_A]: _GT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18748,8 +16800,8 @@ const se_GetTemplateSummaryCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetTemplateSummaryInput(input, context),
-        Action: "GetTemplateSummary",
-        Version: "2010-05-15",
+        [_A]: _GTS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18759,8 +16811,8 @@ const se_ImportStacksToStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ImportStacksToStackSetInput(input, context),
-        Action: "ImportStacksToStackSet",
-        Version: "2010-05-15",
+        [_A]: _ISTSS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18770,8 +16822,8 @@ const se_ListChangeSetsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListChangeSetsInput(input, context),
-        Action: "ListChangeSets",
-        Version: "2010-05-15",
+        [_A]: _LCS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18781,8 +16833,8 @@ const se_ListExportsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListExportsInput(input, context),
-        Action: "ListExports",
-        Version: "2010-05-15",
+        [_A]: _LE,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18792,8 +16844,8 @@ const se_ListImportsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListImportsInput(input, context),
-        Action: "ListImports",
-        Version: "2010-05-15",
+        [_A]: _LI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18803,8 +16855,8 @@ const se_ListStackInstanceResourceDriftsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackInstanceResourceDriftsInput(input, context),
-        Action: "ListStackInstanceResourceDrifts",
-        Version: "2010-05-15",
+        [_A]: _LSIRD,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18814,8 +16866,8 @@ const se_ListStackInstancesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackInstancesInput(input, context),
-        Action: "ListStackInstances",
-        Version: "2010-05-15",
+        [_A]: _LSI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18825,8 +16877,8 @@ const se_ListStackResourcesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackResourcesInput(input, context),
-        Action: "ListStackResources",
-        Version: "2010-05-15",
+        [_A]: _LSR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18836,8 +16888,8 @@ const se_ListStacksCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStacksInput(input, context),
-        Action: "ListStacks",
-        Version: "2010-05-15",
+        [_A]: _LS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18847,8 +16899,8 @@ const se_ListStackSetOperationResultsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetOperationResultsInput(input, context),
-        Action: "ListStackSetOperationResults",
-        Version: "2010-05-15",
+        [_A]: _LSSOR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18858,8 +16910,8 @@ const se_ListStackSetOperationsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetOperationsInput(input, context),
-        Action: "ListStackSetOperations",
-        Version: "2010-05-15",
+        [_A]: _LSSO,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18869,8 +16921,8 @@ const se_ListStackSetsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListStackSetsInput(input, context),
-        Action: "ListStackSets",
-        Version: "2010-05-15",
+        [_A]: _LSS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18880,8 +16932,8 @@ const se_ListTypeRegistrationsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypeRegistrationsInput(input, context),
-        Action: "ListTypeRegistrations",
-        Version: "2010-05-15",
+        [_A]: _LTR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18891,8 +16943,8 @@ const se_ListTypesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypesInput(input, context),
-        Action: "ListTypes",
-        Version: "2010-05-15",
+        [_A]: _LT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18902,8 +16954,8 @@ const se_ListTypeVersionsCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ListTypeVersionsInput(input, context),
-        Action: "ListTypeVersions",
-        Version: "2010-05-15",
+        [_A]: _LTV,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18913,8 +16965,8 @@ const se_PublishTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_PublishTypeInput(input, context),
-        Action: "PublishType",
-        Version: "2010-05-15",
+        [_A]: _PT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18924,8 +16976,8 @@ const se_RecordHandlerProgressCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_RecordHandlerProgressInput(input, context),
-        Action: "RecordHandlerProgress",
-        Version: "2010-05-15",
+        [_A]: _RHP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18935,8 +16987,8 @@ const se_RegisterPublisherCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_RegisterPublisherInput(input, context),
-        Action: "RegisterPublisher",
-        Version: "2010-05-15",
+        [_A]: _RP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18946,8 +16998,8 @@ const se_RegisterTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_RegisterTypeInput(input, context),
-        Action: "RegisterType",
-        Version: "2010-05-15",
+        [_A]: _RT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18957,8 +17009,8 @@ const se_RollbackStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_RollbackStackInput(input, context),
-        Action: "RollbackStack",
-        Version: "2010-05-15",
+        [_A]: _RS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18968,8 +17020,8 @@ const se_SetStackPolicyCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_SetStackPolicyInput(input, context),
-        Action: "SetStackPolicy",
-        Version: "2010-05-15",
+        [_A]: _SSP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18979,8 +17031,8 @@ const se_SetTypeConfigurationCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_SetTypeConfigurationInput(input, context),
-        Action: "SetTypeConfiguration",
-        Version: "2010-05-15",
+        [_A]: _STC,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -18990,8 +17042,8 @@ const se_SetTypeDefaultVersionCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_SetTypeDefaultVersionInput(input, context),
-        Action: "SetTypeDefaultVersion",
-        Version: "2010-05-15",
+        [_A]: _STDV,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19001,8 +17053,8 @@ const se_SignalResourceCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_SignalResourceInput(input, context),
-        Action: "SignalResource",
-        Version: "2010-05-15",
+        [_A]: _SR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19012,8 +17064,8 @@ const se_StopStackSetOperationCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_StopStackSetOperationInput(input, context),
-        Action: "StopStackSetOperation",
-        Version: "2010-05-15",
+        [_A]: _SSSO,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19023,8 +17075,8 @@ const se_TestTypeCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_TestTypeInput(input, context),
-        Action: "TestType",
-        Version: "2010-05-15",
+        [_A]: _TT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19034,8 +17086,8 @@ const se_UpdateStackCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackInput(input, context),
-        Action: "UpdateStack",
-        Version: "2010-05-15",
+        [_A]: _US,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19045,8 +17097,8 @@ const se_UpdateStackInstancesCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackInstancesInput(input, context),
-        Action: "UpdateStackInstances",
-        Version: "2010-05-15",
+        [_A]: _USI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19056,8 +17108,8 @@ const se_UpdateStackSetCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateStackSetInput(input, context),
-        Action: "UpdateStackSet",
-        Version: "2010-05-15",
+        [_A]: _USS,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19067,8 +17119,8 @@ const se_UpdateTerminationProtectionCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_UpdateTerminationProtectionInput(input, context),
-        Action: "UpdateTerminationProtection",
-        Version: "2010-05-15",
+        [_A]: _UTP,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -19078,8 +17130,8 @@ const se_ValidateTemplateCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_ValidateTemplateInput(input, context),
-        Action: "ValidateTemplate",
-        Version: "2010-05-15",
+        [_A]: _VT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -21649,57 +19701,57 @@ const se_ActivateOrganizationsAccessInput = (input, context) => {
 };
 const se_ActivateTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.PublicTypeArn != null) {
-        entries["PublicTypeArn"] = input.PublicTypeArn;
+    if (input[_PTA] != null) {
+        entries[_PTA] = input[_PTA];
     }
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.TypeNameAlias != null) {
-        entries["TypeNameAlias"] = input.TypeNameAlias;
+    if (input[_TNA] != null) {
+        entries[_TNA] = input[_TNA];
     }
-    if (input.AutoUpdate != null) {
-        entries["AutoUpdate"] = input.AutoUpdate;
+    if (input[_AU] != null) {
+        entries[_AU] = input[_AU];
     }
-    if (input.LoggingConfig != null) {
-        const memberEntries = se_LoggingConfig(input.LoggingConfig, context);
+    if (input[_LC] != null) {
+        const memberEntries = se_LoggingConfig(input[_LC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LoggingConfig.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ExecutionRoleArn != null) {
-        entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+    if (input[_ERA] != null) {
+        entries[_ERA] = input[_ERA];
     }
-    if (input.VersionBump != null) {
-        entries["VersionBump"] = input.VersionBump;
+    if (input[_VB] != null) {
+        entries[_VB] = input[_VB];
     }
-    if (input.MajorVersion != null) {
-        entries["MajorVersion"] = input.MajorVersion;
+    if (input[_MV] != null) {
+        entries[_MV] = input[_MV];
     }
     return entries;
 };
 const se_AutoDeployment = (input, context) => {
     const entries = {};
-    if (input.Enabled != null) {
-        entries["Enabled"] = input.Enabled;
+    if (input[_E] != null) {
+        entries[_E] = input[_E];
     }
-    if (input.RetainStacksOnAccountRemoval != null) {
-        entries["RetainStacksOnAccountRemoval"] = input.RetainStacksOnAccountRemoval;
+    if (input[_RSOAR] != null) {
+        entries[_RSOAR] = input[_RSOAR];
     }
     return entries;
 };
 const se_BatchDescribeTypeConfigurationsInput = (input, context) => {
     const entries = {};
-    if (input.TypeConfigurationIdentifiers != null) {
-        const memberEntries = se_TypeConfigurationIdentifiers(input.TypeConfigurationIdentifiers, context);
-        if (input.TypeConfigurationIdentifiers?.length === 0) {
+    if (input[_TCI] != null) {
+        const memberEntries = se_TypeConfigurationIdentifiers(input[_TCI], context);
+        if (input[_TCI]?.length === 0) {
             entries.TypeConfigurationIdentifiers = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21711,11 +19763,11 @@ const se_BatchDescribeTypeConfigurationsInput = (input, context) => {
 };
 const se_CancelUpdateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
@@ -21733,15 +19785,15 @@ const se_Capabilities = (input, context) => {
 };
 const se_ContinueUpdateRollbackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.ResourcesToSkip != null) {
-        const memberEntries = se_ResourcesToSkip(input.ResourcesToSkip, context);
-        if (input.ResourcesToSkip?.length === 0) {
+    if (input[_RTS] != null) {
+        const memberEntries = se_ResourcesToSkip(input[_RTS], context);
+        if (input[_RTS]?.length === 0) {
             entries.ResourcesToSkip = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21749,28 +19801,28 @@ const se_ContinueUpdateRollbackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
 const se_CreateChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.UsePreviousTemplate != null) {
-        entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+    if (input[_UPT] != null) {
+        entries[_UPT] = input[_UPT];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21778,9 +19830,9 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21788,9 +19840,9 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes != null) {
-        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-        if (input.ResourceTypes?.length === 0) {
+    if (input[_RTe] != null) {
+        const memberEntries = se_ResourceTypes(input[_RTe], context);
+        if (input[_RTe]?.length === 0) {
             entries.ResourceTypes = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21798,19 +19850,19 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.RollbackConfiguration != null) {
-        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+    if (input[_RC] != null) {
+        const memberEntries = se_RollbackConfiguration(input[_RC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.NotificationARNs != null) {
-        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-        if (input.NotificationARNs?.length === 0) {
+    if (input[_NARN] != null) {
+        const memberEntries = se_NotificationARNs(input[_NARN], context);
+        if (input[_NARN]?.length === 0) {
             entries.NotificationARNs = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21818,9 +19870,9 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21828,21 +19880,21 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.ClientToken != null) {
-        entries["ClientToken"] = input.ClientToken;
+    if (input[_CT] != null) {
+        entries[_CT] = input[_CT];
     }
-    if (input.Description != null) {
-        entries["Description"] = input.Description;
+    if (input[_D] != null) {
+        entries[_D] = input[_D];
     }
-    if (input.ChangeSetType != null) {
-        entries["ChangeSetType"] = input.ChangeSetType;
+    if (input[_CST] != null) {
+        entries[_CST] = input[_CST];
     }
-    if (input.ResourcesToImport != null) {
-        const memberEntries = se_ResourcesToImport(input.ResourcesToImport, context);
-        if (input.ResourcesToImport?.length === 0) {
+    if (input[_RTI] != null) {
+        const memberEntries = se_ResourcesToImport(input[_RTI], context);
+        if (input[_RTI]?.length === 0) {
             entries.ResourcesToImport = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21850,31 +19902,31 @@ const se_CreateChangeSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.IncludeNestedStacks != null) {
-        entries["IncludeNestedStacks"] = input.IncludeNestedStacks;
+    if (input[_INS] != null) {
+        entries[_INS] = input[_INS];
     }
-    if (input.OnStackFailure != null) {
-        entries["OnStackFailure"] = input.OnStackFailure;
+    if (input[_OSF] != null) {
+        entries[_OSF] = input[_OSF];
     }
-    if (input.ImportExistingResources != null) {
-        entries["ImportExistingResources"] = input.ImportExistingResources;
+    if (input[_IER] != null) {
+        entries[_IER] = input[_IER];
     }
     return entries;
 };
 const se_CreateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21882,22 +19934,22 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DisableRollback != null) {
-        entries["DisableRollback"] = input.DisableRollback;
+    if (input[_DR] != null) {
+        entries[_DR] = input[_DR];
     }
-    if (input.RollbackConfiguration != null) {
-        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+    if (input[_RC] != null) {
+        const memberEntries = se_RollbackConfiguration(input[_RC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.TimeoutInMinutes != null) {
-        entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
+    if (input[_TIM] != null) {
+        entries[_TIM] = input[_TIM];
     }
-    if (input.NotificationARNs != null) {
-        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-        if (input.NotificationARNs?.length === 0) {
+    if (input[_NARN] != null) {
+        const memberEntries = se_NotificationARNs(input[_NARN], context);
+        if (input[_NARN]?.length === 0) {
             entries.NotificationARNs = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21905,9 +19957,9 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21915,9 +19967,9 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes != null) {
-        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-        if (input.ResourceTypes?.length === 0) {
+    if (input[_RTe] != null) {
+        const memberEntries = se_ResourceTypes(input[_RTe], context);
+        if (input[_RTe]?.length === 0) {
             entries.ResourceTypes = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21925,21 +19977,21 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.OnFailure != null) {
-        entries["OnFailure"] = input.OnFailure;
+    if (input[_OF] != null) {
+        entries[_OF] = input[_OF];
     }
-    if (input.StackPolicyBody != null) {
-        entries["StackPolicyBody"] = input.StackPolicyBody;
+    if (input[_SPB] != null) {
+        entries[_SPB] = input[_SPB];
     }
-    if (input.StackPolicyURL != null) {
-        entries["StackPolicyURL"] = input.StackPolicyURL;
+    if (input[_SPURL] != null) {
+        entries[_SPURL] = input[_SPURL];
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21947,25 +19999,25 @@ const se_CreateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.EnableTerminationProtection != null) {
-        entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
+    if (input[_ETP] != null) {
+        entries[_ETP] = input[_ETP];
     }
-    if (input.RetainExceptOnCreate != null) {
-        entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+    if (input[_REOC] != null) {
+        entries[_REOC] = input[_REOC];
     }
     return entries;
 };
 const se_CreateStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21973,16 +20025,16 @@ const se_CreateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets != null) {
-        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+    if (input[_DTep] != null) {
+        const memberEntries = se_DeploymentTargets(input[_DTep], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions != null) {
-        const memberEntries = se_RegionList(input.Regions, context);
-        if (input.Regions?.length === 0) {
+    if (input[_R] != null) {
+        const memberEntries = se_RegionList(input[_R], context);
+        if (input[_R]?.length === 0) {
             entries.Regions = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -21990,9 +20042,9 @@ const se_CreateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ParameterOverrides != null) {
-        const memberEntries = se_Parameters(input.ParameterOverrides, context);
-        if (input.ParameterOverrides?.length === 0) {
+    if (input[_PO] != null) {
+        const memberEntries = se_Parameters(input[_PO], context);
+        if (input[_PO]?.length === 0) {
             entries.ParameterOverrides = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22000,44 +20052,44 @@ const se_CreateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_CreateStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Description != null) {
-        entries["Description"] = input.Description;
+    if (input[_D] != null) {
+        entries[_D] = input[_D];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.StackId != null) {
-        entries["StackId"] = input.StackId;
+    if (input[_SI] != null) {
+        entries[_SI] = input[_SI];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22045,9 +20097,9 @@ const se_CreateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22055,9 +20107,9 @@ const se_CreateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22065,33 +20117,33 @@ const se_CreateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.AdministrationRoleARN != null) {
-        entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
+    if (input[_ARARN] != null) {
+        entries[_ARARN] = input[_ARARN];
     }
-    if (input.ExecutionRoleName != null) {
-        entries["ExecutionRoleName"] = input.ExecutionRoleName;
+    if (input[_ERN] != null) {
+        entries[_ERN] = input[_ERN];
     }
-    if (input.PermissionModel != null) {
-        entries["PermissionModel"] = input.PermissionModel;
+    if (input[_PM] != null) {
+        entries[_PM] = input[_PM];
     }
-    if (input.AutoDeployment != null) {
-        const memberEntries = se_AutoDeployment(input.AutoDeployment, context);
+    if (input[_AD] != null) {
+        const memberEntries = se_AutoDeployment(input[_AD], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `AutoDeployment.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
-    if (input.ClientRequestToken === undefined) {
-        input.ClientRequestToken = (0, uuid_1.v4)();
+    if (input[_CRT] === undefined) {
+        input[_CRT] = (0, uuid_1.v4)();
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.ManagedExecution != null) {
-        const memberEntries = se_ManagedExecution(input.ManagedExecution, context);
+    if (input[_ME] != null) {
+        const memberEntries = se_ManagedExecution(input[_ME], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ManagedExecution.${key}`;
             entries[loc] = value;
@@ -22105,35 +20157,35 @@ const se_DeactivateOrganizationsAccessInput = (input, context) => {
 };
 const se_DeactivateTypeInput = (input, context) => {
     const entries = {};
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
     return entries;
 };
 const se_DeleteChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
     return entries;
 };
 const se_DeleteStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.RetainResources != null) {
-        const memberEntries = se_RetainResources(input.RetainResources, context);
-        if (input.RetainResources?.length === 0) {
+    if (input[_RR] != null) {
+        const memberEntries = se_RetainResources(input[_RR], context);
+        if (input[_RR]?.length === 0) {
             entries.RetainResources = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22141,22 +20193,22 @@ const se_DeleteStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
 const se_DeleteStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22164,16 +20216,16 @@ const se_DeleteStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets != null) {
-        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+    if (input[_DTep] != null) {
+        const memberEntries = se_DeploymentTargets(input[_DTep], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions != null) {
-        const memberEntries = se_RegionList(input.Regions, context);
-        if (input.Regions?.length === 0) {
+    if (input[_R] != null) {
+        const memberEntries = se_RegionList(input[_R], context);
+        if (input[_R]?.length === 0) {
             entries.Regions = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22181,42 +20233,42 @@ const se_DeleteStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.RetainStacks != null) {
-        entries["RetainStacks"] = input.RetainStacks;
+    if (input[_RSe] != null) {
+        entries[_RSe] = input[_RSe];
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DeleteStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DeploymentTargets = (input, context) => {
     const entries = {};
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22224,12 +20276,12 @@ const se_DeploymentTargets = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.AccountsUrl != null) {
-        entries["AccountsUrl"] = input.AccountsUrl;
+    if (input[_AUc] != null) {
+        entries[_AUc] = input[_AUc];
     }
-    if (input.OrganizationalUnitIds != null) {
-        const memberEntries = se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context);
-        if (input.OrganizationalUnitIds?.length === 0) {
+    if (input[_OUI] != null) {
+        const memberEntries = se_OrganizationalUnitIdList(input[_OUI], context);
+        if (input[_OUI]?.length === 0) {
             entries.OrganizationalUnitIds = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22237,118 +20289,118 @@ const se_DeploymentTargets = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.AccountFilterType != null) {
-        entries["AccountFilterType"] = input.AccountFilterType;
+    if (input[_AFT] != null) {
+        entries[_AFT] = input[_AFT];
     }
     return entries;
 };
 const se_DeregisterTypeInput = (input, context) => {
     const entries = {};
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.VersionId != null) {
-        entries["VersionId"] = input.VersionId;
+    if (input[_VI] != null) {
+        entries[_VI] = input[_VI];
     }
     return entries;
 };
 const se_DescribeAccountLimitsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_DescribeChangeSetHooksInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
     return entries;
 };
 const se_DescribeChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_DescribeOrganizationsAccessInput = (input, context) => {
     const entries = {};
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DescribePublisherInput = (input, context) => {
     const entries = {};
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
     return entries;
 };
 const se_DescribeStackDriftDetectionStatusInput = (input, context) => {
     const entries = {};
-    if (input.StackDriftDetectionId != null) {
-        entries["StackDriftDetectionId"] = input.StackDriftDetectionId;
+    if (input[_SDDI] != null) {
+        entries[_SDDI] = input[_SDDI];
     }
     return entries;
 };
 const se_DescribeStackEventsInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_DescribeStackInstanceInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.StackInstanceAccount != null) {
-        entries["StackInstanceAccount"] = input.StackInstanceAccount;
+    if (input[_SIA] != null) {
+        entries[_SIA] = input[_SIA];
     }
-    if (input.StackInstanceRegion != null) {
-        entries["StackInstanceRegion"] = input.StackInstanceRegion;
+    if (input[_SIR] != null) {
+        entries[_SIR] = input[_SIR];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DescribeStackResourceDriftsInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.StackResourceDriftStatusFilters != null) {
-        const memberEntries = se_StackResourceDriftStatusFilters(input.StackResourceDriftStatusFilters, context);
-        if (input.StackResourceDriftStatusFilters?.length === 0) {
+    if (input[_SRDSF] != null) {
+        const memberEntries = se_StackResourceDriftStatusFilters(input[_SRDSF], context);
+        if (input[_SRDSF]?.length === 0) {
             entries.StackResourceDriftStatusFilters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22356,107 +20408,107 @@ const se_DescribeStackResourceDriftsInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
     return entries;
 };
 const se_DescribeStackResourceInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
     return entries;
 };
 const se_DescribeStackResourcesInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
-    if (input.PhysicalResourceId != null) {
-        entries["PhysicalResourceId"] = input.PhysicalResourceId;
+    if (input[_PRI] != null) {
+        entries[_PRI] = input[_PRI];
     }
     return entries;
 };
 const se_DescribeStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DescribeStackSetOperationInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_DescribeStacksInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_DescribeTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.VersionId != null) {
-        entries["VersionId"] = input.VersionId;
+    if (input[_VI] != null) {
+        entries[_VI] = input[_VI];
     }
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
-    if (input.PublicVersionNumber != null) {
-        entries["PublicVersionNumber"] = input.PublicVersionNumber;
+    if (input[_PVN] != null) {
+        entries[_PVN] = input[_PVN];
     }
     return entries;
 };
 const se_DescribeTypeRegistrationInput = (input, context) => {
     const entries = {};
-    if (input.RegistrationToken != null) {
-        entries["RegistrationToken"] = input.RegistrationToken;
+    if (input[_RTeg] != null) {
+        entries[_RTeg] = input[_RTeg];
     }
     return entries;
 };
 const se_DetectStackDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceIds != null) {
-        const memberEntries = se_LogicalResourceIds(input.LogicalResourceIds, context);
-        if (input.LogicalResourceIds?.length === 0) {
+    if (input[_LRIo] != null) {
+        const memberEntries = se_LogicalResourceIds(input[_LRIo], context);
+        if (input[_LRIo]?.length === 0) {
             entries.LogicalResourceIds = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22468,48 +20520,48 @@ const se_DetectStackDriftInput = (input, context) => {
 };
 const se_DetectStackResourceDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
     return entries;
 };
 const se_DetectStackSetDriftInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_EstimateTemplateCostInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22521,62 +20573,62 @@ const se_EstimateTemplateCostInput = (input, context) => {
 };
 const se_ExecuteChangeSetInput = (input, context) => {
     const entries = {};
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.DisableRollback != null) {
-        entries["DisableRollback"] = input.DisableRollback;
+    if (input[_DR] != null) {
+        entries[_DR] = input[_DR];
     }
-    if (input.RetainExceptOnCreate != null) {
-        entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+    if (input[_REOC] != null) {
+        entries[_REOC] = input[_REOC];
     }
     return entries;
 };
 const se_GetStackPolicyInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
     return entries;
 };
 const se_GetTemplateInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.ChangeSetName != null) {
-        entries["ChangeSetName"] = input.ChangeSetName;
+    if (input[_CSN] != null) {
+        entries[_CSN] = input[_CSN];
     }
-    if (input.TemplateStage != null) {
-        entries["TemplateStage"] = input.TemplateStage;
+    if (input[_TS] != null) {
+        entries[_TS] = input[_TS];
     }
     return entries;
 };
 const se_GetTemplateSummaryInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
-    if (input.TemplateSummaryConfig != null) {
-        const memberEntries = se_TemplateSummaryConfig(input.TemplateSummaryConfig, context);
+    if (input[_TSC] != null) {
+        const memberEntries = se_TemplateSummaryConfig(input[_TSC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `TemplateSummaryConfig.${key}`;
             entries[loc] = value;
@@ -22586,12 +20638,12 @@ const se_GetTemplateSummaryInput = (input, context) => {
 };
 const se_ImportStacksToStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.StackIds != null) {
-        const memberEntries = se_StackIdList(input.StackIds, context);
-        if (input.StackIds?.length === 0) {
+    if (input[_SIt] != null) {
+        const memberEntries = se_StackIdList(input[_SIt], context);
+        if (input[_SIt]?.length === 0) {
             entries.StackIds = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22599,12 +20651,12 @@ const se_ImportStacksToStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.StackIdsUrl != null) {
-        entries["StackIdsUrl"] = input.StackIdsUrl;
+    if (input[_SIU] != null) {
+        entries[_SIU] = input[_SIU];
     }
-    if (input.OrganizationalUnitIds != null) {
-        const memberEntries = se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context);
-        if (input.OrganizationalUnitIds?.length === 0) {
+    if (input[_OUI] != null) {
+        const memberEntries = se_OrganizationalUnitIdList(input[_OUI], context);
+        if (input[_OUI]?.length === 0) {
             entries.OrganizationalUnitIds = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22612,65 +20664,65 @@ const se_ImportStacksToStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListChangeSetsInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListExportsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListImportsInput = (input, context) => {
     const entries = {};
-    if (input.ExportName != null) {
-        entries["ExportName"] = input.ExportName;
+    if (input[_EN] != null) {
+        entries[_EN] = input[_EN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListStackInstanceResourceDriftsInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.StackInstanceResourceDriftStatuses != null) {
-        const memberEntries = se_StackResourceDriftStatusFilters(input.StackInstanceResourceDriftStatuses, context);
-        if (input.StackInstanceResourceDriftStatuses?.length === 0) {
+    if (input[_SIRDS] != null) {
+        const memberEntries = se_StackResourceDriftStatusFilters(input[_SIRDS], context);
+        if (input[_SIRDS]?.length === 0) {
             entries.StackInstanceResourceDriftStatuses = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22678,34 +20730,34 @@ const se_ListStackInstanceResourceDriftsInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.StackInstanceAccount != null) {
-        entries["StackInstanceAccount"] = input.StackInstanceAccount;
+    if (input[_SIA] != null) {
+        entries[_SIA] = input[_SIA];
     }
-    if (input.StackInstanceRegion != null) {
-        entries["StackInstanceRegion"] = input.StackInstanceRegion;
+    if (input[_SIR] != null) {
+        entries[_SIR] = input[_SIR];
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.Filters != null) {
-        const memberEntries = se_StackInstanceFilters(input.Filters, context);
-        if (input.Filters?.length === 0) {
+    if (input[_F] != null) {
+        const memberEntries = se_StackInstanceFilters(input[_F], context);
+        if (input[_F]?.length === 0) {
             entries.Filters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22713,47 +20765,47 @@ const se_ListStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.StackInstanceAccount != null) {
-        entries["StackInstanceAccount"] = input.StackInstanceAccount;
+    if (input[_SIA] != null) {
+        entries[_SIA] = input[_SIA];
     }
-    if (input.StackInstanceRegion != null) {
-        entries["StackInstanceRegion"] = input.StackInstanceRegion;
+    if (input[_SIR] != null) {
+        entries[_SIR] = input[_SIR];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListStackResourcesInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListStackSetOperationResultsInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
-    if (input.Filters != null) {
-        const memberEntries = se_OperationResultFilters(input.Filters, context);
-        if (input.Filters?.length === 0) {
+    if (input[_F] != null) {
+        const memberEntries = se_OperationResultFilters(input[_F], context);
+        if (input[_F]?.length === 0) {
             entries.Filters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22765,44 +20817,44 @@ const se_ListStackSetOperationResultsInput = (input, context) => {
 };
 const se_ListStackSetOperationsInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListStackSetsInput = (input, context) => {
     const entries = {};
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.Status != null) {
-        entries["Status"] = input.Status;
+    if (input[_S] != null) {
+        entries[_S] = input[_S];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_ListStacksInput = (input, context) => {
     const entries = {};
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.StackStatusFilter != null) {
-        const memberEntries = se_StackStatusFilter(input.StackStatusFilter, context);
-        if (input.StackStatusFilter?.length === 0) {
+    if (input[_SSF] != null) {
+        const memberEntries = se_StackStatusFilter(input[_SSF], context);
+        if (input[_SSF]?.length === 0) {
             entries.StackStatusFilter = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22814,87 +20866,87 @@ const se_ListStacksInput = (input, context) => {
 };
 const se_ListTypeRegistrationsInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.TypeArn != null) {
-        entries["TypeArn"] = input.TypeArn;
+    if (input[_TA] != null) {
+        entries[_TA] = input[_TA];
     }
-    if (input.RegistrationStatusFilter != null) {
-        entries["RegistrationStatusFilter"] = input.RegistrationStatusFilter;
+    if (input[_RSF] != null) {
+        entries[_RSF] = input[_RSF];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListTypesInput = (input, context) => {
     const entries = {};
-    if (input.Visibility != null) {
-        entries["Visibility"] = input.Visibility;
+    if (input[_Vi] != null) {
+        entries[_Vi] = input[_Vi];
     }
-    if (input.ProvisioningType != null) {
-        entries["ProvisioningType"] = input.ProvisioningType;
+    if (input[_PTr] != null) {
+        entries[_PTr] = input[_PTr];
     }
-    if (input.DeprecatedStatus != null) {
-        entries["DeprecatedStatus"] = input.DeprecatedStatus;
+    if (input[_DSep] != null) {
+        entries[_DSep] = input[_DSep];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.Filters != null) {
-        const memberEntries = se_TypeFilters(input.Filters, context);
+    if (input[_F] != null) {
+        const memberEntries = se_TypeFilters(input[_F], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `Filters.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
     return entries;
 };
 const se_ListTypeVersionsInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.MaxResults != null) {
-        entries["MaxResults"] = input.MaxResults;
+    if (input[_MR] != null) {
+        entries[_MR] = input[_MR];
     }
-    if (input.NextToken != null) {
-        entries["NextToken"] = input.NextToken;
+    if (input[_NT] != null) {
+        entries[_NT] = input[_NT];
     }
-    if (input.DeprecatedStatus != null) {
-        entries["DeprecatedStatus"] = input.DeprecatedStatus;
+    if (input[_DSep] != null) {
+        entries[_DSep] = input[_DSep];
     }
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
     return entries;
 };
 const se_LoggingConfig = (input, context) => {
     const entries = {};
-    if (input.LogRoleArn != null) {
-        entries["LogRoleArn"] = input.LogRoleArn;
+    if (input[_LRA] != null) {
+        entries[_LRA] = input[_LRA];
     }
-    if (input.LogGroupName != null) {
-        entries["LogGroupName"] = input.LogGroupName;
+    if (input[_LGN] != null) {
+        entries[_LGN] = input[_LGN];
     }
     return entries;
 };
@@ -22912,8 +20964,8 @@ const se_LogicalResourceIds = (input, context) => {
 };
 const se_ManagedExecution = (input, context) => {
     const entries = {};
-    if (input.Active != null) {
-        entries["Active"] = input.Active;
+    if (input[_Act] != null) {
+        entries[_Act] = input[_Act];
     }
     return entries;
 };
@@ -22931,11 +20983,11 @@ const se_NotificationARNs = (input, context) => {
 };
 const se_OperationResultFilter = (input, context) => {
     const entries = {};
-    if (input.Name != null) {
-        entries["Name"] = input.Name;
+    if (input[_N] != null) {
+        entries[_N] = input[_N];
     }
-    if (input.Values != null) {
-        entries["Values"] = input.Values;
+    if (input[_Va] != null) {
+        entries[_Va] = input[_Va];
     }
     return entries;
 };
@@ -22968,17 +21020,17 @@ const se_OrganizationalUnitIdList = (input, context) => {
 };
 const se_Parameter = (input, context) => {
     const entries = {};
-    if (input.ParameterKey != null) {
-        entries["ParameterKey"] = input.ParameterKey;
+    if (input[_PK] != null) {
+        entries[_PK] = input[_PK];
     }
-    if (input.ParameterValue != null) {
-        entries["ParameterValue"] = input.ParameterValue;
+    if (input[_PV] != null) {
+        entries[_PV] = input[_PV];
     }
-    if (input.UsePreviousValue != null) {
-        entries["UsePreviousValue"] = input.UsePreviousValue;
+    if (input[_UPV] != null) {
+        entries[_UPV] = input[_UPV];
     }
-    if (input.ResolvedValue != null) {
-        entries["ResolvedValue"] = input.ResolvedValue;
+    if (input[_RV] != null) {
+        entries[_RV] = input[_RV];
     }
     return entries;
 };
@@ -22999,42 +21051,42 @@ const se_Parameters = (input, context) => {
 };
 const se_PublishTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.PublicVersionNumber != null) {
-        entries["PublicVersionNumber"] = input.PublicVersionNumber;
+    if (input[_PVN] != null) {
+        entries[_PVN] = input[_PVN];
     }
     return entries;
 };
 const se_RecordHandlerProgressInput = (input, context) => {
     const entries = {};
-    if (input.BearerToken != null) {
-        entries["BearerToken"] = input.BearerToken;
+    if (input[_BT] != null) {
+        entries[_BT] = input[_BT];
     }
-    if (input.OperationStatus != null) {
-        entries["OperationStatus"] = input.OperationStatus;
+    if (input[_OS] != null) {
+        entries[_OS] = input[_OS];
     }
-    if (input.CurrentOperationStatus != null) {
-        entries["CurrentOperationStatus"] = input.CurrentOperationStatus;
+    if (input[_COS] != null) {
+        entries[_COS] = input[_COS];
     }
-    if (input.StatusMessage != null) {
-        entries["StatusMessage"] = input.StatusMessage;
+    if (input[_SM] != null) {
+        entries[_SM] = input[_SM];
     }
-    if (input.ErrorCode != null) {
-        entries["ErrorCode"] = input.ErrorCode;
+    if (input[_EC] != null) {
+        entries[_EC] = input[_EC];
     }
-    if (input.ResourceModel != null) {
-        entries["ResourceModel"] = input.ResourceModel;
+    if (input[_RM] != null) {
+        entries[_RM] = input[_RM];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
@@ -23052,37 +21104,37 @@ const se_RegionList = (input, context) => {
 };
 const se_RegisterPublisherInput = (input, context) => {
     const entries = {};
-    if (input.AcceptTermsAndConditions != null) {
-        entries["AcceptTermsAndConditions"] = input.AcceptTermsAndConditions;
+    if (input[_ATAC] != null) {
+        entries[_ATAC] = input[_ATAC];
     }
-    if (input.ConnectionArn != null) {
-        entries["ConnectionArn"] = input.ConnectionArn;
+    if (input[_CAo] != null) {
+        entries[_CAo] = input[_CAo];
     }
     return entries;
 };
 const se_RegisterTypeInput = (input, context) => {
     const entries = {};
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.SchemaHandlerPackage != null) {
-        entries["SchemaHandlerPackage"] = input.SchemaHandlerPackage;
+    if (input[_SHP] != null) {
+        entries[_SHP] = input[_SHP];
     }
-    if (input.LoggingConfig != null) {
-        const memberEntries = se_LoggingConfig(input.LoggingConfig, context);
+    if (input[_LC] != null) {
+        const memberEntries = se_LoggingConfig(input[_LC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `LoggingConfig.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.ExecutionRoleArn != null) {
-        entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+    if (input[_ERA] != null) {
+        entries[_ERA] = input[_ERA];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
     return entries;
 };
@@ -23127,14 +21179,14 @@ const se_ResourcesToSkip = (input, context) => {
 };
 const se_ResourceToImport = (input, context) => {
     const entries = {};
-    if (input.ResourceType != null) {
-        entries["ResourceType"] = input.ResourceType;
+    if (input[_RTes] != null) {
+        entries[_RTes] = input[_RTes];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
-    if (input.ResourceIdentifier != null) {
-        const memberEntries = se_ResourceIdentifierProperties(input.ResourceIdentifier, context);
+    if (input[_RI] != null) {
+        const memberEntries = se_ResourceIdentifierProperties(input[_RI], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ResourceIdentifier.${key}`;
             entries[loc] = value;
@@ -23168,9 +21220,9 @@ const se_RetainResources = (input, context) => {
 };
 const se_RollbackConfiguration = (input, context) => {
     const entries = {};
-    if (input.RollbackTriggers != null) {
-        const memberEntries = se_RollbackTriggers(input.RollbackTriggers, context);
-        if (input.RollbackTriggers?.length === 0) {
+    if (input[_RTo] != null) {
+        const memberEntries = se_RollbackTriggers(input[_RTo], context);
+        if (input[_RTo]?.length === 0) {
             entries.RollbackTriggers = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23178,34 +21230,34 @@ const se_RollbackConfiguration = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.MonitoringTimeInMinutes != null) {
-        entries["MonitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
+    if (input[_MTIM] != null) {
+        entries[_MTIM] = input[_MTIM];
     }
     return entries;
 };
 const se_RollbackStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.RetainExceptOnCreate != null) {
-        entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+    if (input[_REOC] != null) {
+        entries[_REOC] = input[_REOC];
     }
     return entries;
 };
 const se_RollbackTrigger = (input, context) => {
     const entries = {};
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
     return entries;
 };
@@ -23226,65 +21278,65 @@ const se_RollbackTriggers = (input, context) => {
 };
 const se_SetStackPolicyInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.StackPolicyBody != null) {
-        entries["StackPolicyBody"] = input.StackPolicyBody;
+    if (input[_SPB] != null) {
+        entries[_SPB] = input[_SPB];
     }
-    if (input.StackPolicyURL != null) {
-        entries["StackPolicyURL"] = input.StackPolicyURL;
+    if (input[_SPURL] != null) {
+        entries[_SPURL] = input[_SPURL];
     }
     return entries;
 };
 const se_SetTypeConfigurationInput = (input, context) => {
     const entries = {};
-    if (input.TypeArn != null) {
-        entries["TypeArn"] = input.TypeArn;
+    if (input[_TA] != null) {
+        entries[_TA] = input[_TA];
     }
-    if (input.Configuration != null) {
-        entries["Configuration"] = input.Configuration;
+    if (input[_Co] != null) {
+        entries[_Co] = input[_Co];
     }
-    if (input.ConfigurationAlias != null) {
-        entries["ConfigurationAlias"] = input.ConfigurationAlias;
+    if (input[_CAon] != null) {
+        entries[_CAon] = input[_CAon];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
     return entries;
 };
 const se_SetTypeDefaultVersionInput = (input, context) => {
     const entries = {};
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.VersionId != null) {
-        entries["VersionId"] = input.VersionId;
+    if (input[_VI] != null) {
+        entries[_VI] = input[_VI];
     }
     return entries;
 };
 const se_SignalResourceInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.LogicalResourceId != null) {
-        entries["LogicalResourceId"] = input.LogicalResourceId;
+    if (input[_LRI] != null) {
+        entries[_LRI] = input[_LRI];
     }
-    if (input.UniqueId != null) {
-        entries["UniqueId"] = input.UniqueId;
+    if (input[_UI] != null) {
+        entries[_UI] = input[_UI];
     }
-    if (input.Status != null) {
-        entries["Status"] = input.Status;
+    if (input[_S] != null) {
+        entries[_S] = input[_S];
     }
     return entries;
 };
@@ -23302,11 +21354,11 @@ const se_StackIdList = (input, context) => {
 };
 const se_StackInstanceFilter = (input, context) => {
     const entries = {};
-    if (input.Name != null) {
-        entries["Name"] = input.Name;
+    if (input[_N] != null) {
+        entries[_N] = input[_N];
     }
-    if (input.Values != null) {
-        entries["Values"] = input.Values;
+    if (input[_Va] != null) {
+        entries[_Va] = input[_Va];
     }
     return entries;
 };
@@ -23339,12 +21391,12 @@ const se_StackResourceDriftStatusFilters = (input, context) => {
 };
 const se_StackSetOperationPreferences = (input, context) => {
     const entries = {};
-    if (input.RegionConcurrencyType != null) {
-        entries["RegionConcurrencyType"] = input.RegionConcurrencyType;
+    if (input[_RCT] != null) {
+        entries[_RCT] = input[_RCT];
     }
-    if (input.RegionOrder != null) {
-        const memberEntries = se_RegionList(input.RegionOrder, context);
-        if (input.RegionOrder?.length === 0) {
+    if (input[_RO] != null) {
+        const memberEntries = se_RegionList(input[_RO], context);
+        if (input[_RO]?.length === 0) {
             entries.RegionOrder = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23352,20 +21404,20 @@ const se_StackSetOperationPreferences = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.FailureToleranceCount != null) {
-        entries["FailureToleranceCount"] = input.FailureToleranceCount;
+    if (input[_FTC] != null) {
+        entries[_FTC] = input[_FTC];
     }
-    if (input.FailureTolerancePercentage != null) {
-        entries["FailureTolerancePercentage"] = input.FailureTolerancePercentage;
+    if (input[_FTP] != null) {
+        entries[_FTP] = input[_FTP];
     }
-    if (input.MaxConcurrentCount != null) {
-        entries["MaxConcurrentCount"] = input.MaxConcurrentCount;
+    if (input[_MCC] != null) {
+        entries[_MCC] = input[_MCC];
     }
-    if (input.MaxConcurrentPercentage != null) {
-        entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
+    if (input[_MCP] != null) {
+        entries[_MCP] = input[_MCP];
     }
-    if (input.ConcurrencyMode != null) {
-        entries["ConcurrencyMode"] = input.ConcurrencyMode;
+    if (input[_CM] != null) {
+        entries[_CM] = input[_CM];
     }
     return entries;
 };
@@ -23383,24 +21435,24 @@ const se_StackStatusFilter = (input, context) => {
 };
 const se_StopStackSetOperationInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_Tag = (input, context) => {
     const entries = {};
-    if (input.Key != null) {
-        entries["Key"] = input.Key;
+    if (input[_K] != null) {
+        entries[_K] = input[_K];
     }
-    if (input.Value != null) {
-        entries["Value"] = input.Value;
+    if (input[_Val] != null) {
+        entries[_Val] = input[_Val];
     }
     return entries;
 };
@@ -23421,46 +21473,46 @@ const se_Tags = (input, context) => {
 };
 const se_TemplateSummaryConfig = (input, context) => {
     const entries = {};
-    if (input.TreatUnrecognizedResourceTypesAsWarnings != null) {
-        entries["TreatUnrecognizedResourceTypesAsWarnings"] = input.TreatUnrecognizedResourceTypesAsWarnings;
+    if (input[_TURTAW] != null) {
+        entries[_TURTAW] = input[_TURTAW];
     }
     return entries;
 };
 const se_TestTypeInput = (input, context) => {
     const entries = {};
-    if (input.Arn != null) {
-        entries["Arn"] = input.Arn;
+    if (input[_Ar] != null) {
+        entries[_Ar] = input[_Ar];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
-    if (input.VersionId != null) {
-        entries["VersionId"] = input.VersionId;
+    if (input[_VI] != null) {
+        entries[_VI] = input[_VI];
     }
-    if (input.LogDeliveryBucket != null) {
-        entries["LogDeliveryBucket"] = input.LogDeliveryBucket;
+    if (input[_LDB] != null) {
+        entries[_LDB] = input[_LDB];
     }
     return entries;
 };
 const se_TypeConfigurationIdentifier = (input, context) => {
     const entries = {};
-    if (input.TypeArn != null) {
-        entries["TypeArn"] = input.TypeArn;
+    if (input[_TA] != null) {
+        entries[_TA] = input[_TA];
     }
-    if (input.TypeConfigurationAlias != null) {
-        entries["TypeConfigurationAlias"] = input.TypeConfigurationAlias;
+    if (input[_TCA] != null) {
+        entries[_TCA] = input[_TCA];
     }
-    if (input.TypeConfigurationArn != null) {
-        entries["TypeConfigurationArn"] = input.TypeConfigurationArn;
+    if (input[_TCAy] != null) {
+        entries[_TCAy] = input[_TCAy];
     }
-    if (input.Type != null) {
-        entries["Type"] = input.Type;
+    if (input[_T] != null) {
+        entries[_T] = input[_T];
     }
-    if (input.TypeName != null) {
-        entries["TypeName"] = input.TypeName;
+    if (input[_TN] != null) {
+        entries[_TN] = input[_TN];
     }
     return entries;
 };
@@ -23481,40 +21533,40 @@ const se_TypeConfigurationIdentifiers = (input, context) => {
 };
 const se_TypeFilters = (input, context) => {
     const entries = {};
-    if (input.Category != null) {
-        entries["Category"] = input.Category;
+    if (input[_Ca] != null) {
+        entries[_Ca] = input[_Ca];
     }
-    if (input.PublisherId != null) {
-        entries["PublisherId"] = input.PublisherId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
-    if (input.TypeNamePrefix != null) {
-        entries["TypeNamePrefix"] = input.TypeNamePrefix;
+    if (input[_TNP] != null) {
+        entries[_TNP] = input[_TNP];
     }
     return entries;
 };
 const se_UpdateStackInput = (input, context) => {
     const entries = {};
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.UsePreviousTemplate != null) {
-        entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+    if (input[_UPT] != null) {
+        entries[_UPT] = input[_UPT];
     }
-    if (input.StackPolicyDuringUpdateBody != null) {
-        entries["StackPolicyDuringUpdateBody"] = input.StackPolicyDuringUpdateBody;
+    if (input[_SPDUB] != null) {
+        entries[_SPDUB] = input[_SPDUB];
     }
-    if (input.StackPolicyDuringUpdateURL != null) {
-        entries["StackPolicyDuringUpdateURL"] = input.StackPolicyDuringUpdateURL;
+    if (input[_SPDUURL] != null) {
+        entries[_SPDUURL] = input[_SPDUURL];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23522,9 +21574,9 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23532,9 +21584,9 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ResourceTypes != null) {
-        const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-        if (input.ResourceTypes?.length === 0) {
+    if (input[_RTe] != null) {
+        const memberEntries = se_ResourceTypes(input[_RTe], context);
+        if (input[_RTe]?.length === 0) {
             entries.ResourceTypes = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23542,25 +21594,25 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.RoleARN != null) {
-        entries["RoleARN"] = input.RoleARN;
+    if (input[_RARN] != null) {
+        entries[_RARN] = input[_RARN];
     }
-    if (input.RollbackConfiguration != null) {
-        const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+    if (input[_RC] != null) {
+        const memberEntries = se_RollbackConfiguration(input[_RC], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `RollbackConfiguration.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.StackPolicyBody != null) {
-        entries["StackPolicyBody"] = input.StackPolicyBody;
+    if (input[_SPB] != null) {
+        entries[_SPB] = input[_SPB];
     }
-    if (input.StackPolicyURL != null) {
-        entries["StackPolicyURL"] = input.StackPolicyURL;
+    if (input[_SPURL] != null) {
+        entries[_SPURL] = input[_SPURL];
     }
-    if (input.NotificationARNs != null) {
-        const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-        if (input.NotificationARNs?.length === 0) {
+    if (input[_NARN] != null) {
+        const memberEntries = se_NotificationARNs(input[_NARN], context);
+        if (input[_NARN]?.length === 0) {
             entries.NotificationARNs = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23568,9 +21620,9 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23578,25 +21630,25 @@ const se_UpdateStackInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DisableRollback != null) {
-        entries["DisableRollback"] = input.DisableRollback;
+    if (input[_DR] != null) {
+        entries[_DR] = input[_DR];
     }
-    if (input.ClientRequestToken != null) {
-        entries["ClientRequestToken"] = input.ClientRequestToken;
+    if (input[_CRT] != null) {
+        entries[_CRT] = input[_CRT];
     }
-    if (input.RetainExceptOnCreate != null) {
-        entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+    if (input[_REOC] != null) {
+        entries[_REOC] = input[_REOC];
     }
     return entries;
 };
 const se_UpdateStackInstancesInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23604,16 +21656,16 @@ const se_UpdateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DeploymentTargets != null) {
-        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+    if (input[_DTep] != null) {
+        const memberEntries = se_DeploymentTargets(input[_DTep], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.Regions != null) {
-        const memberEntries = se_RegionList(input.Regions, context);
-        if (input.Regions?.length === 0) {
+    if (input[_R] != null) {
+        const memberEntries = se_RegionList(input[_R], context);
+        if (input[_R]?.length === 0) {
             entries.Regions = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23621,9 +21673,9 @@ const se_UpdateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ParameterOverrides != null) {
-        const memberEntries = se_Parameters(input.ParameterOverrides, context);
-        if (input.ParameterOverrides?.length === 0) {
+    if (input[_PO] != null) {
+        const memberEntries = se_Parameters(input[_PO], context);
+        if (input[_PO]?.length === 0) {
             entries.ParameterOverrides = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23631,44 +21683,44 @@ const se_UpdateStackInstancesInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
 const se_UpdateStackSetInput = (input, context) => {
     const entries = {};
-    if (input.StackSetName != null) {
-        entries["StackSetName"] = input.StackSetName;
+    if (input[_SSN] != null) {
+        entries[_SSN] = input[_SSN];
     }
-    if (input.Description != null) {
-        entries["Description"] = input.Description;
+    if (input[_D] != null) {
+        entries[_D] = input[_D];
     }
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
-    if (input.UsePreviousTemplate != null) {
-        entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+    if (input[_UPT] != null) {
+        entries[_UPT] = input[_UPT];
     }
-    if (input.Parameters != null) {
-        const memberEntries = se_Parameters(input.Parameters, context);
-        if (input.Parameters?.length === 0) {
+    if (input[_P] != null) {
+        const memberEntries = se_Parameters(input[_P], context);
+        if (input[_P]?.length === 0) {
             entries.Parameters = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23676,9 +21728,9 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Capabilities != null) {
-        const memberEntries = se_Capabilities(input.Capabilities, context);
-        if (input.Capabilities?.length === 0) {
+    if (input[_C] != null) {
+        const memberEntries = se_Capabilities(input[_C], context);
+        if (input[_C]?.length === 0) {
             entries.Capabilities = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23686,9 +21738,9 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Tags != null) {
-        const memberEntries = se_Tags(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_Ta] != null) {
+        const memberEntries = se_Tags(input[_Ta], context);
+        if (input[_Ta]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23696,45 +21748,45 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.OperationPreferences != null) {
-        const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+    if (input[_OP] != null) {
+        const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `OperationPreferences.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.AdministrationRoleARN != null) {
-        entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
+    if (input[_ARARN] != null) {
+        entries[_ARARN] = input[_ARARN];
     }
-    if (input.ExecutionRoleName != null) {
-        entries["ExecutionRoleName"] = input.ExecutionRoleName;
+    if (input[_ERN] != null) {
+        entries[_ERN] = input[_ERN];
     }
-    if (input.DeploymentTargets != null) {
-        const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+    if (input[_DTep] != null) {
+        const memberEntries = se_DeploymentTargets(input[_DTep], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `DeploymentTargets.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.PermissionModel != null) {
-        entries["PermissionModel"] = input.PermissionModel;
+    if (input[_PM] != null) {
+        entries[_PM] = input[_PM];
     }
-    if (input.AutoDeployment != null) {
-        const memberEntries = se_AutoDeployment(input.AutoDeployment, context);
+    if (input[_AD] != null) {
+        const memberEntries = se_AutoDeployment(input[_AD], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `AutoDeployment.${key}`;
             entries[loc] = value;
         });
     }
-    if (input.OperationId === undefined) {
-        input.OperationId = (0, uuid_1.v4)();
+    if (input[_OI] === undefined) {
+        input[_OI] = (0, uuid_1.v4)();
     }
-    if (input.OperationId != null) {
-        entries["OperationId"] = input.OperationId;
+    if (input[_OI] != null) {
+        entries[_OI] = input[_OI];
     }
-    if (input.Accounts != null) {
-        const memberEntries = se_AccountList(input.Accounts, context);
-        if (input.Accounts?.length === 0) {
+    if (input[_Ac] != null) {
+        const memberEntries = se_AccountList(input[_Ac], context);
+        if (input[_Ac]?.length === 0) {
             entries.Accounts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23742,9 +21794,9 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Regions != null) {
-        const memberEntries = se_RegionList(input.Regions, context);
-        if (input.Regions?.length === 0) {
+    if (input[_R] != null) {
+        const memberEntries = se_RegionList(input[_R], context);
+        if (input[_R]?.length === 0) {
             entries.Regions = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -23752,11 +21804,11 @@ const se_UpdateStackSetInput = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.CallAs != null) {
-        entries["CallAs"] = input.CallAs;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
-    if (input.ManagedExecution != null) {
-        const memberEntries = se_ManagedExecution(input.ManagedExecution, context);
+    if (input[_ME] != null) {
+        const memberEntries = se_ManagedExecution(input[_ME], context);
         Object.entries(memberEntries).forEach(([key, value]) => {
             const loc = `ManagedExecution.${key}`;
             entries[loc] = value;
@@ -23766,41 +21818,41 @@ const se_UpdateStackSetInput = (input, context) => {
 };
 const se_UpdateTerminationProtectionInput = (input, context) => {
     const entries = {};
-    if (input.EnableTerminationProtection != null) {
-        entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
+    if (input[_ETP] != null) {
+        entries[_ETP] = input[_ETP];
     }
-    if (input.StackName != null) {
-        entries["StackName"] = input.StackName;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
     return entries;
 };
 const se_ValidateTemplateInput = (input, context) => {
     const entries = {};
-    if (input.TemplateBody != null) {
-        entries["TemplateBody"] = input.TemplateBody;
+    if (input[_TB] != null) {
+        entries[_TB] = input[_TB];
     }
-    if (input.TemplateURL != null) {
-        entries["TemplateURL"] = input.TemplateURL;
+    if (input[_TURL] != null) {
+        entries[_TURL] = input[_TURL];
     }
     return entries;
 };
 const de_AccountGateResult = (output, context) => {
     const contents = {};
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
     return contents;
 };
 const de_AccountLimit = (output, context) => {
     const contents = {};
-    if (output["Name"] !== undefined) {
-        contents.Name = (0, smithy_client_1.expectString)(output["Name"]);
+    if (output[_N] != null) {
+        contents[_N] = (0, smithy_client_1.expectString)(output[_N]);
     }
-    if (output["Value"] !== undefined) {
-        contents.Value = (0, smithy_client_1.strictParseInt32)(output["Value"]);
+    if (output[_Val] != null) {
+        contents[_Val] = (0, smithy_client_1.strictParseInt32)(output[_Val]);
     }
     return contents;
 };
@@ -23824,8 +21876,8 @@ const de_ActivateOrganizationsAccessOutput = (output, context) => {
 };
 const de_ActivateTypeOutput = (output, context) => {
     const contents = {};
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
     return contents;
 };
@@ -23838,31 +21890,31 @@ const de_AllowedValues = (output, context) => {
 };
 const de_AlreadyExistsException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_AutoDeployment = (output, context) => {
     const contents = {};
-    if (output["Enabled"] !== undefined) {
-        contents.Enabled = (0, smithy_client_1.parseBoolean)(output["Enabled"]);
+    if (output[_E] != null) {
+        contents[_E] = (0, smithy_client_1.parseBoolean)(output[_E]);
     }
-    if (output["RetainStacksOnAccountRemoval"] !== undefined) {
-        contents.RetainStacksOnAccountRemoval = (0, smithy_client_1.parseBoolean)(output["RetainStacksOnAccountRemoval"]);
+    if (output[_RSOAR] != null) {
+        contents[_RSOAR] = (0, smithy_client_1.parseBoolean)(output[_RSOAR]);
     }
     return contents;
 };
 const de_BatchDescribeTypeConfigurationsError = (output, context) => {
     const contents = {};
-    if (output["ErrorCode"] !== undefined) {
-        contents.ErrorCode = (0, smithy_client_1.expectString)(output["ErrorCode"]);
+    if (output[_EC] != null) {
+        contents[_EC] = (0, smithy_client_1.expectString)(output[_EC]);
     }
-    if (output["ErrorMessage"] !== undefined) {
-        contents.ErrorMessage = (0, smithy_client_1.expectString)(output["ErrorMessage"]);
+    if (output[_EM] != null) {
+        contents[_EM] = (0, smithy_client_1.expectString)(output[_EM]);
     }
-    if (output["TypeConfigurationIdentifier"] !== undefined) {
-        contents.TypeConfigurationIdentifier = de_TypeConfigurationIdentifier(output["TypeConfigurationIdentifier"], context);
+    if (output[_TCIy] != null) {
+        contents[_TCIy] = de_TypeConfigurationIdentifier(output[_TCIy], context);
     }
     return contents;
 };
@@ -23876,23 +21928,22 @@ const de_BatchDescribeTypeConfigurationsErrors = (output, context) => {
 const de_BatchDescribeTypeConfigurationsOutput = (output, context) => {
     const contents = {};
     if (output.Errors === "") {
-        contents.Errors = [];
+        contents[_Er] = [];
     }
-    else if (output["Errors"] !== undefined && output["Errors"]["member"] !== undefined) {
-        contents.Errors = de_BatchDescribeTypeConfigurationsErrors((0, smithy_client_1.getArrayIfSingleItem)(output["Errors"]["member"]), context);
+    else if (output[_Er] != null && output[_Er][_m] != null) {
+        contents[_Er] = de_BatchDescribeTypeConfigurationsErrors((0, smithy_client_1.getArrayIfSingleItem)(output[_Er][_m]), context);
     }
     if (output.UnprocessedTypeConfigurations === "") {
-        contents.UnprocessedTypeConfigurations = [];
+        contents[_UTC] = [];
     }
-    else if (output["UnprocessedTypeConfigurations"] !== undefined &&
-        output["UnprocessedTypeConfigurations"]["member"] !== undefined) {
-        contents.UnprocessedTypeConfigurations = de_UnprocessedTypeConfigurations((0, smithy_client_1.getArrayIfSingleItem)(output["UnprocessedTypeConfigurations"]["member"]), context);
+    else if (output[_UTC] != null && output[_UTC][_m] != null) {
+        contents[_UTC] = de_UnprocessedTypeConfigurations((0, smithy_client_1.getArrayIfSingleItem)(output[_UTC][_m]), context);
     }
     if (output.TypeConfigurations === "") {
-        contents.TypeConfigurations = [];
+        contents[_TC] = [];
     }
-    else if (output["TypeConfigurations"] !== undefined && output["TypeConfigurations"]["member"] !== undefined) {
-        contents.TypeConfigurations = de_TypeConfigurationDetailsList((0, smithy_client_1.getArrayIfSingleItem)(output["TypeConfigurations"]["member"]), context);
+    else if (output[_TC] != null && output[_TC][_m] != null) {
+        contents[_TC] = de_TypeConfigurationDetailsList((0, smithy_client_1.getArrayIfSingleItem)(output[_TC][_m]), context);
     }
     return contents;
 };
@@ -23905,21 +21956,21 @@ const de_Capabilities = (output, context) => {
 };
 const de_CFNRegistryException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_Change = (output, context) => {
     const contents = {};
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["HookInvocationCount"] !== undefined) {
-        contents.HookInvocationCount = (0, smithy_client_1.strictParseInt32)(output["HookInvocationCount"]);
+    if (output[_HIC] != null) {
+        contents[_HIC] = (0, smithy_client_1.strictParseInt32)(output[_HIC]);
     }
-    if (output["ResourceChange"] !== undefined) {
-        contents.ResourceChange = de_ResourceChange(output["ResourceChange"], context);
+    if (output[_RCe] != null) {
+        contents[_RCe] = de_ResourceChange(output[_RCe], context);
     }
     return contents;
 };
@@ -23932,36 +21983,36 @@ const de_Changes = (output, context) => {
 };
 const de_ChangeSetHook = (output, context) => {
     const contents = {};
-    if (output["InvocationPoint"] !== undefined) {
-        contents.InvocationPoint = (0, smithy_client_1.expectString)(output["InvocationPoint"]);
+    if (output[_IP] != null) {
+        contents[_IP] = (0, smithy_client_1.expectString)(output[_IP]);
     }
-    if (output["FailureMode"] !== undefined) {
-        contents.FailureMode = (0, smithy_client_1.expectString)(output["FailureMode"]);
+    if (output[_FM] != null) {
+        contents[_FM] = (0, smithy_client_1.expectString)(output[_FM]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["TypeVersionId"] !== undefined) {
-        contents.TypeVersionId = (0, smithy_client_1.expectString)(output["TypeVersionId"]);
+    if (output[_TVI] != null) {
+        contents[_TVI] = (0, smithy_client_1.expectString)(output[_TVI]);
     }
-    if (output["TypeConfigurationVersionId"] !== undefined) {
-        contents.TypeConfigurationVersionId = (0, smithy_client_1.expectString)(output["TypeConfigurationVersionId"]);
+    if (output[_TCVI] != null) {
+        contents[_TCVI] = (0, smithy_client_1.expectString)(output[_TCVI]);
     }
-    if (output["TargetDetails"] !== undefined) {
-        contents.TargetDetails = de_ChangeSetHookTargetDetails(output["TargetDetails"], context);
+    if (output[_TD] != null) {
+        contents[_TD] = de_ChangeSetHookTargetDetails(output[_TD], context);
     }
     return contents;
 };
 const de_ChangeSetHookResourceTargetDetails = (output, context) => {
     const contents = {};
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["ResourceAction"] !== undefined) {
-        contents.ResourceAction = (0, smithy_client_1.expectString)(output["ResourceAction"]);
+    if (output[_RA] != null) {
+        contents[_RA] = (0, smithy_client_1.expectString)(output[_RA]);
     }
     return contents;
 };
@@ -23974,18 +22025,18 @@ const de_ChangeSetHooks = (output, context) => {
 };
 const de_ChangeSetHookTargetDetails = (output, context) => {
     const contents = {};
-    if (output["TargetType"] !== undefined) {
-        contents.TargetType = (0, smithy_client_1.expectString)(output["TargetType"]);
+    if (output[_TTa] != null) {
+        contents[_TTa] = (0, smithy_client_1.expectString)(output[_TTa]);
     }
-    if (output["ResourceTargetDetails"] !== undefined) {
-        contents.ResourceTargetDetails = de_ChangeSetHookResourceTargetDetails(output["ResourceTargetDetails"], context);
+    if (output[_RTD] != null) {
+        contents[_RTD] = de_ChangeSetHookResourceTargetDetails(output[_RTD], context);
     }
     return contents;
 };
 const de_ChangeSetNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -23998,44 +22049,44 @@ const de_ChangeSetSummaries = (output, context) => {
 };
 const de_ChangeSetSummary = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["ChangeSetName"] !== undefined) {
-        contents.ChangeSetName = (0, smithy_client_1.expectString)(output["ChangeSetName"]);
+    if (output[_CSN] != null) {
+        contents[_CSN] = (0, smithy_client_1.expectString)(output[_CSN]);
     }
-    if (output["ExecutionStatus"] !== undefined) {
-        contents.ExecutionStatus = (0, smithy_client_1.expectString)(output["ExecutionStatus"]);
+    if (output[_ES] != null) {
+        contents[_ES] = (0, smithy_client_1.expectString)(output[_ES]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
+    if (output[_CTr] != null) {
+        contents[_CTr] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTr]));
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["IncludeNestedStacks"] !== undefined) {
-        contents.IncludeNestedStacks = (0, smithy_client_1.parseBoolean)(output["IncludeNestedStacks"]);
+    if (output[_INS] != null) {
+        contents[_INS] = (0, smithy_client_1.parseBoolean)(output[_INS]);
     }
-    if (output["ParentChangeSetId"] !== undefined) {
-        contents.ParentChangeSetId = (0, smithy_client_1.expectString)(output["ParentChangeSetId"]);
+    if (output[_PCSI] != null) {
+        contents[_PCSI] = (0, smithy_client_1.expectString)(output[_PCSI]);
     }
-    if (output["RootChangeSetId"] !== undefined) {
-        contents.RootChangeSetId = (0, smithy_client_1.expectString)(output["RootChangeSetId"]);
+    if (output[_RCSI] != null) {
+        contents[_RCSI] = (0, smithy_client_1.expectString)(output[_RCSI]);
     }
-    if (output["ImportExistingResources"] !== undefined) {
-        contents.ImportExistingResources = (0, smithy_client_1.parseBoolean)(output["ImportExistingResources"]);
+    if (output[_IER] != null) {
+        contents[_IER] = (0, smithy_client_1.parseBoolean)(output[_IER]);
     }
     return contents;
 };
@@ -24045,39 +22096,39 @@ const de_ContinueUpdateRollbackOutput = (output, context) => {
 };
 const de_CreateChangeSetOutput = (output, context) => {
     const contents = {};
-    if (output["Id"] !== undefined) {
-        contents.Id = (0, smithy_client_1.expectString)(output["Id"]);
+    if (output[_I] != null) {
+        contents[_I] = (0, smithy_client_1.expectString)(output[_I]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_CreatedButModifiedException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_CreateStackInstancesOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_CreateStackOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_CreateStackSetOutput = (output, context) => {
     const contents = {};
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
     return contents;
 };
@@ -24095,8 +22146,8 @@ const de_DeleteChangeSetOutput = (output, context) => {
 };
 const de_DeleteStackInstancesOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
@@ -24107,22 +22158,22 @@ const de_DeleteStackSetOutput = (output, context) => {
 const de_DeploymentTargets = (output, context) => {
     const contents = {};
     if (output.Accounts === "") {
-        contents.Accounts = [];
+        contents[_Ac] = [];
     }
-    else if (output["Accounts"] !== undefined && output["Accounts"]["member"] !== undefined) {
-        contents.Accounts = de_AccountList((0, smithy_client_1.getArrayIfSingleItem)(output["Accounts"]["member"]), context);
+    else if (output[_Ac] != null && output[_Ac][_m] != null) {
+        contents[_Ac] = de_AccountList((0, smithy_client_1.getArrayIfSingleItem)(output[_Ac][_m]), context);
     }
-    if (output["AccountsUrl"] !== undefined) {
-        contents.AccountsUrl = (0, smithy_client_1.expectString)(output["AccountsUrl"]);
+    if (output[_AUc] != null) {
+        contents[_AUc] = (0, smithy_client_1.expectString)(output[_AUc]);
     }
     if (output.OrganizationalUnitIds === "") {
-        contents.OrganizationalUnitIds = [];
+        contents[_OUI] = [];
     }
-    else if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
-        contents.OrganizationalUnitIds = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output["OrganizationalUnitIds"]["member"]), context);
+    else if (output[_OUI] != null && output[_OUI][_m] != null) {
+        contents[_OUI] = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output[_OUI][_m]), context);
     }
-    if (output["AccountFilterType"] !== undefined) {
-        contents.AccountFilterType = (0, smithy_client_1.expectString)(output["AccountFilterType"]);
+    if (output[_AFT] != null) {
+        contents[_AFT] = (0, smithy_client_1.expectString)(output[_AFT]);
     }
     return contents;
 };
@@ -24133,381 +22184,380 @@ const de_DeregisterTypeOutput = (output, context) => {
 const de_DescribeAccountLimitsOutput = (output, context) => {
     const contents = {};
     if (output.AccountLimits === "") {
-        contents.AccountLimits = [];
+        contents[_AL] = [];
     }
-    else if (output["AccountLimits"] !== undefined && output["AccountLimits"]["member"] !== undefined) {
-        contents.AccountLimits = de_AccountLimitList((0, smithy_client_1.getArrayIfSingleItem)(output["AccountLimits"]["member"]), context);
+    else if (output[_AL] != null && output[_AL][_m] != null) {
+        contents[_AL] = de_AccountLimitList((0, smithy_client_1.getArrayIfSingleItem)(output[_AL][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_DescribeChangeSetHooksOutput = (output, context) => {
     const contents = {};
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["ChangeSetName"] !== undefined) {
-        contents.ChangeSetName = (0, smithy_client_1.expectString)(output["ChangeSetName"]);
+    if (output[_CSN] != null) {
+        contents[_CSN] = (0, smithy_client_1.expectString)(output[_CSN]);
     }
     if (output.Hooks === "") {
-        contents.Hooks = [];
+        contents[_H] = [];
     }
-    else if (output["Hooks"] !== undefined && output["Hooks"]["member"] !== undefined) {
-        contents.Hooks = de_ChangeSetHooks((0, smithy_client_1.getArrayIfSingleItem)(output["Hooks"]["member"]), context);
+    else if (output[_H] != null && output[_H][_m] != null) {
+        contents[_H] = de_ChangeSetHooks((0, smithy_client_1.getArrayIfSingleItem)(output[_H][_m]), context);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
     return contents;
 };
 const de_DescribeChangeSetOutput = (output, context) => {
     const contents = {};
-    if (output["ChangeSetName"] !== undefined) {
-        contents.ChangeSetName = (0, smithy_client_1.expectString)(output["ChangeSetName"]);
+    if (output[_CSN] != null) {
+        contents[_CSN] = (0, smithy_client_1.expectString)(output[_CSN]);
     }
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
-    if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
+    if (output[_CTr] != null) {
+        contents[_CTr] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTr]));
     }
-    if (output["ExecutionStatus"] !== undefined) {
-        contents.ExecutionStatus = (0, smithy_client_1.expectString)(output["ExecutionStatus"]);
+    if (output[_ES] != null) {
+        contents[_ES] = (0, smithy_client_1.expectString)(output[_ES]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
     if (output.NotificationARNs === "") {
-        contents.NotificationARNs = [];
+        contents[_NARN] = [];
     }
-    else if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-        contents.NotificationARNs = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output["NotificationARNs"]["member"]), context);
+    else if (output[_NARN] != null && output[_NARN][_m] != null) {
+        contents[_NARN] = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output[_NARN][_m]), context);
     }
-    if (output["RollbackConfiguration"] !== undefined) {
-        contents.RollbackConfiguration = de_RollbackConfiguration(output["RollbackConfiguration"], context);
+    if (output[_RC] != null) {
+        contents[_RC] = de_RollbackConfiguration(output[_RC], context);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
     if (output.Tags === "") {
-        contents.Tags = [];
+        contents[_Ta] = [];
     }
-    else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+    else if (output[_Ta] != null && output[_Ta][_m] != null) {
+        contents[_Ta] = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output[_Ta][_m]), context);
     }
     if (output.Changes === "") {
-        contents.Changes = [];
+        contents[_Ch] = [];
     }
-    else if (output["Changes"] !== undefined && output["Changes"]["member"] !== undefined) {
-        contents.Changes = de_Changes((0, smithy_client_1.getArrayIfSingleItem)(output["Changes"]["member"]), context);
+    else if (output[_Ch] != null && output[_Ch][_m] != null) {
+        contents[_Ch] = de_Changes((0, smithy_client_1.getArrayIfSingleItem)(output[_Ch][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
-    if (output["IncludeNestedStacks"] !== undefined) {
-        contents.IncludeNestedStacks = (0, smithy_client_1.parseBoolean)(output["IncludeNestedStacks"]);
+    if (output[_INS] != null) {
+        contents[_INS] = (0, smithy_client_1.parseBoolean)(output[_INS]);
     }
-    if (output["ParentChangeSetId"] !== undefined) {
-        contents.ParentChangeSetId = (0, smithy_client_1.expectString)(output["ParentChangeSetId"]);
+    if (output[_PCSI] != null) {
+        contents[_PCSI] = (0, smithy_client_1.expectString)(output[_PCSI]);
     }
-    if (output["RootChangeSetId"] !== undefined) {
-        contents.RootChangeSetId = (0, smithy_client_1.expectString)(output["RootChangeSetId"]);
+    if (output[_RCSI] != null) {
+        contents[_RCSI] = (0, smithy_client_1.expectString)(output[_RCSI]);
     }
-    if (output["OnStackFailure"] !== undefined) {
-        contents.OnStackFailure = (0, smithy_client_1.expectString)(output["OnStackFailure"]);
+    if (output[_OSF] != null) {
+        contents[_OSF] = (0, smithy_client_1.expectString)(output[_OSF]);
     }
-    if (output["ImportExistingResources"] !== undefined) {
-        contents.ImportExistingResources = (0, smithy_client_1.parseBoolean)(output["ImportExistingResources"]);
+    if (output[_IER] != null) {
+        contents[_IER] = (0, smithy_client_1.parseBoolean)(output[_IER]);
     }
     return contents;
 };
 const de_DescribeOrganizationsAccessOutput = (output, context) => {
     const contents = {};
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
     return contents;
 };
 const de_DescribePublisherOutput = (output, context) => {
     const contents = {};
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
-    if (output["PublisherStatus"] !== undefined) {
-        contents.PublisherStatus = (0, smithy_client_1.expectString)(output["PublisherStatus"]);
+    if (output[_PS] != null) {
+        contents[_PS] = (0, smithy_client_1.expectString)(output[_PS]);
     }
-    if (output["IdentityProvider"] !== undefined) {
-        contents.IdentityProvider = (0, smithy_client_1.expectString)(output["IdentityProvider"]);
+    if (output[_IPd] != null) {
+        contents[_IPd] = (0, smithy_client_1.expectString)(output[_IPd]);
     }
-    if (output["PublisherProfile"] !== undefined) {
-        contents.PublisherProfile = (0, smithy_client_1.expectString)(output["PublisherProfile"]);
+    if (output[_PP] != null) {
+        contents[_PP] = (0, smithy_client_1.expectString)(output[_PP]);
     }
     return contents;
 };
 const de_DescribeStackDriftDetectionStatusOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackDriftDetectionId"] !== undefined) {
-        contents.StackDriftDetectionId = (0, smithy_client_1.expectString)(output["StackDriftDetectionId"]);
+    if (output[_SDDI] != null) {
+        contents[_SDDI] = (0, smithy_client_1.expectString)(output[_SDDI]);
     }
-    if (output["StackDriftStatus"] !== undefined) {
-        contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
+    if (output[_SDS] != null) {
+        contents[_SDS] = (0, smithy_client_1.expectString)(output[_SDS]);
     }
-    if (output["DetectionStatus"] !== undefined) {
-        contents.DetectionStatus = (0, smithy_client_1.expectString)(output["DetectionStatus"]);
+    if (output[_DSet] != null) {
+        contents[_DSet] = (0, smithy_client_1.expectString)(output[_DSet]);
     }
-    if (output["DetectionStatusReason"] !== undefined) {
-        contents.DetectionStatusReason = (0, smithy_client_1.expectString)(output["DetectionStatusReason"]);
+    if (output[_DSRet] != null) {
+        contents[_DSRet] = (0, smithy_client_1.expectString)(output[_DSRet]);
     }
-    if (output["DriftedStackResourceCount"] !== undefined) {
-        contents.DriftedStackResourceCount = (0, smithy_client_1.strictParseInt32)(output["DriftedStackResourceCount"]);
+    if (output[_DSRC] != null) {
+        contents[_DSRC] = (0, smithy_client_1.strictParseInt32)(output[_DSRC]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
     return contents;
 };
 const de_DescribeStackEventsOutput = (output, context) => {
     const contents = {};
     if (output.StackEvents === "") {
-        contents.StackEvents = [];
+        contents[_SE] = [];
     }
-    else if (output["StackEvents"] !== undefined && output["StackEvents"]["member"] !== undefined) {
-        contents.StackEvents = de_StackEvents((0, smithy_client_1.getArrayIfSingleItem)(output["StackEvents"]["member"]), context);
+    else if (output[_SE] != null && output[_SE][_m] != null) {
+        contents[_SE] = de_StackEvents((0, smithy_client_1.getArrayIfSingleItem)(output[_SE][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_DescribeStackInstanceOutput = (output, context) => {
     const contents = {};
-    if (output["StackInstance"] !== undefined) {
-        contents.StackInstance = de_StackInstance(output["StackInstance"], context);
+    if (output[_SIta] != null) {
+        contents[_SIta] = de_StackInstance(output[_SIta], context);
     }
     return contents;
 };
 const de_DescribeStackResourceDriftsOutput = (output, context) => {
     const contents = {};
     if (output.StackResourceDrifts === "") {
-        contents.StackResourceDrifts = [];
+        contents[_SRD] = [];
     }
-    else if (output["StackResourceDrifts"] !== undefined && output["StackResourceDrifts"]["member"] !== undefined) {
-        contents.StackResourceDrifts = de_StackResourceDrifts((0, smithy_client_1.getArrayIfSingleItem)(output["StackResourceDrifts"]["member"]), context);
+    else if (output[_SRD] != null && output[_SRD][_m] != null) {
+        contents[_SRD] = de_StackResourceDrifts((0, smithy_client_1.getArrayIfSingleItem)(output[_SRD][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_DescribeStackResourceOutput = (output, context) => {
     const contents = {};
-    if (output["StackResourceDetail"] !== undefined) {
-        contents.StackResourceDetail = de_StackResourceDetail(output["StackResourceDetail"], context);
+    if (output[_SRDt] != null) {
+        contents[_SRDt] = de_StackResourceDetail(output[_SRDt], context);
     }
     return contents;
 };
 const de_DescribeStackResourcesOutput = (output, context) => {
     const contents = {};
     if (output.StackResources === "") {
-        contents.StackResources = [];
+        contents[_SRta] = [];
     }
-    else if (output["StackResources"] !== undefined && output["StackResources"]["member"] !== undefined) {
-        contents.StackResources = de_StackResources((0, smithy_client_1.getArrayIfSingleItem)(output["StackResources"]["member"]), context);
+    else if (output[_SRta] != null && output[_SRta][_m] != null) {
+        contents[_SRta] = de_StackResources((0, smithy_client_1.getArrayIfSingleItem)(output[_SRta][_m]), context);
     }
     return contents;
 };
 const de_DescribeStackSetOperationOutput = (output, context) => {
     const contents = {};
-    if (output["StackSetOperation"] !== undefined) {
-        contents.StackSetOperation = de_StackSetOperation(output["StackSetOperation"], context);
+    if (output[_SSO] != null) {
+        contents[_SSO] = de_StackSetOperation(output[_SSO], context);
     }
     return contents;
 };
 const de_DescribeStackSetOutput = (output, context) => {
     const contents = {};
-    if (output["StackSet"] !== undefined) {
-        contents.StackSet = de_StackSet(output["StackSet"], context);
+    if (output[_SS] != null) {
+        contents[_SS] = de_StackSet(output[_SS], context);
     }
     return contents;
 };
 const de_DescribeStacksOutput = (output, context) => {
     const contents = {};
     if (output.Stacks === "") {
-        contents.Stacks = [];
+        contents[_St] = [];
     }
-    else if (output["Stacks"] !== undefined && output["Stacks"]["member"] !== undefined) {
-        contents.Stacks = de_Stacks((0, smithy_client_1.getArrayIfSingleItem)(output["Stacks"]["member"]), context);
+    else if (output[_St] != null && output[_St][_m] != null) {
+        contents[_St] = de_Stacks((0, smithy_client_1.getArrayIfSingleItem)(output[_St][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_DescribeTypeOutput = (output, context) => {
     const contents = {};
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["DefaultVersionId"] !== undefined) {
-        contents.DefaultVersionId = (0, smithy_client_1.expectString)(output["DefaultVersionId"]);
+    if (output[_DVI] != null) {
+        contents[_DVI] = (0, smithy_client_1.expectString)(output[_DVI]);
     }
-    if (output["IsDefaultVersion"] !== undefined) {
-        contents.IsDefaultVersion = (0, smithy_client_1.parseBoolean)(output["IsDefaultVersion"]);
+    if (output[_IDV] != null) {
+        contents[_IDV] = (0, smithy_client_1.parseBoolean)(output[_IDV]);
     }
-    if (output["TypeTestsStatus"] !== undefined) {
-        contents.TypeTestsStatus = (0, smithy_client_1.expectString)(output["TypeTestsStatus"]);
+    if (output[_TTS] != null) {
+        contents[_TTS] = (0, smithy_client_1.expectString)(output[_TTS]);
     }
-    if (output["TypeTestsStatusDescription"] !== undefined) {
-        contents.TypeTestsStatusDescription = (0, smithy_client_1.expectString)(output["TypeTestsStatusDescription"]);
+    if (output[_TTSD] != null) {
+        contents[_TTSD] = (0, smithy_client_1.expectString)(output[_TTSD]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["Schema"] !== undefined) {
-        contents.Schema = (0, smithy_client_1.expectString)(output["Schema"]);
+    if (output[_Sc] != null) {
+        contents[_Sc] = (0, smithy_client_1.expectString)(output[_Sc]);
     }
-    if (output["ProvisioningType"] !== undefined) {
-        contents.ProvisioningType = (0, smithy_client_1.expectString)(output["ProvisioningType"]);
+    if (output[_PTr] != null) {
+        contents[_PTr] = (0, smithy_client_1.expectString)(output[_PTr]);
     }
-    if (output["DeprecatedStatus"] !== undefined) {
-        contents.DeprecatedStatus = (0, smithy_client_1.expectString)(output["DeprecatedStatus"]);
+    if (output[_DSep] != null) {
+        contents[_DSep] = (0, smithy_client_1.expectString)(output[_DSep]);
     }
-    if (output["LoggingConfig"] !== undefined) {
-        contents.LoggingConfig = de_LoggingConfig(output["LoggingConfig"], context);
+    if (output[_LC] != null) {
+        contents[_LC] = de_LoggingConfig(output[_LC], context);
     }
     if (output.RequiredActivatedTypes === "") {
-        contents.RequiredActivatedTypes = [];
+        contents[_RAT] = [];
     }
-    else if (output["RequiredActivatedTypes"] !== undefined &&
-        output["RequiredActivatedTypes"]["member"] !== undefined) {
-        contents.RequiredActivatedTypes = de_RequiredActivatedTypes((0, smithy_client_1.getArrayIfSingleItem)(output["RequiredActivatedTypes"]["member"]), context);
+    else if (output[_RAT] != null && output[_RAT][_m] != null) {
+        contents[_RAT] = de_RequiredActivatedTypes((0, smithy_client_1.getArrayIfSingleItem)(output[_RAT][_m]), context);
     }
-    if (output["ExecutionRoleArn"] !== undefined) {
-        contents.ExecutionRoleArn = (0, smithy_client_1.expectString)(output["ExecutionRoleArn"]);
+    if (output[_ERA] != null) {
+        contents[_ERA] = (0, smithy_client_1.expectString)(output[_ERA]);
     }
-    if (output["Visibility"] !== undefined) {
-        contents.Visibility = (0, smithy_client_1.expectString)(output["Visibility"]);
+    if (output[_Vi] != null) {
+        contents[_Vi] = (0, smithy_client_1.expectString)(output[_Vi]);
     }
-    if (output["SourceUrl"] !== undefined) {
-        contents.SourceUrl = (0, smithy_client_1.expectString)(output["SourceUrl"]);
+    if (output[_SU] != null) {
+        contents[_SU] = (0, smithy_client_1.expectString)(output[_SU]);
     }
-    if (output["DocumentationUrl"] !== undefined) {
-        contents.DocumentationUrl = (0, smithy_client_1.expectString)(output["DocumentationUrl"]);
+    if (output[_DU] != null) {
+        contents[_DU] = (0, smithy_client_1.expectString)(output[_DU]);
     }
-    if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
+    if (output[_LU] != null) {
+        contents[_LU] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LU]));
     }
-    if (output["TimeCreated"] !== undefined) {
-        contents.TimeCreated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["TimeCreated"]));
+    if (output[_TCi] != null) {
+        contents[_TCi] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_TCi]));
     }
-    if (output["ConfigurationSchema"] !== undefined) {
-        contents.ConfigurationSchema = (0, smithy_client_1.expectString)(output["ConfigurationSchema"]);
+    if (output[_CSo] != null) {
+        contents[_CSo] = (0, smithy_client_1.expectString)(output[_CSo]);
     }
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
-    if (output["OriginalTypeName"] !== undefined) {
-        contents.OriginalTypeName = (0, smithy_client_1.expectString)(output["OriginalTypeName"]);
+    if (output[_OTN] != null) {
+        contents[_OTN] = (0, smithy_client_1.expectString)(output[_OTN]);
     }
-    if (output["OriginalTypeArn"] !== undefined) {
-        contents.OriginalTypeArn = (0, smithy_client_1.expectString)(output["OriginalTypeArn"]);
+    if (output[_OTA] != null) {
+        contents[_OTA] = (0, smithy_client_1.expectString)(output[_OTA]);
     }
-    if (output["PublicVersionNumber"] !== undefined) {
-        contents.PublicVersionNumber = (0, smithy_client_1.expectString)(output["PublicVersionNumber"]);
+    if (output[_PVN] != null) {
+        contents[_PVN] = (0, smithy_client_1.expectString)(output[_PVN]);
     }
-    if (output["LatestPublicVersion"] !== undefined) {
-        contents.LatestPublicVersion = (0, smithy_client_1.expectString)(output["LatestPublicVersion"]);
+    if (output[_LPV] != null) {
+        contents[_LPV] = (0, smithy_client_1.expectString)(output[_LPV]);
     }
-    if (output["IsActivated"] !== undefined) {
-        contents.IsActivated = (0, smithy_client_1.parseBoolean)(output["IsActivated"]);
+    if (output[_IA] != null) {
+        contents[_IA] = (0, smithy_client_1.parseBoolean)(output[_IA]);
     }
-    if (output["AutoUpdate"] !== undefined) {
-        contents.AutoUpdate = (0, smithy_client_1.parseBoolean)(output["AutoUpdate"]);
+    if (output[_AU] != null) {
+        contents[_AU] = (0, smithy_client_1.parseBoolean)(output[_AU]);
     }
     return contents;
 };
 const de_DescribeTypeRegistrationOutput = (output, context) => {
     const contents = {};
-    if (output["ProgressStatus"] !== undefined) {
-        contents.ProgressStatus = (0, smithy_client_1.expectString)(output["ProgressStatus"]);
+    if (output[_PSr] != null) {
+        contents[_PSr] = (0, smithy_client_1.expectString)(output[_PSr]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["TypeArn"] !== undefined) {
-        contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
+    if (output[_TA] != null) {
+        contents[_TA] = (0, smithy_client_1.expectString)(output[_TA]);
     }
-    if (output["TypeVersionArn"] !== undefined) {
-        contents.TypeVersionArn = (0, smithy_client_1.expectString)(output["TypeVersionArn"]);
+    if (output[_TVA] != null) {
+        contents[_TVA] = (0, smithy_client_1.expectString)(output[_TVA]);
     }
     return contents;
 };
 const de_DetectStackDriftOutput = (output, context) => {
     const contents = {};
-    if (output["StackDriftDetectionId"] !== undefined) {
-        contents.StackDriftDetectionId = (0, smithy_client_1.expectString)(output["StackDriftDetectionId"]);
+    if (output[_SDDI] != null) {
+        contents[_SDDI] = (0, smithy_client_1.expectString)(output[_SDDI]);
     }
     return contents;
 };
 const de_DetectStackResourceDriftOutput = (output, context) => {
     const contents = {};
-    if (output["StackResourceDrift"] !== undefined) {
-        contents.StackResourceDrift = de_StackResourceDrift(output["StackResourceDrift"], context);
+    if (output[_SRDta] != null) {
+        contents[_SRDta] = de_StackResourceDrift(output[_SRDta], context);
     }
     return contents;
 };
 const de_DetectStackSetDriftOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_EstimateTemplateCostOutput = (output, context) => {
     const contents = {};
-    if (output["Url"] !== undefined) {
-        contents.Url = (0, smithy_client_1.expectString)(output["Url"]);
+    if (output[_U] != null) {
+        contents[_U] = (0, smithy_client_1.expectString)(output[_U]);
     }
     return contents;
 };
@@ -24517,14 +22567,14 @@ const de_ExecuteChangeSetOutput = (output, context) => {
 };
 const de_Export = (output, context) => {
     const contents = {};
-    if (output["ExportingStackId"] !== undefined) {
-        contents.ExportingStackId = (0, smithy_client_1.expectString)(output["ExportingStackId"]);
+    if (output[_ESI] != null) {
+        contents[_ESI] = (0, smithy_client_1.expectString)(output[_ESI]);
     }
-    if (output["Name"] !== undefined) {
-        contents.Name = (0, smithy_client_1.expectString)(output["Name"]);
+    if (output[_N] != null) {
+        contents[_N] = (0, smithy_client_1.expectString)(output[_N]);
     }
-    if (output["Value"] !== undefined) {
-        contents.Value = (0, smithy_client_1.expectString)(output["Value"]);
+    if (output[_Val] != null) {
+        contents[_Val] = (0, smithy_client_1.expectString)(output[_Val]);
     }
     return contents;
 };
@@ -24537,71 +22587,70 @@ const de_Exports = (output, context) => {
 };
 const de_GetStackPolicyOutput = (output, context) => {
     const contents = {};
-    if (output["StackPolicyBody"] !== undefined) {
-        contents.StackPolicyBody = (0, smithy_client_1.expectString)(output["StackPolicyBody"]);
+    if (output[_SPB] != null) {
+        contents[_SPB] = (0, smithy_client_1.expectString)(output[_SPB]);
     }
     return contents;
 };
 const de_GetTemplateOutput = (output, context) => {
     const contents = {};
-    if (output["TemplateBody"] !== undefined) {
-        contents.TemplateBody = (0, smithy_client_1.expectString)(output["TemplateBody"]);
+    if (output[_TB] != null) {
+        contents[_TB] = (0, smithy_client_1.expectString)(output[_TB]);
     }
     if (output.StagesAvailable === "") {
-        contents.StagesAvailable = [];
+        contents[_SA] = [];
     }
-    else if (output["StagesAvailable"] !== undefined && output["StagesAvailable"]["member"] !== undefined) {
-        contents.StagesAvailable = de_StageList((0, smithy_client_1.getArrayIfSingleItem)(output["StagesAvailable"]["member"]), context);
+    else if (output[_SA] != null && output[_SA][_m] != null) {
+        contents[_SA] = de_StageList((0, smithy_client_1.getArrayIfSingleItem)(output[_SA][_m]), context);
     }
     return contents;
 };
 const de_GetTemplateSummaryOutput = (output, context) => {
     const contents = {};
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_ParameterDeclarations((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_ParameterDeclarations((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
-    if (output["CapabilitiesReason"] !== undefined) {
-        contents.CapabilitiesReason = (0, smithy_client_1.expectString)(output["CapabilitiesReason"]);
+    if (output[_CR] != null) {
+        contents[_CR] = (0, smithy_client_1.expectString)(output[_CR]);
     }
     if (output.ResourceTypes === "") {
-        contents.ResourceTypes = [];
+        contents[_RTe] = [];
     }
-    else if (output["ResourceTypes"] !== undefined && output["ResourceTypes"]["member"] !== undefined) {
-        contents.ResourceTypes = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceTypes"]["member"]), context);
+    else if (output[_RTe] != null && output[_RTe][_m] != null) {
+        contents[_RTe] = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output[_RTe][_m]), context);
     }
-    if (output["Version"] !== undefined) {
-        contents.Version = (0, smithy_client_1.expectString)(output["Version"]);
+    if (output[_V] != null) {
+        contents[_V] = (0, smithy_client_1.expectString)(output[_V]);
     }
-    if (output["Metadata"] !== undefined) {
-        contents.Metadata = (0, smithy_client_1.expectString)(output["Metadata"]);
+    if (output[_Me] != null) {
+        contents[_Me] = (0, smithy_client_1.expectString)(output[_Me]);
     }
     if (output.DeclaredTransforms === "") {
-        contents.DeclaredTransforms = [];
+        contents[_DTec] = [];
     }
-    else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-        contents.DeclaredTransforms = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output["DeclaredTransforms"]["member"]), context);
+    else if (output[_DTec] != null && output[_DTec][_m] != null) {
+        contents[_DTec] = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output[_DTec][_m]), context);
     }
     if (output.ResourceIdentifierSummaries === "") {
-        contents.ResourceIdentifierSummaries = [];
+        contents[_RIS] = [];
     }
-    else if (output["ResourceIdentifierSummaries"] !== undefined &&
-        output["ResourceIdentifierSummaries"]["member"] !== undefined) {
-        contents.ResourceIdentifierSummaries = de_ResourceIdentifierSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceIdentifierSummaries"]["member"]), context);
+    else if (output[_RIS] != null && output[_RIS][_m] != null) {
+        contents[_RIS] = de_ResourceIdentifierSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_RIS][_m]), context);
     }
-    if (output["Warnings"] !== undefined) {
-        contents.Warnings = de_Warnings(output["Warnings"], context);
+    if (output[_W] != null) {
+        contents[_W] = de_Warnings(output[_W], context);
     }
     return contents;
 };
@@ -24614,223 +22663,222 @@ const de_Imports = (output, context) => {
 };
 const de_ImportStacksToStackSetOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_InsufficientCapabilitiesException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_InvalidChangeSetStatusException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_InvalidOperationException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_InvalidStateTransitionException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_LimitExceededException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_ListChangeSetsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_ChangeSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_ChangeSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListExportsOutput = (output, context) => {
     const contents = {};
     if (output.Exports === "") {
-        contents.Exports = [];
+        contents[_Ex] = [];
     }
-    else if (output["Exports"] !== undefined && output["Exports"]["member"] !== undefined) {
-        contents.Exports = de_Exports((0, smithy_client_1.getArrayIfSingleItem)(output["Exports"]["member"]), context);
+    else if (output[_Ex] != null && output[_Ex][_m] != null) {
+        contents[_Ex] = de_Exports((0, smithy_client_1.getArrayIfSingleItem)(output[_Ex][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListImportsOutput = (output, context) => {
     const contents = {};
     if (output.Imports === "") {
-        contents.Imports = [];
+        contents[_Im] = [];
     }
-    else if (output["Imports"] !== undefined && output["Imports"]["member"] !== undefined) {
-        contents.Imports = de_Imports((0, smithy_client_1.getArrayIfSingleItem)(output["Imports"]["member"]), context);
+    else if (output[_Im] != null && output[_Im][_m] != null) {
+        contents[_Im] = de_Imports((0, smithy_client_1.getArrayIfSingleItem)(output[_Im][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackInstanceResourceDriftsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackInstanceResourceDriftsSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackInstanceResourceDriftsSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackInstancesOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackInstanceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackInstanceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackResourcesOutput = (output, context) => {
     const contents = {};
     if (output.StackResourceSummaries === "") {
-        contents.StackResourceSummaries = [];
+        contents[_SRS] = [];
     }
-    else if (output["StackResourceSummaries"] !== undefined &&
-        output["StackResourceSummaries"]["member"] !== undefined) {
-        contents.StackResourceSummaries = de_StackResourceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["StackResourceSummaries"]["member"]), context);
+    else if (output[_SRS] != null && output[_SRS][_m] != null) {
+        contents[_SRS] = de_StackResourceSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_SRS][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackSetOperationResultsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackSetOperationResultSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackSetOperationResultSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackSetOperationsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackSetOperationSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackSetOperationSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStackSetsOutput = (output, context) => {
     const contents = {};
     if (output.Summaries === "") {
-        contents.Summaries = [];
+        contents[_Su] = [];
     }
-    else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-        contents.Summaries = de_StackSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["Summaries"]["member"]), context);
+    else if (output[_Su] != null && output[_Su][_m] != null) {
+        contents[_Su] = de_StackSetSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_Su][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListStacksOutput = (output, context) => {
     const contents = {};
     if (output.StackSummaries === "") {
-        contents.StackSummaries = [];
+        contents[_SSt] = [];
     }
-    else if (output["StackSummaries"] !== undefined && output["StackSummaries"]["member"] !== undefined) {
-        contents.StackSummaries = de_StackSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["StackSummaries"]["member"]), context);
+    else if (output[_SSt] != null && output[_SSt][_m] != null) {
+        contents[_SSt] = de_StackSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_SSt][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListTypeRegistrationsOutput = (output, context) => {
     const contents = {};
     if (output.RegistrationTokenList === "") {
-        contents.RegistrationTokenList = [];
+        contents[_RTL] = [];
     }
-    else if (output["RegistrationTokenList"] !== undefined && output["RegistrationTokenList"]["member"] !== undefined) {
-        contents.RegistrationTokenList = de_RegistrationTokenList((0, smithy_client_1.getArrayIfSingleItem)(output["RegistrationTokenList"]["member"]), context);
+    else if (output[_RTL] != null && output[_RTL][_m] != null) {
+        contents[_RTL] = de_RegistrationTokenList((0, smithy_client_1.getArrayIfSingleItem)(output[_RTL][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListTypesOutput = (output, context) => {
     const contents = {};
     if (output.TypeSummaries === "") {
-        contents.TypeSummaries = [];
+        contents[_TSy] = [];
     }
-    else if (output["TypeSummaries"] !== undefined && output["TypeSummaries"]["member"] !== undefined) {
-        contents.TypeSummaries = de_TypeSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["TypeSummaries"]["member"]), context);
+    else if (output[_TSy] != null && output[_TSy][_m] != null) {
+        contents[_TSy] = de_TypeSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_TSy][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_ListTypeVersionsOutput = (output, context) => {
     const contents = {};
     if (output.TypeVersionSummaries === "") {
-        contents.TypeVersionSummaries = [];
+        contents[_TVS] = [];
     }
-    else if (output["TypeVersionSummaries"] !== undefined && output["TypeVersionSummaries"]["member"] !== undefined) {
-        contents.TypeVersionSummaries = de_TypeVersionSummaries((0, smithy_client_1.getArrayIfSingleItem)(output["TypeVersionSummaries"]["member"]), context);
+    else if (output[_TVS] != null && output[_TVS][_m] != null) {
+        contents[_TVS] = de_TypeVersionSummaries((0, smithy_client_1.getArrayIfSingleItem)(output[_TVS][_m]), context);
     }
-    if (output["NextToken"] !== undefined) {
-        contents.NextToken = (0, smithy_client_1.expectString)(output["NextToken"]);
+    if (output[_NT] != null) {
+        contents[_NT] = (0, smithy_client_1.expectString)(output[_NT]);
     }
     return contents;
 };
 const de_LoggingConfig = (output, context) => {
     const contents = {};
-    if (output["LogRoleArn"] !== undefined) {
-        contents.LogRoleArn = (0, smithy_client_1.expectString)(output["LogRoleArn"]);
+    if (output[_LRA] != null) {
+        contents[_LRA] = (0, smithy_client_1.expectString)(output[_LRA]);
     }
-    if (output["LogGroupName"] !== undefined) {
-        contents.LogGroupName = (0, smithy_client_1.expectString)(output["LogGroupName"]);
+    if (output[_LGN] != null) {
+        contents[_LGN] = (0, smithy_client_1.expectString)(output[_LGN]);
     }
     return contents;
 };
@@ -24843,25 +22891,25 @@ const de_LogicalResourceIds = (output, context) => {
 };
 const de_ManagedExecution = (output, context) => {
     const contents = {};
-    if (output["Active"] !== undefined) {
-        contents.Active = (0, smithy_client_1.parseBoolean)(output["Active"]);
+    if (output[_Act] != null) {
+        contents[_Act] = (0, smithy_client_1.parseBoolean)(output[_Act]);
     }
     return contents;
 };
 const de_ModuleInfo = (output, context) => {
     const contents = {};
-    if (output["TypeHierarchy"] !== undefined) {
-        contents.TypeHierarchy = (0, smithy_client_1.expectString)(output["TypeHierarchy"]);
+    if (output[_TH] != null) {
+        contents[_TH] = (0, smithy_client_1.expectString)(output[_TH]);
     }
-    if (output["LogicalIdHierarchy"] !== undefined) {
-        contents.LogicalIdHierarchy = (0, smithy_client_1.expectString)(output["LogicalIdHierarchy"]);
+    if (output[_LIH] != null) {
+        contents[_LIH] = (0, smithy_client_1.expectString)(output[_LIH]);
     }
     return contents;
 };
 const de_NameAlreadyExistsException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -24874,29 +22922,29 @@ const de_NotificationARNs = (output, context) => {
 };
 const de_OperationIdAlreadyExistsException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_OperationInProgressException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_OperationNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_OperationStatusCheckFailedException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -24909,17 +22957,17 @@ const de_OrganizationalUnitIdList = (output, context) => {
 };
 const de_Output = (output, context) => {
     const contents = {};
-    if (output["OutputKey"] !== undefined) {
-        contents.OutputKey = (0, smithy_client_1.expectString)(output["OutputKey"]);
+    if (output[_OK] != null) {
+        contents[_OK] = (0, smithy_client_1.expectString)(output[_OK]);
     }
-    if (output["OutputValue"] !== undefined) {
-        contents.OutputValue = (0, smithy_client_1.expectString)(output["OutputValue"]);
+    if (output[_OV] != null) {
+        contents[_OV] = (0, smithy_client_1.expectString)(output[_OV]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["ExportName"] !== undefined) {
-        contents.ExportName = (0, smithy_client_1.expectString)(output["ExportName"]);
+    if (output[_EN] != null) {
+        contents[_EN] = (0, smithy_client_1.expectString)(output[_EN]);
     }
     return contents;
 };
@@ -24932,49 +22980,49 @@ const de_Outputs = (output, context) => {
 };
 const de_Parameter = (output, context) => {
     const contents = {};
-    if (output["ParameterKey"] !== undefined) {
-        contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
+    if (output[_PK] != null) {
+        contents[_PK] = (0, smithy_client_1.expectString)(output[_PK]);
     }
-    if (output["ParameterValue"] !== undefined) {
-        contents.ParameterValue = (0, smithy_client_1.expectString)(output["ParameterValue"]);
+    if (output[_PV] != null) {
+        contents[_PV] = (0, smithy_client_1.expectString)(output[_PV]);
     }
-    if (output["UsePreviousValue"] !== undefined) {
-        contents.UsePreviousValue = (0, smithy_client_1.parseBoolean)(output["UsePreviousValue"]);
+    if (output[_UPV] != null) {
+        contents[_UPV] = (0, smithy_client_1.parseBoolean)(output[_UPV]);
     }
-    if (output["ResolvedValue"] !== undefined) {
-        contents.ResolvedValue = (0, smithy_client_1.expectString)(output["ResolvedValue"]);
+    if (output[_RV] != null) {
+        contents[_RV] = (0, smithy_client_1.expectString)(output[_RV]);
     }
     return contents;
 };
 const de_ParameterConstraints = (output, context) => {
     const contents = {};
     if (output.AllowedValues === "") {
-        contents.AllowedValues = [];
+        contents[_AV] = [];
     }
-    else if (output["AllowedValues"] !== undefined && output["AllowedValues"]["member"] !== undefined) {
-        contents.AllowedValues = de_AllowedValues((0, smithy_client_1.getArrayIfSingleItem)(output["AllowedValues"]["member"]), context);
+    else if (output[_AV] != null && output[_AV][_m] != null) {
+        contents[_AV] = de_AllowedValues((0, smithy_client_1.getArrayIfSingleItem)(output[_AV][_m]), context);
     }
     return contents;
 };
 const de_ParameterDeclaration = (output, context) => {
     const contents = {};
-    if (output["ParameterKey"] !== undefined) {
-        contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
+    if (output[_PK] != null) {
+        contents[_PK] = (0, smithy_client_1.expectString)(output[_PK]);
     }
-    if (output["DefaultValue"] !== undefined) {
-        contents.DefaultValue = (0, smithy_client_1.expectString)(output["DefaultValue"]);
+    if (output[_DV] != null) {
+        contents[_DV] = (0, smithy_client_1.expectString)(output[_DV]);
     }
-    if (output["ParameterType"] !== undefined) {
-        contents.ParameterType = (0, smithy_client_1.expectString)(output["ParameterType"]);
+    if (output[_PTa] != null) {
+        contents[_PTa] = (0, smithy_client_1.expectString)(output[_PTa]);
     }
-    if (output["NoEcho"] !== undefined) {
-        contents.NoEcho = (0, smithy_client_1.parseBoolean)(output["NoEcho"]);
+    if (output[_NE] != null) {
+        contents[_NE] = (0, smithy_client_1.parseBoolean)(output[_NE]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["ParameterConstraints"] !== undefined) {
-        contents.ParameterConstraints = de_ParameterConstraints(output["ParameterConstraints"], context);
+    if (output[_PC] != null) {
+        contents[_PC] = de_ParameterConstraints(output[_PC], context);
     }
     return contents;
 };
@@ -25001,27 +23049,27 @@ const de_PhysicalResourceIdContext = (output, context) => {
 };
 const de_PhysicalResourceIdContextKeyValuePair = (output, context) => {
     const contents = {};
-    if (output["Key"] !== undefined) {
-        contents.Key = (0, smithy_client_1.expectString)(output["Key"]);
+    if (output[_K] != null) {
+        contents[_K] = (0, smithy_client_1.expectString)(output[_K]);
     }
-    if (output["Value"] !== undefined) {
-        contents.Value = (0, smithy_client_1.expectString)(output["Value"]);
+    if (output[_Val] != null) {
+        contents[_Val] = (0, smithy_client_1.expectString)(output[_Val]);
     }
     return contents;
 };
 const de_PropertyDifference = (output, context) => {
     const contents = {};
-    if (output["PropertyPath"] !== undefined) {
-        contents.PropertyPath = (0, smithy_client_1.expectString)(output["PropertyPath"]);
+    if (output[_PPr] != null) {
+        contents[_PPr] = (0, smithy_client_1.expectString)(output[_PPr]);
     }
-    if (output["ExpectedValue"] !== undefined) {
-        contents.ExpectedValue = (0, smithy_client_1.expectString)(output["ExpectedValue"]);
+    if (output[_EV] != null) {
+        contents[_EV] = (0, smithy_client_1.expectString)(output[_EV]);
     }
-    if (output["ActualValue"] !== undefined) {
-        contents.ActualValue = (0, smithy_client_1.expectString)(output["ActualValue"]);
+    if (output[_AVc] != null) {
+        contents[_AVc] = (0, smithy_client_1.expectString)(output[_AVc]);
     }
-    if (output["DifferenceType"] !== undefined) {
-        contents.DifferenceType = (0, smithy_client_1.expectString)(output["DifferenceType"]);
+    if (output[_DTi] != null) {
+        contents[_DTi] = (0, smithy_client_1.expectString)(output[_DTi]);
     }
     return contents;
 };
@@ -25034,8 +23082,8 @@ const de_PropertyDifferences = (output, context) => {
 };
 const de_PublishTypeOutput = (output, context) => {
     const contents = {};
-    if (output["PublicTypeArn"] !== undefined) {
-        contents.PublicTypeArn = (0, smithy_client_1.expectString)(output["PublicTypeArn"]);
+    if (output[_PTA] != null) {
+        contents[_PTA] = (0, smithy_client_1.expectString)(output[_PTA]);
     }
     return contents;
 };
@@ -25052,15 +23100,15 @@ const de_RegionList = (output, context) => {
 };
 const de_RegisterPublisherOutput = (output, context) => {
     const contents = {};
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
     return contents;
 };
 const de_RegisterTypeOutput = (output, context) => {
     const contents = {};
-    if (output["RegistrationToken"] !== undefined) {
-        contents.RegistrationToken = (0, smithy_client_1.expectString)(output["RegistrationToken"]);
+    if (output[_RTeg] != null) {
+        contents[_RTeg] = (0, smithy_client_1.expectString)(output[_RTeg]);
     }
     return contents;
 };
@@ -25073,21 +23121,20 @@ const de_RegistrationTokenList = (output, context) => {
 };
 const de_RequiredActivatedType = (output, context) => {
     const contents = {};
-    if (output["TypeNameAlias"] !== undefined) {
-        contents.TypeNameAlias = (0, smithy_client_1.expectString)(output["TypeNameAlias"]);
+    if (output[_TNA] != null) {
+        contents[_TNA] = (0, smithy_client_1.expectString)(output[_TNA]);
     }
-    if (output["OriginalTypeName"] !== undefined) {
-        contents.OriginalTypeName = (0, smithy_client_1.expectString)(output["OriginalTypeName"]);
+    if (output[_OTN] != null) {
+        contents[_OTN] = (0, smithy_client_1.expectString)(output[_OTN]);
     }
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
     if (output.SupportedMajorVersions === "") {
-        contents.SupportedMajorVersions = [];
+        contents[_SMV] = [];
     }
-    else if (output["SupportedMajorVersions"] !== undefined &&
-        output["SupportedMajorVersions"]["member"] !== undefined) {
-        contents.SupportedMajorVersions = de_SupportedMajorVersions((0, smithy_client_1.getArrayIfSingleItem)(output["SupportedMajorVersions"]["member"]), context);
+    else if (output[_SMV] != null && output[_SMV][_m] != null) {
+        contents[_SMV] = de_SupportedMajorVersions((0, smithy_client_1.getArrayIfSingleItem)(output[_SMV][_m]), context);
     }
     return contents;
 };
@@ -25100,54 +23147,54 @@ const de_RequiredActivatedTypes = (output, context) => {
 };
 const de_ResourceChange = (output, context) => {
     const contents = {};
-    if (output["Action"] !== undefined) {
-        contents.Action = (0, smithy_client_1.expectString)(output["Action"]);
+    if (output[_A] != null) {
+        contents[_A] = (0, smithy_client_1.expectString)(output[_A]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["Replacement"] !== undefined) {
-        contents.Replacement = (0, smithy_client_1.expectString)(output["Replacement"]);
+    if (output[_Re] != null) {
+        contents[_Re] = (0, smithy_client_1.expectString)(output[_Re]);
     }
     if (output.Scope === "") {
-        contents.Scope = [];
+        contents[_Sco] = [];
     }
-    else if (output["Scope"] !== undefined && output["Scope"]["member"] !== undefined) {
-        contents.Scope = de_Scope((0, smithy_client_1.getArrayIfSingleItem)(output["Scope"]["member"]), context);
+    else if (output[_Sco] != null && output[_Sco][_m] != null) {
+        contents[_Sco] = de_Scope((0, smithy_client_1.getArrayIfSingleItem)(output[_Sco][_m]), context);
     }
     if (output.Details === "") {
-        contents.Details = [];
+        contents[_De] = [];
     }
-    else if (output["Details"] !== undefined && output["Details"]["member"] !== undefined) {
-        contents.Details = de_ResourceChangeDetails((0, smithy_client_1.getArrayIfSingleItem)(output["Details"]["member"]), context);
+    else if (output[_De] != null && output[_De][_m] != null) {
+        contents[_De] = de_ResourceChangeDetails((0, smithy_client_1.getArrayIfSingleItem)(output[_De][_m]), context);
     }
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
 const de_ResourceChangeDetail = (output, context) => {
     const contents = {};
-    if (output["Target"] !== undefined) {
-        contents.Target = de_ResourceTargetDefinition(output["Target"], context);
+    if (output[_Tar] != null) {
+        contents[_Tar] = de_ResourceTargetDefinition(output[_Tar], context);
     }
-    if (output["Evaluation"] !== undefined) {
-        contents.Evaluation = (0, smithy_client_1.expectString)(output["Evaluation"]);
+    if (output[_Ev] != null) {
+        contents[_Ev] = (0, smithy_client_1.expectString)(output[_Ev]);
     }
-    if (output["ChangeSource"] !== undefined) {
-        contents.ChangeSource = (0, smithy_client_1.expectString)(output["ChangeSource"]);
+    if (output[_CSh] != null) {
+        contents[_CSh] = (0, smithy_client_1.expectString)(output[_CSh]);
     }
-    if (output["CausingEntity"] !== undefined) {
-        contents.CausingEntity = (0, smithy_client_1.expectString)(output["CausingEntity"]);
+    if (output[_CE] != null) {
+        contents[_CE] = (0, smithy_client_1.expectString)(output[_CE]);
     }
     return contents;
 };
@@ -25174,33 +23221,33 @@ const de_ResourceIdentifierSummaries = (output, context) => {
 };
 const de_ResourceIdentifierSummary = (output, context) => {
     const contents = {};
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
     if (output.LogicalResourceIds === "") {
-        contents.LogicalResourceIds = [];
+        contents[_LRIo] = [];
     }
-    else if (output["LogicalResourceIds"] !== undefined && output["LogicalResourceIds"]["member"] !== undefined) {
-        contents.LogicalResourceIds = de_LogicalResourceIds((0, smithy_client_1.getArrayIfSingleItem)(output["LogicalResourceIds"]["member"]), context);
+    else if (output[_LRIo] != null && output[_LRIo][_m] != null) {
+        contents[_LRIo] = de_LogicalResourceIds((0, smithy_client_1.getArrayIfSingleItem)(output[_LRIo][_m]), context);
     }
     if (output.ResourceIdentifiers === "") {
-        contents.ResourceIdentifiers = [];
+        contents[_RIe] = [];
     }
-    else if (output["ResourceIdentifiers"] !== undefined && output["ResourceIdentifiers"]["member"] !== undefined) {
-        contents.ResourceIdentifiers = de_ResourceIdentifiers((0, smithy_client_1.getArrayIfSingleItem)(output["ResourceIdentifiers"]["member"]), context);
+    else if (output[_RIe] != null && output[_RIe][_m] != null) {
+        contents[_RIe] = de_ResourceIdentifiers((0, smithy_client_1.getArrayIfSingleItem)(output[_RIe][_m]), context);
     }
     return contents;
 };
 const de_ResourceTargetDefinition = (output, context) => {
     const contents = {};
-    if (output["Attribute"] !== undefined) {
-        contents.Attribute = (0, smithy_client_1.expectString)(output["Attribute"]);
+    if (output[_At] != null) {
+        contents[_At] = (0, smithy_client_1.expectString)(output[_At]);
     }
-    if (output["Name"] !== undefined) {
-        contents.Name = (0, smithy_client_1.expectString)(output["Name"]);
+    if (output[_N] != null) {
+        contents[_N] = (0, smithy_client_1.expectString)(output[_N]);
     }
-    if (output["RequiresRecreation"] !== undefined) {
-        contents.RequiresRecreation = (0, smithy_client_1.expectString)(output["RequiresRecreation"]);
+    if (output[_RRe] != null) {
+        contents[_RRe] = (0, smithy_client_1.expectString)(output[_RRe]);
     }
     return contents;
 };
@@ -25214,30 +23261,30 @@ const de_ResourceTypes = (output, context) => {
 const de_RollbackConfiguration = (output, context) => {
     const contents = {};
     if (output.RollbackTriggers === "") {
-        contents.RollbackTriggers = [];
+        contents[_RTo] = [];
     }
-    else if (output["RollbackTriggers"] !== undefined && output["RollbackTriggers"]["member"] !== undefined) {
-        contents.RollbackTriggers = de_RollbackTriggers((0, smithy_client_1.getArrayIfSingleItem)(output["RollbackTriggers"]["member"]), context);
+    else if (output[_RTo] != null && output[_RTo][_m] != null) {
+        contents[_RTo] = de_RollbackTriggers((0, smithy_client_1.getArrayIfSingleItem)(output[_RTo][_m]), context);
     }
-    if (output["MonitoringTimeInMinutes"] !== undefined) {
-        contents.MonitoringTimeInMinutes = (0, smithy_client_1.strictParseInt32)(output["MonitoringTimeInMinutes"]);
+    if (output[_MTIM] != null) {
+        contents[_MTIM] = (0, smithy_client_1.strictParseInt32)(output[_MTIM]);
     }
     return contents;
 };
 const de_RollbackStackOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_RollbackTrigger = (output, context) => {
     const contents = {};
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
     return contents;
 };
@@ -25257,8 +23304,8 @@ const de_Scope = (output, context) => {
 };
 const de_SetTypeConfigurationOutput = (output, context) => {
     const contents = {};
-    if (output["ConfigurationArn"] !== undefined) {
-        contents.ConfigurationArn = (0, smithy_client_1.expectString)(output["ConfigurationArn"]);
+    if (output[_CAonf] != null) {
+        contents[_CAonf] = (0, smithy_client_1.expectString)(output[_CAonf]);
     }
     return contents;
 };
@@ -25268,161 +23315,161 @@ const de_SetTypeDefaultVersionOutput = (output, context) => {
 };
 const de_Stack = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["ChangeSetId"] !== undefined) {
-        contents.ChangeSetId = (0, smithy_client_1.expectString)(output["ChangeSetId"]);
+    if (output[_CSIh] != null) {
+        contents[_CSIh] = (0, smithy_client_1.expectString)(output[_CSIh]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
-    if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
+    if (output[_CTr] != null) {
+        contents[_CTr] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTr]));
     }
-    if (output["DeletionTime"] !== undefined) {
-        contents.DeletionTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["DeletionTime"]));
+    if (output[_DTel] != null) {
+        contents[_DTel] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_DTel]));
     }
-    if (output["LastUpdatedTime"] !== undefined) {
-        contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTime"]));
+    if (output[_LUT] != null) {
+        contents[_LUT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LUT]));
     }
-    if (output["RollbackConfiguration"] !== undefined) {
-        contents.RollbackConfiguration = de_RollbackConfiguration(output["RollbackConfiguration"], context);
+    if (output[_RC] != null) {
+        contents[_RC] = de_RollbackConfiguration(output[_RC], context);
     }
-    if (output["StackStatus"] !== undefined) {
-        contents.StackStatus = (0, smithy_client_1.expectString)(output["StackStatus"]);
+    if (output[_SSta] != null) {
+        contents[_SSta] = (0, smithy_client_1.expectString)(output[_SSta]);
     }
-    if (output["StackStatusReason"] !== undefined) {
-        contents.StackStatusReason = (0, smithy_client_1.expectString)(output["StackStatusReason"]);
+    if (output[_SSR] != null) {
+        contents[_SSR] = (0, smithy_client_1.expectString)(output[_SSR]);
     }
-    if (output["DisableRollback"] !== undefined) {
-        contents.DisableRollback = (0, smithy_client_1.parseBoolean)(output["DisableRollback"]);
+    if (output[_DR] != null) {
+        contents[_DR] = (0, smithy_client_1.parseBoolean)(output[_DR]);
     }
     if (output.NotificationARNs === "") {
-        contents.NotificationARNs = [];
+        contents[_NARN] = [];
     }
-    else if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-        contents.NotificationARNs = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output["NotificationARNs"]["member"]), context);
+    else if (output[_NARN] != null && output[_NARN][_m] != null) {
+        contents[_NARN] = de_NotificationARNs((0, smithy_client_1.getArrayIfSingleItem)(output[_NARN][_m]), context);
     }
-    if (output["TimeoutInMinutes"] !== undefined) {
-        contents.TimeoutInMinutes = (0, smithy_client_1.strictParseInt32)(output["TimeoutInMinutes"]);
+    if (output[_TIM] != null) {
+        contents[_TIM] = (0, smithy_client_1.strictParseInt32)(output[_TIM]);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
     if (output.Outputs === "") {
-        contents.Outputs = [];
+        contents[_O] = [];
     }
-    else if (output["Outputs"] !== undefined && output["Outputs"]["member"] !== undefined) {
-        contents.Outputs = de_Outputs((0, smithy_client_1.getArrayIfSingleItem)(output["Outputs"]["member"]), context);
+    else if (output[_O] != null && output[_O][_m] != null) {
+        contents[_O] = de_Outputs((0, smithy_client_1.getArrayIfSingleItem)(output[_O][_m]), context);
     }
-    if (output["RoleARN"] !== undefined) {
-        contents.RoleARN = (0, smithy_client_1.expectString)(output["RoleARN"]);
+    if (output[_RARN] != null) {
+        contents[_RARN] = (0, smithy_client_1.expectString)(output[_RARN]);
     }
     if (output.Tags === "") {
-        contents.Tags = [];
+        contents[_Ta] = [];
     }
-    else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+    else if (output[_Ta] != null && output[_Ta][_m] != null) {
+        contents[_Ta] = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output[_Ta][_m]), context);
     }
-    if (output["EnableTerminationProtection"] !== undefined) {
-        contents.EnableTerminationProtection = (0, smithy_client_1.parseBoolean)(output["EnableTerminationProtection"]);
+    if (output[_ETP] != null) {
+        contents[_ETP] = (0, smithy_client_1.parseBoolean)(output[_ETP]);
     }
-    if (output["ParentId"] !== undefined) {
-        contents.ParentId = (0, smithy_client_1.expectString)(output["ParentId"]);
+    if (output[_PIa] != null) {
+        contents[_PIa] = (0, smithy_client_1.expectString)(output[_PIa]);
     }
-    if (output["RootId"] !== undefined) {
-        contents.RootId = (0, smithy_client_1.expectString)(output["RootId"]);
+    if (output[_RIo] != null) {
+        contents[_RIo] = (0, smithy_client_1.expectString)(output[_RIo]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackDriftInformation(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackDriftInformation(output[_DI], context);
     }
-    if (output["RetainExceptOnCreate"] !== undefined) {
-        contents.RetainExceptOnCreate = (0, smithy_client_1.parseBoolean)(output["RetainExceptOnCreate"]);
+    if (output[_REOC] != null) {
+        contents[_REOC] = (0, smithy_client_1.parseBoolean)(output[_REOC]);
     }
     return contents;
 };
 const de_StackDriftInformation = (output, context) => {
     const contents = {};
-    if (output["StackDriftStatus"] !== undefined) {
-        contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
+    if (output[_SDS] != null) {
+        contents[_SDS] = (0, smithy_client_1.expectString)(output[_SDS]);
     }
-    if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
+    if (output[_LCT] != null) {
+        contents[_LCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LCT]));
     }
     return contents;
 };
 const de_StackDriftInformationSummary = (output, context) => {
     const contents = {};
-    if (output["StackDriftStatus"] !== undefined) {
-        contents.StackDriftStatus = (0, smithy_client_1.expectString)(output["StackDriftStatus"]);
+    if (output[_SDS] != null) {
+        contents[_SDS] = (0, smithy_client_1.expectString)(output[_SDS]);
     }
-    if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
+    if (output[_LCT] != null) {
+        contents[_LCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LCT]));
     }
     return contents;
 };
 const de_StackEvent = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["EventId"] !== undefined) {
-        contents.EventId = (0, smithy_client_1.expectString)(output["EventId"]);
+    if (output[_EI] != null) {
+        contents[_EI] = (0, smithy_client_1.expectString)(output[_EI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
-    if (output["ResourceStatus"] !== undefined) {
-        contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
+    if (output[_RSes] != null) {
+        contents[_RSes] = (0, smithy_client_1.expectString)(output[_RSes]);
     }
-    if (output["ResourceStatusReason"] !== undefined) {
-        contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
+    if (output[_RSR] != null) {
+        contents[_RSR] = (0, smithy_client_1.expectString)(output[_RSR]);
     }
-    if (output["ResourceProperties"] !== undefined) {
-        contents.ResourceProperties = (0, smithy_client_1.expectString)(output["ResourceProperties"]);
+    if (output[_RPe] != null) {
+        contents[_RPe] = (0, smithy_client_1.expectString)(output[_RPe]);
     }
-    if (output["ClientRequestToken"] !== undefined) {
-        contents.ClientRequestToken = (0, smithy_client_1.expectString)(output["ClientRequestToken"]);
+    if (output[_CRT] != null) {
+        contents[_CRT] = (0, smithy_client_1.expectString)(output[_CRT]);
     }
-    if (output["HookType"] !== undefined) {
-        contents.HookType = (0, smithy_client_1.expectString)(output["HookType"]);
+    if (output[_HT] != null) {
+        contents[_HT] = (0, smithy_client_1.expectString)(output[_HT]);
     }
-    if (output["HookStatus"] !== undefined) {
-        contents.HookStatus = (0, smithy_client_1.expectString)(output["HookStatus"]);
+    if (output[_HS] != null) {
+        contents[_HS] = (0, smithy_client_1.expectString)(output[_HS]);
     }
-    if (output["HookStatusReason"] !== undefined) {
-        contents.HookStatusReason = (0, smithy_client_1.expectString)(output["HookStatusReason"]);
+    if (output[_HSR] != null) {
+        contents[_HSR] = (0, smithy_client_1.expectString)(output[_HSR]);
     }
-    if (output["HookInvocationPoint"] !== undefined) {
-        contents.HookInvocationPoint = (0, smithy_client_1.expectString)(output["HookInvocationPoint"]);
+    if (output[_HIP] != null) {
+        contents[_HIP] = (0, smithy_client_1.expectString)(output[_HIP]);
     }
-    if (output["HookFailureMode"] !== undefined) {
-        contents.HookFailureMode = (0, smithy_client_1.expectString)(output["HookFailureMode"]);
+    if (output[_HFM] != null) {
+        contents[_HFM] = (0, smithy_client_1.expectString)(output[_HFM]);
     }
     return contents;
 };
@@ -25435,58 +23482,58 @@ const de_StackEvents = (output, context) => {
 };
 const de_StackInstance = (output, context) => {
     const contents = {};
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Region"] !== undefined) {
-        contents.Region = (0, smithy_client_1.expectString)(output["Region"]);
+    if (output[_Reg] != null) {
+        contents[_Reg] = (0, smithy_client_1.expectString)(output[_Reg]);
     }
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Acc] != null) {
+        contents[_Acc] = (0, smithy_client_1.expectString)(output[_Acc]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     if (output.ParameterOverrides === "") {
-        contents.ParameterOverrides = [];
+        contents[_PO] = [];
     }
-    else if (output["ParameterOverrides"] !== undefined && output["ParameterOverrides"]["member"] !== undefined) {
-        contents.ParameterOverrides = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["ParameterOverrides"]["member"]), context);
+    else if (output[_PO] != null && output[_PO][_m] != null) {
+        contents[_PO] = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output[_PO][_m]), context);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StackInstanceStatus"] !== undefined) {
-        contents.StackInstanceStatus = de_StackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
+    if (output[_SIS] != null) {
+        contents[_SIS] = de_StackInstanceComprehensiveStatus(output[_SIS], context);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["OrganizationalUnitId"] !== undefined) {
-        contents.OrganizationalUnitId = (0, smithy_client_1.expectString)(output["OrganizationalUnitId"]);
+    if (output[_OUIr] != null) {
+        contents[_OUIr] = (0, smithy_client_1.expectString)(output[_OUIr]);
     }
-    if (output["DriftStatus"] !== undefined) {
-        contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
+    if (output[_DSr] != null) {
+        contents[_DSr] = (0, smithy_client_1.expectString)(output[_DSr]);
     }
-    if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
+    if (output[_LDCT] != null) {
+        contents[_LDCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LDCT]));
     }
-    if (output["LastOperationId"] !== undefined) {
-        contents.LastOperationId = (0, smithy_client_1.expectString)(output["LastOperationId"]);
+    if (output[_LOI] != null) {
+        contents[_LOI] = (0, smithy_client_1.expectString)(output[_LOI]);
     }
     return contents;
 };
 const de_StackInstanceComprehensiveStatus = (output, context) => {
     const contents = {};
-    if (output["DetailedStatus"] !== undefined) {
-        contents.DetailedStatus = (0, smithy_client_1.expectString)(output["DetailedStatus"]);
+    if (output[_DSeta] != null) {
+        contents[_DSeta] = (0, smithy_client_1.expectString)(output[_DSeta]);
     }
     return contents;
 };
 const de_StackInstanceNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -25499,36 +23546,35 @@ const de_StackInstanceResourceDriftsSummaries = (output, context) => {
 };
 const de_StackInstanceResourceDriftsSummary = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
     if (output.PhysicalResourceIdContext === "") {
-        contents.PhysicalResourceIdContext = [];
+        contents[_PRIC] = [];
     }
-    else if (output["PhysicalResourceIdContext"] !== undefined &&
-        output["PhysicalResourceIdContext"]["member"] !== undefined) {
-        contents.PhysicalResourceIdContext = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output["PhysicalResourceIdContext"]["member"]), context);
+    else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
+        contents[_PRIC] = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output[_PRIC][_m]), context);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
     if (output.PropertyDifferences === "") {
-        contents.PropertyDifferences = [];
+        contents[_PD] = [];
     }
-    else if (output["PropertyDifferences"] !== undefined && output["PropertyDifferences"]["member"] !== undefined) {
-        contents.PropertyDifferences = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output["PropertyDifferences"]["member"]), context);
+    else if (output[_PD] != null && output[_PD][_m] != null) {
+        contents[_PD] = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output[_PD][_m]), context);
     }
-    if (output["StackResourceDriftStatus"] !== undefined) {
-        contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
+    if (output[_SRDS] != null) {
+        contents[_SRDS] = (0, smithy_client_1.expectString)(output[_SRDS]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
     return contents;
 };
@@ -25541,186 +23587,185 @@ const de_StackInstanceSummaries = (output, context) => {
 };
 const de_StackInstanceSummary = (output, context) => {
     const contents = {};
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Region"] !== undefined) {
-        contents.Region = (0, smithy_client_1.expectString)(output["Region"]);
+    if (output[_Reg] != null) {
+        contents[_Reg] = (0, smithy_client_1.expectString)(output[_Reg]);
     }
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Acc] != null) {
+        contents[_Acc] = (0, smithy_client_1.expectString)(output[_Acc]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["StackInstanceStatus"] !== undefined) {
-        contents.StackInstanceStatus = de_StackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
+    if (output[_SIS] != null) {
+        contents[_SIS] = de_StackInstanceComprehensiveStatus(output[_SIS], context);
     }
-    if (output["OrganizationalUnitId"] !== undefined) {
-        contents.OrganizationalUnitId = (0, smithy_client_1.expectString)(output["OrganizationalUnitId"]);
+    if (output[_OUIr] != null) {
+        contents[_OUIr] = (0, smithy_client_1.expectString)(output[_OUIr]);
     }
-    if (output["DriftStatus"] !== undefined) {
-        contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
+    if (output[_DSr] != null) {
+        contents[_DSr] = (0, smithy_client_1.expectString)(output[_DSr]);
     }
-    if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
+    if (output[_LDCT] != null) {
+        contents[_LDCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LDCT]));
     }
-    if (output["LastOperationId"] !== undefined) {
-        contents.LastOperationId = (0, smithy_client_1.expectString)(output["LastOperationId"]);
+    if (output[_LOI] != null) {
+        contents[_LOI] = (0, smithy_client_1.expectString)(output[_LOI]);
     }
     return contents;
 };
 const de_StackNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_StackResource = (output, context) => {
     const contents = {};
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
-    if (output["ResourceStatus"] !== undefined) {
-        contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
+    if (output[_RSes] != null) {
+        contents[_RSes] = (0, smithy_client_1.expectString)(output[_RSes]);
     }
-    if (output["ResourceStatusReason"] !== undefined) {
-        contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
+    if (output[_RSR] != null) {
+        contents[_RSR] = (0, smithy_client_1.expectString)(output[_RSR]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackResourceDriftInformation(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackResourceDriftInformation(output[_DI], context);
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
 const de_StackResourceDetail = (output, context) => {
     const contents = {};
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["LastUpdatedTimestamp"] !== undefined) {
-        contents.LastUpdatedTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTimestamp"]));
+    if (output[_LUTa] != null) {
+        contents[_LUTa] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LUTa]));
     }
-    if (output["ResourceStatus"] !== undefined) {
-        contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
+    if (output[_RSes] != null) {
+        contents[_RSes] = (0, smithy_client_1.expectString)(output[_RSes]);
     }
-    if (output["ResourceStatusReason"] !== undefined) {
-        contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
+    if (output[_RSR] != null) {
+        contents[_RSR] = (0, smithy_client_1.expectString)(output[_RSR]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["Metadata"] !== undefined) {
-        contents.Metadata = (0, smithy_client_1.expectString)(output["Metadata"]);
+    if (output[_Me] != null) {
+        contents[_Me] = (0, smithy_client_1.expectString)(output[_Me]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackResourceDriftInformation(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackResourceDriftInformation(output[_DI], context);
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
 const de_StackResourceDrift = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
     if (output.PhysicalResourceIdContext === "") {
-        contents.PhysicalResourceIdContext = [];
+        contents[_PRIC] = [];
     }
-    else if (output["PhysicalResourceIdContext"] !== undefined &&
-        output["PhysicalResourceIdContext"]["member"] !== undefined) {
-        contents.PhysicalResourceIdContext = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output["PhysicalResourceIdContext"]["member"]), context);
+    else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
+        contents[_PRIC] = de_PhysicalResourceIdContext((0, smithy_client_1.getArrayIfSingleItem)(output[_PRIC][_m]), context);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["ExpectedProperties"] !== undefined) {
-        contents.ExpectedProperties = (0, smithy_client_1.expectString)(output["ExpectedProperties"]);
+    if (output[_EP] != null) {
+        contents[_EP] = (0, smithy_client_1.expectString)(output[_EP]);
     }
-    if (output["ActualProperties"] !== undefined) {
-        contents.ActualProperties = (0, smithy_client_1.expectString)(output["ActualProperties"]);
+    if (output[_AP] != null) {
+        contents[_AP] = (0, smithy_client_1.expectString)(output[_AP]);
     }
     if (output.PropertyDifferences === "") {
-        contents.PropertyDifferences = [];
+        contents[_PD] = [];
     }
-    else if (output["PropertyDifferences"] !== undefined && output["PropertyDifferences"]["member"] !== undefined) {
-        contents.PropertyDifferences = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output["PropertyDifferences"]["member"]), context);
+    else if (output[_PD] != null && output[_PD][_m] != null) {
+        contents[_PD] = de_PropertyDifferences((0, smithy_client_1.getArrayIfSingleItem)(output[_PD][_m]), context);
     }
-    if (output["StackResourceDriftStatus"] !== undefined) {
-        contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
+    if (output[_SRDS] != null) {
+        contents[_SRDS] = (0, smithy_client_1.expectString)(output[_SRDS]);
     }
-    if (output["Timestamp"] !== undefined) {
-        contents.Timestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Timestamp"]));
+    if (output[_Ti] != null) {
+        contents[_Ti] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_Ti]));
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
 const de_StackResourceDriftInformation = (output, context) => {
     const contents = {};
-    if (output["StackResourceDriftStatus"] !== undefined) {
-        contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
+    if (output[_SRDS] != null) {
+        contents[_SRDS] = (0, smithy_client_1.expectString)(output[_SRDS]);
     }
-    if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
+    if (output[_LCT] != null) {
+        contents[_LCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LCT]));
     }
     return contents;
 };
 const de_StackResourceDriftInformationSummary = (output, context) => {
     const contents = {};
-    if (output["StackResourceDriftStatus"] !== undefined) {
-        contents.StackResourceDriftStatus = (0, smithy_client_1.expectString)(output["StackResourceDriftStatus"]);
+    if (output[_SRDS] != null) {
+        contents[_SRDS] = (0, smithy_client_1.expectString)(output[_SRDS]);
     }
-    if (output["LastCheckTimestamp"] !== undefined) {
-        contents.LastCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastCheckTimestamp"]));
+    if (output[_LCT] != null) {
+        contents[_LCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LCT]));
     }
     return contents;
 };
@@ -25747,29 +23792,29 @@ const de_StackResourceSummaries = (output, context) => {
 };
 const de_StackResourceSummary = (output, context) => {
     const contents = {};
-    if (output["LogicalResourceId"] !== undefined) {
-        contents.LogicalResourceId = (0, smithy_client_1.expectString)(output["LogicalResourceId"]);
+    if (output[_LRI] != null) {
+        contents[_LRI] = (0, smithy_client_1.expectString)(output[_LRI]);
     }
-    if (output["PhysicalResourceId"] !== undefined) {
-        contents.PhysicalResourceId = (0, smithy_client_1.expectString)(output["PhysicalResourceId"]);
+    if (output[_PRI] != null) {
+        contents[_PRI] = (0, smithy_client_1.expectString)(output[_PRI]);
     }
-    if (output["ResourceType"] !== undefined) {
-        contents.ResourceType = (0, smithy_client_1.expectString)(output["ResourceType"]);
+    if (output[_RTes] != null) {
+        contents[_RTes] = (0, smithy_client_1.expectString)(output[_RTes]);
     }
-    if (output["LastUpdatedTimestamp"] !== undefined) {
-        contents.LastUpdatedTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTimestamp"]));
+    if (output[_LUTa] != null) {
+        contents[_LUTa] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LUTa]));
     }
-    if (output["ResourceStatus"] !== undefined) {
-        contents.ResourceStatus = (0, smithy_client_1.expectString)(output["ResourceStatus"]);
+    if (output[_RSes] != null) {
+        contents[_RSes] = (0, smithy_client_1.expectString)(output[_RSes]);
     }
-    if (output["ResourceStatusReason"] !== undefined) {
-        contents.ResourceStatusReason = (0, smithy_client_1.expectString)(output["ResourceStatusReason"]);
+    if (output[_RSR] != null) {
+        contents[_RSR] = (0, smithy_client_1.expectString)(output[_RSR]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackResourceDriftInformationSummary(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackResourceDriftInformationSummary(output[_DI], context);
     }
-    if (output["ModuleInfo"] !== undefined) {
-        contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+    if (output[_MI] != null) {
+        contents[_MI] = de_ModuleInfo(output[_MI], context);
     }
     return contents;
 };
@@ -25782,187 +23827,187 @@ const de_Stacks = (output, context) => {
 };
 const de_StackSet = (output, context) => {
     const contents = {};
-    if (output["StackSetName"] !== undefined) {
-        contents.StackSetName = (0, smithy_client_1.expectString)(output["StackSetName"]);
+    if (output[_SSN] != null) {
+        contents[_SSN] = (0, smithy_client_1.expectString)(output[_SSN]);
     }
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["TemplateBody"] !== undefined) {
-        contents.TemplateBody = (0, smithy_client_1.expectString)(output["TemplateBody"]);
+    if (output[_TB] != null) {
+        contents[_TB] = (0, smithy_client_1.expectString)(output[_TB]);
     }
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_Parameters((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
     if (output.Tags === "") {
-        contents.Tags = [];
+        contents[_Ta] = [];
     }
-    else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-        contents.Tags = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output["Tags"]["member"]), context);
+    else if (output[_Ta] != null && output[_Ta][_m] != null) {
+        contents[_Ta] = de_Tags((0, smithy_client_1.getArrayIfSingleItem)(output[_Ta][_m]), context);
     }
-    if (output["StackSetARN"] !== undefined) {
-        contents.StackSetARN = (0, smithy_client_1.expectString)(output["StackSetARN"]);
+    if (output[_SSARN] != null) {
+        contents[_SSARN] = (0, smithy_client_1.expectString)(output[_SSARN]);
     }
-    if (output["AdministrationRoleARN"] !== undefined) {
-        contents.AdministrationRoleARN = (0, smithy_client_1.expectString)(output["AdministrationRoleARN"]);
+    if (output[_ARARN] != null) {
+        contents[_ARARN] = (0, smithy_client_1.expectString)(output[_ARARN]);
     }
-    if (output["ExecutionRoleName"] !== undefined) {
-        contents.ExecutionRoleName = (0, smithy_client_1.expectString)(output["ExecutionRoleName"]);
+    if (output[_ERN] != null) {
+        contents[_ERN] = (0, smithy_client_1.expectString)(output[_ERN]);
     }
-    if (output["StackSetDriftDetectionDetails"] !== undefined) {
-        contents.StackSetDriftDetectionDetails = de_StackSetDriftDetectionDetails(output["StackSetDriftDetectionDetails"], context);
+    if (output[_SSDDD] != null) {
+        contents[_SSDDD] = de_StackSetDriftDetectionDetails(output[_SSDDD], context);
     }
-    if (output["AutoDeployment"] !== undefined) {
-        contents.AutoDeployment = de_AutoDeployment(output["AutoDeployment"], context);
+    if (output[_AD] != null) {
+        contents[_AD] = de_AutoDeployment(output[_AD], context);
     }
-    if (output["PermissionModel"] !== undefined) {
-        contents.PermissionModel = (0, smithy_client_1.expectString)(output["PermissionModel"]);
+    if (output[_PM] != null) {
+        contents[_PM] = (0, smithy_client_1.expectString)(output[_PM]);
     }
     if (output.OrganizationalUnitIds === "") {
-        contents.OrganizationalUnitIds = [];
+        contents[_OUI] = [];
     }
-    else if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
-        contents.OrganizationalUnitIds = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output["OrganizationalUnitIds"]["member"]), context);
+    else if (output[_OUI] != null && output[_OUI][_m] != null) {
+        contents[_OUI] = de_OrganizationalUnitIdList((0, smithy_client_1.getArrayIfSingleItem)(output[_OUI][_m]), context);
     }
-    if (output["ManagedExecution"] !== undefined) {
-        contents.ManagedExecution = de_ManagedExecution(output["ManagedExecution"], context);
+    if (output[_ME] != null) {
+        contents[_ME] = de_ManagedExecution(output[_ME], context);
     }
     if (output.Regions === "") {
-        contents.Regions = [];
+        contents[_R] = [];
     }
-    else if (output["Regions"] !== undefined && output["Regions"]["member"] !== undefined) {
-        contents.Regions = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output["Regions"]["member"]), context);
+    else if (output[_R] != null && output[_R][_m] != null) {
+        contents[_R] = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output[_R][_m]), context);
     }
     return contents;
 };
 const de_StackSetDriftDetectionDetails = (output, context) => {
     const contents = {};
-    if (output["DriftStatus"] !== undefined) {
-        contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
+    if (output[_DSr] != null) {
+        contents[_DSr] = (0, smithy_client_1.expectString)(output[_DSr]);
     }
-    if (output["DriftDetectionStatus"] !== undefined) {
-        contents.DriftDetectionStatus = (0, smithy_client_1.expectString)(output["DriftDetectionStatus"]);
+    if (output[_DDS] != null) {
+        contents[_DDS] = (0, smithy_client_1.expectString)(output[_DDS]);
     }
-    if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
+    if (output[_LDCT] != null) {
+        contents[_LDCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LDCT]));
     }
-    if (output["TotalStackInstancesCount"] !== undefined) {
-        contents.TotalStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["TotalStackInstancesCount"]);
+    if (output[_TSIC] != null) {
+        contents[_TSIC] = (0, smithy_client_1.strictParseInt32)(output[_TSIC]);
     }
-    if (output["DriftedStackInstancesCount"] !== undefined) {
-        contents.DriftedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["DriftedStackInstancesCount"]);
+    if (output[_DSIC] != null) {
+        contents[_DSIC] = (0, smithy_client_1.strictParseInt32)(output[_DSIC]);
     }
-    if (output["InSyncStackInstancesCount"] !== undefined) {
-        contents.InSyncStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["InSyncStackInstancesCount"]);
+    if (output[_ISSIC] != null) {
+        contents[_ISSIC] = (0, smithy_client_1.strictParseInt32)(output[_ISSIC]);
     }
-    if (output["InProgressStackInstancesCount"] !== undefined) {
-        contents.InProgressStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["InProgressStackInstancesCount"]);
+    if (output[_IPSIC] != null) {
+        contents[_IPSIC] = (0, smithy_client_1.strictParseInt32)(output[_IPSIC]);
     }
-    if (output["FailedStackInstancesCount"] !== undefined) {
-        contents.FailedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["FailedStackInstancesCount"]);
+    if (output[_FSIC] != null) {
+        contents[_FSIC] = (0, smithy_client_1.strictParseInt32)(output[_FSIC]);
     }
     return contents;
 };
 const de_StackSetNotEmptyException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_StackSetNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_StackSetOperation = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Action"] !== undefined) {
-        contents.Action = (0, smithy_client_1.expectString)(output["Action"]);
+    if (output[_A] != null) {
+        contents[_A] = (0, smithy_client_1.expectString)(output[_A]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["OperationPreferences"] !== undefined) {
-        contents.OperationPreferences = de_StackSetOperationPreferences(output["OperationPreferences"], context);
+    if (output[_OP] != null) {
+        contents[_OP] = de_StackSetOperationPreferences(output[_OP], context);
     }
-    if (output["RetainStacks"] !== undefined) {
-        contents.RetainStacks = (0, smithy_client_1.parseBoolean)(output["RetainStacks"]);
+    if (output[_RSe] != null) {
+        contents[_RSe] = (0, smithy_client_1.parseBoolean)(output[_RSe]);
     }
-    if (output["AdministrationRoleARN"] !== undefined) {
-        contents.AdministrationRoleARN = (0, smithy_client_1.expectString)(output["AdministrationRoleARN"]);
+    if (output[_ARARN] != null) {
+        contents[_ARARN] = (0, smithy_client_1.expectString)(output[_ARARN]);
     }
-    if (output["ExecutionRoleName"] !== undefined) {
-        contents.ExecutionRoleName = (0, smithy_client_1.expectString)(output["ExecutionRoleName"]);
+    if (output[_ERN] != null) {
+        contents[_ERN] = (0, smithy_client_1.expectString)(output[_ERN]);
     }
-    if (output["CreationTimestamp"] !== undefined) {
-        contents.CreationTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTimestamp"]));
+    if (output[_CTre] != null) {
+        contents[_CTre] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTre]));
     }
-    if (output["EndTimestamp"] !== undefined) {
-        contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["EndTimestamp"]));
+    if (output[_ET] != null) {
+        contents[_ET] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_ET]));
     }
-    if (output["DeploymentTargets"] !== undefined) {
-        contents.DeploymentTargets = de_DeploymentTargets(output["DeploymentTargets"], context);
+    if (output[_DTep] != null) {
+        contents[_DTep] = de_DeploymentTargets(output[_DTep], context);
     }
-    if (output["StackSetDriftDetectionDetails"] !== undefined) {
-        contents.StackSetDriftDetectionDetails = de_StackSetDriftDetectionDetails(output["StackSetDriftDetectionDetails"], context);
+    if (output[_SSDDD] != null) {
+        contents[_SSDDD] = de_StackSetDriftDetectionDetails(output[_SSDDD], context);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["StatusDetails"] !== undefined) {
-        contents.StatusDetails = de_StackSetOperationStatusDetails(output["StatusDetails"], context);
+    if (output[_SD] != null) {
+        contents[_SD] = de_StackSetOperationStatusDetails(output[_SD], context);
     }
     return contents;
 };
 const de_StackSetOperationPreferences = (output, context) => {
     const contents = {};
-    if (output["RegionConcurrencyType"] !== undefined) {
-        contents.RegionConcurrencyType = (0, smithy_client_1.expectString)(output["RegionConcurrencyType"]);
+    if (output[_RCT] != null) {
+        contents[_RCT] = (0, smithy_client_1.expectString)(output[_RCT]);
     }
     if (output.RegionOrder === "") {
-        contents.RegionOrder = [];
+        contents[_RO] = [];
     }
-    else if (output["RegionOrder"] !== undefined && output["RegionOrder"]["member"] !== undefined) {
-        contents.RegionOrder = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output["RegionOrder"]["member"]), context);
+    else if (output[_RO] != null && output[_RO][_m] != null) {
+        contents[_RO] = de_RegionList((0, smithy_client_1.getArrayIfSingleItem)(output[_RO][_m]), context);
     }
-    if (output["FailureToleranceCount"] !== undefined) {
-        contents.FailureToleranceCount = (0, smithy_client_1.strictParseInt32)(output["FailureToleranceCount"]);
+    if (output[_FTC] != null) {
+        contents[_FTC] = (0, smithy_client_1.strictParseInt32)(output[_FTC]);
     }
-    if (output["FailureTolerancePercentage"] !== undefined) {
-        contents.FailureTolerancePercentage = (0, smithy_client_1.strictParseInt32)(output["FailureTolerancePercentage"]);
+    if (output[_FTP] != null) {
+        contents[_FTP] = (0, smithy_client_1.strictParseInt32)(output[_FTP]);
     }
-    if (output["MaxConcurrentCount"] !== undefined) {
-        contents.MaxConcurrentCount = (0, smithy_client_1.strictParseInt32)(output["MaxConcurrentCount"]);
+    if (output[_MCC] != null) {
+        contents[_MCC] = (0, smithy_client_1.strictParseInt32)(output[_MCC]);
     }
-    if (output["MaxConcurrentPercentage"] !== undefined) {
-        contents.MaxConcurrentPercentage = (0, smithy_client_1.strictParseInt32)(output["MaxConcurrentPercentage"]);
+    if (output[_MCP] != null) {
+        contents[_MCP] = (0, smithy_client_1.strictParseInt32)(output[_MCP]);
     }
-    if (output["ConcurrencyMode"] !== undefined) {
-        contents.ConcurrencyMode = (0, smithy_client_1.expectString)(output["ConcurrencyMode"]);
+    if (output[_CM] != null) {
+        contents[_CM] = (0, smithy_client_1.expectString)(output[_CM]);
     }
     return contents;
 };
@@ -25975,30 +24020,30 @@ const de_StackSetOperationResultSummaries = (output, context) => {
 };
 const de_StackSetOperationResultSummary = (output, context) => {
     const contents = {};
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Acc] != null) {
+        contents[_Acc] = (0, smithy_client_1.expectString)(output[_Acc]);
     }
-    if (output["Region"] !== undefined) {
-        contents.Region = (0, smithy_client_1.expectString)(output["Region"]);
+    if (output[_Reg] != null) {
+        contents[_Reg] = (0, smithy_client_1.expectString)(output[_Reg]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["AccountGateResult"] !== undefined) {
-        contents.AccountGateResult = de_AccountGateResult(output["AccountGateResult"], context);
+    if (output[_AGR] != null) {
+        contents[_AGR] = de_AccountGateResult(output[_AGR], context);
     }
-    if (output["OrganizationalUnitId"] !== undefined) {
-        contents.OrganizationalUnitId = (0, smithy_client_1.expectString)(output["OrganizationalUnitId"]);
+    if (output[_OUIr] != null) {
+        contents[_OUIr] = (0, smithy_client_1.expectString)(output[_OUIr]);
     }
     return contents;
 };
 const de_StackSetOperationStatusDetails = (output, context) => {
     const contents = {};
-    if (output["FailedStackInstancesCount"] !== undefined) {
-        contents.FailedStackInstancesCount = (0, smithy_client_1.strictParseInt32)(output["FailedStackInstancesCount"]);
+    if (output[_FSIC] != null) {
+        contents[_FSIC] = (0, smithy_client_1.strictParseInt32)(output[_FSIC]);
     }
     return contents;
 };
@@ -26011,29 +24056,29 @@ const de_StackSetOperationSummaries = (output, context) => {
 };
 const de_StackSetOperationSummary = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
-    if (output["Action"] !== undefined) {
-        contents.Action = (0, smithy_client_1.expectString)(output["Action"]);
+    if (output[_A] != null) {
+        contents[_A] = (0, smithy_client_1.expectString)(output[_A]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["CreationTimestamp"] !== undefined) {
-        contents.CreationTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTimestamp"]));
+    if (output[_CTre] != null) {
+        contents[_CTre] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTre]));
     }
-    if (output["EndTimestamp"] !== undefined) {
-        contents.EndTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["EndTimestamp"]));
+    if (output[_ET] != null) {
+        contents[_ET] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_ET]));
     }
-    if (output["StatusReason"] !== undefined) {
-        contents.StatusReason = (0, smithy_client_1.expectString)(output["StatusReason"]);
+    if (output[_SRt] != null) {
+        contents[_SRt] = (0, smithy_client_1.expectString)(output[_SRt]);
     }
-    if (output["StatusDetails"] !== undefined) {
-        contents.StatusDetails = de_StackSetOperationStatusDetails(output["StatusDetails"], context);
+    if (output[_SD] != null) {
+        contents[_SD] = de_StackSetOperationStatusDetails(output[_SD], context);
     }
-    if (output["OperationPreferences"] !== undefined) {
-        contents.OperationPreferences = de_StackSetOperationPreferences(output["OperationPreferences"], context);
+    if (output[_OP] != null) {
+        contents[_OP] = de_StackSetOperationPreferences(output[_OP], context);
     }
     return contents;
 };
@@ -26046,32 +24091,32 @@ const de_StackSetSummaries = (output, context) => {
 };
 const de_StackSetSummary = (output, context) => {
     const contents = {};
-    if (output["StackSetName"] !== undefined) {
-        contents.StackSetName = (0, smithy_client_1.expectString)(output["StackSetName"]);
+    if (output[_SSN] != null) {
+        contents[_SSN] = (0, smithy_client_1.expectString)(output[_SSN]);
     }
-    if (output["StackSetId"] !== undefined) {
-        contents.StackSetId = (0, smithy_client_1.expectString)(output["StackSetId"]);
+    if (output[_SSI] != null) {
+        contents[_SSI] = (0, smithy_client_1.expectString)(output[_SSI]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["Status"] !== undefined) {
-        contents.Status = (0, smithy_client_1.expectString)(output["Status"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["AutoDeployment"] !== undefined) {
-        contents.AutoDeployment = de_AutoDeployment(output["AutoDeployment"], context);
+    if (output[_AD] != null) {
+        contents[_AD] = de_AutoDeployment(output[_AD], context);
     }
-    if (output["PermissionModel"] !== undefined) {
-        contents.PermissionModel = (0, smithy_client_1.expectString)(output["PermissionModel"]);
+    if (output[_PM] != null) {
+        contents[_PM] = (0, smithy_client_1.expectString)(output[_PM]);
     }
-    if (output["DriftStatus"] !== undefined) {
-        contents.DriftStatus = (0, smithy_client_1.expectString)(output["DriftStatus"]);
+    if (output[_DSr] != null) {
+        contents[_DSr] = (0, smithy_client_1.expectString)(output[_DSr]);
     }
-    if (output["LastDriftCheckTimestamp"] !== undefined) {
-        contents.LastDriftCheckTimestamp = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastDriftCheckTimestamp"]));
+    if (output[_LDCT] != null) {
+        contents[_LDCT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LDCT]));
     }
-    if (output["ManagedExecution"] !== undefined) {
-        contents.ManagedExecution = de_ManagedExecution(output["ManagedExecution"], context);
+    if (output[_ME] != null) {
+        contents[_ME] = de_ManagedExecution(output[_ME], context);
     }
     return contents;
 };
@@ -26084,38 +24129,38 @@ const de_StackSummaries = (output, context) => {
 };
 const de_StackSummary = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
-    if (output["StackName"] !== undefined) {
-        contents.StackName = (0, smithy_client_1.expectString)(output["StackName"]);
+    if (output[_SN] != null) {
+        contents[_SN] = (0, smithy_client_1.expectString)(output[_SN]);
     }
-    if (output["TemplateDescription"] !== undefined) {
-        contents.TemplateDescription = (0, smithy_client_1.expectString)(output["TemplateDescription"]);
+    if (output[_TDe] != null) {
+        contents[_TDe] = (0, smithy_client_1.expectString)(output[_TDe]);
     }
-    if (output["CreationTime"] !== undefined) {
-        contents.CreationTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["CreationTime"]));
+    if (output[_CTr] != null) {
+        contents[_CTr] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_CTr]));
     }
-    if (output["LastUpdatedTime"] !== undefined) {
-        contents.LastUpdatedTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdatedTime"]));
+    if (output[_LUT] != null) {
+        contents[_LUT] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LUT]));
     }
-    if (output["DeletionTime"] !== undefined) {
-        contents.DeletionTime = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["DeletionTime"]));
+    if (output[_DTel] != null) {
+        contents[_DTel] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_DTel]));
     }
-    if (output["StackStatus"] !== undefined) {
-        contents.StackStatus = (0, smithy_client_1.expectString)(output["StackStatus"]);
+    if (output[_SSta] != null) {
+        contents[_SSta] = (0, smithy_client_1.expectString)(output[_SSta]);
     }
-    if (output["StackStatusReason"] !== undefined) {
-        contents.StackStatusReason = (0, smithy_client_1.expectString)(output["StackStatusReason"]);
+    if (output[_SSR] != null) {
+        contents[_SSR] = (0, smithy_client_1.expectString)(output[_SSR]);
     }
-    if (output["ParentId"] !== undefined) {
-        contents.ParentId = (0, smithy_client_1.expectString)(output["ParentId"]);
+    if (output[_PIa] != null) {
+        contents[_PIa] = (0, smithy_client_1.expectString)(output[_PIa]);
     }
-    if (output["RootId"] !== undefined) {
-        contents.RootId = (0, smithy_client_1.expectString)(output["RootId"]);
+    if (output[_RIo] != null) {
+        contents[_RIo] = (0, smithy_client_1.expectString)(output[_RIo]);
     }
-    if (output["DriftInformation"] !== undefined) {
-        contents.DriftInformation = de_StackDriftInformationSummary(output["DriftInformation"], context);
+    if (output[_DI] != null) {
+        contents[_DI] = de_StackDriftInformationSummary(output[_DI], context);
     }
     return contents;
 };
@@ -26128,8 +24173,8 @@ const de_StageList = (output, context) => {
 };
 const de_StaleRequestException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -26146,11 +24191,11 @@ const de_SupportedMajorVersions = (output, context) => {
 };
 const de_Tag = (output, context) => {
     const contents = {};
-    if (output["Key"] !== undefined) {
-        contents.Key = (0, smithy_client_1.expectString)(output["Key"]);
+    if (output[_K] != null) {
+        contents[_K] = (0, smithy_client_1.expectString)(output[_K]);
     }
-    if (output["Value"] !== undefined) {
-        contents.Value = (0, smithy_client_1.expectString)(output["Value"]);
+    if (output[_Val] != null) {
+        contents[_Val] = (0, smithy_client_1.expectString)(output[_Val]);
     }
     return contents;
 };
@@ -26163,17 +24208,17 @@ const de_Tags = (output, context) => {
 };
 const de_TemplateParameter = (output, context) => {
     const contents = {};
-    if (output["ParameterKey"] !== undefined) {
-        contents.ParameterKey = (0, smithy_client_1.expectString)(output["ParameterKey"]);
+    if (output[_PK] != null) {
+        contents[_PK] = (0, smithy_client_1.expectString)(output[_PK]);
     }
-    if (output["DefaultValue"] !== undefined) {
-        contents.DefaultValue = (0, smithy_client_1.expectString)(output["DefaultValue"]);
+    if (output[_DV] != null) {
+        contents[_DV] = (0, smithy_client_1.expectString)(output[_DV]);
     }
-    if (output["NoEcho"] !== undefined) {
-        contents.NoEcho = (0, smithy_client_1.parseBoolean)(output["NoEcho"]);
+    if (output[_NE] != null) {
+        contents[_NE] = (0, smithy_client_1.parseBoolean)(output[_NE]);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     return contents;
 };
@@ -26186,15 +24231,15 @@ const de_TemplateParameters = (output, context) => {
 };
 const de_TestTypeOutput = (output, context) => {
     const contents = {};
-    if (output["TypeVersionArn"] !== undefined) {
-        contents.TypeVersionArn = (0, smithy_client_1.expectString)(output["TypeVersionArn"]);
+    if (output[_TVA] != null) {
+        contents[_TVA] = (0, smithy_client_1.expectString)(output[_TVA]);
     }
     return contents;
 };
 const de_TokenAlreadyExistsException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -26207,26 +24252,26 @@ const de_TransformsList = (output, context) => {
 };
 const de_TypeConfigurationDetails = (output, context) => {
     const contents = {};
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
-    if (output["Alias"] !== undefined) {
-        contents.Alias = (0, smithy_client_1.expectString)(output["Alias"]);
+    if (output[_Al] != null) {
+        contents[_Al] = (0, smithy_client_1.expectString)(output[_Al]);
     }
-    if (output["Configuration"] !== undefined) {
-        contents.Configuration = (0, smithy_client_1.expectString)(output["Configuration"]);
+    if (output[_Co] != null) {
+        contents[_Co] = (0, smithy_client_1.expectString)(output[_Co]);
     }
-    if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
+    if (output[_LU] != null) {
+        contents[_LU] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LU]));
     }
-    if (output["TypeArn"] !== undefined) {
-        contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
+    if (output[_TA] != null) {
+        contents[_TA] = (0, smithy_client_1.expectString)(output[_TA]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["IsDefaultConfiguration"] !== undefined) {
-        contents.IsDefaultConfiguration = (0, smithy_client_1.parseBoolean)(output["IsDefaultConfiguration"]);
+    if (output[_IDC] != null) {
+        contents[_IDC] = (0, smithy_client_1.parseBoolean)(output[_IDC]);
     }
     return contents;
 };
@@ -26239,34 +24284,34 @@ const de_TypeConfigurationDetailsList = (output, context) => {
 };
 const de_TypeConfigurationIdentifier = (output, context) => {
     const contents = {};
-    if (output["TypeArn"] !== undefined) {
-        contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
+    if (output[_TA] != null) {
+        contents[_TA] = (0, smithy_client_1.expectString)(output[_TA]);
     }
-    if (output["TypeConfigurationAlias"] !== undefined) {
-        contents.TypeConfigurationAlias = (0, smithy_client_1.expectString)(output["TypeConfigurationAlias"]);
+    if (output[_TCA] != null) {
+        contents[_TCA] = (0, smithy_client_1.expectString)(output[_TCA]);
     }
-    if (output["TypeConfigurationArn"] !== undefined) {
-        contents.TypeConfigurationArn = (0, smithy_client_1.expectString)(output["TypeConfigurationArn"]);
+    if (output[_TCAy] != null) {
+        contents[_TCAy] = (0, smithy_client_1.expectString)(output[_TCAy]);
     }
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
     return contents;
 };
 const de_TypeConfigurationNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
 const de_TypeNotFoundException = (output, context) => {
     const contents = {};
-    if (output["Message"] !== undefined) {
-        contents.Message = (0, smithy_client_1.expectString)(output["Message"]);
+    if (output[_M] != null) {
+        contents[_M] = (0, smithy_client_1.expectString)(output[_M]);
     }
     return contents;
 };
@@ -26279,44 +24324,44 @@ const de_TypeSummaries = (output, context) => {
 };
 const de_TypeSummary = (output, context) => {
     const contents = {};
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["DefaultVersionId"] !== undefined) {
-        contents.DefaultVersionId = (0, smithy_client_1.expectString)(output["DefaultVersionId"]);
+    if (output[_DVI] != null) {
+        contents[_DVI] = (0, smithy_client_1.expectString)(output[_DVI]);
     }
-    if (output["TypeArn"] !== undefined) {
-        contents.TypeArn = (0, smithy_client_1.expectString)(output["TypeArn"]);
+    if (output[_TA] != null) {
+        contents[_TA] = (0, smithy_client_1.expectString)(output[_TA]);
     }
-    if (output["LastUpdated"] !== undefined) {
-        contents.LastUpdated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["LastUpdated"]));
+    if (output[_LU] != null) {
+        contents[_LU] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_LU]));
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["PublisherId"] !== undefined) {
-        contents.PublisherId = (0, smithy_client_1.expectString)(output["PublisherId"]);
+    if (output[_PI] != null) {
+        contents[_PI] = (0, smithy_client_1.expectString)(output[_PI]);
     }
-    if (output["OriginalTypeName"] !== undefined) {
-        contents.OriginalTypeName = (0, smithy_client_1.expectString)(output["OriginalTypeName"]);
+    if (output[_OTN] != null) {
+        contents[_OTN] = (0, smithy_client_1.expectString)(output[_OTN]);
     }
-    if (output["PublicVersionNumber"] !== undefined) {
-        contents.PublicVersionNumber = (0, smithy_client_1.expectString)(output["PublicVersionNumber"]);
+    if (output[_PVN] != null) {
+        contents[_PVN] = (0, smithy_client_1.expectString)(output[_PVN]);
     }
-    if (output["LatestPublicVersion"] !== undefined) {
-        contents.LatestPublicVersion = (0, smithy_client_1.expectString)(output["LatestPublicVersion"]);
+    if (output[_LPV] != null) {
+        contents[_LPV] = (0, smithy_client_1.expectString)(output[_LPV]);
     }
-    if (output["PublisherIdentity"] !== undefined) {
-        contents.PublisherIdentity = (0, smithy_client_1.expectString)(output["PublisherIdentity"]);
+    if (output[_PIu] != null) {
+        contents[_PIu] = (0, smithy_client_1.expectString)(output[_PIu]);
     }
-    if (output["PublisherName"] !== undefined) {
-        contents.PublisherName = (0, smithy_client_1.expectString)(output["PublisherName"]);
+    if (output[_PN] != null) {
+        contents[_PN] = (0, smithy_client_1.expectString)(output[_PN]);
     }
-    if (output["IsActivated"] !== undefined) {
-        contents.IsActivated = (0, smithy_client_1.parseBoolean)(output["IsActivated"]);
+    if (output[_IA] != null) {
+        contents[_IA] = (0, smithy_client_1.parseBoolean)(output[_IA]);
     }
     return contents;
 };
@@ -26329,29 +24374,29 @@ const de_TypeVersionSummaries = (output, context) => {
 };
 const de_TypeVersionSummary = (output, context) => {
     const contents = {};
-    if (output["Type"] !== undefined) {
-        contents.Type = (0, smithy_client_1.expectString)(output["Type"]);
+    if (output[_T] != null) {
+        contents[_T] = (0, smithy_client_1.expectString)(output[_T]);
     }
-    if (output["TypeName"] !== undefined) {
-        contents.TypeName = (0, smithy_client_1.expectString)(output["TypeName"]);
+    if (output[_TN] != null) {
+        contents[_TN] = (0, smithy_client_1.expectString)(output[_TN]);
     }
-    if (output["VersionId"] !== undefined) {
-        contents.VersionId = (0, smithy_client_1.expectString)(output["VersionId"]);
+    if (output[_VI] != null) {
+        contents[_VI] = (0, smithy_client_1.expectString)(output[_VI]);
     }
-    if (output["IsDefaultVersion"] !== undefined) {
-        contents.IsDefaultVersion = (0, smithy_client_1.parseBoolean)(output["IsDefaultVersion"]);
+    if (output[_IDV] != null) {
+        contents[_IDV] = (0, smithy_client_1.parseBoolean)(output[_IDV]);
     }
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
-    if (output["TimeCreated"] !== undefined) {
-        contents.TimeCreated = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["TimeCreated"]));
+    if (output[_TCi] != null) {
+        contents[_TCi] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_TCi]));
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
-    if (output["PublicVersionNumber"] !== undefined) {
-        contents.PublicVersionNumber = (0, smithy_client_1.expectString)(output["PublicVersionNumber"]);
+    if (output[_PVN] != null) {
+        contents[_PVN] = (0, smithy_client_1.expectString)(output[_PVN]);
     }
     return contents;
 };
@@ -26364,68 +24409,67 @@ const de_UnprocessedTypeConfigurations = (output, context) => {
 };
 const de_UpdateStackInstancesOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_UpdateStackOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_UpdateStackSetOutput = (output, context) => {
     const contents = {};
-    if (output["OperationId"] !== undefined) {
-        contents.OperationId = (0, smithy_client_1.expectString)(output["OperationId"]);
+    if (output[_OI] != null) {
+        contents[_OI] = (0, smithy_client_1.expectString)(output[_OI]);
     }
     return contents;
 };
 const de_UpdateTerminationProtectionOutput = (output, context) => {
     const contents = {};
-    if (output["StackId"] !== undefined) {
-        contents.StackId = (0, smithy_client_1.expectString)(output["StackId"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_ValidateTemplateOutput = (output, context) => {
     const contents = {};
     if (output.Parameters === "") {
-        contents.Parameters = [];
+        contents[_P] = [];
     }
-    else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-        contents.Parameters = de_TemplateParameters((0, smithy_client_1.getArrayIfSingleItem)(output["Parameters"]["member"]), context);
+    else if (output[_P] != null && output[_P][_m] != null) {
+        contents[_P] = de_TemplateParameters((0, smithy_client_1.getArrayIfSingleItem)(output[_P][_m]), context);
     }
-    if (output["Description"] !== undefined) {
-        contents.Description = (0, smithy_client_1.expectString)(output["Description"]);
+    if (output[_D] != null) {
+        contents[_D] = (0, smithy_client_1.expectString)(output[_D]);
     }
     if (output.Capabilities === "") {
-        contents.Capabilities = [];
+        contents[_C] = [];
     }
-    else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-        contents.Capabilities = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output["Capabilities"]["member"]), context);
+    else if (output[_C] != null && output[_C][_m] != null) {
+        contents[_C] = de_Capabilities((0, smithy_client_1.getArrayIfSingleItem)(output[_C][_m]), context);
     }
-    if (output["CapabilitiesReason"] !== undefined) {
-        contents.CapabilitiesReason = (0, smithy_client_1.expectString)(output["CapabilitiesReason"]);
+    if (output[_CR] != null) {
+        contents[_CR] = (0, smithy_client_1.expectString)(output[_CR]);
     }
     if (output.DeclaredTransforms === "") {
-        contents.DeclaredTransforms = [];
+        contents[_DTec] = [];
     }
-    else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-        contents.DeclaredTransforms = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output["DeclaredTransforms"]["member"]), context);
+    else if (output[_DTec] != null && output[_DTec][_m] != null) {
+        contents[_DTec] = de_TransformsList((0, smithy_client_1.getArrayIfSingleItem)(output[_DTec][_m]), context);
     }
     return contents;
 };
 const de_Warnings = (output, context) => {
     const contents = {};
     if (output.UnrecognizedResourceTypes === "") {
-        contents.UnrecognizedResourceTypes = [];
+        contents[_URT] = [];
     }
-    else if (output["UnrecognizedResourceTypes"] !== undefined &&
-        output["UnrecognizedResourceTypes"]["member"] !== undefined) {
-        contents.UnrecognizedResourceTypes = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output["UnrecognizedResourceTypes"]["member"]), context);
+    else if (output[_URT] != null && output[_URT][_m] != null) {
+        contents[_URT] = de_ResourceTypes((0, smithy_client_1.getArrayIfSingleItem)(output[_URT][_m]), context);
     }
     return contents;
 };
@@ -26458,6 +24502,362 @@ const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, bod
 const SHARED_HEADERS = {
     "content-type": "application/x-www-form-urlencoded",
 };
+const _ = "2010-05-15";
+const _A = "Action";
+const _AD = "AutoDeployment";
+const _AFT = "AccountFilterType";
+const _AGR = "AccountGateResult";
+const _AL = "AccountLimits";
+const _AOA = "ActivateOrganizationsAccess";
+const _AP = "ActualProperties";
+const _ARARN = "AdministrationRoleARN";
+const _AT = "ActivateType";
+const _ATAC = "AcceptTermsAndConditions";
+const _AU = "AutoUpdate";
+const _AUc = "AccountsUrl";
+const _AV = "AllowedValues";
+const _AVc = "ActualValue";
+const _Ac = "Accounts";
+const _Acc = "Account";
+const _Act = "Active";
+const _Al = "Alias";
+const _Ar = "Arn";
+const _At = "Attribute";
+const _BDTC = "BatchDescribeTypeConfigurations";
+const _BT = "BearerToken";
+const _C = "Capabilities";
+const _CA = "CallAs";
+const _CAo = "ConnectionArn";
+const _CAon = "ConfigurationAlias";
+const _CAonf = "ConfigurationArn";
+const _CCS = "CreateChangeSet";
+const _CE = "CausingEntity";
+const _CM = "ConcurrencyMode";
+const _COS = "CurrentOperationStatus";
+const _CR = "CapabilitiesReason";
+const _CRT = "ClientRequestToken";
+const _CS = "CreateStack";
+const _CSI = "CreateStackInstances";
+const _CSIh = "ChangeSetId";
+const _CSN = "ChangeSetName";
+const _CSS = "CreateStackSet";
+const _CST = "ChangeSetType";
+const _CSh = "ChangeSource";
+const _CSo = "ConfigurationSchema";
+const _CT = "ClientToken";
+const _CTr = "CreationTime";
+const _CTre = "CreationTimestamp";
+const _CUR = "ContinueUpdateRollback";
+const _CUS = "CancelUpdateStack";
+const _Ca = "Category";
+const _Ch = "Changes";
+const _Co = "Configuration";
+const _D = "Description";
+const _DAL = "DescribeAccountLimits";
+const _DCS = "DeleteChangeSet";
+const _DCSH = "DescribeChangeSetHooks";
+const _DCSe = "DescribeChangeSet";
+const _DDS = "DriftDetectionStatus";
+const _DI = "DriftInformation";
+const _DOA = "DeactivateOrganizationsAccess";
+const _DOAe = "DescribeOrganizationsAccess";
+const _DP = "DescribePublisher";
+const _DR = "DisableRollback";
+const _DS = "DeleteStack";
+const _DSD = "DetectStackDrift";
+const _DSDDS = "DescribeStackDriftDetectionStatus";
+const _DSE = "DescribeStackEvents";
+const _DSI = "DeleteStackInstances";
+const _DSIC = "DriftedStackInstancesCount";
+const _DSIe = "DescribeStackInstance";
+const _DSR = "DescribeStackResource";
+const _DSRC = "DriftedStackResourceCount";
+const _DSRD = "DescribeStackResourceDrifts";
+const _DSRDe = "DetectStackResourceDrift";
+const _DSRe = "DescribeStackResources";
+const _DSRet = "DetectionStatusReason";
+const _DSS = "DeleteStackSet";
+const _DSSD = "DetectStackSetDrift";
+const _DSSO = "DescribeStackSetOperation";
+const _DSSe = "DescribeStackSet";
+const _DSe = "DescribeStacks";
+const _DSep = "DeprecatedStatus";
+const _DSet = "DetectionStatus";
+const _DSeta = "DetailedStatus";
+const _DSr = "DriftStatus";
+const _DT = "DeactivateType";
+const _DTR = "DescribeTypeRegistration";
+const _DTe = "DeregisterType";
+const _DTec = "DeclaredTransforms";
+const _DTel = "DeletionTime";
+const _DTep = "DeploymentTargets";
+const _DTes = "DescribeType";
+const _DTi = "DifferenceType";
+const _DU = "DocumentationUrl";
+const _DV = "DefaultValue";
+const _DVI = "DefaultVersionId";
+const _De = "Details";
+const _E = "Enabled";
+const _EC = "ErrorCode";
+const _ECS = "ExecuteChangeSet";
+const _EI = "EventId";
+const _EM = "ErrorMessage";
+const _EN = "ExportName";
+const _EP = "ExpectedProperties";
+const _ERA = "ExecutionRoleArn";
+const _ERN = "ExecutionRoleName";
+const _ES = "ExecutionStatus";
+const _ESI = "ExportingStackId";
+const _ET = "EndTimestamp";
+const _ETC = "EstimateTemplateCost";
+const _ETP = "EnableTerminationProtection";
+const _EV = "ExpectedValue";
+const _Er = "Errors";
+const _Ev = "Evaluation";
+const _Ex = "Exports";
+const _F = "Filters";
+const _FM = "FailureMode";
+const _FSIC = "FailedStackInstancesCount";
+const _FTC = "FailureToleranceCount";
+const _FTP = "FailureTolerancePercentage";
+const _GSP = "GetStackPolicy";
+const _GT = "GetTemplate";
+const _GTS = "GetTemplateSummary";
+const _H = "Hooks";
+const _HFM = "HookFailureMode";
+const _HIC = "HookInvocationCount";
+const _HIP = "HookInvocationPoint";
+const _HS = "HookStatus";
+const _HSR = "HookStatusReason";
+const _HT = "HookType";
+const _I = "Id";
+const _IA = "IsActivated";
+const _IDC = "IsDefaultConfiguration";
+const _IDV = "IsDefaultVersion";
+const _IER = "ImportExistingResources";
+const _INS = "IncludeNestedStacks";
+const _IP = "InvocationPoint";
+const _IPSIC = "InProgressStackInstancesCount";
+const _IPd = "IdentityProvider";
+const _ISSIC = "InSyncStackInstancesCount";
+const _ISTSS = "ImportStacksToStackSet";
+const _Im = "Imports";
+const _K = "Key";
+const _LC = "LoggingConfig";
+const _LCS = "ListChangeSets";
+const _LCT = "LastCheckTimestamp";
+const _LDB = "LogDeliveryBucket";
+const _LDCT = "LastDriftCheckTimestamp";
+const _LE = "ListExports";
+const _LGN = "LogGroupName";
+const _LI = "ListImports";
+const _LIH = "LogicalIdHierarchy";
+const _LOI = "LastOperationId";
+const _LPV = "LatestPublicVersion";
+const _LRA = "LogRoleArn";
+const _LRI = "LogicalResourceId";
+const _LRIo = "LogicalResourceIds";
+const _LS = "ListStacks";
+const _LSI = "ListStackInstances";
+const _LSIRD = "ListStackInstanceResourceDrifts";
+const _LSR = "ListStackResources";
+const _LSS = "ListStackSets";
+const _LSSO = "ListStackSetOperations";
+const _LSSOR = "ListStackSetOperationResults";
+const _LT = "ListTypes";
+const _LTR = "ListTypeRegistrations";
+const _LTV = "ListTypeVersions";
+const _LU = "LastUpdated";
+const _LUT = "LastUpdatedTime";
+const _LUTa = "LastUpdatedTimestamp";
+const _M = "Message";
+const _MCC = "MaxConcurrentCount";
+const _MCP = "MaxConcurrentPercentage";
+const _ME = "ManagedExecution";
+const _MI = "ModuleInfo";
+const _MR = "MaxResults";
+const _MTIM = "MonitoringTimeInMinutes";
+const _MV = "MajorVersion";
+const _Me = "Metadata";
+const _N = "Name";
+const _NARN = "NotificationARNs";
+const _NE = "NoEcho";
+const _NT = "NextToken";
+const _O = "Outputs";
+const _OF = "OnFailure";
+const _OI = "OperationId";
+const _OK = "OutputKey";
+const _OP = "OperationPreferences";
+const _OS = "OperationStatus";
+const _OSF = "OnStackFailure";
+const _OTA = "OriginalTypeArn";
+const _OTN = "OriginalTypeName";
+const _OUI = "OrganizationalUnitIds";
+const _OUIr = "OrganizationalUnitId";
+const _OV = "OutputValue";
+const _P = "Parameters";
+const _PC = "ParameterConstraints";
+const _PCSI = "ParentChangeSetId";
+const _PD = "PropertyDifferences";
+const _PI = "PublisherId";
+const _PIa = "ParentId";
+const _PIu = "PublisherIdentity";
+const _PK = "ParameterKey";
+const _PM = "PermissionModel";
+const _PN = "PublisherName";
+const _PO = "ParameterOverrides";
+const _PP = "PublisherProfile";
+const _PPr = "PropertyPath";
+const _PRI = "PhysicalResourceId";
+const _PRIC = "PhysicalResourceIdContext";
+const _PS = "PublisherStatus";
+const _PSr = "ProgressStatus";
+const _PT = "PublishType";
+const _PTA = "PublicTypeArn";
+const _PTa = "ParameterType";
+const _PTr = "ProvisioningType";
+const _PV = "ParameterValue";
+const _PVN = "PublicVersionNumber";
+const _R = "Regions";
+const _RA = "ResourceAction";
+const _RARN = "RoleARN";
+const _RAT = "RequiredActivatedTypes";
+const _RC = "RollbackConfiguration";
+const _RCSI = "RootChangeSetId";
+const _RCT = "RegionConcurrencyType";
+const _RCe = "ResourceChange";
+const _REOC = "RetainExceptOnCreate";
+const _RHP = "RecordHandlerProgress";
+const _RI = "ResourceIdentifier";
+const _RIS = "ResourceIdentifierSummaries";
+const _RIe = "ResourceIdentifiers";
+const _RIo = "RootId";
+const _RM = "ResourceModel";
+const _RO = "RegionOrder";
+const _RP = "RegisterPublisher";
+const _RPe = "ResourceProperties";
+const _RR = "RetainResources";
+const _RRe = "RequiresRecreation";
+const _RS = "RollbackStack";
+const _RSF = "RegistrationStatusFilter";
+const _RSOAR = "RetainStacksOnAccountRemoval";
+const _RSR = "ResourceStatusReason";
+const _RSe = "RetainStacks";
+const _RSes = "ResourceStatus";
+const _RT = "RegisterType";
+const _RTD = "ResourceTargetDetails";
+const _RTI = "ResourcesToImport";
+const _RTL = "RegistrationTokenList";
+const _RTS = "ResourcesToSkip";
+const _RTe = "ResourceTypes";
+const _RTeg = "RegistrationToken";
+const _RTes = "ResourceType";
+const _RTo = "RollbackTriggers";
+const _RV = "ResolvedValue";
+const _Re = "Replacement";
+const _Reg = "Region";
+const _S = "Status";
+const _SA = "StagesAvailable";
+const _SD = "StatusDetails";
+const _SDDI = "StackDriftDetectionId";
+const _SDS = "StackDriftStatus";
+const _SE = "StackEvents";
+const _SHP = "SchemaHandlerPackage";
+const _SI = "StackId";
+const _SIA = "StackInstanceAccount";
+const _SIR = "StackInstanceRegion";
+const _SIRDS = "StackInstanceResourceDriftStatuses";
+const _SIS = "StackInstanceStatus";
+const _SIU = "StackIdsUrl";
+const _SIt = "StackIds";
+const _SIta = "StackInstance";
+const _SM = "StatusMessage";
+const _SMV = "SupportedMajorVersions";
+const _SN = "StackName";
+const _SPB = "StackPolicyBody";
+const _SPDUB = "StackPolicyDuringUpdateBody";
+const _SPDUURL = "StackPolicyDuringUpdateURL";
+const _SPURL = "StackPolicyURL";
+const _SR = "SignalResource";
+const _SRD = "StackResourceDrifts";
+const _SRDS = "StackResourceDriftStatus";
+const _SRDSF = "StackResourceDriftStatusFilters";
+const _SRDt = "StackResourceDetail";
+const _SRDta = "StackResourceDrift";
+const _SRS = "StackResourceSummaries";
+const _SRt = "StatusReason";
+const _SRta = "StackResources";
+const _SS = "StackSet";
+const _SSARN = "StackSetARN";
+const _SSDDD = "StackSetDriftDetectionDetails";
+const _SSF = "StackStatusFilter";
+const _SSI = "StackSetId";
+const _SSN = "StackSetName";
+const _SSO = "StackSetOperation";
+const _SSP = "SetStackPolicy";
+const _SSR = "StackStatusReason";
+const _SSSO = "StopStackSetOperation";
+const _SSt = "StackSummaries";
+const _SSta = "StackStatus";
+const _STC = "SetTypeConfiguration";
+const _STDV = "SetTypeDefaultVersion";
+const _SU = "SourceUrl";
+const _Sc = "Schema";
+const _Sco = "Scope";
+const _St = "Stacks";
+const _Su = "Summaries";
+const _T = "Type";
+const _TA = "TypeArn";
+const _TB = "TemplateBody";
+const _TC = "TypeConfigurations";
+const _TCA = "TypeConfigurationAlias";
+const _TCAy = "TypeConfigurationArn";
+const _TCI = "TypeConfigurationIdentifiers";
+const _TCIy = "TypeConfigurationIdentifier";
+const _TCVI = "TypeConfigurationVersionId";
+const _TCi = "TimeCreated";
+const _TD = "TargetDetails";
+const _TDe = "TemplateDescription";
+const _TH = "TypeHierarchy";
+const _TIM = "TimeoutInMinutes";
+const _TN = "TypeName";
+const _TNA = "TypeNameAlias";
+const _TNP = "TypeNamePrefix";
+const _TS = "TemplateStage";
+const _TSC = "TemplateSummaryConfig";
+const _TSIC = "TotalStackInstancesCount";
+const _TSy = "TypeSummaries";
+const _TT = "TestType";
+const _TTS = "TypeTestsStatus";
+const _TTSD = "TypeTestsStatusDescription";
+const _TTa = "TargetType";
+const _TURL = "TemplateURL";
+const _TURTAW = "TreatUnrecognizedResourceTypesAsWarnings";
+const _TVA = "TypeVersionArn";
+const _TVI = "TypeVersionId";
+const _TVS = "TypeVersionSummaries";
+const _Ta = "Tags";
+const _Tar = "Target";
+const _Ti = "Timestamp";
+const _U = "Url";
+const _UI = "UniqueId";
+const _UPT = "UsePreviousTemplate";
+const _UPV = "UsePreviousValue";
+const _URT = "UnrecognizedResourceTypes";
+const _US = "UpdateStack";
+const _USI = "UpdateStackInstances";
+const _USS = "UpdateStackSet";
+const _UTC = "UnprocessedTypeConfigurations";
+const _UTP = "UpdateTerminationProtection";
+const _V = "Version";
+const _VB = "VersionBump";
+const _VI = "VersionId";
+const _VT = "ValidateTemplate";
+const _Va = "Values";
+const _Val = "Value";
+const _Vi = "Visibility";
+const _W = "Warnings";
+const _m = "member";
 const parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
         const parser = new fast_xml_parser_1.XMLParser({
@@ -27675,49 +26075,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class CreateIdentityPoolCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, CreateIdentityPoolCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "CreateIdentityPoolCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "CreateIdentityPool",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_CreateIdentityPoolCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_CreateIdentityPoolCommand)(output, context);
-    }
+class CreateIdentityPoolCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "CreateIdentityPool", {})
+    .n("CognitoIdentityClient", "CreateIdentityPoolCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_CreateIdentityPoolCommand)
+    .de(Aws_json1_1_1.de_CreateIdentityPoolCommand)
+    .build() {
 }
 exports.CreateIdentityPoolCommand = CreateIdentityPoolCommand;
 
@@ -27736,49 +26113,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class DeleteIdentitiesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteIdentitiesCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "DeleteIdentitiesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "DeleteIdentities",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_DeleteIdentitiesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_DeleteIdentitiesCommand)(output, context);
-    }
+class DeleteIdentitiesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "DeleteIdentities", {})
+    .n("CognitoIdentityClient", "DeleteIdentitiesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_DeleteIdentitiesCommand)
+    .de(Aws_json1_1_1.de_DeleteIdentitiesCommand)
+    .build() {
 }
 exports.DeleteIdentitiesCommand = DeleteIdentitiesCommand;
 
@@ -27797,49 +26151,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class DeleteIdentityPoolCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DeleteIdentityPoolCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "DeleteIdentityPoolCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "DeleteIdentityPool",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_DeleteIdentityPoolCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_DeleteIdentityPoolCommand)(output, context);
-    }
+class DeleteIdentityPoolCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "DeleteIdentityPool", {})
+    .n("CognitoIdentityClient", "DeleteIdentityPoolCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_DeleteIdentityPoolCommand)
+    .de(Aws_json1_1_1.de_DeleteIdentityPoolCommand)
+    .build() {
 }
 exports.DeleteIdentityPoolCommand = DeleteIdentityPoolCommand;
 
@@ -27858,49 +26189,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class DescribeIdentityCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeIdentityCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "DescribeIdentityCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "DescribeIdentity",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_DescribeIdentityCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_DescribeIdentityCommand)(output, context);
-    }
+class DescribeIdentityCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "DescribeIdentity", {})
+    .n("CognitoIdentityClient", "DescribeIdentityCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_DescribeIdentityCommand)
+    .de(Aws_json1_1_1.de_DescribeIdentityCommand)
+    .build() {
 }
 exports.DescribeIdentityCommand = DescribeIdentityCommand;
 
@@ -27919,49 +26227,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class DescribeIdentityPoolCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DescribeIdentityPoolCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "DescribeIdentityPoolCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "DescribeIdentityPool",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_DescribeIdentityPoolCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_DescribeIdentityPoolCommand)(output, context);
-    }
+class DescribeIdentityPoolCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "DescribeIdentityPool", {})
+    .n("CognitoIdentityClient", "DescribeIdentityPoolCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_DescribeIdentityPoolCommand)
+    .de(Aws_json1_1_1.de_DescribeIdentityPoolCommand)
+    .build() {
 }
 exports.DescribeIdentityPoolCommand = DescribeIdentityPoolCommand;
 
@@ -27979,48 +26264,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class GetCredentialsForIdentityCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetCredentialsForIdentityCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "GetCredentialsForIdentityCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "GetCredentialsForIdentity",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_GetCredentialsForIdentityCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_GetCredentialsForIdentityCommand)(output, context);
-    }
+class GetCredentialsForIdentityCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSCognitoIdentityService", "GetCredentialsForIdentity", {})
+    .n("CognitoIdentityClient", "GetCredentialsForIdentityCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_GetCredentialsForIdentityCommand)
+    .de(Aws_json1_1_1.de_GetCredentialsForIdentityCommand)
+    .build() {
 }
 exports.GetCredentialsForIdentityCommand = GetCredentialsForIdentityCommand;
 
@@ -28038,48 +26300,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class GetIdCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetIdCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "GetIdCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "GetId",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_GetIdCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_GetIdCommand)(output, context);
-    }
+class GetIdCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSCognitoIdentityService", "GetId", {})
+    .n("CognitoIdentityClient", "GetIdCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_GetIdCommand)
+    .de(Aws_json1_1_1.de_GetIdCommand)
+    .build() {
 }
 exports.GetIdCommand = GetIdCommand;
 
@@ -28098,49 +26337,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class GetIdentityPoolRolesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetIdentityPoolRolesCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "GetIdentityPoolRolesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "GetIdentityPoolRoles",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_GetIdentityPoolRolesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_GetIdentityPoolRolesCommand)(output, context);
-    }
+class GetIdentityPoolRolesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "GetIdentityPoolRoles", {})
+    .n("CognitoIdentityClient", "GetIdentityPoolRolesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_GetIdentityPoolRolesCommand)
+    .de(Aws_json1_1_1.de_GetIdentityPoolRolesCommand)
+    .build() {
 }
 exports.GetIdentityPoolRolesCommand = GetIdentityPoolRolesCommand;
 
@@ -28158,48 +26374,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class GetOpenIdTokenCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetOpenIdTokenCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "GetOpenIdTokenCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "GetOpenIdToken",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_GetOpenIdTokenCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_GetOpenIdTokenCommand)(output, context);
-    }
+class GetOpenIdTokenCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSCognitoIdentityService", "GetOpenIdToken", {})
+    .n("CognitoIdentityClient", "GetOpenIdTokenCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_GetOpenIdTokenCommand)
+    .de(Aws_json1_1_1.de_GetOpenIdTokenCommand)
+    .build() {
 }
 exports.GetOpenIdTokenCommand = GetOpenIdTokenCommand;
 
@@ -28218,49 +26411,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class GetOpenIdTokenForDeveloperIdentityCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetOpenIdTokenForDeveloperIdentityCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "GetOpenIdTokenForDeveloperIdentityCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "GetOpenIdTokenForDeveloperIdentity",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_GetOpenIdTokenForDeveloperIdentityCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_GetOpenIdTokenForDeveloperIdentityCommand)(output, context);
-    }
+class GetOpenIdTokenForDeveloperIdentityCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "GetOpenIdTokenForDeveloperIdentity", {})
+    .n("CognitoIdentityClient", "GetOpenIdTokenForDeveloperIdentityCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_GetOpenIdTokenForDeveloperIdentityCommand)
+    .de(Aws_json1_1_1.de_GetOpenIdTokenForDeveloperIdentityCommand)
+    .build() {
 }
 exports.GetOpenIdTokenForDeveloperIdentityCommand = GetOpenIdTokenForDeveloperIdentityCommand;
 
@@ -28279,49 +26449,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class GetPrincipalTagAttributeMapCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetPrincipalTagAttributeMapCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "GetPrincipalTagAttributeMapCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "GetPrincipalTagAttributeMap",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_GetPrincipalTagAttributeMapCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_GetPrincipalTagAttributeMapCommand)(output, context);
-    }
+class GetPrincipalTagAttributeMapCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "GetPrincipalTagAttributeMap", {})
+    .n("CognitoIdentityClient", "GetPrincipalTagAttributeMapCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_GetPrincipalTagAttributeMapCommand)
+    .de(Aws_json1_1_1.de_GetPrincipalTagAttributeMapCommand)
+    .build() {
 }
 exports.GetPrincipalTagAttributeMapCommand = GetPrincipalTagAttributeMapCommand;
 
@@ -28340,49 +26487,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class ListIdentitiesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListIdentitiesCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "ListIdentitiesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "ListIdentities",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_ListIdentitiesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_ListIdentitiesCommand)(output, context);
-    }
+class ListIdentitiesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "ListIdentities", {})
+    .n("CognitoIdentityClient", "ListIdentitiesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_ListIdentitiesCommand)
+    .de(Aws_json1_1_1.de_ListIdentitiesCommand)
+    .build() {
 }
 exports.ListIdentitiesCommand = ListIdentitiesCommand;
 
@@ -28401,49 +26525,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class ListIdentityPoolsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListIdentityPoolsCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "ListIdentityPoolsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "ListIdentityPools",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_ListIdentityPoolsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_ListIdentityPoolsCommand)(output, context);
-    }
+class ListIdentityPoolsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "ListIdentityPools", {})
+    .n("CognitoIdentityClient", "ListIdentityPoolsCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_ListIdentityPoolsCommand)
+    .de(Aws_json1_1_1.de_ListIdentityPoolsCommand)
+    .build() {
 }
 exports.ListIdentityPoolsCommand = ListIdentityPoolsCommand;
 
@@ -28462,49 +26563,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class ListTagsForResourceCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "ListTagsForResourceCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "ListTagsForResource",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_ListTagsForResourceCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_ListTagsForResourceCommand)(output, context);
-    }
+class ListTagsForResourceCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "ListTagsForResource", {})
+    .n("CognitoIdentityClient", "ListTagsForResourceCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_ListTagsForResourceCommand)
+    .de(Aws_json1_1_1.de_ListTagsForResourceCommand)
+    .build() {
 }
 exports.ListTagsForResourceCommand = ListTagsForResourceCommand;
 
@@ -28523,49 +26601,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class LookupDeveloperIdentityCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, LookupDeveloperIdentityCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "LookupDeveloperIdentityCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "LookupDeveloperIdentity",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_LookupDeveloperIdentityCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_LookupDeveloperIdentityCommand)(output, context);
-    }
+class LookupDeveloperIdentityCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "LookupDeveloperIdentity", {})
+    .n("CognitoIdentityClient", "LookupDeveloperIdentityCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_LookupDeveloperIdentityCommand)
+    .de(Aws_json1_1_1.de_LookupDeveloperIdentityCommand)
+    .build() {
 }
 exports.LookupDeveloperIdentityCommand = LookupDeveloperIdentityCommand;
 
@@ -28584,49 +26639,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class MergeDeveloperIdentitiesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, MergeDeveloperIdentitiesCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "MergeDeveloperIdentitiesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "MergeDeveloperIdentities",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_MergeDeveloperIdentitiesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_MergeDeveloperIdentitiesCommand)(output, context);
-    }
+class MergeDeveloperIdentitiesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "MergeDeveloperIdentities", {})
+    .n("CognitoIdentityClient", "MergeDeveloperIdentitiesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_MergeDeveloperIdentitiesCommand)
+    .de(Aws_json1_1_1.de_MergeDeveloperIdentitiesCommand)
+    .build() {
 }
 exports.MergeDeveloperIdentitiesCommand = MergeDeveloperIdentitiesCommand;
 
@@ -28645,49 +26677,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class SetIdentityPoolRolesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SetIdentityPoolRolesCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "SetIdentityPoolRolesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "SetIdentityPoolRoles",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_SetIdentityPoolRolesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_SetIdentityPoolRolesCommand)(output, context);
-    }
+class SetIdentityPoolRolesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "SetIdentityPoolRoles", {})
+    .n("CognitoIdentityClient", "SetIdentityPoolRolesCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_SetIdentityPoolRolesCommand)
+    .de(Aws_json1_1_1.de_SetIdentityPoolRolesCommand)
+    .build() {
 }
 exports.SetIdentityPoolRolesCommand = SetIdentityPoolRolesCommand;
 
@@ -28706,49 +26715,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class SetPrincipalTagAttributeMapCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, SetPrincipalTagAttributeMapCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "SetPrincipalTagAttributeMapCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "SetPrincipalTagAttributeMap",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_SetPrincipalTagAttributeMapCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_SetPrincipalTagAttributeMapCommand)(output, context);
-    }
+class SetPrincipalTagAttributeMapCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "SetPrincipalTagAttributeMap", {})
+    .n("CognitoIdentityClient", "SetPrincipalTagAttributeMapCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_SetPrincipalTagAttributeMapCommand)
+    .de(Aws_json1_1_1.de_SetPrincipalTagAttributeMapCommand)
+    .build() {
 }
 exports.SetPrincipalTagAttributeMapCommand = SetPrincipalTagAttributeMapCommand;
 
@@ -28767,49 +26753,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class TagResourceCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, TagResourceCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "TagResourceCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "TagResource",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_TagResourceCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_TagResourceCommand)(output, context);
-    }
+class TagResourceCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "TagResource", {})
+    .n("CognitoIdentityClient", "TagResourceCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_TagResourceCommand)
+    .de(Aws_json1_1_1.de_TagResourceCommand)
+    .build() {
 }
 exports.TagResourceCommand = TagResourceCommand;
 
@@ -28828,49 +26791,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class UnlinkDeveloperIdentityCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UnlinkDeveloperIdentityCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "UnlinkDeveloperIdentityCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "UnlinkDeveloperIdentity",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_UnlinkDeveloperIdentityCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_UnlinkDeveloperIdentityCommand)(output, context);
-    }
+class UnlinkDeveloperIdentityCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "UnlinkDeveloperIdentity", {})
+    .n("CognitoIdentityClient", "UnlinkDeveloperIdentityCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_UnlinkDeveloperIdentityCommand)
+    .de(Aws_json1_1_1.de_UnlinkDeveloperIdentityCommand)
+    .build() {
 }
 exports.UnlinkDeveloperIdentityCommand = UnlinkDeveloperIdentityCommand;
 
@@ -28888,48 +26828,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class UnlinkIdentityCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UnlinkIdentityCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "UnlinkIdentityCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "UnlinkIdentity",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_UnlinkIdentityCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_UnlinkIdentityCommand)(output, context);
-    }
+class UnlinkIdentityCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSCognitoIdentityService", "UnlinkIdentity", {})
+    .n("CognitoIdentityClient", "UnlinkIdentityCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_UnlinkIdentityCommand)
+    .de(Aws_json1_1_1.de_UnlinkIdentityCommand)
+    .build() {
 }
 exports.UnlinkIdentityCommand = UnlinkIdentityCommand;
 
@@ -28948,49 +26865,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class UntagResourceCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "UntagResourceCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "UntagResource",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_UntagResourceCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_UntagResourceCommand)(output, context);
-    }
+class UntagResourceCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "UntagResource", {})
+    .n("CognitoIdentityClient", "UntagResourceCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_UntagResourceCommand)
+    .de(Aws_json1_1_1.de_UntagResourceCommand)
+    .build() {
 }
 exports.UntagResourceCommand = UntagResourceCommand;
 
@@ -29009,49 +26903,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(72987);
 const Aws_json1_1_1 = __nccwpck_require__(85087);
-class UpdateIdentityPoolCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, UpdateIdentityPoolCommand.getEndpointParameterInstructions()));
-        this.middlewareStack.use((0, middleware_signing_1.getAwsAuthPlugin)(configuration));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "CognitoIdentityClient";
-        const commandName = "UpdateIdentityPoolCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSCognitoIdentityService",
-                operation: "UpdateIdentityPool",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_json1_1_1.se_UpdateIdentityPoolCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_json1_1_1.de_UpdateIdentityPoolCommand)(output, context);
-    }
+class UpdateIdentityPoolCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+        (0, middleware_signing_1.getAwsAuthPlugin)(config),
+    ];
+})
+    .s("AWSCognitoIdentityService", "UpdateIdentityPool", {})
+    .n("CognitoIdentityClient", "UpdateIdentityPoolCommand")
+    .f(void 0, void 0)
+    .ser(Aws_json1_1_1.se_UpdateIdentityPoolCommand)
+    .de(Aws_json1_1_1.de_UpdateIdentityPoolCommand)
+    .build() {
 }
 exports.UpdateIdentityPoolCommand = UpdateIdentityPoolCommand;
 
@@ -29098,7 +26969,7 @@ tslib_1.__exportStar(__nccwpck_require__(99983), exports);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.resolveClientEndpointParameters = void 0;
+exports.commonParams = exports.resolveClientEndpointParameters = void 0;
 const resolveClientEndpointParameters = (options) => {
     return {
         ...options,
@@ -29108,6 +26979,12 @@ const resolveClientEndpointParameters = (options) => {
     };
 };
 exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
+exports.commonParams = {
+    UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+    Endpoint: { type: "builtInParams", name: "endpoint" },
+    Region: { type: "builtInParams", name: "region" },
+    UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+};
 
 
 /***/ }),
@@ -29389,32 +27266,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListIdentityPools = void 0;
+const core_1 = __nccwpck_require__(55829);
 const CognitoIdentityClient_1 = __nccwpck_require__(4864);
 const ListIdentityPoolsCommand_1 = __nccwpck_require__(1530);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListIdentityPoolsCommand_1.ListIdentityPoolsCommand(input), ...args);
-};
-async function* paginateListIdentityPools(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.NextToken = token;
-        input["MaxResults"] = config.pageSize;
-        if (config.client instanceof CognitoIdentityClient_1.CognitoIdentityClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected CognitoIdentity | CognitoIdentityClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.NextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListIdentityPools = paginateListIdentityPools;
+exports.paginateListIdentityPools = (0, core_1.createPaginator)(CognitoIdentityClient_1.CognitoIdentityClient, ListIdentityPoolsCommand_1.ListIdentityPoolsCommand, "NextToken", "NextToken", "MaxResults");
 
 
 /***/ }),
@@ -31105,49 +28960,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(34214);
 const models_0_1 = __nccwpck_require__(66390);
 const Aws_restJson1_1 = __nccwpck_require__(98507);
-class GetRoleCredentialsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetRoleCredentialsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "SSOClient";
-        const commandName = "GetRoleCredentialsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: models_0_1.GetRoleCredentialsRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.GetRoleCredentialsResponseFilterSensitiveLog,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "SWBPortalService",
-                operation: "GetRoleCredentials",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_restJson1_1.se_GetRoleCredentialsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_restJson1_1.de_GetRoleCredentialsCommand)(output, context);
-    }
+class GetRoleCredentialsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("SWBPortalService", "GetRoleCredentials", {})
+    .n("SSOClient", "GetRoleCredentialsCommand")
+    .f(models_0_1.GetRoleCredentialsRequestFilterSensitiveLog, models_0_1.GetRoleCredentialsResponseFilterSensitiveLog)
+    .ser(Aws_restJson1_1.se_GetRoleCredentialsCommand)
+    .de(Aws_restJson1_1.de_GetRoleCredentialsCommand)
+    .build() {
 }
 exports.GetRoleCredentialsCommand = GetRoleCredentialsCommand;
 
@@ -31165,49 +28997,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(34214);
 const models_0_1 = __nccwpck_require__(66390);
 const Aws_restJson1_1 = __nccwpck_require__(98507);
-class ListAccountRolesCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListAccountRolesCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "SSOClient";
-        const commandName = "ListAccountRolesCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: models_0_1.ListAccountRolesRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "SWBPortalService",
-                operation: "ListAccountRoles",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_restJson1_1.se_ListAccountRolesCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_restJson1_1.de_ListAccountRolesCommand)(output, context);
-    }
+class ListAccountRolesCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("SWBPortalService", "ListAccountRoles", {})
+    .n("SSOClient", "ListAccountRolesCommand")
+    .f(models_0_1.ListAccountRolesRequestFilterSensitiveLog, void 0)
+    .ser(Aws_restJson1_1.se_ListAccountRolesCommand)
+    .de(Aws_restJson1_1.de_ListAccountRolesCommand)
+    .build() {
 }
 exports.ListAccountRolesCommand = ListAccountRolesCommand;
 
@@ -31225,49 +29034,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(34214);
 const models_0_1 = __nccwpck_require__(66390);
 const Aws_restJson1_1 = __nccwpck_require__(98507);
-class ListAccountsCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, ListAccountsCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "SSOClient";
-        const commandName = "ListAccountsCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: models_0_1.ListAccountsRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "SWBPortalService",
-                operation: "ListAccounts",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_restJson1_1.se_ListAccountsCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_restJson1_1.de_ListAccountsCommand)(output, context);
-    }
+class ListAccountsCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("SWBPortalService", "ListAccounts", {})
+    .n("SSOClient", "ListAccountsCommand")
+    .f(models_0_1.ListAccountsRequestFilterSensitiveLog, void 0)
+    .ser(Aws_restJson1_1.se_ListAccountsCommand)
+    .de(Aws_restJson1_1.de_ListAccountsCommand)
+    .build() {
 }
 exports.ListAccountsCommand = ListAccountsCommand;
 
@@ -31285,49 +29071,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(34214);
 const models_0_1 = __nccwpck_require__(66390);
 const Aws_restJson1_1 = __nccwpck_require__(98507);
-class LogoutCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, LogoutCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "SSOClient";
-        const commandName = "LogoutCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: models_0_1.LogoutRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "SWBPortalService",
-                operation: "Logout",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_restJson1_1.se_LogoutCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_restJson1_1.de_LogoutCommand)(output, context);
-    }
+class LogoutCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("SWBPortalService", "Logout", {})
+    .n("SSOClient", "LogoutCommand")
+    .f(models_0_1.LogoutRequestFilterSensitiveLog, void 0)
+    .ser(Aws_restJson1_1.se_LogoutCommand)
+    .de(Aws_restJson1_1.de_LogoutCommand)
+    .build() {
 }
 exports.LogoutCommand = LogoutCommand;
 
@@ -31355,7 +29118,7 @@ tslib_1.__exportStar(__nccwpck_require__(12586), exports);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.resolveClientEndpointParameters = void 0;
+exports.commonParams = exports.resolveClientEndpointParameters = void 0;
 const resolveClientEndpointParameters = (options) => {
     return {
         ...options,
@@ -31365,6 +29128,12 @@ const resolveClientEndpointParameters = (options) => {
     };
 };
 exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
+exports.commonParams = {
+    UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+    Endpoint: { type: "builtInParams", name: "endpoint" },
+    Region: { type: "builtInParams", name: "region" },
+    UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+};
 
 
 /***/ }),
@@ -31569,32 +29338,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListAccountRoles = void 0;
+const core_1 = __nccwpck_require__(55829);
 const ListAccountRolesCommand_1 = __nccwpck_require__(1513);
 const SSOClient_1 = __nccwpck_require__(71057);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListAccountRolesCommand_1.ListAccountRolesCommand(input), ...args);
-};
-async function* paginateListAccountRoles(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.nextToken = token;
-        input["maxResults"] = config.pageSize;
-        if (config.client instanceof SSOClient_1.SSOClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected SSO | SSOClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.nextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListAccountRoles = paginateListAccountRoles;
+exports.paginateListAccountRoles = (0, core_1.createPaginator)(SSOClient_1.SSOClient, ListAccountRolesCommand_1.ListAccountRolesCommand, "nextToken", "nextToken", "maxResults");
 
 
 /***/ }),
@@ -31606,32 +29353,10 @@ exports.paginateListAccountRoles = paginateListAccountRoles;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.paginateListAccounts = void 0;
+const core_1 = __nccwpck_require__(55829);
 const ListAccountsCommand_1 = __nccwpck_require__(64296);
 const SSOClient_1 = __nccwpck_require__(71057);
-const makePagedClientRequest = async (client, input, ...args) => {
-    return await client.send(new ListAccountsCommand_1.ListAccountsCommand(input), ...args);
-};
-async function* paginateListAccounts(config, input, ...additionalArguments) {
-    let token = config.startingToken || undefined;
-    let hasNext = true;
-    let page;
-    while (hasNext) {
-        input.nextToken = token;
-        input["maxResults"] = config.pageSize;
-        if (config.client instanceof SSOClient_1.SSOClient) {
-            page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-        }
-        else {
-            throw new Error("Invalid client, expected SSO | SSOClient");
-        }
-        yield page;
-        const prevToken = token;
-        token = page.nextToken;
-        hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-    }
-    return undefined;
-}
-exports.paginateListAccounts = paginateListAccounts;
+exports.paginateListAccounts = (0, core_1.createPaginator)(SSOClient_1.SSOClient, ListAccountsCommand_1.ListAccountsCommand, "nextToken", "nextToken", "maxResults");
 
 
 /***/ }),
@@ -31657,96 +29382,65 @@ tslib_1.__exportStar(__nccwpck_require__(50938), exports);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.de_LogoutCommand = exports.de_ListAccountsCommand = exports.de_ListAccountRolesCommand = exports.de_GetRoleCredentialsCommand = exports.se_LogoutCommand = exports.se_ListAccountsCommand = exports.se_ListAccountRolesCommand = exports.se_GetRoleCredentialsCommand = void 0;
-const protocol_http_1 = __nccwpck_require__(64418);
+const core_1 = __nccwpck_require__(55829);
 const smithy_client_1 = __nccwpck_require__(63570);
 const models_0_1 = __nccwpck_require__(66390);
 const SSOServiceException_1 = __nccwpck_require__(81517);
 const se_GetRoleCredentialsCommand = async (input, context) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+    const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
-        "x-amz-sso_bearer_token": input.accessToken,
+        [_xasbt]: input[_aT],
     });
-    const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/federation/credentials";
+    b.bp("/federation/credentials");
     const query = (0, smithy_client_1.map)({
-        role_name: [, (0, smithy_client_1.expectNonNull)(input.roleName, `roleName`)],
-        account_id: [, (0, smithy_client_1.expectNonNull)(input.accountId, `accountId`)],
+        [_rn]: [, (0, smithy_client_1.expectNonNull)(input[_rN], `roleName`)],
+        [_ai]: [, (0, smithy_client_1.expectNonNull)(input[_aI], `accountId`)],
     });
     let body;
-    return new protocol_http_1.HttpRequest({
-        protocol,
-        hostname,
-        port,
-        method: "GET",
-        headers,
-        path: resolvedPath,
-        query,
-        body,
-    });
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
 };
 exports.se_GetRoleCredentialsCommand = se_GetRoleCredentialsCommand;
 const se_ListAccountRolesCommand = async (input, context) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+    const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
-        "x-amz-sso_bearer_token": input.accessToken,
+        [_xasbt]: input[_aT],
     });
-    const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/roles";
+    b.bp("/assignment/roles");
     const query = (0, smithy_client_1.map)({
-        next_token: [, input.nextToken],
-        max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
-        account_id: [, (0, smithy_client_1.expectNonNull)(input.accountId, `accountId`)],
+        [_nt]: [, input[_nT]],
+        [_mr]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
+        [_ai]: [, (0, smithy_client_1.expectNonNull)(input[_aI], `accountId`)],
     });
     let body;
-    return new protocol_http_1.HttpRequest({
-        protocol,
-        hostname,
-        port,
-        method: "GET",
-        headers,
-        path: resolvedPath,
-        query,
-        body,
-    });
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
 };
 exports.se_ListAccountRolesCommand = se_ListAccountRolesCommand;
 const se_ListAccountsCommand = async (input, context) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+    const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
-        "x-amz-sso_bearer_token": input.accessToken,
+        [_xasbt]: input[_aT],
     });
-    const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/accounts";
+    b.bp("/assignment/accounts");
     const query = (0, smithy_client_1.map)({
-        next_token: [, input.nextToken],
-        max_result: [() => input.maxResults !== void 0, () => input.maxResults.toString()],
+        [_nt]: [, input[_nT]],
+        [_mr]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
     });
     let body;
-    return new protocol_http_1.HttpRequest({
-        protocol,
-        hostname,
-        port,
-        method: "GET",
-        headers,
-        path: resolvedPath,
-        query,
-        body,
-    });
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
 };
 exports.se_ListAccountsCommand = se_ListAccountsCommand;
 const se_LogoutCommand = async (input, context) => {
-    const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+    const b = (0, core_1.requestBuilder)(input, context);
     const headers = (0, smithy_client_1.map)({}, isSerializableHeaderValue, {
-        "x-amz-sso_bearer_token": input.accessToken,
+        [_xasbt]: input[_aT],
     });
-    const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logout";
+    b.bp("/logout");
     let body;
-    return new protocol_http_1.HttpRequest({
-        protocol,
-        hostname,
-        port,
-        method: "POST",
-        headers,
-        path: resolvedPath,
-        body,
-    });
+    b.m("POST").h(headers).b(body);
+    return b.build();
 };
 exports.se_LogoutCommand = se_LogoutCommand;
 const de_GetRoleCredentialsCommand = async (output, context) => {
@@ -31981,6 +29675,16 @@ const isSerializableHeaderValue = (value) => value !== undefined &&
     value !== "" &&
     (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
     (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+const _aI = "accountId";
+const _aT = "accessToken";
+const _ai = "account_id";
+const _mR = "maxResults";
+const _mr = "max_result";
+const _nT = "nextToken";
+const _nt = "next_token";
+const _rN = "roleName";
+const _rn = "role_name";
+const _xasbt = "x-amz-sso_bearer_token";
 const parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
         return JSON.parse(encoded);
@@ -32378,50 +30082,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(20510);
 const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
-class AssumeRoleCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, AssumeRoleCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "STSClient";
-        const commandName = "AssumeRoleCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: models_0_1.AssumeRoleResponseFilterSensitiveLog,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSSecurityTokenServiceV20110615",
-                operation: "AssumeRole",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_AssumeRoleCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_AssumeRoleCommand)(output, context);
-    }
+class AssumeRoleCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSSecurityTokenServiceV20110615", "AssumeRole", {})
+    .n("STSClient", "AssumeRoleCommand")
+    .f(void 0, models_0_1.AssumeRoleResponseFilterSensitiveLog)
+    .ser(Aws_query_1.se_AssumeRoleCommand)
+    .de(Aws_query_1.de_AssumeRoleCommand)
+    .build() {
 }
 exports.AssumeRoleCommand = AssumeRoleCommand;
 
@@ -32439,50 +30119,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(20510);
 const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
-class AssumeRoleWithSAMLCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, AssumeRoleWithSAMLCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "STSClient";
-        const commandName = "AssumeRoleWithSAMLCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: models_0_1.AssumeRoleWithSAMLRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.AssumeRoleWithSAMLResponseFilterSensitiveLog,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSSecurityTokenServiceV20110615",
-                operation: "AssumeRoleWithSAML",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_AssumeRoleWithSAMLCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_AssumeRoleWithSAMLCommand)(output, context);
-    }
+class AssumeRoleWithSAMLCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSSecurityTokenServiceV20110615", "AssumeRoleWithSAML", {})
+    .n("STSClient", "AssumeRoleWithSAMLCommand")
+    .f(models_0_1.AssumeRoleWithSAMLRequestFilterSensitiveLog, models_0_1.AssumeRoleWithSAMLResponseFilterSensitiveLog)
+    .ser(Aws_query_1.se_AssumeRoleWithSAMLCommand)
+    .de(Aws_query_1.de_AssumeRoleWithSAMLCommand)
+    .build() {
 }
 exports.AssumeRoleWithSAMLCommand = AssumeRoleWithSAMLCommand;
 
@@ -32500,50 +30156,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(20510);
 const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
-class AssumeRoleWithWebIdentityCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, AssumeRoleWithWebIdentityCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "STSClient";
-        const commandName = "AssumeRoleWithWebIdentityCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: models_0_1.AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
-            outputFilterSensitiveLog: models_0_1.AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSSecurityTokenServiceV20110615",
-                operation: "AssumeRoleWithWebIdentity",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_AssumeRoleWithWebIdentityCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_AssumeRoleWithWebIdentityCommand)(output, context);
-    }
+class AssumeRoleWithWebIdentityCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSSecurityTokenServiceV20110615", "AssumeRoleWithWebIdentity", {})
+    .n("STSClient", "AssumeRoleWithWebIdentityCommand")
+    .f(models_0_1.AssumeRoleWithWebIdentityRequestFilterSensitiveLog, models_0_1.AssumeRoleWithWebIdentityResponseFilterSensitiveLog)
+    .ser(Aws_query_1.se_AssumeRoleWithWebIdentityCommand)
+    .de(Aws_query_1.de_AssumeRoleWithWebIdentityCommand)
+    .build() {
 }
 exports.AssumeRoleWithWebIdentityCommand = AssumeRoleWithWebIdentityCommand;
 
@@ -32561,49 +30193,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(20510);
 const Aws_query_1 = __nccwpck_require__(10740);
-class DecodeAuthorizationMessageCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, DecodeAuthorizationMessageCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "STSClient";
-        const commandName = "DecodeAuthorizationMessageCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSSecurityTokenServiceV20110615",
-                operation: "DecodeAuthorizationMessage",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_DecodeAuthorizationMessageCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_DecodeAuthorizationMessageCommand)(output, context);
-    }
+class DecodeAuthorizationMessageCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSSecurityTokenServiceV20110615", "DecodeAuthorizationMessage", {})
+    .n("STSClient", "DecodeAuthorizationMessageCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_DecodeAuthorizationMessageCommand)
+    .de(Aws_query_1.de_DecodeAuthorizationMessageCommand)
+    .build() {
 }
 exports.DecodeAuthorizationMessageCommand = DecodeAuthorizationMessageCommand;
 
@@ -32621,49 +30229,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(20510);
 const Aws_query_1 = __nccwpck_require__(10740);
-class GetAccessKeyInfoCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetAccessKeyInfoCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "STSClient";
-        const commandName = "GetAccessKeyInfoCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSSecurityTokenServiceV20110615",
-                operation: "GetAccessKeyInfo",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_GetAccessKeyInfoCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_GetAccessKeyInfoCommand)(output, context);
-    }
+class GetAccessKeyInfoCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSSecurityTokenServiceV20110615", "GetAccessKeyInfo", {})
+    .n("STSClient", "GetAccessKeyInfoCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_GetAccessKeyInfoCommand)
+    .de(Aws_query_1.de_GetAccessKeyInfoCommand)
+    .build() {
 }
 exports.GetAccessKeyInfoCommand = GetAccessKeyInfoCommand;
 
@@ -32681,49 +30265,25 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(20510);
 const Aws_query_1 = __nccwpck_require__(10740);
-class GetCallerIdentityCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetCallerIdentityCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "STSClient";
-        const commandName = "GetCallerIdentityCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: (_) => _,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSSecurityTokenServiceV20110615",
-                operation: "GetCallerIdentity",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_GetCallerIdentityCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_GetCallerIdentityCommand)(output, context);
-    }
+class GetCallerIdentityCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSSecurityTokenServiceV20110615", "GetCallerIdentity", {})
+    .n("STSClient", "GetCallerIdentityCommand")
+    .f(void 0, void 0)
+    .ser(Aws_query_1.se_GetCallerIdentityCommand)
+    .de(Aws_query_1.de_GetCallerIdentityCommand)
+    .build() {
 }
 exports.GetCallerIdentityCommand = GetCallerIdentityCommand;
 
@@ -32741,50 +30301,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(20510);
 const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
-class GetFederationTokenCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetFederationTokenCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "STSClient";
-        const commandName = "GetFederationTokenCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: models_0_1.GetFederationTokenResponseFilterSensitiveLog,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSSecurityTokenServiceV20110615",
-                operation: "GetFederationToken",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_GetFederationTokenCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_GetFederationTokenCommand)(output, context);
-    }
+class GetFederationTokenCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSSecurityTokenServiceV20110615", "GetFederationToken", {})
+    .n("STSClient", "GetFederationTokenCommand")
+    .f(void 0, models_0_1.GetFederationTokenResponseFilterSensitiveLog)
+    .ser(Aws_query_1.se_GetFederationTokenCommand)
+    .de(Aws_query_1.de_GetFederationTokenCommand)
+    .build() {
 }
 exports.GetFederationTokenCommand = GetFederationTokenCommand;
 
@@ -32802,50 +30338,26 @@ const middleware_endpoint_1 = __nccwpck_require__(82918);
 const middleware_serde_1 = __nccwpck_require__(81238);
 const smithy_client_1 = __nccwpck_require__(63570);
 Object.defineProperty(exports, "$Command", ({ enumerable: true, get: function () { return smithy_client_1.Command; } }));
-const types_1 = __nccwpck_require__(55756);
+const EndpointParameters_1 = __nccwpck_require__(20510);
 const models_0_1 = __nccwpck_require__(21780);
 const Aws_query_1 = __nccwpck_require__(10740);
-class GetSessionTokenCommand extends smithy_client_1.Command {
-    static getEndpointParameterInstructions() {
-        return {
-            UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-            UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-            Endpoint: { type: "builtInParams", name: "endpoint" },
-            Region: { type: "builtInParams", name: "region" },
-            UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-        };
-    }
-    constructor(input) {
-        super();
-        this.input = input;
-    }
-    resolveMiddleware(clientStack, configuration, options) {
-        this.middlewareStack.use((0, middleware_serde_1.getSerdePlugin)(configuration, this.serialize, this.deserialize));
-        this.middlewareStack.use((0, middleware_endpoint_1.getEndpointPlugin)(configuration, GetSessionTokenCommand.getEndpointParameterInstructions()));
-        const stack = clientStack.concat(this.middlewareStack);
-        const { logger } = configuration;
-        const clientName = "STSClient";
-        const commandName = "GetSessionTokenCommand";
-        const handlerExecutionContext = {
-            logger,
-            clientName,
-            commandName,
-            inputFilterSensitiveLog: (_) => _,
-            outputFilterSensitiveLog: models_0_1.GetSessionTokenResponseFilterSensitiveLog,
-            [types_1.SMITHY_CONTEXT_KEY]: {
-                service: "AWSSecurityTokenServiceV20110615",
-                operation: "GetSessionToken",
-            },
-        };
-        const { requestHandler } = configuration;
-        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
-    }
-    serialize(input, context) {
-        return (0, Aws_query_1.se_GetSessionTokenCommand)(input, context);
-    }
-    deserialize(output, context) {
-        return (0, Aws_query_1.de_GetSessionTokenCommand)(output, context);
-    }
+class GetSessionTokenCommand extends smithy_client_1.Command
+    .classBuilder()
+    .ep({
+    ...EndpointParameters_1.commonParams,
+})
+    .m(function (Command, cs, config, o) {
+    return [
+        (0, middleware_serde_1.getSerdePlugin)(config, this.serialize, this.deserialize),
+        (0, middleware_endpoint_1.getEndpointPlugin)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AWSSecurityTokenServiceV20110615", "GetSessionToken", {})
+    .n("STSClient", "GetSessionTokenCommand")
+    .f(void 0, models_0_1.GetSessionTokenResponseFilterSensitiveLog)
+    .ser(Aws_query_1.se_GetSessionTokenCommand)
+    .de(Aws_query_1.de_GetSessionTokenCommand)
+    .build() {
 }
 exports.GetSessionTokenCommand = GetSessionTokenCommand;
 
@@ -32997,7 +30509,7 @@ exports.decorateDefaultCredentialProvider = decorateDefaultCredentialProvider;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.resolveClientEndpointParameters = void 0;
+exports.commonParams = exports.resolveClientEndpointParameters = void 0;
 const resolveClientEndpointParameters = (options) => {
     return {
         ...options,
@@ -33008,6 +30520,13 @@ const resolveClientEndpointParameters = (options) => {
     };
 };
 exports.resolveClientEndpointParameters = resolveClientEndpointParameters;
+exports.commonParams = {
+    UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+    UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+    Endpoint: { type: "builtInParams", name: "endpoint" },
+    Region: { type: "builtInParams", name: "region" },
+    UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+};
 
 
 /***/ }),
@@ -33273,8 +30792,8 @@ const se_AssumeRoleCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleRequest(input, context),
-        Action: "AssumeRole",
-        Version: "2011-06-15",
+        [_A]: _AR,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -33284,8 +30803,8 @@ const se_AssumeRoleWithSAMLCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleWithSAMLRequest(input, context),
-        Action: "AssumeRoleWithSAML",
-        Version: "2011-06-15",
+        [_A]: _ARWSAML,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -33295,8 +30814,8 @@ const se_AssumeRoleWithWebIdentityCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_AssumeRoleWithWebIdentityRequest(input, context),
-        Action: "AssumeRoleWithWebIdentity",
-        Version: "2011-06-15",
+        [_A]: _ARWWI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -33306,8 +30825,8 @@ const se_DecodeAuthorizationMessageCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_DecodeAuthorizationMessageRequest(input, context),
-        Action: "DecodeAuthorizationMessage",
-        Version: "2011-06-15",
+        [_A]: _DAM,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -33317,8 +30836,8 @@ const se_GetAccessKeyInfoCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetAccessKeyInfoRequest(input, context),
-        Action: "GetAccessKeyInfo",
-        Version: "2011-06-15",
+        [_A]: _GAKI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -33328,8 +30847,8 @@ const se_GetCallerIdentityCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetCallerIdentityRequest(input, context),
-        Action: "GetCallerIdentity",
-        Version: "2011-06-15",
+        [_A]: _GCI,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -33339,8 +30858,8 @@ const se_GetFederationTokenCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetFederationTokenRequest(input, context),
-        Action: "GetFederationToken",
-        Version: "2011-06-15",
+        [_A]: _GFT,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -33350,8 +30869,8 @@ const se_GetSessionTokenCommand = async (input, context) => {
     let body;
     body = buildFormUrlencodedString({
         ...se_GetSessionTokenRequest(input, context),
-        Action: "GetSessionToken",
-        Version: "2011-06-15",
+        [_A]: _GST,
+        [_V]: _,
     });
     return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -33730,15 +31249,15 @@ const de_RegionDisabledExceptionRes = async (parsedOutput, context) => {
 };
 const se_AssumeRoleRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn != null) {
-        entries["RoleArn"] = input.RoleArn;
+    if (input[_RA] != null) {
+        entries[_RA] = input[_RA];
     }
-    if (input.RoleSessionName != null) {
-        entries["RoleSessionName"] = input.RoleSessionName;
+    if (input[_RSN] != null) {
+        entries[_RSN] = input[_RSN];
     }
-    if (input.PolicyArns != null) {
-        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-        if (input.PolicyArns?.length === 0) {
+    if (input[_PA] != null) {
+        const memberEntries = se_policyDescriptorListType(input[_PA], context);
+        if (input[_PA]?.length === 0) {
             entries.PolicyArns = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -33746,15 +31265,15 @@ const se_AssumeRoleRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Policy != null) {
-        entries["Policy"] = input.Policy;
+    if (input[_P] != null) {
+        entries[_P] = input[_P];
     }
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
-    if (input.Tags != null) {
-        const memberEntries = se_tagListType(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_T] != null) {
+        const memberEntries = se_tagListType(input[_T], context);
+        if (input[_T]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -33762,9 +31281,9 @@ const se_AssumeRoleRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.TransitiveTagKeys != null) {
-        const memberEntries = se_tagKeyListType(input.TransitiveTagKeys, context);
-        if (input.TransitiveTagKeys?.length === 0) {
+    if (input[_TTK] != null) {
+        const memberEntries = se_tagKeyListType(input[_TTK], context);
+        if (input[_TTK]?.length === 0) {
             entries.TransitiveTagKeys = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -33772,21 +31291,21 @@ const se_AssumeRoleRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.ExternalId != null) {
-        entries["ExternalId"] = input.ExternalId;
+    if (input[_EI] != null) {
+        entries[_EI] = input[_EI];
     }
-    if (input.SerialNumber != null) {
-        entries["SerialNumber"] = input.SerialNumber;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TokenCode != null) {
-        entries["TokenCode"] = input.TokenCode;
+    if (input[_TC] != null) {
+        entries[_TC] = input[_TC];
     }
-    if (input.SourceIdentity != null) {
-        entries["SourceIdentity"] = input.SourceIdentity;
+    if (input[_SI] != null) {
+        entries[_SI] = input[_SI];
     }
-    if (input.ProvidedContexts != null) {
-        const memberEntries = se_ProvidedContextsListType(input.ProvidedContexts, context);
-        if (input.ProvidedContexts?.length === 0) {
+    if (input[_PC] != null) {
+        const memberEntries = se_ProvidedContextsListType(input[_PC], context);
+        if (input[_PC]?.length === 0) {
             entries.ProvidedContexts = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -33798,18 +31317,18 @@ const se_AssumeRoleRequest = (input, context) => {
 };
 const se_AssumeRoleWithSAMLRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn != null) {
-        entries["RoleArn"] = input.RoleArn;
+    if (input[_RA] != null) {
+        entries[_RA] = input[_RA];
     }
-    if (input.PrincipalArn != null) {
-        entries["PrincipalArn"] = input.PrincipalArn;
+    if (input[_PAr] != null) {
+        entries[_PAr] = input[_PAr];
     }
-    if (input.SAMLAssertion != null) {
-        entries["SAMLAssertion"] = input.SAMLAssertion;
+    if (input[_SAMLA] != null) {
+        entries[_SAMLA] = input[_SAMLA];
     }
-    if (input.PolicyArns != null) {
-        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-        if (input.PolicyArns?.length === 0) {
+    if (input[_PA] != null) {
+        const memberEntries = se_policyDescriptorListType(input[_PA], context);
+        if (input[_PA]?.length === 0) {
             entries.PolicyArns = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -33817,31 +31336,31 @@ const se_AssumeRoleWithSAMLRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Policy != null) {
-        entries["Policy"] = input.Policy;
+    if (input[_P] != null) {
+        entries[_P] = input[_P];
     }
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
     return entries;
 };
 const se_AssumeRoleWithWebIdentityRequest = (input, context) => {
     const entries = {};
-    if (input.RoleArn != null) {
-        entries["RoleArn"] = input.RoleArn;
+    if (input[_RA] != null) {
+        entries[_RA] = input[_RA];
     }
-    if (input.RoleSessionName != null) {
-        entries["RoleSessionName"] = input.RoleSessionName;
+    if (input[_RSN] != null) {
+        entries[_RSN] = input[_RSN];
     }
-    if (input.WebIdentityToken != null) {
-        entries["WebIdentityToken"] = input.WebIdentityToken;
+    if (input[_WIT] != null) {
+        entries[_WIT] = input[_WIT];
     }
-    if (input.ProviderId != null) {
-        entries["ProviderId"] = input.ProviderId;
+    if (input[_PI] != null) {
+        entries[_PI] = input[_PI];
     }
-    if (input.PolicyArns != null) {
-        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-        if (input.PolicyArns?.length === 0) {
+    if (input[_PA] != null) {
+        const memberEntries = se_policyDescriptorListType(input[_PA], context);
+        if (input[_PA]?.length === 0) {
             entries.PolicyArns = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -33849,25 +31368,25 @@ const se_AssumeRoleWithWebIdentityRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.Policy != null) {
-        entries["Policy"] = input.Policy;
+    if (input[_P] != null) {
+        entries[_P] = input[_P];
     }
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
     return entries;
 };
 const se_DecodeAuthorizationMessageRequest = (input, context) => {
     const entries = {};
-    if (input.EncodedMessage != null) {
-        entries["EncodedMessage"] = input.EncodedMessage;
+    if (input[_EM] != null) {
+        entries[_EM] = input[_EM];
     }
     return entries;
 };
 const se_GetAccessKeyInfoRequest = (input, context) => {
     const entries = {};
-    if (input.AccessKeyId != null) {
-        entries["AccessKeyId"] = input.AccessKeyId;
+    if (input[_AKI] != null) {
+        entries[_AKI] = input[_AKI];
     }
     return entries;
 };
@@ -33877,15 +31396,15 @@ const se_GetCallerIdentityRequest = (input, context) => {
 };
 const se_GetFederationTokenRequest = (input, context) => {
     const entries = {};
-    if (input.Name != null) {
-        entries["Name"] = input.Name;
+    if (input[_N] != null) {
+        entries[_N] = input[_N];
     }
-    if (input.Policy != null) {
-        entries["Policy"] = input.Policy;
+    if (input[_P] != null) {
+        entries[_P] = input[_P];
     }
-    if (input.PolicyArns != null) {
-        const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-        if (input.PolicyArns?.length === 0) {
+    if (input[_PA] != null) {
+        const memberEntries = se_policyDescriptorListType(input[_PA], context);
+        if (input[_PA]?.length === 0) {
             entries.PolicyArns = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -33893,12 +31412,12 @@ const se_GetFederationTokenRequest = (input, context) => {
             entries[loc] = value;
         });
     }
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
-    if (input.Tags != null) {
-        const memberEntries = se_tagListType(input.Tags, context);
-        if (input.Tags?.length === 0) {
+    if (input[_T] != null) {
+        const memberEntries = se_tagListType(input[_T], context);
+        if (input[_T]?.length === 0) {
             entries.Tags = [];
         }
         Object.entries(memberEntries).forEach(([key, value]) => {
@@ -33910,14 +31429,14 @@ const se_GetFederationTokenRequest = (input, context) => {
 };
 const se_GetSessionTokenRequest = (input, context) => {
     const entries = {};
-    if (input.DurationSeconds != null) {
-        entries["DurationSeconds"] = input.DurationSeconds;
+    if (input[_DS] != null) {
+        entries[_DS] = input[_DS];
     }
-    if (input.SerialNumber != null) {
-        entries["SerialNumber"] = input.SerialNumber;
+    if (input[_SN] != null) {
+        entries[_SN] = input[_SN];
     }
-    if (input.TokenCode != null) {
-        entries["TokenCode"] = input.TokenCode;
+    if (input[_TC] != null) {
+        entries[_TC] = input[_TC];
     }
     return entries;
 };
@@ -33938,18 +31457,18 @@ const se_policyDescriptorListType = (input, context) => {
 };
 const se_PolicyDescriptorType = (input, context) => {
     const entries = {};
-    if (input.arn != null) {
-        entries["arn"] = input.arn;
+    if (input[_a] != null) {
+        entries[_a] = input[_a];
     }
     return entries;
 };
 const se_ProvidedContext = (input, context) => {
     const entries = {};
-    if (input.ProviderArn != null) {
-        entries["ProviderArn"] = input.ProviderArn;
+    if (input[_PAro] != null) {
+        entries[_PAro] = input[_PAro];
     }
-    if (input.ContextAssertion != null) {
-        entries["ContextAssertion"] = input.ContextAssertion;
+    if (input[_CA] != null) {
+        entries[_CA] = input[_CA];
     }
     return entries;
 };
@@ -33970,11 +31489,11 @@ const se_ProvidedContextsListType = (input, context) => {
 };
 const se_Tag = (input, context) => {
     const entries = {};
-    if (input.Key != null) {
-        entries["Key"] = input.Key;
+    if (input[_K] != null) {
+        entries[_K] = input[_K];
     }
-    if (input.Value != null) {
-        entries["Value"] = input.Value;
+    if (input[_Va] != null) {
+        entries[_Va] = input[_Va];
     }
     return entries;
 };
@@ -34007,212 +31526,212 @@ const se_tagListType = (input, context) => {
 };
 const de_AssumedRoleUser = (output, context) => {
     const contents = {};
-    if (output["AssumedRoleId"] !== undefined) {
-        contents.AssumedRoleId = (0, smithy_client_1.expectString)(output["AssumedRoleId"]);
+    if (output[_ARI] != null) {
+        contents[_ARI] = (0, smithy_client_1.expectString)(output[_ARI]);
     }
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
     return contents;
 };
 const de_AssumeRoleResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
-    if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+    if (output[_ARU] != null) {
+        contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
     }
-    if (output["PackedPolicySize"] !== undefined) {
-        contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
+    if (output[_PPS] != null) {
+        contents[_PPS] = (0, smithy_client_1.strictParseInt32)(output[_PPS]);
     }
-    if (output["SourceIdentity"] !== undefined) {
-        contents.SourceIdentity = (0, smithy_client_1.expectString)(output["SourceIdentity"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_AssumeRoleWithSAMLResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
-    if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+    if (output[_ARU] != null) {
+        contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
     }
-    if (output["PackedPolicySize"] !== undefined) {
-        contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
+    if (output[_PPS] != null) {
+        contents[_PPS] = (0, smithy_client_1.strictParseInt32)(output[_PPS]);
     }
-    if (output["Subject"] !== undefined) {
-        contents.Subject = (0, smithy_client_1.expectString)(output["Subject"]);
+    if (output[_S] != null) {
+        contents[_S] = (0, smithy_client_1.expectString)(output[_S]);
     }
-    if (output["SubjectType"] !== undefined) {
-        contents.SubjectType = (0, smithy_client_1.expectString)(output["SubjectType"]);
+    if (output[_ST] != null) {
+        contents[_ST] = (0, smithy_client_1.expectString)(output[_ST]);
     }
-    if (output["Issuer"] !== undefined) {
-        contents.Issuer = (0, smithy_client_1.expectString)(output["Issuer"]);
+    if (output[_I] != null) {
+        contents[_I] = (0, smithy_client_1.expectString)(output[_I]);
     }
-    if (output["Audience"] !== undefined) {
-        contents.Audience = (0, smithy_client_1.expectString)(output["Audience"]);
+    if (output[_Au] != null) {
+        contents[_Au] = (0, smithy_client_1.expectString)(output[_Au]);
     }
-    if (output["NameQualifier"] !== undefined) {
-        contents.NameQualifier = (0, smithy_client_1.expectString)(output["NameQualifier"]);
+    if (output[_NQ] != null) {
+        contents[_NQ] = (0, smithy_client_1.expectString)(output[_NQ]);
     }
-    if (output["SourceIdentity"] !== undefined) {
-        contents.SourceIdentity = (0, smithy_client_1.expectString)(output["SourceIdentity"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_AssumeRoleWithWebIdentityResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
-    if (output["SubjectFromWebIdentityToken"] !== undefined) {
-        contents.SubjectFromWebIdentityToken = (0, smithy_client_1.expectString)(output["SubjectFromWebIdentityToken"]);
+    if (output[_SFWIT] != null) {
+        contents[_SFWIT] = (0, smithy_client_1.expectString)(output[_SFWIT]);
     }
-    if (output["AssumedRoleUser"] !== undefined) {
-        contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+    if (output[_ARU] != null) {
+        contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
     }
-    if (output["PackedPolicySize"] !== undefined) {
-        contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
+    if (output[_PPS] != null) {
+        contents[_PPS] = (0, smithy_client_1.strictParseInt32)(output[_PPS]);
     }
-    if (output["Provider"] !== undefined) {
-        contents.Provider = (0, smithy_client_1.expectString)(output["Provider"]);
+    if (output[_Pr] != null) {
+        contents[_Pr] = (0, smithy_client_1.expectString)(output[_Pr]);
     }
-    if (output["Audience"] !== undefined) {
-        contents.Audience = (0, smithy_client_1.expectString)(output["Audience"]);
+    if (output[_Au] != null) {
+        contents[_Au] = (0, smithy_client_1.expectString)(output[_Au]);
     }
-    if (output["SourceIdentity"] !== undefined) {
-        contents.SourceIdentity = (0, smithy_client_1.expectString)(output["SourceIdentity"]);
+    if (output[_SI] != null) {
+        contents[_SI] = (0, smithy_client_1.expectString)(output[_SI]);
     }
     return contents;
 };
 const de_Credentials = (output, context) => {
     const contents = {};
-    if (output["AccessKeyId"] !== undefined) {
-        contents.AccessKeyId = (0, smithy_client_1.expectString)(output["AccessKeyId"]);
+    if (output[_AKI] != null) {
+        contents[_AKI] = (0, smithy_client_1.expectString)(output[_AKI]);
     }
-    if (output["SecretAccessKey"] !== undefined) {
-        contents.SecretAccessKey = (0, smithy_client_1.expectString)(output["SecretAccessKey"]);
+    if (output[_SAK] != null) {
+        contents[_SAK] = (0, smithy_client_1.expectString)(output[_SAK]);
     }
-    if (output["SessionToken"] !== undefined) {
-        contents.SessionToken = (0, smithy_client_1.expectString)(output["SessionToken"]);
+    if (output[_STe] != null) {
+        contents[_STe] = (0, smithy_client_1.expectString)(output[_STe]);
     }
-    if (output["Expiration"] !== undefined) {
-        contents.Expiration = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output["Expiration"]));
+    if (output[_E] != null) {
+        contents[_E] = (0, smithy_client_1.expectNonNull)((0, smithy_client_1.parseRfc3339DateTimeWithOffset)(output[_E]));
     }
     return contents;
 };
 const de_DecodeAuthorizationMessageResponse = (output, context) => {
     const contents = {};
-    if (output["DecodedMessage"] !== undefined) {
-        contents.DecodedMessage = (0, smithy_client_1.expectString)(output["DecodedMessage"]);
+    if (output[_DM] != null) {
+        contents[_DM] = (0, smithy_client_1.expectString)(output[_DM]);
     }
     return contents;
 };
 const de_ExpiredTokenException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_FederatedUser = (output, context) => {
     const contents = {};
-    if (output["FederatedUserId"] !== undefined) {
-        contents.FederatedUserId = (0, smithy_client_1.expectString)(output["FederatedUserId"]);
+    if (output[_FUI] != null) {
+        contents[_FUI] = (0, smithy_client_1.expectString)(output[_FUI]);
     }
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
     return contents;
 };
 const de_GetAccessKeyInfoResponse = (output, context) => {
     const contents = {};
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Ac] != null) {
+        contents[_Ac] = (0, smithy_client_1.expectString)(output[_Ac]);
     }
     return contents;
 };
 const de_GetCallerIdentityResponse = (output, context) => {
     const contents = {};
-    if (output["UserId"] !== undefined) {
-        contents.UserId = (0, smithy_client_1.expectString)(output["UserId"]);
+    if (output[_UI] != null) {
+        contents[_UI] = (0, smithy_client_1.expectString)(output[_UI]);
     }
-    if (output["Account"] !== undefined) {
-        contents.Account = (0, smithy_client_1.expectString)(output["Account"]);
+    if (output[_Ac] != null) {
+        contents[_Ac] = (0, smithy_client_1.expectString)(output[_Ac]);
     }
-    if (output["Arn"] !== undefined) {
-        contents.Arn = (0, smithy_client_1.expectString)(output["Arn"]);
+    if (output[_Ar] != null) {
+        contents[_Ar] = (0, smithy_client_1.expectString)(output[_Ar]);
     }
     return contents;
 };
 const de_GetFederationTokenResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
-    if (output["FederatedUser"] !== undefined) {
-        contents.FederatedUser = de_FederatedUser(output["FederatedUser"], context);
+    if (output[_FU] != null) {
+        contents[_FU] = de_FederatedUser(output[_FU], context);
     }
-    if (output["PackedPolicySize"] !== undefined) {
-        contents.PackedPolicySize = (0, smithy_client_1.strictParseInt32)(output["PackedPolicySize"]);
+    if (output[_PPS] != null) {
+        contents[_PPS] = (0, smithy_client_1.strictParseInt32)(output[_PPS]);
     }
     return contents;
 };
 const de_GetSessionTokenResponse = (output, context) => {
     const contents = {};
-    if (output["Credentials"] !== undefined) {
-        contents.Credentials = de_Credentials(output["Credentials"], context);
+    if (output[_C] != null) {
+        contents[_C] = de_Credentials(output[_C], context);
     }
     return contents;
 };
 const de_IDPCommunicationErrorException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_IDPRejectedClaimException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_InvalidAuthorizationMessageException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_InvalidIdentityTokenException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_MalformedPolicyDocumentException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_PackedPolicyTooLargeException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
 const de_RegionDisabledException = (output, context) => {
     const contents = {};
-    if (output["message"] !== undefined) {
-        contents.message = (0, smithy_client_1.expectString)(output["message"]);
+    if (output[_m] != null) {
+        contents[_m] = (0, smithy_client_1.expectString)(output[_m]);
     }
     return contents;
 };
@@ -34245,6 +31764,62 @@ const buildHttpRpcRequest = async (context, headers, path, resolvedHostname, bod
 const SHARED_HEADERS = {
     "content-type": "application/x-www-form-urlencoded",
 };
+const _ = "2011-06-15";
+const _A = "Action";
+const _AKI = "AccessKeyId";
+const _AR = "AssumeRole";
+const _ARI = "AssumedRoleId";
+const _ARU = "AssumedRoleUser";
+const _ARWSAML = "AssumeRoleWithSAML";
+const _ARWWI = "AssumeRoleWithWebIdentity";
+const _Ac = "Account";
+const _Ar = "Arn";
+const _Au = "Audience";
+const _C = "Credentials";
+const _CA = "ContextAssertion";
+const _DAM = "DecodeAuthorizationMessage";
+const _DM = "DecodedMessage";
+const _DS = "DurationSeconds";
+const _E = "Expiration";
+const _EI = "ExternalId";
+const _EM = "EncodedMessage";
+const _FU = "FederatedUser";
+const _FUI = "FederatedUserId";
+const _GAKI = "GetAccessKeyInfo";
+const _GCI = "GetCallerIdentity";
+const _GFT = "GetFederationToken";
+const _GST = "GetSessionToken";
+const _I = "Issuer";
+const _K = "Key";
+const _N = "Name";
+const _NQ = "NameQualifier";
+const _P = "Policy";
+const _PA = "PolicyArns";
+const _PAr = "PrincipalArn";
+const _PAro = "ProviderArn";
+const _PC = "ProvidedContexts";
+const _PI = "ProviderId";
+const _PPS = "PackedPolicySize";
+const _Pr = "Provider";
+const _RA = "RoleArn";
+const _RSN = "RoleSessionName";
+const _S = "Subject";
+const _SAK = "SecretAccessKey";
+const _SAMLA = "SAMLAssertion";
+const _SFWIT = "SubjectFromWebIdentityToken";
+const _SI = "SourceIdentity";
+const _SN = "SerialNumber";
+const _ST = "SubjectType";
+const _STe = "SessionToken";
+const _T = "Tags";
+const _TC = "TokenCode";
+const _TTK = "TransitiveTagKeys";
+const _UI = "UserId";
+const _V = "Version";
+const _Va = "Value";
+const _WIT = "WebIdentityToken";
+const _a = "arn";
+const _m = "message";
 const parseBody = (streamBody, context) => collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
         const parser = new fast_xml_parser_1.XMLParser({
@@ -34482,7 +32057,7 @@ tslib_1.__exportStar(__nccwpck_require__(14154), exports);
 
 /***/ }),
 
-/***/ 74802:
+/***/ 47584:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -34491,7 +32066,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AWSSDKSigV4Signer = void 0;
 const protocol_http_1 = __nccwpck_require__(64418);
 const utils_1 = __nccwpck_require__(76026);
-const throwAWSSDKSigningPropertyError_1 = __nccwpck_require__(45736);
+const throwAWSSDKSigningPropertyError_1 = __nccwpck_require__(29809);
 const validateSigningProperties = async (signingProperties) => {
     var _a, _b, _c;
     const context = (0, throwAWSSDKSigningPropertyError_1.throwAWSSDKSigningPropertyError)("context", signingProperties.context);
@@ -34545,20 +32120,20 @@ exports.AWSSDKSigV4Signer = AWSSDKSigV4Signer;
 
 /***/ }),
 
-/***/ 58020:
+/***/ 86710:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(4351);
-tslib_1.__exportStar(__nccwpck_require__(74802), exports);
-tslib_1.__exportStar(__nccwpck_require__(45510), exports);
+tslib_1.__exportStar(__nccwpck_require__(47584), exports);
+tslib_1.__exportStar(__nccwpck_require__(17668), exports);
 
 
 /***/ }),
 
-/***/ 45510:
+/***/ 17668:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -34574,7 +32149,7 @@ const resolveAWSSDKSigV4Config = (config) => {
     }
     if (!normalizedCreds) {
         if (config.credentialDefaultProvider) {
-            normalizedCreds = config.credentialDefaultProvider(config);
+            normalizedCreds = (0, core_1.normalizeProvider)(config.credentialDefaultProvider(config));
         }
         else {
             normalizedCreds = async () => { throw new Error("`credentials` is missing"); };
@@ -34647,7 +32222,7 @@ exports.resolveAWSSDKSigV4Config = resolveAWSSDKSigV4Config;
 
 /***/ }),
 
-/***/ 45736:
+/***/ 29809:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -34672,7 +32247,7 @@ exports.throwAWSSDKSigningPropertyError = throwAWSSDKSigningPropertyError;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(4351);
-tslib_1.__exportStar(__nccwpck_require__(58020), exports);
+tslib_1.__exportStar(__nccwpck_require__(86710), exports);
 
 
 /***/ }),
@@ -37989,7 +35564,7 @@ var loadRestJsonErrorCode = (output, data) => {
         return sanitizeErrorCode(data["__type"]);
     }
 };
-var CreateTokenCommand = class _CreateTokenCommand extends smithy_client_7.Command {
+class CreateTokenCommand extends smithy_client_7.Command {
     constructor(input) {
         super();
         this.input = input;
@@ -38029,13 +35604,13 @@ var CreateTokenCommand = class _CreateTokenCommand extends smithy_client_7.Comma
     deserialize(output, context) {
         return de_CreateTokenCommand(output, context);
     }
-};
+}
 exports.CreateTokenCommand = CreateTokenCommand;
 const middleware_endpoint_3 = __nccwpck_require__(82918);
 const middleware_serde_2 = __nccwpck_require__(81238);
 const smithy_client_10 = __nccwpck_require__(63570);
 const types_2 = __nccwpck_require__(55756);
-var RegisterClientCommand = class _RegisterClientCommand extends smithy_client_10.Command {
+class RegisterClientCommand extends smithy_client_10.Command {
     constructor(input) {
         super();
         this.input = input;
@@ -38075,12 +35650,12 @@ var RegisterClientCommand = class _RegisterClientCommand extends smithy_client_1
     deserialize(output, context) {
         return de_RegisterClientCommand(output, context);
     }
-};
+}
 const middleware_endpoint_4 = __nccwpck_require__(82918);
 const middleware_serde_3 = __nccwpck_require__(81238);
 const smithy_client_11 = __nccwpck_require__(63570);
 const types_3 = __nccwpck_require__(55756);
-var StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand extends smithy_client_11.Command {
+class StartDeviceAuthorizationCommand extends smithy_client_11.Command {
     constructor(input) {
         super();
         this.input = input;
@@ -38120,7 +35695,7 @@ var StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand ext
     deserialize(output, context) {
         return de_StartDeviceAuthorizationCommand(output, context);
     }
-};
+}
 var commands = {
     CreateTokenCommand,
     RegisterClientCommand,
@@ -43485,6 +41060,7 @@ exports.getSmithyContext = getSmithyContext;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createPaginator = void 0;
 const tslib_1 = __nccwpck_require__(4351);
 tslib_1.__exportStar(__nccwpck_require__(41822), exports);
 tslib_1.__exportStar(__nccwpck_require__(60793), exports);
@@ -43492,6 +41068,8 @@ tslib_1.__exportStar(__nccwpck_require__(17633), exports);
 tslib_1.__exportStar(__nccwpck_require__(82518), exports);
 tslib_1.__exportStar(__nccwpck_require__(21843), exports);
 tslib_1.__exportStar(__nccwpck_require__(54006), exports);
+var createPaginator_1 = __nccwpck_require__(96311);
+Object.defineProperty(exports, "createPaginator", ({ enumerable: true, get: function () { return createPaginator_1.createPaginator; } }));
 
 
 /***/ }),
@@ -43714,6 +41292,46 @@ const normalizeProvider = (input) => {
     return () => promisified;
 };
 exports.normalizeProvider = normalizeProvider;
+
+
+/***/ }),
+
+/***/ 96311:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createPaginator = void 0;
+const makePagedClientRequest = async (CommandCtor, client, input, ...args) => {
+    return await client.send(new CommandCtor(input), ...args);
+};
+function createPaginator(ClientCtor, CommandCtor, inputTokenName, outputTokenName, pageSizeTokenName) {
+    return async function* paginateOperation(config, input, ...additionalArguments) {
+        var _a;
+        let token = config.startingToken || undefined;
+        let hasNext = true;
+        let page;
+        while (hasNext) {
+            input[inputTokenName] = token;
+            if (pageSizeTokenName) {
+                input[pageSizeTokenName] = (_a = input[pageSizeTokenName]) !== null && _a !== void 0 ? _a : config.pageSize;
+            }
+            if (config.client instanceof ClientCtor) {
+                page = await makePagedClientRequest(CommandCtor, config.client, input, ...additionalArguments);
+            }
+            else {
+                throw new Error(`Invalid client, expected instance of ${ClientCtor.name}`);
+            }
+            yield page;
+            const prevToken = token;
+            token = page[outputTokenName];
+            hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
+        }
+        return undefined;
+    };
+}
+exports.createPaginator = createPaginator;
 
 
 /***/ }),
@@ -48887,12 +46505,120 @@ exports.collectBody = collectBody;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Command = void 0;
 const middleware_stack_1 = __nccwpck_require__(97911);
+const types_1 = __nccwpck_require__(55756);
 class Command {
     constructor() {
         this.middlewareStack = (0, middleware_stack_1.constructStack)();
     }
+    static classBuilder() {
+        return new ClassBuilder();
+    }
+    resolveMiddlewareWithContext(clientStack, configuration, options, { middlewareFn, clientName, commandName, inputFilterSensitiveLog, outputFilterSensitiveLog, smithyContext, additionalContext, CommandCtor, }) {
+        for (const mw of middlewareFn.bind(this)(CommandCtor, clientStack, configuration, options)) {
+            this.middlewareStack.use(mw);
+        }
+        const stack = clientStack.concat(this.middlewareStack);
+        const { logger } = configuration;
+        const handlerExecutionContext = {
+            logger,
+            clientName,
+            commandName,
+            inputFilterSensitiveLog,
+            outputFilterSensitiveLog,
+            [types_1.SMITHY_CONTEXT_KEY]: {
+                ...smithyContext,
+            },
+            ...additionalContext,
+        };
+        const { requestHandler } = configuration;
+        return stack.resolve((request) => requestHandler.handle(request.request, options || {}), handlerExecutionContext);
+    }
 }
 exports.Command = Command;
+class ClassBuilder {
+    constructor() {
+        this._init = () => { };
+        this._ep = {};
+        this._middlewareFn = () => [];
+        this._commandName = "";
+        this._clientName = "";
+        this._additionalContext = {};
+        this._smithyContext = {};
+        this._inputFilterSensitiveLog = (_) => _;
+        this._outputFilterSensitiveLog = (_) => _;
+        this._serializer = null;
+        this._deserializer = null;
+    }
+    init(cb) {
+        this._init = cb;
+    }
+    ep(endpointParameterInstructions) {
+        this._ep = endpointParameterInstructions;
+        return this;
+    }
+    m(middlewareSupplier) {
+        this._middlewareFn = middlewareSupplier;
+        return this;
+    }
+    s(service, operation, smithyContext = {}) {
+        this._smithyContext = {
+            service,
+            operation,
+            ...smithyContext,
+        };
+        return this;
+    }
+    c(additionalContext = {}) {
+        this._additionalContext = additionalContext;
+        return this;
+    }
+    n(clientName, commandName) {
+        this._clientName = clientName;
+        this._commandName = commandName;
+        return this;
+    }
+    f(inputFilter = (_) => _, outputFilter = (_) => _) {
+        this._inputFilterSensitiveLog = inputFilter;
+        this._outputFilterSensitiveLog = outputFilter;
+        return this;
+    }
+    ser(serializer) {
+        this._serializer = serializer;
+        return this;
+    }
+    de(deserializer) {
+        this._deserializer = deserializer;
+        return this;
+    }
+    build() {
+        const closure = this;
+        let CommandRef;
+        return (CommandRef = class extends Command {
+            static getEndpointParameterInstructions() {
+                return closure._ep;
+            }
+            constructor(input) {
+                super();
+                this.input = input;
+                this.serialize = closure._serializer;
+                this.deserialize = closure._deserializer;
+                closure._init(this);
+            }
+            resolveMiddleware(stack, configuration, options) {
+                return this.resolveMiddlewareWithContext(stack, configuration, options, {
+                    CommandCtor: CommandRef,
+                    middlewareFn: closure._middlewareFn,
+                    clientName: closure._clientName,
+                    commandName: closure._commandName,
+                    inputFilterSensitiveLog: closure._inputFilterSensitiveLog,
+                    outputFilterSensitiveLog: closure._outputFilterSensitiveLog,
+                    smithyContext: closure._smithyContext,
+                    additionalContext: closure._additionalContext,
+                });
+            }
+        });
+    }
+}
 
 
 /***/ }),
@@ -50917,12 +48643,7 @@ exports.fromString = fromString;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.booleanSelector = exports.SelectorType = void 0;
-var SelectorType;
-(function (SelectorType) {
-    SelectorType["ENV"] = "env";
-    SelectorType["CONFIG"] = "shared config entry";
-})(SelectorType = exports.SelectorType || (exports.SelectorType = {}));
+exports.booleanSelector = void 0;
 const booleanSelector = (obj, key, type) => {
     if (!(key in obj))
         return undefined;
@@ -50945,6 +48666,45 @@ exports.booleanSelector = booleanSelector;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __nccwpck_require__(4351);
 tslib_1.__exportStar(__nccwpck_require__(42491), exports);
+tslib_1.__exportStar(__nccwpck_require__(94962), exports);
+tslib_1.__exportStar(__nccwpck_require__(818), exports);
+
+
+/***/ }),
+
+/***/ 94962:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.numberSelector = void 0;
+const numberSelector = (obj, key, type) => {
+    if (!(key in obj))
+        return undefined;
+    const numberValue = parseInt(obj[key], 10);
+    if (Number.isNaN(numberValue)) {
+        throw new TypeError(`Cannot load ${type} '${key}'. Expected number, got '${obj[key]}'.`);
+    }
+    return numberValue;
+};
+exports.numberSelector = numberSelector;
+
+
+/***/ }),
+
+/***/ 818:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SelectorType = void 0;
+var SelectorType;
+(function (SelectorType) {
+    SelectorType["ENV"] = "env";
+    SelectorType["CONFIG"] = "shared config entry";
+})(SelectorType = exports.SelectorType || (exports.SelectorType = {}));
 
 
 /***/ }),
@@ -93323,7 +91083,7 @@ module.exports = parseParams
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$ref":"#/definitions/AssetManifest","definitions":{"AssetManifest":{"description":"Definitions for the asset manifest","type":"object","properties":{"version":{"description":"Version of the manifest","type":"string"},"files":{"description":"The file assets in this manifest (Default - No files)","type":"object","additionalProperties":{"$ref":"#/definitions/FileAsset"}},"dockerImages":{"description":"The Docker image assets in this manifest (Default - No Docker images)","type":"object","additionalProperties":{"$ref":"#/definitions/DockerImageAsset"}}},"required":["version"]},"FileAsset":{"description":"A file asset","type":"object","properties":{"source":{"$ref":"#/definitions/FileSource","description":"Source description for file assets"},"destinations":{"description":"Destinations for this file asset","type":"object","additionalProperties":{"$ref":"#/definitions/FileDestination"}}},"required":["destinations","source"]},"FileSource":{"description":"Describe the source of a file asset","type":"object","properties":{"executable":{"description":"External command which will produce the file asset to upload. (Default - Exactly one of `executable` and `path` is required.)","type":"array","items":{"type":"string"}},"path":{"description":"The filesystem object to upload\\n\\nThis path is relative to the asset manifest location. (Default - Exactly one of `executable` and `path` is required.)","type":"string"},"packaging":{"description":"Packaging method\\n\\nOnly allowed when `path` is specified. (Default FILE)","enum":["file","zip"],"type":"string"}}},"FileDestination":{"description":"Where in S3 a file asset needs to be published","type":"object","properties":{"bucketName":{"description":"The name of the bucket","type":"string"},"objectKey":{"description":"The destination object key","type":"string"},"region":{"description":"The region where this asset will need to be published (Default - Current region)","type":"string"},"assumeRoleArn":{"description":"The role that needs to be assumed while publishing this asset (Default - No role will be assumed)","type":"string"},"assumeRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"}},"required":["bucketName","objectKey"]},"DockerImageAsset":{"description":"A file asset","type":"object","properties":{"source":{"$ref":"#/definitions/DockerImageSource","description":"Source description for file assets"},"destinations":{"description":"Destinations for this file asset","type":"object","additionalProperties":{"$ref":"#/definitions/DockerImageDestination"}}},"required":["destinations","source"]},"DockerImageSource":{"description":"Properties for how to produce a Docker image from a source","type":"object","properties":{"directory":{"description":"The directory containing the Docker image build instructions.\\n\\nThis path is relative to the asset manifest location. (Default - Exactly one of `directory` and `executable` is required)","type":"string"},"executable":{"description":"A command-line executable that returns the name of a local\\nDocker image on stdout after being run. (Default - Exactly one of `directory` and `executable` is required)","type":"array","items":{"type":"string"}},"dockerFile":{"description":"The name of the file with build instructions\\n\\nOnly allowed when `directory` is set. (Default Dockerfile)","type":"string"},"dockerBuildTarget":{"description":"Target build stage in a Dockerfile with multiple build stages\\n\\nOnly allowed when `directory` is set. (Default - The last stage in the Dockerfile)","type":"string"},"dockerBuildArgs":{"description":"Additional build arguments\\n\\nOnly allowed when `directory` is set. (Default - No additional build arguments)","type":"object","additionalProperties":{"type":"string"}},"dockerBuildSsh":{"description":"SSH agent socket or keys\\n\\nRequires building with docker buildkit. (Default - No ssh flag is set)","type":"string"},"dockerBuildSecrets":{"description":"Additional build secrets\\n\\nOnly allowed when `directory` is set. (Default - No additional build secrets)","type":"object","additionalProperties":{"type":"string"}},"networkMode":{"description":"Networking mode for the RUN commands during build. _Requires Docker Engine API v1.25+_.\\n\\nSpecify this property to build images on a specific networking mode. (Default - no networking mode specified)","type":"string"},"platform":{"description":"Platform to build for. _Requires Docker Buildx_.\\n\\nSpecify this property to build images on a specific platform/architecture. (Default - current machine platform)","type":"string"},"dockerOutputs":{"description":"Outputs (Default - no outputs are passed to the build command (default outputs are used))","type":"array","items":{"type":"string"}},"cacheFrom":{"description":"Cache from options to pass to the `docker build` command. (Default - no cache from options are passed to the build command)","type":"array","items":{"$ref":"#/definitions/DockerCacheOption"}},"cacheTo":{"description":"Cache to options to pass to the `docker build` command. (Default - no cache to options are passed to the build command)","$ref":"#/definitions/DockerCacheOption"}}},"DockerCacheOption":{"description":"Options for configuring the Docker cache backend","type":"object","properties":{"type":{"description":"The type of cache to use.\\nRefer to https://docs.docker.com/build/cache/backends/ for full list of backends. (Default - unspecified)","type":"string"},"params":{"description":"Any parameters to pass into the docker cache backend configuration.\\nRefer to https://docs.docker.com/build/cache/backends/ for cache backend configuration. (Default {} No options provided)","type":"object","additionalProperties":{"type":"string"}}},"required":["type"]},"DockerImageDestination":{"description":"Where to publish docker images","type":"object","properties":{"repositoryName":{"description":"Name of the ECR repository to publish to","type":"string"},"imageTag":{"description":"Tag of the image to publish","type":"string"},"region":{"description":"The region where this asset will need to be published (Default - Current region)","type":"string"},"assumeRoleArn":{"description":"The role that needs to be assumed while publishing this asset (Default - No role will be assumed)","type":"string"},"assumeRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"}},"required":["imageTag","repositoryName"]}},"$schema":"http://json-schema.org/draft-07/schema#"}');
+module.exports = JSON.parse('{"$ref":"#/definitions/AssetManifest","definitions":{"AssetManifest":{"description":"Definitions for the asset manifest","type":"object","properties":{"version":{"description":"Version of the manifest","type":"string"},"files":{"description":"The file assets in this manifest (Default - No files)","type":"object","additionalProperties":{"$ref":"#/definitions/FileAsset"}},"dockerImages":{"description":"The Docker image assets in this manifest (Default - No Docker images)","type":"object","additionalProperties":{"$ref":"#/definitions/DockerImageAsset"}}},"required":["version"]},"FileAsset":{"description":"A file asset","type":"object","properties":{"source":{"$ref":"#/definitions/FileSource","description":"Source description for file assets"},"destinations":{"description":"Destinations for this file asset","type":"object","additionalProperties":{"$ref":"#/definitions/FileDestination"}}},"required":["destinations","source"]},"FileSource":{"description":"Describe the source of a file asset","type":"object","properties":{"executable":{"description":"External command which will produce the file asset to upload. (Default - Exactly one of `executable` and `path` is required.)","type":"array","items":{"type":"string"}},"path":{"description":"The filesystem object to upload\\n\\nThis path is relative to the asset manifest location. (Default - Exactly one of `executable` and `path` is required.)","type":"string"},"packaging":{"description":"Packaging method\\n\\nOnly allowed when `path` is specified. (Default FILE)","enum":["file","zip"],"type":"string"}}},"FileDestination":{"description":"Where in S3 a file asset needs to be published","type":"object","properties":{"bucketName":{"description":"The name of the bucket","type":"string"},"objectKey":{"description":"The destination object key","type":"string"},"region":{"description":"The region where this asset will need to be published (Default - Current region)","type":"string"},"assumeRoleArn":{"description":"The role that needs to be assumed while publishing this asset (Default - No role will be assumed)","type":"string"},"assumeRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"}},"required":["bucketName","objectKey"]},"DockerImageAsset":{"description":"A file asset","type":"object","properties":{"source":{"$ref":"#/definitions/DockerImageSource","description":"Source description for file assets"},"destinations":{"description":"Destinations for this file asset","type":"object","additionalProperties":{"$ref":"#/definitions/DockerImageDestination"}}},"required":["destinations","source"]},"DockerImageSource":{"description":"Properties for how to produce a Docker image from a source","type":"object","properties":{"directory":{"description":"The directory containing the Docker image build instructions.\\n\\nThis path is relative to the asset manifest location. (Default - Exactly one of `directory` and `executable` is required)","type":"string"},"executable":{"description":"A command-line executable that returns the name of a local\\nDocker image on stdout after being run. (Default - Exactly one of `directory` and `executable` is required)","type":"array","items":{"type":"string"}},"dockerFile":{"description":"The name of the file with build instructions\\n\\nOnly allowed when `directory` is set. (Default Dockerfile)","type":"string"},"dockerBuildTarget":{"description":"Target build stage in a Dockerfile with multiple build stages\\n\\nOnly allowed when `directory` is set. (Default - The last stage in the Dockerfile)","type":"string"},"dockerBuildArgs":{"description":"Additional build arguments\\n\\nOnly allowed when `directory` is set. (Default - No additional build arguments)","type":"object","additionalProperties":{"type":"string"}},"dockerBuildSsh":{"description":"SSH agent socket or keys\\n\\nRequires building with docker buildkit. (Default - No ssh flag is set)","type":"string"},"dockerBuildSecrets":{"description":"Additional build secrets\\n\\nOnly allowed when `directory` is set. (Default - No additional build secrets)","type":"object","additionalProperties":{"type":"string"}},"networkMode":{"description":"Networking mode for the RUN commands during build. _Requires Docker Engine API v1.25+_.\\n\\nSpecify this property to build images on a specific networking mode. (Default - no networking mode specified)","type":"string"},"platform":{"description":"Platform to build for. _Requires Docker Buildx_.\\n\\nSpecify this property to build images on a specific platform/architecture. (Default - current machine platform)","type":"string"},"dockerOutputs":{"description":"Outputs (Default - no outputs are passed to the build command (default outputs are used))","type":"array","items":{"type":"string"}},"cacheFrom":{"description":"Cache from options to pass to the `docker build` command. (Default - no cache from options are passed to the build command)","type":"array","items":{"$ref":"#/definitions/DockerCacheOption"}},"cacheTo":{"description":"Cache to options to pass to the `docker build` command. (Default - no cache to options are passed to the build command)","$ref":"#/definitions/DockerCacheOption"},"cacheDisabled":{"description":"Disable the cache and pass `--no-cache` to the `docker build` command. (Default - cache is used)","type":"boolean"}}},"DockerCacheOption":{"description":"Options for configuring the Docker cache backend","type":"object","properties":{"type":{"description":"The type of cache to use.\\nRefer to https://docs.docker.com/build/cache/backends/ for full list of backends. (Default - unspecified)","type":"string"},"params":{"description":"Any parameters to pass into the docker cache backend configuration.\\nRefer to https://docs.docker.com/build/cache/backends/ for cache backend configuration. (Default {} No options provided)","type":"object","additionalProperties":{"type":"string"}}},"required":["type"]},"DockerImageDestination":{"description":"Where to publish docker images","type":"object","properties":{"repositoryName":{"description":"Name of the ECR repository to publish to","type":"string"},"imageTag":{"description":"Tag of the image to publish","type":"string"},"region":{"description":"The region where this asset will need to be published (Default - Current region)","type":"string"},"assumeRoleArn":{"description":"The role that needs to be assumed while publishing this asset (Default - No role will be assumed)","type":"string"},"assumeRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"}},"required":["imageTag","repositoryName"]}},"$schema":"http://json-schema.org/draft-07/schema#"}');
 
 /***/ }),
 
@@ -93331,7 +91091,7 @@ module.exports = JSON.parse('{"$ref":"#/definitions/AssetManifest","definitions"
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$ref":"#/definitions/AssemblyManifest","definitions":{"AssemblyManifest":{"description":"A manifest which describes the cloud assembly.","type":"object","properties":{"version":{"description":"Protocol version","type":"string"},"artifacts":{"description":"The set of artifacts in this assembly. (Default - no artifacts.)","type":"object","additionalProperties":{"$ref":"#/definitions/ArtifactManifest"}},"missing":{"description":"Missing context information. If this field has values, it means that the\\ncloud assembly is not complete and should not be deployed. (Default - no missing context.)","type":"array","items":{"$ref":"#/definitions/MissingContext"}},"runtime":{"description":"Runtime information. (Default - no info.)","$ref":"#/definitions/RuntimeInfo"}},"required":["version"]},"ArtifactManifest":{"description":"A manifest for a single artifact within the cloud assembly.","type":"object","properties":{"type":{"$ref":"#/definitions/ArtifactType","description":"The type of artifact."},"environment":{"description":"The environment into which this artifact is deployed. (Default - no envrionment.)","type":"string"},"metadata":{"description":"Associated metadata. (Default - no metadata.)","type":"object","additionalProperties":{"type":"array","items":{"$ref":"#/definitions/MetadataEntry"}}},"dependencies":{"description":"IDs of artifacts that must be deployed before this artifact. (Default - no dependencies.)","type":"array","items":{"type":"string"}},"properties":{"description":"The set of properties for this artifact (depends on type) (Default - no properties.)","anyOf":[{"$ref":"#/definitions/AwsCloudFormationStackProperties"},{"$ref":"#/definitions/AssetManifestProperties"},{"$ref":"#/definitions/TreeArtifactProperties"},{"$ref":"#/definitions/NestedCloudAssemblyProperties"}]},"displayName":{"description":"A string that represents this artifact. Should only be used in user interfaces. (Default - no display name)","type":"string"}},"required":["type"]},"ArtifactType":{"description":"Type of cloud artifact.","type":"string","enum":["none","aws:cloudformation:stack","cdk:tree","cdk:asset-manifest","cdk:cloud-assembly"]},"MetadataEntry":{"description":"A metadata entry in a cloud assembly artifact.","type":"object","properties":{"type":{"description":"The type of the metadata entry.","type":"string"},"data":{"description":"The data. (Default - no data.)","anyOf":[{"$ref":"#/definitions/FileAssetMetadataEntry"},{"$ref":"#/definitions/ContainerImageAssetMetadataEntry"},{"type":"array","items":{"$ref":"#/definitions/Tag"}},{"type":"string"},{"description":"Free form data."}]},"trace":{"description":"A stack trace for when the entry was created. (Default - no trace.)","type":"array","items":{"type":"string"}}},"required":["type"]},"FileAssetMetadataEntry":{"description":"Metadata Entry spec for files.","type":"object","properties":{"packaging":{"description":"Requested packaging style","enum":["file","zip"],"type":"string"},"s3BucketParameter":{"description":"Name of parameter where S3 bucket should be passed in","type":"string"},"s3KeyParameter":{"description":"Name of parameter where S3 key should be passed in","type":"string"},"artifactHashParameter":{"description":"The name of the parameter where the hash of the bundled asset should be passed in.","type":"string"},"id":{"description":"Logical identifier for the asset","type":"string"},"sourceHash":{"description":"The hash of the asset source.","type":"string"},"path":{"description":"Path on disk to the asset","type":"string"}},"required":["artifactHashParameter","id","packaging","path","s3BucketParameter","s3KeyParameter","sourceHash"]},"ContainerImageAssetMetadataEntry":{"description":"Metadata Entry spec for container images.","type":"object","properties":{"packaging":{"description":"Type of asset","type":"string","const":"container-image"},"imageNameParameter":{"description":"ECR Repository name and repo digest (separated by \\"@sha256:\\") where this\\nimage is stored. (Default undefined If not specified, `repositoryName` and `imageTag` are\\nrequired because otherwise how will the stack know where to find the asset,\\nha?)","type":"string"},"repositoryName":{"description":"ECR repository name, if omitted a default name based on the asset\'s ID is\\nused instead. Specify this property if you need to statically address the\\nimage, e.g. from a Kubernetes Pod. Note, this is only the repository name,\\nwithout the registry and the tag parts. (Default - this parameter is REQUIRED after 1.21.0)","type":"string"},"imageTag":{"description":"The docker image tag to use for tagging pushed images. This field is\\nrequired if `imageParameterName` is ommited (otherwise, the app won\'t be\\nable to find the image). (Default - this parameter is REQUIRED after 1.21.0)","type":"string"},"buildArgs":{"description":"Build args to pass to the `docker build` command (Default no build args are passed)","type":"object","additionalProperties":{"type":"string"}},"buildSsh":{"description":"SSH agent socket or keys to pass to the `docker build` command (Default no ssh arg is passed)","type":"string"},"buildSecrets":{"description":"Build secrets to pass to the `docker build` command (Default no build secrets are passed)","type":"object","additionalProperties":{"type":"string"}},"target":{"description":"Docker target to build to (Default no build target)","type":"string"},"file":{"description":"Path to the Dockerfile (relative to the directory). (Default - no file is passed)","type":"string"},"networkMode":{"description":"Networking mode for the RUN commands during build. (Default - no networking mode specified)","type":"string"},"platform":{"description":"Platform to build for. _Requires Docker Buildx_. (Default - current machine platform)","type":"string"},"outputs":{"description":"Outputs to pass to the `docker build` command. (Default - no outputs are passed to the build command (default outputs are used))","type":"array","items":{"type":"string"}},"cacheFrom":{"description":"Cache from options to pass to the `docker build` command. (Default - no cache from options are passed to the build command)","type":"array","items":{"$ref":"#/definitions/ContainerImageAssetCacheOption"}},"cacheTo":{"description":"Cache to options to pass to the `docker build` command. (Default - no cache to options are passed to the build command)","$ref":"#/definitions/ContainerImageAssetCacheOption"},"id":{"description":"Logical identifier for the asset","type":"string"},"sourceHash":{"description":"The hash of the asset source.","type":"string"},"path":{"description":"Path on disk to the asset","type":"string"}},"required":["id","packaging","path","sourceHash"]},"ContainerImageAssetCacheOption":{"description":"Options for configuring the Docker cache backend","type":"object","properties":{"type":{"description":"The type of cache to use.\\nRefer to https://docs.docker.com/build/cache/backends/ for full list of backends. (Default - unspecified)","type":"string"},"params":{"description":"Any parameters to pass into the docker cache backend configuration.\\nRefer to https://docs.docker.com/build/cache/backends/ for cache backend configuration. (Default {} No options provided)","type":"object","additionalProperties":{"type":"string"}}},"required":["type"]},"Tag":{"description":"Metadata Entry spec for stack tag.","type":"object","properties":{"key":{"description":"Tag key.\\n\\n(In the actual file on disk this will be cased as \\"Key\\", and the structure is\\npatched to match this structure upon loading:\\nhttps://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)","type":"string"},"value":{"description":"Tag value.\\n\\n(In the actual file on disk this will be cased as \\"Value\\", and the structure is\\npatched to match this structure upon loading:\\nhttps://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)","type":"string"}},"required":["key","value"]},"AwsCloudFormationStackProperties":{"description":"Artifact properties for CloudFormation stacks.","type":"object","properties":{"templateFile":{"description":"A file relative to the assembly root which contains the CloudFormation template for this stack.","type":"string"},"parameters":{"description":"Values for CloudFormation stack parameters that should be passed when the stack is deployed. (Default - No parameters)","type":"object","additionalProperties":{"type":"string"}},"tags":{"description":"Values for CloudFormation stack tags that should be passed when the stack is deployed. (Default - No tags)","type":"object","additionalProperties":{"type":"string"}},"stackName":{"description":"The name to use for the CloudFormation stack. (Default - name derived from artifact ID)","type":"string"},"terminationProtection":{"description":"Whether to enable termination protection for this stack.","default":false,"type":"boolean"},"assumeRoleArn":{"description":"The role that needs to be assumed to deploy the stack (Default - No role is assumed (current credentials are used))","type":"string"},"assumeRoleExternalId":{"description":"External ID to use when assuming role for cloudformation deployments (Default - No external ID)","type":"string"},"cloudFormationExecutionRoleArn":{"description":"The role that is passed to CloudFormation to execute the change set (Default - No role is passed (currently assumed role/credentials are used))","type":"string"},"lookupRole":{"description":"The role to use to look up values from the target AWS account (Default - No role is assumed (current credentials are used))","$ref":"#/definitions/BootstrapRole"},"stackTemplateAssetObjectUrl":{"description":"If the stack template has already been included in the asset manifest, its asset URL (Default - Not uploaded yet, upload just before deploying)","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to deploy this stack (Default - No bootstrap stack required)","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"SSM parameter where the bootstrap stack version number can be found\\n\\nOnly used if `requiresBootstrapStackVersion` is set.\\n\\n- If this value is not set, the bootstrap stack name must be known at\\n  deployment time so the stack version can be looked up from the stack\\n  outputs.\\n- If this value is set, the bootstrap stack can have any name because\\n  we won\'t need to look it up. (Default - Bootstrap stack version number looked up)","type":"string"},"validateOnSynth":{"description":"Whether this stack should be validated by the CLI after synthesis (Default - false)","type":"boolean"}},"required":["templateFile"]},"BootstrapRole":{"description":"Information needed to access an IAM role created\\nas part of the bootstrap process","type":"object","properties":{"arn":{"description":"The ARN of the IAM role created as part of bootrapping\\ne.g. lookupRoleArn","type":"string"},"assumeRoleExternalId":{"description":"External ID to use when assuming the bootstrap role (Default - No external ID)","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to use this role (Default - No bootstrap stack required)","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"Name of SSM parameter with bootstrap stack version (Default - Discover SSM parameter by reading stack)","type":"string"}},"required":["arn"]},"AssetManifestProperties":{"description":"Artifact properties for the Asset Manifest","type":"object","properties":{"file":{"description":"Filename of the asset manifest","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to deploy this stack (Default - Version 1 (basic modern bootstrap stack))","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"SSM parameter where the bootstrap stack version number can be found\\n\\n- If this value is not set, the bootstrap stack name must be known at\\n  deployment time so the stack version can be looked up from the stack\\n  outputs.\\n- If this value is set, the bootstrap stack can have any name because\\n  we won\'t need to look it up. (Default - Bootstrap stack version number looked up)","type":"string"}},"required":["file"]},"TreeArtifactProperties":{"description":"Artifact properties for the Construct Tree Artifact","type":"object","properties":{"file":{"description":"Filename of the tree artifact","type":"string"}},"required":["file"]},"NestedCloudAssemblyProperties":{"description":"Artifact properties for nested cloud assemblies","type":"object","properties":{"directoryName":{"description":"Relative path to the nested cloud assembly","type":"string"},"displayName":{"description":"Display name for the cloud assembly (Default - The artifact ID)","type":"string"}},"required":["directoryName"]},"MissingContext":{"description":"Represents a missing piece of context.","type":"object","properties":{"key":{"description":"The missing context key.","type":"string"},"provider":{"$ref":"#/definitions/ContextProvider","description":"The provider from which we expect this context key to be obtained."},"props":{"$ref":"#/definitions/ContextQueryProperties","description":"A set of provider-specific options."}},"required":["key","props","provider"]},"ContextProvider":{"description":"Identifier for the context provider","type":"string","enum":["ami","availability-zones","hosted-zone","ssm","vpc-provider","endpoint-service-availability-zones","load-balancer","load-balancer-listener","security-group","key-provider","plugin"]},"ContextQueryProperties":{"anyOf":[{"$ref":"#/definitions/AmiContextQuery"},{"$ref":"#/definitions/AvailabilityZonesContextQuery"},{"$ref":"#/definitions/HostedZoneContextQuery"},{"$ref":"#/definitions/SSMParameterContextQuery"},{"$ref":"#/definitions/VpcContextQuery"},{"$ref":"#/definitions/EndpointServiceAvailabilityZonesContextQuery"},{"$ref":"#/definitions/LoadBalancerContextQuery"},{"$ref":"#/definitions/LoadBalancerListenerContextQuery"},{"$ref":"#/definitions/SecurityGroupContextQuery"},{"$ref":"#/definitions/KeyContextQuery"},{"$ref":"#/definitions/PluginContextQuery"}]},"AmiContextQuery":{"description":"Query to AMI context provider","type":"object","properties":{"account":{"description":"Account to query","type":"string"},"region":{"description":"Region to query","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"owners":{"description":"Owners to DescribeImages call (Default - All owners)","type":"array","items":{"type":"string"}},"filters":{"description":"Filters to DescribeImages call","type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}}},"required":["account","filters","region"]},"AvailabilityZonesContextQuery":{"description":"Query to availability zone context provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"}},"required":["account","region"]},"HostedZoneContextQuery":{"description":"Query to hosted zone context provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"domainName":{"description":"The domain name e.g. example.com to lookup","type":"string"},"privateZone":{"description":"True if the zone you want to find is a private hosted zone","default":false,"type":"boolean"},"vpcId":{"description":"The VPC ID to that the private zone must be associated with\\n\\nIf you provide VPC ID and privateZone is false, this will return no results\\nand raise an error. (Default - Required if privateZone=true)","type":"string"}},"required":["account","domainName","region"]},"SSMParameterContextQuery":{"description":"Query to SSM Parameter Context Provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"parameterName":{"description":"Parameter name to query","type":"string"}},"required":["account","parameterName","region"]},"VpcContextQuery":{"description":"Query input for looking up a VPC","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"filter":{"description":"Filters to apply to the VPC\\n\\nFilter parameters are the same as passed to DescribeVpcs.","type":"object","additionalProperties":{"type":"string"}},"returnAsymmetricSubnets":{"description":"Whether to populate the subnetGroups field of the `VpcContextResponse`,\\nwhich contains potentially asymmetric subnet groups.","default":false,"type":"boolean"},"subnetGroupNameTag":{"description":"Optional tag for subnet group name.\\nIf not provided, we\'ll look at the aws-cdk:subnet-name tag.\\nIf the subnet does not have the specified tag,\\nwe\'ll use its type as the name. (Default \'aws-cdk:subnet-name\')","type":"string"},"returnVpnGateways":{"description":"Whether to populate the `vpnGatewayId` field of the `VpcContextResponse`,\\nwhich contains the VPN Gateway ID, if one exists. You can explicitly\\ndisable this in order to avoid the lookup if you know the VPC does not have\\na VPN Gatway attached. (Default true)","type":"boolean"}},"required":["account","filter","region"]},"EndpointServiceAvailabilityZonesContextQuery":{"description":"Query to endpoint service context provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"serviceName":{"description":"Query service name","type":"string"}},"required":["account","region","serviceName"]},"LoadBalancerContextQuery":{"description":"Query input for looking up a load balancer","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"loadBalancerType":{"$ref":"#/definitions/LoadBalancerType","description":"Filter load balancers by their type"},"loadBalancerArn":{"description":"Find by load balancer\'s ARN (Default - does not search by load balancer arn)","type":"string"},"loadBalancerTags":{"description":"Match load balancer tags (Default - does not match load balancers by tags)","type":"array","items":{"$ref":"#/definitions/Tag"}}},"required":["account","loadBalancerType","region"]},"LoadBalancerType":{"description":"Type of load balancer","type":"string","enum":["network","application"]},"LoadBalancerListenerContextQuery":{"description":"Query input for looking up a load balancer listener","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"listenerArn":{"description":"Find by listener\'s arn (Default - does not find by listener arn)","type":"string"},"listenerProtocol":{"description":"Filter by listener protocol (Default - does not filter by listener protocol)","enum":["HTTP","HTTPS","TCP","TCP_UDP","TLS","UDP"],"type":"string"},"listenerPort":{"description":"Filter listeners by listener port (Default - does not filter by a listener port)","type":"number"},"loadBalancerType":{"$ref":"#/definitions/LoadBalancerType","description":"Filter load balancers by their type"},"loadBalancerArn":{"description":"Find by load balancer\'s ARN (Default - does not search by load balancer arn)","type":"string"},"loadBalancerTags":{"description":"Match load balancer tags (Default - does not match load balancers by tags)","type":"array","items":{"$ref":"#/definitions/Tag"}}},"required":["account","loadBalancerType","region"]},"SecurityGroupContextQuery":{"description":"Query input for looking up a security group","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"securityGroupId":{"description":"Security group id (Default - None)","type":"string"},"securityGroupName":{"description":"Security group name (Default - None)","type":"string"},"vpcId":{"description":"VPC ID (Default - None)","type":"string"}},"required":["account","region"]},"KeyContextQuery":{"description":"Query input for looking up a KMS Key","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"aliasName":{"description":"Alias name used to search the Key","type":"string"}},"required":["account","aliasName","region"]},"PluginContextQuery":{"description":"Query input for plugins\\n\\nThis alternate branch is necessary because it needs to be able to escape all type checking\\nwe do on on the cloud assembly -- we cannot know the properties that will be used a priori.","type":"object","additionalProperties":{},"properties":{"pluginName":{"description":"The name of the plugin","type":"string"}},"required":["pluginName"]},"RuntimeInfo":{"description":"Information about the application\'s runtime components.","type":"object","properties":{"libraries":{"description":"The list of libraries loaded in the application, associated with their versions.","type":"object","additionalProperties":{"type":"string"}}},"required":["libraries"]}},"$schema":"http://json-schema.org/draft-07/schema#"}');
+module.exports = JSON.parse('{"$ref":"#/definitions/AssemblyManifest","definitions":{"AssemblyManifest":{"description":"A manifest which describes the cloud assembly.","type":"object","properties":{"version":{"description":"Protocol version","type":"string"},"artifacts":{"description":"The set of artifacts in this assembly. (Default - no artifacts.)","type":"object","additionalProperties":{"$ref":"#/definitions/ArtifactManifest"}},"missing":{"description":"Missing context information. If this field has values, it means that the\\ncloud assembly is not complete and should not be deployed. (Default - no missing context.)","type":"array","items":{"$ref":"#/definitions/MissingContext"}},"runtime":{"description":"Runtime information. (Default - no info.)","$ref":"#/definitions/RuntimeInfo"}},"required":["version"]},"ArtifactManifest":{"description":"A manifest for a single artifact within the cloud assembly.","type":"object","properties":{"type":{"$ref":"#/definitions/ArtifactType","description":"The type of artifact."},"environment":{"description":"The environment into which this artifact is deployed. (Default - no envrionment.)","type":"string"},"metadata":{"description":"Associated metadata. (Default - no metadata.)","type":"object","additionalProperties":{"type":"array","items":{"$ref":"#/definitions/MetadataEntry"}}},"dependencies":{"description":"IDs of artifacts that must be deployed before this artifact. (Default - no dependencies.)","type":"array","items":{"type":"string"}},"properties":{"description":"The set of properties for this artifact (depends on type) (Default - no properties.)","anyOf":[{"$ref":"#/definitions/AwsCloudFormationStackProperties"},{"$ref":"#/definitions/AssetManifestProperties"},{"$ref":"#/definitions/TreeArtifactProperties"},{"$ref":"#/definitions/NestedCloudAssemblyProperties"}]},"displayName":{"description":"A string that represents this artifact. Should only be used in user interfaces. (Default - no display name)","type":"string"}},"required":["type"]},"ArtifactType":{"description":"Type of cloud artifact.","type":"string","enum":["none","aws:cloudformation:stack","cdk:tree","cdk:asset-manifest","cdk:cloud-assembly"]},"MetadataEntry":{"description":"A metadata entry in a cloud assembly artifact.","type":"object","properties":{"type":{"description":"The type of the metadata entry.","type":"string"},"data":{"description":"The data. (Default - no data.)","anyOf":[{"$ref":"#/definitions/FileAssetMetadataEntry"},{"$ref":"#/definitions/ContainerImageAssetMetadataEntry"},{"type":"array","items":{"$ref":"#/definitions/Tag"}},{"type":"string"},{"description":"Free form data."}]},"trace":{"description":"A stack trace for when the entry was created. (Default - no trace.)","type":"array","items":{"type":"string"}}},"required":["type"]},"FileAssetMetadataEntry":{"description":"Metadata Entry spec for files.","type":"object","properties":{"packaging":{"description":"Requested packaging style","enum":["file","zip"],"type":"string"},"s3BucketParameter":{"description":"Name of parameter where S3 bucket should be passed in","type":"string"},"s3KeyParameter":{"description":"Name of parameter where S3 key should be passed in","type":"string"},"artifactHashParameter":{"description":"The name of the parameter where the hash of the bundled asset should be passed in.","type":"string"},"id":{"description":"Logical identifier for the asset","type":"string"},"sourceHash":{"description":"The hash of the asset source.","type":"string"},"path":{"description":"Path on disk to the asset","type":"string"}},"required":["artifactHashParameter","id","packaging","path","s3BucketParameter","s3KeyParameter","sourceHash"]},"ContainerImageAssetMetadataEntry":{"description":"Metadata Entry spec for container images.","type":"object","properties":{"packaging":{"description":"Type of asset","type":"string","const":"container-image"},"imageNameParameter":{"description":"ECR Repository name and repo digest (separated by \\"@sha256:\\") where this\\nimage is stored. (Default undefined If not specified, `repositoryName` and `imageTag` are\\nrequired because otherwise how will the stack know where to find the asset,\\nha?)","type":"string"},"repositoryName":{"description":"ECR repository name, if omitted a default name based on the asset\'s ID is\\nused instead. Specify this property if you need to statically address the\\nimage, e.g. from a Kubernetes Pod. Note, this is only the repository name,\\nwithout the registry and the tag parts. (Default - this parameter is REQUIRED after 1.21.0)","type":"string"},"imageTag":{"description":"The docker image tag to use for tagging pushed images. This field is\\nrequired if `imageParameterName` is ommited (otherwise, the app won\'t be\\nable to find the image). (Default - this parameter is REQUIRED after 1.21.0)","type":"string"},"buildArgs":{"description":"Build args to pass to the `docker build` command (Default no build args are passed)","type":"object","additionalProperties":{"type":"string"}},"buildSsh":{"description":"SSH agent socket or keys to pass to the `docker build` command (Default no ssh arg is passed)","type":"string"},"buildSecrets":{"description":"Build secrets to pass to the `docker build` command (Default no build secrets are passed)","type":"object","additionalProperties":{"type":"string"}},"target":{"description":"Docker target to build to (Default no build target)","type":"string"},"file":{"description":"Path to the Dockerfile (relative to the directory). (Default - no file is passed)","type":"string"},"networkMode":{"description":"Networking mode for the RUN commands during build. (Default - no networking mode specified)","type":"string"},"platform":{"description":"Platform to build for. _Requires Docker Buildx_. (Default - current machine platform)","type":"string"},"outputs":{"description":"Outputs to pass to the `docker build` command. (Default - no outputs are passed to the build command (default outputs are used))","type":"array","items":{"type":"string"}},"cacheFrom":{"description":"Cache from options to pass to the `docker build` command. (Default - no cache from options are passed to the build command)","type":"array","items":{"$ref":"#/definitions/ContainerImageAssetCacheOption"}},"cacheTo":{"description":"Cache to options to pass to the `docker build` command. (Default - no cache to options are passed to the build command)","$ref":"#/definitions/ContainerImageAssetCacheOption"},"cacheDisabled":{"description":"Disable the cache and pass `--no-cache` to the `docker build` command. (Default - cache is used)","type":"boolean"},"id":{"description":"Logical identifier for the asset","type":"string"},"sourceHash":{"description":"The hash of the asset source.","type":"string"},"path":{"description":"Path on disk to the asset","type":"string"}},"required":["id","packaging","path","sourceHash"]},"ContainerImageAssetCacheOption":{"description":"Options for configuring the Docker cache backend","type":"object","properties":{"type":{"description":"The type of cache to use.\\nRefer to https://docs.docker.com/build/cache/backends/ for full list of backends. (Default - unspecified)","type":"string"},"params":{"description":"Any parameters to pass into the docker cache backend configuration.\\nRefer to https://docs.docker.com/build/cache/backends/ for cache backend configuration. (Default {} No options provided)","type":"object","additionalProperties":{"type":"string"}}},"required":["type"]},"Tag":{"description":"Metadata Entry spec for stack tag.","type":"object","properties":{"key":{"description":"Tag key.\\n\\n(In the actual file on disk this will be cased as \\"Key\\", and the structure is\\npatched to match this structure upon loading:\\nhttps://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)","type":"string"},"value":{"description":"Tag value.\\n\\n(In the actual file on disk this will be cased as \\"Value\\", and the structure is\\npatched to match this structure upon loading:\\nhttps://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)","type":"string"}},"required":["key","value"]},"AwsCloudFormationStackProperties":{"description":"Artifact properties for CloudFormation stacks.","type":"object","properties":{"templateFile":{"description":"A file relative to the assembly root which contains the CloudFormation template for this stack.","type":"string"},"parameters":{"description":"Values for CloudFormation stack parameters that should be passed when the stack is deployed. (Default - No parameters)","type":"object","additionalProperties":{"type":"string"}},"tags":{"description":"Values for CloudFormation stack tags that should be passed when the stack is deployed. (Default - No tags)","type":"object","additionalProperties":{"type":"string"}},"stackName":{"description":"The name to use for the CloudFormation stack. (Default - name derived from artifact ID)","type":"string"},"terminationProtection":{"description":"Whether to enable termination protection for this stack.","default":false,"type":"boolean"},"assumeRoleArn":{"description":"The role that needs to be assumed to deploy the stack (Default - No role is assumed (current credentials are used))","type":"string"},"assumeRoleExternalId":{"description":"External ID to use when assuming role for cloudformation deployments (Default - No external ID)","type":"string"},"cloudFormationExecutionRoleArn":{"description":"The role that is passed to CloudFormation to execute the change set (Default - No role is passed (currently assumed role/credentials are used))","type":"string"},"lookupRole":{"description":"The role to use to look up values from the target AWS account (Default - No role is assumed (current credentials are used))","$ref":"#/definitions/BootstrapRole"},"stackTemplateAssetObjectUrl":{"description":"If the stack template has already been included in the asset manifest, its asset URL (Default - Not uploaded yet, upload just before deploying)","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to deploy this stack (Default - No bootstrap stack required)","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"SSM parameter where the bootstrap stack version number can be found\\n\\nOnly used if `requiresBootstrapStackVersion` is set.\\n\\n- If this value is not set, the bootstrap stack name must be known at\\n  deployment time so the stack version can be looked up from the stack\\n  outputs.\\n- If this value is set, the bootstrap stack can have any name because\\n  we won\'t need to look it up. (Default - Bootstrap stack version number looked up)","type":"string"},"validateOnSynth":{"description":"Whether this stack should be validated by the CLI after synthesis (Default - false)","type":"boolean"}},"required":["templateFile"]},"BootstrapRole":{"description":"Information needed to access an IAM role created\\nas part of the bootstrap process","type":"object","properties":{"arn":{"description":"The ARN of the IAM role created as part of bootrapping\\ne.g. lookupRoleArn","type":"string"},"assumeRoleExternalId":{"description":"External ID to use when assuming the bootstrap role (Default - No external ID)","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to use this role (Default - No bootstrap stack required)","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"Name of SSM parameter with bootstrap stack version (Default - Discover SSM parameter by reading stack)","type":"string"}},"required":["arn"]},"AssetManifestProperties":{"description":"Artifact properties for the Asset Manifest","type":"object","properties":{"file":{"description":"Filename of the asset manifest","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to deploy this stack (Default - Version 1 (basic modern bootstrap stack))","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"SSM parameter where the bootstrap stack version number can be found\\n\\n- If this value is not set, the bootstrap stack name must be known at\\n  deployment time so the stack version can be looked up from the stack\\n  outputs.\\n- If this value is set, the bootstrap stack can have any name because\\n  we won\'t need to look it up. (Default - Bootstrap stack version number looked up)","type":"string"}},"required":["file"]},"TreeArtifactProperties":{"description":"Artifact properties for the Construct Tree Artifact","type":"object","properties":{"file":{"description":"Filename of the tree artifact","type":"string"}},"required":["file"]},"NestedCloudAssemblyProperties":{"description":"Artifact properties for nested cloud assemblies","type":"object","properties":{"directoryName":{"description":"Relative path to the nested cloud assembly","type":"string"},"displayName":{"description":"Display name for the cloud assembly (Default - The artifact ID)","type":"string"}},"required":["directoryName"]},"MissingContext":{"description":"Represents a missing piece of context.","type":"object","properties":{"key":{"description":"The missing context key.","type":"string"},"provider":{"$ref":"#/definitions/ContextProvider","description":"The provider from which we expect this context key to be obtained."},"props":{"$ref":"#/definitions/ContextQueryProperties","description":"A set of provider-specific options."}},"required":["key","props","provider"]},"ContextProvider":{"description":"Identifier for the context provider","type":"string","enum":["ami","availability-zones","hosted-zone","ssm","vpc-provider","endpoint-service-availability-zones","load-balancer","load-balancer-listener","security-group","key-provider","plugin"]},"ContextQueryProperties":{"anyOf":[{"$ref":"#/definitions/AmiContextQuery"},{"$ref":"#/definitions/AvailabilityZonesContextQuery"},{"$ref":"#/definitions/HostedZoneContextQuery"},{"$ref":"#/definitions/SSMParameterContextQuery"},{"$ref":"#/definitions/VpcContextQuery"},{"$ref":"#/definitions/EndpointServiceAvailabilityZonesContextQuery"},{"$ref":"#/definitions/LoadBalancerContextQuery"},{"$ref":"#/definitions/LoadBalancerListenerContextQuery"},{"$ref":"#/definitions/SecurityGroupContextQuery"},{"$ref":"#/definitions/KeyContextQuery"},{"$ref":"#/definitions/PluginContextQuery"}]},"AmiContextQuery":{"description":"Query to AMI context provider","type":"object","properties":{"account":{"description":"Account to query","type":"string"},"region":{"description":"Region to query","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"owners":{"description":"Owners to DescribeImages call (Default - All owners)","type":"array","items":{"type":"string"}},"filters":{"description":"Filters to DescribeImages call","type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}}},"required":["account","filters","region"]},"AvailabilityZonesContextQuery":{"description":"Query to availability zone context provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"}},"required":["account","region"]},"HostedZoneContextQuery":{"description":"Query to hosted zone context provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"domainName":{"description":"The domain name e.g. example.com to lookup","type":"string"},"privateZone":{"description":"True if the zone you want to find is a private hosted zone","default":false,"type":"boolean"},"vpcId":{"description":"The VPC ID to that the private zone must be associated with\\n\\nIf you provide VPC ID and privateZone is false, this will return no results\\nand raise an error. (Default - Required if privateZone=true)","type":"string"}},"required":["account","domainName","region"]},"SSMParameterContextQuery":{"description":"Query to SSM Parameter Context Provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"parameterName":{"description":"Parameter name to query","type":"string"}},"required":["account","parameterName","region"]},"VpcContextQuery":{"description":"Query input for looking up a VPC","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"filter":{"description":"Filters to apply to the VPC\\n\\nFilter parameters are the same as passed to DescribeVpcs.","type":"object","additionalProperties":{"type":"string"}},"returnAsymmetricSubnets":{"description":"Whether to populate the subnetGroups field of the `VpcContextResponse`,\\nwhich contains potentially asymmetric subnet groups.","default":false,"type":"boolean"},"subnetGroupNameTag":{"description":"Optional tag for subnet group name.\\nIf not provided, we\'ll look at the aws-cdk:subnet-name tag.\\nIf the subnet does not have the specified tag,\\nwe\'ll use its type as the name. (Default \'aws-cdk:subnet-name\')","type":"string"},"returnVpnGateways":{"description":"Whether to populate the `vpnGatewayId` field of the `VpcContextResponse`,\\nwhich contains the VPN Gateway ID, if one exists. You can explicitly\\ndisable this in order to avoid the lookup if you know the VPC does not have\\na VPN Gatway attached. (Default true)","type":"boolean"}},"required":["account","filter","region"]},"EndpointServiceAvailabilityZonesContextQuery":{"description":"Query to endpoint service context provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"serviceName":{"description":"Query service name","type":"string"}},"required":["account","region","serviceName"]},"LoadBalancerContextQuery":{"description":"Query input for looking up a load balancer","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"loadBalancerType":{"$ref":"#/definitions/LoadBalancerType","description":"Filter load balancers by their type"},"loadBalancerArn":{"description":"Find by load balancer\'s ARN (Default - does not search by load balancer arn)","type":"string"},"loadBalancerTags":{"description":"Match load balancer tags (Default - does not match load balancers by tags)","type":"array","items":{"$ref":"#/definitions/Tag"}}},"required":["account","loadBalancerType","region"]},"LoadBalancerType":{"description":"Type of load balancer","type":"string","enum":["network","application"]},"LoadBalancerListenerContextQuery":{"description":"Query input for looking up a load balancer listener","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"listenerArn":{"description":"Find by listener\'s arn (Default - does not find by listener arn)","type":"string"},"listenerProtocol":{"description":"Filter by listener protocol (Default - does not filter by listener protocol)","enum":["HTTP","HTTPS","TCP","TCP_UDP","TLS","UDP"],"type":"string"},"listenerPort":{"description":"Filter listeners by listener port (Default - does not filter by a listener port)","type":"number"},"loadBalancerType":{"$ref":"#/definitions/LoadBalancerType","description":"Filter load balancers by their type"},"loadBalancerArn":{"description":"Find by load balancer\'s ARN (Default - does not search by load balancer arn)","type":"string"},"loadBalancerTags":{"description":"Match load balancer tags (Default - does not match load balancers by tags)","type":"array","items":{"$ref":"#/definitions/Tag"}}},"required":["account","loadBalancerType","region"]},"SecurityGroupContextQuery":{"description":"Query input for looking up a security group","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"securityGroupId":{"description":"Security group id (Default - None)","type":"string"},"securityGroupName":{"description":"Security group name (Default - None)","type":"string"},"vpcId":{"description":"VPC ID (Default - None)","type":"string"}},"required":["account","region"]},"KeyContextQuery":{"description":"Query input for looking up a KMS Key","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"aliasName":{"description":"Alias name used to search the Key","type":"string"}},"required":["account","aliasName","region"]},"PluginContextQuery":{"description":"Query input for plugins\\n\\nThis alternate branch is necessary because it needs to be able to escape all type checking\\nwe do on on the cloud assembly -- we cannot know the properties that will be used a priori.","type":"object","additionalProperties":{},"properties":{"pluginName":{"description":"The name of the plugin","type":"string"}},"required":["pluginName"]},"RuntimeInfo":{"description":"Information about the application\'s runtime components.","type":"object","properties":{"libraries":{"description":"The list of libraries loaded in the application, associated with their versions.","type":"object","additionalProperties":{"type":"string"}}},"required":["libraries"]}},"$schema":"http://json-schema.org/draft-07/schema#"}');
 
 /***/ }),
 
@@ -93339,7 +91099,7 @@ module.exports = JSON.parse('{"$ref":"#/definitions/AssemblyManifest","definitio
 /***/ ((module) => {
 
 "use strict";
-module.exports = {"i":"35.0.0"};
+module.exports = {"i":"36.0.0"};
 
 /***/ }),
 
@@ -93355,7 +91115,7 @@ module.exports = JSON.parse('{"$ref":"#/definitions/IntegManifest","definitions"
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.474.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.474.0","@aws-sdk/core":"3.474.0","@aws-sdk/credential-provider-node":"3.474.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-signing":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","@smithy/util-waiter":"^2.0.15","fast-xml-parser":"4.2.5","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.484.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.484.0","@aws-sdk/core":"3.481.0","@aws-sdk/credential-provider-node":"3.484.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-signing":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.484.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.22","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.31","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","@smithy/util-waiter":"^2.0.15","fast-xml-parser":"4.2.5","tslib":"^2.5.0","uuid":"^8.3.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -93363,7 +91123,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","descripti
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.474.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"ts-mocha test/**/*.ispec.ts && karma start karma.conf.js"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.474.0","@aws-sdk/core":"3.474.0","@aws-sdk/credential-provider-node":"3.474.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-signing":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/client-iam":"3.474.0","@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/chai":"^4.2.11","@types/mocha":"^8.0.4","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.484.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"ts-mocha test/**/*.ispec.ts && karma start karma.conf.js"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.484.0","@aws-sdk/core":"3.481.0","@aws-sdk/credential-provider-node":"3.484.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-signing":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.484.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.22","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.31","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","tslib":"^2.5.0"},"devDependencies":{"@aws-sdk/client-iam":"3.484.0","@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/chai":"^4.2.11","@types/mocha":"^8.0.4","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
 
 /***/ }),
 
@@ -93371,7 +91131,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-cognito-identity","descrip
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.474.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.474.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.484.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.481.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.484.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.22","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.31","@smithy/util-endpoints":"^1.0.7","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
@@ -93379,7 +91139,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SD
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.474.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.474.0","@aws-sdk/credential-provider-node":"3.474.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.470.0","@aws-sdk/region-config-resolver":"3.470.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.470.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.21","@smithy/core":"^1.1.0","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.24","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.1.18","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.22","@smithy/util-defaults-mode-node":"^2.0.29","@smithy/util-endpoints":"^1.0.7","@smithy/util-middleware":"^2.0.8","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","fast-xml-parser":"4.2.5","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.484.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.481.0","@aws-sdk/credential-provider-node":"3.484.0","@aws-sdk/middleware-host-header":"3.468.0","@aws-sdk/middleware-logger":"3.468.0","@aws-sdk/middleware-recursion-detection":"3.468.0","@aws-sdk/middleware-user-agent":"3.478.0","@aws-sdk/region-config-resolver":"3.484.0","@aws-sdk/types":"3.468.0","@aws-sdk/util-endpoints":"3.478.0","@aws-sdk/util-user-agent-browser":"3.468.0","@aws-sdk/util-user-agent-node":"3.470.0","@smithy/config-resolver":"^2.0.22","@smithy/core":"^1.2.1","@smithy/fetch-http-handler":"^2.3.1","@smithy/hash-node":"^2.0.17","@smithy/invalid-dependency":"^2.0.15","@smithy/middleware-content-length":"^2.0.17","@smithy/middleware-endpoint":"^2.2.3","@smithy/middleware-retry":"^2.0.25","@smithy/middleware-serde":"^2.0.15","@smithy/middleware-stack":"^2.0.9","@smithy/node-config-provider":"^2.1.8","@smithy/node-http-handler":"^2.2.1","@smithy/protocol-http":"^3.0.11","@smithy/smithy-client":"^2.2.0","@smithy/types":"^2.7.0","@smithy/url-parser":"^2.0.15","@smithy/util-base64":"^2.0.1","@smithy/util-body-length-browser":"^2.0.1","@smithy/util-body-length-node":"^2.1.0","@smithy/util-defaults-mode-browser":"^2.0.23","@smithy/util-defaults-mode-node":"^2.0.31","@smithy/util-endpoints":"^1.0.7","@smithy/util-middleware":"^2.0.8","@smithy/util-retry":"^2.0.8","@smithy/util-utf8":"^2.0.2","fast-xml-parser":"4.2.5","tslib":"^2.5.0"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.0.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
@@ -93387,7 +91147,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SD
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"partitions":[{"id":"aws","outputs":{"dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","implicitGlobalRegion":"us-east-1","name":"aws","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^(us|eu|ap|sa|ca|me|af|il)\\\\-\\\\w+\\\\-\\\\d+$","regions":{"af-south-1":{"description":"Africa (Cape Town)"},"ap-east-1":{"description":"Asia Pacific (Hong Kong)"},"ap-northeast-1":{"description":"Asia Pacific (Tokyo)"},"ap-northeast-2":{"description":"Asia Pacific (Seoul)"},"ap-northeast-3":{"description":"Asia Pacific (Osaka)"},"ap-south-1":{"description":"Asia Pacific (Mumbai)"},"ap-south-2":{"description":"Asia Pacific (Hyderabad)"},"ap-southeast-1":{"description":"Asia Pacific (Singapore)"},"ap-southeast-2":{"description":"Asia Pacific (Sydney)"},"ap-southeast-3":{"description":"Asia Pacific (Jakarta)"},"ap-southeast-4":{"description":"Asia Pacific (Melbourne)"},"aws-global":{"description":"AWS Standard global region"},"ca-central-1":{"description":"Canada (Central)"},"eu-central-1":{"description":"Europe (Frankfurt)"},"eu-central-2":{"description":"Europe (Zurich)"},"eu-north-1":{"description":"Europe (Stockholm)"},"eu-south-1":{"description":"Europe (Milan)"},"eu-south-2":{"description":"Europe (Spain)"},"eu-west-1":{"description":"Europe (Ireland)"},"eu-west-2":{"description":"Europe (London)"},"eu-west-3":{"description":"Europe (Paris)"},"il-central-1":{"description":"Israel (Tel Aviv)"},"me-central-1":{"description":"Middle East (UAE)"},"me-south-1":{"description":"Middle East (Bahrain)"},"sa-east-1":{"description":"South America (Sao Paulo)"},"us-east-1":{"description":"US East (N. Virginia)"},"us-east-2":{"description":"US East (Ohio)"},"us-west-1":{"description":"US West (N. California)"},"us-west-2":{"description":"US West (Oregon)"}}},{"id":"aws-cn","outputs":{"dnsSuffix":"amazonaws.com.cn","dualStackDnsSuffix":"api.amazonwebservices.com.cn","implicitGlobalRegion":"cn-northwest-1","name":"aws-cn","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^cn\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-cn-global":{"description":"AWS China global region"},"cn-north-1":{"description":"China (Beijing)"},"cn-northwest-1":{"description":"China (Ningxia)"}}},{"id":"aws-us-gov","outputs":{"dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","implicitGlobalRegion":"us-gov-west-1","name":"aws-us-gov","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^us\\\\-gov\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-us-gov-global":{"description":"AWS GovCloud (US) global region"},"us-gov-east-1":{"description":"AWS GovCloud (US-East)"},"us-gov-west-1":{"description":"AWS GovCloud (US-West)"}}},{"id":"aws-iso","outputs":{"dnsSuffix":"c2s.ic.gov","dualStackDnsSuffix":"c2s.ic.gov","implicitGlobalRegion":"us-iso-east-1","name":"aws-iso","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-iso\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-global":{"description":"AWS ISO (US) global region"},"us-iso-east-1":{"description":"US ISO East"},"us-iso-west-1":{"description":"US ISO WEST"}}},{"id":"aws-iso-b","outputs":{"dnsSuffix":"sc2s.sgov.gov","dualStackDnsSuffix":"sc2s.sgov.gov","implicitGlobalRegion":"us-isob-east-1","name":"aws-iso-b","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-isob\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-b-global":{"description":"AWS ISOB (US) global region"},"us-isob-east-1":{"description":"US ISOB East (Ohio)"}}},{"id":"aws-iso-e","outputs":{"dnsSuffix":"cloud.adc-e.uk","dualStackDnsSuffix":"cloud.adc-e.uk","implicitGlobalRegion":"eu-isoe-west-1","name":"aws-iso-e","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^eu\\\\-isoe\\\\-\\\\w+\\\\-\\\\d+$","regions":{}},{"id":"aws-iso-f","outputs":{"dnsSuffix":"csp.hci.ic.gov","dualStackDnsSuffix":"csp.hci.ic.gov","implicitGlobalRegion":"us-isof-south-1","name":"aws-iso-f","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-isof\\\\-\\\\w+\\\\-\\\\d+$","regions":{}}],"version":"1.1"}');
+module.exports = JSON.parse('{"partitions":[{"id":"aws","outputs":{"dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","implicitGlobalRegion":"us-east-1","name":"aws","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^(us|eu|ap|sa|ca|me|af|il)\\\\-\\\\w+\\\\-\\\\d+$","regions":{"af-south-1":{"description":"Africa (Cape Town)"},"ap-east-1":{"description":"Asia Pacific (Hong Kong)"},"ap-northeast-1":{"description":"Asia Pacific (Tokyo)"},"ap-northeast-2":{"description":"Asia Pacific (Seoul)"},"ap-northeast-3":{"description":"Asia Pacific (Osaka)"},"ap-south-1":{"description":"Asia Pacific (Mumbai)"},"ap-south-2":{"description":"Asia Pacific (Hyderabad)"},"ap-southeast-1":{"description":"Asia Pacific (Singapore)"},"ap-southeast-2":{"description":"Asia Pacific (Sydney)"},"ap-southeast-3":{"description":"Asia Pacific (Jakarta)"},"ap-southeast-4":{"description":"Asia Pacific (Melbourne)"},"aws-global":{"description":"AWS Standard global region"},"ca-central-1":{"description":"Canada (Central)"},"ca-west-1":{"description":"Canada West (Calgary)"},"eu-central-1":{"description":"Europe (Frankfurt)"},"eu-central-2":{"description":"Europe (Zurich)"},"eu-north-1":{"description":"Europe (Stockholm)"},"eu-south-1":{"description":"Europe (Milan)"},"eu-south-2":{"description":"Europe (Spain)"},"eu-west-1":{"description":"Europe (Ireland)"},"eu-west-2":{"description":"Europe (London)"},"eu-west-3":{"description":"Europe (Paris)"},"il-central-1":{"description":"Israel (Tel Aviv)"},"me-central-1":{"description":"Middle East (UAE)"},"me-south-1":{"description":"Middle East (Bahrain)"},"sa-east-1":{"description":"South America (Sao Paulo)"},"us-east-1":{"description":"US East (N. Virginia)"},"us-east-2":{"description":"US East (Ohio)"},"us-west-1":{"description":"US West (N. California)"},"us-west-2":{"description":"US West (Oregon)"}}},{"id":"aws-cn","outputs":{"dnsSuffix":"amazonaws.com.cn","dualStackDnsSuffix":"api.amazonwebservices.com.cn","implicitGlobalRegion":"cn-northwest-1","name":"aws-cn","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^cn\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-cn-global":{"description":"AWS China global region"},"cn-north-1":{"description":"China (Beijing)"},"cn-northwest-1":{"description":"China (Ningxia)"}}},{"id":"aws-us-gov","outputs":{"dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","implicitGlobalRegion":"us-gov-west-1","name":"aws-us-gov","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^us\\\\-gov\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-us-gov-global":{"description":"AWS GovCloud (US) global region"},"us-gov-east-1":{"description":"AWS GovCloud (US-East)"},"us-gov-west-1":{"description":"AWS GovCloud (US-West)"}}},{"id":"aws-iso","outputs":{"dnsSuffix":"c2s.ic.gov","dualStackDnsSuffix":"c2s.ic.gov","implicitGlobalRegion":"us-iso-east-1","name":"aws-iso","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-iso\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-global":{"description":"AWS ISO (US) global region"},"us-iso-east-1":{"description":"US ISO East"},"us-iso-west-1":{"description":"US ISO WEST"}}},{"id":"aws-iso-b","outputs":{"dnsSuffix":"sc2s.sgov.gov","dualStackDnsSuffix":"sc2s.sgov.gov","implicitGlobalRegion":"us-isob-east-1","name":"aws-iso-b","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-isob\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-b-global":{"description":"AWS ISOB (US) global region"},"us-isob-east-1":{"description":"US ISOB East (Ohio)"}}},{"id":"aws-iso-e","outputs":{"dnsSuffix":"cloud.adc-e.uk","dualStackDnsSuffix":"cloud.adc-e.uk","implicitGlobalRegion":"eu-isoe-west-1","name":"aws-iso-e","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^eu\\\\-isoe\\\\-\\\\w+\\\\-\\\\d+$","regions":{}},{"id":"aws-iso-f","outputs":{"dnsSuffix":"csp.hci.ic.gov","dualStackDnsSuffix":"csp.hci.ic.gov","implicitGlobalRegion":"us-isof-south-1","name":"aws-iso-f","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-isof\\\\-\\\\w+\\\\-\\\\d+$","regions":{}}],"version":"1.1"}');
 
 /***/ })
 
