@@ -146,6 +146,10 @@
       "type": "runtime"
     },
     {
+      "name": "@aws-sdk/client-sts",
+      "type": "runtime"
+    },
+    {
       "name": "@aws-sdk/credential-providers",
       "type": "runtime"
     },

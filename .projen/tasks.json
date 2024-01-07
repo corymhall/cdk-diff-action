@@ -244,13 +244,13 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@types/mock-fs,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,@vercel/ncc,action-docs,aws-sdk-client-mock,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,mock-fs,npm-check-updates,projen,projen-github-action-typescript,standard-version,ts-jest,ts-node,typescript,@actions/core,@actions/exec,@actions/github,@actions/io,@actions/tool-cache,@aws-cdk/cloud-assembly-schema,@aws-cdk/cloudformation-diff,@aws-sdk/client-cloudformation,@aws-sdk/credential-providers,@octokit/webhooks-definitions,@smithy/types,chalk,fs-extra"
+          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@types/mock-fs,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,@vercel/ncc,action-docs,aws-sdk-client-mock,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,mock-fs,npm-check-updates,projen,projen-github-action-typescript,standard-version,ts-jest,ts-node,typescript,@actions/core,@actions/exec,@actions/github,@actions/io,@actions/tool-cache,@aws-cdk/cloud-assembly-schema,@aws-cdk/cloudformation-diff,@aws-sdk/client-cloudformation,@aws-sdk/client-sts,@aws-sdk/credential-providers,@octokit/webhooks-definitions,@smithy/types,chalk,fs-extra"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @swc/core @swc/jest @types/fs-extra @types/jest @types/mock-fs @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @vercel/ncc action-docs aws-sdk-client-mock constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit mock-fs npm-check-updates projen projen-github-action-typescript standard-version ts-jest ts-node typescript @actions/core @actions/exec @actions/github @actions/io @actions/tool-cache @aws-cdk/cloud-assembly-schema @aws-cdk/cloudformation-diff @aws-sdk/client-cloudformation @aws-sdk/credential-providers @octokit/webhooks-definitions @smithy/types chalk fs-extra"
+          "exec": "yarn upgrade @swc/core @swc/jest @types/fs-extra @types/jest @types/mock-fs @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @vercel/ncc action-docs aws-sdk-client-mock constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit mock-fs npm-check-updates projen projen-github-action-typescript standard-version ts-jest ts-node typescript @actions/core @actions/exec @actions/github @actions/io @actions/tool-cache @aws-cdk/cloud-assembly-schema @aws-cdk/cloudformation-diff @aws-sdk/client-cloudformation @aws-sdk/client-sts @aws-sdk/credential-providers @octokit/webhooks-definitions @smithy/types chalk fs-extra"
         },
         {
           "exec": "npx projen"

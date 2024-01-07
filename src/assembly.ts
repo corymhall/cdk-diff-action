@@ -35,6 +35,13 @@ export interface StackInfo {
   region?: string;
 
   /**
+   * The account the stack is deployed to
+   *
+   * @default - unknown-account
+   */
+  account?: string;
+
+  /**
    * The lookup role to use
    *
    * @default - no lookup role
@@ -104,13 +111,23 @@ export class AssemblyManifestReader {
       const props = artifact.properties as AwsCloudFormationStackProperties;
       const template = fs.readJSONSync(path.resolve(this.directory, props.templateFile));
       const env = artifact.environment?.split(/\/\/?/);
-      let region = env && env.length === 3 ? env[2] : undefined;
+      const validEnv = env && env.length === 3;
+      let region: string | undefined;
+      let account: string | undefined;
+      if (validEnv) {
+        region = env[2];
+        account = env[1];
+      }
       if (region === 'unknown-region') {
         region = undefined;
+      }
+      if (account === 'unknown-account') {
+        account = undefined;
       }
       stacks.push({
         content: template,
         region,
+        account,
         lookupRole: props.lookupRole,
         name: props.stackName ?? artifactId,
       });
