@@ -68,6 +68,7 @@ const project = new GitHubActionTypeScriptProject({
     '@actions/tool-cache@^2.0.0',
     'fs-extra',
     '@aws-sdk/client-cloudformation',
+    '@aws-sdk/client-sts',
     '@smithy/types',
     'chalk@^4',
     '@aws-sdk/credential-providers',

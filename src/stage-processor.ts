@@ -54,6 +54,7 @@ export class StageProcessor {
             prev.stacks.push({
               name: curr.name,
               lookupRole: curr.lookupRole,
+              account: curr.account,
               region: curr.region,
             });
             return prev;
@@ -184,6 +185,12 @@ export class StageProcessor {
       '<details><summary>Details</summary>',
       '',
     ]);
+    if (changes.unknownEnvironment) {
+      output.push('> [!INFO]\n> ***Unknown Environment*** :information_source:');
+      output.push('> This stack has an unknown environment which may mean the diff is performed against the wrong environment');
+      output.push(`> Environmment used ${changes.unknownEnvironment}`);
+      output.push('');
+    }
     if (changes.destructiveChanges.length) {
       output.push('');
       output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),

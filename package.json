@@ -63,6 +63,7 @@
     "@aws-cdk/cloud-assembly-schema": "2.118.0",
     "@aws-cdk/cloudformation-diff": "2.118.0",
     "@aws-sdk/client-cloudformation": "^3.485.0",
+    "@aws-sdk/client-sts": "^3.490.0",
     "@aws-sdk/credential-providers": "^3.485.0",
     "@octokit/webhooks-definitions": "^3.67.3",
     "@smithy/types": "^2.8.0",

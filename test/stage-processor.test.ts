@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import path from 'path';
 import { CloudFormationClient, GetTemplateCommand } from '@aws-sdk/client-cloudformation';
+import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
 import { mockClient } from 'aws-sdk-client-mock';
 import { StackInfo } from '../src/assembly';
 import { Comments } from '../src/comment';
@@ -22,17 +23,30 @@ jest.mock('../src/comment', () => {
 });
 
 const cfnMock = mockClient(CloudFormationClient);
+const stsMock = mockClient(STSClient);
 
 beforeEach(() => {
+  stsMock.on(GetCallerIdentityCommand).resolves({
+    Account: '123456789012',
+  });
+});
+
+afterEach(() => {
   cfnMock.reset();
+  stsMock.reset();
   findPreviousMock.mockClear();
   updateCommentMock.mockClear();
   createCommentMock.mockClear();
 });
 
 describe('StageProcessor', () => {
+  const env = {
+    region: 'us-east-1',
+    account: '123456789012',
+  };
   const stackInfo: StackInfo = {
     name: 'my-stack',
+    ...env,
     content: {
       Resources: {
         MyRole: {
@@ -74,6 +88,7 @@ describe('StageProcessor', () => {
         name: 'Stage1',
         stacks: [{
           name: 'my-stack',
+          ...env,
           content: {
             Resources: {
               MyRole: {
@@ -105,6 +120,7 @@ describe('StageProcessor', () => {
       {
         name: 'Stage1',
         stacks: [{
+          ...env,
           name: 'my-stack',
           content: {
             Resources: {
@@ -138,6 +154,7 @@ describe('StageProcessor', () => {
         name: 'Stage1',
         stacks: [{
           name: 'my-stack',
+          ...env,
           content: {
             Resources: {
               MyRole: {
@@ -168,6 +185,7 @@ describe('StageProcessor', () => {
         name: 'Stage1',
         stacks: [{
           name: 'my-stack',
+          ...env,
           content: {
             Resources: {
               MyRole: {
@@ -228,6 +246,8 @@ function createStacks(numStacks: number): any[] {
   for (let i = 0; i < numStacks; i++) {
     stacks.push({
       name: `my-stack${i}`,
+      account: '123456789012',
+      region: 'us-east-1',
       content: {
         Resources: {
           MyRole: {
