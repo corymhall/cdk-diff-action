@@ -36,4 +36,11 @@ export interface Inputs {
    * @default - breaking changes on any stage will fail the build
    */
   noFailOnDestructiveChanges: string[];
+
+  /**
+   * The location of the CDK output directory
+   *
+   * @default cdk.out
+   */
+  cdkOutDir: string;
 }
