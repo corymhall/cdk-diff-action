@@ -12,11 +12,12 @@ export async function run() {
     githubToken: getInput('githubToken'),
     noDiffForStages: getInput('noDiffForStages').split(','),
     noFailOnDestructiveChanges: getInput('noFailOnDestructiveChanges').split(','),
+    cdkOutDir: getInput('cdkOutDir') ?? 'cdk.out',
   };
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
   try {
-    const assembly = AssemblyManifestReader.fromPath('cdk.out');
+    const assembly = AssemblyManifestReader.fromPath(inputs.cdkOutDir);
     let stages = assembly.stages;
     if (!stages.length) {
       stages = [{

@@ -53,6 +53,11 @@ const project = new GitHubActionTypeScriptProject({
         required: false,
         default: 'List of stages where breaking changes will not fail the build',
       },
+      cdkOutDir: {
+        description: 'The location of the CDK output directory',
+        required: false,
+        default: 'cdk.out',
+      },
     },
     runs: {
       using: RunsUsing.NODE_16, // overwrite to node20
