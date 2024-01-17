@@ -64,6 +64,7 @@ export interface DestructiveChange {
  */
 export class StackDiff {
   private readonly client: CloudFormationClient;
+  private readonly credentials: AwsCredentialIdentityProvider | undefined;
   constructor(
     private readonly stack: StackInfo,
     private readonly allowedDestroyTypes: string[],
@@ -79,6 +80,7 @@ export class StackDiff {
         DurationSeconds: 900,
       },
     }) : undefined;
+    this.credentials = credentials;
     this.client = new CloudFormationClient({
       credentials,
       region: this.stack.region,
@@ -102,7 +104,9 @@ export class StackDiff {
   private async validateEnvironment(): Promise<string | undefined> {
     let unknownAccount = false;
     let unknownRegion = false;
-    const stsClient = new STSClient({});
+    const stsClient = new STSClient({
+      credentials: this.credentials,
+    });
     const callerIdentity = new GetCallerIdentityCommand({ });
     const identity = await stsClient.send(callerIdentity);
     const configRegion = await this.client.config.region();
