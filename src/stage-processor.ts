@@ -54,6 +54,7 @@ export class StageProcessor {
             prev.stacks.push({
               name: curr.name,
               lookupRole: curr.lookupRole,
+              account: curr.account,
               region: curr.region,
             });
             return prev;
