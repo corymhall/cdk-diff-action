@@ -11,8 +11,9 @@ export class Comments {
   constructor(
     private readonly octokit: InstanceType<typeof GitHub>,
     private readonly context: Context,
-    private readonly issueId?: string,
+    issueId?: string,
   ) {
+    console.log("###", issueId);
     if (issueId) {
       this.issueNumber = parseInt(issueId);
       this.commitSha = context.sha;
