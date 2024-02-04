@@ -43,4 +43,11 @@ export interface Inputs {
    * @default cdk.out
    */
   cdkOutDir: string;
+
+  /**
+   * Use this issue ID instead of the PR issue
+   *
+   * @default - undefined (use the PR issue)
+   */
+  issueId?: string;
 }

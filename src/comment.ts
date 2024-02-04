@@ -11,13 +11,19 @@ export class Comments {
   constructor(
     private readonly octokit: InstanceType<typeof GitHub>,
     private readonly context: Context,
+    private readonly issueId?: string,
   ) {
-    const payload = context.payload as PullRequestEvent;
-    this.commitSha = payload.pull_request.head.sha;
-    if (!payload.pull_request.number) {
-      throw new Error('Cannot find PR number, is this from a pull request?');
+    if (issueId) {
+      this.issueNumber = parseInt(issueId);
+      this.commitSha = context.sha;
+    } else {
+      const payload = context.payload as PullRequestEvent;
+      this.commitSha = payload.pull_request.head.sha;
+      if (!payload.pull_request.number) {
+        throw new Error('Cannot find PR number, is this from a pull request?');
+      }
+      this.issueNumber = this.context.payload.pull_request?.number!;
     }
-    this.issueNumber = this.context.payload.pull_request?.number!;
   }
 
   /**
@@ -31,7 +37,7 @@ export class Comments {
       ...this.context.repo,
       issue_number: this.issueNumber,
     });
-    return comments.data.find(comment => comment.body?.includes(hash))?.id;
+    return comments.data.find((comment) => comment.body?.includes(hash))?.id;
   }
 
   /**
@@ -41,7 +47,11 @@ export class Comments {
    * @param content the content of the comment
    * @param commentId the id of the comment to update
    */
-  public async updateComment(commentId: number, hash: string, content: string[]) {
+  public async updateComment(
+    commentId: number,
+    hash: string,
+    content: string[],
+  ) {
     await this.octokit.rest.issues.updateComment({
       ...this.context.repo,
       body: [

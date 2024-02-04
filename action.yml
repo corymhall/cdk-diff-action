@@ -33,3 +33,6 @@ inputs:
     description: The location of the CDK output directory
     required: false
     default: cdk.out
+  issueId:
+    description: The issue id to comment on if not from a PR
+    required: false

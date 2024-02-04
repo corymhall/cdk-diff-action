@@ -13,6 +13,7 @@ export async function run() {
     noDiffForStages: getInput('noDiffForStages').split(','),
     noFailOnDestructiveChanges: getInput('noFailOnDestructiveChanges').split(','),
     cdkOutDir: getInput('cdkOutDir') ?? 'cdk.out',
+    issueId: getInput('issueId'),
   };
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
@@ -25,7 +26,7 @@ export async function run() {
         stacks: assembly.stacks,
       }];
     }
-    const comments = new Comments(octokit, context);
+    const comments = new Comments(octokit, context, inputs.issueId);
     const processor = new StageProcessor(stages, inputs.allowedDestroyTypes);
     try {
       await processor.processStages(inputs.noFailOnDestructiveChanges);
