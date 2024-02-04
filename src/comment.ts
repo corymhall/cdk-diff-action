@@ -13,7 +13,6 @@ export class Comments {
     private readonly context: Context,
     issueId?: string,
   ) {
-    console.log("###", issueId);
     if (issueId) {
       this.issueNumber = parseInt(issueId);
       this.commitSha = context.sha;

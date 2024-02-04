@@ -112,4 +112,21 @@ describe('comments', () => {
       issue_number: context.payload.pull_request?.number,
     });
   });
+
+  test('should create comment on issue', async () => {
+    updateComment.mockResolvedValue({});
+    const comments = new Comments(octokit, context, '123');
+    expect(comments.createComment(hash, ['message'])).resolves;
+    expect(createComment).toHaveBeenCalledWith({
+      ...context.repo,
+      body: [
+        `<!-- cdk diff action with hash ${hash} -->`,
+        'message',
+        '',
+        `_Generated for commit ${context.sha}_`,
+      ].join('\n'),
+      issue_number: 123,
+    });
+  });
+
 });
