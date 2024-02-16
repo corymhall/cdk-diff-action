@@ -1,4 +1,4 @@
-import { ResourceDifference, ResourceImpact, TemplateDiff, diffTemplate } from '@aws-cdk/cloudformation-diff';
+import { ResourceDifference, ResourceImpact, TemplateDiff, fullDiff } from '@aws-cdk/cloudformation-diff';
 import { CloudFormationClient, GetTemplateCommand, StackNotFoundException } from '@aws-sdk/client-cloudformation';
 import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
 import { fromTemporaryCredentials } from '@aws-sdk/credential-providers';
@@ -151,7 +151,7 @@ export class StackDiff {
       }
     }
     try {
-      const diff = diffTemplate(existingTemplate, this.stack.content);
+      const diff = fullDiff(existingTemplate, this.stack.content);
       const changes = this.evaluateDiff(this.stack.name, diff);
       changes.unknownEnvironment = unknownEnv;
       return {

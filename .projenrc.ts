@@ -79,6 +79,7 @@ const project = new GitHubActionTypeScriptProject({
     '@aws-sdk/credential-providers',
   ],
   devDeps: [
+    'aws-sdk',
     'mock-fs@^5',
     'aws-sdk-client-mock',
     '@types/mock-fs@^4',
