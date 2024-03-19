@@ -12918,6 +12918,7 @@ __export(src_exports, {
   ListStackInstanceResourceDriftsCommand: () => ListStackInstanceResourceDriftsCommand,
   ListStackInstancesCommand: () => ListStackInstancesCommand,
   ListStackResourcesCommand: () => ListStackResourcesCommand,
+  ListStackSetAutoDeploymentTargetsCommand: () => ListStackSetAutoDeploymentTargetsCommand,
   ListStackSetOperationResultsCommand: () => ListStackSetOperationResultsCommand,
   ListStackSetOperationsCommand: () => ListStackSetOperationsCommand,
   ListStackSetsCommand: () => ListStackSetsCommand,
@@ -14066,12 +14067,12 @@ var HandlerErrorCode = {
   Unknown: "Unknown",
   UnsupportedTarget: "UnsupportedTarget"
 };
+
+// src/models/models_1.ts
 var ResourceSignalStatus = {
   FAILURE: "FAILURE",
   SUCCESS: "SUCCESS"
 };
-
-// src/models/models_1.ts
 var _ResourceScanLimitExceededException = class _ResourceScanLimitExceededException extends CloudFormationServiceException {
   /**
    * @internal
@@ -14662,6 +14663,16 @@ var se_ListStacksCommand = /* @__PURE__ */ __name(async (input, context) => {
   });
   return buildHttpRpcRequest(context, headers, "/", void 0, body);
 }, "se_ListStacksCommand");
+var se_ListStackSetAutoDeploymentTargetsCommand = /* @__PURE__ */ __name(async (input, context) => {
+  const headers = SHARED_HEADERS;
+  let body;
+  body = buildFormUrlencodedString({
+    ...se_ListStackSetAutoDeploymentTargetsInput(input, context),
+    [_A]: _LSSADT,
+    [_V]: _
+  });
+  return buildHttpRpcRequest(context, headers, "/", void 0, body);
+}, "se_ListStackSetAutoDeploymentTargetsCommand");
 var se_ListStackSetOperationResultsCommand = /* @__PURE__ */ __name(async (input, context) => {
   const headers = SHARED_HEADERS;
   let body;
@@ -15634,6 +15645,19 @@ var de_ListStacksCommand = /* @__PURE__ */ __name(async (output, context) => {
   };
   return response;
 }, "de_ListStacksCommand");
+var de_ListStackSetAutoDeploymentTargetsCommand = /* @__PURE__ */ __name(async (output, context) => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data = await (0, import_core2.parseXmlBody)(output.body, context);
+  let contents = {};
+  contents = de_ListStackSetAutoDeploymentTargetsOutput(data.ListStackSetAutoDeploymentTargetsResult, context);
+  const response = {
+    $metadata: deserializeMetadata(output),
+    ...contents
+  };
+  return response;
+}, "de_ListStackSetAutoDeploymentTargetsCommand");
 var de_ListStackSetOperationResultsCommand = /* @__PURE__ */ __name(async (output, context) => {
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
@@ -17548,6 +17572,22 @@ var se_ListStackResourcesInput = /* @__PURE__ */ __name((input, context) => {
   }
   return entries;
 }, "se_ListStackResourcesInput");
+var se_ListStackSetAutoDeploymentTargetsInput = /* @__PURE__ */ __name((input, context) => {
+  const entries = {};
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
+  }
+  return entries;
+}, "se_ListStackSetAutoDeploymentTargetsInput");
 var se_ListStackSetOperationResultsInput = /* @__PURE__ */ __name((input, context) => {
   var _a;
   const entries = {};
@@ -19778,6 +19818,18 @@ var de_ListStackResourcesOutput = /* @__PURE__ */ __name((output, context) => {
   }
   return contents;
 }, "de_ListStackResourcesOutput");
+var de_ListStackSetAutoDeploymentTargetsOutput = /* @__PURE__ */ __name((output, context) => {
+  const contents = {};
+  if (output.Summaries === "") {
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_StackSetAutoDeploymentTargetSummaries((0, import_smithy_client.getArrayIfSingleItem)(output[_Su][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = (0, import_smithy_client.expectString)(output[_NT]);
+  }
+  return contents;
+}, "de_ListStackSetAutoDeploymentTargetsOutput");
 var de_ListStackSetOperationResultsOutput = /* @__PURE__ */ __name((output, context) => {
   const contents = {};
   if (output.Summaries === "") {
@@ -20934,6 +20986,23 @@ var de_StackSet = /* @__PURE__ */ __name((output, context) => {
   }
   return contents;
 }, "de_StackSet");
+var de_StackSetAutoDeploymentTargetSummaries = /* @__PURE__ */ __name((output, context) => {
+  return (output || []).filter((e) => e != null).map((entry) => {
+    return de_StackSetAutoDeploymentTargetSummary(entry, context);
+  });
+}, "de_StackSetAutoDeploymentTargetSummaries");
+var de_StackSetAutoDeploymentTargetSummary = /* @__PURE__ */ __name((output, context) => {
+  const contents = {};
+  if (output[_OUIr] != null) {
+    contents[_OUIr] = (0, import_smithy_client.expectString)(output[_OUIr]);
+  }
+  if (output.Regions === "") {
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_m] != null) {
+    contents[_Re] = de_RegionList((0, import_smithy_client.getArrayIfSingleItem)(output[_Re][_m]), context);
+  }
+  return contents;
+}, "de_StackSetAutoDeploymentTargetSummary");
 var de_StackSetDriftDetectionDetails = /* @__PURE__ */ __name((output, context) => {
   const contents = {};
   if (output[_DSr] != null) {
@@ -21789,6 +21858,7 @@ var _LSI = "ListStackInstances";
 var _LSIRD = "ListStackInstanceResourceDrifts";
 var _LSR = "ListStackResources";
 var _LSS = "ListStackSets";
+var _LSSADT = "ListStackSetAutoDeploymentTargets";
 var _LSSO = "ListStackSetOperations";
 var _LSSOR = "ListStackSetOperationResults";
 var _LT = "ListTypes";
@@ -22990,6 +23060,23 @@ var _ListStacksCommand = class _ListStacksCommand extends import_smithy_client.C
 __name(_ListStacksCommand, "ListStacksCommand");
 var ListStacksCommand = _ListStacksCommand;
 
+// src/commands/ListStackSetAutoDeploymentTargetsCommand.ts
+
+
+
+
+var _ListStackSetAutoDeploymentTargetsCommand = class _ListStackSetAutoDeploymentTargetsCommand extends import_smithy_client.Command.classBuilder().ep({
+  ...commonParams
+}).m(function(Command, cs, config, o) {
+  return [
+    (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
+    (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
+  ];
+}).s("CloudFormation", "ListStackSetAutoDeploymentTargets", {}).n("CloudFormationClient", "ListStackSetAutoDeploymentTargetsCommand").f(void 0, void 0).ser(se_ListStackSetAutoDeploymentTargetsCommand).de(de_ListStackSetAutoDeploymentTargetsCommand).build() {
+};
+__name(_ListStackSetAutoDeploymentTargetsCommand, "ListStackSetAutoDeploymentTargetsCommand");
+var ListStackSetAutoDeploymentTargetsCommand = _ListStackSetAutoDeploymentTargetsCommand;
+
 // src/commands/ListStackSetOperationResultsCommand.ts
 
 
@@ -23457,6 +23544,7 @@ var commands = {
   ListStackInstancesCommand,
   ListStackResourcesCommand,
   ListStacksCommand,
+  ListStackSetAutoDeploymentTargetsCommand,
   ListStackSetOperationResultsCommand,
   ListStackSetOperationsCommand,
   ListStackSetsCommand,
@@ -87370,7 +87458,7 @@ module.exports = JSON.parse('{"$ref":"#/definitions/IntegManifest","definitions"
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.535.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.535.0","@aws-sdk/core":"3.535.0","@aws-sdk/credential-provider-node":"3.535.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.535.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.535.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.0","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.0","@smithy/middleware-retry":"^2.2.0","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.0","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.0","@smithy/util-defaults-mode-node":"^2.3.0","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","@smithy/util-waiter":"^2.2.0","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.536.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.535.0","@aws-sdk/core":"3.535.0","@aws-sdk/credential-provider-node":"3.535.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.535.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.535.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.0","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.0","@smithy/middleware-retry":"^2.2.0","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.0","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.0","@smithy/util-defaults-mode-node":"^2.3.0","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","@smithy/util-waiter":"^2.2.0","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
