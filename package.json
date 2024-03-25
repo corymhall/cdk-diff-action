@@ -38,7 +38,7 @@
     "@typescript-eslint/parser": "^6",
     "@vercel/ncc": "^0.38.1",
     "action-docs": "^1.2.0",
-    "aws-sdk": "^2.1580.0",
+    "aws-sdk": "^2.1584.0",
     "aws-sdk-client-mock": "^3.1.0",
     "constructs": "^10.0.0",
     "eslint": "^8",
@@ -53,7 +53,7 @@
     "standard-version": "^9",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   },
   "dependencies": {
     "@actions/core": "^1.10.1",
@@ -63,9 +63,9 @@
     "@actions/tool-cache": "^2.0.0",
     "@aws-cdk/cloud-assembly-schema": "2.133.0",
     "@aws-cdk/cloudformation-diff": "2.133.0",
-    "@aws-sdk/client-cloudformation": "^3.536.0",
-    "@aws-sdk/client-sts": "^3.535.0",
-    "@aws-sdk/credential-providers": "^3.535.0",
+    "@aws-sdk/client-cloudformation": "^3.540.0",
+    "@aws-sdk/client-sts": "^3.540.0",
+    "@aws-sdk/credential-providers": "^3.540.0",
     "@octokit/webhooks-definitions": "^3.67.3",
     "@smithy/types": "^2.12.0",
     "chalk": "^4",
