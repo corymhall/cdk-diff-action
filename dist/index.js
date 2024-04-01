@@ -1250,7 +1250,7 @@ exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(57147));
 const os = __importStar(__nccwpck_require__(22037));
-const uuid_1 = __nccwpck_require__(75840);
+const uuid_1 = __nccwpck_require__(78974);
 const utils_1 = __nccwpck_require__(5278);
 function issueFileCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
@@ -1767,6 +1767,652 @@ function toCommandProperties(annotationProperties) {
 }
 exports.toCommandProperties = toCommandProperties;
 //# sourceMappingURL=utils.js.map
+
+/***/ }),
+
+/***/ 78974:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+Object.defineProperty(exports, "v1", ({
+  enumerable: true,
+  get: function () {
+    return _v.default;
+  }
+}));
+Object.defineProperty(exports, "v3", ({
+  enumerable: true,
+  get: function () {
+    return _v2.default;
+  }
+}));
+Object.defineProperty(exports, "v4", ({
+  enumerable: true,
+  get: function () {
+    return _v3.default;
+  }
+}));
+Object.defineProperty(exports, "v5", ({
+  enumerable: true,
+  get: function () {
+    return _v4.default;
+  }
+}));
+Object.defineProperty(exports, "NIL", ({
+  enumerable: true,
+  get: function () {
+    return _nil.default;
+  }
+}));
+Object.defineProperty(exports, "version", ({
+  enumerable: true,
+  get: function () {
+    return _version.default;
+  }
+}));
+Object.defineProperty(exports, "validate", ({
+  enumerable: true,
+  get: function () {
+    return _validate.default;
+  }
+}));
+Object.defineProperty(exports, "stringify", ({
+  enumerable: true,
+  get: function () {
+    return _stringify.default;
+  }
+}));
+Object.defineProperty(exports, "parse", ({
+  enumerable: true,
+  get: function () {
+    return _parse.default;
+  }
+}));
+
+var _v = _interopRequireDefault(__nccwpck_require__(81595));
+
+var _v2 = _interopRequireDefault(__nccwpck_require__(26993));
+
+var _v3 = _interopRequireDefault(__nccwpck_require__(51472));
+
+var _v4 = _interopRequireDefault(__nccwpck_require__(16217));
+
+var _nil = _interopRequireDefault(__nccwpck_require__(32381));
+
+var _version = _interopRequireDefault(__nccwpck_require__(40427));
+
+var _validate = _interopRequireDefault(__nccwpck_require__(92609));
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(61458));
+
+var _parse = _interopRequireDefault(__nccwpck_require__(26385));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 5842:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function md5(bytes) {
+  if (Array.isArray(bytes)) {
+    bytes = Buffer.from(bytes);
+  } else if (typeof bytes === 'string') {
+    bytes = Buffer.from(bytes, 'utf8');
+  }
+
+  return _crypto.default.createHash('md5').update(bytes).digest();
+}
+
+var _default = md5;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 32381:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _default = '00000000-0000-0000-0000-000000000000';
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 26385:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(92609));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function parse(uuid) {
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Invalid UUID');
+  }
+
+  let v;
+  const arr = new Uint8Array(16); // Parse ########-....-....-....-............
+
+  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
+  arr[1] = v >>> 16 & 0xff;
+  arr[2] = v >>> 8 & 0xff;
+  arr[3] = v & 0xff; // Parse ........-####-....-....-............
+
+  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
+  arr[5] = v & 0xff; // Parse ........-....-####-....-............
+
+  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
+  arr[7] = v & 0xff; // Parse ........-....-....-####-............
+
+  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
+  arr[9] = v & 0xff; // Parse ........-....-....-....-############
+  // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
+
+  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
+  arr[11] = v / 0x100000000 & 0xff;
+  arr[12] = v >>> 24 & 0xff;
+  arr[13] = v >>> 16 & 0xff;
+  arr[14] = v >>> 8 & 0xff;
+  arr[15] = v & 0xff;
+  return arr;
+}
+
+var _default = parse;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 86230:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 9784:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = rng;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
+
+let poolPtr = rnds8Pool.length;
+
+function rng() {
+  if (poolPtr > rnds8Pool.length - 16) {
+    _crypto.default.randomFillSync(rnds8Pool);
+
+    poolPtr = 0;
+  }
+
+  return rnds8Pool.slice(poolPtr, poolPtr += 16);
+}
+
+/***/ }),
+
+/***/ 38844:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function sha1(bytes) {
+  if (Array.isArray(bytes)) {
+    bytes = Buffer.from(bytes);
+  } else if (typeof bytes === 'string') {
+    bytes = Buffer.from(bytes, 'utf8');
+  }
+
+  return _crypto.default.createHash('sha1').update(bytes).digest();
+}
+
+var _default = sha1;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 61458:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(92609));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+const byteToHex = [];
+
+for (let i = 0; i < 256; ++i) {
+  byteToHex.push((i + 0x100).toString(16).substr(1));
+}
+
+function stringify(arr, offset = 0) {
+  // Note: Be careful editing this code!  It's been tuned for performance
+  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+  const uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
+  // of the following:
+  // - One or more input array values don't map to a hex octet (leading to
+  // "undefined" in the uuid)
+  // - Invalid input values for the RFC `version` or `variant` fields
+
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Stringified UUID is invalid');
+  }
+
+  return uuid;
+}
+
+var _default = stringify;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 81595:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _rng = _interopRequireDefault(__nccwpck_require__(9784));
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(61458));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+let _nodeId;
+
+let _clockseq; // Previous uuid creation time
+
+
+let _lastMSecs = 0;
+let _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
+
+function v1(options, buf, offset) {
+  let i = buf && offset || 0;
+  const b = buf || new Array(16);
+  options = options || {};
+  let node = options.node || _nodeId;
+  let clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
+  // specified.  We do this lazily to minimize issues related to insufficient
+  // system entropy.  See #189
+
+  if (node == null || clockseq == null) {
+    const seedBytes = options.random || (options.rng || _rng.default)();
+
+    if (node == null) {
+      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+      node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
+    }
+
+    if (clockseq == null) {
+      // Per 4.2.2, randomize (14 bit) clockseq
+      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
+    }
+  } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+
+
+  let msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+
+  let nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
+
+  const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
+
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+
+
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  } // Per 4.2.1.2 Throw error if too many uuids are requested
+
+
+  if (nsecs >= 10000) {
+    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+
+  msecs += 12219292800000; // `time_low`
+
+  const tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff; // `time_mid`
+
+  const tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff; // `time_high_and_version`
+
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+
+  b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+
+  b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
+
+  b[i++] = clockseq & 0xff; // `node`
+
+  for (let n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+
+  return buf || (0, _stringify.default)(b);
+}
+
+var _default = v1;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 26993:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _v = _interopRequireDefault(__nccwpck_require__(65920));
+
+var _md = _interopRequireDefault(__nccwpck_require__(5842));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const v3 = (0, _v.default)('v3', 0x30, _md.default);
+var _default = v3;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 65920:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = _default;
+exports.URL = exports.DNS = void 0;
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(61458));
+
+var _parse = _interopRequireDefault(__nccwpck_require__(26385));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function stringToBytes(str) {
+  str = unescape(encodeURIComponent(str)); // UTF8 escape
+
+  const bytes = [];
+
+  for (let i = 0; i < str.length; ++i) {
+    bytes.push(str.charCodeAt(i));
+  }
+
+  return bytes;
+}
+
+const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
+exports.DNS = DNS;
+const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
+exports.URL = URL;
+
+function _default(name, version, hashfunc) {
+  function generateUUID(value, namespace, buf, offset) {
+    if (typeof value === 'string') {
+      value = stringToBytes(value);
+    }
+
+    if (typeof namespace === 'string') {
+      namespace = (0, _parse.default)(namespace);
+    }
+
+    if (namespace.length !== 16) {
+      throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
+    } // Compute hash of namespace and value, Per 4.3
+    // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
+    // hashfunc([...namespace, ... value])`
+
+
+    let bytes = new Uint8Array(16 + value.length);
+    bytes.set(namespace);
+    bytes.set(value, namespace.length);
+    bytes = hashfunc(bytes);
+    bytes[6] = bytes[6] & 0x0f | version;
+    bytes[8] = bytes[8] & 0x3f | 0x80;
+
+    if (buf) {
+      offset = offset || 0;
+
+      for (let i = 0; i < 16; ++i) {
+        buf[offset + i] = bytes[i];
+      }
+
+      return buf;
+    }
+
+    return (0, _stringify.default)(bytes);
+  } // Function#name is not settable on some platforms (#270)
+
+
+  try {
+    generateUUID.name = name; // eslint-disable-next-line no-empty
+  } catch (err) {} // For CommonJS default export support
+
+
+  generateUUID.DNS = DNS;
+  generateUUID.URL = URL;
+  return generateUUID;
+}
+
+/***/ }),
+
+/***/ 51472:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _rng = _interopRequireDefault(__nccwpck_require__(9784));
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(61458));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function v4(options, buf, offset) {
+  options = options || {};
+
+  const rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+
+
+  rnds[6] = rnds[6] & 0x0f | 0x40;
+  rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
+
+  if (buf) {
+    offset = offset || 0;
+
+    for (let i = 0; i < 16; ++i) {
+      buf[offset + i] = rnds[i];
+    }
+
+    return buf;
+  }
+
+  return (0, _stringify.default)(rnds);
+}
+
+var _default = v4;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 16217:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _v = _interopRequireDefault(__nccwpck_require__(65920));
+
+var _sha = _interopRequireDefault(__nccwpck_require__(38844));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const v5 = (0, _v.default)('v5', 0x50, _sha.default);
+var _default = v5;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 92609:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _regex = _interopRequireDefault(__nccwpck_require__(86230));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function validate(uuid) {
+  return typeof uuid === 'string' && _regex.default.test(uuid);
+}
+
+var _default = validate;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 40427:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(92609));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function version(uuid) {
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Invalid UUID');
+  }
+
+  return parseInt(uuid.substr(14, 1), 16);
+}
+
+var _default = version;
+exports["default"] = _default;
 
 /***/ }),
 
@@ -3821,7 +4467,7 @@ class Manifest {
 }
 exports.Manifest = Manifest;
 _a = JSII_RTTI_SYMBOL_1;
-Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "2.133.0" };
+Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "2.134.0" };
 function mapValues(xs, fn) {
     if (!xs) {
         return undefined;
@@ -9008,13 +9654,16 @@ const DIFF_HANDLERS = {
  *      a stack which current state is described by +currentTemplate+ is updated with
  *      the template +newTemplate+.
  */
-function fullDiff(currentTemplate, newTemplate, changeSet) {
+function fullDiff(currentTemplate, newTemplate, changeSet, isImport) {
     normalize(currentTemplate);
     normalize(newTemplate);
     const theDiff = diffTemplate(currentTemplate, newTemplate);
     if (changeSet) {
         filterFalsePositives(theDiff, changeSet);
         addImportInformation(theDiff, changeSet);
+    }
+    else if (isImport) {
+        makeAllResourceChangesImports(theDiff);
     }
     return theDiff;
 }
@@ -9154,6 +9803,11 @@ function addImportInformation(diff, changeSet) {
         }
     });
 }
+function makeAllResourceChangesImports(diff) {
+    diff.resources.forEachDifference((_logicalId, change) => {
+        change.isImport = true;
+    });
+}
 function filterFalsePositives(diff, changeSet) {
     const replacements = findResourceReplacements(changeSet);
     diff.resources.forEachDifference((logicalId, change) => {
@@ -9258,7 +9912,7 @@ function normalize(template) {
         }
     }
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGlmZi10ZW1wbGF0ZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImRpZmYtdGVtcGxhdGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFHQSwrQkFBK0I7QUFDL0Isc0NBQXNDO0FBQ3RDLHNDQUFvRTtBQUVwRSwrQ0FBNkI7QUFLN0IsTUFBTSxhQUFhLEdBQW9CO0lBQ3JDLHdCQUF3QixFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyRCxJQUFJLENBQUMsd0JBQXdCLEdBQUcsSUFBSSxDQUFDLGFBQWEsQ0FBQyxRQUFRLEVBQUUsUUFBUSxDQUFDO0lBQ3hFLFdBQVcsRUFBRSxDQUFDLElBQUksRUFBRSxRQUFRLEVBQUUsUUFBUSxFQUFFLEVBQUUsQ0FDeEMsSUFBSSxDQUFDLFdBQVcsR0FBRyxJQUFJLENBQUMsYUFBYSxDQUFDLFFBQVEsRUFBRSxRQUFRLENBQUM7SUFDM0QsUUFBUSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsWUFBWSxDQUFDLENBQUM7SUFDMUcsVUFBVSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUN2QyxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7SUFDN0csUUFBUSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElB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QUFRLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQztpQkFDakM7cUJBQU0sSUFBSSxLQUFLLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQyxFQUFFO29CQUN2QyxRQUFRLENBQUMsR0FBRyxDQUFDLEdBQUcsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLElBQUksRUFBRSxDQUFDO2lCQUN0QztnQkFDRCxTQUFTO2FBQ1Y7WUFFRCxJQUFJLEtBQUssQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLEVBQUU7Z0JBQ2hDLEtBQUssTUFBTSxPQUFPLElBQUksQ0FBQyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUMsRUFBRTtvQkFDckMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxDQUFDO2lCQUNwQjthQUNGO2lCQUFNO2dCQUNMLFNBQVMsQ0FBQyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQzthQUMxQjtTQUNGO0tBQ0Y7QUFDSCxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLy8gVGhlIFNESyBpcyBvbmx5IHVzZWQgdG8gcmVmZXJlbmNlIGBEZXNjcmliZUNoYW5nZVNldE91dHB1dGAsIHNvIHRoZSBTREsgaXMgYWRkZWQgYXMgYSBkZXZEZXBlbmRlbmN5LlxuLy8gVGhlIFNESyBzaG91bGQgbm90IG1ha2UgbmV0d29yayBjYWxscyBoZXJlXG5pbXBvcnQgdHlwZSB7IENsb3VkRm9ybWF0aW9uIH0gZnJvbSAnYXdzLXNkayc7XG5pbXBvcnQgKiBhcyBpbXBsIGZyb20gJy4vZGlmZic7XG5pbXBvcnQgKiBhcyB0eXBlcyBmcm9tICcuL2RpZmYvdHlwZXMnO1xuaW1wb3J0IHsgZGVlcEVxdWFsLCBkaWZmS2V5ZWRFbnRpdGllcywgdW5pb25PZiB9IGZyb20gJy4vZGlmZi91dGlsJztcblxuZXhwb3J0ICogZnJvbSAnLi9kaWZmL3R5cGVzJztcblxudHlwZSBEaWZmSGFuZGxlciA9IChkaWZmOiB0eXBlcy5JVGVtcGxhdGVEaWZmLCBvbGRWYWx1ZTogYW55LCBuZXdWYWx1ZTogYW55KSA9PiB2b2lkO1xudHlwZSBIYW5kbGVyUmVnaXN0cnkgPSB7IFtzZWN0aW9uOiBzdHJpbmddOiBEaWZmSGFuZGxlciB9O1xuXG5jb25zdCBESUZGX0hBTkRMRVJTOiBIYW5kbGVyUmVnaXN0cnkgPSB7XG4gIEFXU1RlbXBsYXRlRm9ybWF0VmVyc2lvbjogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLmF3c1RlbXBsYXRlRm9ybWF0VmVyc2lvbiA9IGltcGwuZGlmZkF0dHJpYnV0ZShvbGRWYWx1ZSwgbmV3VmFsdWUpLFxuICBEZXNjcmlwdGlvbjogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLmRlc2NyaXB0aW9uID0gaW1wbC5kaWZmQXR0cmlidXRlKG9sZFZhbHVlLCBuZXdWYWx1ZSksXG4gIE1ldGFkYXRhOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYubWV0YWRhdGEgPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24oZGlmZktleWVkRW50aXRpZXMob2xkVmFsdWUsIG5ld1ZhbHVlLCBpbXBsLmRpZmZNZXRhZGF0YSkpLFxuICBQYXJhbWV0ZXJzOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYucGFyYW1ldGVycyA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbihkaWZmS2V5ZWRFbnRpdGllcyhvbGRWYWx1ZSwgbmV3VmFsdWUsIGltcGwuZGlmZlBhcmFtZXRlcikpLFxuICBNYXBwaW5nczogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLm1hcHBpbmdzID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKGRpZmZLZXllZEVudGl0aWVzKG9sZFZhbHVlLCBuZXdWYWx1ZSwgaW1wbC5kaWZmTWFwcGluZykpLFxuICBDb25kaXRpb25zOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYuY29uZGl0aW9ucyA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbihkaWZmS2V5ZWRFbnRpdGllcyhvbGRWYWx1ZSwgbmV3VmFsdWUsIGltcGwuZGlmZkNvbmRpdGlvbikpLFxuICBUcmFuc2Zvcm06IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi50cmFuc2Zvcm0gPSBpbXBsLmRpZmZBdHRyaWJ1dGUob2xkVmFsdWUsIG5ld1ZhbHVlKSxcbiAgUmVzb3VyY2VzOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYucmVzb3VyY2VzID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKGRpZmZLZXllZEVudGl0aWVzKG9sZFZhbHVlLCBuZXdWYWx1ZSwgaW1wbC5kaWZmUmVzb3VyY2UpKSxcbiAgT3V0cHV0czogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLm91dHB1dHMgPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24oZGlmZktleWVkRW50aXRpZXMob2xkVmFsdWUsIG5ld1ZhbHVlLCBpbXBsLmRpZmZPdXRwdXQpKSxcbn07XG5cbi8qKlxuICogQ29tcGFyZSB0d28gQ2xvdWRGb3JtYXRpb24gdGVtcGxhdGVzIGFuZCByZXR1cm4gc2VtYW50aWMgZGlmZmVyZW5jZXMgYmV0d2VlbiB0aGVtLlxuICpcbiAqIEBwYXJhbSBjdXJyZW50VGVtcGxhdGUgdGhlIGN1cnJlbnQgc3RhdGUgb2YgdGhlIHN0YWNrLlxuICogQHBhcmFtIG5ld1RlbXBsYXRlICAgICB0aGUgdGFyZ2V0IHN0YXRlIG9mIHRoZSBzdGFjay5cbiAqIEBwYXJhbSBjaGFuZ2VTZXQgICAgICAgdGhlIGNoYW5nZSBzZXQgZm9yIHRoaXMgc3RhY2suXG4gKlxuICogQHJldHVybnMgYSArdHlwZXMuVGVtcGxhdGVEaWZmKyBvYmplY3QgdGhhdCByZXByZXNlbnRzIHRoZSBjaGFuZ2VzIHRoYXQgd2lsbCBoYXBwZW4gaWZcbiAqICAgICAgYSBzdGFjayB3aGljaCBjdXJyZW50IHN0YXRlIGlzIGRlc2NyaWJlZCBieSArY3VycmVudFRlbXBsYXRlKyBpcyB1cGRhdGVkIHdpdGhcbiAqICAgICAgdGhlIHRlbXBsYXRlICtuZXdUZW1wbGF0ZSsuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBmdWxsRGlmZihcbiAgY3VycmVudFRlbXBsYXRlOiB7IFtrZXk6IHN0cmluZ106IGFueSB9LFxuICBuZXdUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSxcbiAgY2hhbmdlU2V0PzogQ2xvdWRGb3JtYXRpb24uRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXQsXG4pOiB0eXBlcy5UZW1wbGF0ZURpZmYge1xuXG4gIG5vcm1hbGl6ZShjdXJyZW50VGVtcGxhdGUpO1xuICBub3JtYWxpemUobmV3VGVtcGxhdGUpO1xuICBjb25zdCB0aGVEaWZmID0gZGlmZlRlbXBsYXRlKGN1cnJlbnRUZW1wbGF0ZSwgbmV3VGVtcGxhdGUpO1xuICBpZiAoY2hhbmdlU2V0KSB7XG4gICAgZmlsdGVyRmFsc2VQb3NpdGl2ZXModGhlRGlmZiwgY2hhbmdlU2V0KTtcbiAgICBhZGRJbXBvcnRJbmZvcm1hdGlvbih0aGVEaWZmLCBjaGFuZ2VTZXQpO1xuICB9XG5cbiAgcmV0dXJuIHRoZURpZmY7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBkaWZmVGVtcGxhdGUoXG4gIGN1cnJlbnRUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSxcbiAgbmV3VGVtcGxhdGU6IHsgW2tleTogc3RyaW5nXTogYW55IH0sXG4pOiB0eXBlcy5UZW1wbGF0ZURpZmYge1xuXG4gIC8vIEJhc2UgZGlmZlxuICBjb25zdCB0aGVEaWZmID0gY2FsY3VsYXRlVGVtcGxhdGVEaWZmKGN1cnJlbnRUZW1wbGF0ZSwgbmV3VGVtcGxhdGUpO1xuXG4gIC8vIFdlJ3JlIGdvaW5nIHRvIG1vZGlmeSB0aGlzIGluLXBsYWNlXG4gIGNvbnN0IG5ld1RlbXBsYXRlQ29weSA9IGRlZXBDb3B5KG5ld1RlbXBsYXRlKTtcblxuICBsZXQgZGlkUHJvcGFnYXRlUmVmZXJlbmNlQ2hhbmdlcztcbiAgbGV0IGRpZmZXaXRoUmVwbGFjZW1lbnRzO1xuICBkbyB7XG4gICAgZGlmZldpdGhSZXBsYWNlbWVudHMgPSBjYWxjdWxhdGVUZW1wbGF0ZURpZmYoY3VycmVudFRlbXBsYXRlLCBuZXdUZW1wbGF0ZUNvcHkpO1xuXG4gICAgLy8gUHJvcGFnYXRlIHJlcGxhY2VtZW50cyBmb3IgcmVwbGFjZWQgcmVzb3VyY2VzXG4gICAgZGlkUHJvcGFnYXRlUmVmZXJlbmNlQ2hhbmdlcyA9IGZhbHNlO1xuICAgIGlmIChkaWZmV2l0aFJlcGxhY2VtZW50cy5yZXNvdXJjZXMpIHtcbiAgICAgIGRpZmZXaXRoUmVwbGFjZW1lbnRzLnJlc291cmNlcy5mb3JFYWNoRGlmZmVyZW5jZSgobG9naWNhbElkLCBjaGFuZ2UpID0+IHtcbiAgICAgICAgaWYgKGNoYW5nZS5jaGFuZ2VJbXBhY3QgPT09IHR5cGVzLlJlc291cmNlSW1wYWN0LldJTExfUkVQTEFDRSkge1xuICAgICAgICAgIGlmIChwcm9wYWdhdGVSZXBsYWNlZFJlZmVyZW5jZXMobmV3VGVtcGxhdGVDb3B5LCBsb2dpY2FsSWQpKSB7XG4gICAgICAgICAgICBkaWRQcm9wYWdhdGVSZWZlcmVuY2VDaGFuZ2VzID0gdHJ1ZTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH0pO1xuICAgIH1cbiAgfSB3aGlsZSAoZGlkUHJvcGFnYXRlUmVmZXJlbmNlQ2hhbmdlcyk7XG5cbiAgLy8gQ29weSBcInJlcGxhY2VkXCIgc3RhdGVzIGZyb20gYGRpZmZXaXRoUmVwbGFjZW1lbnRzYCB0byBgdGhlRGlmZmAuXG4gIGRpZmZXaXRoUmVwbGFjZW1lbnRzLnJlc291cmNlc1xuICAgIC5maWx0ZXIociA9PiBpc1JlcGxhY2VtZW50KHIhLmNoYW5nZUltcGFjdCkpXG4gICAgLmZvckVhY2hEaWZmZXJlbmNlKChsb2dpY2FsSWQsIGRvd25zdHJlYW1SZXBsYWNlbWVudCkgPT4ge1xuICAgICAgY29uc3QgcmVzb3VyY2UgPSB0aGVEaWZmLnJlc291cmNlcy5nZXQobG9naWNhbElkKTtcblxuICAgICAgaWYgKHJlc291cmNlLmNoYW5nZUltcGFjdCAhPT0gZG93bnN0cmVhbVJlcGxhY2VtZW50LmNoYW5nZUltcGFjdCkge1xuICAgICAgICBwcm9wYWdhdGVQcm9wZXJ0eVJlcGxhY2VtZW50KGRvd25zdHJlYW1SZXBsYWNlbWVudCwgcmVzb3VyY2UpO1xuICAgICAgfVxuICAgIH0pO1xuXG4gIHJldHVybiB0aGVEaWZmO1xufVxuXG5mdW5jdGlvbiBpc1JlcGxhY2VtZW50KGltcGFjdDogdHlwZXMuUmVzb3VyY2VJbXBhY3QpIHtcbiAgcmV0dXJuIGltcGFjdCA9PT0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuTUFZX1JFUExBQ0UgfHwgaW1wYWN0ID09PSB0eXBlcy5SZXNvdXJjZUltcGFjdC5XSUxMX1JFUExBQ0U7XG59XG5cbi8qKlxuICogRm9yIGFsbCBwcm9wZXJ0aWVzIGluICdzb3VyY2UnIHRoYXQgaGF2ZSBhIFwicmVwbGFjZW1lbnRcIiBpbXBhY3QsIHByb3BhZ2F0ZSB0aGF0IGltcGFjdCB0byBcImRlc3RcIlxuICovXG5mdW5jdGlvbiBwcm9wYWdhdGVQcm9wZXJ0eVJlcGxhY2VtZW50KHNvdXJjZTogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlLCBkZXN0OiB0eXBlcy5SZXNvdXJjZURpZmZlcmVuY2UpIHtcbiAgZm9yIChjb25zdCBbcHJvcGVydHlOYW1lLCBkaWZmXSBvZiBPYmplY3QuZW50cmllcyhzb3VyY2UucHJvcGVydHlVcGRhdGVzKSkge1xuICAgIGlmIChkaWZmLmNoYW5nZUltcGFjdCAmJiBpc1JlcGxhY2VtZW50KGRpZmYuY2hhbmdlSW1wYWN0KSkge1xuICAgICAgLy8gVXNlIHRoZSBwcm9wZXJ0eWRpZmYgb2Ygc291cmNlIGluIHRhcmdldC4gVGhlIHJlc3VsdCBvZiB0aGlzIGhhcHBlbnMgdG8gYmUgY2xlYXIgZW5vdWdoLlxuICAgICAgZGVzdC5zZXRQcm9wZXJ0eUNoYW5nZShwcm9wZXJ0eU5hbWUsIGRpZmYpO1xuICAgIH1cbiAgfVxufVxuXG5mdW5jdGlvbiBjYWxjdWxhdGVUZW1wbGF0ZURpZmYoY3VycmVudFRlbXBsYXRlOiB7IFtrZXk6IHN0cmluZ106IGFueSB9LCBuZXdUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSk6IHR5cGVzLlRlbXBsYXRlRGlmZiB7XG4gIGNvbnN0IGRpZmZlcmVuY2VzOiB0eXBlcy5JVGVtcGxhdGVEaWZmID0ge307XG4gIGNvbnN0IHVua25vd246IHsgW2tleTogc3RyaW5nXTogdHlwZXMuRGlmZmVyZW5jZTxhbnk+IH0gPSB7fTtcbiAgZm9yIChjb25zdCBrZXkgb2YgdW5pb25PZihPYmplY3Qua2V5cyhjdXJyZW50VGVtcGxhdGUpLCBPYmplY3Qua2V5cyhuZXdUZW1wbGF0ZSkpLnNvcnQoKSkge1xuICAgIGNvbnN0IG9sZFZhbHVlID0gY3VycmVudFRlbXBsYXRlW2tleV07XG4gICAgY29uc3QgbmV3VmFsdWUgPSBuZXdUZW1wbGF0ZVtrZXldO1xuICAgIGlmIChkZWVwRXF1YWwob2xkVmFsdWUsIG5ld1ZhbHVlKSkge1xuICAgICAgY29udGludWU7XG4gICAgfVxuICAgIGNvbnN0IGhhbmRsZXI6IERpZmZIYW5kbGVyID0gRElGRl9IQU5ETEVSU1trZXldXG4gICAgICAgICAgICAgICAgICB8fCAoKF9kaWZmLCBvbGRWLCBuZXdWKSA9PiB1bmtub3duW2tleV0gPSBpbXBsLmRpZmZVbmtub3duKG9sZFYsIG5ld1YpKTtcbiAgICBoYW5kbGVyKGRpZmZlcmVuY2VzLCBvbGRWYWx1ZSwgbmV3VmFsdWUpO1xuICB9XG4gIGlmIChPYmplY3Qua2V5cyh1bmtub3duKS5sZW5ndGggPiAwKSB7XG4gICAgZGlmZmVyZW5jZXMudW5rbm93biA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbih1bmtub3duKTtcbiAgfVxuXG4gIHJldHVybiBuZXcgdHlwZXMuVGVtcGxhdGVEaWZmKGRpZmZlcmVuY2VzKTtcbn1cblxuLyoqXG4gKiBDb21wYXJlIHR3byBDbG91ZEZvcm1hdGlvbiByZXNvdXJjZXMgYW5kIHJldHVybiBzZW1hbnRpYyBkaWZmZXJlbmNlcyBiZXR3ZWVuIHRoZW1cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGRpZmZSZXNvdXJjZShvbGRWYWx1ZTogdHlwZXMuUmVzb3VyY2UsIG5ld1ZhbHVlOiB0eXBlcy5SZXNvdXJjZSk6IHR5cGVzLlJlc291cmNlRGlmZmVyZW5jZSB7XG4gIHJldHVybiBpbXBsLmRpZmZSZXNvdXJjZShvbGRWYWx1ZSwgbmV3VmFsdWUpO1xufVxuXG4vKipcbiAqIFJlcGxhY2UgYWxsIHJlZmVyZW5jZXMgdG8gdGhlIGdpdmVuIGxvZ2ljYWxJRCBvbiB0aGUgZ2l2ZW4gdGVtcGxhdGUsIGluLXBsYWNlXG4gKlxuICogUmV0dXJucyB0cnVlIGlmZiBhbnkgcmVmZXJlbmNlcyB3ZXJlIHJlcGxhY2VkLlxuICovXG5mdW5jdGlvbiBwcm9wYWdhdGVSZXBsYWNlZFJlZmVyZW5jZXModGVtcGxhdGU6IG9iamVjdCwgbG9naWNhbElkOiBzdHJpbmcpOiBib29sZWFuIHtcbiAgbGV0IHJldCA9IGZhbHNlO1xuXG4gIGZ1bmN0aW9uIHJlY3Vyc2Uob2JqOiBhbnkpIHtcbiAgICBpZiAoQXJyYXkuaXNBcnJheShvYmopKSB7XG4gICAgICBvYmouZm9yRWFjaChyZWN1cnNlKTtcbiAgICB9XG5cbiAgICBpZiAodHlwZW9mIG9iaiA9PT0gJ29iamVjdCcgJiYgb2JqICE9PSBudWxsKSB7XG4gICAgICBpZiAoIXJlcGxhY2VSZWZlcmVuY2Uob2JqKSkge1xuICAgICAgICBPYmplY3QudmFsdWVzKG9iaikuZm9yRWFjaChyZWN1cnNlKTtcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuICBmdW5jdGlvbiByZXBsYWNlUmVmZXJlbmNlKG9iajogYW55KSB7XG4gICAgY29uc3Qga2V5cyA9IE9iamVjdC5rZXlzKG9iaik7XG4gICAgaWYgKGtleXMubGVuZ3RoICE9PSAxKSB7IHJldHVybiBmYWxzZTsgfVxuICAgIGNvbnN0IGtleSA9IGtleXNbMF07XG5cbiAgICBpZiAoa2V5ID09PSAnUmVmJykge1xuICAgICAgaWYgKG9iai5SZWYgPT09IGxvZ2ljYWxJZCkge1xuICAgICAgICBvYmouUmVmID0gbG9naWNhbElkICsgJyAocmVwbGFjZWQpJztcbiAgICAgICAgcmV0ID0gdHJ1ZTtcbiAgICAgIH1cbiAgICAgIHJldHVybiB0cnVlO1xuICAgIH1cblxuICAgIGlmIChrZXkuc3RhcnRzV2l0aCgnRm46OicpKSB7XG4gICAgICBpZiAoQXJyYXkuaXNBcnJheShvYmpba2V5XSkgJiYgb2JqW2tleV0ubGVuZ3RoID4gMCAmJiBvYmpba2V5XVswXSA9PT0gbG9naWNhbElkKSB7XG4gICAgICAgIG9ialtrZXldWzBdID0gbG9naWNhbElkICsgJyhyZXBsYWNlZCknO1xuICAgICAgICByZXQgPSB0cnVlO1xuICAgICAgfVxuICAgICAgcmV0dXJuIHRydWU7XG4gICAgfVxuXG4gICAgcmV0dXJuIGZhbHNlO1xuICB9XG5cbiAgcmVjdXJzZSh0ZW1wbGF0ZSk7XG4gIHJldHVybiByZXQ7XG59XG5cbmZ1bmN0aW9uIGRlZXBDb3B5KHg6IGFueSk6IGFueSB7XG4gIGlmIChBcnJheS5pc0FycmF5KHgpKSB7XG4gICAgcmV0dXJuIHgubWFwKGRlZXBDb3B5KTtcbiAgfVxuXG4gIGlmICh0eXBlb2YgeCA9PT0gJ29iamVjdCcgJiYgeCAhPT0gbnVsbCkge1xuICAgIGNvbnN0IHJldDogYW55ID0ge307XG4gICAgZm9yIChjb25zdCBrZXkgb2YgT2JqZWN0LmtleXMoeCkpIHtcbiAgICAgIHJldFtrZXldID0gZGVlcENvcHkoeFtrZXldKTtcbiAgICB9XG4gICAgcmV0dXJuIHJldDtcbiAgfVxuXG4gIHJldHVybiB4O1xufVxuXG5mdW5jdGlvbiBhZGRJbXBvcnRJbmZvcm1hdGlvbihkaWZmOiB0eXBlcy5UZW1wbGF0ZURpZmYsIGNoYW5nZVNldDogQ2xvdWRGb3JtYXRpb24uRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXQpIHtcbiAgY29uc3QgaW1wb3J0cyA9IGZpbmRSZXNvdXJjZUltcG9ydHMoY2hhbmdlU2V0KTtcbiAgZGlmZi5yZXNvdXJjZXMuZm9yRWFjaERpZmZlcmVuY2UoKGxvZ2ljYWxJZDogc3RyaW5nLCBjaGFuZ2U6IHR5cGVzLlJlc291cmNlRGlmZmVyZW5jZSkgPT4ge1xuICAgIGlmIChpbXBvcnRzLmluY2x1ZGVzKGxvZ2ljYWxJZCkpIHtcbiAgICAgIGNoYW5nZS5pc0ltcG9ydCA9IHRydWU7XG4gICAgfVxuICB9KTtcbn1cblxuZnVuY3Rpb24gZmlsdGVyRmFsc2VQb3NpdGl2ZXMoZGlmZjogdHlwZXMuVGVtcGxhdGVEaWZmLCBjaGFuZ2VTZXQ6IENsb3VkRm9ybWF0aW9uLkRlc2NyaWJlQ2hhbmdlU2V0T3V0cHV0KSB7XG4gIGNvbnN0IHJlcGxhY2VtZW50cyA9IGZpbmRSZXNvdXJjZVJlcGxhY2VtZW50cyhjaGFuZ2VTZXQpO1xuICBkaWZmLnJlc291cmNlcy5mb3JFYWNoRGlmZmVyZW5jZSgobG9naWNhbElkOiBzdHJpbmcsIGNoYW5nZTogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlKSA9PiB7XG4gICAgaWYgKGNoYW5nZS5yZXNvdXJjZVR5cGUuaW5jbHVkZXMoJ0FXUzo6U2VydmVybGVzcycpKSB7XG4gICAgICAvLyBDRk4gYXBwbGllcyB0aGUgU0FNIHRyYW5zZm9ybSBiZWZvcmUgY3JlYXRpbmcgdGhlIGNoYW5nZXNldCwgc28gdGhlIGNoYW5nZXNldCBjb250YWlucyBubyBpbmZvcm1hdGlvbiBhYm91dCBTQU0gcmVzb3VyY2VzXG4gICAgICByZXR1cm47XG4gICAgfVxuICAgIGNoYW5nZS5mb3JFYWNoRGlmZmVyZW5jZSgodHlwZTogJ1Byb3BlcnR5JyB8ICdPdGhlcicsIG5hbWU6IHN0cmluZywgdmFsdWU6IHR5cGVzLkRpZmZlcmVuY2U8YW55PiB8IHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KSA9PiB7XG4gICAgICBpZiAodHlwZSA9PT0gJ1Byb3BlcnR5Jykge1xuICAgICAgICBpZiAoIXJlcGxhY2VtZW50c1tsb2dpY2FsSWRdKSB7XG4gICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5jaGFuZ2VJbXBhY3QgPSB0eXBlcy5SZXNvdXJjZUltcGFjdC5OT19DSEFOR0U7XG4gICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5pc0RpZmZlcmVudCA9IGZhbHNlO1xuICAgICAgICAgIHJldHVybjtcbiAgICAgICAgfVxuICAgICAgICBzd2l0Y2ggKHJlcGxhY2VtZW50c1tsb2dpY2FsSWRdLnByb3BlcnRpZXNSZXBsYWNlZFtuYW1lXSkge1xuICAgICAgICAgIGNhc2UgJ0Fsd2F5cyc6XG4gICAgICAgICAgICAodmFsdWUgYXMgdHlwZXMuUHJvcGVydHlEaWZmZXJlbmNlPGFueT4pLmNoYW5nZUltcGFjdCA9IHR5cGVzLlJlc291cmNlSW1wYWN0LldJTExfUkVQTEFDRTtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgJ05ldmVyJzpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuV0lMTF9VUERBVEU7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICBjYXNlICdDb25kaXRpb25hbGx5JzpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuTUFZX1JFUExBQ0U7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICBjYXNlIHVuZGVmaW5lZDpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuTk9fQ0hBTkdFO1xuICAgICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5pc0RpZmZlcmVudCA9IGZhbHNlO1xuICAgICAgICAgICAgYnJlYWs7XG4gICAgICAgICAgLy8gb3RoZXJ3aXNlLCBkZWZlciB0byB0aGUgY2hhbmdlSW1wYWN0IGZyb20gYGRpZmZUZW1wbGF0ZWBcbiAgICAgICAgfVxuICAgICAgfSBlbHNlIGlmICh0eXBlID09PSAnT3RoZXInKSB7XG4gICAgICAgIHN3aXRjaCAobmFtZSkge1xuICAgICAgICAgIGNhc2UgJ01ldGFkYXRhJzpcbiAgICAgICAgICAgIGNoYW5nZS5zZXRPdGhlckNoYW5nZSgnTWV0YWRhdGEnLCBuZXcgdHlwZXMuRGlmZmVyZW5jZTxzdHJpbmc+KHZhbHVlLm5ld1ZhbHVlLCB2YWx1ZS5uZXdWYWx1ZSkpO1xuICAgICAgICAgICAgYnJlYWs7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9KTtcbiAgfSk7XG59XG5cbmZ1bmN0aW9uIGZpbmRSZXNvdXJjZUltcG9ydHMoY2hhbmdlU2V0OiBDbG91ZEZvcm1hdGlvbi5EZXNjcmliZUNoYW5nZVNldE91dHB1dCk6IHN0cmluZ1tdIHtcbiAgY29uc3QgaW1wb3J0ZWRSZXNvdXJjZUxvZ2ljYWxJZHMgPSBbXTtcbiAgZm9yIChjb25zdCByZXNvdXJjZUNoYW5nZSBvZiBjaGFuZ2VTZXQuQ2hhbmdlcyA/PyBbXSkge1xuICAgIGlmIChyZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZT8uQWN0aW9uID09PSAnSW1wb3J0Jykge1xuICAgICAgaW1wb3J0ZWRSZXNvdXJjZUxvZ2ljYWxJZHMucHVzaChyZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZS5Mb2dpY2FsUmVzb3VyY2VJZCEpO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBpbXBvcnRlZFJlc291cmNlTG9naWNhbElkcztcbn1cblxuZnVuY3Rpb24gZmluZFJlc291cmNlUmVwbGFjZW1lbnRzKGNoYW5nZVNldDogQ2xvdWRGb3JtYXRpb24uRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXQpOiB0eXBlcy5SZXNvdXJjZVJlcGxhY2VtZW50cyB7XG4gIGNvbnN0IHJlcGxhY2VtZW50czogdHlwZXMuUmVzb3VyY2VSZXBsYWNlbWVudHMgPSB7fTtcbiAgZm9yIChjb25zdCByZXNvdXJjZUNoYW5nZSBvZiBjaGFuZ2VTZXQuQ2hhbmdlcyA/PyBbXSkge1xuICAgIGNvbnN0IHByb3BlcnRpZXNSZXBsYWNlZDogeyBbcHJvcE5hbWU6IHN0cmluZ106IHR5cGVzLkNoYW5nZVNldFJlcGxhY2VtZW50IH0gPSB7fTtcbiAgICBmb3IgKGNvbnN0IHByb3BlcnR5Q2hhbmdlIG9mIHJlc291cmNlQ2hhbmdlLlJlc291cmNlQ2hhbmdlPy5EZXRhaWxzID8/IFtdKSB7XG4gICAgICBpZiAocHJvcGVydHlDaGFuZ2UuVGFyZ2V0Py5BdHRyaWJ1dGUgPT09ICdQcm9wZXJ0aWVzJykge1xuICAgICAgICBjb25zdCByZXF1aXJlc1JlcGxhY2VtZW50ID0gcHJvcGVydHlDaGFuZ2UuVGFyZ2V0LlJlcXVpcmVzUmVjcmVhdGlvbiA9PT0gJ0Fsd2F5cyc7XG4gICAgICAgIGlmIChyZXF1aXJlc1JlcGxhY2VtZW50ICYmIHByb3BlcnR5Q2hhbmdlLkV2YWx1YXRpb24gPT09ICdTdGF0aWMnKSB7XG4gICAgICAgICAgcHJvcGVydGllc1JlcGxhY2VkW3Byb3BlcnR5Q2hhbmdlLlRhcmdldC5OYW1lIV0gPSAnQWx3YXlzJztcbiAgICAgICAgfSBlbHNlIGlmIChyZXF1aXJlc1JlcGxhY2VtZW50ICYmIHByb3BlcnR5Q2hhbmdlLkV2YWx1YXRpb24gPT09ICdEeW5hbWljJykge1xuICAgICAgICAgIC8vIElmIEV2YWx1YXRpb24gaXMgJ0R5bmFtaWMnLCB0aGVuIHRoaXMgbWF5IGNhdXNlIHJlcGxhY2VtZW50LCBvciBpdCBtYXkgbm90LlxuICAgICAgICAgIC8vIHNlZSAnUmVwbGFjZW1lbnQnOiBodHRwczovL2RvY3MuYXdzLmFtYXpvbi5jb20vQVdTQ2xvdWRGb3JtYXRpb24vbGF0ZXN0L0FQSVJlZmVyZW5jZS9BUElfUmVzb3VyY2VDaGFuZ2UuaHRtbFxuICAgICAgICAgIHByb3BlcnRpZXNSZXBsYWNlZFtwcm9wZXJ0eUNoYW5nZS5UYXJnZXQuTmFtZSFdID0gJ0NvbmRpdGlvbmFsbHknO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIHByb3BlcnRpZXNSZXBsYWNlZFtwcm9wZXJ0eUNoYW5nZS5UYXJnZXQuTmFtZSFdID0gcHJvcGVydHlDaGFuZ2UuVGFyZ2V0LlJlcXVpcmVzUmVjcmVhdGlvbiBhcyB0eXBlcy5DaGFuZ2VTZXRSZXBsYWNlbWVudDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgICByZXBsYWNlbWVudHNbcmVzb3VyY2VDaGFuZ2UuUmVzb3VyY2VDaGFuZ2U/LkxvZ2ljYWxSZXNvdXJjZUlkIV0gPSB7XG4gICAgICByZXNvdXJjZVJlcGxhY2VkOiByZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZT8uUmVwbGFjZW1lbnQgPT09ICdUcnVlJyxcbiAgICAgIHByb3BlcnRpZXNSZXBsYWNlZCxcbiAgICB9O1xuICB9XG5cbiAgcmV0dXJuIHJlcGxhY2VtZW50cztcbn1cblxuZnVuY3Rpb24gbm9ybWFsaXplKHRlbXBsYXRlOiBhbnkpIHtcbiAgaWYgKHR5cGVvZiB0ZW1wbGF0ZSA9PT0gJ29iamVjdCcpIHtcbiAgICBmb3IgKGNvbnN0IGtleSBvZiAoT2JqZWN0LmtleXModGVtcGxhdGUgPz8ge30pKSkge1xuICAgICAgaWYgKGtleSA9PT0gJ0ZuOjpHZXRBdHQnICYmIHR5cGVvZiB0ZW1wbGF0ZVtrZXldID09PSAnc3RyaW5nJykge1xuICAgICAgICB0ZW1wbGF0ZVtrZXldID0gdGVtcGxhdGVba2V5XS5zcGxpdCgnLicpO1xuICAgICAgICBjb250aW51ZTtcbiAgICAgIH0gZWxzZSBpZiAoa2V5ID09PSAnRGVwZW5kc09uJykge1xuICAgICAgICBpZiAodHlwZW9mIHRlbXBsYXRlW2tleV0gPT09ICdzdHJpbmcnKSB7XG4gICAgICAgICAgdGVtcGxhdGVba2V5XSA9IFt0ZW1wbGF0ZVtrZXldXTtcbiAgICAgICAgfSBlbHNlIGlmIChBcnJheS5pc0FycmF5KHRlbXBsYXRlW2tleV0pKSB7XG4gICAgICAgICAgdGVtcGxhdGVba2V5XSA9IHRlbXBsYXRlW2tleV0uc29ydCgpO1xuICAgICAgICB9XG4gICAgICAgIGNvbnRpbnVlO1xuICAgICAgfVxuXG4gICAgICBpZiAoQXJyYXkuaXNBcnJheSh0ZW1wbGF0ZVtrZXldKSkge1xuICAgICAgICBmb3IgKGNvbnN0IGVsZW1lbnQgb2YgKHRlbXBsYXRlW2tleV0pKSB7XG4gICAgICAgICAgbm9ybWFsaXplKGVsZW1lbnQpO1xuICAgICAgICB9XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBub3JtYWxpemUodGVtcGxhdGVba2V5XSk7XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGlmZi10ZW1wbGF0ZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImRpZmYtdGVtcGxhdGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFHQSwrQkFBK0I7QUFDL0Isc0NBQXNDO0FBQ3RDLHNDQUFvRTtBQUVwRSwrQ0FBNkI7QUFLN0IsTUFBTSxhQUFhLEdBQW9CO0lBQ3JDLHdCQUF3QixFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyRCxJQUFJLENBQUMsd0JBQXdCLEdBQUcsSUFBSSxDQUFDLGFBQWEsQ0FBQyxRQUFRLEVBQUUsUUFBUSxDQUFDO0lBQ3hFLFdBQVcsRUFBRSxDQUFDLElBQUksRUFBRSxRQUFRLEVBQUUsUUFBUSxFQUFFLEVBQUUsQ0FDeEMsSUFBSSxDQUFDLFdBQVcsR0FBRyxJQUFJLENBQUMsYUFBYSxDQUFDLFFBQVEsRUFBRSxRQUFRLENBQUM7SUFDM0QsUUFBUSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsWUFBWSxDQUFDLENBQUM7SUFDMUcsVUFBVSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUN2QyxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7SUFDN0csUUFBUSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsV0FBVyxDQUFDLENBQUM7SUFDekcsVUFBVSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUN2QyxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7SUFDN0csU0FBUyxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUN0QyxJQUFJLENBQUMsU0FBUyxHQUFHLElBQUksQ0FBQyxhQUFhLENBQUMsUUFBUSxFQUFFLFFBQVEsQ0FBQztJQUN6RCxTQUFTLEVBQUUsQ0FBQyxJQUFJLEVBQUUsUUFBUSxFQUFFLFFBQVEsRUFBRSxFQUFFLENBQ3RDLElBQUksQ0FBQyxTQUFTLEdBQUcsSUFBSSxLQUFLLENBQUMsb0JBQW9CLENBQUMsSUFBQSx3QkFBaUIsRUFBQyxRQUFRLEVBQUUsUUFBUSxFQUFFLElBQUksQ0FBQyxZQUFZLENBQUMsQ0FBQztJQUMzRyxPQUFPLEVBQUUsQ0FBQyxJQUFJLEVBQUUsUUFBUSxFQUFFLFFBQVEsRUFBRSxFQUFFLENBQ3BDLElBQUksQ0FBQyxPQUFPLEdBQUcsSUFBSSxLQUFLLENBQUMsb0JBQW9CLENBQUMsSUFBQSx3QkFBaUIsRUFBQyxRQUFRLEVBQUUsUUFBUSxFQUFFLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztDQUN4RyxDQUFDO0FBRUY7Ozs7Ozs7Ozs7R0FVRztBQUNILFNBQWdCLFFBQVEsQ0FDdEIsZUFBdUMsRUFDdkMsV0FBbUMsRUFDbkMsU0FBa0QsRUFDbEQsUUFBa0I7SUFHbEIsU0FBUyxDQUFDLGVBQWUsQ0FBQyxDQUFDO0lBQzNCLFNBQVMsQ0FBQyxXQUFXLENBQUMsQ0FBQztJQUN2QixNQUFNLE9BQU8sR0FBRyxZQUFZLENBQUMsZUFBZSxFQUFFLFdBQVcsQ0FBQyxDQUFDO0lBQzNELElBQUksU0FBUyxFQUFFO1FBQ2Isb0JBQW9CLENBQUMsT0FBTyxFQUFFLFNBQVMsQ0FBQyxDQUFDO1FBQ3pDLG9CQUFvQixDQUFDLE9BQU8sRUFBRSxTQUFTLENBQUMsQ0FBQztLQUMxQztTQUFNLElBQUksUUFBUSxFQUFFO1FBQ25CLDZCQUE2QixDQUFDLE9BQU8sQ0FBQyxDQUFDO0tBQ3hDO0lBRUQsT0FBTyxPQUFPLENBQUM7QUFDakIsQ0FBQztBQWxCRCw0QkFrQkM7QUFFRCxTQUFnQixZQUFZLENBQzFCLGVBQXVDLEVBQ3ZDLFdBQW1DO0lBR25DLFlBQVk7SUFDWixNQUFNLE9BQU8sR0FBRyxxQkFBcUIsQ0FBQyxlQUFlLEVBQUUsV0FBVyxDQUFDLENBQUM7SUFFcEUsc0NBQXNDO0lBQ3RDLE1BQU0sZUFBZSxHQUFHLFFBQVEsQ0FBQyxXQUFXLENBQUMsQ0FBQztJQUU5QyxJQUFJLDRCQUE0QixDQUFDO0lBQ2pDLElBQUksb0JBQW9CLENBQUM7SUFDekIsR0FBRztRQUNELG9CQUFvQixHQUFHLHFCQUFxQixDQUFDLGVBQWUsRUFBRSxlQUFlLENBQUMsQ0FBQztRQUUvRSxnREFBZ0Q7UUFDaEQsNEJBQTRCLEdBQUcsS0FBSyxDQUFDO1FBQ3JDLElBQUksb0JBQW9CLENBQUMsU0FBUyxFQUFFO1lBQ2xDLG9CQUFvQixDQUFDLFNBQVMsQ0FBQyxpQkFBaUIsQ0FBQyxDQUFDLFNBQVMsRUFBRSxNQUFNLEVBQUUsRUFBRTtnQkFDckUsSUFBSSxNQUFNLENBQUMsWUFBWSxLQUFLLEtBQUssQ0FBQyxjQUFjLENBQUMsWUFBWSxFQUFFO29CQUM3RCxJQUFJLDJCQUEyQixDQUFDLGVBQWUsRUFBRSxTQUFTLENBQUMsRUFBRTt3QkFDM0QsNEJBQTRCLEdBQUcsSUFBSSxDQUFDO3FCQUNyQztpQkFDRjtZQUNILENBQUMsQ0FBQyxDQUFDO1NBQ0o7S0FDRixRQUFRLDRCQUE0QixFQUFFO0lBRXZDLG1FQUFtRTtJQUNuRSxvQkFBb0IsQ0FBQyxTQUFTO1NBQzNCLE1BQU0sQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLGFBQWEsQ0FBQyxDQUFFLENBQUMsWUFBWSxDQUFDLENBQUM7U0FDM0MsaUJBQWlCLENBQUMsQ0FBQyxTQUFTLEVBQUUscUJBQXFCLEVBQUUsRUFBRTtRQUN0RCxNQUFNLFFBQVEsR0FBRyxPQUFPLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxTQUFTLENBQUMsQ0FBQztRQUVsRCxJQUFJLFFBQVEsQ0FBQyxZQUFZLEtBQUsscUJBQXFCLENBQUMsWUFBWSxFQUFFO1lBQ2hFLDRCQUE0QixDQUFDLHFCQUFxQixFQUFFLFFBQVEsQ0FBQyxDQUFDO1NBQy9EO0lBQ0gsQ0FBQyxDQUFDLENBQUM7SUFFTCxPQUFPLE9BQU8sQ0FBQztBQUNqQixDQUFDO0FBekNELG9DQXlDQztBQUVELFNBQVMsYUFBYSxDQUFDLE1BQTRCO0lBQ2pELE9BQU8sTUFBTSxLQUFLLEtBQUssQ0FBQyxjQUFjLENBQUMsV0FBVyxJQUFJLE1BQU0sS0FBSyxLQUFLLENBQUMsY0FBYyxDQUFDLFlBQVksQ0FBQztBQUNyRyxDQUFDO0FBRUQ7O0dBRUc7QUFDSCxTQUFTLDRCQUE0QixDQUFDLE1BQWdDLEVBQUUsSUFBOEI7SUFDcEcsS0FBSyxNQUFNLENBQUMsWUFBWSxFQUFFLElBQUksQ0FBQyxJQUFJLE1BQU0sQ0FBQyxPQUFPLENBQUMsTUFBTSxDQUFDLGVBQWUsQ0FBQyxFQUFFO1FBQ3pFLElBQUksSUFBSSxDQUFDLFlBQVksSUFBSSxhQUFhLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxFQUFFO1lBQ3pELDJGQUEyRjtZQUMzRixJQUFJLENBQUMsaUJBQWlCLENBQUMsWUFBWSxFQUFFLElBQUksQ0FBQyxDQUFDO1NBQzVDO0tBQ0Y7QUFDSCxDQUFDO0FBRUQsU0FBUyxxQkFBcUIsQ0FBQyxlQUF1QyxFQUFFLFdBQW1DO0lBQ3pHLE1BQU0sV0FBVyxHQUF3QixFQUFFLENBQUM7SUFDNUMsTUFBTSxPQUFPLEdBQTZDLEVBQUUsQ0FBQztJQUM3RCxLQUFLLE1BQU0sR0FBRyxJQUFJLElBQUEsY0FBTyxFQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsZUFBZSxDQUFDLEVBQUUsTUFBTSxDQUFDLElBQUksQ0FBQyxXQUFXLENBQUMsQ0FBQyxDQUFDLElBQUksRUFBRSxFQUFFO1FBQ3hGLE1BQU0sUUFBUSxHQUFHLGVBQWUsQ0FBQyxHQUFHLENBQUMsQ0FBQztRQUN0QyxNQUFNLFFBQVEsR0FBRyxXQUFXLENBQUMsR0FBRyxDQUFDLENBQUM7UUFDbEMsSUFBSSxJQUFBLGdCQUFTLEVBQUMsUUFBUSxFQUFFLFFBQVEsQ0FBQyxFQUFFO1lBQ2pDLFNBQVM7U0FDVjtRQUNELE1BQU0sT0FBTyxHQUFnQixhQUFhLENBQUMsR0FBRyxDQUFDO2VBQzlCLENBQUMsQ0FBQyxLQUFLLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxFQUFFLENBQUMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQyxXQUFXLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxDQUFDLENBQUM7UUFDdEYsT0FBTyxDQUFDLFdBQVcsRUFBRSxRQUFRLEVBQUUsUUFBUSxDQUFDLENBQUM7S0FDMUM7SUFDRCxJQUFJLE1BQU0sQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsTUFBTSxHQUFHLENBQUMsRUFBRTtRQUNuQyxXQUFXLENBQUMsT0FBTyxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLE9BQU8sQ0FBQyxDQUFDO0tBQy9EO0lBRUQsT0FBTyxJQUFJLEtBQUssQ0FBQyxZQUFZLENBQUMsV0FBVyxDQUFDLENBQUM7QUFDN0MsQ0FBQztBQUVEOztHQUVHO0FBQ0gsU0FBZ0IsWUFBWSxDQUFDLFFBQXdCLEVBQUUsUUFBd0I7SUFDN0UsT0FBTyxJQUFJLENBQUMsWUFBWSxDQUFDLFFBQVEsRUFBRSxRQUFRLENBQUMsQ0FBQztBQUMvQyxDQUFDO0FBRkQsb0NBRUM7QUFFRDs7OztHQUlHO0FBQ0gsU0FBUywyQkFBMkIsQ0FBQyxRQUFnQixFQUFFLFNBQWlCO0lBQ3RFLElBQUksR0FBRyxHQUFHLEtBQUssQ0FBQztJQUVoQixTQUFTLE9BQU8sQ0FBQyxHQUFRO1FBQ3ZCLElBQUksS0FBSyxDQUFDLE9BQU8sQ0FBQyxHQUFHLENBQUMsRUFBRTtZQUN0QixHQUFHLENBQUMsT0FBTyxDQUFDLE9BQU8sQ0FBQyxDQUFDO1NBQ3RCO1FBRUQsSUFBSSxPQUFPLEdBQUcsS0FBSyxRQUFRLElBQUksR0FBRyxLQUFLLElBQUksRUFBRTtZQUMzQyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsR0FBRyxDQUFDLEVBQUU7Z0JBQzFCLE1BQU0sQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLENBQUMsT0FBTyxDQUFDLE9BQU8sQ0FBQyxDQUFDO2FBQ3JDO1NBQ0Y7SUFDSCxDQUFDO0lBRUQsU0FBUyxnQkFBZ0IsQ0FBQyxHQUFRO1FBQ2hDLE1BQU0sSUFBSSxHQUFHLE1BQU0sQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUM7UUFDOUIsSUFBSSxJQUFJLENBQUMsTUFBTSxLQUFLLENBQUMsRUFBRTtZQUFFLE9BQU8sS0FBSyxDQUFDO1NBQUU7UUFDeEMsTUFBTSxHQUFHLEdBQUcsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBRXBCLElBQUksR0FBRyxLQUFLLEtBQUssRUFBRTtZQUNqQixJQUFJLEdBQUcsQ0FBQyxHQUFHLEtBQUssU0FBUyxFQUFFO2dCQUN6QixHQUFHLENBQUMsR0FBRyxHQUFHLFNBQVMsR0FBRyxhQUFhLENBQUM7Z0JBQ3BDLEdBQUcsR0FBRyxJQUFJLENBQUM7YUFDWjtZQUNELE9BQU8sSUFBSSxDQUFDO1NBQ2I7UUFFRCxJQUFJLEdBQUcsQ0FBQyxVQUFVLENBQUMsTUFBTSxDQUFDLEVBQUU7WUFDMUIsSUFBSSxLQUFLLENBQUMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQyxJQUFJLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQyxNQUFNLEdBQUcsQ0FBQyxJQUFJLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsS0FBSyxTQUFTLEVBQUU7Z0JBQy9FLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsR0FBRyxTQUFTLEdBQUcsWUFBWSxDQUFDO2dCQUN2QyxHQUFHLEdBQUcsSUFBSSxDQUFDO2FBQ1o7WUFDRCxPQUFPLElBQUksQ0FBQztTQUNiO1FBRUQsT0FBTyxLQUFLLENBQUM7SUFDZixDQUFDO0lBRUQsT0FBTyxDQUFDLFFBQVEsQ0FBQyxDQUFDO0lBQ2xCLE9BQU8sR0FBRyxDQUFDO0FBQ2IsQ0FBQztBQUVELFNBQVMsUUFBUSxDQUFDLENBQU07SUFDdEIsSUFBSSxLQUFLLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxFQUFFO1FBQ3BCLE9BQU8sQ0FBQyxDQUFDLEdBQUcsQ0FBQyxRQUFRLENBQUMsQ0FBQztLQUN4QjtJQUVELElBQUksT0FBTyxDQUFDLEtBQUssUUFBUSxJQUFJLENBQUMsS0FBSyxJQUFJLEVBQUU7UUFDdkMsTUFBTSxHQUFHLEdBQVEsRUFBRSxDQUFDO1FBQ3BCLEtBQUssTUFBTSxHQUFHLElBQUksTUFBTSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsRUFBRTtZQUNoQyxHQUFHLENBQUMsR0FBRyxDQUFDLEdBQUcsUUFBUSxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO1NBQzdCO1FBQ0QsT0FBTyxHQUFHLENBQUM7S0FDWjtJQUVELE9BQU8sQ0FBQyxDQUFDO0FBQ1gsQ0FBQztBQUVELFNBQVMsb0JBQW9CLENBQUMsSUFBd0IsRUFBRSxTQUFpRDtJQUN2RyxNQUFNLE9BQU8sR0FBRyxtQkFBbUIsQ0FBQyxTQUFTLENBQUMsQ0FBQztJQUMvQyxJQUFJLENBQUMsU0FBUyxDQUFDLGlCQUFpQixDQUFDLENBQUMsU0FBaUIsRUFBRSxNQUFnQyxFQUFFLEVBQUU7UUFDdkYsSUFBSSxPQUFPLENBQUMsUUFBUSxDQUFDLFNBQVMsQ0FBQyxFQUFFO1lBQy9CLE1BQU0sQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO1NBQ3hCO0lBQ0gsQ0FBQyxDQUFDLENBQUM7QUFDTCxDQUFDO0FBRUQsU0FBUyw2QkFBNkIsQ0FBQyxJQUF3QjtJQUM3RCxJQUFJLENBQUMsU0FBUyxDQUFDLGlCQUFpQixDQUFDLENBQUMsVUFBa0IsRUFBRSxNQUFnQyxFQUFFLEVBQUU7UUFDeEYsTUFBTSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7SUFDekIsQ0FBQyxDQUFDLENBQUM7QUFDTCxDQUFDO0FBRUQsU0FBUyxvQkFBb0IsQ0FBQyxJQUF3QixFQUFFLFNBQWlEO0lBQ3ZHLE1BQU0sWUFBWSxHQUFHLHdCQUF3QixDQUFDLFNBQVMsQ0FBQyxDQUFDO0lBQ3pELElBQUksQ0FBQyxTQUFTLENBQUMsaUJBQWlCLENBQUMsQ0FBQyxTQUFpQixFQUFFLE1BQWdDLEVBQUUsRUFBRTtRQUN2RixJQUFJLE1BQU0sQ0FBQyxZQUFZLENBQUMsUUFBUSxDQUFDLGlCQUFpQixDQUFDLEVBQUU7WUFDbkQsNEhBQTRIO1lBQzVILE9BQU87U0FDUjtRQUNELE1BQU0sQ0FBQyxpQkFBaUIsQ0FBQyxDQUFDLElBQTBCLEVBQUUsSUFBWSxFQUFFLEtBQTRELEVBQUUsRUFBRTtZQUNsSSxJQUFJLElBQUksS0FBSyxVQUFVLEVBQUU7Z0JBQ3ZCLElBQUksQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLEVBQUU7b0JBQzNCLEtBQXVDLENBQUMsWUFBWSxHQUFHLEtBQUssQ0FBQyxjQUFjLENBQUMsU0FBUyxDQUFDO29CQUN0RixLQUF1QyxDQUFDLFdBQVcsR0FBRyxLQUFLLENBQUM7b0JBQzdELE9BQU87aUJBQ1I7Z0JBQ0QsUUFBUSxZQUFZLENBQUMsU0FBUyxDQUFDLENBQUMsa0JBQWtCLENBQUMsSUFBSSxDQUFDLEVBQUU7b0JBQ3hELEtBQUssUUFBUTt3QkFDVixLQUF1QyxDQUFDLFlBQVksR0FBRyxLQUFLLENBQUMsY0FBYyxDQUFDLFlBQVksQ0FBQzt3QkFDMUYsTUFBTTtvQkFDUixLQUFLLE9BQU87d0JBQ1QsS0FBdUMsQ0FBQyxZQUFZLEdBQUcsS0FBSyxDQUFDLGNBQWMsQ0FBQyxXQUFXLENBQUM7d0JBQ3pGLE1BQU07b0JBQ1IsS0FBSyxlQUFlO3dCQUNqQixLQUF1QyxDQUFDLFlBQVksR0FBRyxLQUFLLENBQUMsY0FBYyxDQUFDLFdBQVcsQ0FBQzt3QkFDekYsTUFBTTtvQkFDUixLQUFLLFNBQVM7d0JBQ1gsS0FBdUMsQ0FBQyxZQUFZLEdBQUcsS0FBSyxDQUFDLGNBQWMsQ0FBQyxTQUFTLENBQUM7d0JBQ3RGLEtBQXVDLENBQUMsV0FBVyxHQUFHLEtBQUssQ0FBQzt3QkFDN0QsTUFBTTtvQkFDUiwyREFBMkQ7aUJBQzVEO2FBQ0Y7aUJBQU0sSUFBSSxJQUFJLEtBQUssT0FBTyxFQUFFO2dCQUMzQixRQUFRLElBQUksRUFBRTtvQkFDWixLQUFLLFVBQVU7d0JBQ2IsTUFBTSxDQUFDLGNBQWMsQ0FBQyxVQUFVLEVBQUUsSUFBSSxLQUFLLENBQUMsVUFBVSxDQUFTLEtBQUssQ0FBQyxRQUFRLEVBQUUsS0FBSyxDQUFDLFFBQVEsQ0FBQyxDQUFDLENBQUM7d0JBQ2hHLE1BQU07aUJBQ1Q7YUFDRjtRQUNILENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQyxDQUFDLENBQUM7QUFDTCxDQUFDO0FBRUQsU0FBUyxtQkFBbUIsQ0FBQyxTQUFpRDtJQUM1RSxNQUFNLDBCQUEwQixHQUFHLEVBQUUsQ0FBQztJQUN0QyxLQUFLLE1BQU0sY0FBYyxJQUFJLFNBQVMsQ0FBQyxPQUFPLElBQUksRUFBRSxFQUFFO1FBQ3BELElBQUksY0FBYyxDQUFDLGNBQWMsRUFBRSxNQUFNLEtBQUssUUFBUSxFQUFFO1lBQ3RELDBCQUEwQixDQUFDLElBQUksQ0FBQyxjQUFjLENBQUMsY0FBYyxDQUFDLGlCQUFrQixDQUFDLENBQUM7U0FDbkY7S0FDRjtJQUVELE9BQU8sMEJBQTBCLENBQUM7QUFDcEMsQ0FBQztBQUVELFNBQVMsd0JBQXdCLENBQUMsU0FBaUQ7SUFDakYsTUFBTSxZQUFZLEdBQStCLEVBQUUsQ0FBQztJQUNwRCxLQUFLLE1BQU0sY0FBYyxJQUFJLFNBQVMsQ0FBQyxPQUFPLElBQUksRUFBRSxFQUFFO1FBQ3BELE1BQU0sa0JBQWtCLEdBQXVELEVBQUUsQ0FBQztRQUNsRixLQUFLLE1BQU0sY0FBYyxJQUFJLGNBQWMsQ0FBQyxjQUFjLEVBQUUsT0FBTyxJQUFJLEVBQUUsRUFBRTtZQUN6RSxJQUFJLGNBQWMsQ0FBQyxNQUFNLEVBQUUsU0FBUyxLQUFLLFlBQVksRUFBRTtnQkFDckQsTUFBTSxtQkFBbUIsR0FBRyxjQUFjLENBQUMsTUFBTSxDQUFDLGtCQUFrQixLQUFLLFFBQVEsQ0FBQztnQkFDbEYsSUFBSSxtQkFBbUIsSUFBSSxjQUFjLENBQUMsVUFBVSxLQUFLLFFBQVEsRUFBRTtvQkFDakUsa0JBQWtCLENBQUMsY0FBYyxDQUFDLE1BQU0sQ0FBQyxJQUFLLENBQUMsR0FBRyxRQUFRLENBQUM7aUJBQzVEO3FCQUFNLElBQUksbUJBQW1CLElBQUksY0FBYyxDQUFDLFVBQVUsS0FBSyxTQUFTLEVBQUU7b0JBQ3pFLDhFQUE4RTtvQkFDOUUsK0dBQStHO29CQUMvRyxrQkFBa0IsQ0FBQyxjQUFjLENBQUMsTUFBTSxDQUFDLElBQUssQ0FBQyxHQUFHLGVBQWUsQ0FBQztpQkFDbkU7cUJBQU07b0JBQ0wsa0JBQWtCLENBQUMsY0FBYyxDQUFDLE1BQU0sQ0FBQyxJQUFLLENBQUMsR0FBRyxjQUFjLENBQUMsTUFBTSxDQUFDLGtCQUFnRCxDQUFDO2lCQUMxSDthQUNGO1NBQ0Y7UUFDRCxZQUFZLENBQUMsY0FBYyxDQUFDLGNBQWMsRUFBRSxpQkFBa0IsQ0FBQyxHQUFHO1lBQ2hFLGdCQUFnQixFQUFFLGNBQWMsQ0FBQyxjQUFjLEVBQUUsV0FBVyxLQUFLLE1BQU07WUFDdkUsa0JBQWtCO1NBQ25CLENBQUM7S0FDSDtJQUVELE9BQU8sWUFBWSxDQUFDO0FBQ3RCLENBQUM7QUFFRCxTQUFTLFNBQVMsQ0FBQyxRQUFhO0lBQzlCLElBQUksT0FBTyxRQUFRLEtBQUssUUFBUSxFQUFFO1FBQ2hDLEtBQUssTUFBTSxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLFFBQVEsSUFBSSxFQUFFLENBQUMsQ0FBQyxFQUFFO1lBQy9DLElBQUksR0FBRyxLQUFLLFlBQVksSUFBSSxPQUFPLFFBQVEsQ0FBQyxHQUFHLENBQUMsS0FBSyxRQUFRLEVBQUU7Z0JBQzdELFFBQVEsQ0FBQyxHQUFHLENBQUMsR0FBRyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDO2dCQUN6QyxTQUFTO2FBQ1Y7aUJBQU0sSUFBSSxHQUFHLEtBQUssV0FBVyxFQUFFO2dCQUM5QixJQUFJLE9BQU8sUUFBUSxDQUFDLEdBQUcsQ0FBQyxLQUFLLFFBQVEsRUFBRTtvQkFDckMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7aUJBQ2pDO3FCQUFNLElBQUksS0FBSyxDQUFDLE9BQU8sQ0FBQyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUMsRUFBRTtvQkFDdkMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxHQUFHLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQyxJQUFJLEVBQUUsQ0FBQztpQkFDdEM7Z0JBQ0QsU0FBUzthQUNWO1lBRUQsSUFBSSxLQUFLLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQyxFQUFFO2dCQUNoQyxLQUFLLE1BQU0sT0FBTyxJQUFJLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLEVBQUU7b0JBQ3JDLFNBQVMsQ0FBQyxPQUFPLENBQUMsQ0FBQztpQkFDcEI7YUFDRjtpQkFBTTtnQkFDTCxTQUFTLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7YUFDMUI7U0FDRjtLQUNGO0FBQ0gsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8vIFRoZSBTREsgaXMgb25seSB1c2VkIHRvIHJlZmVyZW5jZSBgRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXRgLCBzbyB0aGUgU0RLIGlzIGFkZGVkIGFzIGEgZGV2RGVwZW5kZW5jeS5cbi8vIFRoZSBTREsgc2hvdWxkIG5vdCBtYWtlIG5ldHdvcmsgY2FsbHMgaGVyZVxuaW1wb3J0IHR5cGUgeyBDbG91ZEZvcm1hdGlvbiB9IGZyb20gJ2F3cy1zZGsnO1xuaW1wb3J0ICogYXMgaW1wbCBmcm9tICcuL2RpZmYnO1xuaW1wb3J0ICogYXMgdHlwZXMgZnJvbSAnLi9kaWZmL3R5cGVzJztcbmltcG9ydCB7IGRlZXBFcXVhbCwgZGlmZktleWVkRW50aXRpZXMsIHVuaW9uT2YgfSBmcm9tICcuL2RpZmYvdXRpbCc7XG5cbmV4cG9ydCAqIGZyb20gJy4vZGlmZi90eXBlcyc7XG5cbnR5cGUgRGlmZkhhbmRsZXIgPSAoZGlmZjogdHlwZXMuSVRlbXBsYXRlRGlmZiwgb2xkVmFsdWU6IGFueSwgbmV3VmFsdWU6IGFueSkgPT4gdm9pZDtcbnR5cGUgSGFuZGxlclJlZ2lzdHJ5ID0geyBbc2VjdGlvbjogc3RyaW5nXTogRGlmZkhhbmRsZXIgfTtcblxuY29uc3QgRElGRl9IQU5ETEVSUzogSGFuZGxlclJlZ2lzdHJ5ID0ge1xuICBBV1NUZW1wbGF0ZUZvcm1hdFZlcnNpb246IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi5hd3NUZW1wbGF0ZUZvcm1hdFZlcnNpb24gPSBpbXBsLmRpZmZBdHRyaWJ1dGUob2xkVmFsdWUsIG5ld1ZhbHVlKSxcbiAgRGVzY3JpcHRpb246IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi5kZXNjcmlwdGlvbiA9IGltcGwuZGlmZkF0dHJpYnV0ZShvbGRWYWx1ZSwgbmV3VmFsdWUpLFxuICBNZXRhZGF0YTogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLm1ldGFkYXRhID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKGRpZmZLZXllZEVudGl0aWVzKG9sZFZhbHVlLCBuZXdWYWx1ZSwgaW1wbC5kaWZmTWV0YWRhdGEpKSxcbiAgUGFyYW1ldGVyczogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLnBhcmFtZXRlcnMgPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24oZGlmZktleWVkRW50aXRpZXMob2xkVmFsdWUsIG5ld1ZhbHVlLCBpbXBsLmRpZmZQYXJhbWV0ZXIpKSxcbiAgTWFwcGluZ3M6IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi5tYXBwaW5ncyA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbihkaWZmS2V5ZWRFbnRpdGllcyhvbGRWYWx1ZSwgbmV3VmFsdWUsIGltcGwuZGlmZk1hcHBpbmcpKSxcbiAgQ29uZGl0aW9uczogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLmNvbmRpdGlvbnMgPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24oZGlmZktleWVkRW50aXRpZXMob2xkVmFsdWUsIG5ld1ZhbHVlLCBpbXBsLmRpZmZDb25kaXRpb24pKSxcbiAgVHJhbnNmb3JtOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYudHJhbnNmb3JtID0gaW1wbC5kaWZmQXR0cmlidXRlKG9sZFZhbHVlLCBuZXdWYWx1ZSksXG4gIFJlc291cmNlczogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLnJlc291cmNlcyA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbihkaWZmS2V5ZWRFbnRpdGllcyhvbGRWYWx1ZSwgbmV3VmFsdWUsIGltcGwuZGlmZlJlc291cmNlKSksXG4gIE91dHB1dHM6IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi5vdXRwdXRzID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKGRpZmZLZXllZEVudGl0aWVzKG9sZFZhbHVlLCBuZXdWYWx1ZSwgaW1wbC5kaWZmT3V0cHV0KSksXG59O1xuXG4vKipcbiAqIENvbXBhcmUgdHdvIENsb3VkRm9ybWF0aW9uIHRlbXBsYXRlcyBhbmQgcmV0dXJuIHNlbWFudGljIGRpZmZlcmVuY2VzIGJldHdlZW4gdGhlbS5cbiAqXG4gKiBAcGFyYW0gY3VycmVudFRlbXBsYXRlIHRoZSBjdXJyZW50IHN0YXRlIG9mIHRoZSBzdGFjay5cbiAqIEBwYXJhbSBuZXdUZW1wbGF0ZSAgICAgdGhlIHRhcmdldCBzdGF0ZSBvZiB0aGUgc3RhY2suXG4gKiBAcGFyYW0gY2hhbmdlU2V0ICAgICAgIHRoZSBjaGFuZ2Ugc2V0IGZvciB0aGlzIHN0YWNrLlxuICpcbiAqIEByZXR1cm5zIGEgK3R5cGVzLlRlbXBsYXRlRGlmZisgb2JqZWN0IHRoYXQgcmVwcmVzZW50cyB0aGUgY2hhbmdlcyB0aGF0IHdpbGwgaGFwcGVuIGlmXG4gKiAgICAgIGEgc3RhY2sgd2hpY2ggY3VycmVudCBzdGF0ZSBpcyBkZXNjcmliZWQgYnkgK2N1cnJlbnRUZW1wbGF0ZSsgaXMgdXBkYXRlZCB3aXRoXG4gKiAgICAgIHRoZSB0ZW1wbGF0ZSArbmV3VGVtcGxhdGUrLlxuICovXG5leHBvcnQgZnVuY3Rpb24gZnVsbERpZmYoXG4gIGN1cnJlbnRUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSxcbiAgbmV3VGVtcGxhdGU6IHsgW2tleTogc3RyaW5nXTogYW55IH0sXG4gIGNoYW5nZVNldD86IENsb3VkRm9ybWF0aW9uLkRlc2NyaWJlQ2hhbmdlU2V0T3V0cHV0LFxuICBpc0ltcG9ydD86IGJvb2xlYW4sXG4pOiB0eXBlcy5UZW1wbGF0ZURpZmYge1xuXG4gIG5vcm1hbGl6ZShjdXJyZW50VGVtcGxhdGUpO1xuICBub3JtYWxpemUobmV3VGVtcGxhdGUpO1xuICBjb25zdCB0aGVEaWZmID0gZGlmZlRlbXBsYXRlKGN1cnJlbnRUZW1wbGF0ZSwgbmV3VGVtcGxhdGUpO1xuICBpZiAoY2hhbmdlU2V0KSB7XG4gICAgZmlsdGVyRmFsc2VQb3NpdGl2ZXModGhlRGlmZiwgY2hhbmdlU2V0KTtcbiAgICBhZGRJbXBvcnRJbmZvcm1hdGlvbih0aGVEaWZmLCBjaGFuZ2VTZXQpO1xuICB9IGVsc2UgaWYgKGlzSW1wb3J0KSB7XG4gICAgbWFrZUFsbFJlc291cmNlQ2hhbmdlc0ltcG9ydHModGhlRGlmZik7XG4gIH1cblxuICByZXR1cm4gdGhlRGlmZjtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGRpZmZUZW1wbGF0ZShcbiAgY3VycmVudFRlbXBsYXRlOiB7IFtrZXk6IHN0cmluZ106IGFueSB9LFxuICBuZXdUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSxcbik6IHR5cGVzLlRlbXBsYXRlRGlmZiB7XG5cbiAgLy8gQmFzZSBkaWZmXG4gIGNvbnN0IHRoZURpZmYgPSBjYWxjdWxhdGVUZW1wbGF0ZURpZmYoY3VycmVudFRlbXBsYXRlLCBuZXdUZW1wbGF0ZSk7XG5cbiAgLy8gV2UncmUgZ29pbmcgdG8gbW9kaWZ5IHRoaXMgaW4tcGxhY2VcbiAgY29uc3QgbmV3VGVtcGxhdGVDb3B5ID0gZGVlcENvcHkobmV3VGVtcGxhdGUpO1xuXG4gIGxldCBkaWRQcm9wYWdhdGVSZWZlcmVuY2VDaGFuZ2VzO1xuICBsZXQgZGlmZldpdGhSZXBsYWNlbWVudHM7XG4gIGRvIHtcbiAgICBkaWZmV2l0aFJlcGxhY2VtZW50cyA9IGNhbGN1bGF0ZVRlbXBsYXRlRGlmZihjdXJyZW50VGVtcGxhdGUsIG5ld1RlbXBsYXRlQ29weSk7XG5cbiAgICAvLyBQcm9wYWdhdGUgcmVwbGFjZW1lbnRzIGZvciByZXBsYWNlZCByZXNvdXJjZXNcbiAgICBkaWRQcm9wYWdhdGVSZWZlcmVuY2VDaGFuZ2VzID0gZmFsc2U7XG4gICAgaWYgKGRpZmZXaXRoUmVwbGFjZW1lbnRzLnJlc291cmNlcykge1xuICAgICAgZGlmZldpdGhSZXBsYWNlbWVudHMucmVzb3VyY2VzLmZvckVhY2hEaWZmZXJlbmNlKChsb2dpY2FsSWQsIGNoYW5nZSkgPT4ge1xuICAgICAgICBpZiAoY2hhbmdlLmNoYW5nZUltcGFjdCA9PT0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuV0lMTF9SRVBMQUNFKSB7XG4gICAgICAgICAgaWYgKHByb3BhZ2F0ZVJlcGxhY2VkUmVmZXJlbmNlcyhuZXdUZW1wbGF0ZUNvcHksIGxvZ2ljYWxJZCkpIHtcbiAgICAgICAgICAgIGRpZFByb3BhZ2F0ZVJlZmVyZW5jZUNoYW5nZXMgPSB0cnVlO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfSk7XG4gICAgfVxuICB9IHdoaWxlIChkaWRQcm9wYWdhdGVSZWZlcmVuY2VDaGFuZ2VzKTtcblxuICAvLyBDb3B5IFwicmVwbGFjZWRcIiBzdGF0ZXMgZnJvbSBgZGlmZldpdGhSZXBsYWNlbWVudHNgIHRvIGB0aGVEaWZmYC5cbiAgZGlmZldpdGhSZXBsYWNlbWVudHMucmVzb3VyY2VzXG4gICAgLmZpbHRlcihyID0+IGlzUmVwbGFjZW1lbnQociEuY2hhbmdlSW1wYWN0KSlcbiAgICAuZm9yRWFjaERpZmZlcmVuY2UoKGxvZ2ljYWxJZCwgZG93bnN0cmVhbVJlcGxhY2VtZW50KSA9PiB7XG4gICAgICBjb25zdCByZXNvdXJjZSA9IHRoZURpZmYucmVzb3VyY2VzLmdldChsb2dpY2FsSWQpO1xuXG4gICAgICBpZiAocmVzb3VyY2UuY2hhbmdlSW1wYWN0ICE9PSBkb3duc3RyZWFtUmVwbGFjZW1lbnQuY2hhbmdlSW1wYWN0KSB7XG4gICAgICAgIHByb3BhZ2F0ZVByb3BlcnR5UmVwbGFjZW1lbnQoZG93bnN0cmVhbVJlcGxhY2VtZW50LCByZXNvdXJjZSk7XG4gICAgICB9XG4gICAgfSk7XG5cbiAgcmV0dXJuIHRoZURpZmY7XG59XG5cbmZ1bmN0aW9uIGlzUmVwbGFjZW1lbnQoaW1wYWN0OiB0eXBlcy5SZXNvdXJjZUltcGFjdCkge1xuICByZXR1cm4gaW1wYWN0ID09PSB0eXBlcy5SZXNvdXJjZUltcGFjdC5NQVlfUkVQTEFDRSB8fCBpbXBhY3QgPT09IHR5cGVzLlJlc291cmNlSW1wYWN0LldJTExfUkVQTEFDRTtcbn1cblxuLyoqXG4gKiBGb3IgYWxsIHByb3BlcnRpZXMgaW4gJ3NvdXJjZScgdGhhdCBoYXZlIGEgXCJyZXBsYWNlbWVudFwiIGltcGFjdCwgcHJvcGFnYXRlIHRoYXQgaW1wYWN0IHRvIFwiZGVzdFwiXG4gKi9cbmZ1bmN0aW9uIHByb3BhZ2F0ZVByb3BlcnR5UmVwbGFjZW1lbnQoc291cmNlOiB0eXBlcy5SZXNvdXJjZURpZmZlcmVuY2UsIGRlc3Q6IHR5cGVzLlJlc291cmNlRGlmZmVyZW5jZSkge1xuICBmb3IgKGNvbnN0IFtwcm9wZXJ0eU5hbWUsIGRpZmZdIG9mIE9iamVjdC5lbnRyaWVzKHNvdXJjZS5wcm9wZXJ0eVVwZGF0ZXMpKSB7XG4gICAgaWYgKGRpZmYuY2hhbmdlSW1wYWN0ICYmIGlzUmVwbGFjZW1lbnQoZGlmZi5jaGFuZ2VJbXBhY3QpKSB7XG4gICAgICAvLyBVc2UgdGhlIHByb3BlcnR5ZGlmZiBvZiBzb3VyY2UgaW4gdGFyZ2V0LiBUaGUgcmVzdWx0IG9mIHRoaXMgaGFwcGVucyB0byBiZSBjbGVhciBlbm91Z2guXG4gICAgICBkZXN0LnNldFByb3BlcnR5Q2hhbmdlKHByb3BlcnR5TmFtZSwgZGlmZik7XG4gICAgfVxuICB9XG59XG5cbmZ1bmN0aW9uIGNhbGN1bGF0ZVRlbXBsYXRlRGlmZihjdXJyZW50VGVtcGxhdGU6IHsgW2tleTogc3RyaW5nXTogYW55IH0sIG5ld1RlbXBsYXRlOiB7IFtrZXk6IHN0cmluZ106IGFueSB9KTogdHlwZXMuVGVtcGxhdGVEaWZmIHtcbiAgY29uc3QgZGlmZmVyZW5jZXM6IHR5cGVzLklUZW1wbGF0ZURpZmYgPSB7fTtcbiAgY29uc3QgdW5rbm93bjogeyBba2V5OiBzdHJpbmddOiB0eXBlcy5EaWZmZXJlbmNlPGFueT4gfSA9IHt9O1xuICBmb3IgKGNvbnN0IGtleSBvZiB1bmlvbk9mKE9iamVjdC5rZXlzKGN1cnJlbnRUZW1wbGF0ZSksIE9iamVjdC5rZXlzKG5ld1RlbXBsYXRlKSkuc29ydCgpKSB7XG4gICAgY29uc3Qgb2xkVmFsdWUgPSBjdXJyZW50VGVtcGxhdGVba2V5XTtcbiAgICBjb25zdCBuZXdWYWx1ZSA9IG5ld1RlbXBsYXRlW2tleV07XG4gICAgaWYgKGRlZXBFcXVhbChvbGRWYWx1ZSwgbmV3VmFsdWUpKSB7XG4gICAgICBjb250aW51ZTtcbiAgICB9XG4gICAgY29uc3QgaGFuZGxlcjogRGlmZkhhbmRsZXIgPSBESUZGX0hBTkRMRVJTW2tleV1cbiAgICAgICAgICAgICAgICAgIHx8ICgoX2RpZmYsIG9sZFYsIG5ld1YpID0+IHVua25vd25ba2V5XSA9IGltcGwuZGlmZlVua25vd24ob2xkViwgbmV3VikpO1xuICAgIGhhbmRsZXIoZGlmZmVyZW5jZXMsIG9sZFZhbHVlLCBuZXdWYWx1ZSk7XG4gIH1cbiAgaWYgKE9iamVjdC5rZXlzKHVua25vd24pLmxlbmd0aCA+IDApIHtcbiAgICBkaWZmZXJlbmNlcy51bmtub3duID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKHVua25vd24pO1xuICB9XG5cbiAgcmV0dXJuIG5ldyB0eXBlcy5UZW1wbGF0ZURpZmYoZGlmZmVyZW5jZXMpO1xufVxuXG4vKipcbiAqIENvbXBhcmUgdHdvIENsb3VkRm9ybWF0aW9uIHJlc291cmNlcyBhbmQgcmV0dXJuIHNlbWFudGljIGRpZmZlcmVuY2VzIGJldHdlZW4gdGhlbVxuICovXG5leHBvcnQgZnVuY3Rpb24gZGlmZlJlc291cmNlKG9sZFZhbHVlOiB0eXBlcy5SZXNvdXJjZSwgbmV3VmFsdWU6IHR5cGVzLlJlc291cmNlKTogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlIHtcbiAgcmV0dXJuIGltcGwuZGlmZlJlc291cmNlKG9sZFZhbHVlLCBuZXdWYWx1ZSk7XG59XG5cbi8qKlxuICogUmVwbGFjZSBhbGwgcmVmZXJlbmNlcyB0byB0aGUgZ2l2ZW4gbG9naWNhbElEIG9uIHRoZSBnaXZlbiB0ZW1wbGF0ZSwgaW4tcGxhY2VcbiAqXG4gKiBSZXR1cm5zIHRydWUgaWZmIGFueSByZWZlcmVuY2VzIHdlcmUgcmVwbGFjZWQuXG4gKi9cbmZ1bmN0aW9uIHByb3BhZ2F0ZVJlcGxhY2VkUmVmZXJlbmNlcyh0ZW1wbGF0ZTogb2JqZWN0LCBsb2dpY2FsSWQ6IHN0cmluZyk6IGJvb2xlYW4ge1xuICBsZXQgcmV0ID0gZmFsc2U7XG5cbiAgZnVuY3Rpb24gcmVjdXJzZShvYmo6IGFueSkge1xuICAgIGlmIChBcnJheS5pc0FycmF5KG9iaikpIHtcbiAgICAgIG9iai5mb3JFYWNoKHJlY3Vyc2UpO1xuICAgIH1cblxuICAgIGlmICh0eXBlb2Ygb2JqID09PSAnb2JqZWN0JyAmJiBvYmogIT09IG51bGwpIHtcbiAgICAgIGlmICghcmVwbGFjZVJlZmVyZW5jZShvYmopKSB7XG4gICAgICAgIE9iamVjdC52YWx1ZXMob2JqKS5mb3JFYWNoKHJlY3Vyc2UpO1xuICAgICAgfVxuICAgIH1cbiAgfVxuXG4gIGZ1bmN0aW9uIHJlcGxhY2VSZWZlcmVuY2Uob2JqOiBhbnkpIHtcbiAgICBjb25zdCBrZXlzID0gT2JqZWN0LmtleXMob2JqKTtcbiAgICBpZiAoa2V5cy5sZW5ndGggIT09IDEpIHsgcmV0dXJuIGZhbHNlOyB9XG4gICAgY29uc3Qga2V5ID0ga2V5c1swXTtcblxuICAgIGlmIChrZXkgPT09ICdSZWYnKSB7XG4gICAgICBpZiAob2JqLlJlZiA9PT0gbG9naWNhbElkKSB7XG4gICAgICAgIG9iai5SZWYgPSBsb2dpY2FsSWQgKyAnIChyZXBsYWNlZCknO1xuICAgICAgICByZXQgPSB0cnVlO1xuICAgICAgfVxuICAgICAgcmV0dXJuIHRydWU7XG4gICAgfVxuXG4gICAgaWYgKGtleS5zdGFydHNXaXRoKCdGbjo6JykpIHtcbiAgICAgIGlmIChBcnJheS5pc0FycmF5KG9ialtrZXldKSAmJiBvYmpba2V5XS5sZW5ndGggPiAwICYmIG9ialtrZXldWzBdID09PSBsb2dpY2FsSWQpIHtcbiAgICAgICAgb2JqW2tleV1bMF0gPSBsb2dpY2FsSWQgKyAnKHJlcGxhY2VkKSc7XG4gICAgICAgIHJldCA9IHRydWU7XG4gICAgICB9XG4gICAgICByZXR1cm4gdHJ1ZTtcbiAgICB9XG5cbiAgICByZXR1cm4gZmFsc2U7XG4gIH1cblxuICByZWN1cnNlKHRlbXBsYXRlKTtcbiAgcmV0dXJuIHJldDtcbn1cblxuZnVuY3Rpb24gZGVlcENvcHkoeDogYW55KTogYW55IHtcbiAgaWYgKEFycmF5LmlzQXJyYXkoeCkpIHtcbiAgICByZXR1cm4geC5tYXAoZGVlcENvcHkpO1xuICB9XG5cbiAgaWYgKHR5cGVvZiB4ID09PSAnb2JqZWN0JyAmJiB4ICE9PSBudWxsKSB7XG4gICAgY29uc3QgcmV0OiBhbnkgPSB7fTtcbiAgICBmb3IgKGNvbnN0IGtleSBvZiBPYmplY3Qua2V5cyh4KSkge1xuICAgICAgcmV0W2tleV0gPSBkZWVwQ29weSh4W2tleV0pO1xuICAgIH1cbiAgICByZXR1cm4gcmV0O1xuICB9XG5cbiAgcmV0dXJuIHg7XG59XG5cbmZ1bmN0aW9uIGFkZEltcG9ydEluZm9ybWF0aW9uKGRpZmY6IHR5cGVzLlRlbXBsYXRlRGlmZiwgY2hhbmdlU2V0OiBDbG91ZEZvcm1hdGlvbi5EZXNjcmliZUNoYW5nZVNldE91dHB1dCkge1xuICBjb25zdCBpbXBvcnRzID0gZmluZFJlc291cmNlSW1wb3J0cyhjaGFuZ2VTZXQpO1xuICBkaWZmLnJlc291cmNlcy5mb3JFYWNoRGlmZmVyZW5jZSgobG9naWNhbElkOiBzdHJpbmcsIGNoYW5nZTogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlKSA9PiB7XG4gICAgaWYgKGltcG9ydHMuaW5jbHVkZXMobG9naWNhbElkKSkge1xuICAgICAgY2hhbmdlLmlzSW1wb3J0ID0gdHJ1ZTtcbiAgICB9XG4gIH0pO1xufVxuXG5mdW5jdGlvbiBtYWtlQWxsUmVzb3VyY2VDaGFuZ2VzSW1wb3J0cyhkaWZmOiB0eXBlcy5UZW1wbGF0ZURpZmYpIHtcbiAgZGlmZi5yZXNvdXJjZXMuZm9yRWFjaERpZmZlcmVuY2UoKF9sb2dpY2FsSWQ6IHN0cmluZywgY2hhbmdlOiB0eXBlcy5SZXNvdXJjZURpZmZlcmVuY2UpID0+IHtcbiAgICBjaGFuZ2UuaXNJbXBvcnQgPSB0cnVlO1xuICB9KTtcbn1cblxuZnVuY3Rpb24gZmlsdGVyRmFsc2VQb3NpdGl2ZXMoZGlmZjogdHlwZXMuVGVtcGxhdGVEaWZmLCBjaGFuZ2VTZXQ6IENsb3VkRm9ybWF0aW9uLkRlc2NyaWJlQ2hhbmdlU2V0T3V0cHV0KSB7XG4gIGNvbnN0IHJlcGxhY2VtZW50cyA9IGZpbmRSZXNvdXJjZVJlcGxhY2VtZW50cyhjaGFuZ2VTZXQpO1xuICBkaWZmLnJlc291cmNlcy5mb3JFYWNoRGlmZmVyZW5jZSgobG9naWNhbElkOiBzdHJpbmcsIGNoYW5nZTogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlKSA9PiB7XG4gICAgaWYgKGNoYW5nZS5yZXNvdXJjZVR5cGUuaW5jbHVkZXMoJ0FXUzo6U2VydmVybGVzcycpKSB7XG4gICAgICAvLyBDRk4gYXBwbGllcyB0aGUgU0FNIHRyYW5zZm9ybSBiZWZvcmUgY3JlYXRpbmcgdGhlIGNoYW5nZXNldCwgc28gdGhlIGNoYW5nZXNldCBjb250YWlucyBubyBpbmZvcm1hdGlvbiBhYm91dCBTQU0gcmVzb3VyY2VzXG4gICAgICByZXR1cm47XG4gICAgfVxuICAgIGNoYW5nZS5mb3JFYWNoRGlmZmVyZW5jZSgodHlwZTogJ1Byb3BlcnR5JyB8ICdPdGhlcicsIG5hbWU6IHN0cmluZywgdmFsdWU6IHR5cGVzLkRpZmZlcmVuY2U8YW55PiB8IHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KSA9PiB7XG4gICAgICBpZiAodHlwZSA9PT0gJ1Byb3BlcnR5Jykge1xuICAgICAgICBpZiAoIXJlcGxhY2VtZW50c1tsb2dpY2FsSWRdKSB7XG4gICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5jaGFuZ2VJbXBhY3QgPSB0eXBlcy5SZXNvdXJjZUltcGFjdC5OT19DSEFOR0U7XG4gICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5pc0RpZmZlcmVudCA9IGZhbHNlO1xuICAgICAgICAgIHJldHVybjtcbiAgICAgICAgfVxuICAgICAgICBzd2l0Y2ggKHJlcGxhY2VtZW50c1tsb2dpY2FsSWRdLnByb3BlcnRpZXNSZXBsYWNlZFtuYW1lXSkge1xuICAgICAgICAgIGNhc2UgJ0Fsd2F5cyc6XG4gICAgICAgICAgICAodmFsdWUgYXMgdHlwZXMuUHJvcGVydHlEaWZmZXJlbmNlPGFueT4pLmNoYW5nZUltcGFjdCA9IHR5cGVzLlJlc291cmNlSW1wYWN0LldJTExfUkVQTEFDRTtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgJ05ldmVyJzpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuV0lMTF9VUERBVEU7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICBjYXNlICdDb25kaXRpb25hbGx5JzpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuTUFZX1JFUExBQ0U7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICBjYXNlIHVuZGVmaW5lZDpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuTk9fQ0hBTkdFO1xuICAgICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5pc0RpZmZlcmVudCA9IGZhbHNlO1xuICAgICAgICAgICAgYnJlYWs7XG4gICAgICAgICAgLy8gb3RoZXJ3aXNlLCBkZWZlciB0byB0aGUgY2hhbmdlSW1wYWN0IGZyb20gYGRpZmZUZW1wbGF0ZWBcbiAgICAgICAgfVxuICAgICAgfSBlbHNlIGlmICh0eXBlID09PSAnT3RoZXInKSB7XG4gICAgICAgIHN3aXRjaCAobmFtZSkge1xuICAgICAgICAgIGNhc2UgJ01ldGFkYXRhJzpcbiAgICAgICAgICAgIGNoYW5nZS5zZXRPdGhlckNoYW5nZSgnTWV0YWRhdGEnLCBuZXcgdHlwZXMuRGlmZmVyZW5jZTxzdHJpbmc+KHZhbHVlLm5ld1ZhbHVlLCB2YWx1ZS5uZXdWYWx1ZSkpO1xuICAgICAgICAgICAgYnJlYWs7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9KTtcbiAgfSk7XG59XG5cbmZ1bmN0aW9uIGZpbmRSZXNvdXJjZUltcG9ydHMoY2hhbmdlU2V0OiBDbG91ZEZvcm1hdGlvbi5EZXNjcmliZUNoYW5nZVNldE91dHB1dCk6IHN0cmluZ1tdIHtcbiAgY29uc3QgaW1wb3J0ZWRSZXNvdXJjZUxvZ2ljYWxJZHMgPSBbXTtcbiAgZm9yIChjb25zdCByZXNvdXJjZUNoYW5nZSBvZiBjaGFuZ2VTZXQuQ2hhbmdlcyA/PyBbXSkge1xuICAgIGlmIChyZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZT8uQWN0aW9uID09PSAnSW1wb3J0Jykge1xuICAgICAgaW1wb3J0ZWRSZXNvdXJjZUxvZ2ljYWxJZHMucHVzaChyZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZS5Mb2dpY2FsUmVzb3VyY2VJZCEpO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBpbXBvcnRlZFJlc291cmNlTG9naWNhbElkcztcbn1cblxuZnVuY3Rpb24gZmluZFJlc291cmNlUmVwbGFjZW1lbnRzKGNoYW5nZVNldDogQ2xvdWRGb3JtYXRpb24uRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXQpOiB0eXBlcy5SZXNvdXJjZVJlcGxhY2VtZW50cyB7XG4gIGNvbnN0IHJlcGxhY2VtZW50czogdHlwZXMuUmVzb3VyY2VSZXBsYWNlbWVudHMgPSB7fTtcbiAgZm9yIChjb25zdCByZXNvdXJjZUNoYW5nZSBvZiBjaGFuZ2VTZXQuQ2hhbmdlcyA/PyBbXSkge1xuICAgIGNvbnN0IHByb3BlcnRpZXNSZXBsYWNlZDogeyBbcHJvcE5hbWU6IHN0cmluZ106IHR5cGVzLkNoYW5nZVNldFJlcGxhY2VtZW50IH0gPSB7fTtcbiAgICBmb3IgKGNvbnN0IHByb3BlcnR5Q2hhbmdlIG9mIHJlc291cmNlQ2hhbmdlLlJlc291cmNlQ2hhbmdlPy5EZXRhaWxzID8/IFtdKSB7XG4gICAgICBpZiAocHJvcGVydHlDaGFuZ2UuVGFyZ2V0Py5BdHRyaWJ1dGUgPT09ICdQcm9wZXJ0aWVzJykge1xuICAgICAgICBjb25zdCByZXF1aXJlc1JlcGxhY2VtZW50ID0gcHJvcGVydHlDaGFuZ2UuVGFyZ2V0LlJlcXVpcmVzUmVjcmVhdGlvbiA9PT0gJ0Fsd2F5cyc7XG4gICAgICAgIGlmIChyZXF1aXJlc1JlcGxhY2VtZW50ICYmIHByb3BlcnR5Q2hhbmdlLkV2YWx1YXRpb24gPT09ICdTdGF0aWMnKSB7XG4gICAgICAgICAgcHJvcGVydGllc1JlcGxhY2VkW3Byb3BlcnR5Q2hhbmdlLlRhcmdldC5OYW1lIV0gPSAnQWx3YXlzJztcbiAgICAgICAgfSBlbHNlIGlmIChyZXF1aXJlc1JlcGxhY2VtZW50ICYmIHByb3BlcnR5Q2hhbmdlLkV2YWx1YXRpb24gPT09ICdEeW5hbWljJykge1xuICAgICAgICAgIC8vIElmIEV2YWx1YXRpb24gaXMgJ0R5bmFtaWMnLCB0aGVuIHRoaXMgbWF5IGNhdXNlIHJlcGxhY2VtZW50LCBvciBpdCBtYXkgbm90LlxuICAgICAgICAgIC8vIHNlZSAnUmVwbGFjZW1lbnQnOiBodHRwczovL2RvY3MuYXdzLmFtYXpvbi5jb20vQVdTQ2xvdWRGb3JtYXRpb24vbGF0ZXN0L0FQSVJlZmVyZW5jZS9BUElfUmVzb3VyY2VDaGFuZ2UuaHRtbFxuICAgICAgICAgIHByb3BlcnRpZXNSZXBsYWNlZFtwcm9wZXJ0eUNoYW5nZS5UYXJnZXQuTmFtZSFdID0gJ0NvbmRpdGlvbmFsbHknO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIHByb3BlcnRpZXNSZXBsYWNlZFtwcm9wZXJ0eUNoYW5nZS5UYXJnZXQuTmFtZSFdID0gcHJvcGVydHlDaGFuZ2UuVGFyZ2V0LlJlcXVpcmVzUmVjcmVhdGlvbiBhcyB0eXBlcy5DaGFuZ2VTZXRSZXBsYWNlbWVudDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgICByZXBsYWNlbWVudHNbcmVzb3VyY2VDaGFuZ2UuUmVzb3VyY2VDaGFuZ2U/LkxvZ2ljYWxSZXNvdXJjZUlkIV0gPSB7XG4gICAgICByZXNvdXJjZVJlcGxhY2VkOiByZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZT8uUmVwbGFjZW1lbnQgPT09ICdUcnVlJyxcbiAgICAgIHByb3BlcnRpZXNSZXBsYWNlZCxcbiAgICB9O1xuICB9XG5cbiAgcmV0dXJuIHJlcGxhY2VtZW50cztcbn1cblxuZnVuY3Rpb24gbm9ybWFsaXplKHRlbXBsYXRlOiBhbnkpIHtcbiAgaWYgKHR5cGVvZiB0ZW1wbGF0ZSA9PT0gJ29iamVjdCcpIHtcbiAgICBmb3IgKGNvbnN0IGtleSBvZiAoT2JqZWN0LmtleXModGVtcGxhdGUgPz8ge30pKSkge1xuICAgICAgaWYgKGtleSA9PT0gJ0ZuOjpHZXRBdHQnICYmIHR5cGVvZiB0ZW1wbGF0ZVtrZXldID09PSAnc3RyaW5nJykge1xuICAgICAgICB0ZW1wbGF0ZVtrZXldID0gdGVtcGxhdGVba2V5XS5zcGxpdCgnLicpO1xuICAgICAgICBjb250aW51ZTtcbiAgICAgIH0gZWxzZSBpZiAoa2V5ID09PSAnRGVwZW5kc09uJykge1xuICAgICAgICBpZiAodHlwZW9mIHRlbXBsYXRlW2tleV0gPT09ICdzdHJpbmcnKSB7XG4gICAgICAgICAgdGVtcGxhdGVba2V5XSA9IFt0ZW1wbGF0ZVtrZXldXTtcbiAgICAgICAgfSBlbHNlIGlmIChBcnJheS5pc0FycmF5KHRlbXBsYXRlW2tleV0pKSB7XG4gICAgICAgICAgdGVtcGxhdGVba2V5XSA9IHRlbXBsYXRlW2tleV0uc29ydCgpO1xuICAgICAgICB9XG4gICAgICAgIGNvbnRpbnVlO1xuICAgICAgfVxuXG4gICAgICBpZiAoQXJyYXkuaXNBcnJheSh0ZW1wbGF0ZVtrZXldKSkge1xuICAgICAgICBmb3IgKGNvbnN0IGVsZW1lbnQgb2YgKHRlbXBsYXRlW2tleV0pKSB7XG4gICAgICAgICAgbm9ybWFsaXplKGVsZW1lbnQpO1xuICAgICAgICB9XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBub3JtYWxpemUodGVtcGxhdGVba2V5XSk7XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0=
 
 /***/ }),
 
@@ -40768,7 +41422,7 @@ module.exports = __toCommonJS(src_exports);
 var import_protocol_http = __nccwpck_require__(64418);
 
 
-var import_uuid = __nccwpck_require__(75840);
+var import_uuid = __nccwpck_require__(7761);
 
 // src/defaultRetryQuota.ts
 var import_util_retry = __nccwpck_require__(84902);
@@ -41140,6 +41794,687 @@ const isStreamingPayload = (request) => (request === null || request === void 0 
     (typeof ReadableStream !== "undefined" && (request === null || request === void 0 ? void 0 : request.body) instanceof ReadableStream);
 exports.isStreamingPayload = isStreamingPayload;
 
+
+/***/ }),
+
+/***/ 7761:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+Object.defineProperty(exports, "NIL", ({
+  enumerable: true,
+  get: function () {
+    return _nil.default;
+  }
+}));
+Object.defineProperty(exports, "parse", ({
+  enumerable: true,
+  get: function () {
+    return _parse.default;
+  }
+}));
+Object.defineProperty(exports, "stringify", ({
+  enumerable: true,
+  get: function () {
+    return _stringify.default;
+  }
+}));
+Object.defineProperty(exports, "v1", ({
+  enumerable: true,
+  get: function () {
+    return _v.default;
+  }
+}));
+Object.defineProperty(exports, "v3", ({
+  enumerable: true,
+  get: function () {
+    return _v2.default;
+  }
+}));
+Object.defineProperty(exports, "v4", ({
+  enumerable: true,
+  get: function () {
+    return _v3.default;
+  }
+}));
+Object.defineProperty(exports, "v5", ({
+  enumerable: true,
+  get: function () {
+    return _v4.default;
+  }
+}));
+Object.defineProperty(exports, "validate", ({
+  enumerable: true,
+  get: function () {
+    return _validate.default;
+  }
+}));
+Object.defineProperty(exports, "version", ({
+  enumerable: true,
+  get: function () {
+    return _version.default;
+  }
+}));
+
+var _v = _interopRequireDefault(__nccwpck_require__(36310));
+
+var _v2 = _interopRequireDefault(__nccwpck_require__(9465));
+
+var _v3 = _interopRequireDefault(__nccwpck_require__(86001));
+
+var _v4 = _interopRequireDefault(__nccwpck_require__(38310));
+
+var _nil = _interopRequireDefault(__nccwpck_require__(3436));
+
+var _version = _interopRequireDefault(__nccwpck_require__(17780));
+
+var _validate = _interopRequireDefault(__nccwpck_require__(66992));
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(79618));
+
+var _parse = _interopRequireDefault(__nccwpck_require__(40086));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 11380:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function md5(bytes) {
+  if (Array.isArray(bytes)) {
+    bytes = Buffer.from(bytes);
+  } else if (typeof bytes === 'string') {
+    bytes = Buffer.from(bytes, 'utf8');
+  }
+
+  return _crypto.default.createHash('md5').update(bytes).digest();
+}
+
+var _default = md5;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 34672:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  randomUUID: _crypto.default.randomUUID
+};
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 3436:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _default = '00000000-0000-0000-0000-000000000000';
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 40086:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(66992));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function parse(uuid) {
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Invalid UUID');
+  }
+
+  let v;
+  const arr = new Uint8Array(16); // Parse ########-....-....-....-............
+
+  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
+  arr[1] = v >>> 16 & 0xff;
+  arr[2] = v >>> 8 & 0xff;
+  arr[3] = v & 0xff; // Parse ........-####-....-....-............
+
+  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
+  arr[5] = v & 0xff; // Parse ........-....-####-....-............
+
+  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
+  arr[7] = v & 0xff; // Parse ........-....-....-####-............
+
+  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
+  arr[9] = v & 0xff; // Parse ........-....-....-....-############
+  // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
+
+  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
+  arr[11] = v / 0x100000000 & 0xff;
+  arr[12] = v >>> 24 & 0xff;
+  arr[13] = v >>> 16 & 0xff;
+  arr[14] = v >>> 8 & 0xff;
+  arr[15] = v & 0xff;
+  return arr;
+}
+
+var _default = parse;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 3194:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 68136:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = rng;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
+
+let poolPtr = rnds8Pool.length;
+
+function rng() {
+  if (poolPtr > rnds8Pool.length - 16) {
+    _crypto.default.randomFillSync(rnds8Pool);
+
+    poolPtr = 0;
+  }
+
+  return rnds8Pool.slice(poolPtr, poolPtr += 16);
+}
+
+/***/ }),
+
+/***/ 46679:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function sha1(bytes) {
+  if (Array.isArray(bytes)) {
+    bytes = Buffer.from(bytes);
+  } else if (typeof bytes === 'string') {
+    bytes = Buffer.from(bytes, 'utf8');
+  }
+
+  return _crypto.default.createHash('sha1').update(bytes).digest();
+}
+
+var _default = sha1;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 79618:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+exports.unsafeStringify = unsafeStringify;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(66992));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+const byteToHex = [];
+
+for (let i = 0; i < 256; ++i) {
+  byteToHex.push((i + 0x100).toString(16).slice(1));
+}
+
+function unsafeStringify(arr, offset = 0) {
+  // Note: Be careful editing this code!  It's been tuned for performance
+  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+  return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
+}
+
+function stringify(arr, offset = 0) {
+  const uuid = unsafeStringify(arr, offset); // Consistency check for valid UUID.  If this throws, it's likely due to one
+  // of the following:
+  // - One or more input array values don't map to a hex octet (leading to
+  // "undefined" in the uuid)
+  // - Invalid input values for the RFC `version` or `variant` fields
+
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Stringified UUID is invalid');
+  }
+
+  return uuid;
+}
+
+var _default = stringify;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 36310:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _rng = _interopRequireDefault(__nccwpck_require__(68136));
+
+var _stringify = __nccwpck_require__(79618);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+let _nodeId;
+
+let _clockseq; // Previous uuid creation time
+
+
+let _lastMSecs = 0;
+let _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
+
+function v1(options, buf, offset) {
+  let i = buf && offset || 0;
+  const b = buf || new Array(16);
+  options = options || {};
+  let node = options.node || _nodeId;
+  let clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
+  // specified.  We do this lazily to minimize issues related to insufficient
+  // system entropy.  See #189
+
+  if (node == null || clockseq == null) {
+    const seedBytes = options.random || (options.rng || _rng.default)();
+
+    if (node == null) {
+      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+      node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
+    }
+
+    if (clockseq == null) {
+      // Per 4.2.2, randomize (14 bit) clockseq
+      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
+    }
+  } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+
+
+  let msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+
+  let nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
+
+  const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
+
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+
+
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  } // Per 4.2.1.2 Throw error if too many uuids are requested
+
+
+  if (nsecs >= 10000) {
+    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+
+  msecs += 12219292800000; // `time_low`
+
+  const tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff; // `time_mid`
+
+  const tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff; // `time_high_and_version`
+
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+
+  b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+
+  b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
+
+  b[i++] = clockseq & 0xff; // `node`
+
+  for (let n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+
+  return buf || (0, _stringify.unsafeStringify)(b);
+}
+
+var _default = v1;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 9465:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _v = _interopRequireDefault(__nccwpck_require__(2568));
+
+var _md = _interopRequireDefault(__nccwpck_require__(11380));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const v3 = (0, _v.default)('v3', 0x30, _md.default);
+var _default = v3;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 2568:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.URL = exports.DNS = void 0;
+exports["default"] = v35;
+
+var _stringify = __nccwpck_require__(79618);
+
+var _parse = _interopRequireDefault(__nccwpck_require__(40086));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function stringToBytes(str) {
+  str = unescape(encodeURIComponent(str)); // UTF8 escape
+
+  const bytes = [];
+
+  for (let i = 0; i < str.length; ++i) {
+    bytes.push(str.charCodeAt(i));
+  }
+
+  return bytes;
+}
+
+const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
+exports.DNS = DNS;
+const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
+exports.URL = URL;
+
+function v35(name, version, hashfunc) {
+  function generateUUID(value, namespace, buf, offset) {
+    var _namespace;
+
+    if (typeof value === 'string') {
+      value = stringToBytes(value);
+    }
+
+    if (typeof namespace === 'string') {
+      namespace = (0, _parse.default)(namespace);
+    }
+
+    if (((_namespace = namespace) === null || _namespace === void 0 ? void 0 : _namespace.length) !== 16) {
+      throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
+    } // Compute hash of namespace and value, Per 4.3
+    // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
+    // hashfunc([...namespace, ... value])`
+
+
+    let bytes = new Uint8Array(16 + value.length);
+    bytes.set(namespace);
+    bytes.set(value, namespace.length);
+    bytes = hashfunc(bytes);
+    bytes[6] = bytes[6] & 0x0f | version;
+    bytes[8] = bytes[8] & 0x3f | 0x80;
+
+    if (buf) {
+      offset = offset || 0;
+
+      for (let i = 0; i < 16; ++i) {
+        buf[offset + i] = bytes[i];
+      }
+
+      return buf;
+    }
+
+    return (0, _stringify.unsafeStringify)(bytes);
+  } // Function#name is not settable on some platforms (#270)
+
+
+  try {
+    generateUUID.name = name; // eslint-disable-next-line no-empty
+  } catch (err) {} // For CommonJS default export support
+
+
+  generateUUID.DNS = DNS;
+  generateUUID.URL = URL;
+  return generateUUID;
+}
+
+/***/ }),
+
+/***/ 86001:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _native = _interopRequireDefault(__nccwpck_require__(34672));
+
+var _rng = _interopRequireDefault(__nccwpck_require__(68136));
+
+var _stringify = __nccwpck_require__(79618);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function v4(options, buf, offset) {
+  if (_native.default.randomUUID && !buf && !options) {
+    return _native.default.randomUUID();
+  }
+
+  options = options || {};
+
+  const rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+
+
+  rnds[6] = rnds[6] & 0x0f | 0x40;
+  rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
+
+  if (buf) {
+    offset = offset || 0;
+
+    for (let i = 0; i < 16; ++i) {
+      buf[offset + i] = rnds[i];
+    }
+
+    return buf;
+  }
+
+  return (0, _stringify.unsafeStringify)(rnds);
+}
+
+var _default = v4;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 38310:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _v = _interopRequireDefault(__nccwpck_require__(2568));
+
+var _sha = _interopRequireDefault(__nccwpck_require__(46679));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const v5 = (0, _v.default)('v5', 0x50, _sha.default);
+var _default = v5;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 66992:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _regex = _interopRequireDefault(__nccwpck_require__(3194));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function validate(uuid) {
+  return typeof uuid === 'string' && _regex.default.test(uuid);
+}
+
+var _default = validate;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 17780:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(66992));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function version(uuid) {
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Invalid UUID');
+  }
+
+  return parseInt(uuid.slice(14, 15), 16);
+}
+
+var _default = version;
+exports["default"] = _default;
 
 /***/ }),
 
@@ -61567,9 +62902,10 @@ const createSpanningCellManager = (parameters) => {
     });
     const rangeCache = {};
     let rowHeights = [];
+    let rowIndexMapping = [];
     return { getContainingRange: (cell, options) => {
             var _a;
-            const originalRow = (options === null || options === void 0 ? void 0 : options.mapped) ? (0, utils_1.findOriginalRowIndex)(rowHeights, cell.row) : cell.row;
+            const originalRow = (options === null || options === void 0 ? void 0 : options.mapped) ? rowIndexMapping[cell.row] : cell.row;
             const range = findRangeConfig({ ...cell,
                 row: originalRow }, ranges);
             if (!range) {
@@ -61588,8 +62924,16 @@ const createSpanningCellManager = (parameters) => {
             return inSameRange(cell1, cell2, ranges);
         },
         rowHeights,
+        rowIndexMapping,
         setRowHeights: (_rowHeights) => {
             rowHeights = _rowHeights;
+        },
+        setRowIndexMapping: (mappedRowHeights) => {
+            rowIndexMapping = (0, utils_1.flatten)(mappedRowHeights.map((height, index) => {
+                return Array.from({ length: height }, () => {
+                    return index;
+                });
+            }));
         } };
 };
 exports.createSpanningCellManager = createSpanningCellManager;
@@ -61644,6 +62988,7 @@ const table = (data, userConfig = {}) => {
     rows = (0, truncateTableData_1.truncateTableData)(injectedRows, (0, utils_1.extractTruncates)(config));
     const rowHeights = (0, calculateRowHeights_1.calculateRowHeights)(rows, config);
     config.spanningCellManager.setRowHeights(rowHeights);
+    config.spanningCellManager.setRowIndexMapping(rowHeights);
     rows = (0, mapDataUsingRowHeights_1.mapDataUsingRowHeights)(rows, rowHeights, config);
     rows = (0, alignTableData_1.alignTableData)(rows, config);
     rows = (0, padTableData_1.padTableData)(rows, config);
@@ -61705,7 +63050,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.isCellInRange = exports.areCellEqual = exports.calculateRangeCoordinate = exports.findOriginalRowIndex = exports.flatten = exports.extractTruncates = exports.sumArray = exports.sequence = exports.distributeUnevenly = exports.countSpaceSequence = exports.groupBySizes = exports.makeBorderConfig = exports.splitAnsi = exports.normalizeString = void 0;
+exports.isCellInRange = exports.areCellEqual = exports.calculateRangeCoordinate = exports.flatten = exports.extractTruncates = exports.sumArray = exports.sequence = exports.distributeUnevenly = exports.countSpaceSequence = exports.groupBySizes = exports.makeBorderConfig = exports.splitAnsi = exports.normalizeString = void 0;
 const slice_ansi_1 = __importDefault(__nccwpck_require__(72931));
 const string_width_1 = __importDefault(__nccwpck_require__(42577));
 const strip_ansi_1 = __importDefault(__nccwpck_require__(45591));
@@ -61814,15 +63159,6 @@ const flatten = (array) => {
     return [].concat(...array);
 };
 exports.flatten = flatten;
-const findOriginalRowIndex = (mappedRowHeights, mappedRowIndex) => {
-    const rowIndexMapping = (0, exports.flatten)(mappedRowHeights.map((height, index) => {
-        return Array.from({ length: height }, () => {
-            return index;
-        });
-    }));
-    return rowIndexMapping[mappedRowIndex];
-};
-exports.findOriginalRowIndex = findOriginalRowIndex;
 const calculateRangeCoordinate = (spanningCellConfig) => {
     const { row, col, colSpan = 1, rowSpan = 1 } = spanningCellConfig;
     return { bottomRight: { col: col + colSpan - 1,
@@ -84818,652 +86154,6 @@ exports.fromPromise = function (fn) {
   }, 'name', { value: fn.name })
 }
 
-
-/***/ }),
-
-/***/ 75840:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-Object.defineProperty(exports, "v1", ({
-  enumerable: true,
-  get: function () {
-    return _v.default;
-  }
-}));
-Object.defineProperty(exports, "v3", ({
-  enumerable: true,
-  get: function () {
-    return _v2.default;
-  }
-}));
-Object.defineProperty(exports, "v4", ({
-  enumerable: true,
-  get: function () {
-    return _v3.default;
-  }
-}));
-Object.defineProperty(exports, "v5", ({
-  enumerable: true,
-  get: function () {
-    return _v4.default;
-  }
-}));
-Object.defineProperty(exports, "NIL", ({
-  enumerable: true,
-  get: function () {
-    return _nil.default;
-  }
-}));
-Object.defineProperty(exports, "version", ({
-  enumerable: true,
-  get: function () {
-    return _version.default;
-  }
-}));
-Object.defineProperty(exports, "validate", ({
-  enumerable: true,
-  get: function () {
-    return _validate.default;
-  }
-}));
-Object.defineProperty(exports, "stringify", ({
-  enumerable: true,
-  get: function () {
-    return _stringify.default;
-  }
-}));
-Object.defineProperty(exports, "parse", ({
-  enumerable: true,
-  get: function () {
-    return _parse.default;
-  }
-}));
-
-var _v = _interopRequireDefault(__nccwpck_require__(78628));
-
-var _v2 = _interopRequireDefault(__nccwpck_require__(86409));
-
-var _v3 = _interopRequireDefault(__nccwpck_require__(85122));
-
-var _v4 = _interopRequireDefault(__nccwpck_require__(79120));
-
-var _nil = _interopRequireDefault(__nccwpck_require__(25332));
-
-var _version = _interopRequireDefault(__nccwpck_require__(81595));
-
-var _validate = _interopRequireDefault(__nccwpck_require__(66900));
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(18950));
-
-var _parse = _interopRequireDefault(__nccwpck_require__(62746));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 4569:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function md5(bytes) {
-  if (Array.isArray(bytes)) {
-    bytes = Buffer.from(bytes);
-  } else if (typeof bytes === 'string') {
-    bytes = Buffer.from(bytes, 'utf8');
-  }
-
-  return _crypto.default.createHash('md5').update(bytes).digest();
-}
-
-var _default = md5;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 25332:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _default = '00000000-0000-0000-0000-000000000000';
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 62746:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(66900));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function parse(uuid) {
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Invalid UUID');
-  }
-
-  let v;
-  const arr = new Uint8Array(16); // Parse ########-....-....-....-............
-
-  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
-  arr[1] = v >>> 16 & 0xff;
-  arr[2] = v >>> 8 & 0xff;
-  arr[3] = v & 0xff; // Parse ........-####-....-....-............
-
-  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
-  arr[5] = v & 0xff; // Parse ........-....-####-....-............
-
-  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
-  arr[7] = v & 0xff; // Parse ........-....-....-####-............
-
-  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
-  arr[9] = v & 0xff; // Parse ........-....-....-....-############
-  // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
-
-  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
-  arr[11] = v / 0x100000000 & 0xff;
-  arr[12] = v >>> 24 & 0xff;
-  arr[13] = v >>> 16 & 0xff;
-  arr[14] = v >>> 8 & 0xff;
-  arr[15] = v & 0xff;
-  return arr;
-}
-
-var _default = parse;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 40814:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 50807:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = rng;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
-
-let poolPtr = rnds8Pool.length;
-
-function rng() {
-  if (poolPtr > rnds8Pool.length - 16) {
-    _crypto.default.randomFillSync(rnds8Pool);
-
-    poolPtr = 0;
-  }
-
-  return rnds8Pool.slice(poolPtr, poolPtr += 16);
-}
-
-/***/ }),
-
-/***/ 85274:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function sha1(bytes) {
-  if (Array.isArray(bytes)) {
-    bytes = Buffer.from(bytes);
-  } else if (typeof bytes === 'string') {
-    bytes = Buffer.from(bytes, 'utf8');
-  }
-
-  return _crypto.default.createHash('sha1').update(bytes).digest();
-}
-
-var _default = sha1;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 18950:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(66900));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */
-const byteToHex = [];
-
-for (let i = 0; i < 256; ++i) {
-  byteToHex.push((i + 0x100).toString(16).substr(1));
-}
-
-function stringify(arr, offset = 0) {
-  // Note: Be careful editing this code!  It's been tuned for performance
-  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-  const uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
-  // of the following:
-  // - One or more input array values don't map to a hex octet (leading to
-  // "undefined" in the uuid)
-  // - Invalid input values for the RFC `version` or `variant` fields
-
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Stringified UUID is invalid');
-  }
-
-  return uuid;
-}
-
-var _default = stringify;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 78628:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _rng = _interopRequireDefault(__nccwpck_require__(50807));
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(18950));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// **`v1()` - Generate time-based UUID**
-//
-// Inspired by https://github.com/LiosK/UUID.js
-// and http://docs.python.org/library/uuid.html
-let _nodeId;
-
-let _clockseq; // Previous uuid creation time
-
-
-let _lastMSecs = 0;
-let _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
-
-function v1(options, buf, offset) {
-  let i = buf && offset || 0;
-  const b = buf || new Array(16);
-  options = options || {};
-  let node = options.node || _nodeId;
-  let clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
-  // specified.  We do this lazily to minimize issues related to insufficient
-  // system entropy.  See #189
-
-  if (node == null || clockseq == null) {
-    const seedBytes = options.random || (options.rng || _rng.default)();
-
-    if (node == null) {
-      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
-      node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
-    }
-
-    if (clockseq == null) {
-      // Per 4.2.2, randomize (14 bit) clockseq
-      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
-    }
-  } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
-  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
-  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
-  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
-
-
-  let msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
-  // cycle to simulate higher resolution clock
-
-  let nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
-
-  const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
-
-  if (dt < 0 && options.clockseq === undefined) {
-    clockseq = clockseq + 1 & 0x3fff;
-  } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
-  // time interval
-
-
-  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
-    nsecs = 0;
-  } // Per 4.2.1.2 Throw error if too many uuids are requested
-
-
-  if (nsecs >= 10000) {
-    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-  }
-
-  _lastMSecs = msecs;
-  _lastNSecs = nsecs;
-  _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
-
-  msecs += 12219292800000; // `time_low`
-
-  const tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
-  b[i++] = tl >>> 24 & 0xff;
-  b[i++] = tl >>> 16 & 0xff;
-  b[i++] = tl >>> 8 & 0xff;
-  b[i++] = tl & 0xff; // `time_mid`
-
-  const tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
-  b[i++] = tmh >>> 8 & 0xff;
-  b[i++] = tmh & 0xff; // `time_high_and_version`
-
-  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
-
-  b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
-
-  b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
-
-  b[i++] = clockseq & 0xff; // `node`
-
-  for (let n = 0; n < 6; ++n) {
-    b[i + n] = node[n];
-  }
-
-  return buf || (0, _stringify.default)(b);
-}
-
-var _default = v1;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 86409:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _v = _interopRequireDefault(__nccwpck_require__(65998));
-
-var _md = _interopRequireDefault(__nccwpck_require__(4569));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const v3 = (0, _v.default)('v3', 0x30, _md.default);
-var _default = v3;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 65998:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = _default;
-exports.URL = exports.DNS = void 0;
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(18950));
-
-var _parse = _interopRequireDefault(__nccwpck_require__(62746));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function stringToBytes(str) {
-  str = unescape(encodeURIComponent(str)); // UTF8 escape
-
-  const bytes = [];
-
-  for (let i = 0; i < str.length; ++i) {
-    bytes.push(str.charCodeAt(i));
-  }
-
-  return bytes;
-}
-
-const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
-exports.DNS = DNS;
-const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
-exports.URL = URL;
-
-function _default(name, version, hashfunc) {
-  function generateUUID(value, namespace, buf, offset) {
-    if (typeof value === 'string') {
-      value = stringToBytes(value);
-    }
-
-    if (typeof namespace === 'string') {
-      namespace = (0, _parse.default)(namespace);
-    }
-
-    if (namespace.length !== 16) {
-      throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
-    } // Compute hash of namespace and value, Per 4.3
-    // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
-    // hashfunc([...namespace, ... value])`
-
-
-    let bytes = new Uint8Array(16 + value.length);
-    bytes.set(namespace);
-    bytes.set(value, namespace.length);
-    bytes = hashfunc(bytes);
-    bytes[6] = bytes[6] & 0x0f | version;
-    bytes[8] = bytes[8] & 0x3f | 0x80;
-
-    if (buf) {
-      offset = offset || 0;
-
-      for (let i = 0; i < 16; ++i) {
-        buf[offset + i] = bytes[i];
-      }
-
-      return buf;
-    }
-
-    return (0, _stringify.default)(bytes);
-  } // Function#name is not settable on some platforms (#270)
-
-
-  try {
-    generateUUID.name = name; // eslint-disable-next-line no-empty
-  } catch (err) {} // For CommonJS default export support
-
-
-  generateUUID.DNS = DNS;
-  generateUUID.URL = URL;
-  return generateUUID;
-}
-
-/***/ }),
-
-/***/ 85122:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _rng = _interopRequireDefault(__nccwpck_require__(50807));
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(18950));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function v4(options, buf, offset) {
-  options = options || {};
-
-  const rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
-
-
-  rnds[6] = rnds[6] & 0x0f | 0x40;
-  rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
-
-  if (buf) {
-    offset = offset || 0;
-
-    for (let i = 0; i < 16; ++i) {
-      buf[offset + i] = rnds[i];
-    }
-
-    return buf;
-  }
-
-  return (0, _stringify.default)(rnds);
-}
-
-var _default = v4;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 79120:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _v = _interopRequireDefault(__nccwpck_require__(65998));
-
-var _sha = _interopRequireDefault(__nccwpck_require__(85274));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const v5 = (0, _v.default)('v5', 0x50, _sha.default);
-var _default = v5;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 66900:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _regex = _interopRequireDefault(__nccwpck_require__(40814));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function validate(uuid) {
-  return typeof uuid === 'string' && _regex.default.test(uuid);
-}
-
-var _default = validate;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 81595:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(66900));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function version(uuid) {
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Invalid UUID');
-  }
-
-  return parseInt(uuid.substr(14, 1), 16);
-}
-
-var _default = version;
-exports["default"] = _default;
 
 /***/ }),
 
