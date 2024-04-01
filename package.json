@@ -28,7 +28,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@swc/core": "^1.4.8",
+    "@swc/core": "^1.4.11",
     "@swc/jest": "^0.2.36",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.12",
@@ -38,7 +38,7 @@
     "@typescript-eslint/parser": "^6",
     "@vercel/ncc": "^0.38.1",
     "action-docs": "^1.2.0",
-    "aws-sdk": "^2.1584.0",
+    "aws-sdk": "^2.1589.0",
     "aws-sdk-client-mock": "^3.1.0",
     "constructs": "^10.0.0",
     "eslint": "^8",
@@ -61,8 +61,8 @@
     "@actions/github": "^6.0.0",
     "@actions/io": "^1.1.3",
     "@actions/tool-cache": "^2.0.0",
-    "@aws-cdk/cloud-assembly-schema": "2.133.0",
-    "@aws-cdk/cloudformation-diff": "2.133.0",
+    "@aws-cdk/cloud-assembly-schema": "2.134.0",
+    "@aws-cdk/cloudformation-diff": "2.134.0",
     "@aws-sdk/client-cloudformation": "^3.540.0",
     "@aws-sdk/client-sts": "^3.540.0",
     "@aws-sdk/credential-providers": "^3.540.0",
