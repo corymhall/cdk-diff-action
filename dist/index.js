@@ -1250,7 +1250,7 @@ exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(57147));
 const os = __importStar(__nccwpck_require__(22037));
-const uuid_1 = __nccwpck_require__(78974);
+const uuid_1 = __nccwpck_require__(75840);
 const utils_1 = __nccwpck_require__(5278);
 function issueFileCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
@@ -1767,652 +1767,6 @@ function toCommandProperties(annotationProperties) {
 }
 exports.toCommandProperties = toCommandProperties;
 //# sourceMappingURL=utils.js.map
-
-/***/ }),
-
-/***/ 78974:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-Object.defineProperty(exports, "v1", ({
-  enumerable: true,
-  get: function () {
-    return _v.default;
-  }
-}));
-Object.defineProperty(exports, "v3", ({
-  enumerable: true,
-  get: function () {
-    return _v2.default;
-  }
-}));
-Object.defineProperty(exports, "v4", ({
-  enumerable: true,
-  get: function () {
-    return _v3.default;
-  }
-}));
-Object.defineProperty(exports, "v5", ({
-  enumerable: true,
-  get: function () {
-    return _v4.default;
-  }
-}));
-Object.defineProperty(exports, "NIL", ({
-  enumerable: true,
-  get: function () {
-    return _nil.default;
-  }
-}));
-Object.defineProperty(exports, "version", ({
-  enumerable: true,
-  get: function () {
-    return _version.default;
-  }
-}));
-Object.defineProperty(exports, "validate", ({
-  enumerable: true,
-  get: function () {
-    return _validate.default;
-  }
-}));
-Object.defineProperty(exports, "stringify", ({
-  enumerable: true,
-  get: function () {
-    return _stringify.default;
-  }
-}));
-Object.defineProperty(exports, "parse", ({
-  enumerable: true,
-  get: function () {
-    return _parse.default;
-  }
-}));
-
-var _v = _interopRequireDefault(__nccwpck_require__(81595));
-
-var _v2 = _interopRequireDefault(__nccwpck_require__(26993));
-
-var _v3 = _interopRequireDefault(__nccwpck_require__(51472));
-
-var _v4 = _interopRequireDefault(__nccwpck_require__(16217));
-
-var _nil = _interopRequireDefault(__nccwpck_require__(32381));
-
-var _version = _interopRequireDefault(__nccwpck_require__(40427));
-
-var _validate = _interopRequireDefault(__nccwpck_require__(92609));
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(61458));
-
-var _parse = _interopRequireDefault(__nccwpck_require__(26385));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 5842:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function md5(bytes) {
-  if (Array.isArray(bytes)) {
-    bytes = Buffer.from(bytes);
-  } else if (typeof bytes === 'string') {
-    bytes = Buffer.from(bytes, 'utf8');
-  }
-
-  return _crypto.default.createHash('md5').update(bytes).digest();
-}
-
-var _default = md5;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 32381:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _default = '00000000-0000-0000-0000-000000000000';
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 26385:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(92609));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function parse(uuid) {
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Invalid UUID');
-  }
-
-  let v;
-  const arr = new Uint8Array(16); // Parse ########-....-....-....-............
-
-  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
-  arr[1] = v >>> 16 & 0xff;
-  arr[2] = v >>> 8 & 0xff;
-  arr[3] = v & 0xff; // Parse ........-####-....-....-............
-
-  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
-  arr[5] = v & 0xff; // Parse ........-....-####-....-............
-
-  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
-  arr[7] = v & 0xff; // Parse ........-....-....-####-............
-
-  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
-  arr[9] = v & 0xff; // Parse ........-....-....-....-############
-  // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
-
-  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
-  arr[11] = v / 0x100000000 & 0xff;
-  arr[12] = v >>> 24 & 0xff;
-  arr[13] = v >>> 16 & 0xff;
-  arr[14] = v >>> 8 & 0xff;
-  arr[15] = v & 0xff;
-  return arr;
-}
-
-var _default = parse;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 86230:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 9784:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = rng;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
-
-let poolPtr = rnds8Pool.length;
-
-function rng() {
-  if (poolPtr > rnds8Pool.length - 16) {
-    _crypto.default.randomFillSync(rnds8Pool);
-
-    poolPtr = 0;
-  }
-
-  return rnds8Pool.slice(poolPtr, poolPtr += 16);
-}
-
-/***/ }),
-
-/***/ 38844:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function sha1(bytes) {
-  if (Array.isArray(bytes)) {
-    bytes = Buffer.from(bytes);
-  } else if (typeof bytes === 'string') {
-    bytes = Buffer.from(bytes, 'utf8');
-  }
-
-  return _crypto.default.createHash('sha1').update(bytes).digest();
-}
-
-var _default = sha1;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 61458:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(92609));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */
-const byteToHex = [];
-
-for (let i = 0; i < 256; ++i) {
-  byteToHex.push((i + 0x100).toString(16).substr(1));
-}
-
-function stringify(arr, offset = 0) {
-  // Note: Be careful editing this code!  It's been tuned for performance
-  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-  const uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
-  // of the following:
-  // - One or more input array values don't map to a hex octet (leading to
-  // "undefined" in the uuid)
-  // - Invalid input values for the RFC `version` or `variant` fields
-
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Stringified UUID is invalid');
-  }
-
-  return uuid;
-}
-
-var _default = stringify;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 81595:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _rng = _interopRequireDefault(__nccwpck_require__(9784));
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(61458));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// **`v1()` - Generate time-based UUID**
-//
-// Inspired by https://github.com/LiosK/UUID.js
-// and http://docs.python.org/library/uuid.html
-let _nodeId;
-
-let _clockseq; // Previous uuid creation time
-
-
-let _lastMSecs = 0;
-let _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
-
-function v1(options, buf, offset) {
-  let i = buf && offset || 0;
-  const b = buf || new Array(16);
-  options = options || {};
-  let node = options.node || _nodeId;
-  let clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
-  // specified.  We do this lazily to minimize issues related to insufficient
-  // system entropy.  See #189
-
-  if (node == null || clockseq == null) {
-    const seedBytes = options.random || (options.rng || _rng.default)();
-
-    if (node == null) {
-      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
-      node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
-    }
-
-    if (clockseq == null) {
-      // Per 4.2.2, randomize (14 bit) clockseq
-      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
-    }
-  } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
-  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
-  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
-  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
-
-
-  let msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
-  // cycle to simulate higher resolution clock
-
-  let nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
-
-  const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
-
-  if (dt < 0 && options.clockseq === undefined) {
-    clockseq = clockseq + 1 & 0x3fff;
-  } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
-  // time interval
-
-
-  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
-    nsecs = 0;
-  } // Per 4.2.1.2 Throw error if too many uuids are requested
-
-
-  if (nsecs >= 10000) {
-    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-  }
-
-  _lastMSecs = msecs;
-  _lastNSecs = nsecs;
-  _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
-
-  msecs += 12219292800000; // `time_low`
-
-  const tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
-  b[i++] = tl >>> 24 & 0xff;
-  b[i++] = tl >>> 16 & 0xff;
-  b[i++] = tl >>> 8 & 0xff;
-  b[i++] = tl & 0xff; // `time_mid`
-
-  const tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
-  b[i++] = tmh >>> 8 & 0xff;
-  b[i++] = tmh & 0xff; // `time_high_and_version`
-
-  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
-
-  b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
-
-  b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
-
-  b[i++] = clockseq & 0xff; // `node`
-
-  for (let n = 0; n < 6; ++n) {
-    b[i + n] = node[n];
-  }
-
-  return buf || (0, _stringify.default)(b);
-}
-
-var _default = v1;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 26993:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _v = _interopRequireDefault(__nccwpck_require__(65920));
-
-var _md = _interopRequireDefault(__nccwpck_require__(5842));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const v3 = (0, _v.default)('v3', 0x30, _md.default);
-var _default = v3;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 65920:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = _default;
-exports.URL = exports.DNS = void 0;
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(61458));
-
-var _parse = _interopRequireDefault(__nccwpck_require__(26385));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function stringToBytes(str) {
-  str = unescape(encodeURIComponent(str)); // UTF8 escape
-
-  const bytes = [];
-
-  for (let i = 0; i < str.length; ++i) {
-    bytes.push(str.charCodeAt(i));
-  }
-
-  return bytes;
-}
-
-const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
-exports.DNS = DNS;
-const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
-exports.URL = URL;
-
-function _default(name, version, hashfunc) {
-  function generateUUID(value, namespace, buf, offset) {
-    if (typeof value === 'string') {
-      value = stringToBytes(value);
-    }
-
-    if (typeof namespace === 'string') {
-      namespace = (0, _parse.default)(namespace);
-    }
-
-    if (namespace.length !== 16) {
-      throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
-    } // Compute hash of namespace and value, Per 4.3
-    // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
-    // hashfunc([...namespace, ... value])`
-
-
-    let bytes = new Uint8Array(16 + value.length);
-    bytes.set(namespace);
-    bytes.set(value, namespace.length);
-    bytes = hashfunc(bytes);
-    bytes[6] = bytes[6] & 0x0f | version;
-    bytes[8] = bytes[8] & 0x3f | 0x80;
-
-    if (buf) {
-      offset = offset || 0;
-
-      for (let i = 0; i < 16; ++i) {
-        buf[offset + i] = bytes[i];
-      }
-
-      return buf;
-    }
-
-    return (0, _stringify.default)(bytes);
-  } // Function#name is not settable on some platforms (#270)
-
-
-  try {
-    generateUUID.name = name; // eslint-disable-next-line no-empty
-  } catch (err) {} // For CommonJS default export support
-
-
-  generateUUID.DNS = DNS;
-  generateUUID.URL = URL;
-  return generateUUID;
-}
-
-/***/ }),
-
-/***/ 51472:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _rng = _interopRequireDefault(__nccwpck_require__(9784));
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(61458));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function v4(options, buf, offset) {
-  options = options || {};
-
-  const rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
-
-
-  rnds[6] = rnds[6] & 0x0f | 0x40;
-  rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
-
-  if (buf) {
-    offset = offset || 0;
-
-    for (let i = 0; i < 16; ++i) {
-      buf[offset + i] = rnds[i];
-    }
-
-    return buf;
-  }
-
-  return (0, _stringify.default)(rnds);
-}
-
-var _default = v4;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 16217:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _v = _interopRequireDefault(__nccwpck_require__(65920));
-
-var _sha = _interopRequireDefault(__nccwpck_require__(38844));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const v5 = (0, _v.default)('v5', 0x50, _sha.default);
-var _default = v5;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 92609:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _regex = _interopRequireDefault(__nccwpck_require__(86230));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function validate(uuid) {
-  return typeof uuid === 'string' && _regex.default.test(uuid);
-}
-
-var _default = validate;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 40427:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(92609));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function version(uuid) {
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Invalid UUID');
-  }
-
-  return parseInt(uuid.substr(14, 1), 16);
-}
-
-var _default = version;
-exports["default"] = _default;
 
 /***/ }),
 
@@ -4467,7 +3821,7 @@ class Manifest {
 }
 exports.Manifest = Manifest;
 _a = JSII_RTTI_SYMBOL_1;
-Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "2.136.0" };
+Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "2.137.0" };
 function mapValues(xs, fn) {
     if (!xs) {
         return undefined;
@@ -9912,7 +9266,7 @@ function normalize(template) {
         }
     }
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGlmZi10ZW1wbGF0ZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImRpZmYtdGVtcGxhdGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFHQSwrQkFBK0I7QUFDL0Isc0NBQXNDO0FBQ3RDLHNDQUFvRTtBQUVwRSwrQ0FBNkI7QUFLN0IsTUFBTSxhQUFhLEdBQW9CO0lBQ3JDLHdCQUF3QixFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyRCxJQUFJLENBQUMsd0JBQXdCLEdBQUcsSUFBSSxDQUFDLGFBQWEsQ0FBQyxRQUFRLEVBQUUsUUFBUSxDQUFDO0lBQ3hFLFdBQVcsRUFBRSxDQUFDLElBQUksRUFBRSxRQUFRLEVBQUUsUUFBUSxFQUFFLEVBQUUsQ0FDeEMsSUFBSSxDQUFDLFdBQVcsR0FBRyxJQUFJLENBQUMsYUFBYSxDQUFDLFFBQVEsRUFBRSxRQUFRLENBQUM7SUFDM0QsUUFBUSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsWUFBWSxDQUFDLENBQUM7SUFDMUcsVUFBVSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUN2QyxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7SUFDN0csUUFBUSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElB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QUMsS0FBSyxRQUFRLEVBQUU7Z0JBQzdELFFBQVEsQ0FBQyxHQUFHLENBQUMsR0FBRyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDO2dCQUN6QyxTQUFTO2FBQ1Y7aUJBQU0sSUFBSSxHQUFHLEtBQUssV0FBVyxFQUFFO2dCQUM5QixJQUFJLE9BQU8sUUFBUSxDQUFDLEdBQUcsQ0FBQyxLQUFLLFFBQVEsRUFBRTtvQkFDckMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7aUJBQ2pDO3FCQUFNLElBQUksS0FBSyxDQUFDLE9BQU8sQ0FBQyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUMsRUFBRTtvQkFDdkMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxHQUFHLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQyxJQUFJLEVBQUUsQ0FBQztpQkFDdEM7Z0JBQ0QsU0FBUzthQUNWO1lBRUQsSUFBSSxLQUFLLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQyxFQUFFO2dCQUNoQyxLQUFLLE1BQU0sT0FBTyxJQUFJLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLEVBQUU7b0JBQ3JDLFNBQVMsQ0FBQyxPQUFPLENBQUMsQ0FBQztpQkFDcEI7YUFDRjtpQkFBTTtnQkFDTCxTQUFTLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7YUFDMUI7U0FDRjtLQUNGO0FBQ0gsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8vIFRoZSBTREsgaXMgb25seSB1c2VkIHRvIHJlZmVyZW5jZSBgRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXRgLCBzbyB0aGUgU0RLIGlzIGFkZGVkIGFzIGEgZGV2RGVwZW5kZW5jeS5cbi8vIFRoZSBTREsgc2hvdWxkIG5vdCBtYWtlIG5ldHdvcmsgY2FsbHMgaGVyZVxuaW1wb3J0IHR5cGUgeyBDbG91ZEZvcm1hdGlvbiB9IGZyb20gJ2F3cy1zZGsnO1xuaW1wb3J0ICogYXMgaW1wbCBmcm9tICcuL2RpZmYnO1xuaW1wb3J0ICogYXMgdHlwZXMgZnJvbSAnLi9kaWZmL3R5cGVzJztcbmltcG9ydCB7IGRlZXBFcXVhbCwgZGlmZktleWVkRW50aXRpZXMsIHVuaW9uT2YgfSBmcm9tICcuL2RpZmYvdXRpbCc7XG5cbmV4cG9ydCAqIGZyb20gJy4vZGlmZi90eXBlcyc7XG5cbnR5cGUgRGlmZkhhbmRsZXIgPSAoZGlmZjogdHlwZXMuSVRlbXBsYXRlRGlmZiwgb2xkVmFsdWU6IGFueSwgbmV3VmFsdWU6IGFueSkgPT4gdm9pZDtcbnR5cGUgSGFuZGxlclJlZ2lzdHJ5ID0geyBbc2VjdGlvbjogc3RyaW5nXTogRGlmZkhhbmRsZXIgfTtcblxuY29uc3QgRElGRl9IQU5ETEVSUzogSGFuZGxlclJlZ2lzdHJ5ID0ge1xuICBBV1NUZW1wbGF0ZUZvcm1hdFZlcnNpb246IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi5hd3NUZW1wbGF0ZUZvcm1hdFZlcnNpb24gPSBpbXBsLmRpZmZBdHRyaWJ1dGUob2xkVmFsdWUsIG5ld1ZhbHVlKSxcbiAgRGVzY3JpcHRpb246IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi5kZXNjcmlwdGlvbiA9IGltcGwuZGlmZkF0dHJpYnV0ZShvbGRWYWx1ZSwgbmV3VmFsdWUpLFxuICBNZXRhZGF0YTogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLm1ldGFkYXRhID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKGRpZmZLZXllZEVudGl0aWVzKG9sZFZhbHVlLCBuZXdWYWx1ZSwgaW1wbC5kaWZmTWV0YWRhdGEpKSxcbiAgUGFyYW1ldGVyczogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLnBhcmFtZXRlcnMgPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24oZGlmZktleWVkRW50aXRpZXMob2xkVmFsdWUsIG5ld1ZhbHVlLCBpbXBsLmRpZmZQYXJhbWV0ZXIpKSxcbiAgTWFwcGluZ3M6IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi5tYXBwaW5ncyA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbihkaWZmS2V5ZWRFbnRpdGllcyhvbGRWYWx1ZSwgbmV3VmFsdWUsIGltcGwuZGlmZk1hcHBpbmcpKSxcbiAgQ29uZGl0aW9uczogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLmNvbmRpdGlvbnMgPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24oZGlmZktleWVkRW50aXRpZXMob2xkVmFsdWUsIG5ld1ZhbHVlLCBpbXBsLmRpZmZDb25kaXRpb24pKSxcbiAgVHJhbnNmb3JtOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYudHJhbnNmb3JtID0gaW1wbC5kaWZmQXR0cmlidXRlKG9sZFZhbHVlLCBuZXdWYWx1ZSksXG4gIFJlc291cmNlczogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLnJlc291cmNlcyA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbihkaWZmS2V5ZWRFbnRpdGllcyhvbGRWYWx1ZSwgbmV3VmFsdWUsIGltcGwuZGlmZlJlc291cmNlKSksXG4gIE91dHB1dHM6IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi5vdXRwdXRzID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKGRpZmZLZXllZEVudGl0aWVzKG9sZFZhbHVlLCBuZXdWYWx1ZSwgaW1wbC5kaWZmT3V0cHV0KSksXG59O1xuXG4vKipcbiAqIENvbXBhcmUgdHdvIENsb3VkRm9ybWF0aW9uIHRlbXBsYXRlcyBhbmQgcmV0dXJuIHNlbWFudGljIGRpZmZlcmVuY2VzIGJldHdlZW4gdGhlbS5cbiAqXG4gKiBAcGFyYW0gY3VycmVudFRlbXBsYXRlIHRoZSBjdXJyZW50IHN0YXRlIG9mIHRoZSBzdGFjay5cbiAqIEBwYXJhbSBuZXdUZW1wbGF0ZSAgICAgdGhlIHRhcmdldCBzdGF0ZSBvZiB0aGUgc3RhY2suXG4gKiBAcGFyYW0gY2hhbmdlU2V0ICAgICAgIHRoZSBjaGFuZ2Ugc2V0IGZvciB0aGlzIHN0YWNrLlxuICpcbiAqIEByZXR1cm5zIGEgK3R5cGVzLlRlbXBsYXRlRGlmZisgb2JqZWN0IHRoYXQgcmVwcmVzZW50cyB0aGUgY2hhbmdlcyB0aGF0IHdpbGwgaGFwcGVuIGlmXG4gKiAgICAgIGEgc3RhY2sgd2hpY2ggY3VycmVudCBzdGF0ZSBpcyBkZXNjcmliZWQgYnkgK2N1cnJlbnRUZW1wbGF0ZSsgaXMgdXBkYXRlZCB3aXRoXG4gKiAgICAgIHRoZSB0ZW1wbGF0ZSArbmV3VGVtcGxhdGUrLlxuICovXG5leHBvcnQgZnVuY3Rpb24gZnVsbERpZmYoXG4gIGN1cnJlbnRUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSxcbiAgbmV3VGVtcGxhdGU6IHsgW2tleTogc3RyaW5nXTogYW55IH0sXG4gIGNoYW5nZVNldD86IENsb3VkRm9ybWF0aW9uLkRlc2NyaWJlQ2hhbmdlU2V0T3V0cHV0LFxuICBpc0ltcG9ydD86IGJvb2xlYW4sXG4pOiB0eXBlcy5UZW1wbGF0ZURpZmYge1xuXG4gIG5vcm1hbGl6ZShjdXJyZW50VGVtcGxhdGUpO1xuICBub3JtYWxpemUobmV3VGVtcGxhdGUpO1xuICBjb25zdCB0aGVEaWZmID0gZGlmZlRlbXBsYXRlKGN1cnJlbnRUZW1wbGF0ZSwgbmV3VGVtcGxhdGUpO1xuICBpZiAoY2hhbmdlU2V0KSB7XG4gICAgZmlsdGVyRmFsc2VQb3NpdGl2ZXModGhlRGlmZiwgY2hhbmdlU2V0KTtcbiAgICBhZGRJbXBvcnRJbmZvcm1hdGlvbih0aGVEaWZmLCBjaGFuZ2VTZXQpO1xuICB9IGVsc2UgaWYgKGlzSW1wb3J0KSB7XG4gICAgbWFrZUFsbFJlc291cmNlQ2hhbmdlc0ltcG9ydHModGhlRGlmZik7XG4gIH1cblxuICByZXR1cm4gdGhlRGlmZjtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGRpZmZUZW1wbGF0ZShcbiAgY3VycmVudFRlbXBsYXRlOiB7IFtrZXk6IHN0cmluZ106IGFueSB9LFxuICBuZXdUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSxcbik6IHR5cGVzLlRlbXBsYXRlRGlmZiB7XG5cbiAgLy8gQmFzZSBkaWZmXG4gIGNvbnN0IHRoZURpZmYgPSBjYWxjdWxhdGVUZW1wbGF0ZURpZmYoY3VycmVudFRlbXBsYXRlLCBuZXdUZW1wbGF0ZSk7XG5cbiAgLy8gV2UncmUgZ29pbmcgdG8gbW9kaWZ5IHRoaXMgaW4tcGxhY2VcbiAgY29uc3QgbmV3VGVtcGxhdGVDb3B5ID0gZGVlcENvcHkobmV3VGVtcGxhdGUpO1xuXG4gIGxldCBkaWRQcm9wYWdhdGVSZWZlcmVuY2VDaGFuZ2VzO1xuICBsZXQgZGlmZldpdGhSZXBsYWNlbWVudHM7XG4gIGRvIHtcbiAgICBkaWZmV2l0aFJlcGxhY2VtZW50cyA9IGNhbGN1bGF0ZVRlbXBsYXRlRGlmZihjdXJyZW50VGVtcGxhdGUsIG5ld1RlbXBsYXRlQ29weSk7XG5cbiAgICAvLyBQcm9wYWdhdGUgcmVwbGFjZW1lbnRzIGZvciByZXBsYWNlZCByZXNvdXJjZXNcbiAgICBkaWRQcm9wYWdhdGVSZWZlcmVuY2VDaGFuZ2VzID0gZmFsc2U7XG4gICAgaWYgKGRpZmZXaXRoUmVwbGFjZW1lbnRzLnJlc291cmNlcykge1xuICAgICAgZGlmZldpdGhSZXBsYWNlbWVudHMucmVzb3VyY2VzLmZvckVhY2hEaWZmZXJlbmNlKChsb2dpY2FsSWQsIGNoYW5nZSkgPT4ge1xuICAgICAgICBpZiAoY2hhbmdlLmNoYW5nZUltcGFjdCA9PT0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuV0lMTF9SRVBMQUNFKSB7XG4gICAgICAgICAgaWYgKHByb3BhZ2F0ZVJlcGxhY2VkUmVmZXJlbmNlcyhuZXdUZW1wbGF0ZUNvcHksIGxvZ2ljYWxJZCkpIHtcbiAgICAgICAgICAgIGRpZFByb3BhZ2F0ZVJlZmVyZW5jZUNoYW5nZXMgPSB0cnVlO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfSk7XG4gICAgfVxuICB9IHdoaWxlIChkaWRQcm9wYWdhdGVSZWZlcmVuY2VDaGFuZ2VzKTtcblxuICAvLyBDb3B5IFwicmVwbGFjZWRcIiBzdGF0ZXMgZnJvbSBgZGlmZldpdGhSZXBsYWNlbWVudHNgIHRvIGB0aGVEaWZmYC5cbiAgZGlmZldpdGhSZXBsYWNlbWVudHMucmVzb3VyY2VzXG4gICAgLmZpbHRlcihyID0+IGlzUmVwbGFjZW1lbnQociEuY2hhbmdlSW1wYWN0KSlcbiAgICAuZm9yRWFjaERpZmZlcmVuY2UoKGxvZ2ljYWxJZCwgZG93bnN0cmVhbVJlcGxhY2VtZW50KSA9PiB7XG4gICAgICBjb25zdCByZXNvdXJjZSA9IHRoZURpZmYucmVzb3VyY2VzLmdldChsb2dpY2FsSWQpO1xuXG4gICAgICBpZiAocmVzb3VyY2UuY2hhbmdlSW1wYWN0ICE9PSBkb3duc3RyZWFtUmVwbGFjZW1lbnQuY2hhbmdlSW1wYWN0KSB7XG4gICAgICAgIHByb3BhZ2F0ZVByb3BlcnR5UmVwbGFjZW1lbnQoZG93bnN0cmVhbVJlcGxhY2VtZW50LCByZXNvdXJjZSk7XG4gICAgICB9XG4gICAgfSk7XG5cbiAgcmV0dXJuIHRoZURpZmY7XG59XG5cbmZ1bmN0aW9uIGlzUmVwbGFjZW1lbnQoaW1wYWN0OiB0eXBlcy5SZXNvdXJjZUltcGFjdCkge1xuICByZXR1cm4gaW1wYWN0ID09PSB0eXBlcy5SZXNvdXJjZUltcGFjdC5NQVlfUkVQTEFDRSB8fCBpbXBhY3QgPT09IHR5cGVzLlJlc291cmNlSW1wYWN0LldJTExfUkVQTEFDRTtcbn1cblxuLyoqXG4gKiBGb3IgYWxsIHByb3BlcnRpZXMgaW4gJ3NvdXJjZScgdGhhdCBoYXZlIGEgXCJyZXBsYWNlbWVudFwiIGltcGFjdCwgcHJvcGFnYXRlIHRoYXQgaW1wYWN0IHRvIFwiZGVzdFwiXG4gKi9cbmZ1bmN0aW9uIHByb3BhZ2F0ZVByb3BlcnR5UmVwbGFjZW1lbnQoc291cmNlOiB0eXBlcy5SZXNvdXJjZURpZmZlcmVuY2UsIGRlc3Q6IHR5cGVzLlJlc291cmNlRGlmZmVyZW5jZSkge1xuICBmb3IgKGNvbnN0IFtwcm9wZXJ0eU5hbWUsIGRpZmZdIG9mIE9iamVjdC5lbnRyaWVzKHNvdXJjZS5wcm9wZXJ0eVVwZGF0ZXMpKSB7XG4gICAgaWYgKGRpZmYuY2hhbmdlSW1wYWN0ICYmIGlzUmVwbGFjZW1lbnQoZGlmZi5jaGFuZ2VJbXBhY3QpKSB7XG4gICAgICAvLyBVc2UgdGhlIHByb3BlcnR5ZGlmZiBvZiBzb3VyY2UgaW4gdGFyZ2V0LiBUaGUgcmVzdWx0IG9mIHRoaXMgaGFwcGVucyB0byBiZSBjbGVhciBlbm91Z2guXG4gICAgICBkZXN0LnNldFByb3BlcnR5Q2hhbmdlKHByb3BlcnR5TmFtZSwgZGlmZik7XG4gICAgfVxuICB9XG59XG5cbmZ1bmN0aW9uIGNhbGN1bGF0ZVRlbXBsYXRlRGlmZihjdXJyZW50VGVtcGxhdGU6IHsgW2tleTogc3RyaW5nXTogYW55IH0sIG5ld1RlbXBsYXRlOiB7IFtrZXk6IHN0cmluZ106IGFueSB9KTogdHlwZXMuVGVtcGxhdGVEaWZmIHtcbiAgY29uc3QgZGlmZmVyZW5jZXM6IHR5cGVzLklUZW1wbGF0ZURpZmYgPSB7fTtcbiAgY29uc3QgdW5rbm93bjogeyBba2V5OiBzdHJpbmddOiB0eXBlcy5EaWZmZXJlbmNlPGFueT4gfSA9IHt9O1xuICBmb3IgKGNvbnN0IGtleSBvZiB1bmlvbk9mKE9iamVjdC5rZXlzKGN1cnJlbnRUZW1wbGF0ZSksIE9iamVjdC5rZXlzKG5ld1RlbXBsYXRlKSkuc29ydCgpKSB7XG4gICAgY29uc3Qgb2xkVmFsdWUgPSBjdXJyZW50VGVtcGxhdGVba2V5XTtcbiAgICBjb25zdCBuZXdWYWx1ZSA9IG5ld1RlbXBsYXRlW2tleV07XG4gICAgaWYgKGRlZXBFcXVhbChvbGRWYWx1ZSwgbmV3VmFsdWUpKSB7XG4gICAgICBjb250aW51ZTtcbiAgICB9XG4gICAgY29uc3QgaGFuZGxlcjogRGlmZkhhbmRsZXIgPSBESUZGX0hBTkRMRVJTW2tleV1cbiAgICAgICAgICAgICAgICAgIHx8ICgoX2RpZmYsIG9sZFYsIG5ld1YpID0+IHVua25vd25ba2V5XSA9IGltcGwuZGlmZlVua25vd24ob2xkViwgbmV3VikpO1xuICAgIGhhbmRsZXIoZGlmZmVyZW5jZXMsIG9sZFZhbHVlLCBuZXdWYWx1ZSk7XG4gIH1cbiAgaWYgKE9iamVjdC5rZXlzKHVua25vd24pLmxlbmd0aCA+IDApIHtcbiAgICBkaWZmZXJlbmNlcy51bmtub3duID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKHVua25vd24pO1xuICB9XG5cbiAgcmV0dXJuIG5ldyB0eXBlcy5UZW1wbGF0ZURpZmYoZGlmZmVyZW5jZXMpO1xufVxuXG4vKipcbiAqIENvbXBhcmUgdHdvIENsb3VkRm9ybWF0aW9uIHJlc291cmNlcyBhbmQgcmV0dXJuIHNlbWFudGljIGRpZmZlcmVuY2VzIGJldHdlZW4gdGhlbVxuICovXG5leHBvcnQgZnVuY3Rpb24gZGlmZlJlc291cmNlKG9sZFZhbHVlOiB0eXBlcy5SZXNvdXJjZSwgbmV3VmFsdWU6IHR5cGVzLlJlc291cmNlKTogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlIHtcbiAgcmV0dXJuIGltcGwuZGlmZlJlc291cmNlKG9sZFZhbHVlLCBuZXdWYWx1ZSk7XG59XG5cbi8qKlxuICogUmVwbGFjZSBhbGwgcmVmZXJlbmNlcyB0byB0aGUgZ2l2ZW4gbG9naWNhbElEIG9uIHRoZSBnaXZlbiB0ZW1wbGF0ZSwgaW4tcGxhY2VcbiAqXG4gKiBSZXR1cm5zIHRydWUgaWZmIGFueSByZWZlcmVuY2VzIHdlcmUgcmVwbGFjZWQuXG4gKi9cbmZ1bmN0aW9uIHByb3BhZ2F0ZVJlcGxhY2VkUmVmZXJlbmNlcyh0ZW1wbGF0ZTogb2JqZWN0LCBsb2dpY2FsSWQ6IHN0cmluZyk6IGJvb2xlYW4ge1xuICBsZXQgcmV0ID0gZmFsc2U7XG5cbiAgZnVuY3Rpb24gcmVjdXJzZShvYmo6IGFueSkge1xuICAgIGlmIChBcnJheS5pc0FycmF5KG9iaikpIHtcbiAgICAgIG9iai5mb3JFYWNoKHJlY3Vyc2UpO1xuICAgIH1cblxuICAgIGlmICh0eXBlb2Ygb2JqID09PSAnb2JqZWN0JyAmJiBvYmogIT09IG51bGwpIHtcbiAgICAgIGlmICghcmVwbGFjZVJlZmVyZW5jZShvYmopKSB7XG4gICAgICAgIE9iamVjdC52YWx1ZXMob2JqKS5mb3JFYWNoKHJlY3Vyc2UpO1xuICAgICAgfVxuICAgIH1cbiAgfVxuXG4gIGZ1bmN0aW9uIHJlcGxhY2VSZWZlcmVuY2Uob2JqOiBhbnkpIHtcbiAgICBjb25zdCBrZXlzID0gT2JqZWN0LmtleXMob2JqKTtcbiAgICBpZiAoa2V5cy5sZW5ndGggIT09IDEpIHsgcmV0dXJuIGZhbHNlOyB9XG4gICAgY29uc3Qga2V5ID0ga2V5c1swXTtcblxuICAgIGlmIChrZXkgPT09ICdSZWYnKSB7XG4gICAgICBpZiAob2JqLlJlZiA9PT0gbG9naWNhbElkKSB7XG4gICAgICAgIG9iai5SZWYgPSBsb2dpY2FsSWQgKyAnIChyZXBsYWNlZCknO1xuICAgICAgICByZXQgPSB0cnVlO1xuICAgICAgfVxuICAgICAgcmV0dXJuIHRydWU7XG4gICAgfVxuXG4gICAgaWYgKGtleS5zdGFydHNXaXRoKCdGbjo6JykpIHtcbiAgICAgIGlmIChBcnJheS5pc0FycmF5KG9ialtrZXldKSAmJiBvYmpba2V5XS5sZW5ndGggPiAwICYmIG9ialtrZXldWzBdID09PSBsb2dpY2FsSWQpIHtcbiAgICAgICAgb2JqW2tleV1bMF0gPSBsb2dpY2FsSWQgKyAnKHJlcGxhY2VkKSc7XG4gICAgICAgIHJldCA9IHRydWU7XG4gICAgICB9XG4gICAgICByZXR1cm4gdHJ1ZTtcbiAgICB9XG5cbiAgICByZXR1cm4gZmFsc2U7XG4gIH1cblxuICByZWN1cnNlKHRlbXBsYXRlKTtcbiAgcmV0dXJuIHJldDtcbn1cblxuZnVuY3Rpb24gZGVlcENvcHkoeDogYW55KTogYW55IHtcbiAgaWYgKEFycmF5LmlzQXJyYXkoeCkpIHtcbiAgICByZXR1cm4geC5tYXAoZGVlcENvcHkpO1xuICB9XG5cbiAgaWYgKHR5cGVvZiB4ID09PSAnb2JqZWN0JyAmJiB4ICE9PSBudWxsKSB7XG4gICAgY29uc3QgcmV0OiBhbnkgPSB7fTtcbiAgICBmb3IgKGNvbnN0IGtleSBvZiBPYmplY3Qua2V5cyh4KSkge1xuICAgICAgcmV0W2tleV0gPSBkZWVwQ29weSh4W2tleV0pO1xuICAgIH1cbiAgICByZXR1cm4gcmV0O1xuICB9XG5cbiAgcmV0dXJuIHg7XG59XG5cbmZ1bmN0aW9uIGFkZEltcG9ydEluZm9ybWF0aW9uKGRpZmY6IHR5cGVzLlRlbXBsYXRlRGlmZiwgY2hhbmdlU2V0OiBDbG91ZEZvcm1hdGlvbi5EZXNjcmliZUNoYW5nZVNldE91dHB1dCkge1xuICBjb25zdCBpbXBvcnRzID0gZmluZFJlc291cmNlSW1wb3J0cyhjaGFuZ2VTZXQpO1xuICBkaWZmLnJlc291cmNlcy5mb3JFYWNoRGlmZmVyZW5jZSgobG9naWNhbElkOiBzdHJpbmcsIGNoYW5nZTogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlKSA9PiB7XG4gICAgaWYgKGltcG9ydHMuaW5jbHVkZXMobG9naWNhbElkKSkge1xuICAgICAgY2hhbmdlLmlzSW1wb3J0ID0gdHJ1ZTtcbiAgICB9XG4gIH0pO1xufVxuXG5mdW5jdGlvbiBtYWtlQWxsUmVzb3VyY2VDaGFuZ2VzSW1wb3J0cyhkaWZmOiB0eXBlcy5UZW1wbGF0ZURpZmYpIHtcbiAgZGlmZi5yZXNvdXJjZXMuZm9yRWFjaERpZmZlcmVuY2UoKF9sb2dpY2FsSWQ6IHN0cmluZywgY2hhbmdlOiB0eXBlcy5SZXNvdXJjZURpZmZlcmVuY2UpID0+IHtcbiAgICBjaGFuZ2UuaXNJbXBvcnQgPSB0cnVlO1xuICB9KTtcbn1cblxuZnVuY3Rpb24gZmlsdGVyRmFsc2VQb3NpdGl2ZXMoZGlmZjogdHlwZXMuVGVtcGxhdGVEaWZmLCBjaGFuZ2VTZXQ6IENsb3VkRm9ybWF0aW9uLkRlc2NyaWJlQ2hhbmdlU2V0T3V0cHV0KSB7XG4gIGNvbnN0IHJlcGxhY2VtZW50cyA9IGZpbmRSZXNvdXJjZVJlcGxhY2VtZW50cyhjaGFuZ2VTZXQpO1xuICBkaWZmLnJlc291cmNlcy5mb3JFYWNoRGlmZmVyZW5jZSgobG9naWNhbElkOiBzdHJpbmcsIGNoYW5nZTogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlKSA9PiB7XG4gICAgaWYgKGNoYW5nZS5yZXNvdXJjZVR5cGUuaW5jbHVkZXMoJ0FXUzo6U2VydmVybGVzcycpKSB7XG4gICAgICAvLyBDRk4gYXBwbGllcyB0aGUgU0FNIHRyYW5zZm9ybSBiZWZvcmUgY3JlYXRpbmcgdGhlIGNoYW5nZXNldCwgc28gdGhlIGNoYW5nZXNldCBjb250YWlucyBubyBpbmZvcm1hdGlvbiBhYm91dCBTQU0gcmVzb3VyY2VzXG4gICAgICByZXR1cm47XG4gICAgfVxuICAgIGNoYW5nZS5mb3JFYWNoRGlmZmVyZW5jZSgodHlwZTogJ1Byb3BlcnR5JyB8ICdPdGhlcicsIG5hbWU6IHN0cmluZywgdmFsdWU6IHR5cGVzLkRpZmZlcmVuY2U8YW55PiB8IHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KSA9PiB7XG4gICAgICBpZiAodHlwZSA9PT0gJ1Byb3BlcnR5Jykge1xuICAgICAgICBpZiAoIXJlcGxhY2VtZW50c1tsb2dpY2FsSWRdKSB7XG4gICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5jaGFuZ2VJbXBhY3QgPSB0eXBlcy5SZXNvdXJjZUltcGFjdC5OT19DSEFOR0U7XG4gICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5pc0RpZmZlcmVudCA9IGZhbHNlO1xuICAgICAgICAgIHJldHVybjtcbiAgICAgICAgfVxuICAgICAgICBzd2l0Y2ggKHJlcGxhY2VtZW50c1tsb2dpY2FsSWRdLnByb3BlcnRpZXNSZXBsYWNlZFtuYW1lXSkge1xuICAgICAgICAgIGNhc2UgJ0Fsd2F5cyc6XG4gICAgICAgICAgICAodmFsdWUgYXMgdHlwZXMuUHJvcGVydHlEaWZmZXJlbmNlPGFueT4pLmNoYW5nZUltcGFjdCA9IHR5cGVzLlJlc291cmNlSW1wYWN0LldJTExfUkVQTEFDRTtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgJ05ldmVyJzpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuV0lMTF9VUERBVEU7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICBjYXNlICdDb25kaXRpb25hbGx5JzpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuTUFZX1JFUExBQ0U7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICBjYXNlIHVuZGVmaW5lZDpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuTk9fQ0hBTkdFO1xuICAgICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5pc0RpZmZlcmVudCA9IGZhbHNlO1xuICAgICAgICAgICAgYnJlYWs7XG4gICAgICAgICAgLy8gb3RoZXJ3aXNlLCBkZWZlciB0byB0aGUgY2hhbmdlSW1wYWN0IGZyb20gYGRpZmZUZW1wbGF0ZWBcbiAgICAgICAgfVxuICAgICAgfSBlbHNlIGlmICh0eXBlID09PSAnT3RoZXInKSB7XG4gICAgICAgIHN3aXRjaCAobmFtZSkge1xuICAgICAgICAgIGNhc2UgJ01ldGFkYXRhJzpcbiAgICAgICAgICAgIGNoYW5nZS5zZXRPdGhlckNoYW5nZSgnTWV0YWRhdGEnLCBuZXcgdHlwZXMuRGlmZmVyZW5jZTxzdHJpbmc+KHZhbHVlLm5ld1ZhbHVlLCB2YWx1ZS5uZXdWYWx1ZSkpO1xuICAgICAgICAgICAgYnJlYWs7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9KTtcbiAgfSk7XG59XG5cbmZ1bmN0aW9uIGZpbmRSZXNvdXJjZUltcG9ydHMoY2hhbmdlU2V0OiBDbG91ZEZvcm1hdGlvbi5EZXNjcmliZUNoYW5nZVNldE91dHB1dCk6IHN0cmluZ1tdIHtcbiAgY29uc3QgaW1wb3J0ZWRSZXNvdXJjZUxvZ2ljYWxJZHMgPSBbXTtcbiAgZm9yIChjb25zdCByZXNvdXJjZUNoYW5nZSBvZiBjaGFuZ2VTZXQuQ2hhbmdlcyA/PyBbXSkge1xuICAgIGlmIChyZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZT8uQWN0aW9uID09PSAnSW1wb3J0Jykge1xuICAgICAgaW1wb3J0ZWRSZXNvdXJjZUxvZ2ljYWxJZHMucHVzaChyZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZS5Mb2dpY2FsUmVzb3VyY2VJZCEpO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBpbXBvcnRlZFJlc291cmNlTG9naWNhbElkcztcbn1cblxuZnVuY3Rpb24gZmluZFJlc291cmNlUmVwbGFjZW1lbnRzKGNoYW5nZVNldDogQ2xvdWRGb3JtYXRpb24uRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXQpOiB0eXBlcy5SZXNvdXJjZVJlcGxhY2VtZW50cyB7XG4gIGNvbnN0IHJlcGxhY2VtZW50czogdHlwZXMuUmVzb3VyY2VSZXBsYWNlbWVudHMgPSB7fTtcbiAgZm9yIChjb25zdCByZXNvdXJjZUNoYW5nZSBvZiBjaGFuZ2VTZXQuQ2hhbmdlcyA/PyBbXSkge1xuICAgIGNvbnN0IHByb3BlcnRpZXNSZXBsYWNlZDogeyBbcHJvcE5hbWU6IHN0cmluZ106IHR5cGVzLkNoYW5nZVNldFJlcGxhY2VtZW50IH0gPSB7fTtcbiAgICBmb3IgKGNvbnN0IHByb3BlcnR5Q2hhbmdlIG9mIHJlc291cmNlQ2hhbmdlLlJlc291cmNlQ2hhbmdlPy5EZXRhaWxzID8/IFtdKSB7XG4gICAgICBpZiAocHJvcGVydHlDaGFuZ2UuVGFyZ2V0Py5BdHRyaWJ1dGUgPT09ICdQcm9wZXJ0aWVzJykge1xuICAgICAgICBjb25zdCByZXF1aXJlc1JlcGxhY2VtZW50ID0gcHJvcGVydHlDaGFuZ2UuVGFyZ2V0LlJlcXVpcmVzUmVjcmVhdGlvbiA9PT0gJ0Fsd2F5cyc7XG4gICAgICAgIGlmIChyZXF1aXJlc1JlcGxhY2VtZW50ICYmIHByb3BlcnR5Q2hhbmdlLkV2YWx1YXRpb24gPT09ICdTdGF0aWMnKSB7XG4gICAgICAgICAgcHJvcGVydGllc1JlcGxhY2VkW3Byb3BlcnR5Q2hhbmdlLlRhcmdldC5OYW1lIV0gPSAnQWx3YXlzJztcbiAgICAgICAgfSBlbHNlIGlmIChyZXF1aXJlc1JlcGxhY2VtZW50ICYmIHByb3BlcnR5Q2hhbmdlLkV2YWx1YXRpb24gPT09ICdEeW5hbWljJykge1xuICAgICAgICAgIC8vIElmIEV2YWx1YXRpb24gaXMgJ0R5bmFtaWMnLCB0aGVuIHRoaXMgbWF5IGNhdXNlIHJlcGxhY2VtZW50LCBvciBpdCBtYXkgbm90LlxuICAgICAgICAgIC8vIHNlZSAnUmVwbGFjZW1lbnQnOiBodHRwczovL2RvY3MuYXdzLmFtYXpvbi5jb20vQVdTQ2xvdWRGb3JtYXRpb24vbGF0ZXN0L0FQSVJlZmVyZW5jZS9BUElfUmVzb3VyY2VDaGFuZ2UuaHRtbFxuICAgICAgICAgIHByb3BlcnRpZXNSZXBsYWNlZFtwcm9wZXJ0eUNoYW5nZS5UYXJnZXQuTmFtZSFdID0gJ0NvbmRpdGlvbmFsbHknO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIHByb3BlcnRpZXNSZXBsYWNlZFtwcm9wZXJ0eUNoYW5nZS5UYXJnZXQuTmFtZSFdID0gcHJvcGVydHlDaGFuZ2UuVGFyZ2V0LlJlcXVpcmVzUmVjcmVhdGlvbiBhcyB0eXBlcy5DaGFuZ2VTZXRSZXBsYWNlbWVudDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgICByZXBsYWNlbWVudHNbcmVzb3VyY2VDaGFuZ2UuUmVzb3VyY2VDaGFuZ2U/LkxvZ2ljYWxSZXNvdXJjZUlkIV0gPSB7XG4gICAgICByZXNvdXJjZVJlcGxhY2VkOiByZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZT8uUmVwbGFjZW1lbnQgPT09ICdUcnVlJyxcbiAgICAgIHByb3BlcnRpZXNSZXBsYWNlZCxcbiAgICB9O1xuICB9XG5cbiAgcmV0dXJuIHJlcGxhY2VtZW50cztcbn1cblxuZnVuY3Rpb24gbm9ybWFsaXplKHRlbXBsYXRlOiBhbnkpIHtcbiAgaWYgKHR5cGVvZiB0ZW1wbGF0ZSA9PT0gJ29iamVjdCcpIHtcbiAgICBmb3IgKGNvbnN0IGtleSBvZiAoT2JqZWN0LmtleXModGVtcGxhdGUgPz8ge30pKSkge1xuICAgICAgaWYgKGtleSA9PT0gJ0ZuOjpHZXRBdHQnICYmIHR5cGVvZiB0ZW1wbGF0ZVtrZXldID09PSAnc3RyaW5nJykge1xuICAgICAgICB0ZW1wbGF0ZVtrZXldID0gdGVtcGxhdGVba2V5XS5zcGxpdCgnLicpO1xuICAgICAgICBjb250aW51ZTtcbiAgICAgIH0gZWxzZSBpZiAoa2V5ID09PSAnRGVwZW5kc09uJykge1xuICAgICAgICBpZiAodHlwZW9mIHRlbXBsYXRlW2tleV0gPT09ICdzdHJpbmcnKSB7XG4gICAgICAgICAgdGVtcGxhdGVba2V5XSA9IFt0ZW1wbGF0ZVtrZXldXTtcbiAgICAgICAgfSBlbHNlIGlmIChBcnJheS5pc0FycmF5KHRlbXBsYXRlW2tleV0pKSB7XG4gICAgICAgICAgdGVtcGxhdGVba2V5XSA9IHRlbXBsYXRlW2tleV0uc29ydCgpO1xuICAgICAgICB9XG4gICAgICAgIGNvbnRpbnVlO1xuICAgICAgfVxuXG4gICAgICBpZiAoQXJyYXkuaXNBcnJheSh0ZW1wbGF0ZVtrZXldKSkge1xuICAgICAgICBmb3IgKGNvbnN0IGVsZW1lbnQgb2YgKHRlbXBsYXRlW2tleV0pKSB7XG4gICAgICAgICAgbm9ybWFsaXplKGVsZW1lbnQpO1xuICAgICAgICB9XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBub3JtYWxpemUodGVtcGxhdGVba2V5XSk7XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGlmZi10ZW1wbGF0ZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImRpZmYtdGVtcGxhdGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFHQSwrQkFBK0I7QUFDL0Isc0NBQXNDO0FBQ3RDLHNDQUFvRTtBQUVwRSwrQ0FBNkI7QUFPN0IsTUFBTSxhQUFhLEdBQW9CO0lBQ3JDLHdCQUF3QixFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyRCxJQUFJLENBQUMsd0JBQXdCLEdBQUcsSUFBSSxDQUFDLGFBQWEsQ0FBQyxRQUFRLEVBQUUsUUFBUSxDQUFDO0lBQ3hFLFdBQVcsRUFBRSxDQUFDLElBQUksRUFBRSxRQUFRLEVBQUUsUUFBUSxFQUFFLEVBQUUsQ0FDeEMsSUFBSSxDQUFDLFdBQVcsR0FBRyxJQUFJLENBQUMsYUFBYSxDQUFDLFFBQVEsRUFBRSxRQUFRLENBQUM7SUFDM0QsUUFBUSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsWUFBWSxDQUFDLENBQUM7SUFDMUcsVUFBVSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUN2QyxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElBQUEsd0JBQWlCLEVBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxJQUFJLENBQUMsYUFBYSxDQUFDLENBQUM7SUFDN0csUUFBUSxFQUFFLENBQUMsSUFBSSxFQUFFLFFBQVEsRUFBRSxRQUFRLEVBQUUsRUFBRSxDQUNyQyxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksS0FBSyxDQUFDLG9CQUFvQixDQUFDLElB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QUMsS0FBSyxRQUFRLEVBQUU7Z0JBQzdELFFBQVEsQ0FBQyxHQUFHLENBQUMsR0FBRyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDO2dCQUN6QyxTQUFTO2FBQ1Y7aUJBQU0sSUFBSSxHQUFHLEtBQUssV0FBVyxFQUFFO2dCQUM5QixJQUFJLE9BQU8sUUFBUSxDQUFDLEdBQUcsQ0FBQyxLQUFLLFFBQVEsRUFBRTtvQkFDckMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7aUJBQ2pDO3FCQUFNLElBQUksS0FBSyxDQUFDLE9BQU8sQ0FBQyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUMsRUFBRTtvQkFDdkMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxHQUFHLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQyxJQUFJLEVBQUUsQ0FBQztpQkFDdEM7Z0JBQ0QsU0FBUzthQUNWO1lBRUQsSUFBSSxLQUFLLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQyxFQUFFO2dCQUNoQyxLQUFLLE1BQU0sT0FBTyxJQUFJLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLEVBQUU7b0JBQ3JDLFNBQVMsQ0FBQyxPQUFPLENBQUMsQ0FBQztpQkFDcEI7YUFDRjtpQkFBTTtnQkFDTCxTQUFTLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7YUFDMUI7U0FDRjtLQUNGO0FBQ0gsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8vIFRoZSBTREsgaXMgb25seSB1c2VkIHRvIHJlZmVyZW5jZSBgRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXRgLCBzbyB0aGUgU0RLIGlzIGFkZGVkIGFzIGEgZGV2RGVwZW5kZW5jeS5cbi8vIFRoZSBTREsgc2hvdWxkIG5vdCBtYWtlIG5ldHdvcmsgY2FsbHMgaGVyZVxuaW1wb3J0IHR5cGUgeyBEZXNjcmliZUNoYW5nZVNldE91dHB1dCBhcyBEZXNjcmliZUNoYW5nZVNldCB9IGZyb20gJ0Bhd3Mtc2RrL2NsaWVudC1jbG91ZGZvcm1hdGlvbic7XG5pbXBvcnQgKiBhcyBpbXBsIGZyb20gJy4vZGlmZic7XG5pbXBvcnQgKiBhcyB0eXBlcyBmcm9tICcuL2RpZmYvdHlwZXMnO1xuaW1wb3J0IHsgZGVlcEVxdWFsLCBkaWZmS2V5ZWRFbnRpdGllcywgdW5pb25PZiB9IGZyb20gJy4vZGlmZi91dGlsJztcblxuZXhwb3J0ICogZnJvbSAnLi9kaWZmL3R5cGVzJztcblxuZXhwb3J0IHR5cGUgRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXQgPSBEZXNjcmliZUNoYW5nZVNldDtcblxudHlwZSBEaWZmSGFuZGxlciA9IChkaWZmOiB0eXBlcy5JVGVtcGxhdGVEaWZmLCBvbGRWYWx1ZTogYW55LCBuZXdWYWx1ZTogYW55KSA9PiB2b2lkO1xudHlwZSBIYW5kbGVyUmVnaXN0cnkgPSB7IFtzZWN0aW9uOiBzdHJpbmddOiBEaWZmSGFuZGxlciB9O1xuXG5jb25zdCBESUZGX0hBTkRMRVJTOiBIYW5kbGVyUmVnaXN0cnkgPSB7XG4gIEFXU1RlbXBsYXRlRm9ybWF0VmVyc2lvbjogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLmF3c1RlbXBsYXRlRm9ybWF0VmVyc2lvbiA9IGltcGwuZGlmZkF0dHJpYnV0ZShvbGRWYWx1ZSwgbmV3VmFsdWUpLFxuICBEZXNjcmlwdGlvbjogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLmRlc2NyaXB0aW9uID0gaW1wbC5kaWZmQXR0cmlidXRlKG9sZFZhbHVlLCBuZXdWYWx1ZSksXG4gIE1ldGFkYXRhOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYubWV0YWRhdGEgPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24oZGlmZktleWVkRW50aXRpZXMob2xkVmFsdWUsIG5ld1ZhbHVlLCBpbXBsLmRpZmZNZXRhZGF0YSkpLFxuICBQYXJhbWV0ZXJzOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYucGFyYW1ldGVycyA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbihkaWZmS2V5ZWRFbnRpdGllcyhvbGRWYWx1ZSwgbmV3VmFsdWUsIGltcGwuZGlmZlBhcmFtZXRlcikpLFxuICBNYXBwaW5nczogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLm1hcHBpbmdzID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKGRpZmZLZXllZEVudGl0aWVzKG9sZFZhbHVlLCBuZXdWYWx1ZSwgaW1wbC5kaWZmTWFwcGluZykpLFxuICBDb25kaXRpb25zOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYuY29uZGl0aW9ucyA9IG5ldyB0eXBlcy5EaWZmZXJlbmNlQ29sbGVjdGlvbihkaWZmS2V5ZWRFbnRpdGllcyhvbGRWYWx1ZSwgbmV3VmFsdWUsIGltcGwuZGlmZkNvbmRpdGlvbikpLFxuICBUcmFuc2Zvcm06IChkaWZmLCBvbGRWYWx1ZSwgbmV3VmFsdWUpID0+XG4gICAgZGlmZi50cmFuc2Zvcm0gPSBpbXBsLmRpZmZBdHRyaWJ1dGUob2xkVmFsdWUsIG5ld1ZhbHVlKSxcbiAgUmVzb3VyY2VzOiAoZGlmZiwgb2xkVmFsdWUsIG5ld1ZhbHVlKSA9PlxuICAgIGRpZmYucmVzb3VyY2VzID0gbmV3IHR5cGVzLkRpZmZlcmVuY2VDb2xsZWN0aW9uKGRpZmZLZXllZEVudGl0aWVzKG9sZFZhbHVlLCBuZXdWYWx1ZSwgaW1wbC5kaWZmUmVzb3VyY2UpKSxcbiAgT3V0cHV0czogKGRpZmYsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgPT5cbiAgICBkaWZmLm91dHB1dHMgPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24oZGlmZktleWVkRW50aXRpZXMob2xkVmFsdWUsIG5ld1ZhbHVlLCBpbXBsLmRpZmZPdXRwdXQpKSxcbn07XG5cbi8qKlxuICogQ29tcGFyZSB0d28gQ2xvdWRGb3JtYXRpb24gdGVtcGxhdGVzIGFuZCByZXR1cm4gc2VtYW50aWMgZGlmZmVyZW5jZXMgYmV0d2VlbiB0aGVtLlxuICpcbiAqIEBwYXJhbSBjdXJyZW50VGVtcGxhdGUgdGhlIGN1cnJlbnQgc3RhdGUgb2YgdGhlIHN0YWNrLlxuICogQHBhcmFtIG5ld1RlbXBsYXRlICAgICB0aGUgdGFyZ2V0IHN0YXRlIG9mIHRoZSBzdGFjay5cbiAqIEBwYXJhbSBjaGFuZ2VTZXQgICAgICAgdGhlIGNoYW5nZSBzZXQgZm9yIHRoaXMgc3RhY2suXG4gKlxuICogQHJldHVybnMgYSArdHlwZXMuVGVtcGxhdGVEaWZmKyBvYmplY3QgdGhhdCByZXByZXNlbnRzIHRoZSBjaGFuZ2VzIHRoYXQgd2lsbCBoYXBwZW4gaWZcbiAqICAgICAgYSBzdGFjayB3aGljaCBjdXJyZW50IHN0YXRlIGlzIGRlc2NyaWJlZCBieSArY3VycmVudFRlbXBsYXRlKyBpcyB1cGRhdGVkIHdpdGhcbiAqICAgICAgdGhlIHRlbXBsYXRlICtuZXdUZW1wbGF0ZSsuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBmdWxsRGlmZihcbiAgY3VycmVudFRlbXBsYXRlOiB7IFtrZXk6IHN0cmluZ106IGFueSB9LFxuICBuZXdUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSxcbiAgY2hhbmdlU2V0PzogRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXQsXG4gIGlzSW1wb3J0PzogYm9vbGVhbixcbik6IHR5cGVzLlRlbXBsYXRlRGlmZiB7XG5cbiAgbm9ybWFsaXplKGN1cnJlbnRUZW1wbGF0ZSk7XG4gIG5vcm1hbGl6ZShuZXdUZW1wbGF0ZSk7XG4gIGNvbnN0IHRoZURpZmYgPSBkaWZmVGVtcGxhdGUoY3VycmVudFRlbXBsYXRlLCBuZXdUZW1wbGF0ZSk7XG4gIGlmIChjaGFuZ2VTZXQpIHtcbiAgICBmaWx0ZXJGYWxzZVBvc2l0aXZlcyh0aGVEaWZmLCBjaGFuZ2VTZXQpO1xuICAgIGFkZEltcG9ydEluZm9ybWF0aW9uKHRoZURpZmYsIGNoYW5nZVNldCk7XG4gIH0gZWxzZSBpZiAoaXNJbXBvcnQpIHtcbiAgICBtYWtlQWxsUmVzb3VyY2VDaGFuZ2VzSW1wb3J0cyh0aGVEaWZmKTtcbiAgfVxuXG4gIHJldHVybiB0aGVEaWZmO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gZGlmZlRlbXBsYXRlKFxuICBjdXJyZW50VGVtcGxhdGU6IHsgW2tleTogc3RyaW5nXTogYW55IH0sXG4gIG5ld1RlbXBsYXRlOiB7IFtrZXk6IHN0cmluZ106IGFueSB9LFxuKTogdHlwZXMuVGVtcGxhdGVEaWZmIHtcblxuICAvLyBCYXNlIGRpZmZcbiAgY29uc3QgdGhlRGlmZiA9IGNhbGN1bGF0ZVRlbXBsYXRlRGlmZihjdXJyZW50VGVtcGxhdGUsIG5ld1RlbXBsYXRlKTtcblxuICAvLyBXZSdyZSBnb2luZyB0byBtb2RpZnkgdGhpcyBpbi1wbGFjZVxuICBjb25zdCBuZXdUZW1wbGF0ZUNvcHkgPSBkZWVwQ29weShuZXdUZW1wbGF0ZSk7XG5cbiAgbGV0IGRpZFByb3BhZ2F0ZVJlZmVyZW5jZUNoYW5nZXM7XG4gIGxldCBkaWZmV2l0aFJlcGxhY2VtZW50cztcbiAgZG8ge1xuICAgIGRpZmZXaXRoUmVwbGFjZW1lbnRzID0gY2FsY3VsYXRlVGVtcGxhdGVEaWZmKGN1cnJlbnRUZW1wbGF0ZSwgbmV3VGVtcGxhdGVDb3B5KTtcblxuICAgIC8vIFByb3BhZ2F0ZSByZXBsYWNlbWVudHMgZm9yIHJlcGxhY2VkIHJlc291cmNlc1xuICAgIGRpZFByb3BhZ2F0ZVJlZmVyZW5jZUNoYW5nZXMgPSBmYWxzZTtcbiAgICBpZiAoZGlmZldpdGhSZXBsYWNlbWVudHMucmVzb3VyY2VzKSB7XG4gICAgICBkaWZmV2l0aFJlcGxhY2VtZW50cy5yZXNvdXJjZXMuZm9yRWFjaERpZmZlcmVuY2UoKGxvZ2ljYWxJZCwgY2hhbmdlKSA9PiB7XG4gICAgICAgIGlmIChjaGFuZ2UuY2hhbmdlSW1wYWN0ID09PSB0eXBlcy5SZXNvdXJjZUltcGFjdC5XSUxMX1JFUExBQ0UpIHtcbiAgICAgICAgICBpZiAocHJvcGFnYXRlUmVwbGFjZWRSZWZlcmVuY2VzKG5ld1RlbXBsYXRlQ29weSwgbG9naWNhbElkKSkge1xuICAgICAgICAgICAgZGlkUHJvcGFnYXRlUmVmZXJlbmNlQ2hhbmdlcyA9IHRydWU7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9KTtcbiAgICB9XG4gIH0gd2hpbGUgKGRpZFByb3BhZ2F0ZVJlZmVyZW5jZUNoYW5nZXMpO1xuXG4gIC8vIENvcHkgXCJyZXBsYWNlZFwiIHN0YXRlcyBmcm9tIGBkaWZmV2l0aFJlcGxhY2VtZW50c2AgdG8gYHRoZURpZmZgLlxuICBkaWZmV2l0aFJlcGxhY2VtZW50cy5yZXNvdXJjZXNcbiAgICAuZmlsdGVyKHIgPT4gaXNSZXBsYWNlbWVudChyIS5jaGFuZ2VJbXBhY3QpKVxuICAgIC5mb3JFYWNoRGlmZmVyZW5jZSgobG9naWNhbElkLCBkb3duc3RyZWFtUmVwbGFjZW1lbnQpID0+IHtcbiAgICAgIGNvbnN0IHJlc291cmNlID0gdGhlRGlmZi5yZXNvdXJjZXMuZ2V0KGxvZ2ljYWxJZCk7XG5cbiAgICAgIGlmIChyZXNvdXJjZS5jaGFuZ2VJbXBhY3QgIT09IGRvd25zdHJlYW1SZXBsYWNlbWVudC5jaGFuZ2VJbXBhY3QpIHtcbiAgICAgICAgcHJvcGFnYXRlUHJvcGVydHlSZXBsYWNlbWVudChkb3duc3RyZWFtUmVwbGFjZW1lbnQsIHJlc291cmNlKTtcbiAgICAgIH1cbiAgICB9KTtcblxuICByZXR1cm4gdGhlRGlmZjtcbn1cblxuZnVuY3Rpb24gaXNSZXBsYWNlbWVudChpbXBhY3Q6IHR5cGVzLlJlc291cmNlSW1wYWN0KSB7XG4gIHJldHVybiBpbXBhY3QgPT09IHR5cGVzLlJlc291cmNlSW1wYWN0Lk1BWV9SRVBMQUNFIHx8IGltcGFjdCA9PT0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuV0lMTF9SRVBMQUNFO1xufVxuXG4vKipcbiAqIEZvciBhbGwgcHJvcGVydGllcyBpbiAnc291cmNlJyB0aGF0IGhhdmUgYSBcInJlcGxhY2VtZW50XCIgaW1wYWN0LCBwcm9wYWdhdGUgdGhhdCBpbXBhY3QgdG8gXCJkZXN0XCJcbiAqL1xuZnVuY3Rpb24gcHJvcGFnYXRlUHJvcGVydHlSZXBsYWNlbWVudChzb3VyY2U6IHR5cGVzLlJlc291cmNlRGlmZmVyZW5jZSwgZGVzdDogdHlwZXMuUmVzb3VyY2VEaWZmZXJlbmNlKSB7XG4gIGZvciAoY29uc3QgW3Byb3BlcnR5TmFtZSwgZGlmZl0gb2YgT2JqZWN0LmVudHJpZXMoc291cmNlLnByb3BlcnR5VXBkYXRlcykpIHtcbiAgICBpZiAoZGlmZi5jaGFuZ2VJbXBhY3QgJiYgaXNSZXBsYWNlbWVudChkaWZmLmNoYW5nZUltcGFjdCkpIHtcbiAgICAgIC8vIFVzZSB0aGUgcHJvcGVydHlkaWZmIG9mIHNvdXJjZSBpbiB0YXJnZXQuIFRoZSByZXN1bHQgb2YgdGhpcyBoYXBwZW5zIHRvIGJlIGNsZWFyIGVub3VnaC5cbiAgICAgIGRlc3Quc2V0UHJvcGVydHlDaGFuZ2UocHJvcGVydHlOYW1lLCBkaWZmKTtcbiAgICB9XG4gIH1cbn1cblxuZnVuY3Rpb24gY2FsY3VsYXRlVGVtcGxhdGVEaWZmKGN1cnJlbnRUZW1wbGF0ZTogeyBba2V5OiBzdHJpbmddOiBhbnkgfSwgbmV3VGVtcGxhdGU6IHsgW2tleTogc3RyaW5nXTogYW55IH0pOiB0eXBlcy5UZW1wbGF0ZURpZmYge1xuICBjb25zdCBkaWZmZXJlbmNlczogdHlwZXMuSVRlbXBsYXRlRGlmZiA9IHt9O1xuICBjb25zdCB1bmtub3duOiB7IFtrZXk6IHN0cmluZ106IHR5cGVzLkRpZmZlcmVuY2U8YW55PiB9ID0ge307XG4gIGZvciAoY29uc3Qga2V5IG9mIHVuaW9uT2YoT2JqZWN0LmtleXMoY3VycmVudFRlbXBsYXRlKSwgT2JqZWN0LmtleXMobmV3VGVtcGxhdGUpKS5zb3J0KCkpIHtcbiAgICBjb25zdCBvbGRWYWx1ZSA9IGN1cnJlbnRUZW1wbGF0ZVtrZXldO1xuICAgIGNvbnN0IG5ld1ZhbHVlID0gbmV3VGVtcGxhdGVba2V5XTtcbiAgICBpZiAoZGVlcEVxdWFsKG9sZFZhbHVlLCBuZXdWYWx1ZSkpIHtcbiAgICAgIGNvbnRpbnVlO1xuICAgIH1cbiAgICBjb25zdCBoYW5kbGVyOiBEaWZmSGFuZGxlciA9IERJRkZfSEFORExFUlNba2V5XVxuICAgICAgICAgICAgICAgICAgfHwgKChfZGlmZiwgb2xkViwgbmV3VikgPT4gdW5rbm93bltrZXldID0gaW1wbC5kaWZmVW5rbm93bihvbGRWLCBuZXdWKSk7XG4gICAgaGFuZGxlcihkaWZmZXJlbmNlcywgb2xkVmFsdWUsIG5ld1ZhbHVlKTtcbiAgfVxuICBpZiAoT2JqZWN0LmtleXModW5rbm93bikubGVuZ3RoID4gMCkge1xuICAgIGRpZmZlcmVuY2VzLnVua25vd24gPSBuZXcgdHlwZXMuRGlmZmVyZW5jZUNvbGxlY3Rpb24odW5rbm93bik7XG4gIH1cblxuICByZXR1cm4gbmV3IHR5cGVzLlRlbXBsYXRlRGlmZihkaWZmZXJlbmNlcyk7XG59XG5cbi8qKlxuICogQ29tcGFyZSB0d28gQ2xvdWRGb3JtYXRpb24gcmVzb3VyY2VzIGFuZCByZXR1cm4gc2VtYW50aWMgZGlmZmVyZW5jZXMgYmV0d2VlbiB0aGVtXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBkaWZmUmVzb3VyY2Uob2xkVmFsdWU6IHR5cGVzLlJlc291cmNlLCBuZXdWYWx1ZTogdHlwZXMuUmVzb3VyY2UpOiB0eXBlcy5SZXNvdXJjZURpZmZlcmVuY2Uge1xuICByZXR1cm4gaW1wbC5kaWZmUmVzb3VyY2Uob2xkVmFsdWUsIG5ld1ZhbHVlKTtcbn1cblxuLyoqXG4gKiBSZXBsYWNlIGFsbCByZWZlcmVuY2VzIHRvIHRoZSBnaXZlbiBsb2dpY2FsSUQgb24gdGhlIGdpdmVuIHRlbXBsYXRlLCBpbi1wbGFjZVxuICpcbiAqIFJldHVybnMgdHJ1ZSBpZmYgYW55IHJlZmVyZW5jZXMgd2VyZSByZXBsYWNlZC5cbiAqL1xuZnVuY3Rpb24gcHJvcGFnYXRlUmVwbGFjZWRSZWZlcmVuY2VzKHRlbXBsYXRlOiBvYmplY3QsIGxvZ2ljYWxJZDogc3RyaW5nKTogYm9vbGVhbiB7XG4gIGxldCByZXQgPSBmYWxzZTtcblxuICBmdW5jdGlvbiByZWN1cnNlKG9iajogYW55KSB7XG4gICAgaWYgKEFycmF5LmlzQXJyYXkob2JqKSkge1xuICAgICAgb2JqLmZvckVhY2gocmVjdXJzZSk7XG4gICAgfVxuXG4gICAgaWYgKHR5cGVvZiBvYmogPT09ICdvYmplY3QnICYmIG9iaiAhPT0gbnVsbCkge1xuICAgICAgaWYgKCFyZXBsYWNlUmVmZXJlbmNlKG9iaikpIHtcbiAgICAgICAgT2JqZWN0LnZhbHVlcyhvYmopLmZvckVhY2gocmVjdXJzZSk7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgZnVuY3Rpb24gcmVwbGFjZVJlZmVyZW5jZShvYmo6IGFueSkge1xuICAgIGNvbnN0IGtleXMgPSBPYmplY3Qua2V5cyhvYmopO1xuICAgIGlmIChrZXlzLmxlbmd0aCAhPT0gMSkgeyByZXR1cm4gZmFsc2U7IH1cbiAgICBjb25zdCBrZXkgPSBrZXlzWzBdO1xuXG4gICAgaWYgKGtleSA9PT0gJ1JlZicpIHtcbiAgICAgIGlmIChvYmouUmVmID09PSBsb2dpY2FsSWQpIHtcbiAgICAgICAgb2JqLlJlZiA9IGxvZ2ljYWxJZCArICcgKHJlcGxhY2VkKSc7XG4gICAgICAgIHJldCA9IHRydWU7XG4gICAgICB9XG4gICAgICByZXR1cm4gdHJ1ZTtcbiAgICB9XG5cbiAgICBpZiAoa2V5LnN0YXJ0c1dpdGgoJ0ZuOjonKSkge1xuICAgICAgaWYgKEFycmF5LmlzQXJyYXkob2JqW2tleV0pICYmIG9ialtrZXldLmxlbmd0aCA+IDAgJiYgb2JqW2tleV1bMF0gPT09IGxvZ2ljYWxJZCkge1xuICAgICAgICBvYmpba2V5XVswXSA9IGxvZ2ljYWxJZCArICcocmVwbGFjZWQpJztcbiAgICAgICAgcmV0ID0gdHJ1ZTtcbiAgICAgIH1cbiAgICAgIHJldHVybiB0cnVlO1xuICAgIH1cblxuICAgIHJldHVybiBmYWxzZTtcbiAgfVxuXG4gIHJlY3Vyc2UodGVtcGxhdGUpO1xuICByZXR1cm4gcmV0O1xufVxuXG5mdW5jdGlvbiBkZWVwQ29weSh4OiBhbnkpOiBhbnkge1xuICBpZiAoQXJyYXkuaXNBcnJheSh4KSkge1xuICAgIHJldHVybiB4Lm1hcChkZWVwQ29weSk7XG4gIH1cblxuICBpZiAodHlwZW9mIHggPT09ICdvYmplY3QnICYmIHggIT09IG51bGwpIHtcbiAgICBjb25zdCByZXQ6IGFueSA9IHt9O1xuICAgIGZvciAoY29uc3Qga2V5IG9mIE9iamVjdC5rZXlzKHgpKSB7XG4gICAgICByZXRba2V5XSA9IGRlZXBDb3B5KHhba2V5XSk7XG4gICAgfVxuICAgIHJldHVybiByZXQ7XG4gIH1cblxuICByZXR1cm4geDtcbn1cblxuZnVuY3Rpb24gYWRkSW1wb3J0SW5mb3JtYXRpb24oZGlmZjogdHlwZXMuVGVtcGxhdGVEaWZmLCBjaGFuZ2VTZXQ6IERlc2NyaWJlQ2hhbmdlU2V0T3V0cHV0KSB7XG4gIGNvbnN0IGltcG9ydHMgPSBmaW5kUmVzb3VyY2VJbXBvcnRzKGNoYW5nZVNldCk7XG4gIGRpZmYucmVzb3VyY2VzLmZvckVhY2hEaWZmZXJlbmNlKChsb2dpY2FsSWQ6IHN0cmluZywgY2hhbmdlOiB0eXBlcy5SZXNvdXJjZURpZmZlcmVuY2UpID0+IHtcbiAgICBpZiAoaW1wb3J0cy5pbmNsdWRlcyhsb2dpY2FsSWQpKSB7XG4gICAgICBjaGFuZ2UuaXNJbXBvcnQgPSB0cnVlO1xuICAgIH1cbiAgfSk7XG59XG5cbmZ1bmN0aW9uIG1ha2VBbGxSZXNvdXJjZUNoYW5nZXNJbXBvcnRzKGRpZmY6IHR5cGVzLlRlbXBsYXRlRGlmZikge1xuICBkaWZmLnJlc291cmNlcy5mb3JFYWNoRGlmZmVyZW5jZSgoX2xvZ2ljYWxJZDogc3RyaW5nLCBjaGFuZ2U6IHR5cGVzLlJlc291cmNlRGlmZmVyZW5jZSkgPT4ge1xuICAgIGNoYW5nZS5pc0ltcG9ydCA9IHRydWU7XG4gIH0pO1xufVxuXG5mdW5jdGlvbiBmaWx0ZXJGYWxzZVBvc2l0aXZlcyhkaWZmOiB0eXBlcy5UZW1wbGF0ZURpZmYsIGNoYW5nZVNldDogRGVzY3JpYmVDaGFuZ2VTZXRPdXRwdXQpIHtcbiAgY29uc3QgcmVwbGFjZW1lbnRzID0gZmluZFJlc291cmNlUmVwbGFjZW1lbnRzKGNoYW5nZVNldCk7XG4gIGRpZmYucmVzb3VyY2VzLmZvckVhY2hEaWZmZXJlbmNlKChsb2dpY2FsSWQ6IHN0cmluZywgY2hhbmdlOiB0eXBlcy5SZXNvdXJjZURpZmZlcmVuY2UpID0+IHtcbiAgICBpZiAoY2hhbmdlLnJlc291cmNlVHlwZS5pbmNsdWRlcygnQVdTOjpTZXJ2ZXJsZXNzJykpIHtcbiAgICAgIC8vIENGTiBhcHBsaWVzIHRoZSBTQU0gdHJhbnNmb3JtIGJlZm9yZSBjcmVhdGluZyB0aGUgY2hhbmdlc2V0LCBzbyB0aGUgY2hhbmdlc2V0IGNvbnRhaW5zIG5vIGluZm9ybWF0aW9uIGFib3V0IFNBTSByZXNvdXJjZXNcbiAgICAgIHJldHVybjtcbiAgICB9XG4gICAgY2hhbmdlLmZvckVhY2hEaWZmZXJlbmNlKCh0eXBlOiAnUHJvcGVydHknIHwgJ090aGVyJywgbmFtZTogc3RyaW5nLCB2YWx1ZTogdHlwZXMuRGlmZmVyZW5jZTxhbnk+IHwgdHlwZXMuUHJvcGVydHlEaWZmZXJlbmNlPGFueT4pID0+IHtcbiAgICAgIGlmICh0eXBlID09PSAnUHJvcGVydHknKSB7XG4gICAgICAgIGlmICghcmVwbGFjZW1lbnRzW2xvZ2ljYWxJZF0pIHtcbiAgICAgICAgICAodmFsdWUgYXMgdHlwZXMuUHJvcGVydHlEaWZmZXJlbmNlPGFueT4pLmNoYW5nZUltcGFjdCA9IHR5cGVzLlJlc291cmNlSW1wYWN0Lk5PX0NIQU5HRTtcbiAgICAgICAgICAodmFsdWUgYXMgdHlwZXMuUHJvcGVydHlEaWZmZXJlbmNlPGFueT4pLmlzRGlmZmVyZW50ID0gZmFsc2U7XG4gICAgICAgICAgcmV0dXJuO1xuICAgICAgICB9XG4gICAgICAgIHN3aXRjaCAocmVwbGFjZW1lbnRzW2xvZ2ljYWxJZF0ucHJvcGVydGllc1JlcGxhY2VkW25hbWVdKSB7XG4gICAgICAgICAgY2FzZSAnQWx3YXlzJzpcbiAgICAgICAgICAgICh2YWx1ZSBhcyB0eXBlcy5Qcm9wZXJ0eURpZmZlcmVuY2U8YW55PikuY2hhbmdlSW1wYWN0ID0gdHlwZXMuUmVzb3VyY2VJbXBhY3QuV0lMTF9SRVBMQUNFO1xuICAgICAgICAgICAgYnJlYWs7XG4gICAgICAgICAgY2FzZSAnTmV2ZXInOlxuICAgICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5jaGFuZ2VJbXBhY3QgPSB0eXBlcy5SZXNvdXJjZUltcGFjdC5XSUxMX1VQREFURTtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgJ0NvbmRpdGlvbmFsbHknOlxuICAgICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5jaGFuZ2VJbXBhY3QgPSB0eXBlcy5SZXNvdXJjZUltcGFjdC5NQVlfUkVQTEFDRTtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgdW5kZWZpbmVkOlxuICAgICAgICAgICAgKHZhbHVlIGFzIHR5cGVzLlByb3BlcnR5RGlmZmVyZW5jZTxhbnk+KS5jaGFuZ2VJbXBhY3QgPSB0eXBlcy5SZXNvdXJjZUltcGFjdC5OT19DSEFOR0U7XG4gICAgICAgICAgICAodmFsdWUgYXMgdHlwZXMuUHJvcGVydHlEaWZmZXJlbmNlPGFueT4pLmlzRGlmZmVyZW50ID0gZmFsc2U7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICAvLyBvdGhlcndpc2UsIGRlZmVyIHRvIHRoZSBjaGFuZ2VJbXBhY3QgZnJvbSBgZGlmZlRlbXBsYXRlYFxuICAgICAgICB9XG4gICAgICB9IGVsc2UgaWYgKHR5cGUgPT09ICdPdGhlcicpIHtcbiAgICAgICAgc3dpdGNoIChuYW1lKSB7XG4gICAgICAgICAgY2FzZSAnTWV0YWRhdGEnOlxuICAgICAgICAgICAgY2hhbmdlLnNldE90aGVyQ2hhbmdlKCdNZXRhZGF0YScsIG5ldyB0eXBlcy5EaWZmZXJlbmNlPHN0cmluZz4odmFsdWUubmV3VmFsdWUsIHZhbHVlLm5ld1ZhbHVlKSk7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH0pO1xuICB9KTtcbn1cblxuZnVuY3Rpb24gZmluZFJlc291cmNlSW1wb3J0cyhjaGFuZ2VTZXQ6IERlc2NyaWJlQ2hhbmdlU2V0T3V0cHV0KTogc3RyaW5nW10ge1xuICBjb25zdCBpbXBvcnRlZFJlc291cmNlTG9naWNhbElkcyA9IFtdO1xuICBmb3IgKGNvbnN0IHJlc291cmNlQ2hhbmdlIG9mIGNoYW5nZVNldC5DaGFuZ2VzID8/IFtdKSB7XG4gICAgaWYgKHJlc291cmNlQ2hhbmdlLlJlc291cmNlQ2hhbmdlPy5BY3Rpb24gPT09ICdJbXBvcnQnKSB7XG4gICAgICBpbXBvcnRlZFJlc291cmNlTG9naWNhbElkcy5wdXNoKHJlc291cmNlQ2hhbmdlLlJlc291cmNlQ2hhbmdlLkxvZ2ljYWxSZXNvdXJjZUlkISk7XG4gICAgfVxuICB9XG5cbiAgcmV0dXJuIGltcG9ydGVkUmVzb3VyY2VMb2dpY2FsSWRzO1xufVxuXG5mdW5jdGlvbiBmaW5kUmVzb3VyY2VSZXBsYWNlbWVudHMoY2hhbmdlU2V0OiBEZXNjcmliZUNoYW5nZVNldE91dHB1dCk6IHR5cGVzLlJlc291cmNlUmVwbGFjZW1lbnRzIHtcbiAgY29uc3QgcmVwbGFjZW1lbnRzOiB0eXBlcy5SZXNvdXJjZVJlcGxhY2VtZW50cyA9IHt9O1xuICBmb3IgKGNvbnN0IHJlc291cmNlQ2hhbmdlIG9mIGNoYW5nZVNldC5DaGFuZ2VzID8/IFtdKSB7XG4gICAgY29uc3QgcHJvcGVydGllc1JlcGxhY2VkOiB7IFtwcm9wTmFtZTogc3RyaW5nXTogdHlwZXMuQ2hhbmdlU2V0UmVwbGFjZW1lbnQgfSA9IHt9O1xuICAgIGZvciAoY29uc3QgcHJvcGVydHlDaGFuZ2Ugb2YgcmVzb3VyY2VDaGFuZ2UuUmVzb3VyY2VDaGFuZ2U/LkRldGFpbHMgPz8gW10pIHtcbiAgICAgIGlmIChwcm9wZXJ0eUNoYW5nZS5UYXJnZXQ/LkF0dHJpYnV0ZSA9PT0gJ1Byb3BlcnRpZXMnKSB7XG4gICAgICAgIGNvbnN0IHJlcXVpcmVzUmVwbGFjZW1lbnQgPSBwcm9wZXJ0eUNoYW5nZS5UYXJnZXQuUmVxdWlyZXNSZWNyZWF0aW9uID09PSAnQWx3YXlzJztcbiAgICAgICAgaWYgKHJlcXVpcmVzUmVwbGFjZW1lbnQgJiYgcHJvcGVydHlDaGFuZ2UuRXZhbHVhdGlvbiA9PT0gJ1N0YXRpYycpIHtcbiAgICAgICAgICBwcm9wZXJ0aWVzUmVwbGFjZWRbcHJvcGVydHlDaGFuZ2UuVGFyZ2V0Lk5hbWUhXSA9ICdBbHdheXMnO1xuICAgICAgICB9IGVsc2UgaWYgKHJlcXVpcmVzUmVwbGFjZW1lbnQgJiYgcHJvcGVydHlDaGFuZ2UuRXZhbHVhdGlvbiA9PT0gJ0R5bmFtaWMnKSB7XG4gICAgICAgICAgLy8gSWYgRXZhbHVhdGlvbiBpcyAnRHluYW1pYycsIHRoZW4gdGhpcyBtYXkgY2F1c2UgcmVwbGFjZW1lbnQsIG9yIGl0IG1heSBub3QuXG4gICAgICAgICAgLy8gc2VlICdSZXBsYWNlbWVudCc6IGh0dHBzOi8vZG9jcy5hd3MuYW1hem9uLmNvbS9BV1NDbG91ZEZvcm1hdGlvbi9sYXRlc3QvQVBJUmVmZXJlbmNlL0FQSV9SZXNvdXJjZUNoYW5nZS5odG1sXG4gICAgICAgICAgcHJvcGVydGllc1JlcGxhY2VkW3Byb3BlcnR5Q2hhbmdlLlRhcmdldC5OYW1lIV0gPSAnQ29uZGl0aW9uYWxseSc7XG4gICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgcHJvcGVydGllc1JlcGxhY2VkW3Byb3BlcnR5Q2hhbmdlLlRhcmdldC5OYW1lIV0gPSBwcm9wZXJ0eUNoYW5nZS5UYXJnZXQuUmVxdWlyZXNSZWNyZWF0aW9uIGFzIHR5cGVzLkNoYW5nZVNldFJlcGxhY2VtZW50O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICAgIHJlcGxhY2VtZW50c1tyZXNvdXJjZUNoYW5nZS5SZXNvdXJjZUNoYW5nZT8uTG9naWNhbFJlc291cmNlSWQhXSA9IHtcbiAgICAgIHJlc291cmNlUmVwbGFjZWQ6IHJlc291cmNlQ2hhbmdlLlJlc291cmNlQ2hhbmdlPy5SZXBsYWNlbWVudCA9PT0gJ1RydWUnLFxuICAgICAgcHJvcGVydGllc1JlcGxhY2VkLFxuICAgIH07XG4gIH1cblxuICByZXR1cm4gcmVwbGFjZW1lbnRzO1xufVxuXG5mdW5jdGlvbiBub3JtYWxpemUodGVtcGxhdGU6IGFueSkge1xuICBpZiAodHlwZW9mIHRlbXBsYXRlID09PSAnb2JqZWN0Jykge1xuICAgIGZvciAoY29uc3Qga2V5IG9mIChPYmplY3Qua2V5cyh0ZW1wbGF0ZSA/PyB7fSkpKSB7XG4gICAgICBpZiAoa2V5ID09PSAnRm46OkdldEF0dCcgJiYgdHlwZW9mIHRlbXBsYXRlW2tleV0gPT09ICdzdHJpbmcnKSB7XG4gICAgICAgIHRlbXBsYXRlW2tleV0gPSB0ZW1wbGF0ZVtrZXldLnNwbGl0KCcuJyk7XG4gICAgICAgIGNvbnRpbnVlO1xuICAgICAgfSBlbHNlIGlmIChrZXkgPT09ICdEZXBlbmRzT24nKSB7XG4gICAgICAgIGlmICh0eXBlb2YgdGVtcGxhdGVba2V5XSA9PT0gJ3N0cmluZycpIHtcbiAgICAgICAgICB0ZW1wbGF0ZVtrZXldID0gW3RlbXBsYXRlW2tleV1dO1xuICAgICAgICB9IGVsc2UgaWYgKEFycmF5LmlzQXJyYXkodGVtcGxhdGVba2V5XSkpIHtcbiAgICAgICAgICB0ZW1wbGF0ZVtrZXldID0gdGVtcGxhdGVba2V5XS5zb3J0KCk7XG4gICAgICAgIH1cbiAgICAgICAgY29udGludWU7XG4gICAgICB9XG5cbiAgICAgIGlmIChBcnJheS5pc0FycmF5KHRlbXBsYXRlW2tleV0pKSB7XG4gICAgICAgIGZvciAoY29uc3QgZWxlbWVudCBvZiAodGVtcGxhdGVba2V5XSkpIHtcbiAgICAgICAgICBub3JtYWxpemUoZWxlbWVudCk7XG4gICAgICAgIH1cbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIG5vcm1hbGl6ZSh0ZW1wbGF0ZVtrZXldKTtcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ==
 
 /***/ }),
 
@@ -12917,6 +12271,7 @@ __export(src_exports, {
   ActivateOrganizationsAccessCommand: () => ActivateOrganizationsAccessCommand,
   ActivateTypeCommand: () => ActivateTypeCommand,
   AlreadyExistsException: () => AlreadyExistsException,
+  AttributeChangeType: () => AttributeChangeType,
   BatchDescribeTypeConfigurationsCommand: () => BatchDescribeTypeConfigurationsCommand,
   CFNRegistryException: () => CFNRegistryException,
   CallAs: () => CallAs,
@@ -13412,6 +12767,11 @@ var _AlreadyExistsException = class _AlreadyExistsException extends CloudFormati
 };
 __name(_AlreadyExistsException, "AlreadyExistsException");
 var AlreadyExistsException = _AlreadyExistsException;
+var AttributeChangeType = {
+  Add: "Add",
+  Modify: "Modify",
+  Remove: "Remove"
+};
 var _TypeConfigurationNotFoundException = class _TypeConfigurationNotFoundException extends CloudFormationServiceException {
   /**
    * @internal
@@ -17109,6 +16469,9 @@ var se_DescribeChangeSetInput = /* @__PURE__ */ __name((input, context) => {
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
+  if (input[_IPV] != null) {
+    entries[_IPV] = input[_IPV];
+  }
   return entries;
 }, "se_DescribeChangeSetInput");
 var se_DescribeGeneratedTemplateInput = /* @__PURE__ */ __name((input, context) => {
@@ -20304,6 +19667,12 @@ var de_ResourceChange = /* @__PURE__ */ __name((output, context) => {
   if (output[_MI] != null) {
     contents[_MI] = de_ModuleInfo(output[_MI], context);
   }
+  if (output[_BC] != null) {
+    contents[_BC] = (0, import_smithy_client.expectString)(output[_BC]);
+  }
+  if (output[_AC] != null) {
+    contents[_AC] = (0, import_smithy_client.expectString)(output[_AC]);
+  }
   return contents;
 }, "de_ResourceChange");
 var de_ResourceChangeDetail = /* @__PURE__ */ __name((output, context) => {
@@ -20452,6 +19821,18 @@ var de_ResourceTargetDefinition = /* @__PURE__ */ __name((output, context) => {
   }
   if (output[_RReq] != null) {
     contents[_RReq] = (0, import_smithy_client.expectString)(output[_RReq]);
+  }
+  if (output[_Pa] != null) {
+    contents[_Pa] = (0, import_smithy_client.expectString)(output[_Pa]);
+  }
+  if (output[_BV] != null) {
+    contents[_BV] = (0, import_smithy_client.expectString)(output[_BV]);
+  }
+  if (output[_AVf] != null) {
+    contents[_AVf] = (0, import_smithy_client.expectString)(output[_AVf]);
+  }
+  if (output[_ACT] != null) {
+    contents[_ACT] = (0, import_smithy_client.expectString)(output[_ACT]);
   }
   return contents;
 }, "de_ResourceTargetDefinition");
@@ -21788,6 +21169,8 @@ var SHARED_HEADERS = {
 };
 var _ = "2010-05-15";
 var _A = "Action";
+var _AC = "AfterContext";
+var _ACT = "AttributeChangeType";
 var _AD = "AutoDeployment";
 var _AFT = "AccountFilterType";
 var _AGR = "AccountGateResult";
@@ -21802,14 +21185,17 @@ var _AU = "AutoUpdate";
 var _AUc = "AccountsUrl";
 var _AV = "AllowedValues";
 var _AVc = "ActualValue";
+var _AVf = "AfterValue";
 var _Ac = "Accounts";
 var _Acc = "Account";
 var _Act = "Active";
 var _Al = "Alias";
 var _Ar = "Arn";
 var _At = "Attribute";
+var _BC = "BeforeContext";
 var _BDTC = "BatchDescribeTypeConfigurations";
 var _BT = "BearerToken";
+var _BV = "BeforeValue";
 var _C = "Capabilities";
 var _CA = "CallAs";
 var _CAo = "ConnectionArn";
@@ -21933,6 +21319,7 @@ var _IER = "ImportExistingResources";
 var _INS = "IncludeNestedStacks";
 var _IP = "InvocationPoint";
 var _IPSIC = "InProgressStackInstancesCount";
+var _IPV = "IncludePropertyValues";
 var _IPd = "IdentityProvider";
 var _ISSIC = "InSyncStackInstancesCount";
 var _ISTSS = "ImportStacksToStackSet";
@@ -22023,6 +21410,7 @@ var _PTa = "ParameterType";
 var _PTr = "ProvisioningType";
 var _PV = "ParameterValue";
 var _PVN = "PublicVersionNumber";
+var _Pa = "Path";
 var _Pr = "Progress";
 var _Pro = "Properties";
 var _R = "Resources";
@@ -31440,7 +30828,7 @@ var parseXmlBody = /* @__PURE__ */ __name((streamBody, context) => collectBodySt
     parser.addEntity("#10", "\n");
     let parsedObj;
     try {
-      parsedObj = parser.parse(encoded);
+      parsedObj = parser.parse(encoded, true);
     } catch (e) {
       if (e && typeof e === "object") {
         Object.defineProperty(e, "$responseBodyText", {
@@ -38436,7 +37824,7 @@ var import_endpoint = __nccwpck_require__(59440);
 var import_universal_user_agent = __nccwpck_require__(45030);
 
 // pkg/dist-src/version.js
-var VERSION = "8.3.1";
+var VERSION = "8.4.0";
 
 // pkg/dist-src/is-plain-object.js
 function isPlainObject(value) {
@@ -38461,7 +37849,7 @@ function getBufferResponse(response) {
 
 // pkg/dist-src/fetch-wrapper.js
 function fetchWrapper(requestOptions) {
-  var _a, _b, _c;
+  var _a, _b, _c, _d;
   const log = requestOptions.request && requestOptions.request.log ? requestOptions.request.log : console;
   const parseSuccessResponseBody = ((_a = requestOptions.request) == null ? void 0 : _a.parseSuccessResponseBody) !== false;
   if (isPlainObject(requestOptions.body) || Array.isArray(requestOptions.body)) {
@@ -38482,8 +37870,9 @@ function fetchWrapper(requestOptions) {
   return fetch(requestOptions.url, {
     method: requestOptions.method,
     body: requestOptions.body,
+    redirect: (_c = requestOptions.request) == null ? void 0 : _c.redirect,
     headers: requestOptions.headers,
-    signal: (_c = requestOptions.request) == null ? void 0 : _c.signal,
+    signal: (_d = requestOptions.request) == null ? void 0 : _d.signal,
     // duplex must be set if request.body is ReadableStream or Async Iterables.
     // See https://fetch.spec.whatwg.org/#dom-requestinit-duplex.
     ...requestOptions.body && { duplex: "half" }
@@ -43495,6 +42884,7 @@ module.exports = __toCommonJS(src_exports);
 // src/SignatureV4.ts
 
 var import_util_middleware = __nccwpck_require__(2390);
+
 var import_util_utf84 = __nccwpck_require__(41895);
 
 // src/constants.ts
@@ -44000,7 +43390,7 @@ ${(0, import_util_hex_encoding.toHex)(hashedRequest)}`;
         }
       }
       const normalizedPath = `${(path == null ? void 0 : path.startsWith("/")) ? "/" : ""}${normalizedPathSegments.join("/")}${normalizedPathSegments.length > 0 && (path == null ? void 0 : path.endsWith("/")) ? "/" : ""}`;
-      const doubleEncoded = encodeURIComponent(normalizedPath);
+      const doubleEncoded = (0, import_util_uri_escape.escapeUri)(normalizedPath);
       return doubleEncoded.replace(/%2F/g, "/");
     }
     return path;
@@ -85383,6 +84773,652 @@ exports.fromPromise = function (fn) {
 
 /***/ }),
 
+/***/ 75840:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+Object.defineProperty(exports, "v1", ({
+  enumerable: true,
+  get: function () {
+    return _v.default;
+  }
+}));
+Object.defineProperty(exports, "v3", ({
+  enumerable: true,
+  get: function () {
+    return _v2.default;
+  }
+}));
+Object.defineProperty(exports, "v4", ({
+  enumerable: true,
+  get: function () {
+    return _v3.default;
+  }
+}));
+Object.defineProperty(exports, "v5", ({
+  enumerable: true,
+  get: function () {
+    return _v4.default;
+  }
+}));
+Object.defineProperty(exports, "NIL", ({
+  enumerable: true,
+  get: function () {
+    return _nil.default;
+  }
+}));
+Object.defineProperty(exports, "version", ({
+  enumerable: true,
+  get: function () {
+    return _version.default;
+  }
+}));
+Object.defineProperty(exports, "validate", ({
+  enumerable: true,
+  get: function () {
+    return _validate.default;
+  }
+}));
+Object.defineProperty(exports, "stringify", ({
+  enumerable: true,
+  get: function () {
+    return _stringify.default;
+  }
+}));
+Object.defineProperty(exports, "parse", ({
+  enumerable: true,
+  get: function () {
+    return _parse.default;
+  }
+}));
+
+var _v = _interopRequireDefault(__nccwpck_require__(78628));
+
+var _v2 = _interopRequireDefault(__nccwpck_require__(86409));
+
+var _v3 = _interopRequireDefault(__nccwpck_require__(85122));
+
+var _v4 = _interopRequireDefault(__nccwpck_require__(79120));
+
+var _nil = _interopRequireDefault(__nccwpck_require__(25332));
+
+var _version = _interopRequireDefault(__nccwpck_require__(81595));
+
+var _validate = _interopRequireDefault(__nccwpck_require__(66900));
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(18950));
+
+var _parse = _interopRequireDefault(__nccwpck_require__(62746));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ 4569:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function md5(bytes) {
+  if (Array.isArray(bytes)) {
+    bytes = Buffer.from(bytes);
+  } else if (typeof bytes === 'string') {
+    bytes = Buffer.from(bytes, 'utf8');
+  }
+
+  return _crypto.default.createHash('md5').update(bytes).digest();
+}
+
+var _default = md5;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 25332:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _default = '00000000-0000-0000-0000-000000000000';
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 62746:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(66900));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function parse(uuid) {
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Invalid UUID');
+  }
+
+  let v;
+  const arr = new Uint8Array(16); // Parse ########-....-....-....-............
+
+  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
+  arr[1] = v >>> 16 & 0xff;
+  arr[2] = v >>> 8 & 0xff;
+  arr[3] = v & 0xff; // Parse ........-####-....-....-............
+
+  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
+  arr[5] = v & 0xff; // Parse ........-....-####-....-............
+
+  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
+  arr[7] = v & 0xff; // Parse ........-....-....-####-............
+
+  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
+  arr[9] = v & 0xff; // Parse ........-....-....-....-############
+  // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
+
+  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
+  arr[11] = v / 0x100000000 & 0xff;
+  arr[12] = v >>> 24 & 0xff;
+  arr[13] = v >>> 16 & 0xff;
+  arr[14] = v >>> 8 & 0xff;
+  arr[15] = v & 0xff;
+  return arr;
+}
+
+var _default = parse;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 40814:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 50807:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = rng;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
+
+let poolPtr = rnds8Pool.length;
+
+function rng() {
+  if (poolPtr > rnds8Pool.length - 16) {
+    _crypto.default.randomFillSync(rnds8Pool);
+
+    poolPtr = 0;
+  }
+
+  return rnds8Pool.slice(poolPtr, poolPtr += 16);
+}
+
+/***/ }),
+
+/***/ 85274:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function sha1(bytes) {
+  if (Array.isArray(bytes)) {
+    bytes = Buffer.from(bytes);
+  } else if (typeof bytes === 'string') {
+    bytes = Buffer.from(bytes, 'utf8');
+  }
+
+  return _crypto.default.createHash('sha1').update(bytes).digest();
+}
+
+var _default = sha1;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 18950:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(66900));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+const byteToHex = [];
+
+for (let i = 0; i < 256; ++i) {
+  byteToHex.push((i + 0x100).toString(16).substr(1));
+}
+
+function stringify(arr, offset = 0) {
+  // Note: Be careful editing this code!  It's been tuned for performance
+  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+  const uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
+  // of the following:
+  // - One or more input array values don't map to a hex octet (leading to
+  // "undefined" in the uuid)
+  // - Invalid input values for the RFC `version` or `variant` fields
+
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Stringified UUID is invalid');
+  }
+
+  return uuid;
+}
+
+var _default = stringify;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 78628:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _rng = _interopRequireDefault(__nccwpck_require__(50807));
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(18950));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+let _nodeId;
+
+let _clockseq; // Previous uuid creation time
+
+
+let _lastMSecs = 0;
+let _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
+
+function v1(options, buf, offset) {
+  let i = buf && offset || 0;
+  const b = buf || new Array(16);
+  options = options || {};
+  let node = options.node || _nodeId;
+  let clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
+  // specified.  We do this lazily to minimize issues related to insufficient
+  // system entropy.  See #189
+
+  if (node == null || clockseq == null) {
+    const seedBytes = options.random || (options.rng || _rng.default)();
+
+    if (node == null) {
+      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+      node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
+    }
+
+    if (clockseq == null) {
+      // Per 4.2.2, randomize (14 bit) clockseq
+      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
+    }
+  } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+
+
+  let msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+
+  let nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
+
+  const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
+
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+
+
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  } // Per 4.2.1.2 Throw error if too many uuids are requested
+
+
+  if (nsecs >= 10000) {
+    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+
+  msecs += 12219292800000; // `time_low`
+
+  const tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff; // `time_mid`
+
+  const tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff; // `time_high_and_version`
+
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+
+  b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+
+  b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
+
+  b[i++] = clockseq & 0xff; // `node`
+
+  for (let n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+
+  return buf || (0, _stringify.default)(b);
+}
+
+var _default = v1;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 86409:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _v = _interopRequireDefault(__nccwpck_require__(65998));
+
+var _md = _interopRequireDefault(__nccwpck_require__(4569));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const v3 = (0, _v.default)('v3', 0x30, _md.default);
+var _default = v3;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 65998:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = _default;
+exports.URL = exports.DNS = void 0;
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(18950));
+
+var _parse = _interopRequireDefault(__nccwpck_require__(62746));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function stringToBytes(str) {
+  str = unescape(encodeURIComponent(str)); // UTF8 escape
+
+  const bytes = [];
+
+  for (let i = 0; i < str.length; ++i) {
+    bytes.push(str.charCodeAt(i));
+  }
+
+  return bytes;
+}
+
+const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
+exports.DNS = DNS;
+const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
+exports.URL = URL;
+
+function _default(name, version, hashfunc) {
+  function generateUUID(value, namespace, buf, offset) {
+    if (typeof value === 'string') {
+      value = stringToBytes(value);
+    }
+
+    if (typeof namespace === 'string') {
+      namespace = (0, _parse.default)(namespace);
+    }
+
+    if (namespace.length !== 16) {
+      throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
+    } // Compute hash of namespace and value, Per 4.3
+    // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
+    // hashfunc([...namespace, ... value])`
+
+
+    let bytes = new Uint8Array(16 + value.length);
+    bytes.set(namespace);
+    bytes.set(value, namespace.length);
+    bytes = hashfunc(bytes);
+    bytes[6] = bytes[6] & 0x0f | version;
+    bytes[8] = bytes[8] & 0x3f | 0x80;
+
+    if (buf) {
+      offset = offset || 0;
+
+      for (let i = 0; i < 16; ++i) {
+        buf[offset + i] = bytes[i];
+      }
+
+      return buf;
+    }
+
+    return (0, _stringify.default)(bytes);
+  } // Function#name is not settable on some platforms (#270)
+
+
+  try {
+    generateUUID.name = name; // eslint-disable-next-line no-empty
+  } catch (err) {} // For CommonJS default export support
+
+
+  generateUUID.DNS = DNS;
+  generateUUID.URL = URL;
+  return generateUUID;
+}
+
+/***/ }),
+
+/***/ 85122:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _rng = _interopRequireDefault(__nccwpck_require__(50807));
+
+var _stringify = _interopRequireDefault(__nccwpck_require__(18950));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function v4(options, buf, offset) {
+  options = options || {};
+
+  const rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+
+
+  rnds[6] = rnds[6] & 0x0f | 0x40;
+  rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
+
+  if (buf) {
+    offset = offset || 0;
+
+    for (let i = 0; i < 16; ++i) {
+      buf[offset + i] = rnds[i];
+    }
+
+    return buf;
+  }
+
+  return (0, _stringify.default)(rnds);
+}
+
+var _default = v4;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 79120:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _v = _interopRequireDefault(__nccwpck_require__(65998));
+
+var _sha = _interopRequireDefault(__nccwpck_require__(85274));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const v5 = (0, _v.default)('v5', 0x50, _sha.default);
+var _default = v5;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 66900:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _regex = _interopRequireDefault(__nccwpck_require__(40814));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function validate(uuid) {
+  return typeof uuid === 'string' && _regex.default.test(uuid);
+}
+
+var _default = validate;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 81595:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _validate = _interopRequireDefault(__nccwpck_require__(66900));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function version(uuid) {
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Invalid UUID');
+  }
+
+  return parseInt(uuid.substr(14, 1), 16);
+}
+
+var _default = version;
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ 62940:
 /***/ ((module) => {
 
@@ -87372,7 +87408,7 @@ module.exports = JSON.parse('{"$ref":"#/definitions/IntegManifest","definitions"
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.549.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.549.0","@aws-sdk/core":"3.549.0","@aws-sdk/credential-provider-node":"3.549.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.1","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.0","@smithy/middleware-retry":"^2.3.0","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.0","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.0","@smithy/util-defaults-mode-node":"^2.3.0","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","@smithy/util-waiter":"^2.2.0","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.555.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.554.0","@aws-sdk/core":"3.554.0","@aws-sdk/credential-provider-node":"3.554.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","@smithy/util-waiter":"^2.2.0","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -87380,7 +87416,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-cloudformation","descripti
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.549.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cognito-identity","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"ts-mocha test/**/*.ispec.ts && karma start karma.conf.js"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.549.0","@aws-sdk/core":"3.549.0","@aws-sdk/credential-provider-node":"3.549.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.1","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.0","@smithy/middleware-retry":"^2.3.0","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.0","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.0","@smithy/util-defaults-mode-node":"^2.3.0","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@aws-sdk/client-iam":"3.549.0","@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/chai":"^4.2.11","@types/mocha":"^8.0.4","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.554.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cognito-identity","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"ts-mocha test/**/*.ispec.ts && karma start karma.conf.js"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.554.0","@aws-sdk/core":"3.554.0","@aws-sdk/credential-provider-node":"3.554.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@aws-sdk/client-iam":"3.554.0","@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/chai":"^4.2.11","@types/mocha":"^8.0.4","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
 
 /***/ }),
 
@@ -87388,7 +87424,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-cognito-identity","descrip
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.549.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.549.0","@aws-sdk/core":"3.549.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.1","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.0","@smithy/middleware-retry":"^2.3.0","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.0","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.0","@smithy/util-defaults-mode-node":"^2.3.0","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/credential-provider-node":"^3.549.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.554.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/client-sts":"3.554.0","@aws-sdk/core":"3.554.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/credential-provider-node":"^3.554.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
@@ -87396,7 +87432,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"A
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.549.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.549.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.1","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.0","@smithy/middleware-retry":"^2.3.0","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.0","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.0","@smithy/util-defaults-mode-node":"^2.3.0","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.554.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.554.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
@@ -87404,7 +87440,7 @@ module.exports = JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SD
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.549.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.549.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.1","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.0","@smithy/middleware-retry":"^2.3.0","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.0","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.0","@smithy/util-defaults-mode-node":"^2.3.0","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/credential-provider-node":"^3.549.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.554.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"3.0.0","@aws-crypto/sha256-js":"3.0.0","@aws-sdk/core":"3.554.0","@aws-sdk/middleware-host-header":"3.535.0","@aws-sdk/middleware-logger":"3.535.0","@aws-sdk/middleware-recursion-detection":"3.535.0","@aws-sdk/middleware-user-agent":"3.540.0","@aws-sdk/region-config-resolver":"3.535.0","@aws-sdk/types":"3.535.0","@aws-sdk/util-endpoints":"3.540.0","@aws-sdk/util-user-agent-browser":"3.535.0","@aws-sdk/util-user-agent-node":"3.535.0","@smithy/config-resolver":"^2.2.0","@smithy/core":"^1.4.2","@smithy/fetch-http-handler":"^2.5.0","@smithy/hash-node":"^2.2.0","@smithy/invalid-dependency":"^2.2.0","@smithy/middleware-content-length":"^2.2.0","@smithy/middleware-endpoint":"^2.5.1","@smithy/middleware-retry":"^2.3.1","@smithy/middleware-serde":"^2.3.0","@smithy/middleware-stack":"^2.2.0","@smithy/node-config-provider":"^2.3.0","@smithy/node-http-handler":"^2.5.0","@smithy/protocol-http":"^3.3.0","@smithy/smithy-client":"^2.5.1","@smithy/types":"^2.12.0","@smithy/url-parser":"^2.2.0","@smithy/util-base64":"^2.3.0","@smithy/util-body-length-browser":"^2.2.0","@smithy/util-body-length-node":"^2.3.0","@smithy/util-defaults-mode-browser":"^2.2.1","@smithy/util-defaults-mode-node":"^2.3.1","@smithy/util-endpoints":"^1.2.0","@smithy/util-middleware":"^2.2.0","@smithy/util-retry":"^2.2.0","@smithy/util-utf8":"^2.3.0","tslib":"^2.6.2"},"devDependencies":{"@smithy/service-client-documentation-generator":"^2.2.0","@tsconfig/node14":"1.0.3","@types/node":"^14.14.31","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=14.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/credential-provider-node":"^3.554.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ })
 
