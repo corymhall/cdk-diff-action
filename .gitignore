@@ -31,7 +31,6 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
-!/.projenrc.js
 /test-reports/
 junit.xml
 !/jest.config.json
@@ -52,3 +51,4 @@ junit.xml
 dist/package.json
 dist/projenrc
 !/.github/workflows/auto-merge.yml
+!/.projenrc.ts
