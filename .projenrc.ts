@@ -17,7 +17,7 @@ const project = new GitHubActionTypeScriptProject({
   },
   autoApproveOptions: {
     label: 'auto-approve',
-    allowedUsernames: ['corymhall'],
+    allowedUsernames: ['corymhall', 'shapiy'],
   },
   actionMetadata: {
     author: 'Cory Hall',
