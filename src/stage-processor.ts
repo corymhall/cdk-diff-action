@@ -29,6 +29,11 @@ interface StageComment {
    * The number of destructive changes in this stage
    */
   destructiveChanges: number;
+
+  /**
+   * The number of all changes in this stage
+   */
+  totalChanges: number;
 }
 
 /**
@@ -37,12 +42,14 @@ interface StageComment {
  */
 export class StageProcessor {
   private readonly stageComments: { [stageName: string]: StageComment } = {};
+
   constructor(
     private readonly stages: StageInfo[],
     private readonly allowedDestroyTypes: string[],
   ) {
     this.stages.forEach(stage => {
       this.stageComments[stage.name] = {
+        totalChanges: 0,
         destructiveChanges: 0,
         stackComments: stage.stacks.reduce((prev, curr) => {
           prev[curr.name] = [];
@@ -74,6 +81,7 @@ export class StageProcessor {
         try {
           const { comment, changes } = await this.diffStack(stack);
           this.stageComments[stage.name].stackComments[stack.name].push(...comment);
+          this.stageComments[stage.name].totalChanges += changes;
           if (!ignoreDestructiveChanges.includes(stage.name)) {
             this.stageComments[stage.name].destructiveChanges += changes;
           }
@@ -85,7 +93,7 @@ export class StageProcessor {
     }
   }
 
-  private async commentStacks(comments: Comments) {
+  private async commentStacks(comments: Comments, totalChanges: number) {
     for (const [stageName, stage] of Object.entries(this.stageComments)) {
       for (const [stackName, comment] of Object.entries(stage.stackComments)) {
         const hash = md5Hash(JSON.stringify({
@@ -97,7 +105,12 @@ export class StageProcessor {
           throw new Error(`Comment for stack ${stackName} is too long, please report this as a bug https://github.com/corymhall/cdk-diff-action/issues/new`);
         }
         const previous = await comments.findPrevious(hash);
-        if (previous) {
+        if (totalChanges === 0) {
+          if (previous) {
+            await comments.deleteComment(previous);
+          }
+          // Do not post a comment if there were no changes.
+        } else if (previous) {
           await comments.updateComment(previous, hash, stackComment);
         } else {
           await comments.createComment(hash, stackComment);
@@ -106,14 +119,18 @@ export class StageProcessor {
     }
   }
 
-  private async commentStage(comments: Comments, hash: string, comment: string[]) {
+  private async commentStage(comments: Comments, hash: string, comment: string[], totalChanges: number) {
     const previous = await comments.findPrevious(hash);
-    if (previous) {
+    if (totalChanges === 0) {
+      if (previous) {
+        await comments.deleteComment(previous);
+      }
+      // Do not post a comment if there were no changes.
+    } else if (previous) {
       await comments.updateComment(previous, hash, comment);
     } else {
       await comments.createComment(hash, comment);
     }
-
   }
 
   /**
@@ -125,10 +142,11 @@ export class StageProcessor {
   public async commentStages(comments: Comments) {
     for (const [stageName, info] of Object.entries(this.stageComments)) {
       const stageComment = this.getCommentForStage(stageName);
+      let totalChanges = this.stageComments[stageName].totalChanges;
       if (stageComment.join('\n').length > MAX_COMMENT_LENGTH) {
-        await this.commentStacks(comments);
+        await this.commentStacks(comments, totalChanges);
       } else {
-        await this.commentStage(comments, info.hash, stageComment);
+        await this.commentStage(comments, info.hash, stageComment, totalChanges);
       }
     }
   }
@@ -179,9 +197,9 @@ export class StageProcessor {
       return output;
     }
     output.push(...[
-      `#### Diff for stack: ${stackName} - `+
-        `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***  `+
-        emoji,
+      `#### Diff for stack: ${stackName} - ` +
+      `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***  ` +
+      emoji,
       '<details><summary>Details</summary>',
       '',
     ]);
@@ -243,6 +261,7 @@ export class StageProcessor {
 class StringWritable extends Writable {
   public data: string;
   private _decoder: StringDecoder;
+
   constructor(options: WritableOptions) {
     super(options);
     this._decoder = new StringDecoder();

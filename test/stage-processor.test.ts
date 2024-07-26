@@ -10,6 +10,7 @@ import { StageProcessor } from '../src/stage-processor';
 let findPreviousMock = jest.fn();
 let updateCommentMock = jest.fn();
 let createCommentMock = jest.fn();
+let deleteCommentMock = jest.fn();
 jest.mock('../src/comment', () => {
   return {
     Comments: jest.fn().mockImplementation(() => {
@@ -17,6 +18,7 @@ jest.mock('../src/comment', () => {
         findPrevious: findPreviousMock,
         updateComment: updateCommentMock,
         createComment: createCommentMock,
+        deleteComment: deleteCommentMock,
       };
     }),
   };
@@ -237,7 +239,8 @@ describe('StageProcessor', () => {
     await processor.commentStages(new Comments({} as any, {} as any));
     expect(findPreviousMock).toHaveBeenCalledTimes(10);
     expect(createCommentMock).toHaveBeenCalledTimes(0);
-    expect(updateCommentMock).toHaveBeenCalledTimes(10);
+    expect(updateCommentMock).toHaveBeenCalledTimes(0);
+    expect(deleteCommentMock).toHaveBeenCalledTimes(10);
   });
 });
 

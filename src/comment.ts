@@ -72,4 +72,16 @@ export class Comments {
       issue_number: this.issueNumber,
     });
   }
+
+  /**
+   * Delete the comment
+   *
+   * @param commentId the id of the comment to delete
+   */
+  public async deleteComment(commentId: number) {
+    await this.octokit.rest.issues.deleteComment({
+      ...this.context.repo,
+      comment_id: commentId,
+    });
+  }
 }
