@@ -1,6 +1,7 @@
 import { ResourceImpact } from '@aws-cdk/cloudformation-diff';
 import { CloudFormationClient, GetTemplateCommand } from '@aws-sdk/client-cloudformation';
 import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
+import { FromTemporaryCredentialsOptions } from '@aws-sdk/credential-providers';
 import { mockClient } from 'aws-sdk-client-mock';
 import { StackInfo } from '../src/assembly';
 import { StackDiff } from '../src/diff';
@@ -9,6 +10,11 @@ import { StackDiff } from '../src/diff';
 // the version of the `@aws-sdk/*` packages are out of sync
 let cfnMock = mockClient(CloudFormationClient);
 let stsMock = mockClient(STSClient);
+
+let fromTemporaryCredentialsMock = jest.fn();
+jest.mock('@aws-sdk/credential-providers', () => ({
+  fromTemporaryCredentials: (options) => fromTemporaryCredentialsMock(options),
+}));
 
 beforeEach(() => {
   stsMock.on(GetCallerIdentityCommand).resolves({
@@ -19,6 +25,7 @@ beforeEach(() => {
 afterEach(() => {
   stsMock.reset();
   cfnMock.reset();
+  fromTemporaryCredentialsMock.mockClear();
 });
 
 describe('StackDiff', () => {
@@ -85,6 +92,61 @@ describe('StackDiff', () => {
       createdResources: 0,
       destructiveChanges: [],
       unknownEnvironment: 'aws://123456789012/us-east-1',
+    });
+  });
+
+  test('AssumeRole ARN for us-east-1', async () => {
+    // GIVEN
+    const info = stackInfo;
+    info.lookupRole = {
+      arn: 'arn:${AWS::Partition}:iam::123456789012:role/cdk-abcdefgh-lookup-role-123456789012-us-east-1',
+    };
+
+    const stackDiff = new StackDiff({
+      ...info,
+    }, []);
+
+    fromTemporaryCredentialsMock.mockResolvedValue({ foo: 'doesnt_matter' });
+
+    // WHEN
+    await stackDiff.diffStack();
+
+    // THEN
+    expect(fromTemporaryCredentialsMock).toHaveBeenCalledWith({
+      params: {
+        DurationSeconds: 900,
+        ExternalId: undefined,
+        RoleSessionName: 'cdk-diff-action',
+        RoleArn: 'arn:aws:iam::123456789012:role/cdk-abcdefgh-lookup-role-123456789012-us-east-1',
+      },
+    });
+  });
+
+  test('AssumeRole ARN for us-gov-west-1', async () => {
+    // GIVEN
+    const info = stackInfo;
+    info.region = 'us-gov-west-1';
+    info.lookupRole = {
+      arn: 'arn:${AWS::Partition}:iam::123456789012:role/cdk-abcdefgh-lookup-role-123456789012-us-gov-west-1',
+    };
+
+    const stackDiff = new StackDiff({
+      ...info,
+    }, []);
+
+    fromTemporaryCredentialsMock.mockResolvedValue({ foo: 'doesnt_matter' });
+
+    // WHEN
+    await stackDiff.diffStack();
+
+    // THEN
+    expect(fromTemporaryCredentialsMock).toHaveBeenCalledWith({
+      params: {
+        DurationSeconds: 900,
+        ExternalId: undefined,
+        RoleSessionName: 'cdk-diff-action',
+        RoleArn: 'arn:aws-us-gov:iam::123456789012:role/cdk-abcdefgh-lookup-role-123456789012-us-gov-west-1',
+      },
     });
   });
 

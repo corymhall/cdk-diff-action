@@ -74,7 +74,7 @@ export class StackDiff {
     // just use the default credentials
     credentials = stack.lookupRole ? fromTemporaryCredentials({
       params: {
-        RoleArn: stack.lookupRole.arn.replace('${AWS::Partition}', 'aws'),
+        RoleArn: stack.lookupRole.arn.replace('${AWS::Partition}', this.getPartition()),
         RoleSessionName: 'cdk-diff-action',
         ExternalId: stack.lookupRole.assumeRoleExternalId,
         DurationSeconds: 900,
@@ -85,6 +85,10 @@ export class StackDiff {
       credentials,
       region: this.stack.region,
     });
+  }
+
+  private getPartition(): string {
+    return this.stack.region?.startsWith('us-gov-') ? 'aws-us-gov' : 'aws';
   }
 
   /**
