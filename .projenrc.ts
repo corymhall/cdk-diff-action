@@ -159,7 +159,7 @@ const autoMergeJob: github.workflows.Job = {
     {
       uses: 'peter-evans/enable-pull-request-automerge@v2',
       with: {
-        'token': '${{ secrets.GITHUB_TOKEN }}',
+        'token': '${{ secrets.PROJEN_GITHUB_TOKEN }}',
         'pull-request-number': '${{ github.event.number }}',
         'merge-method': 'SQUASH',
       },
