@@ -132,7 +132,7 @@ project.tasks.tryFind('release')?.spawn(project.addTask('copy-files', {
 
 const releaseWorkflow = project.github?.tryFindWorkflow('release');
 releaseWorkflow?.file?.patch(JsonPatch.add(
-  '/jobs/release/steps/7/with/retention-days', 1,
+  '/jobs/release/steps/8/with/retention-days', 1,
 ));
 releaseWorkflow?.file?.patch(JsonPatch.replace(
   '/jobs/release_github/steps/3/run',
