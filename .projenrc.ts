@@ -10,6 +10,7 @@ const project = new GitHubActionTypeScriptProject({
   name: 'cdk-diff-action',
   projenrcTs: true,
   depsUpgradeOptions: {
+    exclude: ['@aws-cdk/cloud-assembly-schema'],
     workflowOptions: {
       labels: ['auto-approve'],
       schedule: UpgradeDependenciesSchedule.WEEKLY,
@@ -97,6 +98,22 @@ const project = new GitHubActionTypeScriptProject({
 
 
 const projenProject = project as unknown as typescript.TypeScriptProject;
+
+// There doesn't seem to be a way to specify --target for individual dependencies so
+// adding a separate task to handle always doing a major upgrade to `@aws-cdk/cloud-assembly-schema`
+// @see https://github.com/aws/aws-cdk/blob/main/packages/aws-cdk-lib/cloud-assembly-schema/README.md#versioning
+project.upgradeWorkflow?.postUpgradeTask.prependSpawn(projenProject.addTask('upgrade-cloud-assembly-schema', {
+  env: {
+    CI: '0',
+  },
+  steps: [
+    { exec: 'npx npm-check-updates@16 --upgrade --target=latest --peer --dep=prod --filter=@aws-cdk/cloud-assembly-schema' },
+    { exec: 'yarn install --check-files' },
+    { exec: 'yarn upgrade @aws-cdk/cloud-assembly-schema' },
+    { exec: 'npx projen' },
+  ],
+}));
+
 const jestConfig = projenProject.tryFindObjectFile('jest.config.json');
 jestConfig?.patch(JsonPatch.remove('/preset'));
 jestConfig?.patch(JsonPatch.remove('/globals'));

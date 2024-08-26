@@ -162,7 +162,12 @@
     },
     "post-upgrade": {
       "name": "post-upgrade",
-      "description": "Runs after upgrading dependencies"
+      "description": "Runs after upgrading dependencies",
+      "steps": [
+        {
+          "spawn": "upgrade-cloud-assembly-schema"
+        }
+      ]
     },
     "pre-compile": {
       "name": "pre-compile",
@@ -242,19 +247,39 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@vercel/ncc,action-docs,aws-sdk,aws-sdk-client-mock,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,projen-github-action-typescript,ts-jest,ts-node,typescript,@actions/core,@actions/github,@aws-cdk/cloud-assembly-schema,@aws-cdk/cloudformation-diff,@aws-sdk/client-cloudformation,@aws-sdk/client-sts,@aws-sdk/credential-providers,@octokit/webhooks-definitions,@smithy/types,fs-extra"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@vercel/ncc,action-docs,aws-sdk,aws-sdk-client-mock,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,projen-github-action-typescript,ts-jest,ts-node,typescript,@actions/core,@actions/github,@aws-cdk/cloudformation-diff,@aws-sdk/client-cloudformation,@aws-sdk/client-sts,@aws-sdk/credential-providers,@octokit/webhooks-definitions,@smithy/types,fs-extra"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @swc/core @swc/jest @types/fs-extra @types/jest @types/mock-fs @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @vercel/ncc action-docs aws-sdk aws-sdk-client-mock constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit mock-fs projen projen-github-action-typescript standard-version ts-jest ts-node typescript @actions/core @actions/exec @actions/github @actions/io @actions/tool-cache @aws-cdk/cloud-assembly-schema @aws-cdk/cloudformation-diff @aws-sdk/client-cloudformation @aws-sdk/client-sts @aws-sdk/credential-providers @octokit/webhooks-definitions @smithy/types chalk fs-extra"
+          "exec": "yarn upgrade @swc/core @swc/jest @types/fs-extra @types/jest @types/mock-fs @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @vercel/ncc action-docs aws-sdk aws-sdk-client-mock constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit mock-fs projen projen-github-action-typescript standard-version ts-jest ts-node typescript @actions/core @actions/exec @actions/github @actions/io @actions/tool-cache @aws-cdk/cloudformation-diff @aws-sdk/client-cloudformation @aws-sdk/client-sts @aws-sdk/credential-providers @octokit/webhooks-definitions @smithy/types chalk fs-extra"
         },
         {
           "exec": "npx projen"
         },
         {
           "spawn": "post-upgrade"
+        }
+      ]
+    },
+    "upgrade-cloud-assembly-schema": {
+      "name": "upgrade-cloud-assembly-schema",
+      "env": {
+        "CI": "0"
+      },
+      "steps": [
+        {
+          "exec": "npx npm-check-updates@16 --upgrade --target=latest --peer --dep=prod --filter=@aws-cdk/cloud-assembly-schema"
+        },
+        {
+          "exec": "yarn install --check-files"
+        },
+        {
+          "exec": "yarn upgrade @aws-cdk/cloud-assembly-schema"
+        },
+        {
+          "exec": "npx projen"
         }
       ]
     },
