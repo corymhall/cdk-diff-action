@@ -65,7 +65,8 @@ export class AssemblyManifestReader {
    */
   public static fromFile(fileName: string): AssemblyManifestReader {
     try {
-      const obj = Manifest.loadAssemblyManifest(fileName);
+      // skipVersionCheck since we should always be able to load newer versions
+      const obj = Manifest.loadAssemblyManifest(fileName, { skipVersionCheck: true });
       return new AssemblyManifestReader(path.dirname(fileName), obj);
 
     } catch (e: any) {
