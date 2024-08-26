@@ -92,7 +92,7 @@ const project = new GitHubActionTypeScriptProject({
   jestOptions: {
     configFilePath: 'jest.config.json',
   },
-  minNodeVersion: '18.12.0',
+  minNodeVersion: '18.18.0',
 });
 
 
