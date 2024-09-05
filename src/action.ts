@@ -19,10 +19,12 @@ export async function run() {
   try {
     const assembly = AssemblyManifestReader.fromPath(inputs.cdkOutDir);
     const stages = assembly.stages;
-    stages.push({
-      name: 'DefaultStage',
-      stacks: assembly.stacks,
-    });
+    if (assembly.stacks.length) {
+      stages.push({
+        name: 'DefaultStage',
+        stacks: assembly.stacks,
+      });
+    }
     const comments = new Comments(octokit, context);
     const processor = new StageProcessor(stages, inputs.allowedDestroyTypes);
     try {
