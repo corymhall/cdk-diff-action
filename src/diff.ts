@@ -88,7 +88,13 @@ export class StackDiff {
   }
 
   private getPartition(): string {
-    return this.stack.region?.startsWith('us-gov-') ? 'aws-us-gov' : 'aws';
+    if (this.stack.region?.startsWith('us-gov-')) {
+      return 'aws-us-gov';
+    } else if (this.stack.region?.startsWith('cn-')) {
+      return 'aws-cn';
+    } else {
+      return 'aws';
+    }
   }
 
   /**
