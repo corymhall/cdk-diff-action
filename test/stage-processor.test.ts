@@ -61,9 +61,9 @@ describe('StageProcessor', () => {
 
   test('stage with no diffs', async () => {
     cfnMock.on(GetTemplateCommand)
-        .resolves({
-          TemplateBody: JSON.stringify(stackInfo.content),
-        });
+      .resolves({
+        TemplateBody: JSON.stringify(stackInfo.content),
+      });
     const processor = new StageProcessor([
       {
         name: 'Stage1',
