@@ -135,3 +135,20 @@ jobs:
           failOnDestructiveChanges: false
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+### Hide comments for unchanged stages
+
+If you want to prevent unnecessary comments by hiding comments for stacks that
+have not changed, you can enable this feature.  This defaults to off, showing
+comments for all stacks.
+
+```yml
+jobs:
+  Synth:
+    steps:
+      - name: Diff
+        uses: corymhall/cdk-diff-action@v1
+        with:
+          ignoreUnchangedStacks: true
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+```

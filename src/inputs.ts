@@ -43,4 +43,11 @@ export interface Inputs {
    * @default cdk.out
    */
   cdkOutDir: string;
+
+  /**
+   * Whether the workflow will comment for unchanged stacks
+   *
+   * @default - comment for unchanged stacks
+   */
+  ignoreUnchangedStacks: boolean;
 }

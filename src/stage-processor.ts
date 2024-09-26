@@ -40,6 +40,7 @@ export class StageProcessor {
   constructor(
     private readonly stages: StageInfo[],
     private readonly allowedDestroyTypes: string[],
+    private readonly ignoreUnchangedStacks: boolean,
   ) {
     this.stages.forEach(stage => {
       this.stageComments[stage.name] = {
@@ -72,10 +73,12 @@ export class StageProcessor {
     for (const stage of this.stages) {
       for (const stack of stage.stacks) {
         try {
-          const { comment, changes } = await this.diffStack(stack);
-          this.stageComments[stage.name].stackComments[stack.name].push(...comment);
+          const { comment, destructiveChanges, anyChanges } = await this.diffStack(stack);
+          if (anyChanges || !this.ignoreUnchangedStacks) {
+            this.stageComments[stage.name].stackComments[stack.name].push(...comment);
+          }
           if (!ignoreDestructiveChanges.includes(stage.name)) {
-            this.stageComments[stage.name].destructiveChanges += changes;
+            this.stageComments[stage.name].destructiveChanges += destructiveChanges;
           }
         } catch (e: any) {
           console.error('Error processing stages: ', e);
@@ -93,6 +96,9 @@ export class StageProcessor {
           stackName,
         }));
         const stackComment = this.getCommentForStack(stageName, stackName, comment);
+        if (stackComment.length == 0) {
+          continue;
+        }
         if (stackComment.join('\n').length > MAX_COMMENT_LENGTH) {
           throw new Error(`Comment for stack ${stackName} is too long, please report this as a bug https://github.com/corymhall/cdk-diff-action/issues/new`);
         }
@@ -145,13 +151,14 @@ export class StageProcessor {
     return false;
   }
 
-  private async diffStack(stack: StackInfo): Promise<{comment: string[]; changes: number}> {
+  private async diffStack(stack: StackInfo): Promise<{comment: string[]; destructiveChanges: number, anyChanges: boolean}> {
     try {
       const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
       const { diff, changes } = await stackDiff.diffStack();
       return {
         comment: this.formatStackComment(stack.name, diff, changes),
-        changes: changes.destructiveChanges.length,
+        destructiveChanges: changes.destructiveChanges.length,
+        anyChanges: changes.destructiveChanges.length > 0 || changes.removedResources > 0 || changes.updatedResources > 0 || changes.createdResources > 0,
       };
 
     } catch (e: any) {
