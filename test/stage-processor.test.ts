@@ -61,21 +61,42 @@ describe('StageProcessor', () => {
 
   test('stage with no diffs', async () => {
     cfnMock.on(GetTemplateCommand)
-      .resolves({
-        TemplateBody: JSON.stringify(stackInfo.content),
-      });
+        .resolves({
+          TemplateBody: JSON.stringify(stackInfo.content),
+        });
     const processor = new StageProcessor([
       {
         name: 'Stage1',
         stacks: [stackInfo],
       },
-    ], []);
+    ], [], false);
     await processor.processStages();
     const p = (processor as any).stageComments;
     expect(p).toEqual({
       Stage1: expect.any(Object),
     });
     expect(p.Stage1.stackComments['my-stack']).toEqual(['No Changes for stack: my-stack :white_check_mark:']);
+  });
+
+  test('stage with no diffs and ignored', async () => {
+    cfnMock.on(GetTemplateCommand)
+        .resolves({
+          TemplateBody: JSON.stringify(stackInfo.content),
+        });
+    const processor = new StageProcessor([
+      {
+        name: 'Stage1',
+        stacks: [stackInfo],
+      },
+    ], [], true);
+    await processor.processStages();
+    const p = (processor as any).stageComments;
+    expect(p).toEqual({
+      Stage1: expect.any(Object),
+    });
+    expect(p.Stage1.stackComments['my-stack']).toEqual([]);
+    expect(createCommentMock).toHaveBeenCalledTimes(0);
+    expect(updateCommentMock).toHaveBeenCalledTimes(0);
   });
 
   test('stage with diff', async () => {
@@ -101,7 +122,7 @@ describe('StageProcessor', () => {
           },
         }],
       },
-    ], []);
+    ], [], false);
     await processor.processStages();
     const p = (processor as any).stageComments;
     expect(p).toEqual({
@@ -134,7 +155,7 @@ describe('StageProcessor', () => {
           },
         }],
       },
-    ], []);
+    ], [], false);
     await processor.processStages(['Stage1']);
     const p = (processor as any).stageComments;
     expect(p).toEqual({
@@ -167,7 +188,7 @@ describe('StageProcessor', () => {
           },
         }],
       },
-    ], []);
+    ], [], false);
     await processor.processStages(['Stage1']);
     await processor.commentStages(new Comments({} as any, {} as any));
     expect(createCommentMock).toHaveBeenCalledTimes(1);
@@ -198,7 +219,7 @@ describe('StageProcessor', () => {
           },
         }],
       },
-    ], []);
+    ], [], false);
     findPreviousMock.mockResolvedValue(1);
     await processor.processStages(['Stage1']);
     await processor.commentStages(new Comments({} as any, {} as any));
@@ -231,7 +252,7 @@ describe('StageProcessor', () => {
         name: 'Stage1',
         stacks: createStacks(10),
       },
-    ], []);
+    ], [], false);
     findPreviousMock.mockResolvedValue(1);
     await processor.processStages(['Stage1']);
     await processor.commentStages(new Comments({} as any, {} as any));
