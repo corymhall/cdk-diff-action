@@ -796,7 +796,11 @@ function md5Hash(val) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -809,7 +813,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -871,13 +875,13 @@ class Command {
     }
 }
 function escapeData(s) {
-    return utils_1.toCommandValue(s)
+    return (0, utils_1.toCommandValue)(s)
         .replace(/%/g, '%25')
         .replace(/\r/g, '%0D')
         .replace(/\n/g, '%0A');
 }
 function escapeProperty(s) {
-    return utils_1.toCommandValue(s)
+    return (0, utils_1.toCommandValue)(s)
         .replace(/%/g, '%25')
         .replace(/\r/g, '%0D')
         .replace(/\n/g, '%0A')
@@ -895,7 +899,11 @@ function escapeProperty(s) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -908,7 +916,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -922,7 +930,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
+exports.platform = exports.toPlatformPath = exports.toWin32Path = exports.toPosixPath = exports.markdownSummary = exports.summary = exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
 const command_1 = __nccwpck_require__(44914);
 const file_command_1 = __nccwpck_require__(24753);
 const utils_1 = __nccwpck_require__(30302);
@@ -942,7 +950,7 @@ var ExitCode;
      * A code indicating that the action was a failure
      */
     ExitCode[ExitCode["Failure"] = 1] = "Failure";
-})(ExitCode = exports.ExitCode || (exports.ExitCode = {}));
+})(ExitCode || (exports.ExitCode = ExitCode = {}));
 //-----------------------------------------------------------------------
 // Variables
 //-----------------------------------------------------------------------
@@ -953,13 +961,13 @@ var ExitCode;
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function exportVariable(name, val) {
-    const convertedVal = utils_1.toCommandValue(val);
+    const convertedVal = (0, utils_1.toCommandValue)(val);
     process.env[name] = convertedVal;
     const filePath = process.env['GITHUB_ENV'] || '';
     if (filePath) {
-        return file_command_1.issueFileCommand('ENV', file_command_1.prepareKeyValueMessage(name, val));
+        return (0, file_command_1.issueFileCommand)('ENV', (0, file_command_1.prepareKeyValueMessage)(name, val));
     }
-    command_1.issueCommand('set-env', { name }, convertedVal);
+    (0, command_1.issueCommand)('set-env', { name }, convertedVal);
 }
 exports.exportVariable = exportVariable;
 /**
@@ -967,7 +975,7 @@ exports.exportVariable = exportVariable;
  * @param secret value of the secret
  */
 function setSecret(secret) {
-    command_1.issueCommand('add-mask', {}, secret);
+    (0, command_1.issueCommand)('add-mask', {}, secret);
 }
 exports.setSecret = setSecret;
 /**
@@ -977,10 +985,10 @@ exports.setSecret = setSecret;
 function addPath(inputPath) {
     const filePath = process.env['GITHUB_PATH'] || '';
     if (filePath) {
-        file_command_1.issueFileCommand('PATH', inputPath);
+        (0, file_command_1.issueFileCommand)('PATH', inputPath);
     }
     else {
-        command_1.issueCommand('add-path', {}, inputPath);
+        (0, command_1.issueCommand)('add-path', {}, inputPath);
     }
     process.env['PATH'] = `${inputPath}${path.delimiter}${process.env['PATH']}`;
 }
@@ -1055,10 +1063,10 @@ exports.getBooleanInput = getBooleanInput;
 function setOutput(name, value) {
     const filePath = process.env['GITHUB_OUTPUT'] || '';
     if (filePath) {
-        return file_command_1.issueFileCommand('OUTPUT', file_command_1.prepareKeyValueMessage(name, value));
+        return (0, file_command_1.issueFileCommand)('OUTPUT', (0, file_command_1.prepareKeyValueMessage)(name, value));
     }
     process.stdout.write(os.EOL);
-    command_1.issueCommand('set-output', { name }, utils_1.toCommandValue(value));
+    (0, command_1.issueCommand)('set-output', { name }, (0, utils_1.toCommandValue)(value));
 }
 exports.setOutput = setOutput;
 /**
@@ -1067,7 +1075,7 @@ exports.setOutput = setOutput;
  *
  */
 function setCommandEcho(enabled) {
-    command_1.issue('echo', enabled ? 'on' : 'off');
+    (0, command_1.issue)('echo', enabled ? 'on' : 'off');
 }
 exports.setCommandEcho = setCommandEcho;
 //-----------------------------------------------------------------------
@@ -1098,7 +1106,7 @@ exports.isDebug = isDebug;
  * @param message debug message
  */
 function debug(message) {
-    command_1.issueCommand('debug', {}, message);
+    (0, command_1.issueCommand)('debug', {}, message);
 }
 exports.debug = debug;
 /**
@@ -1107,7 +1115,7 @@ exports.debug = debug;
  * @param properties optional properties to add to the annotation.
  */
 function error(message, properties = {}) {
-    command_1.issueCommand('error', utils_1.toCommandProperties(properties), message instanceof Error ? message.toString() : message);
+    (0, command_1.issueCommand)('error', (0, utils_1.toCommandProperties)(properties), message instanceof Error ? message.toString() : message);
 }
 exports.error = error;
 /**
@@ -1116,7 +1124,7 @@ exports.error = error;
  * @param properties optional properties to add to the annotation.
  */
 function warning(message, properties = {}) {
-    command_1.issueCommand('warning', utils_1.toCommandProperties(properties), message instanceof Error ? message.toString() : message);
+    (0, command_1.issueCommand)('warning', (0, utils_1.toCommandProperties)(properties), message instanceof Error ? message.toString() : message);
 }
 exports.warning = warning;
 /**
@@ -1125,7 +1133,7 @@ exports.warning = warning;
  * @param properties optional properties to add to the annotation.
  */
 function notice(message, properties = {}) {
-    command_1.issueCommand('notice', utils_1.toCommandProperties(properties), message instanceof Error ? message.toString() : message);
+    (0, command_1.issueCommand)('notice', (0, utils_1.toCommandProperties)(properties), message instanceof Error ? message.toString() : message);
 }
 exports.notice = notice;
 /**
@@ -1144,14 +1152,14 @@ exports.info = info;
  * @param name The name of the output group
  */
 function startGroup(name) {
-    command_1.issue('group', name);
+    (0, command_1.issue)('group', name);
 }
 exports.startGroup = startGroup;
 /**
  * End an output group.
  */
 function endGroup() {
-    command_1.issue('endgroup');
+    (0, command_1.issue)('endgroup');
 }
 exports.endGroup = endGroup;
 /**
@@ -1189,9 +1197,9 @@ exports.group = group;
 function saveState(name, value) {
     const filePath = process.env['GITHUB_STATE'] || '';
     if (filePath) {
-        return file_command_1.issueFileCommand('STATE', file_command_1.prepareKeyValueMessage(name, value));
+        return (0, file_command_1.issueFileCommand)('STATE', (0, file_command_1.prepareKeyValueMessage)(name, value));
     }
-    command_1.issueCommand('save-state', { name }, utils_1.toCommandValue(value));
+    (0, command_1.issueCommand)('save-state', { name }, (0, utils_1.toCommandValue)(value));
 }
 exports.saveState = saveState;
 /**
@@ -1227,6 +1235,10 @@ var path_utils_1 = __nccwpck_require__(31976);
 Object.defineProperty(exports, "toPosixPath", ({ enumerable: true, get: function () { return path_utils_1.toPosixPath; } }));
 Object.defineProperty(exports, "toWin32Path", ({ enumerable: true, get: function () { return path_utils_1.toWin32Path; } }));
 Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: function () { return path_utils_1.toPlatformPath; } }));
+/**
+ * Platform utilities exports
+ */
+exports.platform = __importStar(__nccwpck_require__(18968));
 //# sourceMappingURL=core.js.map
 
 /***/ }),
@@ -1239,7 +1251,11 @@ Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: funct
 // For internal use, subject to change.
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -1252,7 +1268,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -1260,9 +1276,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
+const crypto = __importStar(__nccwpck_require__(76982));
 const fs = __importStar(__nccwpck_require__(79896));
 const os = __importStar(__nccwpck_require__(70857));
-const uuid_1 = __nccwpck_require__(12048);
 const utils_1 = __nccwpck_require__(30302);
 function issueFileCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
@@ -1272,14 +1288,14 @@ function issueFileCommand(command, message) {
     if (!fs.existsSync(filePath)) {
         throw new Error(`Missing file at path: ${filePath}`);
     }
-    fs.appendFileSync(filePath, `${utils_1.toCommandValue(message)}${os.EOL}`, {
+    fs.appendFileSync(filePath, `${(0, utils_1.toCommandValue)(message)}${os.EOL}`, {
         encoding: 'utf8'
     });
 }
 exports.issueFileCommand = issueFileCommand;
 function prepareKeyValueMessage(key, value) {
-    const delimiter = `ghadelimiter_${uuid_1.v4()}`;
-    const convertedValue = utils_1.toCommandValue(value);
+    const delimiter = `ghadelimiter_${crypto.randomUUID()}`;
+    const convertedValue = (0, utils_1.toCommandValue)(value);
     // These should realistically never happen, but just in case someone finds a
     // way to exploit uuid generation let's not allow keys or values that contain
     // the delimiter.
@@ -1364,9 +1380,9 @@ class OidcClient {
                     const encodedAudience = encodeURIComponent(audience);
                     id_token_url = `${id_token_url}&audience=${encodedAudience}`;
                 }
-                core_1.debug(`ID token url is ${id_token_url}`);
+                (0, core_1.debug)(`ID token url is ${id_token_url}`);
                 const id_token = yield OidcClient.getCall(id_token_url);
-                core_1.setSecret(id_token);
+                (0, core_1.setSecret)(id_token);
                 return id_token;
             }
             catch (error) {
@@ -1387,7 +1403,11 @@ exports.OidcClient = OidcClient;
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -1400,7 +1420,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -1442,6 +1462,107 @@ function toPlatformPath(pth) {
 }
 exports.toPlatformPath = toPlatformPath;
 //# sourceMappingURL=path-utils.js.map
+
+/***/ }),
+
+/***/ 18968:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getDetails = exports.isLinux = exports.isMacOS = exports.isWindows = exports.arch = exports.platform = void 0;
+const os_1 = __importDefault(__nccwpck_require__(70857));
+const exec = __importStar(__nccwpck_require__(95236));
+const getWindowsInfo = () => __awaiter(void 0, void 0, void 0, function* () {
+    const { stdout: version } = yield exec.getExecOutput('powershell -command "(Get-CimInstance -ClassName Win32_OperatingSystem).Version"', undefined, {
+        silent: true
+    });
+    const { stdout: name } = yield exec.getExecOutput('powershell -command "(Get-CimInstance -ClassName Win32_OperatingSystem).Caption"', undefined, {
+        silent: true
+    });
+    return {
+        name: name.trim(),
+        version: version.trim()
+    };
+});
+const getMacOsInfo = () => __awaiter(void 0, void 0, void 0, function* () {
+    var _a, _b, _c, _d;
+    const { stdout } = yield exec.getExecOutput('sw_vers', undefined, {
+        silent: true
+    });
+    const version = (_b = (_a = stdout.match(/ProductVersion:\s*(.+)/)) === null || _a === void 0 ? void 0 : _a[1]) !== null && _b !== void 0 ? _b : '';
+    const name = (_d = (_c = stdout.match(/ProductName:\s*(.+)/)) === null || _c === void 0 ? void 0 : _c[1]) !== null && _d !== void 0 ? _d : '';
+    return {
+        name,
+        version
+    };
+});
+const getLinuxInfo = () => __awaiter(void 0, void 0, void 0, function* () {
+    const { stdout } = yield exec.getExecOutput('lsb_release', ['-i', '-r', '-s'], {
+        silent: true
+    });
+    const [name, version] = stdout.trim().split('\n');
+    return {
+        name,
+        version
+    };
+});
+exports.platform = os_1.default.platform();
+exports.arch = os_1.default.arch();
+exports.isWindows = exports.platform === 'win32';
+exports.isMacOS = exports.platform === 'darwin';
+exports.isLinux = exports.platform === 'linux';
+function getDetails() {
+    return __awaiter(this, void 0, void 0, function* () {
+        return Object.assign(Object.assign({}, (yield (exports.isWindows
+            ? getWindowsInfo()
+            : exports.isMacOS
+                ? getMacOsInfo()
+                : getLinuxInfo()))), { platform: exports.platform,
+            arch: exports.arch,
+            isWindows: exports.isWindows,
+            isMacOS: exports.isMacOS,
+            isLinux: exports.isLinux });
+    });
+}
+exports.getDetails = getDetails;
+//# sourceMappingURL=platform.js.map
 
 /***/ }),
 
@@ -1779,6 +1900,741 @@ function toCommandProperties(annotationProperties) {
 }
 exports.toCommandProperties = toCommandProperties;
 //# sourceMappingURL=utils.js.map
+
+/***/ }),
+
+/***/ 95236:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getExecOutput = exports.exec = void 0;
+const string_decoder_1 = __nccwpck_require__(13193);
+const tr = __importStar(__nccwpck_require__(6665));
+/**
+ * Exec a command.
+ * Output will be streamed to the live console.
+ * Returns promise with return code
+ *
+ * @param     commandLine        command to execute (can include additional args). Must be correctly escaped.
+ * @param     args               optional arguments for tool. Escaping is handled by the lib.
+ * @param     options            optional exec options.  See ExecOptions
+ * @returns   Promise<number>    exit code
+ */
+function exec(commandLine, args, options) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const commandArgs = tr.argStringToArray(commandLine);
+        if (commandArgs.length === 0) {
+            throw new Error(`Parameter 'commandLine' cannot be null or empty.`);
+        }
+        // Path to tool to execute should be first arg
+        const toolPath = commandArgs[0];
+        args = commandArgs.slice(1).concat(args || []);
+        const runner = new tr.ToolRunner(toolPath, args, options);
+        return runner.exec();
+    });
+}
+exports.exec = exec;
+/**
+ * Exec a command and get the output.
+ * Output will be streamed to the live console.
+ * Returns promise with the exit code and collected stdout and stderr
+ *
+ * @param     commandLine           command to execute (can include additional args). Must be correctly escaped.
+ * @param     args                  optional arguments for tool. Escaping is handled by the lib.
+ * @param     options               optional exec options.  See ExecOptions
+ * @returns   Promise<ExecOutput>   exit code, stdout, and stderr
+ */
+function getExecOutput(commandLine, args, options) {
+    var _a, _b;
+    return __awaiter(this, void 0, void 0, function* () {
+        let stdout = '';
+        let stderr = '';
+        //Using string decoder covers the case where a mult-byte character is split
+        const stdoutDecoder = new string_decoder_1.StringDecoder('utf8');
+        const stderrDecoder = new string_decoder_1.StringDecoder('utf8');
+        const originalStdoutListener = (_a = options === null || options === void 0 ? void 0 : options.listeners) === null || _a === void 0 ? void 0 : _a.stdout;
+        const originalStdErrListener = (_b = options === null || options === void 0 ? void 0 : options.listeners) === null || _b === void 0 ? void 0 : _b.stderr;
+        const stdErrListener = (data) => {
+            stderr += stderrDecoder.write(data);
+            if (originalStdErrListener) {
+                originalStdErrListener(data);
+            }
+        };
+        const stdOutListener = (data) => {
+            stdout += stdoutDecoder.write(data);
+            if (originalStdoutListener) {
+                originalStdoutListener(data);
+            }
+        };
+        const listeners = Object.assign(Object.assign({}, options === null || options === void 0 ? void 0 : options.listeners), { stdout: stdOutListener, stderr: stdErrListener });
+        const exitCode = yield exec(commandLine, args, Object.assign(Object.assign({}, options), { listeners }));
+        //flush any remaining characters
+        stdout += stdoutDecoder.end();
+        stderr += stderrDecoder.end();
+        return {
+            exitCode,
+            stdout,
+            stderr
+        };
+    });
+}
+exports.getExecOutput = getExecOutput;
+//# sourceMappingURL=exec.js.map
+
+/***/ }),
+
+/***/ 6665:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.argStringToArray = exports.ToolRunner = void 0;
+const os = __importStar(__nccwpck_require__(70857));
+const events = __importStar(__nccwpck_require__(24434));
+const child = __importStar(__nccwpck_require__(35317));
+const path = __importStar(__nccwpck_require__(16928));
+const io = __importStar(__nccwpck_require__(94994));
+const ioUtil = __importStar(__nccwpck_require__(75207));
+const timers_1 = __nccwpck_require__(53557);
+/* eslint-disable @typescript-eslint/unbound-method */
+const IS_WINDOWS = process.platform === 'win32';
+/*
+ * Class for running command line tools. Handles quoting and arg parsing in a platform agnostic way.
+ */
+class ToolRunner extends events.EventEmitter {
+    constructor(toolPath, args, options) {
+        super();
+        if (!toolPath) {
+            throw new Error("Parameter 'toolPath' cannot be null or empty.");
+        }
+        this.toolPath = toolPath;
+        this.args = args || [];
+        this.options = options || {};
+    }
+    _debug(message) {
+        if (this.options.listeners && this.options.listeners.debug) {
+            this.options.listeners.debug(message);
+        }
+    }
+    _getCommandString(options, noPrefix) {
+        const toolPath = this._getSpawnFileName();
+        const args = this._getSpawnArgs(options);
+        let cmd = noPrefix ? '' : '[command]'; // omit prefix when piped to a second tool
+        if (IS_WINDOWS) {
+            // Windows + cmd file
+            if (this._isCmdFile()) {
+                cmd += toolPath;
+                for (const a of args) {
+                    cmd += ` ${a}`;
+                }
+            }
+            // Windows + verbatim
+            else if (options.windowsVerbatimArguments) {
+                cmd += `"${toolPath}"`;
+                for (const a of args) {
+                    cmd += ` ${a}`;
+                }
+            }
+            // Windows (regular)
+            else {
+                cmd += this._windowsQuoteCmdArg(toolPath);
+                for (const a of args) {
+                    cmd += ` ${this._windowsQuoteCmdArg(a)}`;
+                }
+            }
+        }
+        else {
+            // OSX/Linux - this can likely be improved with some form of quoting.
+            // creating processes on Unix is fundamentally different than Windows.
+            // on Unix, execvp() takes an arg array.
+            cmd += toolPath;
+            for (const a of args) {
+                cmd += ` ${a}`;
+            }
+        }
+        return cmd;
+    }
+    _processLineBuffer(data, strBuffer, onLine) {
+        try {
+            let s = strBuffer + data.toString();
+            let n = s.indexOf(os.EOL);
+            while (n > -1) {
+                const line = s.substring(0, n);
+                onLine(line);
+                // the rest of the string ...
+                s = s.substring(n + os.EOL.length);
+                n = s.indexOf(os.EOL);
+            }
+            return s;
+        }
+        catch (err) {
+            // streaming lines to console is best effort.  Don't fail a build.
+            this._debug(`error processing line. Failed with error ${err}`);
+            return '';
+        }
+    }
+    _getSpawnFileName() {
+        if (IS_WINDOWS) {
+            if (this._isCmdFile()) {
+                return process.env['COMSPEC'] || 'cmd.exe';
+            }
+        }
+        return this.toolPath;
+    }
+    _getSpawnArgs(options) {
+        if (IS_WINDOWS) {
+            if (this._isCmdFile()) {
+                let argline = `/D /S /C "${this._windowsQuoteCmdArg(this.toolPath)}`;
+                for (const a of this.args) {
+                    argline += ' ';
+                    argline += options.windowsVerbatimArguments
+                        ? a
+                        : this._windowsQuoteCmdArg(a);
+                }
+                argline += '"';
+                return [argline];
+            }
+        }
+        return this.args;
+    }
+    _endsWith(str, end) {
+        return str.endsWith(end);
+    }
+    _isCmdFile() {
+        const upperToolPath = this.toolPath.toUpperCase();
+        return (this._endsWith(upperToolPath, '.CMD') ||
+            this._endsWith(upperToolPath, '.BAT'));
+    }
+    _windowsQuoteCmdArg(arg) {
+        // for .exe, apply the normal quoting rules that libuv applies
+        if (!this._isCmdFile()) {
+            return this._uvQuoteCmdArg(arg);
+        }
+        // otherwise apply quoting rules specific to the cmd.exe command line parser.
+        // the libuv rules are generic and are not designed specifically for cmd.exe
+        // command line parser.
+        //
+        // for a detailed description of the cmd.exe command line parser, refer to
+        // http://stackoverflow.com/questions/4094699/how-does-the-windows-command-interpreter-cmd-exe-parse-scripts/7970912#7970912
+        // need quotes for empty arg
+        if (!arg) {
+            return '""';
+        }
+        // determine whether the arg needs to be quoted
+        const cmdSpecialChars = [
+            ' ',
+            '\t',
+            '&',
+            '(',
+            ')',
+            '[',
+            ']',
+            '{',
+            '}',
+            '^',
+            '=',
+            ';',
+            '!',
+            "'",
+            '+',
+            ',',
+            '`',
+            '~',
+            '|',
+            '<',
+            '>',
+            '"'
+        ];
+        let needsQuotes = false;
+        for (const char of arg) {
+            if (cmdSpecialChars.some(x => x === char)) {
+                needsQuotes = true;
+                break;
+            }
+        }
+        // short-circuit if quotes not needed
+        if (!needsQuotes) {
+            return arg;
+        }
+        // the following quoting rules are very similar to the rules that by libuv applies.
+        //
+        // 1) wrap the string in quotes
+        //
+        // 2) double-up quotes - i.e. " => ""
+        //
+        //    this is different from the libuv quoting rules. libuv replaces " with \", which unfortunately
+        //    doesn't work well with a cmd.exe command line.
+        //
+        //    note, replacing " with "" also works well if the arg is passed to a downstream .NET console app.
+        //    for example, the command line:
+        //          foo.exe "myarg:""my val"""
+        //    is parsed by a .NET console app into an arg array:
+        //          [ "myarg:\"my val\"" ]
+        //    which is the same end result when applying libuv quoting rules. although the actual
+        //    command line from libuv quoting rules would look like:
+        //          foo.exe "myarg:\"my val\""
+        //
+        // 3) double-up slashes that precede a quote,
+        //    e.g.  hello \world    => "hello \world"
+        //          hello\"world    => "hello\\""world"
+        //          hello\\"world   => "hello\\\\""world"
+        //          hello world\    => "hello world\\"
+        //
+        //    technically this is not required for a cmd.exe command line, or the batch argument parser.
+        //    the reasons for including this as a .cmd quoting rule are:
+        //
+        //    a) this is optimized for the scenario where the argument is passed from the .cmd file to an
+        //       external program. many programs (e.g. .NET console apps) rely on the slash-doubling rule.
+        //
+        //    b) it's what we've been doing previously (by deferring to node default behavior) and we
+        //       haven't heard any complaints about that aspect.
+        //
+        // note, a weakness of the quoting rules chosen here, is that % is not escaped. in fact, % cannot be
+        // escaped when used on the command line directly - even though within a .cmd file % can be escaped
+        // by using %%.
+        //
+        // the saving grace is, on the command line, %var% is left as-is if var is not defined. this contrasts
+        // the line parsing rules within a .cmd file, where if var is not defined it is replaced with nothing.
+        //
+        // one option that was explored was replacing % with ^% - i.e. %var% => ^%var^%. this hack would
+        // often work, since it is unlikely that var^ would exist, and the ^ character is removed when the
+        // variable is used. the problem, however, is that ^ is not removed when %* is used to pass the args
+        // to an external program.
+        //
+        // an unexplored potential solution for the % escaping problem, is to create a wrapper .cmd file.
+        // % can be escaped within a .cmd file.
+        let reverse = '"';
+        let quoteHit = true;
+        for (let i = arg.length; i > 0; i--) {
+            // walk the string in reverse
+            reverse += arg[i - 1];
+            if (quoteHit && arg[i - 1] === '\\') {
+                reverse += '\\'; // double the slash
+            }
+            else if (arg[i - 1] === '"') {
+                quoteHit = true;
+                reverse += '"'; // double the quote
+            }
+            else {
+                quoteHit = false;
+            }
+        }
+        reverse += '"';
+        return reverse
+            .split('')
+            .reverse()
+            .join('');
+    }
+    _uvQuoteCmdArg(arg) {
+        // Tool runner wraps child_process.spawn() and needs to apply the same quoting as
+        // Node in certain cases where the undocumented spawn option windowsVerbatimArguments
+        // is used.
+        //
+        // Since this function is a port of quote_cmd_arg from Node 4.x (technically, lib UV,
+        // see https://github.com/nodejs/node/blob/v4.x/deps/uv/src/win/process.c for details),
+        // pasting copyright notice from Node within this function:
+        //
+        //      Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+        //
+        //      Permission is hereby granted, free of charge, to any person obtaining a copy
+        //      of this software and associated documentation files (the "Software"), to
+        //      deal in the Software without restriction, including without limitation the
+        //      rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+        //      sell copies of the Software, and to permit persons to whom the Software is
+        //      furnished to do so, subject to the following conditions:
+        //
+        //      The above copyright notice and this permission notice shall be included in
+        //      all copies or substantial portions of the Software.
+        //
+        //      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        //      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        //      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        //      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        //      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+        //      FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+        //      IN THE SOFTWARE.
+        if (!arg) {
+            // Need double quotation for empty argument
+            return '""';
+        }
+        if (!arg.includes(' ') && !arg.includes('\t') && !arg.includes('"')) {
+            // No quotation needed
+            return arg;
+        }
+        if (!arg.includes('"') && !arg.includes('\\')) {
+            // No embedded double quotes or backslashes, so I can just wrap
+            // quote marks around the whole thing.
+            return `"${arg}"`;
+        }
+        // Expected input/output:
+        //   input : hello"world
+        //   output: "hello\"world"
+        //   input : hello""world
+        //   output: "hello\"\"world"
+        //   input : hello\world
+        //   output: hello\world
+        //   input : hello\\world
+        //   output: hello\\world
+        //   input : hello\"world
+        //   output: "hello\\\"world"
+        //   input : hello\\"world
+        //   output: "hello\\\\\"world"
+        //   input : hello world\
+        //   output: "hello world\\" - note the comment in libuv actually reads "hello world\"
+        //                             but it appears the comment is wrong, it should be "hello world\\"
+        let reverse = '"';
+        let quoteHit = true;
+        for (let i = arg.length; i > 0; i--) {
+            // walk the string in reverse
+            reverse += arg[i - 1];
+            if (quoteHit && arg[i - 1] === '\\') {
+                reverse += '\\';
+            }
+            else if (arg[i - 1] === '"') {
+                quoteHit = true;
+                reverse += '\\';
+            }
+            else {
+                quoteHit = false;
+            }
+        }
+        reverse += '"';
+        return reverse
+            .split('')
+            .reverse()
+            .join('');
+    }
+    _cloneExecOptions(options) {
+        options = options || {};
+        const result = {
+            cwd: options.cwd || process.cwd(),
+            env: options.env || process.env,
+            silent: options.silent || false,
+            windowsVerbatimArguments: options.windowsVerbatimArguments || false,
+            failOnStdErr: options.failOnStdErr || false,
+            ignoreReturnCode: options.ignoreReturnCode || false,
+            delay: options.delay || 10000
+        };
+        result.outStream = options.outStream || process.stdout;
+        result.errStream = options.errStream || process.stderr;
+        return result;
+    }
+    _getSpawnOptions(options, toolPath) {
+        options = options || {};
+        const result = {};
+        result.cwd = options.cwd;
+        result.env = options.env;
+        result['windowsVerbatimArguments'] =
+            options.windowsVerbatimArguments || this._isCmdFile();
+        if (options.windowsVerbatimArguments) {
+            result.argv0 = `"${toolPath}"`;
+        }
+        return result;
+    }
+    /**
+     * Exec a tool.
+     * Output will be streamed to the live console.
+     * Returns promise with return code
+     *
+     * @param     tool     path to tool to exec
+     * @param     options  optional exec options.  See ExecOptions
+     * @returns   number
+     */
+    exec() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // root the tool path if it is unrooted and contains relative pathing
+            if (!ioUtil.isRooted(this.toolPath) &&
+                (this.toolPath.includes('/') ||
+                    (IS_WINDOWS && this.toolPath.includes('\\')))) {
+                // prefer options.cwd if it is specified, however options.cwd may also need to be rooted
+                this.toolPath = path.resolve(process.cwd(), this.options.cwd || process.cwd(), this.toolPath);
+            }
+            // if the tool is only a file name, then resolve it from the PATH
+            // otherwise verify it exists (add extension on Windows if necessary)
+            this.toolPath = yield io.which(this.toolPath, true);
+            return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+                this._debug(`exec tool: ${this.toolPath}`);
+                this._debug('arguments:');
+                for (const arg of this.args) {
+                    this._debug(`   ${arg}`);
+                }
+                const optionsNonNull = this._cloneExecOptions(this.options);
+                if (!optionsNonNull.silent && optionsNonNull.outStream) {
+                    optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + os.EOL);
+                }
+                const state = new ExecState(optionsNonNull, this.toolPath);
+                state.on('debug', (message) => {
+                    this._debug(message);
+                });
+                if (this.options.cwd && !(yield ioUtil.exists(this.options.cwd))) {
+                    return reject(new Error(`The cwd: ${this.options.cwd} does not exist!`));
+                }
+                const fileName = this._getSpawnFileName();
+                const cp = child.spawn(fileName, this._getSpawnArgs(optionsNonNull), this._getSpawnOptions(this.options, fileName));
+                let stdbuffer = '';
+                if (cp.stdout) {
+                    cp.stdout.on('data', (data) => {
+                        if (this.options.listeners && this.options.listeners.stdout) {
+                            this.options.listeners.stdout(data);
+                        }
+                        if (!optionsNonNull.silent && optionsNonNull.outStream) {
+                            optionsNonNull.outStream.write(data);
+                        }
+                        stdbuffer = this._processLineBuffer(data, stdbuffer, (line) => {
+                            if (this.options.listeners && this.options.listeners.stdline) {
+                                this.options.listeners.stdline(line);
+                            }
+                        });
+                    });
+                }
+                let errbuffer = '';
+                if (cp.stderr) {
+                    cp.stderr.on('data', (data) => {
+                        state.processStderr = true;
+                        if (this.options.listeners && this.options.listeners.stderr) {
+                            this.options.listeners.stderr(data);
+                        }
+                        if (!optionsNonNull.silent &&
+                            optionsNonNull.errStream &&
+                            optionsNonNull.outStream) {
+                            const s = optionsNonNull.failOnStdErr
+                                ? optionsNonNull.errStream
+                                : optionsNonNull.outStream;
+                            s.write(data);
+                        }
+                        errbuffer = this._processLineBuffer(data, errbuffer, (line) => {
+                            if (this.options.listeners && this.options.listeners.errline) {
+                                this.options.listeners.errline(line);
+                            }
+                        });
+                    });
+                }
+                cp.on('error', (err) => {
+                    state.processError = err.message;
+                    state.processExited = true;
+                    state.processClosed = true;
+                    state.CheckComplete();
+                });
+                cp.on('exit', (code) => {
+                    state.processExitCode = code;
+                    state.processExited = true;
+                    this._debug(`Exit code ${code} received from tool '${this.toolPath}'`);
+                    state.CheckComplete();
+                });
+                cp.on('close', (code) => {
+                    state.processExitCode = code;
+                    state.processExited = true;
+                    state.processClosed = true;
+                    this._debug(`STDIO streams have closed for tool '${this.toolPath}'`);
+                    state.CheckComplete();
+                });
+                state.on('done', (error, exitCode) => {
+                    if (stdbuffer.length > 0) {
+                        this.emit('stdline', stdbuffer);
+                    }
+                    if (errbuffer.length > 0) {
+                        this.emit('errline', errbuffer);
+                    }
+                    cp.removeAllListeners();
+                    if (error) {
+                        reject(error);
+                    }
+                    else {
+                        resolve(exitCode);
+                    }
+                });
+                if (this.options.input) {
+                    if (!cp.stdin) {
+                        throw new Error('child process missing stdin');
+                    }
+                    cp.stdin.end(this.options.input);
+                }
+            }));
+        });
+    }
+}
+exports.ToolRunner = ToolRunner;
+/**
+ * Convert an arg string to an array of args. Handles escaping
+ *
+ * @param    argString   string of arguments
+ * @returns  string[]    array of arguments
+ */
+function argStringToArray(argString) {
+    const args = [];
+    let inQuotes = false;
+    let escaped = false;
+    let arg = '';
+    function append(c) {
+        // we only escape double quotes.
+        if (escaped && c !== '"') {
+            arg += '\\';
+        }
+        arg += c;
+        escaped = false;
+    }
+    for (let i = 0; i < argString.length; i++) {
+        const c = argString.charAt(i);
+        if (c === '"') {
+            if (!escaped) {
+                inQuotes = !inQuotes;
+            }
+            else {
+                append(c);
+            }
+            continue;
+        }
+        if (c === '\\' && escaped) {
+            append(c);
+            continue;
+        }
+        if (c === '\\' && inQuotes) {
+            escaped = true;
+            continue;
+        }
+        if (c === ' ' && !inQuotes) {
+            if (arg.length > 0) {
+                args.push(arg);
+                arg = '';
+            }
+            continue;
+        }
+        append(c);
+    }
+    if (arg.length > 0) {
+        args.push(arg.trim());
+    }
+    return args;
+}
+exports.argStringToArray = argStringToArray;
+class ExecState extends events.EventEmitter {
+    constructor(options, toolPath) {
+        super();
+        this.processClosed = false; // tracks whether the process has exited and stdio is closed
+        this.processError = '';
+        this.processExitCode = 0;
+        this.processExited = false; // tracks whether the process has exited
+        this.processStderr = false; // tracks whether stderr was written to
+        this.delay = 10000; // 10 seconds
+        this.done = false;
+        this.timeout = null;
+        if (!toolPath) {
+            throw new Error('toolPath must not be empty');
+        }
+        this.options = options;
+        this.toolPath = toolPath;
+        if (options.delay) {
+            this.delay = options.delay;
+        }
+    }
+    CheckComplete() {
+        if (this.done) {
+            return;
+        }
+        if (this.processClosed) {
+            this._setResult();
+        }
+        else if (this.processExited) {
+            this.timeout = timers_1.setTimeout(ExecState.HandleTimeout, this.delay, this);
+        }
+    }
+    _debug(message) {
+        this.emit('debug', message);
+    }
+    _setResult() {
+        // determine whether there is an error
+        let error;
+        if (this.processExited) {
+            if (this.processError) {
+                error = new Error(`There was an error when attempting to execute the process '${this.toolPath}'. This may indicate the process failed to start. Error: ${this.processError}`);
+            }
+            else if (this.processExitCode !== 0 && !this.options.ignoreReturnCode) {
+                error = new Error(`The process '${this.toolPath}' failed with exit code ${this.processExitCode}`);
+            }
+            else if (this.processStderr && this.options.failOnStdErr) {
+                error = new Error(`The process '${this.toolPath}' failed because one or more lines were written to the STDERR stream`);
+            }
+        }
+        // clear the timeout
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = null;
+        }
+        this.done = true;
+        this.emit('done', error, this.processExitCode);
+    }
+    static HandleTimeout(state) {
+        if (state.done) {
+            return;
+        }
+        if (!state.processClosed && state.processExited) {
+            const message = `The STDIO streams did not close within ${state.delay /
+                1000} seconds of the exit event from process '${state.toolPath}'. This may indicate a child process inherited the STDIO streams and has not yet exited.`;
+            state._debug(message);
+        }
+        state._setResult();
+    }
+}
+//# sourceMappingURL=toolrunner.js.map
 
 /***/ }),
 
@@ -2884,6 +3740,502 @@ class DecodedURL extends URL {
 
 /***/ }),
 
+/***/ 75207:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getCmdPath = exports.tryGetExecutablePath = exports.isRooted = exports.isDirectory = exports.exists = exports.READONLY = exports.UV_FS_O_EXLOCK = exports.IS_WINDOWS = exports.unlink = exports.symlink = exports.stat = exports.rmdir = exports.rm = exports.rename = exports.readlink = exports.readdir = exports.open = exports.mkdir = exports.lstat = exports.copyFile = exports.chmod = void 0;
+const fs = __importStar(__nccwpck_require__(79896));
+const path = __importStar(__nccwpck_require__(16928));
+_a = fs.promises
+// export const {open} = 'fs'
+, exports.chmod = _a.chmod, exports.copyFile = _a.copyFile, exports.lstat = _a.lstat, exports.mkdir = _a.mkdir, exports.open = _a.open, exports.readdir = _a.readdir, exports.readlink = _a.readlink, exports.rename = _a.rename, exports.rm = _a.rm, exports.rmdir = _a.rmdir, exports.stat = _a.stat, exports.symlink = _a.symlink, exports.unlink = _a.unlink;
+// export const {open} = 'fs'
+exports.IS_WINDOWS = process.platform === 'win32';
+// See https://github.com/nodejs/node/blob/d0153aee367422d0858105abec186da4dff0a0c5/deps/uv/include/uv/win.h#L691
+exports.UV_FS_O_EXLOCK = 0x10000000;
+exports.READONLY = fs.constants.O_RDONLY;
+function exists(fsPath) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            yield exports.stat(fsPath);
+        }
+        catch (err) {
+            if (err.code === 'ENOENT') {
+                return false;
+            }
+            throw err;
+        }
+        return true;
+    });
+}
+exports.exists = exists;
+function isDirectory(fsPath, useStat = false) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const stats = useStat ? yield exports.stat(fsPath) : yield exports.lstat(fsPath);
+        return stats.isDirectory();
+    });
+}
+exports.isDirectory = isDirectory;
+/**
+ * On OSX/Linux, true if path starts with '/'. On Windows, true for paths like:
+ * \, \hello, \\hello\share, C:, and C:\hello (and corresponding alternate separator cases).
+ */
+function isRooted(p) {
+    p = normalizeSeparators(p);
+    if (!p) {
+        throw new Error('isRooted() parameter "p" cannot be empty');
+    }
+    if (exports.IS_WINDOWS) {
+        return (p.startsWith('\\') || /^[A-Z]:/i.test(p) // e.g. \ or \hello or \\hello
+        ); // e.g. C: or C:\hello
+    }
+    return p.startsWith('/');
+}
+exports.isRooted = isRooted;
+/**
+ * Best effort attempt to determine whether a file exists and is executable.
+ * @param filePath    file path to check
+ * @param extensions  additional file extensions to try
+ * @return if file exists and is executable, returns the file path. otherwise empty string.
+ */
+function tryGetExecutablePath(filePath, extensions) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let stats = undefined;
+        try {
+            // test file exists
+            stats = yield exports.stat(filePath);
+        }
+        catch (err) {
+            if (err.code !== 'ENOENT') {
+                // eslint-disable-next-line no-console
+                console.log(`Unexpected error attempting to determine if executable file exists '${filePath}': ${err}`);
+            }
+        }
+        if (stats && stats.isFile()) {
+            if (exports.IS_WINDOWS) {
+                // on Windows, test for valid extension
+                const upperExt = path.extname(filePath).toUpperCase();
+                if (extensions.some(validExt => validExt.toUpperCase() === upperExt)) {
+                    return filePath;
+                }
+            }
+            else {
+                if (isUnixExecutable(stats)) {
+                    return filePath;
+                }
+            }
+        }
+        // try each extension
+        const originalFilePath = filePath;
+        for (const extension of extensions) {
+            filePath = originalFilePath + extension;
+            stats = undefined;
+            try {
+                stats = yield exports.stat(filePath);
+            }
+            catch (err) {
+                if (err.code !== 'ENOENT') {
+                    // eslint-disable-next-line no-console
+                    console.log(`Unexpected error attempting to determine if executable file exists '${filePath}': ${err}`);
+                }
+            }
+            if (stats && stats.isFile()) {
+                if (exports.IS_WINDOWS) {
+                    // preserve the case of the actual file (since an extension was appended)
+                    try {
+                        const directory = path.dirname(filePath);
+                        const upperName = path.basename(filePath).toUpperCase();
+                        for (const actualName of yield exports.readdir(directory)) {
+                            if (upperName === actualName.toUpperCase()) {
+                                filePath = path.join(directory, actualName);
+                                break;
+                            }
+                        }
+                    }
+                    catch (err) {
+                        // eslint-disable-next-line no-console
+                        console.log(`Unexpected error attempting to determine the actual case of the file '${filePath}': ${err}`);
+                    }
+                    return filePath;
+                }
+                else {
+                    if (isUnixExecutable(stats)) {
+                        return filePath;
+                    }
+                }
+            }
+        }
+        return '';
+    });
+}
+exports.tryGetExecutablePath = tryGetExecutablePath;
+function normalizeSeparators(p) {
+    p = p || '';
+    if (exports.IS_WINDOWS) {
+        // convert slashes on Windows
+        p = p.replace(/\//g, '\\');
+        // remove redundant slashes
+        return p.replace(/\\\\+/g, '\\');
+    }
+    // remove redundant slashes
+    return p.replace(/\/\/+/g, '/');
+}
+// on Mac/Linux, test the execute bit
+//     R   W  X  R  W X R W X
+//   256 128 64 32 16 8 4 2 1
+function isUnixExecutable(stats) {
+    return ((stats.mode & 1) > 0 ||
+        ((stats.mode & 8) > 0 && stats.gid === process.getgid()) ||
+        ((stats.mode & 64) > 0 && stats.uid === process.getuid()));
+}
+// Get the path of cmd.exe in windows
+function getCmdPath() {
+    var _a;
+    return (_a = process.env['COMSPEC']) !== null && _a !== void 0 ? _a : `cmd.exe`;
+}
+exports.getCmdPath = getCmdPath;
+//# sourceMappingURL=io-util.js.map
+
+/***/ }),
+
+/***/ 94994:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.findInPath = exports.which = exports.mkdirP = exports.rmRF = exports.mv = exports.cp = void 0;
+const assert_1 = __nccwpck_require__(42613);
+const path = __importStar(__nccwpck_require__(16928));
+const ioUtil = __importStar(__nccwpck_require__(75207));
+/**
+ * Copies a file or folder.
+ * Based off of shelljs - https://github.com/shelljs/shelljs/blob/9237f66c52e5daa40458f94f9565e18e8132f5a6/src/cp.js
+ *
+ * @param     source    source path
+ * @param     dest      destination path
+ * @param     options   optional. See CopyOptions.
+ */
+function cp(source, dest, options = {}) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { force, recursive, copySourceDirectory } = readCopyOptions(options);
+        const destStat = (yield ioUtil.exists(dest)) ? yield ioUtil.stat(dest) : null;
+        // Dest is an existing file, but not forcing
+        if (destStat && destStat.isFile() && !force) {
+            return;
+        }
+        // If dest is an existing directory, should copy inside.
+        const newDest = destStat && destStat.isDirectory() && copySourceDirectory
+            ? path.join(dest, path.basename(source))
+            : dest;
+        if (!(yield ioUtil.exists(source))) {
+            throw new Error(`no such file or directory: ${source}`);
+        }
+        const sourceStat = yield ioUtil.stat(source);
+        if (sourceStat.isDirectory()) {
+            if (!recursive) {
+                throw new Error(`Failed to copy. ${source} is a directory, but tried to copy without recursive flag.`);
+            }
+            else {
+                yield cpDirRecursive(source, newDest, 0, force);
+            }
+        }
+        else {
+            if (path.relative(source, newDest) === '') {
+                // a file cannot be copied to itself
+                throw new Error(`'${newDest}' and '${source}' are the same file`);
+            }
+            yield copyFile(source, newDest, force);
+        }
+    });
+}
+exports.cp = cp;
+/**
+ * Moves a path.
+ *
+ * @param     source    source path
+ * @param     dest      destination path
+ * @param     options   optional. See MoveOptions.
+ */
+function mv(source, dest, options = {}) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (yield ioUtil.exists(dest)) {
+            let destExists = true;
+            if (yield ioUtil.isDirectory(dest)) {
+                // If dest is directory copy src into dest
+                dest = path.join(dest, path.basename(source));
+                destExists = yield ioUtil.exists(dest);
+            }
+            if (destExists) {
+                if (options.force == null || options.force) {
+                    yield rmRF(dest);
+                }
+                else {
+                    throw new Error('Destination already exists');
+                }
+            }
+        }
+        yield mkdirP(path.dirname(dest));
+        yield ioUtil.rename(source, dest);
+    });
+}
+exports.mv = mv;
+/**
+ * Remove a path recursively with force
+ *
+ * @param inputPath path to remove
+ */
+function rmRF(inputPath) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (ioUtil.IS_WINDOWS) {
+            // Check for invalid characters
+            // https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file
+            if (/[*"<>|]/.test(inputPath)) {
+                throw new Error('File path must not contain `*`, `"`, `<`, `>` or `|` on Windows');
+            }
+        }
+        try {
+            // note if path does not exist, error is silent
+            yield ioUtil.rm(inputPath, {
+                force: true,
+                maxRetries: 3,
+                recursive: true,
+                retryDelay: 300
+            });
+        }
+        catch (err) {
+            throw new Error(`File was unable to be removed ${err}`);
+        }
+    });
+}
+exports.rmRF = rmRF;
+/**
+ * Make a directory.  Creates the full path with folders in between
+ * Will throw if it fails
+ *
+ * @param   fsPath        path to create
+ * @returns Promise<void>
+ */
+function mkdirP(fsPath) {
+    return __awaiter(this, void 0, void 0, function* () {
+        assert_1.ok(fsPath, 'a path argument must be provided');
+        yield ioUtil.mkdir(fsPath, { recursive: true });
+    });
+}
+exports.mkdirP = mkdirP;
+/**
+ * Returns path of a tool had the tool actually been invoked.  Resolves via paths.
+ * If you check and the tool does not exist, it will throw.
+ *
+ * @param     tool              name of the tool
+ * @param     check             whether to check if tool exists
+ * @returns   Promise<string>   path to tool
+ */
+function which(tool, check) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (!tool) {
+            throw new Error("parameter 'tool' is required");
+        }
+        // recursive when check=true
+        if (check) {
+            const result = yield which(tool, false);
+            if (!result) {
+                if (ioUtil.IS_WINDOWS) {
+                    throw new Error(`Unable to locate executable file: ${tool}. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable. Also verify the file has a valid extension for an executable file.`);
+                }
+                else {
+                    throw new Error(`Unable to locate executable file: ${tool}. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable. Also check the file mode to verify the file is executable.`);
+                }
+            }
+            return result;
+        }
+        const matches = yield findInPath(tool);
+        if (matches && matches.length > 0) {
+            return matches[0];
+        }
+        return '';
+    });
+}
+exports.which = which;
+/**
+ * Returns a list of all occurrences of the given tool on the system path.
+ *
+ * @returns   Promise<string[]>  the paths of the tool
+ */
+function findInPath(tool) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (!tool) {
+            throw new Error("parameter 'tool' is required");
+        }
+        // build the list of extensions to try
+        const extensions = [];
+        if (ioUtil.IS_WINDOWS && process.env['PATHEXT']) {
+            for (const extension of process.env['PATHEXT'].split(path.delimiter)) {
+                if (extension) {
+                    extensions.push(extension);
+                }
+            }
+        }
+        // if it's rooted, return it if exists. otherwise return empty.
+        if (ioUtil.isRooted(tool)) {
+            const filePath = yield ioUtil.tryGetExecutablePath(tool, extensions);
+            if (filePath) {
+                return [filePath];
+            }
+            return [];
+        }
+        // if any path separators, return empty
+        if (tool.includes(path.sep)) {
+            return [];
+        }
+        // build the list of directories
+        //
+        // Note, technically "where" checks the current directory on Windows. From a toolkit perspective,
+        // it feels like we should not do this. Checking the current directory seems like more of a use
+        // case of a shell, and the which() function exposed by the toolkit should strive for consistency
+        // across platforms.
+        const directories = [];
+        if (process.env.PATH) {
+            for (const p of process.env.PATH.split(path.delimiter)) {
+                if (p) {
+                    directories.push(p);
+                }
+            }
+        }
+        // find all matches
+        const matches = [];
+        for (const directory of directories) {
+            const filePath = yield ioUtil.tryGetExecutablePath(path.join(directory, tool), extensions);
+            if (filePath) {
+                matches.push(filePath);
+            }
+        }
+        return matches;
+    });
+}
+exports.findInPath = findInPath;
+function readCopyOptions(options) {
+    const force = options.force == null ? true : options.force;
+    const recursive = Boolean(options.recursive);
+    const copySourceDirectory = options.copySourceDirectory == null
+        ? true
+        : Boolean(options.copySourceDirectory);
+    return { force, recursive, copySourceDirectory };
+}
+function cpDirRecursive(sourceDir, destDir, currentDepth, force) {
+    return __awaiter(this, void 0, void 0, function* () {
+        // Ensure there is not a run away recursive copy
+        if (currentDepth >= 255)
+            return;
+        currentDepth++;
+        yield mkdirP(destDir);
+        const files = yield ioUtil.readdir(sourceDir);
+        for (const fileName of files) {
+            const srcFile = `${sourceDir}/${fileName}`;
+            const destFile = `${destDir}/${fileName}`;
+            const srcFileStat = yield ioUtil.lstat(srcFile);
+            if (srcFileStat.isDirectory()) {
+                // Recurse
+                yield cpDirRecursive(srcFile, destFile, currentDepth, force);
+            }
+            else {
+                yield copyFile(srcFile, destFile, force);
+            }
+        }
+        // Change the mode for the newly created directory
+        yield ioUtil.chmod(destDir, (yield ioUtil.stat(sourceDir)).mode);
+    });
+}
+// Buffered file copy
+function copyFile(srcFile, destFile, force) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if ((yield ioUtil.lstat(srcFile)).isSymbolicLink()) {
+            // unlink/re-link it
+            try {
+                yield ioUtil.lstat(destFile);
+                yield ioUtil.unlink(destFile);
+            }
+            catch (e) {
+                // Try to override file permission
+                if (e.code === 'EPERM') {
+                    yield ioUtil.chmod(destFile, '0666');
+                    yield ioUtil.unlink(destFile);
+                }
+                // other errors = it doesn't exist, no work to do
+            }
+            // Copy over symlink
+            const symlinkFull = yield ioUtil.readlink(srcFile);
+            yield ioUtil.symlink(symlinkFull, destFile, ioUtil.IS_WINDOWS ? 'junction' : null);
+        }
+        else if (!(yield ioUtil.exists(destFile)) || force) {
+            yield ioUtil.copyFile(srcFile, destFile);
+        }
+    });
+}
+//# sourceMappingURL=io.js.map
+
+/***/ }),
+
 /***/ 620:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -2918,7 +4270,7 @@ exports.loadAwsServiceSpecSync = loadAwsServiceSpecSync;
 const node_fs_1 = __nccwpck_require__(73024);
 const path = __importStar(__nccwpck_require__(76760));
 const node_zlib_1 = __nccwpck_require__(38522);
-const service_spec_types_1 = __nccwpck_require__(25580);
+const service_spec_types_1 = __nccwpck_require__(9444);
 const DB_COMPRESSED = 'db.json.gz';
 const DB_PATH = path.join(__dirname, '..', DB_COMPRESSED);
 /**
@@ -2939,6 +4291,506 @@ function loadBufferIntoDatabase(spec) {
     return db;
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQVdBLGdEQUVDO0FBS0Qsd0RBRUM7QUFwQkQscUNBQXVEO0FBQ3ZELGdEQUFrQztBQUNsQyx5Q0FBdUM7QUFDdkMsb0VBQTBFO0FBRTFFLE1BQU0sYUFBYSxHQUFHLFlBQVksQ0FBQztBQUNuQyxNQUFNLE9BQU8sR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDLFNBQVMsRUFBRSxJQUFJLEVBQUUsYUFBYSxDQUFDLENBQUM7QUFFMUQ7O0dBRUc7QUFDSSxLQUFLLFVBQVUsa0JBQWtCO0lBQ3RDLE9BQU8sc0JBQXNCLENBQUMsTUFBTSxrQkFBRSxDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDO0FBQzVELENBQUM7QUFFRDs7R0FFRztBQUNILFNBQWdCLHNCQUFzQjtJQUNwQyxPQUFPLHNCQUFzQixDQUFDLElBQUEsc0JBQVksRUFBQyxPQUFPLENBQUMsQ0FBQyxDQUFDO0FBQ3ZELENBQUM7QUFFRCxTQUFTLHNCQUFzQixDQUFDLElBQVk7SUFDMUMsTUFBTSxFQUFFLEdBQUcsSUFBQSxrQ0FBYSxHQUFFLENBQUM7SUFDM0IsRUFBRSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUEsc0JBQVUsRUFBQyxJQUFJLENBQUMsQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ3hELE9BQU8sRUFBRSxDQUFDO0FBQ1osQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHByb21pc2VzIGFzIGZzLCByZWFkRmlsZVN5bmMgfSBmcm9tICdub2RlOmZzJztcbmltcG9ydCAqIGFzIHBhdGggZnJvbSAnbm9kZTpwYXRoJztcbmltcG9ydCB7IGd1bnppcFN5bmMgfSBmcm9tICdub2RlOnpsaWInO1xuaW1wb3J0IHsgZW1wdHlEYXRhYmFzZSwgU3BlY0RhdGFiYXNlIH0gZnJvbSAnQGF3cy1jZGsvc2VydmljZS1zcGVjLXR5cGVzJztcblxuY29uc3QgREJfQ09NUFJFU1NFRCA9ICdkYi5qc29uLmd6JztcbmNvbnN0IERCX1BBVEggPSBwYXRoLmpvaW4oX19kaXJuYW1lLCAnLi4nLCBEQl9DT01QUkVTU0VEKTtcblxuLyoqXG4gKiBMb2FkIHRoZSBwcm92aWRlZCBidWlsdC1pbiBkYXRhYmFzZVxuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gbG9hZEF3c1NlcnZpY2VTcGVjKCk6IFByb21pc2U8U3BlY0RhdGFiYXNlPiB7XG4gIHJldHVybiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKGF3YWl0IGZzLnJlYWRGaWxlKERCX1BBVEgpKTtcbn1cblxuLyoqXG4gKiBTeW5jaHJvbm91c2x5IGxvYWQgdGhlIHByb3ZpZGVkIGJ1aWx0LWluIGRhdGFiYXNlXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBsb2FkQXdzU2VydmljZVNwZWNTeW5jKCk6IFNwZWNEYXRhYmFzZSB7XG4gIHJldHVybiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKHJlYWRGaWxlU3luYyhEQl9QQVRIKSk7XG59XG5cbmZ1bmN0aW9uIGxvYWRCdWZmZXJJbnRvRGF0YWJhc2Uoc3BlYzogQnVmZmVyKTogU3BlY0RhdGFiYXNlIHtcbiAgY29uc3QgZGIgPSBlbXB0eURhdGFiYXNlKCk7XG4gIGRiLmxvYWQoSlNPTi5wYXJzZShndW56aXBTeW5jKHNwZWMpLnRvU3RyaW5nKCd1dGYtOCcpKSk7XG4gIHJldHVybiBkYjtcbn1cbiJdfQ==
+
+/***/ }),
+
+/***/ 9444:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__exportStar(__nccwpck_require__(31681), exports);
+__exportStar(__nccwpck_require__(33652), exports);
+__exportStar(__nccwpck_require__(17343), exports);
+__exportStar(__nccwpck_require__(51491), exports);
+__exportStar(__nccwpck_require__(29663), exports);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLG1EQUFpQztBQUNqQyxtREFBaUM7QUFDakMsd0RBQXNDO0FBQ3RDLGtEQUFnQztBQUNoQywrQ0FBNkIiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tICcuL3R5cGVzL2RhdGFiYXNlJztcbmV4cG9ydCAqIGZyb20gJy4vdHlwZXMvcmVzb3VyY2UnO1xuZXhwb3J0ICogZnJvbSAnLi90eXBlcy9hdWdtZW50YXRpb25zJztcbmV4cG9ydCAqIGZyb20gJy4vdHlwZXMvbWV0cmljcyc7XG5leHBvcnQgKiBmcm9tICcuL3R5cGVzL2RpZmYnO1xuIl19
+
+/***/ }),
+
+/***/ 17343:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXVnbWVudGF0aW9ucy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy90eXBlcy9hdWdtZW50YXRpb25zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFbnRpdHksIFJlbGF0aW9uc2hpcCB9IGZyb20gJ0BjZGtsYWJzL3Rza2InO1xuaW1wb3J0IHsgUmVzb3VyY2UgfSBmcm9tICcuL3Jlc291cmNlJztcblxuLyoqXG4gKiBBdWdtZW50YXRpb25zIGZvciBhIENsb3VkRm9ybWF0aW9uIHJlc291cmNlIHR5cGVcbiAqXG4gKiBBdWdtZW50YXRpb25zIGFyZSBhIGRlcHJlY2F0ZWQgbWVjaGFuaXNtIGZvciBhdXRvbWF0aWNhbGx5IGdlbmVyYXRpbmcgbWV0cmljc1xuICogZnVuY3Rpb25zIGZvciBjZXJ0YWluIHJlc291cmNlcywgdXRpbGl6aW5nIFR5cGVTY3JpcHQgbWl4aW5zLlxuICovXG5leHBvcnQgaW50ZXJmYWNlIFJlc291cmNlQXVnbWVudGF0aW9uIGV4dGVuZHMgRW50aXR5IHtcbiAgLyoqXG4gICAqIE1ldHJpYyBhdWdtZW50YXRpb25zIGZvciB0aGlzIHJlc291cmNlIHR5cGVcbiAgICovXG4gIG1ldHJpY3M/OiBSZXNvdXJjZU1ldHJpY0F1Z21lbnRhdGlvbnM7XG5cbiAgLyoqXG4gICAqIFRoZSBuYW1lIG9mIHRoZSBmaWxlIGNvbnRhaW5pbmcgdGhlIGNsYXNzIHRvIGJlIFwiYXVnbWVudGVkXCIuXG4gICAqXG4gICAqIEBkZWZhdWx0IGtlYmFiIGNhc2VkIENsb3VkRm9ybWF0aW9uIHJlc291cmNlIG5hbWUgKyAnLWJhc2UnXG4gICAqL1xuICBiYXNlQ2xhc3NGaWxlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgY2xhc3MgdG8gYmUgXCJhdWdtZW50ZWRcIi5cbiAgICpcbiAgICogQGRlZmF1bHQgQ2xvdWRGb3JtYXRpb24gcmVzb3VyY2UgbmFtZSArICdCYXNlJ1xuICAgKi9cbiAgYmFzZUNsYXNzPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgZmlsZSBjb250YWluaW5nIHRoZSBpbnRlcmZhY2UgdG8gYmUgXCJhdWdtZW50ZWRcIi5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBzYW1lIGFzIGBgY2xhc3NGaWxlYGAuXG4gICAqL1xuICBpbnRlcmZhY2VGaWxlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgaW50ZXJmYWNlIHRvIGJlIFwiYXVnbWVudGVkXCIuXG4gICAqXG4gICAqIEBkZWZhdWx0ICdJJyArIENsb3VkRm9ybWF0aW9uIHJlc291cmNlIG5hbWVcbiAgICovXG4gIGludGVyZmFjZT86IHN0cmluZztcbn1cblxuZXhwb3J0IHR5cGUgSXNBdWdtZW50ZWRSZXNvdXJjZSA9IFJlbGF0aW9uc2hpcDxSZXNvdXJjZSwgUmVzb3VyY2VBdWdtZW50YXRpb24+O1xuXG5leHBvcnQgaW50ZXJmYWNlIFJlc291cmNlTWV0cmljQXVnbWVudGF0aW9ucyB7XG4gIC8qKlxuICAgKiBUaGUgbmFtZXNwYWNlIG9mIG1ldHJpY3MgZm9yIHRoaXMgc2VydmljZVxuICAgKi9cbiAgbmFtZXNwYWNlOiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFRoZSBwcm9wZXJ0aWVzIG9mIHRoZSByZXNvdXJjZSBjbGFzcyB0aGF0IHByb3ZpZGUgdmFsdWVzIGZvciB0aGUgZGltZW5zaW9uc1xuICAgKlxuICAgKiBGb3IgZXhhbXBsZSwgYHsgUXVldWVOYW1lOiAncXVldWVOYW1lJyB9YCBzYXlzIHRoYXQgdGhlIG1ldHJpYyBoYXMgYSBgUXVldWVOYW1lYFxuICAgKiBkaW1lbnNpb24sIGZvciB3aGljaCB0aGUgdmFsdWUgY2FuIGJlIG9idGFpbmVkIGJ5IHJlYWRpbmcgYHRoaXMucXVldWVOYW1lYC5cbiAgICovXG4gIGRpbWVuc2lvbnM6IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH07XG5cbiAgLyoqXG4gICAqIFRoZSBtZXRyaWNzIGZvciB0aGlzIHJlc291cmNlXG4gICAqL1xuICBtZXRyaWNzOiBSZXNvdXJjZU1ldHJpY1tdO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFJlc291cmNlTWV0cmljIHtcbiAgLyoqXG4gICAqIFVwcGVyY2FzZS1maXJzdCBtZXRyaWMgbmFtZVxuICAgKi9cbiAgbmFtZTogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBEb2N1bWVudGF0aW9uIGxpbmVcbiAgICovXG4gIGRvY3VtZW50YXRpb246IHN0cmluZztcblxuICAvKipcbiAgICogV2hldGhlciB0aGlzIGlzIGFuIGV2ZW4gY291bnQgKDEgZ2V0cyBlbWl0dGVkIGV2ZXJ5IHRpbWUgc29tZXRoaW5nIG9jY3VycylcbiAgICpcbiAgICogQGRlZmF1bHQgTWV0cmljVHlwZS5BdHRyaWJcbiAgICovXG4gIHR5cGU/OiBNZXRyaWNUeXBlO1xufVxuXG5leHBvcnQgdHlwZSBNZXRyaWNUeXBlID1cbiAgLyoqXG4gICAqIFRoaXMgbWV0cmljIGlzIGVtaXR0ZWQgZm9yIGV2ZW50cywgbWVhc3VyaW5nIGEgYXR0cmlidXRlIG9mIHRoZSBldmVudC5cbiAgICpcbiAgICogVHlwaWNhbCBleGFtcGxlcyBvZiB0aGlzIHdvdWxkIGJlIGR1cmF0aW9uLCBvciByZXF1ZXN0IHNpemUsIG9yIHNpbWlsYXIuXG4gICAqXG4gICAqIFRoZSBkZWZhdWx0IGFnZ3JlZ2F0ZSBmb3IgdGhpcyB0eXBlIG9mIGV2ZW50IGlzIFwiQXZnXCIuXG4gICAqL1xuICB8ICdhdHRyaWInXG5cbiAgLyoqXG4gICAqIFRoaXMgbWV0cmljIGlzIGVtaXR0ZWQgZm9yIGV2ZW50cywgYW5kIHRoZSB2YWx1ZSBpcyBhbHdheXMgYDFgLlxuICAgKlxuICAgKiBPbmx5IFwiU3VtXCIgaXMgYSBtZWFuaW5nZnVsIGFnZ3JlZ2F0ZSBvZiB0aGlzIHR5cGUgb2YgbWV0cmljOyBhbGwgb3RoZXJcbiAgICogYWdncmVnYXRpb25zIHdpbGwgb25seSBldmVyIHByb2R1Y2UgdGhlIHZhbHVlIGAxYC5cbiAgICovXG4gIHwgJ2NvdW50J1xuXG4gIC8qKlxuICAgKiBUaGlzIG1ldHJpYyBpcyBlbWl0dGVkIHBlcmlvZGljYWxseSwgcmVwcmVzZW50aW5nIGEgc3lzdGVtIHByb3BlcnR5LlxuICAgKlxuICAgKiBUaGUgbWV0cmljIG1lYXN1cmVzIHNvbWUgZ2xvYmFsIGV2ZXItY2hhbmdpbmcgcHJvcGVydHksIGFuZCBkb2VzIG5vdFxuICAgKiBtZWFzdXJlIGV2ZW50cy4gVGhlIG1vc3QgdXNlZnVsIGFnZ3JlZ2F0ZSBvZiB0aGlzIHR5cGUgb2YgbWV0cmljIGlzIFwiTWF4XCIuXG4gICAqL1xuICB8ICdnYXVnZSc7XG4iXX0=
+
+/***/ }),
+
+/***/ 31681:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RichSpecDatabase = exports.loadDatabase = exports.emptyDatabase = void 0;
+const fs_1 = __nccwpck_require__(79896);
+const zlib_1 = __nccwpck_require__(43106);
+const tskb_1 = __nccwpck_require__(25925);
+function emptyDatabase() {
+    return new tskb_1.Database({
+        resource: (0, tskb_1.entityCollection)().index({
+            cloudFormationType: (0, tskb_1.fieldIndex)('cloudFormationType', tskb_1.stringCmp),
+        }),
+        region: (0, tskb_1.entityCollection)().index({
+            name: (0, tskb_1.fieldIndex)('name', tskb_1.stringCmp),
+        }),
+        service: (0, tskb_1.entityCollection)().index({
+            name: (0, tskb_1.fieldIndex)('name', tskb_1.stringCmp),
+            cloudFormationNamespace: (0, tskb_1.fieldIndex)('cloudFormationNamespace', tskb_1.stringCmp),
+        }),
+        typeDefinition: (0, tskb_1.entityCollection)(),
+        augmentations: (0, tskb_1.entityCollection)(),
+        metric: (0, tskb_1.entityCollection)().index({
+            name: (0, tskb_1.fieldIndex)('name', tskb_1.stringCmp),
+            namespace: (0, tskb_1.fieldIndex)('namespace', tskb_1.stringCmp),
+            dedupKey: (0, tskb_1.fieldIndex)('dedupKey', tskb_1.stringCmp),
+        }),
+        dimensionSet: (0, tskb_1.entityCollection)().index({
+            dedupKey: (0, tskb_1.fieldIndex)('dedupKey', tskb_1.stringCmp),
+        }),
+    }, (r) => ({
+        hasResource: r.relationship('service', 'resource'),
+        regionHasResource: r.relationship('region', 'resource'),
+        regionHasService: r.relationship('region', 'service'),
+        usesType: r.relationship('resource', 'typeDefinition'),
+        isAugmented: r.relationship('resource', 'augmentations'),
+        usesDimensionSet: r.relationship('metric', 'dimensionSet'),
+        resourceHasMetric: r.relationship('resource', 'metric'),
+        serviceHasMetric: r.relationship('service', 'metric'),
+        resourceHasDimensionSet: r.relationship('resource', 'dimensionSet'),
+        serviceHasDimensionSet: r.relationship('service', 'dimensionSet'),
+    }));
+}
+exports.emptyDatabase = emptyDatabase;
+async function loadDatabase(pathToDb) {
+    const db = emptyDatabase();
+    const contents = await fs_1.promises.readFile(pathToDb);
+    const json = pathToDb.endsWith('.gz') ? (0, zlib_1.gunzipSync)(contents).toString('utf-8') : contents.toString('utf-8');
+    db.load(JSON.parse(json));
+    return db;
+}
+exports.loadDatabase = loadDatabase;
+/**
+ * Helpers for working with a SpecDatabase
+ */
+class RichSpecDatabase {
+    constructor(db) {
+        this.db = db;
+    }
+    /**
+     * Find all resources of a given type
+     */
+    resourceByType(cfnType, operation = 'resourceByType') {
+        const res = this.db.lookup('resource', 'cloudFormationType', 'equals', cfnType);
+        if (res.length === 0) {
+            throw new Error(`${operation}: no such resource: ${cfnType}`);
+        }
+        return res[0];
+    }
+    /**
+     * All type definitions used by a certain resource
+     */
+    resourceTypeDefs(cfnType) {
+        const resource = this.db.lookup('resource', 'cloudFormationType', 'equals', cfnType).only();
+        return this.db.follow('usesType', resource).map((x) => x.entity);
+    }
+    /**
+     * Find a type definition from a given property type
+     */
+    tryFindDef(type) {
+        return type.type === 'ref' ? this.db.get('typeDefinition', type.reference.$ref) : undefined;
+    }
+}
+exports.RichSpecDatabase = RichSpecDatabase;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGF0YWJhc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvdHlwZXMvZGF0YWJhc2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsMkJBQW9DO0FBQ3BDLCtCQUFrQztBQUNsQyx3Q0FBa0Y7QUF1QmxGLFNBQWdCLGFBQWE7SUFDM0IsT0FBTyxJQUFJLGVBQVEsQ0FDakI7UUFDRSxRQUFRLEVBQUUsSUFBQSx1QkFBZ0IsR0FBWSxDQUFDLEtBQUssQ0FBQztZQUMzQyxrQkFBa0IsRUFBRSxJQUFBLGlCQUFVLEVBQUMsb0JBQW9CLEVBQUUsZ0JBQVMsQ0FBQztTQUNoRSxDQUFDO1FBQ0YsTUFBTSxFQUFFLElBQUEsdUJBQWdCLEdBQVUsQ0FBQyxLQUFLLENBQUM7WUFDdkMsSUFBSSxFQUFFLElBQUEsaUJBQVUsRUFBQyxNQUFNLEVBQUUsZ0JBQVMsQ0FBQztTQUNwQyxDQUFDO1FBQ0YsT0FBTyxFQUFFLElBQUEsdUJBQWdCLEdBQVcsQ0FBQyxLQUFLLENBQUM7WUFDekMsSUFBSSxFQUFFLElBQUEsaUJBQVUsRUFBQyxNQUFNLEVBQUUsZ0JBQVMsQ0FBQztZQUNuQyx1QkFBdUIsRUFBRSxJQUFBLGlCQUFVLEVBQUMseUJBQXlCLEVBQUUsZ0JBQVMsQ0FBQztTQUMxRSxDQUFDO1FBQ0YsY0FBYyxFQUFFLElBQUEsdUJBQWdCLEdBQWtCO1FBQ2xELGFBQWEsRUFBRSxJQUFBLHVCQUFnQixHQUF3QjtRQUN2RCxNQUFNLEVBQUUsSUFBQSx1QkFBZ0IsR0FBVSxDQUFDLEtBQUssQ0FBQztZQUN2QyxJQUFJLEVBQUUsSUFBQSxpQkFBVSxFQUFDLE1BQU0sRUFBRSxnQkFBUyxDQUFDO1lBQ25DLFNBQVMsRUFBRSxJQUFBLGlCQUFVLEVBQUMsV0FBVyxFQUFFLGdCQUFTLENBQUM7WUFDN0MsUUFBUSxFQUFFLElBQUEsaUJBQVUsRUFBQyxVQUFVLEVBQUUsZ0JBQVMsQ0FBQztTQUM1QyxDQUFDO1FBQ0YsWUFBWSxFQUFFLElBQUEs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QUFDLENBQUMsTUFBTSxDQUFDLENBQUM7SUFDbkUsQ0FBQztJQUVEOztPQUVHO0lBQ0ksVUFBVSxDQUFDLElBQWtCO1FBQ2xDLE9BQU8sSUFBSSxDQUFDLElBQUksS0FBSyxLQUFLLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsR0FBRyxDQUFDLGdCQUFnQixFQUFFLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLFNBQVMsQ0FBQztJQUM5RixDQUFDO0NBQ0Y7QUE1QkQsNENBNEJDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcHJvbWlzZXMgYXMgZnMgfSBmcm9tICdmcyc7XG5pbXBvcnQgeyBndW56aXBTeW5jIH0gZnJvbSAnemxpYic7XG5pbXBvcnQgeyBEYXRhYmFzZSwgZW50aXR5Q29sbGVjdGlvbiwgZmllbGRJbmRleCwgc3RyaW5nQ21wIH0gZnJvbSAnQGNka2xhYnMvdHNrYic7XG5pbXBvcnQgeyBJc0F1Z21lbnRlZFJlc291cmNlLCBSZXNvdXJjZUF1Z21lbnRhdGlvbiB9IGZyb20gJy4vYXVnbWVudGF0aW9ucyc7XG5pbXBvcnQge1xuICBEaW1lbnNpb25TZXQsXG4gIE1ldHJpYyxcbiAgUmVzb3VyY2VIYXNEaW1lbnNpb25TZXQsXG4gIFNlcnZpY2VIYXNEaW1lbnNpb25TZXQsXG4gIFVzZXNEaW1lbnNpb25TZXQsXG4gIFJlc291cmNlSGFzTWV0cmljLFxuICBTZXJ2aWNlSGFzTWV0cmljLFxufSBmcm9tICcuL21ldHJpY3MnO1xuaW1wb3J0IHtcbiAgUmVzb3VyY2UsXG4gIFNlcnZpY2UsXG4gIFR5cGVEZWZpbml0aW9uLFxuICBQcm9wZXJ0eVR5cGUsXG4gIFJlZ2lvbixcbiAgSGFzUmVzb3VyY2UsXG4gIFJlZ2lvbkhhc1Jlc291cmNlLFxuICBSZWdpb25IYXNTZXJ2aWNlLFxuICBVc2VzVHlwZSxcbn0gZnJvbSAnLi9yZXNvdXJjZSc7XG5cbmV4cG9ydCBmdW5jdGlvbiBlbXB0eURhdGFiYXNlKCkge1xuICByZXR1cm4gbmV3IERhdGFiYXNlKFxuICAgIHtcbiAgICAgIHJlc291cmNlOiBlbnRpdHlDb2xsZWN0aW9uPFJlc291cmNlPigpLmluZGV4KHtcbiAgICAgICAgY2xvdWRGb3JtYXRpb25UeXBlOiBmaWVsZEluZGV4KCdjbG91ZEZvcm1hdGlvblR5cGUnLCBzdHJpbmdDbXApLFxuICAgICAgfSksXG4gICAgICByZWdpb246IGVudGl0eUNvbGxlY3Rpb248UmVnaW9uPigpLmluZGV4KHtcbiAgICAgICAgbmFtZTogZmllbGRJbmRleCgnbmFtZScsIHN0cmluZ0NtcCksXG4gICAgICB9KSxcbiAgICAgIHNlcnZpY2U6IGVudGl0eUNvbGxlY3Rpb248U2VydmljZT4oKS5pbmRleCh7XG4gICAgICAgIG5hbWU6IGZpZWxkSW5kZXgoJ25hbWUnLCBzdHJpbmdDbXApLFxuICAgICAgICBjbG91ZEZvcm1hdGlvbk5hbWVzcGFjZTogZmllbGRJbmRleCgnY2xvdWRGb3JtYXRpb25OYW1lc3BhY2UnLCBzdHJpbmdDbXApLFxuICAgICAgfSksXG4gICAgICB0eXBlRGVmaW5pdGlvbjogZW50aXR5Q29sbGVjdGlvbjxUeXBlRGVmaW5pdGlvbj4oKSxcbiAgICAgIGF1Z21lbnRhdGlvbnM6IGVudGl0eUNvbGxlY3Rpb248UmVzb3VyY2VBdWdtZW50YXRpb24+KCksXG4gICAgICBtZXRyaWM6IGVudGl0eUNvbGxlY3Rpb248TWV0cmljPigpLmluZGV4KHtcbiAgICAgICAgbmFtZTogZmllbGRJbmRleCgnbmFtZScsIHN0cmluZ0NtcCksXG4gICAgICAgIG5hbWVzcGFjZTogZmllbGRJbmRleCgnbmFtZXNwYWNlJywgc3RyaW5nQ21wKSxcbiAgICAgICAgZGVkdXBLZXk6IGZpZWxkSW5kZXgoJ2RlZHVwS2V5Jywgc3RyaW5nQ21wKSxcbiAgICAgIH0pLFxuICAgICAgZGltZW5zaW9uU2V0OiBlbnRpdHlDb2xsZWN0aW9uPERpbWVuc2lvblNldD4oKS5pbmRleCh7XG4gICAgICAgIGRlZHVwS2V5OiBmaWVsZEluZGV4KCdkZWR1cEtleScsIHN0cmluZ0NtcCksXG4gICAgICB9KSxcbiAgICB9LFxuICAgIChyKSA9PiAoe1xuICAgICAgaGFzUmVzb3VyY2U6IHIucmVsYXRpb25zaGlwPEhhc1Jlc291cmNlPignc2VydmljZScsICdyZXNvdXJjZScpLFxuICAgICAgcmVnaW9uSGFzUmVzb3VyY2U6IHIucmVsYXRpb25zaGlwPFJlZ2lvbkhhc1Jlc291cmNlPigncmVnaW9uJywgJ3Jlc291cmNlJyksXG4gICAgICByZWdpb25IYXNTZXJ2aWNlOiByLnJlbGF0aW9uc2hpcDxSZWdpb25IYXNTZXJ2aWNlPigncmVnaW9uJywgJ3NlcnZpY2UnKSxcbiAgICAgIHVzZXNUeXBlOiByLnJlbGF0aW9uc2hpcDxVc2VzVHlwZT4oJ3Jlc291cmNlJywgJ3R5cGVEZWZpbml0aW9uJyksXG4gICAgICBpc0F1Z21lbnRlZDogci5yZWxhdGlvbnNoaXA8SXNBdWdtZW50ZWRSZXNvdXJjZT4oJ3Jlc291cmNlJywgJ2F1Z21lbnRhdGlvbnMnKSxcbiAgICAgIHVzZXNEaW1lbnNpb25TZXQ6IHIucmVsYXRpb25zaGlwPFVzZXNEaW1lbnNpb25TZXQ+KCdtZXRyaWMnLCAnZGltZW5zaW9uU2V0JyksXG4gICAgICByZXNvdXJjZUhhc01ldHJpYzogci5yZWxhdGlvbnNoaXA8UmVzb3VyY2VIYXNNZXRyaWM+KCdyZXNvdXJjZScsICdtZXRyaWMnKSxcbiAgICAgIHNlcnZpY2VIYXNNZXRyaWM6IHIucmVsYXRpb25zaGlwPFNlcnZpY2VIYXNNZXRyaWM+KCdzZXJ2aWNlJywgJ21ldHJpYycpLFxuICAgICAgcmVzb3VyY2VIYXNEaW1lbnNpb25TZXQ6IHIucmVsYXRpb25zaGlwPFJlc291cmNlSGFzRGltZW5zaW9uU2V0PigncmVzb3VyY2UnLCAnZGltZW5zaW9uU2V0JyksXG4gICAgICBzZXJ2aWNlSGFzRGltZW5zaW9uU2V0OiByLnJlbGF0aW9uc2hpcDxTZXJ2aWNlSGFzRGltZW5zaW9uU2V0Pignc2VydmljZScsICdkaW1lbnNpb25TZXQnKSxcbiAgICB9KSxcbiAgKTtcbn1cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGxvYWREYXRhYmFzZShwYXRoVG9EYjogc3RyaW5nKSB7XG4gIGNvbnN0IGRiID0gZW1wdHlEYXRhYmFzZSgpO1xuICBjb25zdCBjb250ZW50cyA9IGF3YWl0IGZzLnJlYWRGaWxlKHBhdGhUb0RiKTtcbiAgY29uc3QganNvbiA9IHBhdGhUb0RiLmVuZHNXaXRoKCcuZ3onKSA/IGd1bnppcFN5bmMoY29udGVudHMpLnRvU3RyaW5nKCd1dGYtOCcpIDogY29udGVudHMudG9TdHJpbmcoJ3V0Zi04Jyk7XG4gIGRiLmxvYWQoSlNPTi5wYXJzZShqc29uKSk7XG4gIHJldHVybiBkYjtcbn1cblxuZXhwb3J0IHR5cGUgU3BlY0RhdGFiYXNlID0gUmV0dXJuVHlwZTx0eXBlb2YgZW1wdHlEYXRhYmFzZT47XG5cbi8qKlxuICogSGVscGVycyBmb3Igd29ya2luZyB3aXRoIGEgU3BlY0RhdGFiYXNlXG4gKi9cbmV4cG9ydCBjbGFzcyBSaWNoU3BlY0RhdGFiYXNlIHtcbiAgY29uc3RydWN0b3IocHJpdmF0ZSByZWFkb25seSBkYjogU3BlY0RhdGFiYXNlKSB7fVxuXG4gIC8qKlxuICAgKiBGaW5kIGFsbCByZXNvdXJjZXMgb2YgYSBnaXZlbiB0eXBlXG4gICAqL1xuICBwdWJsaWMgcmVzb3VyY2VCeVR5cGUoY2ZuVHlwZTogc3RyaW5nLCBvcGVyYXRpb24gPSAncmVzb3VyY2VCeVR5cGUnKTogUmVzb3VyY2Uge1xuICAgIGNvbnN0IHJlcyA9IHRoaXMuZGIubG9va3VwKCdyZXNvdXJjZScsICdjbG91ZEZvcm1hdGlvblR5cGUnLCAnZXF1YWxzJywgY2ZuVHlwZSk7XG4gICAgaWYgKHJlcy5sZW5ndGggPT09IDApIHtcbiAgICAgIHRocm93IG5ldyBFcnJvcihgJHtvcGVyYXRpb259OiBubyBzdWNoIHJlc291cmNlOiAke2NmblR5cGV9YCk7XG4gICAgfVxuICAgIHJldHVybiByZXNbMF07XG4gIH1cblxuICAvKipcbiAgICogQWxsIHR5cGUgZGVmaW5pdGlvbnMgdXNlZCBieSBhIGNlcnRhaW4gcmVzb3VyY2VcbiAgICovXG4gIHB1YmxpYyByZXNvdXJjZVR5cGVEZWZzKGNmblR5cGU6IHN0cmluZyk6IHJlYWRvbmx5IFR5cGVEZWZpbml0aW9uW10ge1xuICAgIGNvbnN0IHJlc291cmNlID0gdGhpcy5kYi5sb29rdXAoJ3Jlc291cmNlJywgJ2Nsb3VkRm9ybWF0aW9uVHlwZScsICdlcXVhbHMnLCBjZm5UeXBlKS5vbmx5KCk7XG4gICAgcmV0dXJuIHRoaXMuZGIuZm9sbG93KCd1c2VzVHlwZScsIHJlc291cmNlKS5tYXAoKHgpID0+IHguZW50aXR5KTtcbiAgfVxuXG4gIC8qKlxuICAgKiBGaW5kIGEgdHlwZSBkZWZpbml0aW9uIGZyb20gYSBnaXZlbiBwcm9wZXJ0eSB0eXBlXG4gICAqL1xuICBwdWJsaWMgdHJ5RmluZERlZih0eXBlOiBQcm9wZXJ0eVR5cGUpOiBUeXBlRGVmaW5pdGlvbiB8IHVuZGVmaW5lZCB7XG4gICAgcmV0dXJuIHR5cGUudHlwZSA9PT0gJ3JlZicgPyB0aGlzLmRiLmdldCgndHlwZURlZmluaXRpb24nLCB0eXBlLnJlZmVyZW5jZS4kcmVmKSA6IHVuZGVmaW5lZDtcbiAgfVxufVxuIl19
+
+/***/ }),
+
+/***/ 29663:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGlmZi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy90eXBlcy9kaWZmLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBdHRyaWJ1dGUsIFByb3BlcnR5LCBSZXNvdXJjZSwgU2VydmljZSwgVHlwZURlZmluaXRpb24gfSBmcm9tICcuL3Jlc291cmNlJztcblxuZXhwb3J0IGludGVyZmFjZSBTcGVjRGF0YWJhc2VEaWZmIHtcbiAgc2VydmljZXM6IE1hcERpZmY8U2VydmljZSwgVXBkYXRlZFNlcnZpY2U+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIExpc3REaWZmPEUsIEVEPiB7XG4gIHJlYWRvbmx5IGFkZGVkPzogRVtdO1xuICByZWFkb25seSByZW1vdmVkPzogRVtdO1xuICByZWFkb25seSB1cGRhdGVkPzogRURbXTtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBNYXBEaWZmPEUsIEVEPiB7XG4gIHJlYWRvbmx5IGFkZGVkPzogUmVjb3JkPHN0cmluZywgRT47XG4gIHJlYWRvbmx5IHJlbW92ZWQ/OiBSZWNvcmQ8c3RyaW5nLCBFPjtcbiAgcmVhZG9ubHkgdXBkYXRlZD86IFJlY29yZDxzdHJpbmcsIEVEPjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBVcGRhdGVkU2VydmljZSB7XG4gIHJlYWRvbmx5IG5hbWU/OiBTY2FsYXJEaWZmPFNlcnZpY2VbJ25hbWUnXT47XG4gIHJlYWRvbmx5IHNob3J0TmFtZT86IFNjYWxhckRpZmY8U2VydmljZVsnc2hvcnROYW1lJ10+O1xuICByZWFkb25seSBjYXBpdGFsaXplZD86IFNjYWxhckRpZmY8U2VydmljZVsnY2FwaXRhbGl6ZWQnXT47XG4gIHJlYWRvbmx5IGNsb3VkRm9ybWF0aW9uTmFtZXNwYWNlPzogU2NhbGFyRGlmZjxTZXJ2aWNlWydjbG91ZEZvcm1hdGlvbk5hbWVzcGFjZSddPjtcbiAgcmVhZG9ubHkgcmVzb3VyY2VEaWZmPzogTWFwRGlmZjxSZXNvdXJjZSwgVXBkYXRlZFJlc291cmNlPjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBVcGRhdGVkUmVzb3VyY2Uge1xuICByZWFkb25seSBuYW1lPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBjbG91ZEZvcm1hdGlvblR5cGU/OiBTY2FsYXJEaWZmPHN0cmluZz47XG4gIHJlYWRvbmx5IGNsb3VkRm9ybWF0aW9uVHJhbnNmb3JtPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBkb2N1bWVudGF0aW9uPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBwcm9wZXJ0aWVzPzogTWFwRGlmZjxQcm9wZXJ0eSwgVXBkYXRlZFByb3BlcnR5PjtcbiAgcmVhZG9ubHkgYXR0cmlidXRlcz86IE1hcERpZmY8QXR0cmlidXRlLCBVcGRhdGVkQXR0cmlidXRlPjtcbiAgcmVhZG9ubHkgaWRlbnRpZmllcj86IFNjYWxhckRpZmY8UmVzb3VyY2VbJ2lkZW50aWZpZXInXT47XG4gIHJlYWRvbmx5IGlzU3RhdGVmdWw/OiBTY2FsYXJEaWZmPGJvb2xlYW4+O1xuICByZWFkb25seSB0YWdJbmZvcm1hdGlvbj86IFNjYWxhckRpZmY8UmVzb3VyY2VbJ3RhZ0luZm9ybWF0aW9uJ10+O1xuICByZWFkb25seSBzY3J1dGluaXphYmxlPzogU2NhbGFyRGlmZjxSZXNvdXJjZVsnc2NydXRpbml6YWJsZSddPjtcbiAgcmVhZG9ubHkgdHlwZURlZmluaXRpb25EaWZmPzogTWFwRGlmZjxUeXBlRGVmaW5pdGlvbiwgVXBkYXRlZFR5cGVEZWZpbml0aW9uPjtcbiAgcmVhZG9ubHkgcHJpbWFyeUlkZW50aWZpZXI/OiBMaXN0RGlmZjxzdHJpbmcsIHZvaWQ+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFVwZGF0ZWRQcm9wZXJ0eSB7XG4gIHJlYWRvbmx5IG9sZDogUHJvcGVydHk7XG4gIHJlYWRvbmx5IG5ldzogUHJvcGVydHk7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgVXBkYXRlZEF0dHJpYnV0ZSB7XG4gIHJlYWRvbmx5IG9sZDogQXR0cmlidXRlO1xuICByZWFkb25seSBuZXc6IEF0dHJpYnV0ZTtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBVcGRhdGVkVHlwZURlZmluaXRpb24ge1xuICByZWFkb25seSBuYW1lPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBkb2N1bWVudGF0aW9uPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBwcm9wZXJ0aWVzPzogTWFwRGlmZjxQcm9wZXJ0eSwgVXBkYXRlZFByb3BlcnR5PjtcbiAgcmVhZG9ubHkgbXVzdFJlbmRlckZvckJ3Q29tcGF0PzogU2NhbGFyRGlmZjxib29sZWFuPjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBTY2FsYXJEaWZmPEE+IHtcbiAgcmVhZG9ubHkgb2xkPzogQTtcbiAgcmVhZG9ubHkgbmV3PzogQTtcbn1cbiJdfQ==
+
+/***/ }),
+
+/***/ 51491:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWV0cmljcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy90eXBlcy9tZXRyaWNzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFbnRpdHksIFJlbGF0aW9uc2hpcCB9IGZyb20gJ0BjZGtsYWJzL3Rza2InO1xuaW1wb3J0IHsgUmVzb3VyY2UsIFNlcnZpY2UgfSBmcm9tICcuL3Jlc291cmNlJztcblxuLyoqXG4gKiBBIE1ldHJpYyBEaW1lbnNpb24gKG5vdCBhbiBlbnRpdHkpXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRGltZW5zaW9uIHtcbiAgLyoqXG4gICAqIE5hbWUgb2YgdGhlIGRpbWVuc2lvblxuICAgKi9cbiAgcmVhZG9ubHkgbmFtZTogc3RyaW5nO1xuICAvKipcbiAgICogQSBwb3RlbnRpYWwgdmFsdWUgZm9yIHRoaXMgZGltZW5zaW9uXG4gICAqL1xuICByZWFkb25seSB2YWx1ZT86IHN0cmluZztcbn1cblxuLyoqXG4gKiBBIHNldCBvZiBNZXRyaWMgRGltZW5zaW9uXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRGltZW5zaW9uU2V0IGV4dGVuZHMgRW50aXR5IHtcbiAgLyoqXG4gICAqIEEgdW5pcXVlIHZhbHVlIHVzZWQgdG8gZGVkdXBsaWNhdGUgdGhlIGVudGl0eVxuICAgKi9cbiAgZGVkdXBLZXk6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBkaW1lbnNpb25zIGluIHRoaXMgc2V0XG4gICAqL1xuICBkaW1lbnNpb25zOiBEaW1lbnNpb25bXTtcbn1cbmV4cG9ydCB0eXBlIFJlc291cmNlSGFzRGltZW5zaW9uU2V0ID0gUmVsYXRpb25zaGlwPFJlc291cmNlLCBEaW1lbnNpb25TZXQ+O1xuZXhwb3J0IHR5cGUgU2VydmljZUhhc0RpbWVuc2lvblNldCA9IFJlbGF0aW9uc2hpcDxTZXJ2aWNlLCBEaW1lbnNpb25TZXQ+O1xuXG4vKipcbiAqIEEgQ2xvdWRXYXRjaCBNZXRyaWNcbiAqL1xuZXhwb3J0IGludGVyZmFjZSBNZXRyaWMgZXh0ZW5kcyBFbnRpdHkge1xuICAvKipcbiAgICogTWV0cmljIG5hbWVzcGFjZVxuICAgKi9cbiAgcmVhZG9ubHkgbmFtZXNwYWNlOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBOYW1lIG9mIHRoZSBtZXRyaWNcbiAgICovXG4gIHJlYWRvbmx5IG5hbWU6IHN0cmluZztcbiAgLyoqXG4gICAqIERlZmF1bHQgKHN1Z2dlc3RlZCkgc3RhdGlzdGljIGZvciB0aGlzIG1ldHJpY1xuICAgKi9cbiAgcmVhZG9ubHkgc3RhdGlzdGljOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBBIHVuaXF1ZSB2YWx1ZSB1c2VkIHRvIGRlZHVwbGljYXRlIHRoZSBlbnRpdHlcbiAgICovXG4gIHJlYWRvbmx5IGRlZHVwS2V5OiBzdHJpbmc7XG59XG5leHBvcnQgdHlwZSBVc2VzRGltZW5zaW9uU2V0ID0gUmVsYXRpb25zaGlwPE1ldHJpYywgRGltZW5zaW9uU2V0PjtcbmV4cG9ydCB0eXBlIFJlc291cmNlSGFzTWV0cmljID0gUmVsYXRpb25zaGlwPFJlc291cmNlLCBNZXRyaWM+O1xuZXhwb3J0IHR5cGUgU2VydmljZUhhc01ldHJpYyA9IFJlbGF0aW9uc2hpcDxTZXJ2aWNlLCBNZXRyaWM+O1xuIl19
+
+/***/ }),
+
+/***/ 33652:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RichPropertyType = exports.PropertyScrutinyType = exports.ResourceScrutinyType = exports.isCollectionType = exports.Deprecation = exports.RichAttribute = exports.RichProperty = exports.RichTypedField = void 0;
+const sorting_1 = __nccwpck_require__(61917);
+class RichTypedField {
+    constructor(field) {
+        this.field = field;
+        if (field === undefined) {
+            throw new Error('Field is undefined');
+        }
+    }
+    types() {
+        var _a;
+        return [...((_a = this.field.previousTypes) !== null && _a !== void 0 ? _a : []), this.field.type];
+    }
+    /**
+     * Update the type of this property with a new type
+     *
+     * Only if it's not in the set of types already.
+     */
+    updateType(type) {
+        const richType = new RichPropertyType(type);
+        // Only add this type if we don't already have it. We are only doing comparisons where 'integer' and 'number'
+        // are treated the same, for all other types we need strict equality. We used to use 'assignableTo' as a
+        // condition, but these types will be rendered in both co- and contravariant positions, and so we really can't
+        // do much better than full equality.
+        if (this.types().some((t) => richType.equals(t))) {
+            // Nothing to do, type is already in there.
+            return false;
+        }
+        // Special case: if the new type is `string` and the old type is `date-time`, we assume this is
+        // the same type but we dropped some formatting information. No need to make this a separate type.
+        if (type.type === 'string' && this.types().some((t) => t.type === 'date-time')) {
+            return false;
+        }
+        if (!this.field.previousTypes) {
+            this.field.previousTypes = [];
+        }
+        this.field.previousTypes.push(this.field.type);
+        this.field.type = type;
+        return true;
+    }
+}
+exports.RichTypedField = RichTypedField;
+class RichProperty extends RichTypedField {
+    constructor(property) {
+        super(property);
+    }
+}
+exports.RichProperty = RichProperty;
+class RichAttribute extends RichTypedField {
+    constructor(attr) {
+        super(attr);
+    }
+}
+exports.RichAttribute = RichAttribute;
+var Deprecation;
+(function (Deprecation) {
+    /**
+     * Not deprecated
+     */
+    Deprecation["NONE"] = "NONE";
+    /**
+     * Warn about use
+     */
+    Deprecation["WARN"] = "WARN";
+    /**
+     * Do not emit the value at all
+     *
+     * (Handle properties that were incorrectly added to the spec)
+     */
+    Deprecation["IGNORE"] = "IGNORE";
+})(Deprecation = exports.Deprecation || (exports.Deprecation = {}));
+function isCollectionType(x) {
+    return x.type === 'array' || x.type === 'map';
+}
+exports.isCollectionType = isCollectionType;
+/**
+ * Mark a resource as a resource that needs additional scrutiy when added, removed or changed
+ *
+ * Used to mark resources that represent security policies.
+ */
+var ResourceScrutinyType;
+(function (ResourceScrutinyType) {
+    /**
+     * No additional scrutiny
+     */
+    ResourceScrutinyType["None"] = "None";
+    /**
+     * An externally attached policy document to a resource
+     *
+     * (Common for SQS, SNS, S3, ...)
+     */
+    ResourceScrutinyType["ResourcePolicyResource"] = "ResourcePolicyResource";
+    /**
+     * This is an IAM policy on an identity resource
+     *
+     * (Basically saying: this is AWS::IAM::Policy)
+     */
+    ResourceScrutinyType["IdentityPolicyResource"] = "IdentityPolicyResource";
+    /**
+     * This is a Lambda Permission policy
+     */
+    ResourceScrutinyType["LambdaPermission"] = "LambdaPermission";
+    /**
+     * An ingress rule object
+     */
+    ResourceScrutinyType["IngressRuleResource"] = "IngressRuleResource";
+    /**
+     * A set of egress rules
+     */
+    ResourceScrutinyType["EgressRuleResource"] = "EgressRuleResource";
+    /**
+     * AWS::SSO::Assignment
+     *
+     * IAM Identity Center (formerly known as SSO)
+     */
+    ResourceScrutinyType["SsoAssignmentResource"] = "SsoAssignmentResource";
+    /**
+     * AWS::SSO::InstanceAccessControlAttributeConfiguration
+     *
+     * IAM Identity Center (formerly known as SSO)
+     */
+    ResourceScrutinyType["SsoInstanceACAConfigResource"] = "SsoInstanceACAConfigResource";
+    /**
+     * AWS::SSO::PermissionSet
+     *
+     * IAM Identity Center (formerly known as SSO)
+     */
+    ResourceScrutinyType["SsoPermissionSet"] = "SsoPermissionSet";
+})(ResourceScrutinyType = exports.ResourceScrutinyType || (exports.ResourceScrutinyType = {}));
+/**
+ * Mark a property as a property that needs additional scrutiny when it changes
+ *
+ * Used to mark sensitive properties that have security-related implications.
+ */
+var PropertyScrutinyType;
+(function (PropertyScrutinyType) {
+    /**
+     * No additional scrutiny
+     */
+    PropertyScrutinyType["None"] = "None";
+    /**
+     * This is an IAM policy directly on a resource
+     */
+    PropertyScrutinyType["InlineResourcePolicy"] = "InlineResourcePolicy";
+    /**
+     * Either an AssumeRolePolicyDocument or a dictionary of policy documents
+     */
+    PropertyScrutinyType["InlineIdentityPolicies"] = "InlineIdentityPolicies";
+    /**
+     * A list of managed policies (on an identity resource)
+     */
+    PropertyScrutinyType["ManagedPolicies"] = "ManagedPolicies";
+    /**
+     * A set of ingress rules (on a security group)
+     */
+    PropertyScrutinyType["IngressRules"] = "IngressRules";
+    /**
+     * A set of egress rules (on a security group)
+     */
+    PropertyScrutinyType["EgressRules"] = "EgressRules";
+})(PropertyScrutinyType = exports.PropertyScrutinyType || (exports.PropertyScrutinyType = {}));
+class RichPropertyType {
+    constructor(type) {
+        this.type = type;
+    }
+    equals(rhs) {
+        switch (this.type.type) {
+            case 'integer':
+            case 'boolean':
+            case 'date-time':
+            case 'json':
+            case 'null':
+            case 'number':
+            case 'string':
+            case 'tag':
+                return rhs.type === this.type.type;
+            case 'array':
+            case 'map':
+                return rhs.type === this.type.type && new RichPropertyType(this.type.element).equals(rhs.element);
+            case 'ref':
+                return rhs.type === 'ref' && this.type.reference.$ref === rhs.reference.$ref;
+            case 'union':
+                const lhsKey = this.sortKey();
+                const rhsKey = new RichPropertyType(rhs).sortKey();
+                return lhsKey.length === rhsKey.length && lhsKey.every((l, i) => l === rhsKey[i]);
+        }
+    }
+    /**
+     * Whether the current type is JavaScript-equal to the RHS type
+     *
+     * Same as normal equality, but consider `integer` and `number` the same types.
+     */
+    javascriptEquals(rhs) {
+        switch (this.type.type) {
+            case 'number':
+            case 'integer':
+                // Widening
+                return rhs.type === 'integer' || rhs.type === 'number';
+            case 'array':
+            case 'map':
+                return rhs.type === this.type.type && new RichPropertyType(this.type.element).javascriptEquals(rhs.element);
+            case 'union':
+                if (rhs.type !== 'union') {
+                    return false;
+                }
+                // Every type in this union needs to be equal one type in RHS
+                return this.type.types.every((t1) => rhs.types.some((t2) => new RichPropertyType(t1).javascriptEquals(t2)));
+            default:
+                // For anything else, need strict equality
+                return this.equals(rhs);
+        }
+    }
+    /**
+     * Whether the current type is assignable to the RHS type.
+     *
+     * This is means every type member of the LHS must be present in the RHS type
+     */
+    assignableTo(rhs) {
+        const extractMembers = (type) => (type.type == 'union' ? type.types : [type]);
+        const asRichType = (type) => new RichPropertyType(type);
+        const rhsMembers = extractMembers(rhs);
+        for (const lhsMember of extractMembers(this.type).map(asRichType)) {
+            if (!rhsMembers.some((type) => lhsMember.equals(type))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /**
+     * Return a version of this type, but with all type unions in a regularized order
+     */
+    normalize(db) {
+        switch (this.type.type) {
+            case 'array':
+            case 'map':
+                return new RichPropertyType({
+                    type: this.type.type,
+                    element: new RichPropertyType(this.type.element).normalize(db).type,
+                });
+            case 'union':
+                const types = this.type.types
+                    .map((t) => new RichPropertyType(t).normalize(db))
+                    .map((t) => [t, t.sortKey(db)]);
+                types.sort((0, sorting_1.sortKeyComparator)(([_, sortKey]) => sortKey));
+                return new RichPropertyType({
+                    type: 'union',
+                    types: types.map(([t, _]) => t.type),
+                });
+            default:
+                return this;
+        }
+    }
+    stringify(db, withId = true) {
+        switch (this.type.type) {
+            case 'integer':
+            case 'boolean':
+            case 'date-time':
+            case 'json':
+            case 'null':
+            case 'number':
+            case 'string':
+            case 'tag':
+                return this.type.type;
+            case 'array':
+                return `Array<${new RichPropertyType(this.type.element).stringify(db, withId)}>`;
+            case 'map':
+                return `Map<string, ${new RichPropertyType(this.type.element).stringify(db, withId)}>`;
+            case 'ref':
+                const type = db.get('typeDefinition', this.type.reference);
+                return withId ? `${type.name}(${this.type.reference.$ref})` : type.name;
+            case 'union':
+                return this.type.types.map((t) => new RichPropertyType(t).stringify(db, withId)).join(' | ');
+        }
+    }
+    /**
+     * Return a sortable key based on this type
+     *
+     * If a database is given, type definitions will be sorted based on type name,
+     * otherwise on identifier
+     */
+    sortKey(db) {
+        var _a, _b;
+        switch (this.type.type) {
+            case 'integer':
+            case 'boolean':
+            case 'date-time':
+            case 'json':
+            case 'null':
+            case 'number':
+            case 'string':
+            case 'tag':
+                return ['0', this.type.type];
+            case 'array':
+            case 'map':
+                return ['1', this.type.type, ...new RichPropertyType(this.type.element).sortKey(db)];
+            case 'ref':
+                return ['2', this.type.type, (_b = (_a = db === null || db === void 0 ? void 0 : db.get('typeDefinition', this.type.reference)) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : this.type.reference.$ref];
+            case 'union':
+                const typeKeys = this.type.types.map((t) => new RichPropertyType(t).sortKey(db));
+                typeKeys.sort((0, sorting_1.sortKeyComparator)((x) => x));
+                return ['3', this.type.type, ...typeKeys.flatMap((x) => x)];
+        }
+    }
+}
+exports.RichPropertyType = RichPropertyType;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVzb3VyY2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvdHlwZXMvcmVzb3VyY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBRUEsNkNBQW9EO0FBdUtwRCxNQUFhLGNBQWM7SUFDekIsWUFBNkIsS0FBK0M7UUFBL0MsVUFBSyxHQUFMLEtBQUssQ0FBMEM7UUFDMUUsSUFBSSxLQUFLLEtBQUssU0FBUyxFQUFFO1lBQ3ZCLE1BQU0sSUFBSSxLQUFLLENBQUMsb0JBQW9CLENBQUMsQ0FBQztTQUN2QztJQUNILENBQUM7SUFFTSxLQUFLOztRQUNWLE9BQU8sQ0FBQyxHQUFHLENBQUMsTUFBQSxJQUFJLENBQUMsS0FBSyxDQUFDLGFBQWEsbUNBQUksRUFBRSxDQUFDLEVBQUUsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNoRSxDQUFDO0lBRUQ7Ozs7T0FJRztJQUNJLFVBQVUsQ0FBQyxJQUFrQjtRQUNsQyxNQUFNLFFBQVEsR0FBRyxJQUFJLGdCQUFnQixDQUFDLElBQUksQ0FBQyxDQUFDO1FBRTVDLDZHQUE2RztRQUM3Ryx3R0FBd0c7UUFDeEcsOEdBQThHO1FBQzlHLHFDQUFxQztRQUNyQyxJQUFJLElBQUksQ0FBQyxLQUFLLEVBQUUsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLEVBQUUsRUFBRSxDQUFDLFFBQVEsQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLENBQUMsRUFBRTtZQUNoRCwyQ0FBMkM7WUFDM0MsT0FBTyxLQUFLLENBQUM7U0FDZDtRQUVELCtGQUErRjtRQUMvRixrR0FBa0c7UUFDbEcsSUFBSSxJQUFJLENBQUMsSUFBSSxLQUFLLFFBQVEsSUFBSSxJQUFJLENBQUMsS0FBSyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUMsSUFBSSxLQUFLLFdBQVcsQ0FBQyxFQUFFO1lBQzlFLE9BQU8sS0FBSyxDQUFDO1NBQ2Q7UUFFRCxJQUFJ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QyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsSUFBSSxnQkFBZ0IsQ0FBQyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztnQkFDakYsUUFBUSxDQUFDLElBQUksQ0FBQyxJQUFBLDJCQUFpQixFQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO2dCQUMzQyxPQUFPLENBQUMsR0FBRyxFQUFFLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFLEdBQUcsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztTQUMvRDtJQUNILENBQUM7Q0FDRjtBQXRKRCw0Q0FzSkMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFbnRpdHksIFJlZmVyZW5jZSwgUmVsYXRpb25zaGlwIH0gZnJvbSAnQGNka2xhYnMvdHNrYic7XG5pbXBvcnQgeyBTcGVjRGF0YWJhc2UgfSBmcm9tICcuL2RhdGFiYXNlJztcbmltcG9ydCB7IHNvcnRLZXlDb21wYXJhdG9yIH0gZnJvbSAnLi4vdXRpbC9zb3J0aW5nJztcblxuZXhwb3J0IGludGVyZmFjZSBQYXJ0aXRpb24gZXh0ZW5kcyBFbnRpdHkge1xuICByZWFkb25seSBwYXJ0aXRpb246IHN0cmluZztcbn1cblxuZXhwb3J0IHR5cGUgSGFzUmVnaW9uID0gUmVsYXRpb25zaGlwPFBhcnRpdGlvbiwgUmVnaW9uLCB7IGlzUHJpbWFyeT86IGJvb2xlYW4gfT47XG5cbmV4cG9ydCBpbnRlcmZhY2UgU2VydmljZSBleHRlbmRzIEVudGl0eSB7XG4gIC8qKlxuICAgKiBUaGUgZnVsbCBuYW1lIG9mIHRoZSBzZXJ2aWNlIGluY2x1ZGluZyB0aGUgZ3JvdXAgcHJlZml4LCBsb3dlcmNhc2VkIGFuZCBoeXBoZW5hdGVkLlxuICAgKlxuICAgKiBFLmcuIGBBV1M6OkR5bmFtb0RCYCAtPiBgYXdzLWR5bmFtb2RiYFxuICAgKlxuICAgKiBAZXhhbXBsZSBhd3MtZHluYW1vZGJcbiAgICovXG4gIHJlYWRvbmx5IG5hbWU6IHN0cmluZztcbiAgLyoqXG4gICAqIE9ubHkgdGhlIHNlcnZpY2UgcGFydCBvZiB0aGUgbmFtZSwgbG93ZXJjYXNlZC5cbiAgICpcbiAgICogRS5nLiBgQVdTOjpEeW5hbW9EQmAgLT4gYGR5bmFtb2RiYFxuICAgKlxuICAgKiBAZXhhbXBsZSBkeW5hbW9kYlxuICAgKi9cbiAgcmVhZG9ubHkgc2hvcnROYW1lOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBUaGUgc2hvcnRuYW1lIG9mIHRoZSBzZXJ2aWNlIGluIGNhcGl0YWxpemVkIGZvcm1cbiAgICpcbiAgICogRS5nLiBgQVdTOjpEeW5hbW9EQmAgLT4gYER5bmFtb0RCYFxuICAgKlxuICAgKiBAZXhhbXBsZSBkeW5hbW9kYlxuICAgKi9cbiAgcmVhZG9ubHkgY2FwaXRhbGl6ZWQ6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBjb21wbGV0ZSBjbG91ZGZvcm1hdGlvbiBzdHlsZSBuYW1lc3BhY2Ugb2YgdGhlIHNlcnZpY2VcbiAgICpcbiAgICogRS5nLiBgQVdTOjpEeW5hbW9EQmBcbiAgICpcbiAgICogQGV4YW1wbGUgZHluYW1vZGJcbiAgICovXG4gIHJlYWRvbmx5IGNsb3VkRm9ybWF0aW9uTmFtZXNwYWNlOiBzdHJpbmc7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgUmVnaW9uIGV4dGVuZHMgRW50aXR5IHtcbiAgcmVhZG9ubHkgbmFtZTogc3RyaW5nO1xuICByZWFkb25seSBkZXNjcmlwdGlvbj86IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBEb2N1bWVudGF0aW9uIGV4dGVuZHMgRW50aXR5IHtcbiAgcmVhZG9ubHkgbWFya2Rvd246IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBSZXNvdXJjZSBleHRlbmRzIEVudGl0eSB7XG4gIHJlYWRvbmx5IG5hbWU6IHN0cmluZztcbiAgcmVhZG9ubHkgY2xvdWRGb3JtYXRpb25UeXBlOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBJZiBzZXQsIHRoaXMgQ2xvdWRGb3JtYXRpb24gVHJhbnNmb3JtIGlzIHJlcXVpcmVkIGJ5IHRoZSByZXNvdXJjZVxuICAgKi9cbiAgY2xvdWRGb3JtYXRpb25UcmFuc2Zvcm0/OiBzdHJpbmc7XG4gIGRvY3VtZW50YXRpb24/OiBzdHJpbmc7XG4gIHByaW1hcnlJZGVudGlmaWVyPzogc3RyaW5nW107XG4gIHJlYWRvbmx5IHByb3BlcnRpZXM6IFJlc291cmNlUHJvcGVydGllcztcbiAgcmVhZG9ubHkgYXR0cmlidXRlczogUmVjb3JkPHN0cmluZywgQXR0cmlidXRlPjtcbiAgcmVhZG9ubHkgdmFsaWRhdGlvbnM/OiB1bmtub3duO1xuICBpZGVudGlmaWVyPzogUmVzb3VyY2VJZGVudGlmaWVyO1xuICBpc1N0YXRlZnVsPzogYm9vbGVhbjtcblxuICAvKipcbiAgICogSW5mb3JtYXRpb24gYWJvdXQgdGhlIHRhZ2dhYmlsaXR5IG9mIHRoaXMgcmVzb3VyY2VcbiAgICpcbiAgICogVW5kZWZpbmVkIGlmIHRoZSByZXNvdXJjZSBpcyBub3QgdGFnZ2FibGUuXG4gICAqL1xuICB0YWdJbmZvcm1hdGlvbj86IFRhZ0luZm9ybWF0aW9uO1xuXG4gIC8qKlxuICAgKiBXaGV0aGVyIGNoYW5nZXMgdG8gdGhpcyByZXNvdXJjZSBuZWVkIHRvIGJlIHNjcnV0aW5pemVkXG4gICAqXG4gICAqIEBkZWZhdWx0IFJlc291cmNlU2NydXRpbnlUeXBlLk5PTkVcbiAgICovXG4gIHNjcnV0aW5pemFibGU/OiBSZXNvdXJjZVNjcnV0aW55VHlwZTtcblxuICAvKipcbiAgICogQWRkaXRpb25hbCBwYXRocyB0byBwcm9wZXJ0aWVzIHRoYXQgYWxzbyBjYXVzZSByZXBsYWNlbWVudC5cbiAgICpcbiAgICogVGhpcyBpcyB0byBpbmRpY2F0ZSB0aGF0IGNlcnRhaW4gcHJvcGVydHkgcGF0aHMgaW50byB0aGlzIHJlc291cmNlXG4gICAqIHdpbGwgY2F1c2UgcmVwbGFjZW1lbnQ7IG9ubHkgcmVwbGFjZW1lbnRzIHRoYXQgY2Fubm90IGJlIHJlcHJlc2VudGVkXG4gICAqIGJ5IHRhZ2dpbmcgdGhlIHByb3BlcnR5IGluIGEgdHlwZSBkZWZpbml0aW9uIHdpbGwgYmUgaW5jbHVkZWQgaGVyZVxuICAgKiAoZm9yIGV4YW1wbGUsIGJlY2F1c2UgdGhlIHRhZ2dlZCBwcm9wZXJ0eSB3b3VsZCBiZSBpbiBhIHByZWRlZmluZWRcbiAgICogdHlwZSBsaWtlIGB0YWdgKS5cbiAgICpcbiAgICogQWxsIHByb3BlcnRpZXMgaW4gdGhpcyBsaXN0IHNob3VsZCBiZSB0cmVhdGVkIGFzIGBjYXVzZXNSZXBsYWNlbWVudDogJ3llcydgLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtXG4gICAqL1xuICBhZGRpdGlvbmFsUmVwbGFjZW1lbnRQcm9wZXJ0aWVzPzogc3RyaW5nW11bXTtcbn1cblxuZXhwb3J0IHR5cGUgUmVzb3VyY2VQcm9wZXJ0aWVzID0gUmVjb3JkPHN0cmluZywgUHJvcGVydHk+O1xuXG5leHBvcnQgaW50ZXJmYWNlIFR5cGVEZWZpbml0aW9uIGV4dGVuZHMgRW50aXR5IHtcbiAgcmVhZG9ubHkgbmFtZTogc3RyaW5nO1xuICBkb2N1bWVudGF0aW9uPzogc3RyaW5nO1xuICByZWFkb25seSBwcm9wZXJ0aWVzOiBSZXNvdXJjZVByb3BlcnRpZXM7XG5cbiAgLyoqXG4gICAqIElmIHRydWUsIHJlbmRlciB0aGlzIHR5cGUgZXZlbiBpZiBpdCBpcyB1bnVzZWQuXG4gICAqL1xuICBtdXN0UmVuZGVyRm9yQndDb21wYXQ/OiBib29sZWFuO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFByb3BlcnR5IHtcbiAgLyoqXG4gICAqIERlc2NyaXB0aW9uIG9mIHRoZSBwcm9wZXJ0eVxuICAgKi9cbiAgZG9jdW1lbnRhdGlvbj86IHN0cmluZztcblxuICAvKipcbiAgICogSXMgdGhpcyBwcm9wZXJ0eSByZXF1aXJlZFxuICAgKlxuICAgKiBAZGVmYXVsdCBmYWxzZVxuICAgKi9cbiAgcmVxdWlyZWQ/OiBib29sZWFuO1xuXG4gIC8qKlxuICAgKiBUaGUgY3VycmVudCB0eXBlIG9mIHRoaXMgcHJvcGVydHlcbiAgICovXG4gIHR5cGU6IFByb3BlcnR5VHlwZTtcblxuICAvKipcbiAgICogQW4gb3JkZXJlZCBsaXN0IG9mIHByZXZpb3VzIHR5cGVzIG9mIHRoaXMgcHJvcGVydHkgaW4gYXNjZW5kaW5nIG9yZGVyXG4gICAqXG4gICAqIERvZXMgbm90IGluY2x1ZGUgdGhlIGN1cnJlbnQgdHlwZSwgdXNlIGB0eXBlYCBmb3IgdGhpcy5cbiAgICovXG4gIHByZXZpb3VzVHlwZXM/OiBQcm9wZXJ0eVR5cGVbXTtcblxuICAvKipcbiAgICogQSBzdHJpbmcgcmVwcmVzZW50YXRpb24gdGhlIGRlZmF1bHQgdmFsdWUgb2YgdGhpcyBwcm9wZXJ0eVxuICAgKlxuICAgKiBUaGlzIHZhbHVlIGlzIG5vdCBkaXJlY3RseSBmdW5jdGlvbmFsOyBpdCBkZXNjcmliZXMgaG93IHRoZSB1bmRlcmx5aW5nIHJlc291cmNlXG4gICAqIHdpbGwgYmVoYXZlIGlmIHRoZSB2YWx1ZSBpcyBub3Qgc3BlY2lmaWVkLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIERlZmF1bHQgdW5rbm93blxuICAgKi9cbiAgZGVmYXVsdFZhbHVlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBXaGV0aGVyIHRoaXMgcHJvcGVydHkgaXMgZGVwcmVjYXRlZFxuICAgKlxuICAgKiBAZGVmYXVsdCAtIE5vdCBkZXByZWNhdGVkXG4gICAqL1xuICBkZXByZWNhdGVkPzogRGVwcmVjYXRpb247XG5cbiAgLyoqXG4gICAqIFdoZXRoZXIgY2hhbmdlcyB0byB0aGlzIHByb3BlcnR5IG5lZWRzIHRvIGJlIHNjcnV0aW5pemVkIHNwZWNpYWxseVxuICAgKlxuICAgKiBAZGVmYXVsdCBQcm9wZXJ0eVNjcnV0aW55VHlwZS5OT05FXG4gICAqL1xuICBzY3J1dGluaXphYmxlPzogUHJvcGVydHlTY3J1dGlueVR5cGU7XG5cbiAgLyoqXG4gICAqIFdoZXRoZXIgdGhlIGNvbnRhaW5pbmcgcmVzb3VyY2Ugd2lsbCBiZSByZXBsYWNlZCBpZiB0aGlzIHByb3BlcnR5IGlzIGNoYW5nZWRcbiAgICpcbiAgICogQGRlZmF1bHQgJ25vJ1xuICAgKi9cbiAgY2F1c2VzUmVwbGFjZW1lbnQ/OiAneWVzJyB8ICdubycgfCAnbWF5YmUnO1xufVxuXG5leHBvcnQgY2xhc3MgUmljaFR5cGVkRmllbGQge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IGZpZWxkOiBQaWNrPFByb3BlcnR5LCAndHlwZScgfCAncHJldmlvdXNUeXBlcyc+KSB7XG4gICAgaWYgKGZpZWxkID09PSB1bmRlZmluZWQpIHtcbiAgICAgIHRocm93IG5ldyBFcnJvcignRmllbGQgaXMgdW5kZWZpbmVkJyk7XG4gICAgfVxuICB9XG5cbiAgcHVibGljIHR5cGVzKCk6IFByb3BlcnR5VHlwZVtdIHtcbiAgICByZXR1cm4gWy4uLih0aGlzLmZpZWxkLnByZXZpb3VzVHlwZXMgPz8gW10pLCB0aGlzLmZpZWxkLnR5cGVdO1xuICB9XG5cbiAgLyoqXG4gICAqIFVwZGF0ZSB0aGUgdHlwZSBvZiB0aGlzIHByb3BlcnR5IHdpdGggYSBuZXcgdHlwZVxuICAgKlxuICAgKiBPbmx5IGlmIGl0J3Mgbm90IGluIHRoZSBzZXQgb2YgdHlwZXMgYWxyZWFkeS5cbiAgICovXG4gIHB1YmxpYyB1cGRhdGVUeXBlKHR5cGU6IFByb3BlcnR5VHlwZSk6IGJvb2xlYW4ge1xuICAgIGNvbnN0IHJpY2hUeXBlID0gbmV3IFJpY2hQcm9wZXJ0eVR5cGUodHlwZSk7XG5cbiAgICAvLyBPbmx5IGFkZCB0aGlzIHR5cGUgaWYgd2UgZG9uJ3QgYWxyZWFkeSBoYXZlIGl0LiBXZSBhcmUgb25seSBkb2luZyBjb21wYXJpc29ucyB3aGVyZSAnaW50ZWdlcicgYW5kICdudW1iZXInXG4gICAgLy8gYXJlIHRyZWF0ZWQgdGhlIHNhbWUsIGZvciBhbGwgb3RoZXIgdHlwZXMgd2UgbmVlZCBzdHJpY3QgZXF1YWxpdHkuIFdlIHVzZWQgdG8gdXNlICdhc3NpZ25hYmxlVG8nIGFzIGFcbiAgICAvLyBjb25kaXRpb24sIGJ1dCB0aGVzZSB0eXBlcyB3aWxsIGJlIHJlbmRlcmVkIGluIGJvdGggY28tIGFuZCBjb250cmF2YXJpYW50IHBvc2l0aW9ucywgYW5kIHNvIHdlIHJlYWxseSBjYW4ndFxuICAgIC8vIGRvIG11Y2ggYmV0dGVyIHRoYW4gZnVsbCBlcXVhbGl0eS5cbiAgICBpZiAodGhpcy50eXBlcygpLnNvbWUoKHQpID0+IHJpY2hUeXBlLmVxdWFscyh0KSkpIHtcbiAgICAgIC8vIE5vdGhpbmcgdG8gZG8sIHR5cGUgaXMgYWxyZWFkeSBpbiB0aGVyZS5cbiAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9XG5cbiAgICAvLyBTcGVjaWFsIGNhc2U6IGlmIHRoZSBuZXcgdHlwZSBpcyBgc3RyaW5nYCBhbmQgdGhlIG9sZCB0eXBlIGlzIGBkYXRlLXRpbWVgLCB3ZSBhc3N1bWUgdGhpcyBpc1xuICAgIC8vIHRoZSBzYW1lIHR5cGUgYnV0IHdlIGRyb3BwZWQgc29tZSBmb3JtYXR0aW5nIGluZm9ybWF0aW9uLiBObyBuZWVkIHRvIG1ha2UgdGhpcyBhIHNlcGFyYXRlIHR5cGUuXG4gICAgaWYgKHR5cGUudHlwZSA9PT0gJ3N0cmluZycgJiYgdGhpcy50eXBlcygpLnNvbWUoKHQpID0+IHQudHlwZSA9PT0gJ2RhdGUtdGltZScpKSB7XG4gICAgICByZXR1cm4gZmFsc2U7XG4gICAgfVxuXG4gICAgaWYgKCF0aGlzLmZpZWxkLnByZXZpb3VzVHlwZXMpIHtcbiAgICAgIHRoaXMuZmllbGQucHJldmlvdXNUeXBlcyA9IFtdO1xuICAgIH1cbiAgICB0aGlzLmZpZWxkLnByZXZpb3VzVHlwZXMucHVzaCh0aGlzLmZpZWxkLnR5cGUpO1xuICAgIHRoaXMuZmllbGQudHlwZSA9IHR5cGU7XG4gICAgcmV0dXJuIHRydWU7XG4gIH1cbn1cblxuZXhwb3J0IGNsYXNzIFJpY2hQcm9wZXJ0eSBleHRlbmRzIFJpY2hUeXBlZEZpZWxkIHtcbiAgY29uc3RydWN0b3IocHJvcGVydHk6IFByb3BlcnR5KSB7XG4gICAgc3VwZXIocHJvcGVydHkpO1xuICB9XG59XG5cbmV4cG9ydCBjbGFzcyBSaWNoQXR0cmlidXRlIGV4dGVuZHMgUmljaFR5cGVkRmllbGQge1xuICBjb25zdHJ1Y3RvcihhdHRyOiBBdHRyaWJ1dGUpIHtcbiAgICBzdXBlcihhdHRyKTtcbiAgfVxufVxuXG5leHBvcnQgaW50ZXJmYWNlIEF0dHJpYnV0ZSB7XG4gIGRvY3VtZW50YXRpb24/OiBzdHJpbmc7XG4gIHR5cGU6IFByb3BlcnR5VHlwZTtcbiAgLyoqXG4gICAqIEFuIG9yZGVyZWQgbGlzdCBvZiBwcmV2aW91cyB0eXBlcyBvZiB0aGlzIHByb3BlcnR5IGluIGFzY2VuZGluZyBvcmRlclxuICAgKlxuICAgKiBEb2VzIG5vdCBpbmNsdWRlIHRoZSBjdXJyZW50IHR5cGUsIHVzZSBgdHlwZWAgZm9yIHRoaXMuXG4gICAqL1xuICBwcmV2aW91c1R5cGVzPzogUHJvcGVydHlUeXBlW107XG59XG5cbmV4cG9ydCBlbnVtIERlcHJlY2F0aW9uIHtcbiAgLyoqXG4gICAqIE5vdCBkZXByZWNhdGVkXG4gICAqL1xuICBOT05FID0gJ05PTkUnLFxuXG4gIC8qKlxuICAgKiBXYXJuIGFib3V0IHVzZVxuICAgKi9cbiAgV0FSTiA9ICdXQVJOJyxcblxuICAvKipcbiAgICogRG8gbm90IGVtaXQgdGhlIHZhbHVlIGF0IGFsbFxuICAgKlxuICAgKiAoSGFuZGxlIHByb3BlcnRpZXMgdGhhdCB3ZXJlIGluY29ycmVjdGx5IGFkZGVkIHRvIHRoZSBzcGVjKVxuICAgKi9cbiAgSUdOT1JFID0gJ0lHTk9SRScsXG59XG5cbmV4cG9ydCB0eXBlIFByb3BlcnR5VHlwZSA9XG4gIHwgUHJpbWl0aXZlVHlwZVxuICB8IERlZmluaXRpb25SZWZlcmVuY2VcbiAgfCBCdWlsdGluVGFnVHlwZVxuICB8IEFycmF5VHlwZTxQcm9wZXJ0eVR5cGU+XG4gIHwgTWFwVHlwZTxQcm9wZXJ0eVR5cGU+XG4gIHwgVHlwZVVuaW9uPFByb3BlcnR5VHlwZT47XG5cbmV4cG9ydCB0eXBlIFByaW1pdGl2ZVR5cGUgPVxuICB8IFN0cmluZ1R5cGVcbiAgfCBOdW1iZXJUeXBlXG4gIHwgSW50ZWdlclR5cGVcbiAgfCBCb29sZWFuVHlwZVxuICB8IEpzb25UeXBlXG4gIHwgRGF0ZVRpbWVUeXBlXG4gIHwgTnVsbFR5cGVcbiAgfCBCdWlsdGluVGFnVHlwZTtcblxuZXhwb3J0IGZ1bmN0aW9uIGlzQ29sbGVjdGlvblR5cGUoeDogUHJvcGVydHlUeXBlKTogeCBpcyBBcnJheVR5cGU8YW55PiB8IE1hcFR5cGU8YW55PiB7XG4gIHJldHVybiB4LnR5cGUgPT09ICdhcnJheScgfHwgeC50eXBlID09PSAnbWFwJztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBUYWdJbmZvcm1hdGlvbiB7XG4gIC8qKlxuICAgKiBOYW1lIG9mIHRoZSBwcm9wZXJ0eSB0aGF0IGhvbGRzIHRoZSB0YWdzXG4gICAqL1xuICByZWFkb25seSB0YWdQcm9wZXJ0eU5hbWU6IHN0cmluZztcblxuICAvKipcbiAgICogVXNlZCB0byBpbnN0cnVjdCBjZGsuVGFnTWFuYWdlciBob3cgdG8gaGFuZGxlIHRhZ3NcbiAgICovXG4gIHJlYWRvbmx5IHZhcmlhbnQ6IFRhZ1ZhcmlhbnQ7XG59XG5cbmV4cG9ydCB0eXBlIFRhZ1ZhcmlhbnQgPSAnc3RhbmRhcmQnIHwgJ2FzZycgfCAnbWFwJztcblxuZXhwb3J0IGludGVyZmFjZSBTdHJpbmdUeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ3N0cmluZyc7XG59XG5leHBvcnQgaW50ZXJmYWNlIEJ1aWx0aW5UYWdUeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ3RhZyc7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgTnVtYmVyVHlwZSB7XG4gIHJlYWRvbmx5IHR5cGU6ICdudW1iZXInO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEludGVnZXJUeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ2ludGVnZXInO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEJvb2xlYW5UeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ2Jvb2xlYW4nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEpzb25UeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ2pzb24nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIE51bGxUeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ251bGwnO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIERhdGVUaW1lVHlwZSB7XG4gIHJlYWRvbmx5IHR5cGU6ICdkYXRlLXRpbWUnO1xufVxuXG4vKipcbiAqIFRoZSBcImxlZ2FjeVwiIHRhZyB0eXBlICh1c2VkIGluIHRoZSBvbGQgcmVzb3VyY2Ugc3BlYylcbiAqL1xuZXhwb3J0IGludGVyZmFjZSBCdWlsdGluVGFnVHlwZSB7XG4gIHJlYWRvbmx5IHR5cGU6ICd0YWcnO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIERlZmluaXRpb25SZWZlcmVuY2Uge1xuICByZWFkb25seSB0eXBlOiAncmVmJztcbiAgcmVhZG9ubHkgcmVmZXJlbmNlOiBSZWZlcmVuY2U8VHlwZURlZmluaXRpb24+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEFycmF5VHlwZTxFPiB7XG4gIHJlYWRvbmx5IHR5cGU6ICdhcnJheSc7XG4gIHJlYWRvbmx5IGVsZW1lbnQ6IEU7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgTWFwVHlwZTxFPiB7XG4gIHJlYWRvbmx5IHR5cGU6ICdtYXAnO1xuICByZWFkb25seSBlbGVtZW50OiBFO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFR5cGVVbmlvbjxFPiB7XG4gIHJlYWRvbmx5IHR5cGU6ICd1bmlvbic7XG4gIHJlYWRvbmx5IHR5cGVzOiBFW107XG59XG5cbmV4cG9ydCB0eXBlIEhhc1Jlc291cmNlID0gUmVsYXRpb25zaGlwPFNlcnZpY2UsIFJlc291cmNlPjtcbmV4cG9ydCB0eXBlIFJlZ2lvbkhhc1Jlc291cmNlID0gUmVsYXRpb25zaGlwPFJlZ2lvbiwgUmVzb3VyY2U+O1xuZXhwb3J0IHR5cGUgUmVnaW9uSGFzU2VydmljZSA9IFJlbGF0aW9uc2hpcDxSZWdpb24sIFNlcnZpY2U+O1xuZXhwb3J0IHR5cGUgUmVzb3VyY2VEb2MgPSBSZWxhdGlvbnNoaXA8UmVzb3VyY2UsIERvY3VtZW50YXRpb24+O1xuXG5leHBvcnQgdHlwZSBTZXJ2aWNlSW5SZWdpb24gPSBSZWxhdGlvbnNoaXA8UmVnaW9uLCBTZXJ2aWNlPjtcbmV4cG9ydCB0eXBlIFJlc291cmNlSW5SZWdpb24gPSBSZWxhdGlvbnNoaXA8UmVnaW9uLCBSZXNvdXJjZT47XG5cbmV4cG9ydCB0eXBlIFVzZXNUeXBlID0gUmVsYXRpb25zaGlwPFJlc291cmNlLCBUeXBlRGVmaW5pdGlvbj47XG5cbmV4cG9ydCBpbnRlcmZhY2UgUmVzb3VyY2VJZGVudGlmaWVyIGV4dGVuZHMgRW50aXR5IHtcbiAgcmVhZG9ubHkgYXJuVGVtcGxhdGU/OiBzdHJpbmc7XG4gIHJlYWRvbmx5IHByaW1hcnlJZGVudGlmaWVyPzogc3RyaW5nW107XG59XG5cbi8qKlxuICogTWFyayBhIHJlc291cmNlIGFzIGEgcmVzb3VyY2UgdGhhdCBuZWVkcyBhZGRpdGlvbmFsIHNjcnV0aXkgd2hlbiBhZGRlZCwgcmVtb3ZlZCBvciBjaGFuZ2VkXG4gKlxuICogVXNlZCB0byBtYXJrIHJlc291cmNlcyB0aGF0IHJlcHJlc2VudCBzZWN1cml0eSBwb2xpY2llcy5cbiAqL1xuZXhwb3J0IGVudW0gUmVzb3VyY2VTY3J1dGlueVR5cGUge1xuICAvKipcbiAgICogTm8gYWRkaXRpb25hbCBzY3J1dGlueVxuICAgKi9cbiAgTm9uZSA9ICdOb25lJyxcblxuICAvKipcbiAgICogQW4gZXh0ZXJuYWxseSBhdHRhY2hlZCBwb2xpY3kgZG9jdW1lbnQgdG8gYSByZXNvdXJjZVxuICAgKlxuICAgKiAoQ29tbW9uIGZvciBTUVMsIFNOUywgUzMsIC4uLilcbiAgICovXG4gIFJlc291cmNlUG9saWN5UmVzb3VyY2UgPSAnUmVzb3VyY2VQb2xpY3lSZXNvdXJjZScsXG5cbiAgLyoqXG4gICAqIFRoaXMgaXMgYW4gSUFNIHBvbGljeSBvbiBhbiBpZGVudGl0eSByZXNvdXJjZVxuICAgKlxuICAgKiAoQmFzaWNhbGx5IHNheWluZzogdGhpcyBpcyBBV1M6OklBTTo6UG9saWN5KVxuICAgKi9cbiAgSWRlbnRpdHlQb2xpY3lSZXNvdXJjZSA9ICdJZGVudGl0eVBvbGljeVJlc291cmNlJyxcblxuICAvKipcbiAgICogVGhpcyBpcyBhIExhbWJkYSBQZXJtaXNzaW9uIHBvbGljeVxuICAgKi9cbiAgTGFtYmRhUGVybWlzc2lvbiA9ICdMYW1iZGFQZXJtaXNzaW9uJyxcblxuICAvKipcbiAgICogQW4gaW5ncmVzcyBydWxlIG9iamVjdFxuICAgKi9cbiAgSW5ncmVzc1J1bGVSZXNvdXJjZSA9ICdJbmdyZXNzUnVsZVJlc291cmNlJyxcblxuICAvKipcbiAgICogQSBzZXQgb2YgZWdyZXNzIHJ1bGVzXG4gICAqL1xuICBFZ3Jlc3NSdWxlUmVzb3VyY2UgPSAnRWdyZXNzUnVsZVJlc291cmNlJyxcblxuICAvKipcbiAgICogQVdTOjpTU086OkFzc2lnbm1lbnRcbiAgICpcbiAgICogSUFNIElkZW50aXR5IENlbnRlciAoZm9ybWVybHkga25vd24gYXMgU1NPKVxuICAgKi9cbiAgU3NvQXNzaWdubWVudFJlc291cmNlID0gJ1Nzb0Fzc2lnbm1lbnRSZXNvdXJjZScsXG5cbiAgLyoqXG4gICAqIEFXUzo6U1NPOjpJbnN0YW5jZUFjY2Vzc0NvbnRyb2xBdHRyaWJ1dGVDb25maWd1cmF0aW9uXG4gICAqXG4gICAqIElBTSBJZGVudGl0eSBDZW50ZXIgKGZvcm1lcmx5IGtub3duIGFzIFNTTylcbiAgICovXG4gIFNzb0luc3RhbmNlQUNBQ29uZmlnUmVzb3VyY2UgPSAnU3NvSW5zdGFuY2VBQ0FDb25maWdSZXNvdXJjZScsXG5cbiAgLyoqXG4gICAqIEFXUzo6U1NPOjpQZXJtaXNzaW9uU2V0XG4gICAqXG4gICAqIElBTSBJZGVudGl0eSBDZW50ZXIgKGZvcm1lcmx5IGtub3duIGFzIFNTTylcbiAgICovXG4gIFNzb1Blcm1pc3Npb25TZXQgPSAnU3NvUGVybWlzc2lvblNldCcsXG59XG5cbi8qKlxuICogTWFyayBhIHByb3BlcnR5IGFzIGEgcHJvcGVydHkgdGhhdCBuZWVkcyBhZGRpdGlvbmFsIHNjcnV0aW55IHdoZW4gaXQgY2hhbmdlc1xuICpcbiAqIFVzZWQgdG8gbWFyayBzZW5zaXRpdmUgcHJvcGVydGllcyB0aGF0IGhhdmUgc2VjdXJpdHktcmVsYXRlZCBpbXBsaWNhdGlvbnMuXG4gKi9cbmV4cG9ydCBlbnVtIFByb3BlcnR5U2NydXRpbnlUeXBlIHtcbiAgLyoqXG4gICAqIE5vIGFkZGl0aW9uYWwgc2NydXRpbnlcbiAgICovXG4gIE5vbmUgPSAnTm9uZScsXG5cbiAgLyoqXG4gICAqIFRoaXMgaXMgYW4gSUFNIHBvbGljeSBkaXJlY3RseSBvbiBhIHJlc291cmNlXG4gICAqL1xuICBJbmxpbmVSZXNvdXJjZVBvbGljeSA9ICdJbmxpbmVSZXNvdXJjZVBvbGljeScsXG5cbiAgLyoqXG4gICAqIEVpdGhlciBhbiBBc3N1bWVSb2xlUG9saWN5RG9jdW1lbnQgb3IgYSBkaWN0aW9uYXJ5IG9mIHBvbGljeSBkb2N1bWVudHNcbiAgICovXG4gIElubGluZUlkZW50aXR5UG9saWNpZXMgPSAnSW5saW5lSWRlbnRpdHlQb2xpY2llcycsXG5cbiAgLyoqXG4gICAqIEEgbGlzdCBvZiBtYW5hZ2VkIHBvbGljaWVzIChvbiBhbiBpZGVudGl0eSByZXNvdXJjZSlcbiAgICovXG4gIE1hbmFnZWRQb2xpY2llcyA9ICdNYW5hZ2VkUG9saWNpZXMnLFxuXG4gIC8qKlxuICAgKiBBIHNldCBvZiBpbmdyZXNzIHJ1bGVzIChvbiBhIHNlY3VyaXR5IGdyb3VwKVxuICAgKi9cbiAgSW5ncmVzc1J1bGVzID0gJ0luZ3Jlc3NSdWxlcycsXG5cbiAgLyoqXG4gICAqIEEgc2V0IG9mIGVncmVzcyBydWxlcyAob24gYSBzZWN1cml0eSBncm91cClcbiAgICovXG4gIEVncmVzc1J1bGVzID0gJ0VncmVzc1J1bGVzJyxcbn1cblxuZXhwb3J0IGNsYXNzIFJpY2hQcm9wZXJ0eVR5cGUge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IHR5cGU6IFByb3BlcnR5VHlwZSkge31cblxuICBwdWJsaWMgZXF1YWxzKHJoczogUHJvcGVydHlUeXBlKTogYm9vbGVhbiB7XG4gICAgc3dpdGNoICh0aGlzLnR5cGUudHlwZSkge1xuICAgICAgY2FzZSAnaW50ZWdlcic6XG4gICAgICBjYXNlICdib29sZWFuJzpcbiAgICAgIGNhc2UgJ2RhdGUtdGltZSc6XG4gICAgICBjYXNlICdqc29uJzpcbiAgICAgIGNhc2UgJ251bGwnOlxuICAgICAgY2FzZSAnbnVtYmVyJzpcbiAgICAgIGNhc2UgJ3N0cmluZyc6XG4gICAgICBjYXNlICd0YWcnOlxuICAgICAgICByZXR1cm4gcmhzLnR5cGUgPT09IHRoaXMudHlwZS50eXBlO1xuICAgICAgY2FzZSAnYXJyYXknOlxuICAgICAgY2FzZSAnbWFwJzpcbiAgICAgICAgcmV0dXJuIHJocy50eXBlID09PSB0aGlzLnR5cGUudHlwZSAmJiBuZXcgUmljaFByb3BlcnR5VHlwZSh0aGlzLnR5cGUuZWxlbWVudCkuZXF1YWxzKHJocy5lbGVtZW50KTtcbiAgICAgIGNhc2UgJ3JlZic6XG4gICAgICAgIHJldHVybiByaHMudHlwZSA9PT0gJ3JlZicgJiYgdGhpcy50eXBlLnJlZmVyZW5jZS4kcmVmID09PSByaHMucmVmZXJlbmNlLiRyZWY7XG4gICAgICBjYXNlICd1bmlvbic6XG4gICAgICAgIGNvbnN0IGxoc0tleSA9IHRoaXMuc29ydEtleSgpO1xuICAgICAgICBjb25zdCByaHNLZXkgPSBuZXcgUmljaFByb3BlcnR5VHlwZShyaHMpLnNvcnRLZXkoKTtcbiAgICAgICAgcmV0dXJuIGxoc0tleS5sZW5ndGggPT09IHJoc0tleS5sZW5ndGggJiYgbGhzS2V5LmV2ZXJ5KChsLCBpKSA9PiBsID09PSByaHNLZXlbaV0pO1xuICAgIH1cbiAgfVxuXG4gIC8qKlxuICAgKiBXaGV0aGVyIHRoZSBjdXJyZW50IHR5cGUgaXMgSmF2YVNjcmlwdC1lcXVhbCB0byB0aGUgUkhTIHR5cGVcbiAgICpcbiAgICogU2FtZSBhcyBub3JtYWwgZXF1YWxpdHksIGJ1dCBjb25zaWRlciBgaW50ZWdlcmAgYW5kIGBudW1iZXJgIHRoZSBzYW1lIHR5cGVzLlxuICAgKi9cbiAgcHVibGljIGphdmFzY3JpcHRFcXVhbHMocmhzOiBQcm9wZXJ0eVR5cGUpOiBib29sZWFuIHtcbiAgICBzd2l0Y2ggKHRoaXMudHlwZS50eXBlKSB7XG4gICAgICBjYXNlICdudW1iZXInOlxuICAgICAgY2FzZSAnaW50ZWdlcic6XG4gICAgICAgIC8vIFdpZGVuaW5nXG4gICAgICAgIHJldHVybiByaHMudHlwZSA9PT0gJ2ludGVnZXInIHx8IHJocy50eXBlID09PSAnbnVtYmVyJztcblxuICAgICAgY2FzZSAnYXJyYXknOlxuICAgICAgY2FzZSAnbWFwJzpcbiAgICAgICAgcmV0dXJuIHJocy50eXBlID09PSB0aGlzLnR5cGUudHlwZSAmJiBuZXcgUmljaFByb3BlcnR5VHlwZSh0aGlzLnR5cGUuZWxlbWVudCkuamF2YXNjcmlwdEVxdWFscyhyaHMuZWxlbWVudCk7XG5cbiAgICAgIGNhc2UgJ3VuaW9uJzpcbiAgICAgICAgaWYgKHJocy50eXBlICE9PSAndW5pb24nKSB7XG4gICAgICAgICAgcmV0dXJuIGZhbHNlO1xuICAgICAgICB9XG4gICAgICAgIC8vIEV2ZXJ5IHR5cGUgaW4gdGhpcyB1bmlvbiBuZWVkcyB0byBiZSBlcXVhbCBvbmUgdHlwZSBpbiBSSFNcbiAgICAgICAgcmV0dXJuIHRoaXMudHlwZS50eXBlcy5ldmVyeSgodDEpID0+IHJocy50eXBlcy5zb21lKCh0MikgPT4gbmV3IFJpY2hQcm9wZXJ0eVR5cGUodDEpLmphdmFzY3JpcHRFcXVhbHModDIpKSk7XG5cbiAgICAgIGRlZmF1bHQ6XG4gICAgICAgIC8vIEZvciBhbnl0aGluZyBlbHNlLCBuZWVkIHN0cmljdCBlcXVhbGl0eVxuICAgICAgICByZXR1cm4gdGhpcy5lcXVhbHMocmhzKTtcbiAgICB9XG4gIH1cblxuICAvKipcbiAgICogV2hldGhlciB0aGUgY3VycmVudCB0eXBlIGlzIGFzc2lnbmFibGUgdG8gdGhlIFJIUyB0eXBlLlxuICAgKlxuICAgKiBUaGlzIGlzIG1lYW5zIGV2ZXJ5IHR5cGUgbWVtYmVyIG9mIHRoZSBMSFMgbXVzdCBiZSBwcmVzZW50IGluIHRoZSBSSFMgdHlwZVxuICAgKi9cbiAgcHVibGljIGFzc2lnbmFibGVUbyhyaHM6IFByb3BlcnR5VHlwZSk6IGJvb2xlYW4ge1xuICAgIGNvbnN0IGV4dHJhY3RNZW1iZXJzID0gKHR5cGU6IFByb3BlcnR5VHlwZSk6IFByb3BlcnR5VHlwZVtdID0+ICh0eXBlLnR5cGUgPT0gJ3VuaW9uJyA/IHR5cGUudHlwZXMgOiBbdHlwZV0pO1xuICAgIGNvbnN0IGFzUmljaFR5cGUgPSAodHlwZTogUHJvcGVydHlUeXBlKTogUmljaFByb3BlcnR5VHlwZSA9PiBuZXcgUmljaFByb3BlcnR5VHlwZSh0eXBlKTtcblxuICAgIGNvbnN0IHJoc01lbWJlcnMgPSBleHRyYWN0TWVtYmVycyhyaHMpO1xuICAgIGZvciAoY29uc3QgbGhzTWVtYmVyIG9mIGV4dHJhY3RNZW1iZXJzKHRoaXMudHlwZSkubWFwKGFzUmljaFR5cGUpKSB7XG4gICAgICBpZiAoIXJoc01lbWJlcnMuc29tZSgodHlwZSkgPT4gbGhzTWVtYmVyLmVxdWFscyh0eXBlKSkpIHtcbiAgICAgICAgcmV0dXJuIGZhbHNlO1xuICAgICAgfVxuICAgIH1cblxuICAgIHJldHVybiB0cnVlO1xuICB9XG5cbiAgLyoqXG4gICAqIFJldHVybiBhIHZlcnNpb24gb2YgdGhpcyB0eXBlLCBidXQgd2l0aCBhbGwgdHlwZSB1bmlvbnMgaW4gYSByZWd1bGFyaXplZCBvcmRlclxuICAgKi9cbiAgcHVibGljIG5vcm1hbGl6ZShkYjogU3BlY0RhdGFiYXNlKTogUmljaFByb3BlcnR5VHlwZSB7XG4gICAgc3dpdGNoICh0aGlzLnR5cGUudHlwZSkge1xuICAgICAgY2FzZSAnYXJyYXknOlxuICAgICAgY2FzZSAnbWFwJzpcbiAgICAgICAgcmV0dXJuIG5ldyBSaWNoUHJvcGVydHlUeXBlKHtcbiAgICAgICAgICB0eXBlOiB0aGlzLnR5cGUudHlwZSxcbiAgICAgICAgICBlbGVtZW50OiBuZXcgUmljaFByb3BlcnR5VHlwZSh0aGlzLnR5cGUuZWxlbWVudCkubm9ybWFsaXplKGRiKS50eXBlLFxuICAgICAgICB9KTtcbiAgICAgIGNhc2UgJ3VuaW9uJzpcbiAgICAgICAgY29uc3QgdHlwZXMgPSB0aGlzLnR5cGUudHlwZXNcbiAgICAgICAgICAubWFwKCh0KSA9PiBuZXcgUmljaFByb3BlcnR5VHlwZSh0KS5ub3JtYWxpemUoZGIpKVxuICAgICAgICAgIC5tYXAoKHQpID0+IFt0LCB0LnNvcnRLZXkoZGIpXSBhcyBjb25zdCk7XG4gICAgICAgIHR5cGVzLnNvcnQoc29ydEtleUNvbXBhcmF0b3IoKFtfLCBzb3J0S2V5XSkgPT4gc29ydEtleSkpO1xuICAgICAgICByZXR1cm4gbmV3IFJpY2hQcm9wZXJ0eVR5cGUoe1xuICAgICAgICAgIHR5cGU6ICd1bmlvbicsXG4gICAgICAgICAgdHlwZXM6IHR5cGVzLm1hcCgoW3QsIF9dKSA9PiB0LnR5cGUpLFxuICAgICAgICB9KTtcbiAgICAgIGRlZmF1bHQ6XG4gICAgICAgIHJldHVybiB0aGlzO1xuICAgIH1cbiAgfVxuXG4gIHB1YmxpYyBzdHJpbmdpZnkoZGI6IFNwZWNEYXRhYmFzZSwgd2l0aElkID0gdHJ1ZSk6IHN0cmluZyB7XG4gICAgc3dpdGNoICh0aGlzLnR5cGUudHlwZSkge1xuICAgICAgY2FzZSAnaW50ZWdlcic6XG4gICAgICBjYXNlICdib29sZWFuJzpcbiAgICAgIGNhc2UgJ2RhdGUtdGltZSc6XG4gICAgICBjYXNlICdqc29uJzpcbiAgICAgIGNhc2UgJ251bGwnOlxuICAgICAgY2FzZSAnbnVtYmVyJzpcbiAgICAgIGNhc2UgJ3N0cmluZyc6XG4gICAgICBjYXNlICd0YWcnOlxuICAgICAgICByZXR1cm4gdGhpcy50eXBlLnR5cGU7XG4gICAgICBjYXNlICdhcnJheSc6XG4gICAgICAgIHJldHVybiBgQXJyYXk8JHtuZXcgUmljaFByb3BlcnR5VHlwZSh0aGlzLnR5cGUuZWxlbWVudCkuc3RyaW5naWZ5KGRiLCB3aXRoSWQpfT5gO1xuICAgICAgY2FzZSAnbWFwJzpcbiAgICAgICAgcmV0dXJuIGBNYXA8c3RyaW5nLCAke25ldyBSaWNoUHJvcGVydHlUeXBlKHRoaXMudHlwZS5lbGVtZW50KS5zdHJpbmdpZnkoZGIsIHdpdGhJZCl9PmA7XG4gICAgICBjYXNlICdyZWYnOlxuICAgICAgICBjb25zdCB0eXBlID0gZGIuZ2V0KCd0eXBlRGVmaW5pdGlvbicsIHRoaXMudHlwZS5yZWZlcmVuY2UpO1xuICAgICAgICByZXR1cm4gd2l0aElkID8gYCR7dHlwZS5uYW1lfSgke3RoaXMudHlwZS5yZWZlcmVuY2UuJHJlZn0pYCA6IHR5cGUubmFtZTtcbiAgICAgIGNhc2UgJ3VuaW9uJzpcbiAgICAgICAgcmV0dXJuIHRoaXMudHlwZS50eXBlcy5tYXAoKHQpID0+IG5ldyBSaWNoUHJvcGVydHlUeXBlKHQpLnN0cmluZ2lmeShkYiwgd2l0aElkKSkuam9pbignIHwgJyk7XG4gICAgfVxuICB9XG5cbiAgLyoqXG4gICAqIFJldHVybiBhIHNvcnRhYmxlIGtleSBiYXNlZCBvbiB0aGlzIHR5cGVcbiAgICpcbiAgICogSWYgYSBkYXRhYmFzZSBpcyBnaXZlbiwgdHlwZSBkZWZpbml0aW9ucyB3aWxsIGJlIHNvcnRlZCBiYXNlZCBvbiB0eXBlIG5hbWUsXG4gICAqIG90aGVyd2lzZSBvbiBpZGVudGlmaWVyXG4gICAqL1xuICBwdWJsaWMgc29ydEtleShkYj86IFNwZWNEYXRhYmFzZSk6IHN0cmluZ1tdIHtcbiAgICBzd2l0Y2ggKHRoaXMudHlwZS50eXBlKSB7XG4gICAgICBjYXNlICdpbnRlZ2VyJzpcbiAgICAgIGNhc2UgJ2Jvb2xlYW4nOlxuICAgICAgY2FzZSAnZGF0ZS10aW1lJzpcbiAgICAgIGNhc2UgJ2pzb24nOlxuICAgICAgY2FzZSAnbnVsbCc6XG4gICAgICBjYXNlICdudW1iZXInOlxuICAgICAgY2FzZSAnc3RyaW5nJzpcbiAgICAgIGNhc2UgJ3RhZyc6XG4gICAgICAgIHJldHVybiBbJzAnLCB0aGlzLnR5cGUudHlwZV07XG4gICAgICBjYXNlICdhcnJheSc6XG4gICAgICBjYXNlICdtYXAnOlxuICAgICAgICByZXR1cm4gWycxJywgdGhpcy50eXBlLnR5cGUsIC4uLm5ldyBSaWNoUHJvcGVydHlUeXBlKHRoaXMudHlwZS5lbGVtZW50KS5zb3J0S2V5KGRiKV07XG4gICAgICBjYXNlICdyZWYnOlxuICAgICAgICByZXR1cm4gWycyJywgdGhpcy50eXBlLnR5cGUsIGRiPy5nZXQoJ3R5cGVEZWZpbml0aW9uJywgdGhpcy50eXBlLnJlZmVyZW5jZSk/Lm5hbWUgPz8gdGhpcy50eXBlLnJlZmVyZW5jZS4kcmVmXTtcbiAgICAgIGNhc2UgJ3VuaW9uJzpcbiAgICAgICAgY29uc3QgdHlwZUtleXMgPSB0aGlzLnR5cGUudHlwZXMubWFwKCh0KSA9PiBuZXcgUmljaFByb3BlcnR5VHlwZSh0KS5zb3J0S2V5KGRiKSk7XG4gICAgICAgIHR5cGVLZXlzLnNvcnQoc29ydEtleUNvbXBhcmF0b3IoKHgpID0+IHgpKTtcbiAgICAgICAgcmV0dXJuIFsnMycsIHRoaXMudHlwZS50eXBlLCAuLi50eXBlS2V5cy5mbGF0TWFwKCh4KSA9PiB4KV07XG4gICAgfVxuICB9XG59XG4iXX0=
+
+/***/ }),
+
+/***/ 61917:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.sortKeyComparator = void 0;
+/**
+ * Make a sorting comparator that will sort by a given sort key
+ */
+function sortKeyComparator(keyFn) {
+    return (a, b) => {
+        const ak = keyFn(a);
+        const bk = keyFn(b);
+        for (let i = 0; i < ak.length && i < bk.length; i++) {
+            const av = ak[i];
+            const bv = bk[i];
+            let diff = 0;
+            if (typeof av === 'number' && typeof bv === 'number') {
+                diff = av - bv;
+            }
+            else if (typeof av === 'string' && typeof bv === 'string') {
+                diff = av.localeCompare(bv);
+            }
+            if (diff !== 0) {
+                return diff;
+            }
+        }
+        return bk.length - ak.length;
+    };
+}
+exports.sortKeyComparator = sortKeyComparator;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic29ydGluZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlsL3NvcnRpbmcudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUE7O0dBRUc7QUFDSCxTQUFnQixpQkFBaUIsQ0FBSSxLQUF1QztJQUMxRSxPQUFPLENBQUMsQ0FBSSxFQUFFLENBQUksRUFBVSxFQUFFO1FBQzVCLE1BQU0sRUFBRSxHQUFHLEtBQUssQ0FBQyxDQUFDLENBQUMsQ0FBQztRQUNwQixNQUFNLEVBQUUsR0FBRyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUM7UUFFcEIsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxNQUFNLElBQUksQ0FBQyxHQUFHLEVBQUUsQ0FBQyxNQUFNLEVBQUUsQ0FBQyxFQUFFLEVBQUU7WUFDbkQsTUFBTSxFQUFFLEdBQUcsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDO1lBQ2pCLE1BQU0sRUFBRSxHQUFHLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztZQUVqQixJQUFJLElBQUksR0FBRyxDQUFDLENBQUM7WUFDYixJQUFJLE9BQU8sRUFBRSxLQUFLLFFBQVEsSUFBSSxPQUFPLEVBQUUsS0FBSyxRQUFRLEVBQUU7Z0JBQ3BELElBQUksR0FBRyxFQUFFLEdBQUcsRUFBRSxDQUFDO2FBQ2hCO2lCQUFNLElBQUksT0FBTyxFQUFFLEtBQUssUUFBUSxJQUFJLE9BQU8sRUFBRSxLQUFLLFFBQVEsRUFBRTtnQkFDM0QsSUFBSSxHQUFHLEVBQUUsQ0FBQyxhQUFhLENBQUMsRUFBRSxDQUFDLENBQUM7YUFDN0I7WUFFRCxJQUFJLElBQUksS0FBSyxDQUFDLEVBQUU7Z0JBQ2QsT0FBTyxJQUFJLENBQUM7YUFDYjtTQUNGO1FBRUQsT0FBTyxFQUFFLENBQUMsTUFBTSxHQUFHLEVBQUUsQ0FBQyxNQUFNLENBQUM7SUFDL0IsQ0FBQyxDQUFDO0FBQ0osQ0FBQztBQXZCRCw4Q0F1QkMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIE1ha2UgYSBzb3J0aW5nIGNvbXBhcmF0b3IgdGhhdCB3aWxsIHNvcnQgYnkgYSBnaXZlbiBzb3J0IGtleVxuICovXG5leHBvcnQgZnVuY3Rpb24gc29ydEtleUNvbXBhcmF0b3I8QT4oa2V5Rm46ICh4OiBBKSA9PiBBcnJheTxzdHJpbmcgfCBudW1iZXI+KSB7XG4gIHJldHVybiAoYTogQSwgYjogQSk6IG51bWJlciA9PiB7XG4gICAgY29uc3QgYWsgPSBrZXlGbihhKTtcbiAgICBjb25zdCBiayA9IGtleUZuKGIpO1xuXG4gICAgZm9yIChsZXQgaSA9IDA7IGkgPCBhay5sZW5ndGggJiYgaSA8IGJrLmxlbmd0aDsgaSsrKSB7XG4gICAgICBjb25zdCBhdiA9IGFrW2ldO1xuICAgICAgY29uc3QgYnYgPSBia1tpXTtcblxuICAgICAgbGV0IGRpZmYgPSAwO1xuICAgICAgaWYgKHR5cGVvZiBhdiA9PT0gJ251bWJlcicgJiYgdHlwZW9mIGJ2ID09PSAnbnVtYmVyJykge1xuICAgICAgICBkaWZmID0gYXYgLSBidjtcbiAgICAgIH0gZWxzZSBpZiAodHlwZW9mIGF2ID09PSAnc3RyaW5nJyAmJiB0eXBlb2YgYnYgPT09ICdzdHJpbmcnKSB7XG4gICAgICAgIGRpZmYgPSBhdi5sb2NhbGVDb21wYXJlKGJ2KTtcbiAgICAgIH1cblxuICAgICAgaWYgKGRpZmYgIT09IDApIHtcbiAgICAgICAgcmV0dXJuIGRpZmY7XG4gICAgICB9XG4gICAgfVxuXG4gICAgcmV0dXJuIGJrLmxlbmd0aCAtIGFrLmxlbmd0aDtcbiAgfTtcbn1cbiJdfQ==
 
 /***/ }),
 
@@ -11790,7 +13642,7 @@ var import_middleware_serde = __nccwpck_require__(83255);
 var import_core2 = __nccwpck_require__(8704);
 
 
-var import_uuid = __nccwpck_require__(47799);
+var import_uuid = __nccwpck_require__(12048);
 
 // src/models/CloudFormationServiceException.ts
 
@@ -22921,6 +24773,7 @@ const getRuntimeConfig = (config) => {
         streamCollector: config?.streamCollector ?? node_http_handler_1.streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
         useFipsEndpoint: config?.useFipsEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
+        userAgentAppId: config?.userAgentAppId ?? (0, node_config_provider_1.loadConfig)(util_user_agent_node_1.NODE_APP_ID_CONFIG_OPTIONS),
     };
 };
 exports.getRuntimeConfig = getRuntimeConfig;
@@ -22967,687 +24820,6 @@ const getRuntimeConfig = (config) => {
 };
 exports.getRuntimeConfig = getRuntimeConfig;
 
-
-/***/ }),
-
-/***/ 47799:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-Object.defineProperty(exports, "NIL", ({
-  enumerable: true,
-  get: function () {
-    return _nil.default;
-  }
-}));
-Object.defineProperty(exports, "parse", ({
-  enumerable: true,
-  get: function () {
-    return _parse.default;
-  }
-}));
-Object.defineProperty(exports, "stringify", ({
-  enumerable: true,
-  get: function () {
-    return _stringify.default;
-  }
-}));
-Object.defineProperty(exports, "v1", ({
-  enumerable: true,
-  get: function () {
-    return _v.default;
-  }
-}));
-Object.defineProperty(exports, "v3", ({
-  enumerable: true,
-  get: function () {
-    return _v2.default;
-  }
-}));
-Object.defineProperty(exports, "v4", ({
-  enumerable: true,
-  get: function () {
-    return _v3.default;
-  }
-}));
-Object.defineProperty(exports, "v5", ({
-  enumerable: true,
-  get: function () {
-    return _v4.default;
-  }
-}));
-Object.defineProperty(exports, "validate", ({
-  enumerable: true,
-  get: function () {
-    return _validate.default;
-  }
-}));
-Object.defineProperty(exports, "version", ({
-  enumerable: true,
-  get: function () {
-    return _version.default;
-  }
-}));
-
-var _v = _interopRequireDefault(__nccwpck_require__(97526));
-
-var _v2 = _interopRequireDefault(__nccwpck_require__(51084));
-
-var _v3 = _interopRequireDefault(__nccwpck_require__(2969));
-
-var _v4 = _interopRequireDefault(__nccwpck_require__(13482));
-
-var _nil = _interopRequireDefault(__nccwpck_require__(4096));
-
-var _version = _interopRequireDefault(__nccwpck_require__(85095));
-
-var _validate = _interopRequireDefault(__nccwpck_require__(38805));
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(76334));
-
-var _parse = _interopRequireDefault(__nccwpck_require__(59312));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 23983:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function md5(bytes) {
-  if (Array.isArray(bytes)) {
-    bytes = Buffer.from(bytes);
-  } else if (typeof bytes === 'string') {
-    bytes = Buffer.from(bytes, 'utf8');
-  }
-
-  return _crypto.default.createHash('md5').update(bytes).digest();
-}
-
-var _default = md5;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 82084:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = {
-  randomUUID: _crypto.default.randomUUID
-};
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 4096:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _default = '00000000-0000-0000-0000-000000000000';
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 59312:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(38805));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function parse(uuid) {
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Invalid UUID');
-  }
-
-  let v;
-  const arr = new Uint8Array(16); // Parse ########-....-....-....-............
-
-  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
-  arr[1] = v >>> 16 & 0xff;
-  arr[2] = v >>> 8 & 0xff;
-  arr[3] = v & 0xff; // Parse ........-####-....-....-............
-
-  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
-  arr[5] = v & 0xff; // Parse ........-....-####-....-............
-
-  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
-  arr[7] = v & 0xff; // Parse ........-....-....-####-............
-
-  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
-  arr[9] = v & 0xff; // Parse ........-....-....-....-############
-  // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
-
-  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
-  arr[11] = v / 0x100000000 & 0xff;
-  arr[12] = v >>> 24 & 0xff;
-  arr[13] = v >>> 16 & 0xff;
-  arr[14] = v >>> 8 & 0xff;
-  arr[15] = v & 0xff;
-  return arr;
-}
-
-var _default = parse;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 71280:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 79250:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = rng;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
-
-let poolPtr = rnds8Pool.length;
-
-function rng() {
-  if (poolPtr > rnds8Pool.length - 16) {
-    _crypto.default.randomFillSync(rnds8Pool);
-
-    poolPtr = 0;
-  }
-
-  return rnds8Pool.slice(poolPtr, poolPtr += 16);
-}
-
-/***/ }),
-
-/***/ 18410:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function sha1(bytes) {
-  if (Array.isArray(bytes)) {
-    bytes = Buffer.from(bytes);
-  } else if (typeof bytes === 'string') {
-    bytes = Buffer.from(bytes, 'utf8');
-  }
-
-  return _crypto.default.createHash('sha1').update(bytes).digest();
-}
-
-var _default = sha1;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 76334:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-exports.unsafeStringify = unsafeStringify;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(38805));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */
-const byteToHex = [];
-
-for (let i = 0; i < 256; ++i) {
-  byteToHex.push((i + 0x100).toString(16).slice(1));
-}
-
-function unsafeStringify(arr, offset = 0) {
-  // Note: Be careful editing this code!  It's been tuned for performance
-  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-  return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
-}
-
-function stringify(arr, offset = 0) {
-  const uuid = unsafeStringify(arr, offset); // Consistency check for valid UUID.  If this throws, it's likely due to one
-  // of the following:
-  // - One or more input array values don't map to a hex octet (leading to
-  // "undefined" in the uuid)
-  // - Invalid input values for the RFC `version` or `variant` fields
-
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Stringified UUID is invalid');
-  }
-
-  return uuid;
-}
-
-var _default = stringify;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 97526:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _rng = _interopRequireDefault(__nccwpck_require__(79250));
-
-var _stringify = __nccwpck_require__(76334);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// **`v1()` - Generate time-based UUID**
-//
-// Inspired by https://github.com/LiosK/UUID.js
-// and http://docs.python.org/library/uuid.html
-let _nodeId;
-
-let _clockseq; // Previous uuid creation time
-
-
-let _lastMSecs = 0;
-let _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
-
-function v1(options, buf, offset) {
-  let i = buf && offset || 0;
-  const b = buf || new Array(16);
-  options = options || {};
-  let node = options.node || _nodeId;
-  let clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
-  // specified.  We do this lazily to minimize issues related to insufficient
-  // system entropy.  See #189
-
-  if (node == null || clockseq == null) {
-    const seedBytes = options.random || (options.rng || _rng.default)();
-
-    if (node == null) {
-      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
-      node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
-    }
-
-    if (clockseq == null) {
-      // Per 4.2.2, randomize (14 bit) clockseq
-      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
-    }
-  } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
-  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
-  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
-  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
-
-
-  let msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
-  // cycle to simulate higher resolution clock
-
-  let nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
-
-  const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
-
-  if (dt < 0 && options.clockseq === undefined) {
-    clockseq = clockseq + 1 & 0x3fff;
-  } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
-  // time interval
-
-
-  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
-    nsecs = 0;
-  } // Per 4.2.1.2 Throw error if too many uuids are requested
-
-
-  if (nsecs >= 10000) {
-    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-  }
-
-  _lastMSecs = msecs;
-  _lastNSecs = nsecs;
-  _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
-
-  msecs += 12219292800000; // `time_low`
-
-  const tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
-  b[i++] = tl >>> 24 & 0xff;
-  b[i++] = tl >>> 16 & 0xff;
-  b[i++] = tl >>> 8 & 0xff;
-  b[i++] = tl & 0xff; // `time_mid`
-
-  const tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
-  b[i++] = tmh >>> 8 & 0xff;
-  b[i++] = tmh & 0xff; // `time_high_and_version`
-
-  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
-
-  b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
-
-  b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
-
-  b[i++] = clockseq & 0xff; // `node`
-
-  for (let n = 0; n < 6; ++n) {
-    b[i + n] = node[n];
-  }
-
-  return buf || (0, _stringify.unsafeStringify)(b);
-}
-
-var _default = v1;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 51084:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _v = _interopRequireDefault(__nccwpck_require__(93545));
-
-var _md = _interopRequireDefault(__nccwpck_require__(23983));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const v3 = (0, _v.default)('v3', 0x30, _md.default);
-var _default = v3;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 93545:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.URL = exports.DNS = void 0;
-exports["default"] = v35;
-
-var _stringify = __nccwpck_require__(76334);
-
-var _parse = _interopRequireDefault(__nccwpck_require__(59312));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function stringToBytes(str) {
-  str = unescape(encodeURIComponent(str)); // UTF8 escape
-
-  const bytes = [];
-
-  for (let i = 0; i < str.length; ++i) {
-    bytes.push(str.charCodeAt(i));
-  }
-
-  return bytes;
-}
-
-const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
-exports.DNS = DNS;
-const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
-exports.URL = URL;
-
-function v35(name, version, hashfunc) {
-  function generateUUID(value, namespace, buf, offset) {
-    var _namespace;
-
-    if (typeof value === 'string') {
-      value = stringToBytes(value);
-    }
-
-    if (typeof namespace === 'string') {
-      namespace = (0, _parse.default)(namespace);
-    }
-
-    if (((_namespace = namespace) === null || _namespace === void 0 ? void 0 : _namespace.length) !== 16) {
-      throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
-    } // Compute hash of namespace and value, Per 4.3
-    // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
-    // hashfunc([...namespace, ... value])`
-
-
-    let bytes = new Uint8Array(16 + value.length);
-    bytes.set(namespace);
-    bytes.set(value, namespace.length);
-    bytes = hashfunc(bytes);
-    bytes[6] = bytes[6] & 0x0f | version;
-    bytes[8] = bytes[8] & 0x3f | 0x80;
-
-    if (buf) {
-      offset = offset || 0;
-
-      for (let i = 0; i < 16; ++i) {
-        buf[offset + i] = bytes[i];
-      }
-
-      return buf;
-    }
-
-    return (0, _stringify.unsafeStringify)(bytes);
-  } // Function#name is not settable on some platforms (#270)
-
-
-  try {
-    generateUUID.name = name; // eslint-disable-next-line no-empty
-  } catch (err) {} // For CommonJS default export support
-
-
-  generateUUID.DNS = DNS;
-  generateUUID.URL = URL;
-  return generateUUID;
-}
-
-/***/ }),
-
-/***/ 2969:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _native = _interopRequireDefault(__nccwpck_require__(82084));
-
-var _rng = _interopRequireDefault(__nccwpck_require__(79250));
-
-var _stringify = __nccwpck_require__(76334);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function v4(options, buf, offset) {
-  if (_native.default.randomUUID && !buf && !options) {
-    return _native.default.randomUUID();
-  }
-
-  options = options || {};
-
-  const rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
-
-
-  rnds[6] = rnds[6] & 0x0f | 0x40;
-  rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
-
-  if (buf) {
-    offset = offset || 0;
-
-    for (let i = 0; i < 16; ++i) {
-      buf[offset + i] = rnds[i];
-    }
-
-    return buf;
-  }
-
-  return (0, _stringify.unsafeStringify)(rnds);
-}
-
-var _default = v4;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 13482:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _v = _interopRequireDefault(__nccwpck_require__(93545));
-
-var _sha = _interopRequireDefault(__nccwpck_require__(18410));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const v5 = (0, _v.default)('v5', 0x50, _sha.default);
-var _default = v5;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 38805:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _regex = _interopRequireDefault(__nccwpck_require__(71280));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function validate(uuid) {
-  return typeof uuid === 'string' && _regex.default.test(uuid);
-}
-
-var _default = validate;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 85095:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(38805));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function version(uuid) {
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Invalid UUID');
-  }
-
-  return parseInt(uuid.slice(14, 15), 16);
-}
-
-var _default = version;
-exports["default"] = _default;
 
 /***/ }),
 
@@ -25315,6 +26487,7 @@ const getRuntimeConfig = (config) => {
         streamCollector: config?.streamCollector ?? node_http_handler_1.streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
         useFipsEndpoint: config?.useFipsEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
+        userAgentAppId: config?.userAgentAppId ?? (0, node_config_provider_1.loadConfig)(util_user_agent_node_1.NODE_APP_ID_CONFIG_OPTIONS),
     };
 };
 exports.getRuntimeConfig = getRuntimeConfig;
@@ -26563,6 +27736,7 @@ const getRuntimeConfig = (config) => {
         streamCollector: config?.streamCollector ?? node_http_handler_1.streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
         useFipsEndpoint: config?.useFipsEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
+        userAgentAppId: config?.userAgentAppId ?? (0, node_config_provider_1.loadConfig)(util_user_agent_node_1.NODE_APP_ID_CONFIG_OPTIONS),
     };
 };
 exports.getRuntimeConfig = getRuntimeConfig;
@@ -27380,6 +28554,7 @@ const getRuntimeConfig = (config) => {
         streamCollector: config?.streamCollector ?? node_http_handler_1.streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
         useFipsEndpoint: config?.useFipsEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
+        userAgentAppId: config?.userAgentAppId ?? (0, node_config_provider_1.loadConfig)(util_user_agent_node_1.NODE_APP_ID_CONFIG_OPTIONS),
     };
 };
 exports.getRuntimeConfig = getRuntimeConfig;
@@ -29177,6 +30352,7 @@ const getRuntimeConfig = (config) => {
         streamCollector: config?.streamCollector ?? node_http_handler_1.streamCollector,
         useDualstackEndpoint: config?.useDualstackEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
         useFipsEndpoint: config?.useFipsEndpoint ?? (0, node_config_provider_1.loadConfig)(config_resolver_1.NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
+        userAgentAppId: config?.userAgentAppId ?? (0, node_config_provider_1.loadConfig)(util_user_agent_node_1.NODE_APP_ID_CONFIG_OPTIONS),
     };
 };
 exports.getRuntimeConfig = getRuntimeConfig;
@@ -29306,7 +30482,8 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/submodules/client/index.ts
 var client_exports = {};
 __export(client_exports, {
-  emitWarningIfUnsupportedVersion: () => emitWarningIfUnsupportedVersion
+  emitWarningIfUnsupportedVersion: () => emitWarningIfUnsupportedVersion,
+  setFeature: () => setFeature
 });
 module.exports = __toCommonJS(client_exports);
 
@@ -29326,6 +30503,19 @@ More information can be found at: https://a.co/74kJMmI`
     );
   }
 }, "emitWarningIfUnsupportedVersion");
+
+// src/submodules/client/setFeature.ts
+function setFeature(context, feature, value) {
+  if (!context.__aws_sdk_context) {
+    context.__aws_sdk_context = {
+      features: {}
+    };
+  } else if (!context.__aws_sdk_context.features) {
+    context.__aws_sdk_context.features = {};
+  }
+  context.__aws_sdk_context.features[feature] = value;
+}
+__name(setFeature, "setFeature");
 // Annotate the CommonJS export names for ESM import in node:
 0 && (0);
 
@@ -31915,6 +33105,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  DEFAULT_UA_APP_ID: () => DEFAULT_UA_APP_ID,
   getUserAgentMiddlewareOptions: () => getUserAgentMiddlewareOptions,
   getUserAgentPlugin: () => getUserAgentPlugin,
   resolveUserAgentConfig: () => resolveUserAgentConfig,
@@ -31923,10 +33114,33 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/configurations.ts
+var import_core = __nccwpck_require__(90402);
+var DEFAULT_UA_APP_ID = void 0;
+function isValidUserAgentAppId(appId) {
+  if (appId === void 0) {
+    return true;
+  }
+  return typeof appId === "string" && appId.length <= 50;
+}
+__name(isValidUserAgentAppId, "isValidUserAgentAppId");
 function resolveUserAgentConfig(input) {
+  const normalizedAppIdProvider = (0, import_core.normalizeProvider)(input.userAgentAppId ?? DEFAULT_UA_APP_ID);
   return {
     ...input,
-    customUserAgent: typeof input.customUserAgent === "string" ? [[input.customUserAgent]] : input.customUserAgent
+    customUserAgent: typeof input.customUserAgent === "string" ? [[input.customUserAgent]] : input.customUserAgent,
+    userAgentAppId: async () => {
+      var _a, _b;
+      const appId = await normalizedAppIdProvider();
+      if (!isValidUserAgentAppId(appId)) {
+        const logger = ((_b = (_a = input.logger) == null ? void 0 : _a.constructor) == null ? void 0 : _b.name) === "NoOpLogger" || !input.logger ? console : input.logger;
+        if (typeof appId !== "string") {
+          logger == null ? void 0 : logger.warn("userAgentAppId must be a string or undefined.");
+        } else if (appId.length > 50) {
+          logger == null ? void 0 : logger.warn("The provided userAgentAppId exceeds the maximum length of 50 characters.");
+        }
+      }
+      return appId;
+    }
   };
 }
 __name(resolveUserAgentConfig, "resolveUserAgentConfig");
@@ -31944,16 +33158,47 @@ var UA_NAME_ESCAPE_REGEX = /[^\!\$\%\&\'\*\+\-\.\^\_\`\|\~\d\w]/g;
 var UA_VALUE_ESCAPE_REGEX = /[^\!\$\%\&\'\*\+\-\.\^\_\`\|\~\d\w\#]/g;
 var UA_ESCAPE_CHAR = "-";
 
+// src/encode-features.ts
+var BYTE_LIMIT = 1024;
+function encodeFeatures(features) {
+  let buffer = "";
+  for (const key in features) {
+    const val = features[key];
+    if (buffer.length + val.length + 1 <= BYTE_LIMIT) {
+      if (buffer.length) {
+        buffer += "," + val;
+      } else {
+        buffer += val;
+      }
+      continue;
+    }
+    break;
+  }
+  return buffer;
+}
+__name(encodeFeatures, "encodeFeatures");
+
 // src/user-agent-middleware.ts
 var userAgentMiddleware = /* @__PURE__ */ __name((options) => (next, context) => async (args) => {
-  var _a, _b;
+  var _a, _b, _c, _d;
   const { request } = args;
-  if (!import_protocol_http.HttpRequest.isInstance(request))
+  if (!import_protocol_http.HttpRequest.isInstance(request)) {
     return next(args);
+  }
   const { headers } = request;
   const userAgent = ((_a = context == null ? void 0 : context.userAgent) == null ? void 0 : _a.map(escapeUserAgent)) || [];
   const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
-  const customUserAgent = ((_b = options == null ? void 0 : options.customUserAgent) == null ? void 0 : _b.map(escapeUserAgent)) || [];
+  const awsContext = context;
+  defaultUserAgent.push(
+    `m/${encodeFeatures(
+      Object.assign({}, (_b = context.__smithy_context) == null ? void 0 : _b.features, (_c = awsContext.__aws_sdk_context) == null ? void 0 : _c.features)
+    )}`
+  );
+  const customUserAgent = ((_d = options == null ? void 0 : options.customUserAgent) == null ? void 0 : _d.map(escapeUserAgent)) || [];
+  const appId = await options.userAgentAppId();
+  if (appId) {
+    defaultUserAgent.push(escapeUserAgent([`app/${appId}`]));
+  }
   const prefix = (0, import_util_endpoints.getUserAgentPrefix)();
   const sdkUserAgentValue = (prefix ? [prefix] : []).concat([...defaultUserAgent, ...userAgent, ...customUserAgent]).join(SPACE);
   const normalUAValue = [
@@ -32786,13 +34031,16 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  NODE_APP_ID_CONFIG_OPTIONS: () => NODE_APP_ID_CONFIG_OPTIONS,
   UA_APP_ID_ENV_NAME: () => UA_APP_ID_ENV_NAME,
   UA_APP_ID_INI_NAME: () => UA_APP_ID_INI_NAME,
+  createDefaultUserAgentProvider: () => createDefaultUserAgentProvider,
   crtAvailability: () => crtAvailability,
   defaultUserAgent: () => defaultUserAgent
 });
 module.exports = __toCommonJS(src_exports);
-var import_node_config_provider = __nccwpck_require__(55704);
+
+// src/defaultUserAgent.ts
 var import_os = __nccwpck_require__(70857);
 var import_process = __nccwpck_require__(932);
 
@@ -32809,46 +34057,48 @@ var isCrtAvailable = /* @__PURE__ */ __name(() => {
   return null;
 }, "isCrtAvailable");
 
-// src/index.ts
-var UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
-var UA_APP_ID_INI_NAME = "sdk-ua-app-id";
-var defaultUserAgent = /* @__PURE__ */ __name(({ serviceId, clientVersion }) => {
-  const sections = [
-    // sdk-metadata
-    ["aws-sdk-js", clientVersion],
-    // ua-metadata
-    ["ua", "2.0"],
-    // os-metadata
-    [`os/${(0, import_os.platform)()}`, (0, import_os.release)()],
-    // language-metadata
-    // ECMAScript edition doesn't matter in JS, so no version needed.
-    ["lang/js"],
-    ["md/nodejs", `${import_process.versions.node}`]
-  ];
-  const crtAvailable = isCrtAvailable();
-  if (crtAvailable) {
-    sections.push(crtAvailable);
-  }
-  if (serviceId) {
-    sections.push([`api/${serviceId}`, clientVersion]);
-  }
-  if (import_process.env.AWS_EXECUTION_ENV) {
-    sections.push([`exec-env/${import_process.env.AWS_EXECUTION_ENV}`]);
-  }
-  const appIdPromise = (0, import_node_config_provider.loadConfig)({
-    environmentVariableSelector: (env2) => env2[UA_APP_ID_ENV_NAME],
-    configFileSelector: (profile) => profile[UA_APP_ID_INI_NAME],
-    default: void 0
-  })();
-  let resolvedUserAgent = void 0;
-  return async () => {
-    if (!resolvedUserAgent) {
-      const appId = await appIdPromise;
-      resolvedUserAgent = appId ? [...sections, [`app/${appId}`]] : [...sections];
+// src/defaultUserAgent.ts
+var createDefaultUserAgentProvider = /* @__PURE__ */ __name(({ serviceId, clientVersion }) => {
+  return async (config) => {
+    var _a;
+    const sections = [
+      // sdk-metadata
+      ["aws-sdk-js", clientVersion],
+      // ua-metadata
+      ["ua", "2.1"],
+      // os-metadata
+      [`os/${(0, import_os.platform)()}`, (0, import_os.release)()],
+      // language-metadata
+      // ECMAScript edition doesn't matter in JS, so no version needed.
+      ["lang/js"],
+      ["md/nodejs", `${import_process.versions.node}`]
+    ];
+    const crtAvailable = isCrtAvailable();
+    if (crtAvailable) {
+      sections.push(crtAvailable);
     }
+    if (serviceId) {
+      sections.push([`api/${serviceId}`, clientVersion]);
+    }
+    if (import_process.env.AWS_EXECUTION_ENV) {
+      sections.push([`exec-env/${import_process.env.AWS_EXECUTION_ENV}`]);
+    }
+    const appId = await ((_a = config == null ? void 0 : config.userAgentAppId) == null ? void 0 : _a.call(config));
+    const resolvedUserAgent = appId ? [...sections, [`app/${appId}`]] : [...sections];
     return resolvedUserAgent;
   };
-}, "defaultUserAgent");
+}, "createDefaultUserAgentProvider");
+var defaultUserAgent = createDefaultUserAgentProvider;
+
+// src/nodeAppIdConfigOptions.ts
+var import_middleware_user_agent = __nccwpck_require__(32959);
+var UA_APP_ID_ENV_NAME = "AWS_SDK_UA_APP_ID";
+var UA_APP_ID_INI_NAME = "sdk-ua-app-id";
+var NODE_APP_ID_CONFIG_OPTIONS = {
+  environmentVariableSelector: (env2) => env2[UA_APP_ID_ENV_NAME],
+  configFileSelector: (profile) => profile[UA_APP_ID_INI_NAME],
+  default: import_middleware_user_agent.DEFAULT_UA_APP_ID
+};
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -39277,7 +40527,7 @@ module.exports = __toCommonJS(src_exports);
 var import_protocol_http = __nccwpck_require__(72356);
 
 
-var import_uuid = __nccwpck_require__(37708);
+var import_uuid = __nccwpck_require__(12048);
 
 // src/defaultRetryQuota.ts
 var import_util_retry = __nccwpck_require__(15518);
@@ -39649,687 +40899,6 @@ const isStreamingPayload = (request) => (request === null || request === void 0 
     (typeof ReadableStream !== "undefined" && (request === null || request === void 0 ? void 0 : request.body) instanceof ReadableStream);
 exports.isStreamingPayload = isStreamingPayload;
 
-
-/***/ }),
-
-/***/ 37708:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-Object.defineProperty(exports, "NIL", ({
-  enumerable: true,
-  get: function () {
-    return _nil.default;
-  }
-}));
-Object.defineProperty(exports, "parse", ({
-  enumerable: true,
-  get: function () {
-    return _parse.default;
-  }
-}));
-Object.defineProperty(exports, "stringify", ({
-  enumerable: true,
-  get: function () {
-    return _stringify.default;
-  }
-}));
-Object.defineProperty(exports, "v1", ({
-  enumerable: true,
-  get: function () {
-    return _v.default;
-  }
-}));
-Object.defineProperty(exports, "v3", ({
-  enumerable: true,
-  get: function () {
-    return _v2.default;
-  }
-}));
-Object.defineProperty(exports, "v4", ({
-  enumerable: true,
-  get: function () {
-    return _v3.default;
-  }
-}));
-Object.defineProperty(exports, "v5", ({
-  enumerable: true,
-  get: function () {
-    return _v4.default;
-  }
-}));
-Object.defineProperty(exports, "validate", ({
-  enumerable: true,
-  get: function () {
-    return _validate.default;
-  }
-}));
-Object.defineProperty(exports, "version", ({
-  enumerable: true,
-  get: function () {
-    return _version.default;
-  }
-}));
-
-var _v = _interopRequireDefault(__nccwpck_require__(76323));
-
-var _v2 = _interopRequireDefault(__nccwpck_require__(85285));
-
-var _v3 = _interopRequireDefault(__nccwpck_require__(18960));
-
-var _v4 = _interopRequireDefault(__nccwpck_require__(25831));
-
-var _nil = _interopRequireDefault(__nccwpck_require__(74143));
-
-var _version = _interopRequireDefault(__nccwpck_require__(72224));
-
-var _validate = _interopRequireDefault(__nccwpck_require__(19820));
-
-var _stringify = _interopRequireDefault(__nccwpck_require__(73601));
-
-var _parse = _interopRequireDefault(__nccwpck_require__(88351));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ }),
-
-/***/ 20276:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function md5(bytes) {
-  if (Array.isArray(bytes)) {
-    bytes = Buffer.from(bytes);
-  } else if (typeof bytes === 'string') {
-    bytes = Buffer.from(bytes, 'utf8');
-  }
-
-  return _crypto.default.createHash('md5').update(bytes).digest();
-}
-
-var _default = md5;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 52921:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = {
-  randomUUID: _crypto.default.randomUUID
-};
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 74143:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _default = '00000000-0000-0000-0000-000000000000';
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 88351:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(19820));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function parse(uuid) {
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Invalid UUID');
-  }
-
-  let v;
-  const arr = new Uint8Array(16); // Parse ########-....-....-....-............
-
-  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
-  arr[1] = v >>> 16 & 0xff;
-  arr[2] = v >>> 8 & 0xff;
-  arr[3] = v & 0xff; // Parse ........-####-....-....-............
-
-  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
-  arr[5] = v & 0xff; // Parse ........-....-####-....-............
-
-  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
-  arr[7] = v & 0xff; // Parse ........-....-....-####-............
-
-  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
-  arr[9] = v & 0xff; // Parse ........-....-....-....-############
-  // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
-
-  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
-  arr[11] = v / 0x100000000 & 0xff;
-  arr[12] = v >>> 24 & 0xff;
-  arr[13] = v >>> 16 & 0xff;
-  arr[14] = v >>> 8 & 0xff;
-  arr[15] = v & 0xff;
-  return arr;
-}
-
-var _default = parse;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 49555:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 37281:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = rng;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
-
-let poolPtr = rnds8Pool.length;
-
-function rng() {
-  if (poolPtr > rnds8Pool.length - 16) {
-    _crypto.default.randomFillSync(rnds8Pool);
-
-    poolPtr = 0;
-  }
-
-  return rnds8Pool.slice(poolPtr, poolPtr += 16);
-}
-
-/***/ }),
-
-/***/ 25287:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function sha1(bytes) {
-  if (Array.isArray(bytes)) {
-    bytes = Buffer.from(bytes);
-  } else if (typeof bytes === 'string') {
-    bytes = Buffer.from(bytes, 'utf8');
-  }
-
-  return _crypto.default.createHash('sha1').update(bytes).digest();
-}
-
-var _default = sha1;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 73601:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-exports.unsafeStringify = unsafeStringify;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(19820));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */
-const byteToHex = [];
-
-for (let i = 0; i < 256; ++i) {
-  byteToHex.push((i + 0x100).toString(16).slice(1));
-}
-
-function unsafeStringify(arr, offset = 0) {
-  // Note: Be careful editing this code!  It's been tuned for performance
-  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-  return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
-}
-
-function stringify(arr, offset = 0) {
-  const uuid = unsafeStringify(arr, offset); // Consistency check for valid UUID.  If this throws, it's likely due to one
-  // of the following:
-  // - One or more input array values don't map to a hex octet (leading to
-  // "undefined" in the uuid)
-  // - Invalid input values for the RFC `version` or `variant` fields
-
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Stringified UUID is invalid');
-  }
-
-  return uuid;
-}
-
-var _default = stringify;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 76323:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _rng = _interopRequireDefault(__nccwpck_require__(37281));
-
-var _stringify = __nccwpck_require__(73601);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// **`v1()` - Generate time-based UUID**
-//
-// Inspired by https://github.com/LiosK/UUID.js
-// and http://docs.python.org/library/uuid.html
-let _nodeId;
-
-let _clockseq; // Previous uuid creation time
-
-
-let _lastMSecs = 0;
-let _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
-
-function v1(options, buf, offset) {
-  let i = buf && offset || 0;
-  const b = buf || new Array(16);
-  options = options || {};
-  let node = options.node || _nodeId;
-  let clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
-  // specified.  We do this lazily to minimize issues related to insufficient
-  // system entropy.  See #189
-
-  if (node == null || clockseq == null) {
-    const seedBytes = options.random || (options.rng || _rng.default)();
-
-    if (node == null) {
-      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
-      node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
-    }
-
-    if (clockseq == null) {
-      // Per 4.2.2, randomize (14 bit) clockseq
-      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
-    }
-  } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
-  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
-  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
-  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
-
-
-  let msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
-  // cycle to simulate higher resolution clock
-
-  let nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
-
-  const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
-
-  if (dt < 0 && options.clockseq === undefined) {
-    clockseq = clockseq + 1 & 0x3fff;
-  } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
-  // time interval
-
-
-  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
-    nsecs = 0;
-  } // Per 4.2.1.2 Throw error if too many uuids are requested
-
-
-  if (nsecs >= 10000) {
-    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-  }
-
-  _lastMSecs = msecs;
-  _lastNSecs = nsecs;
-  _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
-
-  msecs += 12219292800000; // `time_low`
-
-  const tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
-  b[i++] = tl >>> 24 & 0xff;
-  b[i++] = tl >>> 16 & 0xff;
-  b[i++] = tl >>> 8 & 0xff;
-  b[i++] = tl & 0xff; // `time_mid`
-
-  const tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
-  b[i++] = tmh >>> 8 & 0xff;
-  b[i++] = tmh & 0xff; // `time_high_and_version`
-
-  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
-
-  b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
-
-  b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
-
-  b[i++] = clockseq & 0xff; // `node`
-
-  for (let n = 0; n < 6; ++n) {
-    b[i + n] = node[n];
-  }
-
-  return buf || (0, _stringify.unsafeStringify)(b);
-}
-
-var _default = v1;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 85285:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _v = _interopRequireDefault(__nccwpck_require__(21606));
-
-var _md = _interopRequireDefault(__nccwpck_require__(20276));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const v3 = (0, _v.default)('v3', 0x30, _md.default);
-var _default = v3;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 21606:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.URL = exports.DNS = void 0;
-exports["default"] = v35;
-
-var _stringify = __nccwpck_require__(73601);
-
-var _parse = _interopRequireDefault(__nccwpck_require__(88351));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function stringToBytes(str) {
-  str = unescape(encodeURIComponent(str)); // UTF8 escape
-
-  const bytes = [];
-
-  for (let i = 0; i < str.length; ++i) {
-    bytes.push(str.charCodeAt(i));
-  }
-
-  return bytes;
-}
-
-const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
-exports.DNS = DNS;
-const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
-exports.URL = URL;
-
-function v35(name, version, hashfunc) {
-  function generateUUID(value, namespace, buf, offset) {
-    var _namespace;
-
-    if (typeof value === 'string') {
-      value = stringToBytes(value);
-    }
-
-    if (typeof namespace === 'string') {
-      namespace = (0, _parse.default)(namespace);
-    }
-
-    if (((_namespace = namespace) === null || _namespace === void 0 ? void 0 : _namespace.length) !== 16) {
-      throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
-    } // Compute hash of namespace and value, Per 4.3
-    // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
-    // hashfunc([...namespace, ... value])`
-
-
-    let bytes = new Uint8Array(16 + value.length);
-    bytes.set(namespace);
-    bytes.set(value, namespace.length);
-    bytes = hashfunc(bytes);
-    bytes[6] = bytes[6] & 0x0f | version;
-    bytes[8] = bytes[8] & 0x3f | 0x80;
-
-    if (buf) {
-      offset = offset || 0;
-
-      for (let i = 0; i < 16; ++i) {
-        buf[offset + i] = bytes[i];
-      }
-
-      return buf;
-    }
-
-    return (0, _stringify.unsafeStringify)(bytes);
-  } // Function#name is not settable on some platforms (#270)
-
-
-  try {
-    generateUUID.name = name; // eslint-disable-next-line no-empty
-  } catch (err) {} // For CommonJS default export support
-
-
-  generateUUID.DNS = DNS;
-  generateUUID.URL = URL;
-  return generateUUID;
-}
-
-/***/ }),
-
-/***/ 18960:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _native = _interopRequireDefault(__nccwpck_require__(52921));
-
-var _rng = _interopRequireDefault(__nccwpck_require__(37281));
-
-var _stringify = __nccwpck_require__(73601);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function v4(options, buf, offset) {
-  if (_native.default.randomUUID && !buf && !options) {
-    return _native.default.randomUUID();
-  }
-
-  options = options || {};
-
-  const rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
-
-
-  rnds[6] = rnds[6] & 0x0f | 0x40;
-  rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
-
-  if (buf) {
-    offset = offset || 0;
-
-    for (let i = 0; i < 16; ++i) {
-      buf[offset + i] = rnds[i];
-    }
-
-    return buf;
-  }
-
-  return (0, _stringify.unsafeStringify)(rnds);
-}
-
-var _default = v4;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 25831:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _v = _interopRequireDefault(__nccwpck_require__(21606));
-
-var _sha = _interopRequireDefault(__nccwpck_require__(25287));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const v5 = (0, _v.default)('v5', 0x50, _sha.default);
-var _default = v5;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 19820:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _regex = _interopRequireDefault(__nccwpck_require__(49555));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function validate(uuid) {
-  return typeof uuid === 'string' && _regex.default.test(uuid);
-}
-
-var _default = validate;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 72224:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _validate = _interopRequireDefault(__nccwpck_require__(19820));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function version(uuid) {
-  if (!(0, _validate.default)(uuid)) {
-    throw TypeError('Invalid UUID');
-  }
-
-  return parseInt(uuid.slice(14, 15), 16);
-}
-
-var _default = version;
-exports["default"] = _default;
 
 /***/ }),
 
@@ -43202,11 +43771,11 @@ var hasHeader = /* @__PURE__ */ __name((soughtHeader, headers) => {
 // src/moveHeadersToQuery.ts
 var import_protocol_http = __nccwpck_require__(72356);
 var moveHeadersToQuery = /* @__PURE__ */ __name((request, options = {}) => {
-  var _a;
+  var _a, _b;
   const { headers, query = {} } = import_protocol_http.HttpRequest.clone(request);
   for (const name of Object.keys(headers)) {
     const lname = name.toLowerCase();
-    if (lname.slice(0, 6) === "x-amz-" && !((_a = options.unhoistableHeaders) == null ? void 0 : _a.has(lname))) {
+    if (lname.slice(0, 6) === "x-amz-" && !((_a = options.unhoistableHeaders) == null ? void 0 : _a.has(lname)) || ((_b = options.hoistableHeaders) == null ? void 0 : _b.has(lname))) {
       query[name] = headers[name];
       delete headers[name];
     }
@@ -43270,6 +43839,7 @@ var _SignatureV4 = class _SignatureV4 {
       unsignableHeaders,
       unhoistableHeaders,
       signableHeaders,
+      hoistableHeaders,
       signingRegion,
       signingService
     } = options;
@@ -43283,7 +43853,7 @@ var _SignatureV4 = class _SignatureV4 {
       );
     }
     const scope = createScope(shortDate, region, signingService ?? this.service);
-    const request = moveHeadersToQuery(prepareRequest(originalRequest), { unhoistableHeaders });
+    const request = moveHeadersToQuery(prepareRequest(originalRequest), { unhoistableHeaders, hoistableHeaders });
     if (credentials.sessionToken) {
       request.query[TOKEN_QUERY_PARAM] = credentials.sessionToken;
     }
@@ -43530,11 +44100,13 @@ __export(src_exports, {
   parseRfc3339DateTime: () => parseRfc3339DateTime,
   parseRfc3339DateTimeWithOffset: () => parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime: () => parseRfc7231DateTime,
+  quoteHeader: () => quoteHeader,
   resolveDefaultRuntimeConfig: () => resolveDefaultRuntimeConfig,
   resolvedPath: () => resolvedPath,
   serializeDateTime: () => serializeDateTime,
   serializeFloat: () => serializeFloat,
   splitEvery: () => splitEvery,
+  splitHeader: () => splitHeader,
   strictParseByte: () => strictParseByte,
   strictParseDouble: () => strictParseDouble,
   strictParseFloat: () => strictParseFloat,
@@ -44603,6 +45175,15 @@ var applyInstruction = /* @__PURE__ */ __name((target, source, instructions, tar
 var nonNullish = /* @__PURE__ */ __name((_) => _ != null, "nonNullish");
 var pass = /* @__PURE__ */ __name((_) => _, "pass");
 
+// src/quote-header.ts
+function quoteHeader(part) {
+  if (part.includes(",") || part.includes('"')) {
+    part = `"${part.replace(/"/g, '\\"')}"`;
+  }
+  return part;
+}
+__name(quoteHeader, "quoteHeader");
+
 // src/resolve-path.ts
 var resolvedPath = /* @__PURE__ */ __name((resolvedPath2, input, memberName, labelValueProvider, uriLabel, isGreedyLabel) => {
   if (input != null && input[memberName] !== void 0) {
@@ -44685,6 +45266,45 @@ function splitEvery(value, delimiter, numDelimiters) {
   return compoundSegments;
 }
 __name(splitEvery, "splitEvery");
+
+// src/split-header.ts
+var splitHeader = /* @__PURE__ */ __name((value) => {
+  const z = value.length;
+  const values = [];
+  let withinQuotes = false;
+  let prevChar = void 0;
+  let anchor = 0;
+  for (let i = 0; i < z; ++i) {
+    const char = value[i];
+    switch (char) {
+      case `"`:
+        if (prevChar !== "\\") {
+          withinQuotes = !withinQuotes;
+        }
+        break;
+      case ",":
+        if (!withinQuotes) {
+          values.push(value.slice(anchor, i));
+          anchor = i + 1;
+        }
+        break;
+      default:
+    }
+    prevChar = char;
+  }
+  values.push(value.slice(anchor));
+  return values.map((v) => {
+    v = v.trim();
+    const z2 = v.length;
+    if (z2 < 2) {
+      return v;
+    }
+    if (v[0] === `"` && v[z2 - 1] === `"`) {
+      v = v.slice(1, z2 - 1);
+    }
+    return v.replace(/\\"/g, '"');
+  });
+}, "splitHeader");
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -85492,6 +86112,24 @@ exports.fromPromise = function (fn) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
+Object.defineProperty(exports, "NIL", ({
+  enumerable: true,
+  get: function () {
+    return _nil.default;
+  }
+}));
+Object.defineProperty(exports, "parse", ({
+  enumerable: true,
+  get: function () {
+    return _parse.default;
+  }
+}));
+Object.defineProperty(exports, "stringify", ({
+  enumerable: true,
+  get: function () {
+    return _stringify.default;
+  }
+}));
 Object.defineProperty(exports, "v1", ({
   enumerable: true,
   get: function () {
@@ -85516,34 +86154,16 @@ Object.defineProperty(exports, "v5", ({
     return _v4.default;
   }
 }));
-Object.defineProperty(exports, "NIL", ({
-  enumerable: true,
-  get: function () {
-    return _nil.default;
-  }
-}));
-Object.defineProperty(exports, "version", ({
-  enumerable: true,
-  get: function () {
-    return _version.default;
-  }
-}));
 Object.defineProperty(exports, "validate", ({
   enumerable: true,
   get: function () {
     return _validate.default;
   }
 }));
-Object.defineProperty(exports, "stringify", ({
+Object.defineProperty(exports, "version", ({
   enumerable: true,
   get: function () {
-    return _stringify.default;
-  }
-}));
-Object.defineProperty(exports, "parse", ({
-  enumerable: true,
-  get: function () {
-    return _parse.default;
+    return _version.default;
   }
 }));
 
@@ -85595,6 +86215,28 @@ function md5(bytes) {
 }
 
 var _default = md5;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 54221:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _crypto = _interopRequireDefault(__nccwpck_require__(76982));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  randomUUID: _crypto.default.randomUUID
+};
 exports["default"] = _default;
 
 /***/ }),
@@ -85752,6 +86394,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
+exports.unsafeStringify = unsafeStringify;
 
 var _validate = _interopRequireDefault(__nccwpck_require__(36200));
 
@@ -85764,13 +86407,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const byteToHex = [];
 
 for (let i = 0; i < 256; ++i) {
-  byteToHex.push((i + 0x100).toString(16).substr(1));
+  byteToHex.push((i + 0x100).toString(16).slice(1));
+}
+
+function unsafeStringify(arr, offset = 0) {
+  // Note: Be careful editing this code!  It's been tuned for performance
+  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+  return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
 }
 
 function stringify(arr, offset = 0) {
-  // Note: Be careful editing this code!  It's been tuned for performance
-  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-  const uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
+  const uuid = unsafeStringify(arr, offset); // Consistency check for valid UUID.  If this throws, it's likely due to one
   // of the following:
   // - One or more input array values don't map to a hex octet (leading to
   // "undefined" in the uuid)
@@ -85801,7 +86448,7 @@ exports["default"] = void 0;
 
 var _rng = _interopRequireDefault(__nccwpck_require__(12973));
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(37597));
+var _stringify = __nccwpck_require__(37597);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85894,7 +86541,7 @@ function v1(options, buf, offset) {
     b[i + n] = node[n];
   }
 
-  return buf || (0, _stringify.default)(b);
+  return buf || (0, _stringify.unsafeStringify)(b);
 }
 
 var _default = v1;
@@ -85934,10 +86581,10 @@ exports["default"] = _default;
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = _default;
 exports.URL = exports.DNS = void 0;
+exports["default"] = v35;
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(37597));
+var _stringify = __nccwpck_require__(37597);
 
 var _parse = _interopRequireDefault(__nccwpck_require__(17267));
 
@@ -85960,8 +86607,10 @@ exports.DNS = DNS;
 const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
 exports.URL = URL;
 
-function _default(name, version, hashfunc) {
+function v35(name, version, hashfunc) {
   function generateUUID(value, namespace, buf, offset) {
+    var _namespace;
+
     if (typeof value === 'string') {
       value = stringToBytes(value);
     }
@@ -85970,7 +86619,7 @@ function _default(name, version, hashfunc) {
       namespace = (0, _parse.default)(namespace);
     }
 
-    if (namespace.length !== 16) {
+    if (((_namespace = namespace) === null || _namespace === void 0 ? void 0 : _namespace.length) !== 16) {
       throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
     } // Compute hash of namespace and value, Per 4.3
     // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
@@ -85994,7 +86643,7 @@ function _default(name, version, hashfunc) {
       return buf;
     }
 
-    return (0, _stringify.default)(bytes);
+    return (0, _stringify.unsafeStringify)(bytes);
   } // Function#name is not settable on some platforms (#270)
 
 
@@ -86021,13 +86670,19 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
+var _native = _interopRequireDefault(__nccwpck_require__(54221));
+
 var _rng = _interopRequireDefault(__nccwpck_require__(12973));
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(37597));
+var _stringify = __nccwpck_require__(37597);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function v4(options, buf, offset) {
+  if (_native.default.randomUUID && !buf && !options) {
+    return _native.default.randomUUID();
+  }
+
   options = options || {};
 
   const rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
@@ -86046,7 +86701,7 @@ function v4(options, buf, offset) {
     return buf;
   }
 
-  return (0, _stringify.default)(rnds);
+  return (0, _stringify.unsafeStringify)(rnds);
 }
 
 var _default = v4;
@@ -86121,7 +86776,7 @@ function version(uuid) {
     throw TypeError('Invalid UUID');
   }
 
-  return parseInt(uuid.substr(14, 1), 16);
+  return parseInt(uuid.slice(14, 15), 16);
 }
 
 var _default = version;
@@ -86398,6 +87053,14 @@ module.exports = require("stream/web");
 
 "use strict";
 module.exports = require("string_decoder");
+
+/***/ }),
+
+/***/ 53557:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("timers");
 
 /***/ }),
 
@@ -88118,7 +88781,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$ref":"#/definitions/IntegManifest",
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.658.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.658.1","@aws-sdk/client-sts":"3.658.1","@aws-sdk/core":"3.658.1","@aws-sdk/credential-provider-node":"3.658.1","@aws-sdk/middleware-host-header":"3.654.0","@aws-sdk/middleware-logger":"3.654.0","@aws-sdk/middleware-recursion-detection":"3.654.0","@aws-sdk/middleware-user-agent":"3.654.0","@aws-sdk/region-config-resolver":"3.654.0","@aws-sdk/types":"3.654.0","@aws-sdk/util-endpoints":"3.654.0","@aws-sdk/util-user-agent-browser":"3.654.0","@aws-sdk/util-user-agent-node":"3.654.0","@smithy/config-resolver":"^3.0.8","@smithy/core":"^2.4.6","@smithy/fetch-http-handler":"^3.2.8","@smithy/hash-node":"^3.0.6","@smithy/invalid-dependency":"^3.0.6","@smithy/middleware-content-length":"^3.0.8","@smithy/middleware-endpoint":"^3.1.3","@smithy/middleware-retry":"^3.0.21","@smithy/middleware-serde":"^3.0.6","@smithy/middleware-stack":"^3.0.6","@smithy/node-config-provider":"^3.1.7","@smithy/node-http-handler":"^3.2.3","@smithy/protocol-http":"^4.1.3","@smithy/smithy-client":"^3.3.5","@smithy/types":"^3.4.2","@smithy/url-parser":"^3.0.6","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.21","@smithy/util-defaults-mode-node":"^3.0.21","@smithy/util-endpoints":"^2.1.2","@smithy/util-middleware":"^3.0.6","@smithy/util-retry":"^3.0.6","@smithy/util-utf8":"^3.0.0","@smithy/util-waiter":"^3.1.5","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.665.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.665.0","@aws-sdk/client-sts":"3.665.0","@aws-sdk/core":"3.665.0","@aws-sdk/credential-provider-node":"3.665.0","@aws-sdk/middleware-host-header":"3.664.0","@aws-sdk/middleware-logger":"3.664.0","@aws-sdk/middleware-recursion-detection":"3.664.0","@aws-sdk/middleware-user-agent":"3.664.0","@aws-sdk/region-config-resolver":"3.664.0","@aws-sdk/types":"3.664.0","@aws-sdk/util-endpoints":"3.664.0","@aws-sdk/util-user-agent-browser":"3.664.0","@aws-sdk/util-user-agent-node":"3.664.0","@smithy/config-resolver":"^3.0.9","@smithy/core":"^2.4.7","@smithy/fetch-http-handler":"^3.2.9","@smithy/hash-node":"^3.0.7","@smithy/invalid-dependency":"^3.0.7","@smithy/middleware-content-length":"^3.0.9","@smithy/middleware-endpoint":"^3.1.4","@smithy/middleware-retry":"^3.0.22","@smithy/middleware-serde":"^3.0.7","@smithy/middleware-stack":"^3.0.7","@smithy/node-config-provider":"^3.1.8","@smithy/node-http-handler":"^3.2.4","@smithy/protocol-http":"^4.1.4","@smithy/smithy-client":"^3.3.6","@smithy/types":"^3.5.0","@smithy/url-parser":"^3.0.7","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.22","@smithy/util-defaults-mode-node":"^3.0.22","@smithy/util-endpoints":"^2.1.3","@smithy/util-middleware":"^3.0.7","@smithy/util-retry":"^3.0.7","@smithy/util-utf8":"^3.0.0","@smithy/util-waiter":"^3.1.6","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","@types/uuid":"^9.0.4","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -88126,7 +88789,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.658.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cognito-identity","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"ts-mocha test/**/*.ispec.ts && karma start karma.conf.js"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.658.1","@aws-sdk/client-sts":"3.658.1","@aws-sdk/core":"3.658.1","@aws-sdk/credential-provider-node":"3.658.1","@aws-sdk/middleware-host-header":"3.654.0","@aws-sdk/middleware-logger":"3.654.0","@aws-sdk/middleware-recursion-detection":"3.654.0","@aws-sdk/middleware-user-agent":"3.654.0","@aws-sdk/region-config-resolver":"3.654.0","@aws-sdk/types":"3.654.0","@aws-sdk/util-endpoints":"3.654.0","@aws-sdk/util-user-agent-browser":"3.654.0","@aws-sdk/util-user-agent-node":"3.654.0","@smithy/config-resolver":"^3.0.8","@smithy/core":"^2.4.6","@smithy/fetch-http-handler":"^3.2.8","@smithy/hash-node":"^3.0.6","@smithy/invalid-dependency":"^3.0.6","@smithy/middleware-content-length":"^3.0.8","@smithy/middleware-endpoint":"^3.1.3","@smithy/middleware-retry":"^3.0.21","@smithy/middleware-serde":"^3.0.6","@smithy/middleware-stack":"^3.0.6","@smithy/node-config-provider":"^3.1.7","@smithy/node-http-handler":"^3.2.3","@smithy/protocol-http":"^4.1.3","@smithy/smithy-client":"^3.3.5","@smithy/types":"^3.4.2","@smithy/url-parser":"^3.0.6","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.21","@smithy/util-defaults-mode-node":"^3.0.21","@smithy/util-endpoints":"^2.1.2","@smithy/util-middleware":"^3.0.6","@smithy/util-retry":"^3.0.6","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@aws-sdk/client-iam":"3.658.1","@tsconfig/node16":"16.1.3","@types/chai":"^4.2.11","@types/mocha":"^8.0.4","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.665.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cognito-identity","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"ts-mocha test/**/*.ispec.ts && karma start karma.conf.js"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.665.0","@aws-sdk/client-sts":"3.665.0","@aws-sdk/core":"3.665.0","@aws-sdk/credential-provider-node":"3.665.0","@aws-sdk/middleware-host-header":"3.664.0","@aws-sdk/middleware-logger":"3.664.0","@aws-sdk/middleware-recursion-detection":"3.664.0","@aws-sdk/middleware-user-agent":"3.664.0","@aws-sdk/region-config-resolver":"3.664.0","@aws-sdk/types":"3.664.0","@aws-sdk/util-endpoints":"3.664.0","@aws-sdk/util-user-agent-browser":"3.664.0","@aws-sdk/util-user-agent-node":"3.664.0","@smithy/config-resolver":"^3.0.9","@smithy/core":"^2.4.7","@smithy/fetch-http-handler":"^3.2.9","@smithy/hash-node":"^3.0.7","@smithy/invalid-dependency":"^3.0.7","@smithy/middleware-content-length":"^3.0.9","@smithy/middleware-endpoint":"^3.1.4","@smithy/middleware-retry":"^3.0.22","@smithy/middleware-serde":"^3.0.7","@smithy/middleware-stack":"^3.0.7","@smithy/node-config-provider":"^3.1.8","@smithy/node-http-handler":"^3.2.4","@smithy/protocol-http":"^4.1.4","@smithy/smithy-client":"^3.3.6","@smithy/types":"^3.5.0","@smithy/url-parser":"^3.0.7","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.22","@smithy/util-defaults-mode-node":"^3.0.22","@smithy/util-endpoints":"^2.1.3","@smithy/util-middleware":"^3.0.7","@smithy/util-retry":"^3.0.7","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@aws-sdk/client-iam":"3.665.0","@tsconfig/node16":"16.1.3","@types/chai":"^4.2.11","@types/mocha":"^8.0.4","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
 
 /***/ }),
 
@@ -88134,7 +88797,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-ident
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.658.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.658.1","@aws-sdk/credential-provider-node":"3.658.1","@aws-sdk/middleware-host-header":"3.654.0","@aws-sdk/middleware-logger":"3.654.0","@aws-sdk/middleware-recursion-detection":"3.654.0","@aws-sdk/middleware-user-agent":"3.654.0","@aws-sdk/region-config-resolver":"3.654.0","@aws-sdk/types":"3.654.0","@aws-sdk/util-endpoints":"3.654.0","@aws-sdk/util-user-agent-browser":"3.654.0","@aws-sdk/util-user-agent-node":"3.654.0","@smithy/config-resolver":"^3.0.8","@smithy/core":"^2.4.6","@smithy/fetch-http-handler":"^3.2.8","@smithy/hash-node":"^3.0.6","@smithy/invalid-dependency":"^3.0.6","@smithy/middleware-content-length":"^3.0.8","@smithy/middleware-endpoint":"^3.1.3","@smithy/middleware-retry":"^3.0.21","@smithy/middleware-serde":"^3.0.6","@smithy/middleware-stack":"^3.0.6","@smithy/node-config-provider":"^3.1.7","@smithy/node-http-handler":"^3.2.3","@smithy/protocol-http":"^4.1.3","@smithy/smithy-client":"^3.3.5","@smithy/types":"^3.4.2","@smithy/url-parser":"^3.0.6","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.21","@smithy/util-defaults-mode-node":"^3.0.21","@smithy/util-endpoints":"^2.1.2","@smithy/util-middleware":"^3.0.6","@smithy/util-retry":"^3.0.6","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/client-sts":"^3.658.1"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.665.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.665.0","@aws-sdk/credential-provider-node":"3.665.0","@aws-sdk/middleware-host-header":"3.664.0","@aws-sdk/middleware-logger":"3.664.0","@aws-sdk/middleware-recursion-detection":"3.664.0","@aws-sdk/middleware-user-agent":"3.664.0","@aws-sdk/region-config-resolver":"3.664.0","@aws-sdk/types":"3.664.0","@aws-sdk/util-endpoints":"3.664.0","@aws-sdk/util-user-agent-browser":"3.664.0","@aws-sdk/util-user-agent-node":"3.664.0","@smithy/config-resolver":"^3.0.9","@smithy/core":"^2.4.7","@smithy/fetch-http-handler":"^3.2.9","@smithy/hash-node":"^3.0.7","@smithy/invalid-dependency":"^3.0.7","@smithy/middleware-content-length":"^3.0.9","@smithy/middleware-endpoint":"^3.1.4","@smithy/middleware-retry":"^3.0.22","@smithy/middleware-serde":"^3.0.7","@smithy/middleware-stack":"^3.0.7","@smithy/node-config-provider":"^3.1.8","@smithy/node-http-handler":"^3.2.4","@smithy/protocol-http":"^4.1.4","@smithy/smithy-client":"^3.3.6","@smithy/types":"^3.5.0","@smithy/url-parser":"^3.0.7","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.22","@smithy/util-defaults-mode-node":"^3.0.22","@smithy/util-endpoints":"^2.1.3","@smithy/util-middleware":"^3.0.7","@smithy/util-retry":"^3.0.7","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/client-sts":"^3.665.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
@@ -88142,7 +88805,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso-oidc","de
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.658.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.658.1","@aws-sdk/middleware-host-header":"3.654.0","@aws-sdk/middleware-logger":"3.654.0","@aws-sdk/middleware-recursion-detection":"3.654.0","@aws-sdk/middleware-user-agent":"3.654.0","@aws-sdk/region-config-resolver":"3.654.0","@aws-sdk/types":"3.654.0","@aws-sdk/util-endpoints":"3.654.0","@aws-sdk/util-user-agent-browser":"3.654.0","@aws-sdk/util-user-agent-node":"3.654.0","@smithy/config-resolver":"^3.0.8","@smithy/core":"^2.4.6","@smithy/fetch-http-handler":"^3.2.8","@smithy/hash-node":"^3.0.6","@smithy/invalid-dependency":"^3.0.6","@smithy/middleware-content-length":"^3.0.8","@smithy/middleware-endpoint":"^3.1.3","@smithy/middleware-retry":"^3.0.21","@smithy/middleware-serde":"^3.0.6","@smithy/middleware-stack":"^3.0.6","@smithy/node-config-provider":"^3.1.7","@smithy/node-http-handler":"^3.2.3","@smithy/protocol-http":"^4.1.3","@smithy/smithy-client":"^3.3.5","@smithy/types":"^3.4.2","@smithy/url-parser":"^3.0.6","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.21","@smithy/util-defaults-mode-node":"^3.0.21","@smithy/util-endpoints":"^2.1.2","@smithy/util-middleware":"^3.0.6","@smithy/util-retry":"^3.0.6","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.665.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.665.0","@aws-sdk/middleware-host-header":"3.664.0","@aws-sdk/middleware-logger":"3.664.0","@aws-sdk/middleware-recursion-detection":"3.664.0","@aws-sdk/middleware-user-agent":"3.664.0","@aws-sdk/region-config-resolver":"3.664.0","@aws-sdk/types":"3.664.0","@aws-sdk/util-endpoints":"3.664.0","@aws-sdk/util-user-agent-browser":"3.664.0","@aws-sdk/util-user-agent-node":"3.664.0","@smithy/config-resolver":"^3.0.9","@smithy/core":"^2.4.7","@smithy/fetch-http-handler":"^3.2.9","@smithy/hash-node":"^3.0.7","@smithy/invalid-dependency":"^3.0.7","@smithy/middleware-content-length":"^3.0.9","@smithy/middleware-endpoint":"^3.1.4","@smithy/middleware-retry":"^3.0.22","@smithy/middleware-serde":"^3.0.7","@smithy/middleware-stack":"^3.0.7","@smithy/node-config-provider":"^3.1.8","@smithy/node-http-handler":"^3.2.4","@smithy/protocol-http":"^4.1.4","@smithy/smithy-client":"^3.3.6","@smithy/types":"^3.5.0","@smithy/url-parser":"^3.0.7","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.22","@smithy/util-defaults-mode-node":"^3.0.22","@smithy/util-endpoints":"^2.1.3","@smithy/util-middleware":"^3.0.7","@smithy/util-retry":"^3.0.7","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
@@ -88150,7 +88813,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","descrip
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.658.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.658.1","@aws-sdk/core":"3.658.1","@aws-sdk/credential-provider-node":"3.658.1","@aws-sdk/middleware-host-header":"3.654.0","@aws-sdk/middleware-logger":"3.654.0","@aws-sdk/middleware-recursion-detection":"3.654.0","@aws-sdk/middleware-user-agent":"3.654.0","@aws-sdk/region-config-resolver":"3.654.0","@aws-sdk/types":"3.654.0","@aws-sdk/util-endpoints":"3.654.0","@aws-sdk/util-user-agent-browser":"3.654.0","@aws-sdk/util-user-agent-node":"3.654.0","@smithy/config-resolver":"^3.0.8","@smithy/core":"^2.4.6","@smithy/fetch-http-handler":"^3.2.8","@smithy/hash-node":"^3.0.6","@smithy/invalid-dependency":"^3.0.6","@smithy/middleware-content-length":"^3.0.8","@smithy/middleware-endpoint":"^3.1.3","@smithy/middleware-retry":"^3.0.21","@smithy/middleware-serde":"^3.0.6","@smithy/middleware-stack":"^3.0.6","@smithy/node-config-provider":"^3.1.7","@smithy/node-http-handler":"^3.2.3","@smithy/protocol-http":"^4.1.3","@smithy/smithy-client":"^3.3.5","@smithy/types":"^3.4.2","@smithy/url-parser":"^3.0.6","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.21","@smithy/util-defaults-mode-node":"^3.0.21","@smithy/util-endpoints":"^2.1.2","@smithy/util-middleware":"^3.0.6","@smithy/util-retry":"^3.0.6","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.665.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn test:unit","test:unit":"jest"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.665.0","@aws-sdk/core":"3.665.0","@aws-sdk/credential-provider-node":"3.665.0","@aws-sdk/middleware-host-header":"3.664.0","@aws-sdk/middleware-logger":"3.664.0","@aws-sdk/middleware-recursion-detection":"3.664.0","@aws-sdk/middleware-user-agent":"3.664.0","@aws-sdk/region-config-resolver":"3.664.0","@aws-sdk/types":"3.664.0","@aws-sdk/util-endpoints":"3.664.0","@aws-sdk/util-user-agent-browser":"3.664.0","@aws-sdk/util-user-agent-node":"3.664.0","@smithy/config-resolver":"^3.0.9","@smithy/core":"^2.4.7","@smithy/fetch-http-handler":"^3.2.9","@smithy/hash-node":"^3.0.7","@smithy/invalid-dependency":"^3.0.7","@smithy/middleware-content-length":"^3.0.9","@smithy/middleware-endpoint":"^3.1.4","@smithy/middleware-retry":"^3.0.22","@smithy/middleware-serde":"^3.0.7","@smithy/middleware-stack":"^3.0.7","@smithy/node-config-provider":"^3.1.8","@smithy/node-http-handler":"^3.2.4","@smithy/protocol-http":"^4.1.4","@smithy/smithy-client":"^3.3.6","@smithy/types":"^3.5.0","@smithy/url-parser":"^3.0.7","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.22","@smithy/util-defaults-mode-node":"^3.0.22","@smithy/util-endpoints":"^2.1.3","@smithy/util-middleware":"^3.0.7","@smithy/util-retry":"^3.0.7","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ })
 
