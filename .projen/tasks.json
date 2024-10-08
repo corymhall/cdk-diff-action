@@ -87,7 +87,7 @@
       "name": "copy-files",
       "steps": [
         {
-          "exec": "cp package.json dist/ && cp -r projenrc dist/ && cp -r .git dist/"
+          "exec": "cp package.json dist/ && cp yarn.lock dist/ && cp -r projenrc dist/"
         }
       ]
     },

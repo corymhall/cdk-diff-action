@@ -144,7 +144,11 @@ buildWorkflow?.file?.patch(JsonPatch.add(
 ));
 
 project.tasks.tryFind('release')?.spawn(project.addTask('copy-files', {
-  exec: 'cp package.json dist/ && cp -r projenrc dist/ && cp -r .git dist/',
+  exec: [
+    'cp package.json dist/',
+    'cp yarn.lock dist/',
+    'cp -r projenrc dist/',
+  ].join(' && '),
 }));
 
 const releaseWorkflow = project.github?.tryFindWorkflow('release');
@@ -155,8 +159,9 @@ releaseWorkflow?.file?.patch(JsonPatch.replace(
   '/jobs/release_github/steps/3/run',
   [
     'mv dist/package.json ./',
+    'mv dist/yarn.lock ./',
     'mv dist/projenrc ./',
-    'yarn install',
+    'yarn install --check-files --frozen-lockfile',
     'npx ts-node projenrc/release-version.ts',
   ].join('\n'),
 ));
