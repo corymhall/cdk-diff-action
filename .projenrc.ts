@@ -156,7 +156,6 @@ releaseWorkflow?.file?.patch(JsonPatch.replace(
   [
     'mv dist/package.json ./',
     'mv dist/projenrc ./',
-    'mv dist/.git ./',
     'yarn install',
     'npx ts-node projenrc/release-version.ts',
   ].join('\n'),
