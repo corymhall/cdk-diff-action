@@ -8,6 +8,9 @@ const project = new GitHubActionTypeScriptProject({
   authorEmail: '43035978+corymhall@users.noreply.github.com',
   authorName: 'Cory Hall',
   name: 'cdk-diff-action',
+  githubOptions: {
+    mergify: false,
+  },
   projenrcTs: true,
   depsUpgradeOptions: {
     exclude: ['@aws-cdk/cloud-assembly-schema'],
