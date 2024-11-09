@@ -151,6 +151,7 @@ project.tasks.tryFind('release')?.spawn(project.addTask('copy-files', {
     'cp package.json dist/',
     'cp yarn.lock dist/',
     'cp -r projenrc dist/',
+    'cp tsconfig.json dist/',
   ].join(' && '),
 }));
 
