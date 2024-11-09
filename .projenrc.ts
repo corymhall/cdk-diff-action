@@ -165,6 +165,7 @@ releaseWorkflow?.file?.patch(JsonPatch.replace(
     'mv dist/package.json ./',
     'mv dist/yarn.lock ./',
     'mv dist/projenrc ./',
+    'mv dist/tsconfig.json ./',
     'yarn install --check-files --frozen-lockfile',
     'npx ts-node projenrc/release-version.ts',
   ].join('\n'),
