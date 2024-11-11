@@ -139,7 +139,7 @@ buildWorkflow?.on({
 buildWorkflow?.file?.patch(JsonPatch.replace(
   '/jobs/build/steps/4/run', [
     'git add .',
-    'git diff --staged --patch --binary --exit-code > .repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT',
+    'git diff --staged --patch --binary --exit-code > repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT',
   ].join('\n'),
 ));
 buildWorkflow?.file?.patch(JsonPatch.add(
