@@ -13,6 +13,7 @@ export async function run() {
     noDiffForStages: getInput('noDiffForStages').split(','),
     noFailOnDestructiveChanges: getInput('noFailOnDestructiveChanges').split(','),
     cdkOutDir: getInput('cdkOutDir') ?? 'cdk.out',
+    ignoreUnchangedStacks: getBooleanInput('ignoreUnchangedStacks')
   };
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
@@ -26,7 +27,7 @@ export async function run() {
       });
     }
     const comments = new Comments(octokit, context);
-    const processor = new StageProcessor(stages, inputs.allowedDestroyTypes);
+    const processor = new StageProcessor(stages, inputs.allowedDestroyTypes, inputs.ignoreUnchangedStacks);
     try {
       await processor.processStages(inputs.noFailOnDestructiveChanges);
     } catch (e: any) {
