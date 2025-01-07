@@ -18,12 +18,15 @@ export async function run() {
   const context = github.context;
   try {
     const assembly = AssemblyManifestReader.fromPath(inputs.cdkOutDir);
-    const stages = assembly.stages;
+    var stages = assembly.stages;
     if (assembly.stacks.length) {
       stages.push({
         name: 'DefaultStage',
         stacks: assembly.stacks,
       });
+    }
+    if (inputs.noDiffForStages.length) {
+      stages = stages.filter( stage => !inputs.noDiffForStages.includes(stage.name) );
     }
     const comments = new Comments(octokit, context);
     const processor = new StageProcessor(stages, inputs.allowedDestroyTypes);
