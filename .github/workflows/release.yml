@@ -31,7 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.18.0
+          node-version: "20"
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
@@ -69,7 +69,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.18.0
+          node-version: "20"
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:

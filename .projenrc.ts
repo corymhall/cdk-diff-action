@@ -64,7 +64,7 @@ const project = new GitHubActionTypeScriptProject({
       },
     },
     runs: {
-      using: RunsUsing.NODE_16, // overwrite to node20
+      using: RunsUsing.NODE_20,
       main: 'dist/index.js',
     },
   },
@@ -96,7 +96,7 @@ const project = new GitHubActionTypeScriptProject({
   jestOptions: {
     configFilePath: 'jest.config.json',
   },
-  minNodeVersion: '18.18.0',
+  minNodeVersion: '20',
 });
 
 
@@ -123,8 +123,6 @@ jestConfig?.patch(JsonPatch.remove('/globals'));
 jestConfig?.patch(JsonPatch.add('/transform', {
   '^.+\\.(t|j)sx?$': new Transform('@swc/jest'),
 }));
-const actionYml = project.tryFindObjectFile('action.yml');
-actionYml?.addOverride('runs.using', 'node20');
 project.tasks.addTask('gh-release', {
   exec: 'ts-node projenrc/release-version.ts',
 });

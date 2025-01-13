@@ -4323,7 +4323,7 @@ exports.loadAwsServiceSpecSync = loadAwsServiceSpecSync;
 const node_fs_1 = __nccwpck_require__(73024);
 const path = __importStar(__nccwpck_require__(76760));
 const node_zlib_1 = __nccwpck_require__(38522);
-const service_spec_types_1 = __nccwpck_require__(25580);
+const service_spec_types_1 = __nccwpck_require__(9444);
 const DB_COMPRESSED = 'db.json.gz';
 const DB_PATH = path.join(__dirname, '..', DB_COMPRESSED);
 /**
@@ -4344,6 +4344,506 @@ function loadBufferIntoDatabase(spec) {
     return db;
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFXQSxnREFFQztBQUtELHdEQUVDO0FBcEJELHFDQUF1RDtBQUN2RCxnREFBa0M7QUFDbEMseUNBQXVDO0FBQ3ZDLG9FQUEwRTtBQUUxRSxNQUFNLGFBQWEsR0FBRyxZQUFZLENBQUM7QUFDbkMsTUFBTSxPQUFPLEdBQUcsSUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTLEVBQUUsSUFBSSxFQUFFLGFBQWEsQ0FBQyxDQUFDO0FBRTFEOztHQUVHO0FBQ0ksS0FBSyxVQUFVLGtCQUFrQjtJQUN0QyxPQUFPLHNCQUFzQixDQUFDLE1BQU0sa0JBQUUsQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztBQUM1RCxDQUFDO0FBRUQ7O0dBRUc7QUFDSCxTQUFnQixzQkFBc0I7SUFDcEMsT0FBTyxzQkFBc0IsQ0FBQyxJQUFBLHNCQUFZLEVBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztBQUN2RCxDQUFDO0FBRUQsU0FBUyxzQkFBc0IsQ0FBQyxJQUFZO0lBQzFDLE1BQU0sRUFBRSxHQUFHLElBQUEsa0NBQWEsR0FBRSxDQUFDO0lBQzNCLEVBQUUsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFBLHNCQUFVLEVBQUMsSUFBSSxDQUFDLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUN4RCxPQUFPLEVBQUUsQ0FBQztBQUNaLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBwcm9taXNlcyBhcyBmcywgcmVhZEZpbGVTeW5jIH0gZnJvbSAnbm9kZTpmcyc7XG5pbXBvcnQgKiBhcyBwYXRoIGZyb20gJ25vZGU6cGF0aCc7XG5pbXBvcnQgeyBndW56aXBTeW5jIH0gZnJvbSAnbm9kZTp6bGliJztcbmltcG9ydCB7IGVtcHR5RGF0YWJhc2UsIFNwZWNEYXRhYmFzZSB9IGZyb20gJ0Bhd3MtY2RrL3NlcnZpY2Utc3BlYy10eXBlcyc7XG5cbmNvbnN0IERCX0NPTVBSRVNTRUQgPSAnZGIuanNvbi5neic7XG5jb25zdCBEQl9QQVRIID0gcGF0aC5qb2luKF9fZGlybmFtZSwgJy4uJywgREJfQ09NUFJFU1NFRCk7XG5cbi8qKlxuICogTG9hZCB0aGUgcHJvdmlkZWQgYnVpbHQtaW4gZGF0YWJhc2VcbiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGxvYWRBd3NTZXJ2aWNlU3BlYygpOiBQcm9taXNlPFNwZWNEYXRhYmFzZT4ge1xuICByZXR1cm4gbG9hZEJ1ZmZlckludG9EYXRhYmFzZShhd2FpdCBmcy5yZWFkRmlsZShEQl9QQVRIKSk7XG59XG5cbi8qKlxuICogU3luY2hyb25vdXNseSBsb2FkIHRoZSBwcm92aWRlZCBidWlsdC1pbiBkYXRhYmFzZVxuICovXG5leHBvcnQgZnVuY3Rpb24gbG9hZEF3c1NlcnZpY2VTcGVjU3luYygpOiBTcGVjRGF0YWJhc2Uge1xuICByZXR1cm4gbG9hZEJ1ZmZlckludG9EYXRhYmFzZShyZWFkRmlsZVN5bmMoREJfUEFUSCkpO1xufVxuXG5mdW5jdGlvbiBsb2FkQnVmZmVySW50b0RhdGFiYXNlKHNwZWM6IEJ1ZmZlcik6IFNwZWNEYXRhYmFzZSB7XG4gIGNvbnN0IGRiID0gZW1wdHlEYXRhYmFzZSgpO1xuICBkYi5sb2FkKEpTT04ucGFyc2UoZ3VuemlwU3luYyhzcGVjKS50b1N0cmluZygndXRmLTgnKSkpO1xuICByZXR1cm4gZGI7XG59XG4iXX0=
+
+/***/ }),
+
+/***/ 9444:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__exportStar(__nccwpck_require__(31681), exports);
+__exportStar(__nccwpck_require__(33652), exports);
+__exportStar(__nccwpck_require__(17343), exports);
+__exportStar(__nccwpck_require__(51491), exports);
+__exportStar(__nccwpck_require__(29663), exports);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLG1EQUFpQztBQUNqQyxtREFBaUM7QUFDakMsd0RBQXNDO0FBQ3RDLGtEQUFnQztBQUNoQywrQ0FBNkIiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tICcuL3R5cGVzL2RhdGFiYXNlJztcbmV4cG9ydCAqIGZyb20gJy4vdHlwZXMvcmVzb3VyY2UnO1xuZXhwb3J0ICogZnJvbSAnLi90eXBlcy9hdWdtZW50YXRpb25zJztcbmV4cG9ydCAqIGZyb20gJy4vdHlwZXMvbWV0cmljcyc7XG5leHBvcnQgKiBmcm9tICcuL3R5cGVzL2RpZmYnO1xuIl19
+
+/***/ }),
+
+/***/ 17343:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXVnbWVudGF0aW9ucy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy90eXBlcy9hdWdtZW50YXRpb25zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFbnRpdHksIFJlbGF0aW9uc2hpcCB9IGZyb20gJ0BjZGtsYWJzL3Rza2InO1xuaW1wb3J0IHsgUmVzb3VyY2UgfSBmcm9tICcuL3Jlc291cmNlJztcblxuLyoqXG4gKiBBdWdtZW50YXRpb25zIGZvciBhIENsb3VkRm9ybWF0aW9uIHJlc291cmNlIHR5cGVcbiAqXG4gKiBBdWdtZW50YXRpb25zIGFyZSBhIGRlcHJlY2F0ZWQgbWVjaGFuaXNtIGZvciBhdXRvbWF0aWNhbGx5IGdlbmVyYXRpbmcgbWV0cmljc1xuICogZnVuY3Rpb25zIGZvciBjZXJ0YWluIHJlc291cmNlcywgdXRpbGl6aW5nIFR5cGVTY3JpcHQgbWl4aW5zLlxuICovXG5leHBvcnQgaW50ZXJmYWNlIFJlc291cmNlQXVnbWVudGF0aW9uIGV4dGVuZHMgRW50aXR5IHtcbiAgLyoqXG4gICAqIE1ldHJpYyBhdWdtZW50YXRpb25zIGZvciB0aGlzIHJlc291cmNlIHR5cGVcbiAgICovXG4gIG1ldHJpY3M/OiBSZXNvdXJjZU1ldHJpY0F1Z21lbnRhdGlvbnM7XG5cbiAgLyoqXG4gICAqIFRoZSBuYW1lIG9mIHRoZSBmaWxlIGNvbnRhaW5pbmcgdGhlIGNsYXNzIHRvIGJlIFwiYXVnbWVudGVkXCIuXG4gICAqXG4gICAqIEBkZWZhdWx0IGtlYmFiIGNhc2VkIENsb3VkRm9ybWF0aW9uIHJlc291cmNlIG5hbWUgKyAnLWJhc2UnXG4gICAqL1xuICBiYXNlQ2xhc3NGaWxlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgY2xhc3MgdG8gYmUgXCJhdWdtZW50ZWRcIi5cbiAgICpcbiAgICogQGRlZmF1bHQgQ2xvdWRGb3JtYXRpb24gcmVzb3VyY2UgbmFtZSArICdCYXNlJ1xuICAgKi9cbiAgYmFzZUNsYXNzPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgZmlsZSBjb250YWluaW5nIHRoZSBpbnRlcmZhY2UgdG8gYmUgXCJhdWdtZW50ZWRcIi5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBzYW1lIGFzIGBgY2xhc3NGaWxlYGAuXG4gICAqL1xuICBpbnRlcmZhY2VGaWxlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgaW50ZXJmYWNlIHRvIGJlIFwiYXVnbWVudGVkXCIuXG4gICAqXG4gICAqIEBkZWZhdWx0ICdJJyArIENsb3VkRm9ybWF0aW9uIHJlc291cmNlIG5hbWVcbiAgICovXG4gIGludGVyZmFjZT86IHN0cmluZztcbn1cblxuZXhwb3J0IHR5cGUgSXNBdWdtZW50ZWRSZXNvdXJjZSA9IFJlbGF0aW9uc2hpcDxSZXNvdXJjZSwgUmVzb3VyY2VBdWdtZW50YXRpb24+O1xuXG5leHBvcnQgaW50ZXJmYWNlIFJlc291cmNlTWV0cmljQXVnbWVudGF0aW9ucyB7XG4gIC8qKlxuICAgKiBUaGUgbmFtZXNwYWNlIG9mIG1ldHJpY3MgZm9yIHRoaXMgc2VydmljZVxuICAgKi9cbiAgbmFtZXNwYWNlOiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFRoZSBwcm9wZXJ0aWVzIG9mIHRoZSByZXNvdXJjZSBjbGFzcyB0aGF0IHByb3ZpZGUgdmFsdWVzIGZvciB0aGUgZGltZW5zaW9uc1xuICAgKlxuICAgKiBGb3IgZXhhbXBsZSwgYHsgUXVldWVOYW1lOiAncXVldWVOYW1lJyB9YCBzYXlzIHRoYXQgdGhlIG1ldHJpYyBoYXMgYSBgUXVldWVOYW1lYFxuICAgKiBkaW1lbnNpb24sIGZvciB3aGljaCB0aGUgdmFsdWUgY2FuIGJlIG9idGFpbmVkIGJ5IHJlYWRpbmcgYHRoaXMucXVldWVOYW1lYC5cbiAgICovXG4gIGRpbWVuc2lvbnM6IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH07XG5cbiAgLyoqXG4gICAqIFRoZSBtZXRyaWNzIGZvciB0aGlzIHJlc291cmNlXG4gICAqL1xuICBtZXRyaWNzOiBSZXNvdXJjZU1ldHJpY1tdO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFJlc291cmNlTWV0cmljIHtcbiAgLyoqXG4gICAqIFVwcGVyY2FzZS1maXJzdCBtZXRyaWMgbmFtZVxuICAgKi9cbiAgbmFtZTogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBEb2N1bWVudGF0aW9uIGxpbmVcbiAgICovXG4gIGRvY3VtZW50YXRpb246IHN0cmluZztcblxuICAvKipcbiAgICogV2hldGhlciB0aGlzIGlzIGFuIGV2ZW4gY291bnQgKDEgZ2V0cyBlbWl0dGVkIGV2ZXJ5IHRpbWUgc29tZXRoaW5nIG9jY3VycylcbiAgICpcbiAgICogQGRlZmF1bHQgTWV0cmljVHlwZS5BdHRyaWJcbiAgICovXG4gIHR5cGU/OiBNZXRyaWNUeXBlO1xufVxuXG5leHBvcnQgdHlwZSBNZXRyaWNUeXBlID1cbiAgLyoqXG4gICAqIFRoaXMgbWV0cmljIGlzIGVtaXR0ZWQgZm9yIGV2ZW50cywgbWVhc3VyaW5nIGEgYXR0cmlidXRlIG9mIHRoZSBldmVudC5cbiAgICpcbiAgICogVHlwaWNhbCBleGFtcGxlcyBvZiB0aGlzIHdvdWxkIGJlIGR1cmF0aW9uLCBvciByZXF1ZXN0IHNpemUsIG9yIHNpbWlsYXIuXG4gICAqXG4gICAqIFRoZSBkZWZhdWx0IGFnZ3JlZ2F0ZSBmb3IgdGhpcyB0eXBlIG9mIGV2ZW50IGlzIFwiQXZnXCIuXG4gICAqL1xuICB8ICdhdHRyaWInXG5cbiAgLyoqXG4gICAqIFRoaXMgbWV0cmljIGlzIGVtaXR0ZWQgZm9yIGV2ZW50cywgYW5kIHRoZSB2YWx1ZSBpcyBhbHdheXMgYDFgLlxuICAgKlxuICAgKiBPbmx5IFwiU3VtXCIgaXMgYSBtZWFuaW5nZnVsIGFnZ3JlZ2F0ZSBvZiB0aGlzIHR5cGUgb2YgbWV0cmljOyBhbGwgb3RoZXJcbiAgICogYWdncmVnYXRpb25zIHdpbGwgb25seSBldmVyIHByb2R1Y2UgdGhlIHZhbHVlIGAxYC5cbiAgICovXG4gIHwgJ2NvdW50J1xuXG4gIC8qKlxuICAgKiBUaGlzIG1ldHJpYyBpcyBlbWl0dGVkIHBlcmlvZGljYWxseSwgcmVwcmVzZW50aW5nIGEgc3lzdGVtIHByb3BlcnR5LlxuICAgKlxuICAgKiBUaGUgbWV0cmljIG1lYXN1cmVzIHNvbWUgZ2xvYmFsIGV2ZXItY2hhbmdpbmcgcHJvcGVydHksIGFuZCBkb2VzIG5vdFxuICAgKiBtZWFzdXJlIGV2ZW50cy4gVGhlIG1vc3QgdXNlZnVsIGFnZ3JlZ2F0ZSBvZiB0aGlzIHR5cGUgb2YgbWV0cmljIGlzIFwiTWF4XCIuXG4gICAqL1xuICB8ICdnYXVnZSc7XG4iXX0=
+
+/***/ }),
+
+/***/ 31681:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RichSpecDatabase = exports.loadDatabase = exports.emptyDatabase = void 0;
+const fs_1 = __nccwpck_require__(79896);
+const zlib_1 = __nccwpck_require__(43106);
+const tskb_1 = __nccwpck_require__(25925);
+function emptyDatabase() {
+    return new tskb_1.Database({
+        resource: (0, tskb_1.entityCollection)().index({
+            cloudFormationType: (0, tskb_1.fieldIndex)('cloudFormationType', tskb_1.stringCmp),
+        }),
+        region: (0, tskb_1.entityCollection)().index({
+            name: (0, tskb_1.fieldIndex)('name', tskb_1.stringCmp),
+        }),
+        service: (0, tskb_1.entityCollection)().index({
+            name: (0, tskb_1.fieldIndex)('name', tskb_1.stringCmp),
+            cloudFormationNamespace: (0, tskb_1.fieldIndex)('cloudFormationNamespace', tskb_1.stringCmp),
+        }),
+        typeDefinition: (0, tskb_1.entityCollection)(),
+        augmentations: (0, tskb_1.entityCollection)(),
+        metric: (0, tskb_1.entityCollection)().index({
+            name: (0, tskb_1.fieldIndex)('name', tskb_1.stringCmp),
+            namespace: (0, tskb_1.fieldIndex)('namespace', tskb_1.stringCmp),
+            dedupKey: (0, tskb_1.fieldIndex)('dedupKey', tskb_1.stringCmp),
+        }),
+        dimensionSet: (0, tskb_1.entityCollection)().index({
+            dedupKey: (0, tskb_1.fieldIndex)('dedupKey', tskb_1.stringCmp),
+        }),
+    }, (r) => ({
+        hasResource: r.relationship('service', 'resource'),
+        regionHasResource: r.relationship('region', 'resource'),
+        regionHasService: r.relationship('region', 'service'),
+        usesType: r.relationship('resource', 'typeDefinition'),
+        isAugmented: r.relationship('resource', 'augmentations'),
+        usesDimensionSet: r.relationship('metric', 'dimensionSet'),
+        resourceHasMetric: r.relationship('resource', 'metric'),
+        serviceHasMetric: r.relationship('service', 'metric'),
+        resourceHasDimensionSet: r.relationship('resource', 'dimensionSet'),
+        serviceHasDimensionSet: r.relationship('service', 'dimensionSet'),
+    }));
+}
+exports.emptyDatabase = emptyDatabase;
+async function loadDatabase(pathToDb) {
+    const db = emptyDatabase();
+    const contents = await fs_1.promises.readFile(pathToDb);
+    const json = pathToDb.endsWith('.gz') ? (0, zlib_1.gunzipSync)(contents).toString('utf-8') : contents.toString('utf-8');
+    db.load(JSON.parse(json));
+    return db;
+}
+exports.loadDatabase = loadDatabase;
+/**
+ * Helpers for working with a SpecDatabase
+ */
+class RichSpecDatabase {
+    constructor(db) {
+        this.db = db;
+    }
+    /**
+     * Find all resources of a given type
+     */
+    resourceByType(cfnType, operation = 'resourceByType') {
+        const res = this.db.lookup('resource', 'cloudFormationType', 'equals', cfnType);
+        if (res.length === 0) {
+            throw new Error(`${operation}: no such resource: ${cfnType}`);
+        }
+        return res[0];
+    }
+    /**
+     * All type definitions used by a certain resource
+     */
+    resourceTypeDefs(cfnType) {
+        const resource = this.db.lookup('resource', 'cloudFormationType', 'equals', cfnType).only();
+        return this.db.follow('usesType', resource).map((x) => x.entity);
+    }
+    /**
+     * Find a type definition from a given property type
+     */
+    tryFindDef(type) {
+        return type.type === 'ref' ? this.db.get('typeDefinition', type.reference.$ref) : undefined;
+    }
+}
+exports.RichSpecDatabase = RichSpecDatabase;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGF0YWJhc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvdHlwZXMvZGF0YWJhc2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsMkJBQW9DO0FBQ3BDLCtCQUFrQztBQUNsQyx3Q0FBa0Y7QUF1QmxGLFNBQWdCLGFBQWE7SUFDM0IsT0FBTyxJQUFJLGVBQVEsQ0FDakI7UUFDRSxRQUFRLEVBQUUsSUFBQSx1QkFBZ0IsR0FBWSxDQUFDLEtBQUssQ0FBQztZQUMzQyxrQkFBa0IsRUFBRSxJQUFBLGlCQUFVLEVBQUMsb0JBQW9CLEVBQUUsZ0JBQVMsQ0FBQztTQUNoRSxDQUFDO1FBQ0YsTUFBTSxFQUFFLElBQUEsdUJBQWdCLEdBQVUsQ0FBQyxLQUFLLENBQUM7WUFDdkMsSUFBSSxFQUFFLElBQUEsaUJBQVUsRUFBQyxNQUFNLEVBQUUsZ0JBQVMsQ0FBQztTQUNwQyxDQUFDO1FBQ0YsT0FBTyxFQUFFLElBQUEsdUJBQWdCLEdBQVcsQ0FBQyxLQUFLLENBQUM7WUFDekMsSUFBSSxFQUFFLElBQUEsaUJBQVUsRUFBQyxNQUFNLEVBQUUsZ0JBQVMsQ0FBQztZQUNuQyx1QkFBdUIsRUFBRSxJQUFBLGlCQUFVLEVBQUMseUJBQXlCLEVBQUUsZ0JBQVMsQ0FBQztTQUMxRSxDQUFDO1FBQ0YsY0FBYyxFQUFFLElBQUEsdUJBQWdCLEdBQWtCO1FBQ2xELGFBQWEsRUFBRSxJQUFBLHVCQUFnQixHQUF3QjtRQUN2RCxNQUFNLEVBQUUsSUFBQSx1QkFBZ0IsR0FBVSxDQUFDLEtBQUssQ0FBQztZQUN2QyxJQUFJLEVBQUUsSUFBQSxpQkFBVSxFQUFDLE1BQU0sRUFBRSxnQkFBUyxDQUFDO1lBQ25DLFNBQVMsRUFBRSxJQUFBLGlCQUFVLEVBQUMsV0FBVyxFQUFFLGdCQUFTLENBQUM7WUFDN0MsUUFBUSxFQUFFLElBQUEsaUJBQVUsRUFBQyxVQUFVLEVBQUUsZ0JBQVMsQ0FBQztTQUM1QyxDQUFDO1FBQ0YsWUFBWSxFQUFFLElBQUEsdUJBQWdCLEdBQWdCLENBQUMsS0FBSyxDQUFDO1lBQ25ELFFBQVEsRUFBRSxJQUFBLGlCQUFVLEVBQUMsVUFBVSxFQUFFLGdCQUFTLENBQUM7U0FDNUMsQ0FBQztLQUNILEVBQ0QsQ0FBQyxDQUFDLEVBQUUsRUFBRSxDQUFDLENBQUM7UUFDTixXQUFXLEVBQUUsQ0FBQyxDQUFDLFlBQVksQ0FBYyxTQUFTLEVBQUUsVUFBVSxDQUFDO1FBQy9ELGlCQUFpQixFQUFFLENBQUMsQ0FBQyxZQUFZLENBQW9CLFFBQVEsRUFBRSxVQUFVLENBQUM7UUFDMUUsZ0JBQWdCLEVBQUUsQ0FBQyxDQUFDLFlBQVksQ0FBbUIsUUFBUSxFQUFFLFNBQVMsQ0FBQztRQUN2RSxRQUFRLEVBQUUsQ0FBQyxDQUFDLFlBQVksQ0FBVyxVQUFVLEVBQUUsZ0JBQWdCLENBQUM7UUFDaEUsV0FBVyxFQUFFLENBQUMsQ0FBQyxZQUFZLENBQXNCLFVBQVUsRUFBRSxlQUFlLENBQUM7UUFDN0UsZ0JBQWdCLEVBQUUsQ0FBQyxDQUFDLFlBQVksQ0FBbUIsUUFBUSxFQUFFLGNBQWMsQ0FBQztRQUM1RSxpQkFBaUIsRUFBRSxDQUFDLENBQUMsWUFBWSxDQUFvQixVQUFVLEVBQUUsUUFBUSxDQUFDO1FBQzFFLGdCQUFnQixFQUFFLENBQUMsQ0FBQyxZQUFZLENBQW1CLFNBQVMsRUFBRSxRQUFRLENBQUM7UUFDdkUsdUJBQXVCLEVBQUUsQ0FBQyxDQUFDLFlBQVksQ0FBMEIsVUFBVSxFQUFFLGNBQWMsQ0FBQztRQUM1RixzQkFBc0IsRUFBRSxDQUFDLENBQUMsWUFBWSxDQUF5QixTQUFTLEVBQUUsY0FBYyxDQUFDO0tBQzFGLENBQUMsQ0FDSCxDQUFDO0FBQ0osQ0FBQztBQXJDRCxzQ0FxQ0M7QUFFTSxLQUFLLFVBQVUsWUFBWSxDQUFDLFFBQWdCO0lBQ2pELE1BQU0sRUFBRSxHQUFHLGFBQWEsRUFBRSxDQUFDO0lBQzNCLE1BQU0sUUFBUSxHQUFHLE1BQU0sYUFBRSxDQUFDLFFBQVEsQ0FBQyxRQUFRLENBQUMsQ0FBQztJQUM3QyxNQUFNLElBQUksR0FBRyxRQUFRLENBQUMsUUFBUSxDQUFDLEtBQUssQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFBLGlCQUFVLEVBQUMsUUFBUSxDQUFDLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsQ0FBQyxRQUFRLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQzVHLEVBQUUsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDO0lBQzFCLE9BQU8sRUFBRSxDQUFDO0FBQ1osQ0FBQztBQU5ELG9DQU1DO0FBSUQ7O0dBRUc7QUFDSCxNQUFhLGdCQUFnQjtJQUMzQixZQUE2QixFQUFnQjtRQUFoQixPQUFFLEdBQUYsRUFBRSxDQUFjO0lBQUcsQ0FBQztJQUVqRDs7T0FFRztJQUNJLGNBQWMsQ0FBQyxPQUFlLEVBQUUsU0FBUyxHQUFHLGdCQUFnQjtRQUNqRSxNQUFNLEdBQUcsR0FBRyxJQUFJLENBQUMsRUFBRSxDQUFDLE1BQU0sQ0FBQyxVQUFVLEVBQUUsb0JBQW9CLEVBQUUsUUFBUSxFQUFFLE9BQU8sQ0FBQyxDQUFDO1FBQ2hGLElBQUksR0FBRyxDQUFDLE1BQU0sS0FBSyxDQUFDLEVBQUU7WUFDcEIsTUFBTSxJQUFJLEtBQUssQ0FBQyxHQUFHLFNBQVMsdUJBQXVCLE9BQU8sRUFBRSxDQUFDLENBQUM7U0FDL0Q7UUFDRCxPQUFPLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUNoQixDQUFDO0lBRUQ7O09BRUc7SUFDSSxnQkFBZ0IsQ0FBQyxPQUFlO1FBQ3JDLE1BQU0sUUFBUSxHQUFHLElBQUksQ0FBQyxFQUFFLENBQUMsTUFBTSxDQUFDLFVBQVUsRUFBRSxvQkFBb0IsRUFBRSxRQUFRLEVBQUUsT0FBTyxDQUFDLENBQUMsSUFBSSxFQUFFLENBQUM7UUFDNUYsT0FBTyxJQUFJLENBQUMsRUFBRSxDQUFDLE1BQU0sQ0FBQyxVQUFVLEVBQUUsUUFBUSxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUM7SUFDbkUsQ0FBQztJQUVEOztPQUVHO0lBQ0ksVUFBVSxDQUFDLElBQWtCO1FBQ2xDLE9BQU8sSUFBSSxDQUFDLElBQUksS0FBSyxLQUFLLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsR0FBRyxDQUFDLGdCQUFnQixFQUFFLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLFNBQVMsQ0FBQztJQUM5RixDQUFDO0NBQ0Y7QUE1QkQsNENBNEJDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcHJvbWlzZXMgYXMgZnMgfSBmcm9tICdmcyc7XG5pbXBvcnQgeyBndW56aXBTeW5jIH0gZnJvbSAnemxpYic7XG5pbXBvcnQgeyBEYXRhYmFzZSwgZW50aXR5Q29sbGVjdGlvbiwgZmllbGRJbmRleCwgc3RyaW5nQ21wIH0gZnJvbSAnQGNka2xhYnMvdHNrYic7XG5pbXBvcnQgeyBJc0F1Z21lbnRlZFJlc291cmNlLCBSZXNvdXJjZUF1Z21lbnRhdGlvbiB9IGZyb20gJy4vYXVnbWVudGF0aW9ucyc7XG5pbXBvcnQge1xuICBEaW1lbnNpb25TZXQsXG4gIE1ldHJpYyxcbiAgUmVzb3VyY2VIYXNEaW1lbnNpb25TZXQsXG4gIFNlcnZpY2VIYXNEaW1lbnNpb25TZXQsXG4gIFVzZXNEaW1lbnNpb25TZXQsXG4gIFJlc291cmNlSGFzTWV0cmljLFxuICBTZXJ2aWNlSGFzTWV0cmljLFxufSBmcm9tICcuL21ldHJpY3MnO1xuaW1wb3J0IHtcbiAgUmVzb3VyY2UsXG4gIFNlcnZpY2UsXG4gIFR5cGVEZWZpbml0aW9uLFxuICBQcm9wZXJ0eVR5cGUsXG4gIFJlZ2lvbixcbiAgSGFzUmVzb3VyY2UsXG4gIFJlZ2lvbkhhc1Jlc291cmNlLFxuICBSZWdpb25IYXNTZXJ2aWNlLFxuICBVc2VzVHlwZSxcbn0gZnJvbSAnLi9yZXNvdXJjZSc7XG5cbmV4cG9ydCBmdW5jdGlvbiBlbXB0eURhdGFiYXNlKCkge1xuICByZXR1cm4gbmV3IERhdGFiYXNlKFxuICAgIHtcbiAgICAgIHJlc291cmNlOiBlbnRpdHlDb2xsZWN0aW9uPFJlc291cmNlPigpLmluZGV4KHtcbiAgICAgICAgY2xvdWRGb3JtYXRpb25UeXBlOiBmaWVsZEluZGV4KCdjbG91ZEZvcm1hdGlvblR5cGUnLCBzdHJpbmdDbXApLFxuICAgICAgfSksXG4gICAgICByZWdpb246IGVudGl0eUNvbGxlY3Rpb248UmVnaW9uPigpLmluZGV4KHtcbiAgICAgICAgbmFtZTogZmllbGRJbmRleCgnbmFtZScsIHN0cmluZ0NtcCksXG4gICAgICB9KSxcbiAgICAgIHNlcnZpY2U6IGVudGl0eUNvbGxlY3Rpb248U2VydmljZT4oKS5pbmRleCh7XG4gICAgICAgIG5hbWU6IGZpZWxkSW5kZXgoJ25hbWUnLCBzdHJpbmdDbXApLFxuICAgICAgICBjbG91ZEZvcm1hdGlvbk5hbWVzcGFjZTogZmllbGRJbmRleCgnY2xvdWRGb3JtYXRpb25OYW1lc3BhY2UnLCBzdHJpbmdDbXApLFxuICAgICAgfSksXG4gICAgICB0eXBlRGVmaW5pdGlvbjogZW50aXR5Q29sbGVjdGlvbjxUeXBlRGVmaW5pdGlvbj4oKSxcbiAgICAgIGF1Z21lbnRhdGlvbnM6IGVudGl0eUNvbGxlY3Rpb248UmVzb3VyY2VBdWdtZW50YXRpb24+KCksXG4gICAgICBtZXRyaWM6IGVudGl0eUNvbGxlY3Rpb248TWV0cmljPigpLmluZGV4KHtcbiAgICAgICAgbmFtZTogZmllbGRJbmRleCgnbmFtZScsIHN0cmluZ0NtcCksXG4gICAgICAgIG5hbWVzcGFjZTogZmllbGRJbmRleCgnbmFtZXNwYWNlJywgc3RyaW5nQ21wKSxcbiAgICAgICAgZGVkdXBLZXk6IGZpZWxkSW5kZXgoJ2RlZHVwS2V5Jywgc3RyaW5nQ21wKSxcbiAgICAgIH0pLFxuICAgICAgZGltZW5zaW9uU2V0OiBlbnRpdHlDb2xsZWN0aW9uPERpbWVuc2lvblNldD4oKS5pbmRleCh7XG4gICAgICAgIGRlZHVwS2V5OiBmaWVsZEluZGV4KCdkZWR1cEtleScsIHN0cmluZ0NtcCksXG4gICAgICB9KSxcbiAgICB9LFxuICAgIChyKSA9PiAoe1xuICAgICAgaGFzUmVzb3VyY2U6IHIucmVsYXRpb25zaGlwPEhhc1Jlc291cmNlPignc2VydmljZScsICdyZXNvdXJjZScpLFxuICAgICAgcmVnaW9uSGFzUmVzb3VyY2U6IHIucmVsYXRpb25zaGlwPFJlZ2lvbkhhc1Jlc291cmNlPigncmVnaW9uJywgJ3Jlc291cmNlJyksXG4gICAgICByZWdpb25IYXNTZXJ2aWNlOiByLnJlbGF0aW9uc2hpcDxSZWdpb25IYXNTZXJ2aWNlPigncmVnaW9uJywgJ3NlcnZpY2UnKSxcbiAgICAgIHVzZXNUeXBlOiByLnJlbGF0aW9uc2hpcDxVc2VzVHlwZT4oJ3Jlc291cmNlJywgJ3R5cGVEZWZpbml0aW9uJyksXG4gICAgICBpc0F1Z21lbnRlZDogci5yZWxhdGlvbnNoaXA8SXNBdWdtZW50ZWRSZXNvdXJjZT4oJ3Jlc291cmNlJywgJ2F1Z21lbnRhdGlvbnMnKSxcbiAgICAgIHVzZXNEaW1lbnNpb25TZXQ6IHIucmVsYXRpb25zaGlwPFVzZXNEaW1lbnNpb25TZXQ+KCdtZXRyaWMnLCAnZGltZW5zaW9uU2V0JyksXG4gICAgICByZXNvdXJjZUhhc01ldHJpYzogci5yZWxhdGlvbnNoaXA8UmVzb3VyY2VIYXNNZXRyaWM+KCdyZXNvdXJjZScsICdtZXRyaWMnKSxcbiAgICAgIHNlcnZpY2VIYXNNZXRyaWM6IHIucmVsYXRpb25zaGlwPFNlcnZpY2VIYXNNZXRyaWM+KCdzZXJ2aWNlJywgJ21ldHJpYycpLFxuICAgICAgcmVzb3VyY2VIYXNEaW1lbnNpb25TZXQ6IHIucmVsYXRpb25zaGlwPFJlc291cmNlSGFzRGltZW5zaW9uU2V0PigncmVzb3VyY2UnLCAnZGltZW5zaW9uU2V0JyksXG4gICAgICBzZXJ2aWNlSGFzRGltZW5zaW9uU2V0OiByLnJlbGF0aW9uc2hpcDxTZXJ2aWNlSGFzRGltZW5zaW9uU2V0Pignc2VydmljZScsICdkaW1lbnNpb25TZXQnKSxcbiAgICB9KSxcbiAgKTtcbn1cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGxvYWREYXRhYmFzZShwYXRoVG9EYjogc3RyaW5nKSB7XG4gIGNvbnN0IGRiID0gZW1wdHlEYXRhYmFzZSgpO1xuICBjb25zdCBjb250ZW50cyA9IGF3YWl0IGZzLnJlYWRGaWxlKHBhdGhUb0RiKTtcbiAgY29uc3QganNvbiA9IHBhdGhUb0RiLmVuZHNXaXRoKCcuZ3onKSA/IGd1bnppcFN5bmMoY29udGVudHMpLnRvU3RyaW5nKCd1dGYtOCcpIDogY29udGVudHMudG9TdHJpbmcoJ3V0Zi04Jyk7XG4gIGRiLmxvYWQoSlNPTi5wYXJzZShqc29uKSk7XG4gIHJldHVybiBkYjtcbn1cblxuZXhwb3J0IHR5cGUgU3BlY0RhdGFiYXNlID0gUmV0dXJuVHlwZTx0eXBlb2YgZW1wdHlEYXRhYmFzZT47XG5cbi8qKlxuICogSGVscGVycyBmb3Igd29ya2luZyB3aXRoIGEgU3BlY0RhdGFiYXNlXG4gKi9cbmV4cG9ydCBjbGFzcyBSaWNoU3BlY0RhdGFiYXNlIHtcbiAgY29uc3RydWN0b3IocHJpdmF0ZSByZWFkb25seSBkYjogU3BlY0RhdGFiYXNlKSB7fVxuXG4gIC8qKlxuICAgKiBGaW5kIGFsbCByZXNvdXJjZXMgb2YgYSBnaXZlbiB0eXBlXG4gICAqL1xuICBwdWJsaWMgcmVzb3VyY2VCeVR5cGUoY2ZuVHlwZTogc3RyaW5nLCBvcGVyYXRpb24gPSAncmVzb3VyY2VCeVR5cGUnKTogUmVzb3VyY2Uge1xuICAgIGNvbnN0IHJlcyA9IHRoaXMuZGIubG9va3VwKCdyZXNvdXJjZScsICdjbG91ZEZvcm1hdGlvblR5cGUnLCAnZXF1YWxzJywgY2ZuVHlwZSk7XG4gICAgaWYgKHJlcy5sZW5ndGggPT09IDApIHtcbiAgICAgIHRocm93IG5ldyBFcnJvcihgJHtvcGVyYXRpb259OiBubyBzdWNoIHJlc291cmNlOiAke2NmblR5cGV9YCk7XG4gICAgfVxuICAgIHJldHVybiByZXNbMF07XG4gIH1cblxuICAvKipcbiAgICogQWxsIHR5cGUgZGVmaW5pdGlvbnMgdXNlZCBieSBhIGNlcnRhaW4gcmVzb3VyY2VcbiAgICovXG4gIHB1YmxpYyByZXNvdXJjZVR5cGVEZWZzKGNmblR5cGU6IHN0cmluZyk6IHJlYWRvbmx5IFR5cGVEZWZpbml0aW9uW10ge1xuICAgIGNvbnN0IHJlc291cmNlID0gdGhpcy5kYi5sb29rdXAoJ3Jlc291cmNlJywgJ2Nsb3VkRm9ybWF0aW9uVHlwZScsICdlcXVhbHMnLCBjZm5UeXBlKS5vbmx5KCk7XG4gICAgcmV0dXJuIHRoaXMuZGIuZm9sbG93KCd1c2VzVHlwZScsIHJlc291cmNlKS5tYXAoKHgpID0+IHguZW50aXR5KTtcbiAgfVxuXG4gIC8qKlxuICAgKiBGaW5kIGEgdHlwZSBkZWZpbml0aW9uIGZyb20gYSBnaXZlbiBwcm9wZXJ0eSB0eXBlXG4gICAqL1xuICBwdWJsaWMgdHJ5RmluZERlZih0eXBlOiBQcm9wZXJ0eVR5cGUpOiBUeXBlRGVmaW5pdGlvbiB8IHVuZGVmaW5lZCB7XG4gICAgcmV0dXJuIHR5cGUudHlwZSA9PT0gJ3JlZicgPyB0aGlzLmRiLmdldCgndHlwZURlZmluaXRpb24nLCB0eXBlLnJlZmVyZW5jZS4kcmVmKSA6IHVuZGVmaW5lZDtcbiAgfVxufVxuIl19
+
+/***/ }),
+
+/***/ 29663:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGlmZi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy90eXBlcy9kaWZmLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBdHRyaWJ1dGUsIFByb3BlcnR5LCBSZXNvdXJjZSwgU2VydmljZSwgVHlwZURlZmluaXRpb24gfSBmcm9tICcuL3Jlc291cmNlJztcblxuZXhwb3J0IGludGVyZmFjZSBTcGVjRGF0YWJhc2VEaWZmIHtcbiAgc2VydmljZXM6IE1hcERpZmY8U2VydmljZSwgVXBkYXRlZFNlcnZpY2U+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIExpc3REaWZmPEUsIEVEPiB7XG4gIHJlYWRvbmx5IGFkZGVkPzogRVtdO1xuICByZWFkb25seSByZW1vdmVkPzogRVtdO1xuICByZWFkb25seSB1cGRhdGVkPzogRURbXTtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBNYXBEaWZmPEUsIEVEPiB7XG4gIHJlYWRvbmx5IGFkZGVkPzogUmVjb3JkPHN0cmluZywgRT47XG4gIHJlYWRvbmx5IHJlbW92ZWQ/OiBSZWNvcmQ8c3RyaW5nLCBFPjtcbiAgcmVhZG9ubHkgdXBkYXRlZD86IFJlY29yZDxzdHJpbmcsIEVEPjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBVcGRhdGVkU2VydmljZSB7XG4gIHJlYWRvbmx5IG5hbWU/OiBTY2FsYXJEaWZmPFNlcnZpY2VbJ25hbWUnXT47XG4gIHJlYWRvbmx5IHNob3J0TmFtZT86IFNjYWxhckRpZmY8U2VydmljZVsnc2hvcnROYW1lJ10+O1xuICByZWFkb25seSBjYXBpdGFsaXplZD86IFNjYWxhckRpZmY8U2VydmljZVsnY2FwaXRhbGl6ZWQnXT47XG4gIHJlYWRvbmx5IGNsb3VkRm9ybWF0aW9uTmFtZXNwYWNlPzogU2NhbGFyRGlmZjxTZXJ2aWNlWydjbG91ZEZvcm1hdGlvbk5hbWVzcGFjZSddPjtcbiAgcmVhZG9ubHkgcmVzb3VyY2VEaWZmPzogTWFwRGlmZjxSZXNvdXJjZSwgVXBkYXRlZFJlc291cmNlPjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBVcGRhdGVkUmVzb3VyY2Uge1xuICByZWFkb25seSBuYW1lPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBjbG91ZEZvcm1hdGlvblR5cGU/OiBTY2FsYXJEaWZmPHN0cmluZz47XG4gIHJlYWRvbmx5IGNsb3VkRm9ybWF0aW9uVHJhbnNmb3JtPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBkb2N1bWVudGF0aW9uPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBwcm9wZXJ0aWVzPzogTWFwRGlmZjxQcm9wZXJ0eSwgVXBkYXRlZFByb3BlcnR5PjtcbiAgcmVhZG9ubHkgYXR0cmlidXRlcz86IE1hcERpZmY8QXR0cmlidXRlLCBVcGRhdGVkQXR0cmlidXRlPjtcbiAgcmVhZG9ubHkgaWRlbnRpZmllcj86IFNjYWxhckRpZmY8UmVzb3VyY2VbJ2lkZW50aWZpZXInXT47XG4gIHJlYWRvbmx5IGlzU3RhdGVmdWw/OiBTY2FsYXJEaWZmPGJvb2xlYW4+O1xuICByZWFkb25seSB0YWdJbmZvcm1hdGlvbj86IFNjYWxhckRpZmY8UmVzb3VyY2VbJ3RhZ0luZm9ybWF0aW9uJ10+O1xuICByZWFkb25seSBzY3J1dGluaXphYmxlPzogU2NhbGFyRGlmZjxSZXNvdXJjZVsnc2NydXRpbml6YWJsZSddPjtcbiAgcmVhZG9ubHkgdHlwZURlZmluaXRpb25EaWZmPzogTWFwRGlmZjxUeXBlRGVmaW5pdGlvbiwgVXBkYXRlZFR5cGVEZWZpbml0aW9uPjtcbiAgcmVhZG9ubHkgcHJpbWFyeUlkZW50aWZpZXI/OiBMaXN0RGlmZjxzdHJpbmcsIHZvaWQ+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFVwZGF0ZWRQcm9wZXJ0eSB7XG4gIHJlYWRvbmx5IG9sZDogUHJvcGVydHk7XG4gIHJlYWRvbmx5IG5ldzogUHJvcGVydHk7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgVXBkYXRlZEF0dHJpYnV0ZSB7XG4gIHJlYWRvbmx5IG9sZDogQXR0cmlidXRlO1xuICByZWFkb25seSBuZXc6IEF0dHJpYnV0ZTtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBVcGRhdGVkVHlwZURlZmluaXRpb24ge1xuICByZWFkb25seSBuYW1lPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBkb2N1bWVudGF0aW9uPzogU2NhbGFyRGlmZjxzdHJpbmc+O1xuICByZWFkb25seSBwcm9wZXJ0aWVzPzogTWFwRGlmZjxQcm9wZXJ0eSwgVXBkYXRlZFByb3BlcnR5PjtcbiAgcmVhZG9ubHkgbXVzdFJlbmRlckZvckJ3Q29tcGF0PzogU2NhbGFyRGlmZjxib29sZWFuPjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBTY2FsYXJEaWZmPEE+IHtcbiAgcmVhZG9ubHkgb2xkPzogQTtcbiAgcmVhZG9ubHkgbmV3PzogQTtcbn1cbiJdfQ==
+
+/***/ }),
+
+/***/ 51491:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWV0cmljcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy90eXBlcy9tZXRyaWNzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFbnRpdHksIFJlbGF0aW9uc2hpcCB9IGZyb20gJ0BjZGtsYWJzL3Rza2InO1xuaW1wb3J0IHsgUmVzb3VyY2UsIFNlcnZpY2UgfSBmcm9tICcuL3Jlc291cmNlJztcblxuLyoqXG4gKiBBIE1ldHJpYyBEaW1lbnNpb24gKG5vdCBhbiBlbnRpdHkpXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRGltZW5zaW9uIHtcbiAgLyoqXG4gICAqIE5hbWUgb2YgdGhlIGRpbWVuc2lvblxuICAgKi9cbiAgcmVhZG9ubHkgbmFtZTogc3RyaW5nO1xuICAvKipcbiAgICogQSBwb3RlbnRpYWwgdmFsdWUgZm9yIHRoaXMgZGltZW5zaW9uXG4gICAqL1xuICByZWFkb25seSB2YWx1ZT86IHN0cmluZztcbn1cblxuLyoqXG4gKiBBIHNldCBvZiBNZXRyaWMgRGltZW5zaW9uXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRGltZW5zaW9uU2V0IGV4dGVuZHMgRW50aXR5IHtcbiAgLyoqXG4gICAqIEEgdW5pcXVlIHZhbHVlIHVzZWQgdG8gZGVkdXBsaWNhdGUgdGhlIGVudGl0eVxuICAgKi9cbiAgZGVkdXBLZXk6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBkaW1lbnNpb25zIGluIHRoaXMgc2V0XG4gICAqL1xuICBkaW1lbnNpb25zOiBEaW1lbnNpb25bXTtcbn1cbmV4cG9ydCB0eXBlIFJlc291cmNlSGFzRGltZW5zaW9uU2V0ID0gUmVsYXRpb25zaGlwPFJlc291cmNlLCBEaW1lbnNpb25TZXQ+O1xuZXhwb3J0IHR5cGUgU2VydmljZUhhc0RpbWVuc2lvblNldCA9IFJlbGF0aW9uc2hpcDxTZXJ2aWNlLCBEaW1lbnNpb25TZXQ+O1xuXG4vKipcbiAqIEEgQ2xvdWRXYXRjaCBNZXRyaWNcbiAqL1xuZXhwb3J0IGludGVyZmFjZSBNZXRyaWMgZXh0ZW5kcyBFbnRpdHkge1xuICAvKipcbiAgICogTWV0cmljIG5hbWVzcGFjZVxuICAgKi9cbiAgcmVhZG9ubHkgbmFtZXNwYWNlOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBOYW1lIG9mIHRoZSBtZXRyaWNcbiAgICovXG4gIHJlYWRvbmx5IG5hbWU6IHN0cmluZztcbiAgLyoqXG4gICAqIERlZmF1bHQgKHN1Z2dlc3RlZCkgc3RhdGlzdGljIGZvciB0aGlzIG1ldHJpY1xuICAgKi9cbiAgcmVhZG9ubHkgc3RhdGlzdGljOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBBIHVuaXF1ZSB2YWx1ZSB1c2VkIHRvIGRlZHVwbGljYXRlIHRoZSBlbnRpdHlcbiAgICovXG4gIHJlYWRvbmx5IGRlZHVwS2V5OiBzdHJpbmc7XG59XG5leHBvcnQgdHlwZSBVc2VzRGltZW5zaW9uU2V0ID0gUmVsYXRpb25zaGlwPE1ldHJpYywgRGltZW5zaW9uU2V0PjtcbmV4cG9ydCB0eXBlIFJlc291cmNlSGFzTWV0cmljID0gUmVsYXRpb25zaGlwPFJlc291cmNlLCBNZXRyaWM+O1xuZXhwb3J0IHR5cGUgU2VydmljZUhhc01ldHJpYyA9IFJlbGF0aW9uc2hpcDxTZXJ2aWNlLCBNZXRyaWM+O1xuIl19
+
+/***/ }),
+
+/***/ 33652:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RichPropertyType = exports.PropertyScrutinyType = exports.ResourceScrutinyType = exports.isCollectionType = exports.Deprecation = exports.RichAttribute = exports.RichProperty = exports.RichTypedField = void 0;
+const sorting_1 = __nccwpck_require__(61917);
+class RichTypedField {
+    constructor(field) {
+        this.field = field;
+        if (field === undefined) {
+            throw new Error('Field is undefined');
+        }
+    }
+    types() {
+        var _a;
+        return [...((_a = this.field.previousTypes) !== null && _a !== void 0 ? _a : []), this.field.type];
+    }
+    /**
+     * Update the type of this property with a new type
+     *
+     * Only if it's not in the set of types already.
+     */
+    updateType(type) {
+        const richType = new RichPropertyType(type);
+        // Only add this type if we don't already have it. We are only doing comparisons where 'integer' and 'number'
+        // are treated the same, for all other types we need strict equality. We used to use 'assignableTo' as a
+        // condition, but these types will be rendered in both co- and contravariant positions, and so we really can't
+        // do much better than full equality.
+        if (this.types().some((t) => richType.equals(t))) {
+            // Nothing to do, type is already in there.
+            return false;
+        }
+        // Special case: if the new type is `string` and the old type is `date-time`, we assume this is
+        // the same type but we dropped some formatting information. No need to make this a separate type.
+        if (type.type === 'string' && this.types().some((t) => t.type === 'date-time')) {
+            return false;
+        }
+        if (!this.field.previousTypes) {
+            this.field.previousTypes = [];
+        }
+        this.field.previousTypes.push(this.field.type);
+        this.field.type = type;
+        return true;
+    }
+}
+exports.RichTypedField = RichTypedField;
+class RichProperty extends RichTypedField {
+    constructor(property) {
+        super(property);
+    }
+}
+exports.RichProperty = RichProperty;
+class RichAttribute extends RichTypedField {
+    constructor(attr) {
+        super(attr);
+    }
+}
+exports.RichAttribute = RichAttribute;
+var Deprecation;
+(function (Deprecation) {
+    /**
+     * Not deprecated
+     */
+    Deprecation["NONE"] = "NONE";
+    /**
+     * Warn about use
+     */
+    Deprecation["WARN"] = "WARN";
+    /**
+     * Do not emit the value at all
+     *
+     * (Handle properties that were incorrectly added to the spec)
+     */
+    Deprecation["IGNORE"] = "IGNORE";
+})(Deprecation = exports.Deprecation || (exports.Deprecation = {}));
+function isCollectionType(x) {
+    return x.type === 'array' || x.type === 'map';
+}
+exports.isCollectionType = isCollectionType;
+/**
+ * Mark a resource as a resource that needs additional scrutiy when added, removed or changed
+ *
+ * Used to mark resources that represent security policies.
+ */
+var ResourceScrutinyType;
+(function (ResourceScrutinyType) {
+    /**
+     * No additional scrutiny
+     */
+    ResourceScrutinyType["None"] = "None";
+    /**
+     * An externally attached policy document to a resource
+     *
+     * (Common for SQS, SNS, S3, ...)
+     */
+    ResourceScrutinyType["ResourcePolicyResource"] = "ResourcePolicyResource";
+    /**
+     * This is an IAM policy on an identity resource
+     *
+     * (Basically saying: this is AWS::IAM::Policy)
+     */
+    ResourceScrutinyType["IdentityPolicyResource"] = "IdentityPolicyResource";
+    /**
+     * This is a Lambda Permission policy
+     */
+    ResourceScrutinyType["LambdaPermission"] = "LambdaPermission";
+    /**
+     * An ingress rule object
+     */
+    ResourceScrutinyType["IngressRuleResource"] = "IngressRuleResource";
+    /**
+     * A set of egress rules
+     */
+    ResourceScrutinyType["EgressRuleResource"] = "EgressRuleResource";
+    /**
+     * AWS::SSO::Assignment
+     *
+     * IAM Identity Center (formerly known as SSO)
+     */
+    ResourceScrutinyType["SsoAssignmentResource"] = "SsoAssignmentResource";
+    /**
+     * AWS::SSO::InstanceAccessControlAttributeConfiguration
+     *
+     * IAM Identity Center (formerly known as SSO)
+     */
+    ResourceScrutinyType["SsoInstanceACAConfigResource"] = "SsoInstanceACAConfigResource";
+    /**
+     * AWS::SSO::PermissionSet
+     *
+     * IAM Identity Center (formerly known as SSO)
+     */
+    ResourceScrutinyType["SsoPermissionSet"] = "SsoPermissionSet";
+})(ResourceScrutinyType = exports.ResourceScrutinyType || (exports.ResourceScrutinyType = {}));
+/**
+ * Mark a property as a property that needs additional scrutiny when it changes
+ *
+ * Used to mark sensitive properties that have security-related implications.
+ */
+var PropertyScrutinyType;
+(function (PropertyScrutinyType) {
+    /**
+     * No additional scrutiny
+     */
+    PropertyScrutinyType["None"] = "None";
+    /**
+     * This is an IAM policy directly on a resource
+     */
+    PropertyScrutinyType["InlineResourcePolicy"] = "InlineResourcePolicy";
+    /**
+     * Either an AssumeRolePolicyDocument or a dictionary of policy documents
+     */
+    PropertyScrutinyType["InlineIdentityPolicies"] = "InlineIdentityPolicies";
+    /**
+     * A list of managed policies (on an identity resource)
+     */
+    PropertyScrutinyType["ManagedPolicies"] = "ManagedPolicies";
+    /**
+     * A set of ingress rules (on a security group)
+     */
+    PropertyScrutinyType["IngressRules"] = "IngressRules";
+    /**
+     * A set of egress rules (on a security group)
+     */
+    PropertyScrutinyType["EgressRules"] = "EgressRules";
+})(PropertyScrutinyType = exports.PropertyScrutinyType || (exports.PropertyScrutinyType = {}));
+class RichPropertyType {
+    constructor(type) {
+        this.type = type;
+    }
+    equals(rhs) {
+        switch (this.type.type) {
+            case 'integer':
+            case 'boolean':
+            case 'date-time':
+            case 'json':
+            case 'null':
+            case 'number':
+            case 'string':
+            case 'tag':
+                return rhs.type === this.type.type;
+            case 'array':
+            case 'map':
+                return rhs.type === this.type.type && new RichPropertyType(this.type.element).equals(rhs.element);
+            case 'ref':
+                return rhs.type === 'ref' && this.type.reference.$ref === rhs.reference.$ref;
+            case 'union':
+                const lhsKey = this.sortKey();
+                const rhsKey = new RichPropertyType(rhs).sortKey();
+                return lhsKey.length === rhsKey.length && lhsKey.every((l, i) => l === rhsKey[i]);
+        }
+    }
+    /**
+     * Whether the current type is JavaScript-equal to the RHS type
+     *
+     * Same as normal equality, but consider `integer` and `number` the same types.
+     */
+    javascriptEquals(rhs) {
+        switch (this.type.type) {
+            case 'number':
+            case 'integer':
+                // Widening
+                return rhs.type === 'integer' || rhs.type === 'number';
+            case 'array':
+            case 'map':
+                return rhs.type === this.type.type && new RichPropertyType(this.type.element).javascriptEquals(rhs.element);
+            case 'union':
+                if (rhs.type !== 'union') {
+                    return false;
+                }
+                // Every type in this union needs to be equal one type in RHS
+                return this.type.types.every((t1) => rhs.types.some((t2) => new RichPropertyType(t1).javascriptEquals(t2)));
+            default:
+                // For anything else, need strict equality
+                return this.equals(rhs);
+        }
+    }
+    /**
+     * Whether the current type is assignable to the RHS type.
+     *
+     * This is means every type member of the LHS must be present in the RHS type
+     */
+    assignableTo(rhs) {
+        const extractMembers = (type) => (type.type == 'union' ? type.types : [type]);
+        const asRichType = (type) => new RichPropertyType(type);
+        const rhsMembers = extractMembers(rhs);
+        for (const lhsMember of extractMembers(this.type).map(asRichType)) {
+            if (!rhsMembers.some((type) => lhsMember.equals(type))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /**
+     * Return a version of this type, but with all type unions in a regularized order
+     */
+    normalize(db) {
+        switch (this.type.type) {
+            case 'array':
+            case 'map':
+                return new RichPropertyType({
+                    type: this.type.type,
+                    element: new RichPropertyType(this.type.element).normalize(db).type,
+                });
+            case 'union':
+                const types = this.type.types
+                    .map((t) => new RichPropertyType(t).normalize(db))
+                    .map((t) => [t, t.sortKey(db)]);
+                types.sort((0, sorting_1.sortKeyComparator)(([_, sortKey]) => sortKey));
+                return new RichPropertyType({
+                    type: 'union',
+                    types: types.map(([t, _]) => t.type),
+                });
+            default:
+                return this;
+        }
+    }
+    stringify(db, withId = true) {
+        switch (this.type.type) {
+            case 'integer':
+            case 'boolean':
+            case 'date-time':
+            case 'json':
+            case 'null':
+            case 'number':
+            case 'string':
+            case 'tag':
+                return this.type.type;
+            case 'array':
+                return `Array<${new RichPropertyType(this.type.element).stringify(db, withId)}>`;
+            case 'map':
+                return `Map<string, ${new RichPropertyType(this.type.element).stringify(db, withId)}>`;
+            case 'ref':
+                const type = db.get('typeDefinition', this.type.reference);
+                return withId ? `${type.name}(${this.type.reference.$ref})` : type.name;
+            case 'union':
+                return this.type.types.map((t) => new RichPropertyType(t).stringify(db, withId)).join(' | ');
+        }
+    }
+    /**
+     * Return a sortable key based on this type
+     *
+     * If a database is given, type definitions will be sorted based on type name,
+     * otherwise on identifier
+     */
+    sortKey(db) {
+        var _a, _b;
+        switch (this.type.type) {
+            case 'integer':
+            case 'boolean':
+            case 'date-time':
+            case 'json':
+            case 'null':
+            case 'number':
+            case 'string':
+            case 'tag':
+                return ['0', this.type.type];
+            case 'array':
+            case 'map':
+                return ['1', this.type.type, ...new RichPropertyType(this.type.element).sortKey(db)];
+            case 'ref':
+                return ['2', this.type.type, (_b = (_a = db === null || db === void 0 ? void 0 : db.get('typeDefinition', this.type.reference)) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : this.type.reference.$ref];
+            case 'union':
+                const typeKeys = this.type.types.map((t) => new RichPropertyType(t).sortKey(db));
+                typeKeys.sort((0, sorting_1.sortKeyComparator)((x) => x));
+                return ['3', this.type.type, ...typeKeys.flatMap((x) => x)];
+        }
+    }
+}
+exports.RichPropertyType = RichPropertyType;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVzb3VyY2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvdHlwZXMvcmVzb3VyY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBRUEsNkNBQW9EO0FBdUtwRCxNQUFhLGNBQWM7SUFDekIsWUFBNkIsS0FBK0M7UUFBL0MsVUFBSyxHQUFMLEtBQUssQ0FBMEM7UUFDMUUsSUFBSSxLQUFLLEtBQUssU0FBUyxFQUFFO1lBQ3ZCLE1BQU0sSUFBSSxLQUFLLENBQUMsb0JBQW9CLENBQUMsQ0FBQztTQUN2QztJQUNILENBQUM7SUFFTSxLQUFLOztRQUNWLE9BQU8sQ0FBQyxHQUFHLENBQUMsTUFBQSxJQUFJLENBQUMsS0FBSyxDQUFDLGFBQWEsbUNBQUksRUFBRSxDQUFDLEVBQUUsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNoRSxDQUFDO0lBRUQ7Ozs7T0FJRztJQUNJLFVBQVUsQ0FBQyxJQUFrQjtRQUNsQyxNQUFNLFFBQVEsR0FBRyxJQUFJLGdCQUFnQixDQUFDLElBQUksQ0FBQyxDQUFDO1FBRTVDLDZHQUE2RztRQUM3Ryx3R0FBd0c7UUFDeEcsOEdBQThHO1FBQzlHLHFDQUFxQztRQUNyQyxJQUFJLElBQUksQ0FBQyxLQUFLLEVBQUUsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLEVBQUUsRUFBRSxDQUFDLFFBQVEsQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLENBQUMsRUFBRTtZQUNoRCwyQ0FBMkM7WUFDM0MsT0FBTyxLQUFLLENBQUM7U0FDZDtRQUVELCtGQUErRjtRQUMvRixrR0FBa0c7UUFDbEcsSUFBSSxJQUFJLENBQUMsSUFBSSxLQUFLLFFBQVEsSUFBSSxJQUFJLENBQUMsS0FBSyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUMsSUFBSSxLQUFLLFdBQVcsQ0FBQyxFQUFFO1lBQzlFLE9BQU8sS0FBSyxDQUFDO1NBQ2Q7UUFFRCxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxhQUFhLEVBQUU7WUFDN0IsSUFBSSxDQUFDLEtBQUssQ0FBQyxhQUFhLEdBQUcsRUFBRSxDQUFDO1NBQy9CO1FBQ0QsSUFBSSxDQUFDLEtBQUssQ0FBQyxhQUFhLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDL0MsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO1FBQ3ZCLE9BQU8sSUFBSSxDQUFDO0lBQ2QsQ0FBQztDQUNGO0FBekNELHdDQXlDQztBQUVELE1BQWEsWUFBYSxTQUFRLGNBQWM7SUFDOUMsWUFBWSxRQUFrQjtRQUM1QixLQUFLLENBQUMsUUFBUSxDQUFDLENBQUM7SUFDbEIsQ0FBQztDQUNGO0FBSkQsb0NBSUM7QUFFRCxNQUFhLGFBQWMsU0FBUSxjQUFjO0lBQy9DLFlBQVksSUFBZTtRQUN6QixLQUFLLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDZCxDQUFDO0NBQ0Y7QUFKRCxzQ0FJQztBQWFELElBQVksV0FpQlg7QUFqQkQsV0FBWSxXQUFXO0lBQ3JCOztPQUVHO0lBQ0gsNEJBQWEsQ0FBQTtJQUViOztPQUVHO0lBQ0gsNEJBQWEsQ0FBQTtJQUViOzs7O09BSUc7SUFDSCxnQ0FBaUIsQ0FBQTtBQUNuQixDQUFDLEVBakJXLFdBQVcsR0FBWCxtQkFBVyxLQUFYLG1CQUFXLFFBaUJ0QjtBQW9CRCxTQUFnQixnQkFBZ0IsQ0FBQyxDQUFlO0lBQzlDLE9BQU8sQ0FBQyxDQUFDLElBQUksS0FBSyxPQUFPLElBQUksQ0FBQyxDQUFDLElBQUksS0FBSyxLQUFLLENBQUM7QUFDaEQsQ0FBQztBQUZELDRDQUVDO0FBeUZEOzs7O0dBSUc7QUFDSCxJQUFZLG9CQXVEWDtBQXZERCxXQUFZLG9CQUFvQjtJQUM5Qjs7T0FFRztJQUNILHFDQUFhLENBQUE7SUFFYjs7OztPQUlHO0lBQ0gseUVBQWlELENBQUE7SUFFakQ7Ozs7T0FJRztJQUNILHlFQUFpRCxDQUFBO0lBRWpEOztPQUVHO0lBQ0gsNkRBQXFDLENBQUE7SUFFckM7O09BRUc7SUFDSCxtRUFBMkMsQ0FBQTtJQUUzQzs7T0FFRztJQUNILGlFQUF5QyxDQUFBO0lBRXpDOzs7O09BSUc7SUFDSCx1RUFBK0MsQ0FBQTtJQUUvQzs7OztPQUlHO0lBQ0gscUZBQTZELENBQUE7SUFFN0Q7Ozs7T0FJRztJQUNILDZEQUFxQyxDQUFBO0FBQ3ZDLENBQUMsRUF2RFcsb0JBQW9CLEdBQXBCLDRCQUFvQixLQUFwQiw0QkFBb0IsUUF1RC9CO0FBRUQ7Ozs7R0FJRztBQUNILElBQVksb0JBOEJYO0FBOUJELFdBQVksb0JBQW9CO0lBQzlCOztPQUVHO0lBQ0gscUNBQWEsQ0FBQTtJQUViOztPQUVHO0lBQ0gscUVBQTZDLENBQUE7SUFFN0M7O09BRUc7SUFDSCx5RUFBaUQsQ0FBQTtJQUVqRDs7T0FFRztJQUNILDJEQUFtQyxDQUFBO0lBRW5DOztPQUVHO0lBQ0gscURBQTZCLENBQUE7SUFFN0I7O09BRUc7SUFDSCxtREFBMkIsQ0FBQTtBQUM3QixDQUFDLEVBOUJXLG9CQUFvQixHQUFwQiw0QkFBb0IsS0FBcEIsNEJBQW9CLFFBOEIvQjtBQUVELE1BQWEsZ0JBQWdCO0lBQzNCLFlBQTZCLElBQWtCO1FBQWxCLFNBQUksR0FBSixJQUFJLENBQWM7SUFBRyxDQUFDO0lBRTVDLE1BQU0sQ0FBQyxHQUFpQjtRQUM3QixRQUFRLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFO1lBQ3RCLEtBQUssU0FBUyxDQUFDO1lBQ2YsS0FBSyxTQUFTLENBQUM7WUFDZixLQUFLLFdBQVcsQ0FBQztZQUNqQixLQUFLLE1BQU0sQ0FBQztZQUNaLEtBQUssTUFBTSxDQUFDO1lBQ1osS0FBSyxRQUFRLENBQUM7WUFDZCxLQUFLLFFBQVEsQ0FBQztZQUNkLEtBQUssS0FBSztnQkFDUixPQUFPLEdBQUcsQ0FBQyxJQUFJLEtBQUssSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUM7WUFDckMsS0FBSyxPQUFPLENBQUM7WUFDYixLQUFLLEtBQUs7Z0JBQ1IsT0FBTyxHQUFHLENBQUMsSUFBSSxLQUFLLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxJQUFJLElBQUksZ0JBQWdCLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxDQUFDO1lBQ3BHLEtBQUssS0FBSztnQkFDUixPQUFPLEdBQUcsQ0FBQyxJQUFJLEtBQUssS0FBSyxJQUFJLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLElBQUksS0FBSyxHQUFHLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQztZQUMvRSxLQUFLLE9BQU87Z0JBQ1YsTUFBTSxNQUFNLEdBQUcsSUFBSSxDQUFDLE9BQU8sRUFBRSxDQUFDO2dCQUM5QixNQUFNLE1BQU0sR0FBRyxJQUFJLGdCQUFnQixDQUFDLEdBQUcsQ0FBQyxDQUFDLE9BQU8sRUFBRSxDQUFDO2dCQUNuRCxPQUFPLE1BQU0sQ0FBQyxNQUFNLEtBQUssTUFBTSxDQUFDLE1BQU0sSUFBSSxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxFQUFFLENBQUMsQ0FBQyxLQUFLLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1NBQ3JGO0lBQ0gsQ0FBQztJQUVEOzs7O09BSUc7SUFDSSxnQkFBZ0IsQ0FBQyxHQUFpQjtRQUN2QyxRQUFRLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFO1lBQ3RCLEtBQUssUUFBUSxDQUFDO1lBQ2QsS0FBSyxTQUFTO2dCQUNaLFdBQVc7Z0JBQ1gsT0FBTyxHQUFHLENBQUMsSUFBSSxLQUFLLFNBQVMsSUFBSSxHQUFHLENBQUMsSUFBSSxLQUFLLFFBQVEsQ0FBQztZQUV6RCxLQUFLLE9BQU8sQ0FBQztZQUNiLEtBQUssS0FBSztnQkFDUixPQUFPLEdBQUcsQ0FBQyxJQUFJLEtBQUssSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLElBQUksSUFBSSxnQkFBZ0IsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLGdCQUFnQixDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsQ0FBQztZQUU5RyxLQUFLLE9BQU87Z0JBQ1YsSUFBSSxHQUFHLENBQUMsSUFBSSxLQUFLLE9BQU8sRUFBRTtvQkFDeEIsT0FBTyxLQUFLLENBQUM7aUJBQ2Q7Z0JBQ0QsNkRBQTZEO2dCQUM3RCxPQUFPLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQUUsRUFBRSxFQUFFLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsQ0FBQyxFQUFFLEVBQUUsRUFBRSxDQUFDLElBQUksZ0JBQWdCLENBQUMsRUFBRSxDQUFDLENBQUMsZ0JBQWdCLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDO1lBRTlHO2dCQUNFLDBDQUEwQztnQkFDMUMsT0FBTyxJQUFJLENBQUMsTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDO1NBQzNCO0lBQ0gsQ0FBQztJQUVEOzs7O09BSUc7SUFDSSxZQUFZLENBQUMsR0FBaUI7UUFDbkMsTUFBTSxjQUFjLEdBQUcsQ0FBQyxJQUFrQixFQUFrQixFQUFFLENBQUMsQ0FBQyxJQUFJLENBQUMsSUFBSSxJQUFJLE9BQU8sQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDO1FBQzVHLE1BQU0sVUFBVSxHQUFHLENBQUMsSUFBa0IsRUFBb0IsRUFBRSxDQUFDLElBQUksZ0JBQWdCLENBQUMsSUFBSSxDQUFDLENBQUM7UUFFeEYsTUFBTSxVQUFVLEdBQUcsY0FBYyxDQUFDLEdBQUcsQ0FBQyxDQUFDO1FBQ3ZDLEtBQUssTUFBTSxTQUFTLElBQUksY0FBYyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQyxHQUFHLENBQUMsVUFBVSxDQUFDLEVBQUU7WUFDakUsSUFBSSxDQUFDLFVBQVUsQ0FBQyxJQUFJLENBQUMsQ0FBQyxJQUFJLEVBQUUsRUFBRSxDQUFDLFNBQVMsQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLENBQUMsRUFBRTtnQkFDdEQsT0FBTyxLQUFLLENBQUM7YUFDZDtTQUNGO1FBRUQsT0FBTyxJQUFJLENBQUM7SUFDZCxDQUFDO0lBRUQ7O09BRUc7SUFDSSxTQUFTLENBQUMsRUFBZ0I7UUFDL0IsUUFBUSxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksRUFBRTtZQUN0QixLQUFLLE9BQU8sQ0FBQztZQUNiLEtBQUssS0FBSztnQkFDUixPQUFPLElBQUksZ0JBQWdCLENBQUM7b0JBQzFCLElBQUksRUFBRSxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUk7b0JBQ3BCLE9BQU8sRUFBRSxJQUFJLGdCQUFnQixDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsU0FBUyxDQUFDLEVBQUUsQ0FBQyxDQUFDLElBQUk7aUJBQ3BFLENBQUMsQ0FBQztZQUNMLEtBQUssT0FBTztnQkFDVixNQUFNLEtBQUssR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUs7cUJBQzFCLEdBQUcsQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsSUFBSSxnQkFBZ0IsQ0FBQyxDQUFDLENBQUMsQ0FBQyxTQUFTLENBQUMsRUFBRSxDQUFDLENBQUM7cUJBQ2pELEdBQUcsQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUMsQ0FBVSxDQUFDLENBQUM7Z0JBQzNDLEtBQUssQ0FBQyxJQUFJLENBQUMsSUFBQSwyQkFBaUIsRUFBQyxDQUFDLENBQUMsQ0FBQyxFQUFFLE9BQU8sQ0FBQyxFQUFFLEVBQUUsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDO2dCQUN6RCxPQUFPLElBQUksZ0JBQWdCLENBQUM7b0JBQzFCLElBQUksRUFBRSxPQUFPO29CQUNiLEtBQUssRUFBRSxLQUFLLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUM7aUJBQ3JDLENBQUMsQ0FBQztZQUNMO2dCQUNFLE9BQU8sSUFBSSxDQUFDO1NBQ2Y7SUFDSCxDQUFDO0lBRU0sU0FBUyxDQUFDLEVBQWdCLEVBQUUsTUFBTSxHQUFHLElBQUk7UUFDOUMsUUFBUSxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksRUFBRTtZQUN0QixLQUFLLFNBQVMsQ0FBQztZQUNmLEtBQUssU0FBUyxDQUFDO1lBQ2YsS0FBSyxXQUFXLENBQUM7WUFDakIsS0FBSyxNQUFNLENBQUM7WUFDWixLQUFLLE1BQU0sQ0FBQztZQUNaLEtBQUssUUFBUSxDQUFDO1lBQ2QsS0FBSyxRQUFRLENBQUM7WUFDZCxLQUFLLEtBQUs7Z0JBQ1IsT0FBTyxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQztZQUN4QixLQUFLLE9BQU87Z0JBQ1YsT0FBTyxTQUFTLElBQUksZ0JBQWdCLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxTQUFTLENBQUMsRUFBRSxFQUFFLE1BQU0sQ0FBQyxHQUFHLENBQUM7WUFDbkYsS0FBSyxLQUFLO2dCQUNSLE9BQU8sZUFBZSxJQUFJLGdCQUFnQixDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsU0FBUyxDQUFDLEVBQUUsRUFBRSxNQUFNLENBQUMsR0FBRyxDQUFDO1lBQ3pGLEtBQUssS0FBSztnQkFDUixNQUFNLElBQUksR0FBRyxFQUFFLENBQUMsR0FBRyxDQUFDLGdCQUFnQixFQUFFLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLENBQUM7Z0JBQzNELE9BQU8sTUFBTSxDQUFDLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxJQUFJLElBQUksSUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxHQUFHLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUM7WUFDMUUsS0FBSyxPQUFPO2dCQUNWLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxJQUFJLGdCQUFnQixDQUFDLENBQUMsQ0FBQyxDQUFDLFNBQVMsQ0FBQyxFQUFFLEVBQUUsTUFBTSxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDaEc7SUFDSCxDQUFDO0lBRUQ7Ozs7O09BS0c7SUFDSSxPQUFPLENBQUMsRUFBaUI7O1FBQzlCLFFBQVEsSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUU7WUFDdEIsS0FBSyxTQUFTLENBQUM7WUFDZixLQUFLLFNBQVMsQ0FBQztZQUNmLEtBQUssV0FBVyxDQUFDO1lBQ2pCLEtBQUssTUFBTSxDQUFDO1lBQ1osS0FBSyxNQUFNLENBQUM7WUFDWixLQUFLLFFBQVEsQ0FBQztZQUNkLEtBQUssUUFBUSxDQUFDO1lBQ2QsS0FBSyxLQUFLO2dCQUNSLE9BQU8sQ0FBQyxHQUFHLEVBQUUsSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQztZQUMvQixLQUFLLE9BQU8sQ0FBQztZQUNiLEtBQUssS0FBSztnQkFDUixPQUFPLENBQUMsR0FBRyxFQUFFLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFLEdBQUcsSUFBSSxnQkFBZ0IsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDO1lBQ3ZGLEtBQUssS0FBSztnQkFDUixPQUFPLENBQUMsR0FBRyxFQUFFLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFLE1BQUEsTUFBQSxFQUFFLGFBQUYsRUFBRSx1QkFBRixFQUFFLENBQUUsR0FBRyxDQUFDLGdCQUFnQixFQUFFLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLDBDQUFFLElBQUksbUNBQUksSUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7WUFDakgsS0FBSyxPQUFPO2dCQUNWLE1BQU0sUUFBUSxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsSUFBSSxnQkFBZ0IsQ0FBQyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztnQkFDakYsUUFBUSxDQUFDLElBQUksQ0FBQyxJQUFBLDJCQUFpQixFQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO2dCQUMzQyxPQUFPLENBQUMsR0FBRyxFQUFFLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFLEdBQUcsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztTQUMvRDtJQUNILENBQUM7Q0FDRjtBQXRKRCw0Q0FzSkMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFbnRpdHksIFJlZmVyZW5jZSwgUmVsYXRpb25zaGlwIH0gZnJvbSAnQGNka2xhYnMvdHNrYic7XG5pbXBvcnQgeyBTcGVjRGF0YWJhc2UgfSBmcm9tICcuL2RhdGFiYXNlJztcbmltcG9ydCB7IHNvcnRLZXlDb21wYXJhdG9yIH0gZnJvbSAnLi4vdXRpbC9zb3J0aW5nJztcblxuZXhwb3J0IGludGVyZmFjZSBQYXJ0aXRpb24gZXh0ZW5kcyBFbnRpdHkge1xuICByZWFkb25seSBwYXJ0aXRpb246IHN0cmluZztcbn1cblxuZXhwb3J0IHR5cGUgSGFzUmVnaW9uID0gUmVsYXRpb25zaGlwPFBhcnRpdGlvbiwgUmVnaW9uLCB7IGlzUHJpbWFyeT86IGJvb2xlYW4gfT47XG5cbmV4cG9ydCBpbnRlcmZhY2UgU2VydmljZSBleHRlbmRzIEVudGl0eSB7XG4gIC8qKlxuICAgKiBUaGUgZnVsbCBuYW1lIG9mIHRoZSBzZXJ2aWNlIGluY2x1ZGluZyB0aGUgZ3JvdXAgcHJlZml4LCBsb3dlcmNhc2VkIGFuZCBoeXBoZW5hdGVkLlxuICAgKlxuICAgKiBFLmcuIGBBV1M6OkR5bmFtb0RCYCAtPiBgYXdzLWR5bmFtb2RiYFxuICAgKlxuICAgKiBAZXhhbXBsZSBhd3MtZHluYW1vZGJcbiAgICovXG4gIHJlYWRvbmx5IG5hbWU6IHN0cmluZztcbiAgLyoqXG4gICAqIE9ubHkgdGhlIHNlcnZpY2UgcGFydCBvZiB0aGUgbmFtZSwgbG93ZXJjYXNlZC5cbiAgICpcbiAgICogRS5nLiBgQVdTOjpEeW5hbW9EQmAgLT4gYGR5bmFtb2RiYFxuICAgKlxuICAgKiBAZXhhbXBsZSBkeW5hbW9kYlxuICAgKi9cbiAgcmVhZG9ubHkgc2hvcnROYW1lOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBUaGUgc2hvcnRuYW1lIG9mIHRoZSBzZXJ2aWNlIGluIGNhcGl0YWxpemVkIGZvcm1cbiAgICpcbiAgICogRS5nLiBgQVdTOjpEeW5hbW9EQmAgLT4gYER5bmFtb0RCYFxuICAgKlxuICAgKiBAZXhhbXBsZSBkeW5hbW9kYlxuICAgKi9cbiAgcmVhZG9ubHkgY2FwaXRhbGl6ZWQ6IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBjb21wbGV0ZSBjbG91ZGZvcm1hdGlvbiBzdHlsZSBuYW1lc3BhY2Ugb2YgdGhlIHNlcnZpY2VcbiAgICpcbiAgICogRS5nLiBgQVdTOjpEeW5hbW9EQmBcbiAgICpcbiAgICogQGV4YW1wbGUgZHluYW1vZGJcbiAgICovXG4gIHJlYWRvbmx5IGNsb3VkRm9ybWF0aW9uTmFtZXNwYWNlOiBzdHJpbmc7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgUmVnaW9uIGV4dGVuZHMgRW50aXR5IHtcbiAgcmVhZG9ubHkgbmFtZTogc3RyaW5nO1xuICByZWFkb25seSBkZXNjcmlwdGlvbj86IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBEb2N1bWVudGF0aW9uIGV4dGVuZHMgRW50aXR5IHtcbiAgcmVhZG9ubHkgbWFya2Rvd246IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBSZXNvdXJjZSBleHRlbmRzIEVudGl0eSB7XG4gIHJlYWRvbmx5IG5hbWU6IHN0cmluZztcbiAgcmVhZG9ubHkgY2xvdWRGb3JtYXRpb25UeXBlOiBzdHJpbmc7XG4gIC8qKlxuICAgKiBJZiBzZXQsIHRoaXMgQ2xvdWRGb3JtYXRpb24gVHJhbnNmb3JtIGlzIHJlcXVpcmVkIGJ5IHRoZSByZXNvdXJjZVxuICAgKi9cbiAgY2xvdWRGb3JtYXRpb25UcmFuc2Zvcm0/OiBzdHJpbmc7XG4gIGRvY3VtZW50YXRpb24/OiBzdHJpbmc7XG4gIHByaW1hcnlJZGVudGlmaWVyPzogc3RyaW5nW107XG4gIHJlYWRvbmx5IHByb3BlcnRpZXM6IFJlc291cmNlUHJvcGVydGllcztcbiAgcmVhZG9ubHkgYXR0cmlidXRlczogUmVjb3JkPHN0cmluZywgQXR0cmlidXRlPjtcbiAgcmVhZG9ubHkgdmFsaWRhdGlvbnM/OiB1bmtub3duO1xuICBpZGVudGlmaWVyPzogUmVzb3VyY2VJZGVudGlmaWVyO1xuICBpc1N0YXRlZnVsPzogYm9vbGVhbjtcblxuICAvKipcbiAgICogSW5mb3JtYXRpb24gYWJvdXQgdGhlIHRhZ2dhYmlsaXR5IG9mIHRoaXMgcmVzb3VyY2VcbiAgICpcbiAgICogVW5kZWZpbmVkIGlmIHRoZSByZXNvdXJjZSBpcyBub3QgdGFnZ2FibGUuXG4gICAqL1xuICB0YWdJbmZvcm1hdGlvbj86IFRhZ0luZm9ybWF0aW9uO1xuXG4gIC8qKlxuICAgKiBXaGV0aGVyIGNoYW5nZXMgdG8gdGhpcyByZXNvdXJjZSBuZWVkIHRvIGJlIHNjcnV0aW5pemVkXG4gICAqXG4gICAqIEBkZWZhdWx0IFJlc291cmNlU2NydXRpbnlUeXBlLk5PTkVcbiAgICovXG4gIHNjcnV0aW5pemFibGU/OiBSZXNvdXJjZVNjcnV0aW55VHlwZTtcblxuICAvKipcbiAgICogQWRkaXRpb25hbCBwYXRocyB0byBwcm9wZXJ0aWVzIHRoYXQgYWxzbyBjYXVzZSByZXBsYWNlbWVudC5cbiAgICpcbiAgICogVGhpcyBpcyB0byBpbmRpY2F0ZSB0aGF0IGNlcnRhaW4gcHJvcGVydHkgcGF0aHMgaW50byB0aGlzIHJlc291cmNlXG4gICAqIHdpbGwgY2F1c2UgcmVwbGFjZW1lbnQ7IG9ubHkgcmVwbGFjZW1lbnRzIHRoYXQgY2Fubm90IGJlIHJlcHJlc2VudGVkXG4gICAqIGJ5IHRhZ2dpbmcgdGhlIHByb3BlcnR5IGluIGEgdHlwZSBkZWZpbml0aW9uIHdpbGwgYmUgaW5jbHVkZWQgaGVyZVxuICAgKiAoZm9yIGV4YW1wbGUsIGJlY2F1c2UgdGhlIHRhZ2dlZCBwcm9wZXJ0eSB3b3VsZCBiZSBpbiBhIHByZWRlZmluZWRcbiAgICogdHlwZSBsaWtlIGB0YWdgKS5cbiAgICpcbiAgICogQWxsIHByb3BlcnRpZXMgaW4gdGhpcyBsaXN0IHNob3VsZCBiZSB0cmVhdGVkIGFzIGBjYXVzZXNSZXBsYWNlbWVudDogJ3llcydgLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtXG4gICAqL1xuICBhZGRpdGlvbmFsUmVwbGFjZW1lbnRQcm9wZXJ0aWVzPzogc3RyaW5nW11bXTtcbn1cblxuZXhwb3J0IHR5cGUgUmVzb3VyY2VQcm9wZXJ0aWVzID0gUmVjb3JkPHN0cmluZywgUHJvcGVydHk+O1xuXG5leHBvcnQgaW50ZXJmYWNlIFR5cGVEZWZpbml0aW9uIGV4dGVuZHMgRW50aXR5IHtcbiAgcmVhZG9ubHkgbmFtZTogc3RyaW5nO1xuICBkb2N1bWVudGF0aW9uPzogc3RyaW5nO1xuICByZWFkb25seSBwcm9wZXJ0aWVzOiBSZXNvdXJjZVByb3BlcnRpZXM7XG5cbiAgLyoqXG4gICAqIElmIHRydWUsIHJlbmRlciB0aGlzIHR5cGUgZXZlbiBpZiBpdCBpcyB1bnVzZWQuXG4gICAqL1xuICBtdXN0UmVuZGVyRm9yQndDb21wYXQ/OiBib29sZWFuO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFByb3BlcnR5IHtcbiAgLyoqXG4gICAqIERlc2NyaXB0aW9uIG9mIHRoZSBwcm9wZXJ0eVxuICAgKi9cbiAgZG9jdW1lbnRhdGlvbj86IHN0cmluZztcblxuICAvKipcbiAgICogSXMgdGhpcyBwcm9wZXJ0eSByZXF1aXJlZFxuICAgKlxuICAgKiBAZGVmYXVsdCBmYWxzZVxuICAgKi9cbiAgcmVxdWlyZWQ/OiBib29sZWFuO1xuXG4gIC8qKlxuICAgKiBUaGUgY3VycmVudCB0eXBlIG9mIHRoaXMgcHJvcGVydHlcbiAgICovXG4gIHR5cGU6IFByb3BlcnR5VHlwZTtcblxuICAvKipcbiAgICogQW4gb3JkZXJlZCBsaXN0IG9mIHByZXZpb3VzIHR5cGVzIG9mIHRoaXMgcHJvcGVydHkgaW4gYXNjZW5kaW5nIG9yZGVyXG4gICAqXG4gICAqIERvZXMgbm90IGluY2x1ZGUgdGhlIGN1cnJlbnQgdHlwZSwgdXNlIGB0eXBlYCBmb3IgdGhpcy5cbiAgICovXG4gIHByZXZpb3VzVHlwZXM/OiBQcm9wZXJ0eVR5cGVbXTtcblxuICAvKipcbiAgICogQSBzdHJpbmcgcmVwcmVzZW50YXRpb24gdGhlIGRlZmF1bHQgdmFsdWUgb2YgdGhpcyBwcm9wZXJ0eVxuICAgKlxuICAgKiBUaGlzIHZhbHVlIGlzIG5vdCBkaXJlY3RseSBmdW5jdGlvbmFsOyBpdCBkZXNjcmliZXMgaG93IHRoZSB1bmRlcmx5aW5nIHJlc291cmNlXG4gICAqIHdpbGwgYmVoYXZlIGlmIHRoZSB2YWx1ZSBpcyBub3Qgc3BlY2lmaWVkLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIERlZmF1bHQgdW5rbm93blxuICAgKi9cbiAgZGVmYXVsdFZhbHVlPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBXaGV0aGVyIHRoaXMgcHJvcGVydHkgaXMgZGVwcmVjYXRlZFxuICAgKlxuICAgKiBAZGVmYXVsdCAtIE5vdCBkZXByZWNhdGVkXG4gICAqL1xuICBkZXByZWNhdGVkPzogRGVwcmVjYXRpb247XG5cbiAgLyoqXG4gICAqIFdoZXRoZXIgY2hhbmdlcyB0byB0aGlzIHByb3BlcnR5IG5lZWRzIHRvIGJlIHNjcnV0aW5pemVkIHNwZWNpYWxseVxuICAgKlxuICAgKiBAZGVmYXVsdCBQcm9wZXJ0eVNjcnV0aW55VHlwZS5OT05FXG4gICAqL1xuICBzY3J1dGluaXphYmxlPzogUHJvcGVydHlTY3J1dGlueVR5cGU7XG5cbiAgLyoqXG4gICAqIFdoZXRoZXIgdGhlIGNvbnRhaW5pbmcgcmVzb3VyY2Ugd2lsbCBiZSByZXBsYWNlZCBpZiB0aGlzIHByb3BlcnR5IGlzIGNoYW5nZWRcbiAgICpcbiAgICogQGRlZmF1bHQgJ25vJ1xuICAgKi9cbiAgY2F1c2VzUmVwbGFjZW1lbnQ/OiAneWVzJyB8ICdubycgfCAnbWF5YmUnO1xufVxuXG5leHBvcnQgY2xhc3MgUmljaFR5cGVkRmllbGQge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IGZpZWxkOiBQaWNrPFByb3BlcnR5LCAndHlwZScgfCAncHJldmlvdXNUeXBlcyc+KSB7XG4gICAgaWYgKGZpZWxkID09PSB1bmRlZmluZWQpIHtcbiAgICAgIHRocm93IG5ldyBFcnJvcignRmllbGQgaXMgdW5kZWZpbmVkJyk7XG4gICAgfVxuICB9XG5cbiAgcHVibGljIHR5cGVzKCk6IFByb3BlcnR5VHlwZVtdIHtcbiAgICByZXR1cm4gWy4uLih0aGlzLmZpZWxkLnByZXZpb3VzVHlwZXMgPz8gW10pLCB0aGlzLmZpZWxkLnR5cGVdO1xuICB9XG5cbiAgLyoqXG4gICAqIFVwZGF0ZSB0aGUgdHlwZSBvZiB0aGlzIHByb3BlcnR5IHdpdGggYSBuZXcgdHlwZVxuICAgKlxuICAgKiBPbmx5IGlmIGl0J3Mgbm90IGluIHRoZSBzZXQgb2YgdHlwZXMgYWxyZWFkeS5cbiAgICovXG4gIHB1YmxpYyB1cGRhdGVUeXBlKHR5cGU6IFByb3BlcnR5VHlwZSk6IGJvb2xlYW4ge1xuICAgIGNvbnN0IHJpY2hUeXBlID0gbmV3IFJpY2hQcm9wZXJ0eVR5cGUodHlwZSk7XG5cbiAgICAvLyBPbmx5IGFkZCB0aGlzIHR5cGUgaWYgd2UgZG9uJ3QgYWxyZWFkeSBoYXZlIGl0LiBXZSBhcmUgb25seSBkb2luZyBjb21wYXJpc29ucyB3aGVyZSAnaW50ZWdlcicgYW5kICdudW1iZXInXG4gICAgLy8gYXJlIHRyZWF0ZWQgdGhlIHNhbWUsIGZvciBhbGwgb3RoZXIgdHlwZXMgd2UgbmVlZCBzdHJpY3QgZXF1YWxpdHkuIFdlIHVzZWQgdG8gdXNlICdhc3NpZ25hYmxlVG8nIGFzIGFcbiAgICAvLyBjb25kaXRpb24sIGJ1dCB0aGVzZSB0eXBlcyB3aWxsIGJlIHJlbmRlcmVkIGluIGJvdGggY28tIGFuZCBjb250cmF2YXJpYW50IHBvc2l0aW9ucywgYW5kIHNvIHdlIHJlYWxseSBjYW4ndFxuICAgIC8vIGRvIG11Y2ggYmV0dGVyIHRoYW4gZnVsbCBlcXVhbGl0eS5cbiAgICBpZiAodGhpcy50eXBlcygpLnNvbWUoKHQpID0+IHJpY2hUeXBlLmVxdWFscyh0KSkpIHtcbiAgICAgIC8vIE5vdGhpbmcgdG8gZG8sIHR5cGUgaXMgYWxyZWFkeSBpbiB0aGVyZS5cbiAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9XG5cbiAgICAvLyBTcGVjaWFsIGNhc2U6IGlmIHRoZSBuZXcgdHlwZSBpcyBgc3RyaW5nYCBhbmQgdGhlIG9sZCB0eXBlIGlzIGBkYXRlLXRpbWVgLCB3ZSBhc3N1bWUgdGhpcyBpc1xuICAgIC8vIHRoZSBzYW1lIHR5cGUgYnV0IHdlIGRyb3BwZWQgc29tZSBmb3JtYXR0aW5nIGluZm9ybWF0aW9uLiBObyBuZWVkIHRvIG1ha2UgdGhpcyBhIHNlcGFyYXRlIHR5cGUuXG4gICAgaWYgKHR5cGUudHlwZSA9PT0gJ3N0cmluZycgJiYgdGhpcy50eXBlcygpLnNvbWUoKHQpID0+IHQudHlwZSA9PT0gJ2RhdGUtdGltZScpKSB7XG4gICAgICByZXR1cm4gZmFsc2U7XG4gICAgfVxuXG4gICAgaWYgKCF0aGlzLmZpZWxkLnByZXZpb3VzVHlwZXMpIHtcbiAgICAgIHRoaXMuZmllbGQucHJldmlvdXNUeXBlcyA9IFtdO1xuICAgIH1cbiAgICB0aGlzLmZpZWxkLnByZXZpb3VzVHlwZXMucHVzaCh0aGlzLmZpZWxkLnR5cGUpO1xuICAgIHRoaXMuZmllbGQudHlwZSA9IHR5cGU7XG4gICAgcmV0dXJuIHRydWU7XG4gIH1cbn1cblxuZXhwb3J0IGNsYXNzIFJpY2hQcm9wZXJ0eSBleHRlbmRzIFJpY2hUeXBlZEZpZWxkIHtcbiAgY29uc3RydWN0b3IocHJvcGVydHk6IFByb3BlcnR5KSB7XG4gICAgc3VwZXIocHJvcGVydHkpO1xuICB9XG59XG5cbmV4cG9ydCBjbGFzcyBSaWNoQXR0cmlidXRlIGV4dGVuZHMgUmljaFR5cGVkRmllbGQge1xuICBjb25zdHJ1Y3RvcihhdHRyOiBBdHRyaWJ1dGUpIHtcbiAgICBzdXBlcihhdHRyKTtcbiAgfVxufVxuXG5leHBvcnQgaW50ZXJmYWNlIEF0dHJpYnV0ZSB7XG4gIGRvY3VtZW50YXRpb24/OiBzdHJpbmc7XG4gIHR5cGU6IFByb3BlcnR5VHlwZTtcbiAgLyoqXG4gICAqIEFuIG9yZGVyZWQgbGlzdCBvZiBwcmV2aW91cyB0eXBlcyBvZiB0aGlzIHByb3BlcnR5IGluIGFzY2VuZGluZyBvcmRlclxuICAgKlxuICAgKiBEb2VzIG5vdCBpbmNsdWRlIHRoZSBjdXJyZW50IHR5cGUsIHVzZSBgdHlwZWAgZm9yIHRoaXMuXG4gICAqL1xuICBwcmV2aW91c1R5cGVzPzogUHJvcGVydHlUeXBlW107XG59XG5cbmV4cG9ydCBlbnVtIERlcHJlY2F0aW9uIHtcbiAgLyoqXG4gICAqIE5vdCBkZXByZWNhdGVkXG4gICAqL1xuICBOT05FID0gJ05PTkUnLFxuXG4gIC8qKlxuICAgKiBXYXJuIGFib3V0IHVzZVxuICAgKi9cbiAgV0FSTiA9ICdXQVJOJyxcblxuICAvKipcbiAgICogRG8gbm90IGVtaXQgdGhlIHZhbHVlIGF0IGFsbFxuICAgKlxuICAgKiAoSGFuZGxlIHByb3BlcnRpZXMgdGhhdCB3ZXJlIGluY29ycmVjdGx5IGFkZGVkIHRvIHRoZSBzcGVjKVxuICAgKi9cbiAgSUdOT1JFID0gJ0lHTk9SRScsXG59XG5cbmV4cG9ydCB0eXBlIFByb3BlcnR5VHlwZSA9XG4gIHwgUHJpbWl0aXZlVHlwZVxuICB8IERlZmluaXRpb25SZWZlcmVuY2VcbiAgfCBCdWlsdGluVGFnVHlwZVxuICB8IEFycmF5VHlwZTxQcm9wZXJ0eVR5cGU+XG4gIHwgTWFwVHlwZTxQcm9wZXJ0eVR5cGU+XG4gIHwgVHlwZVVuaW9uPFByb3BlcnR5VHlwZT47XG5cbmV4cG9ydCB0eXBlIFByaW1pdGl2ZVR5cGUgPVxuICB8IFN0cmluZ1R5cGVcbiAgfCBOdW1iZXJUeXBlXG4gIHwgSW50ZWdlclR5cGVcbiAgfCBCb29sZWFuVHlwZVxuICB8IEpzb25UeXBlXG4gIHwgRGF0ZVRpbWVUeXBlXG4gIHwgTnVsbFR5cGVcbiAgfCBCdWlsdGluVGFnVHlwZTtcblxuZXhwb3J0IGZ1bmN0aW9uIGlzQ29sbGVjdGlvblR5cGUoeDogUHJvcGVydHlUeXBlKTogeCBpcyBBcnJheVR5cGU8YW55PiB8IE1hcFR5cGU8YW55PiB7XG4gIHJldHVybiB4LnR5cGUgPT09ICdhcnJheScgfHwgeC50eXBlID09PSAnbWFwJztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBUYWdJbmZvcm1hdGlvbiB7XG4gIC8qKlxuICAgKiBOYW1lIG9mIHRoZSBwcm9wZXJ0eSB0aGF0IGhvbGRzIHRoZSB0YWdzXG4gICAqL1xuICByZWFkb25seSB0YWdQcm9wZXJ0eU5hbWU6IHN0cmluZztcblxuICAvKipcbiAgICogVXNlZCB0byBpbnN0cnVjdCBjZGsuVGFnTWFuYWdlciBob3cgdG8gaGFuZGxlIHRhZ3NcbiAgICovXG4gIHJlYWRvbmx5IHZhcmlhbnQ6IFRhZ1ZhcmlhbnQ7XG59XG5cbmV4cG9ydCB0eXBlIFRhZ1ZhcmlhbnQgPSAnc3RhbmRhcmQnIHwgJ2FzZycgfCAnbWFwJztcblxuZXhwb3J0IGludGVyZmFjZSBTdHJpbmdUeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ3N0cmluZyc7XG59XG5leHBvcnQgaW50ZXJmYWNlIEJ1aWx0aW5UYWdUeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ3RhZyc7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgTnVtYmVyVHlwZSB7XG4gIHJlYWRvbmx5IHR5cGU6ICdudW1iZXInO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEludGVnZXJUeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ2ludGVnZXInO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEJvb2xlYW5UeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ2Jvb2xlYW4nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEpzb25UeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ2pzb24nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIE51bGxUeXBlIHtcbiAgcmVhZG9ubHkgdHlwZTogJ251bGwnO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIERhdGVUaW1lVHlwZSB7XG4gIHJlYWRvbmx5IHR5cGU6ICdkYXRlLXRpbWUnO1xufVxuXG4vKipcbiAqIFRoZSBcImxlZ2FjeVwiIHRhZyB0eXBlICh1c2VkIGluIHRoZSBvbGQgcmVzb3VyY2Ugc3BlYylcbiAqL1xuZXhwb3J0IGludGVyZmFjZSBCdWlsdGluVGFnVHlwZSB7XG4gIHJlYWRvbmx5IHR5cGU6ICd0YWcnO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIERlZmluaXRpb25SZWZlcmVuY2Uge1xuICByZWFkb25seSB0eXBlOiAncmVmJztcbiAgcmVhZG9ubHkgcmVmZXJlbmNlOiBSZWZlcmVuY2U8VHlwZURlZmluaXRpb24+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEFycmF5VHlwZTxFPiB7XG4gIHJlYWRvbmx5IHR5cGU6ICdhcnJheSc7XG4gIHJlYWRvbmx5IGVsZW1lbnQ6IEU7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgTWFwVHlwZTxFPiB7XG4gIHJlYWRvbmx5IHR5cGU6ICdtYXAnO1xuICByZWFkb25seSBlbGVtZW50OiBFO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFR5cGVVbmlvbjxFPiB7XG4gIHJlYWRvbmx5IHR5cGU6ICd1bmlvbic7XG4gIHJlYWRvbmx5IHR5cGVzOiBFW107XG59XG5cbmV4cG9ydCB0eXBlIEhhc1Jlc291cmNlID0gUmVsYXRpb25zaGlwPFNlcnZpY2UsIFJlc291cmNlPjtcbmV4cG9ydCB0eXBlIFJlZ2lvbkhhc1Jlc291cmNlID0gUmVsYXRpb25zaGlwPFJlZ2lvbiwgUmVzb3VyY2U+O1xuZXhwb3J0IHR5cGUgUmVnaW9uSGFzU2VydmljZSA9IFJlbGF0aW9uc2hpcDxSZWdpb24sIFNlcnZpY2U+O1xuZXhwb3J0IHR5cGUgUmVzb3VyY2VEb2MgPSBSZWxhdGlvbnNoaXA8UmVzb3VyY2UsIERvY3VtZW50YXRpb24+O1xuXG5leHBvcnQgdHlwZSBTZXJ2aWNlSW5SZWdpb24gPSBSZWxhdGlvbnNoaXA8UmVnaW9uLCBTZXJ2aWNlPjtcbmV4cG9ydCB0eXBlIFJlc291cmNlSW5SZWdpb24gPSBSZWxhdGlvbnNoaXA8UmVnaW9uLCBSZXNvdXJjZT47XG5cbmV4cG9ydCB0eXBlIFVzZXNUeXBlID0gUmVsYXRpb25zaGlwPFJlc291cmNlLCBUeXBlRGVmaW5pdGlvbj47XG5cbmV4cG9ydCBpbnRlcmZhY2UgUmVzb3VyY2VJZGVudGlmaWVyIGV4dGVuZHMgRW50aXR5IHtcbiAgcmVhZG9ubHkgYXJuVGVtcGxhdGU/OiBzdHJpbmc7XG4gIHJlYWRvbmx5IHByaW1hcnlJZGVudGlmaWVyPzogc3RyaW5nW107XG59XG5cbi8qKlxuICogTWFyayBhIHJlc291cmNlIGFzIGEgcmVzb3VyY2UgdGhhdCBuZWVkcyBhZGRpdGlvbmFsIHNjcnV0aXkgd2hlbiBhZGRlZCwgcmVtb3ZlZCBvciBjaGFuZ2VkXG4gKlxuICogVXNlZCB0byBtYXJrIHJlc291cmNlcyB0aGF0IHJlcHJlc2VudCBzZWN1cml0eSBwb2xpY2llcy5cbiAqL1xuZXhwb3J0IGVudW0gUmVzb3VyY2VTY3J1dGlueVR5cGUge1xuICAvKipcbiAgICogTm8gYWRkaXRpb25hbCBzY3J1dGlueVxuICAgKi9cbiAgTm9uZSA9ICdOb25lJyxcblxuICAvKipcbiAgICogQW4gZXh0ZXJuYWxseSBhdHRhY2hlZCBwb2xpY3kgZG9jdW1lbnQgdG8gYSByZXNvdXJjZVxuICAgKlxuICAgKiAoQ29tbW9uIGZvciBTUVMsIFNOUywgUzMsIC4uLilcbiAgICovXG4gIFJlc291cmNlUG9saWN5UmVzb3VyY2UgPSAnUmVzb3VyY2VQb2xpY3lSZXNvdXJjZScsXG5cbiAgLyoqXG4gICAqIFRoaXMgaXMgYW4gSUFNIHBvbGljeSBvbiBhbiBpZGVudGl0eSByZXNvdXJjZVxuICAgKlxuICAgKiAoQmFzaWNhbGx5IHNheWluZzogdGhpcyBpcyBBV1M6OklBTTo6UG9saWN5KVxuICAgKi9cbiAgSWRlbnRpdHlQb2xpY3lSZXNvdXJjZSA9ICdJZGVudGl0eVBvbGljeVJlc291cmNlJyxcblxuICAvKipcbiAgICogVGhpcyBpcyBhIExhbWJkYSBQZXJtaXNzaW9uIHBvbGljeVxuICAgKi9cbiAgTGFtYmRhUGVybWlzc2lvbiA9ICdMYW1iZGFQZXJtaXNzaW9uJyxcblxuICAvKipcbiAgICogQW4gaW5ncmVzcyBydWxlIG9iamVjdFxuICAgKi9cbiAgSW5ncmVzc1J1bGVSZXNvdXJjZSA9ICdJbmdyZXNzUnVsZVJlc291cmNlJyxcblxuICAvKipcbiAgICogQSBzZXQgb2YgZWdyZXNzIHJ1bGVzXG4gICAqL1xuICBFZ3Jlc3NSdWxlUmVzb3VyY2UgPSAnRWdyZXNzUnVsZVJlc291cmNlJyxcblxuICAvKipcbiAgICogQVdTOjpTU086OkFzc2lnbm1lbnRcbiAgICpcbiAgICogSUFNIElkZW50aXR5IENlbnRlciAoZm9ybWVybHkga25vd24gYXMgU1NPKVxuICAgKi9cbiAgU3NvQXNzaWdubWVudFJlc291cmNlID0gJ1Nzb0Fzc2lnbm1lbnRSZXNvdXJjZScsXG5cbiAgLyoqXG4gICAqIEFXUzo6U1NPOjpJbnN0YW5jZUFjY2Vzc0NvbnRyb2xBdHRyaWJ1dGVDb25maWd1cmF0aW9uXG4gICAqXG4gICAqIElBTSBJZGVudGl0eSBDZW50ZXIgKGZvcm1lcmx5IGtub3duIGFzIFNTTylcbiAgICovXG4gIFNzb0luc3RhbmNlQUNBQ29uZmlnUmVzb3VyY2UgPSAnU3NvSW5zdGFuY2VBQ0FDb25maWdSZXNvdXJjZScsXG5cbiAgLyoqXG4gICAqIEFXUzo6U1NPOjpQZXJtaXNzaW9uU2V0XG4gICAqXG4gICAqIElBTSBJZGVudGl0eSBDZW50ZXIgKGZvcm1lcmx5IGtub3duIGFzIFNTTylcbiAgICovXG4gIFNzb1Blcm1pc3Npb25TZXQgPSAnU3NvUGVybWlzc2lvblNldCcsXG59XG5cbi8qKlxuICogTWFyayBhIHByb3BlcnR5IGFzIGEgcHJvcGVydHkgdGhhdCBuZWVkcyBhZGRpdGlvbmFsIHNjcnV0aW55IHdoZW4gaXQgY2hhbmdlc1xuICpcbiAqIFVzZWQgdG8gbWFyayBzZW5zaXRpdmUgcHJvcGVydGllcyB0aGF0IGhhdmUgc2VjdXJpdHktcmVsYXRlZCBpbXBsaWNhdGlvbnMuXG4gKi9cbmV4cG9ydCBlbnVtIFByb3BlcnR5U2NydXRpbnlUeXBlIHtcbiAgLyoqXG4gICAqIE5vIGFkZGl0aW9uYWwgc2NydXRpbnlcbiAgICovXG4gIE5vbmUgPSAnTm9uZScsXG5cbiAgLyoqXG4gICAqIFRoaXMgaXMgYW4gSUFNIHBvbGljeSBkaXJlY3RseSBvbiBhIHJlc291cmNlXG4gICAqL1xuICBJbmxpbmVSZXNvdXJjZVBvbGljeSA9ICdJbmxpbmVSZXNvdXJjZVBvbGljeScsXG5cbiAgLyoqXG4gICAqIEVpdGhlciBhbiBBc3N1bWVSb2xlUG9saWN5RG9jdW1lbnQgb3IgYSBkaWN0aW9uYXJ5IG9mIHBvbGljeSBkb2N1bWVudHNcbiAgICovXG4gIElubGluZUlkZW50aXR5UG9saWNpZXMgPSAnSW5saW5lSWRlbnRpdHlQb2xpY2llcycsXG5cbiAgLyoqXG4gICAqIEEgbGlzdCBvZiBtYW5hZ2VkIHBvbGljaWVzIChvbiBhbiBpZGVudGl0eSByZXNvdXJjZSlcbiAgICovXG4gIE1hbmFnZWRQb2xpY2llcyA9ICdNYW5hZ2VkUG9saWNpZXMnLFxuXG4gIC8qKlxuICAgKiBBIHNldCBvZiBpbmdyZXNzIHJ1bGVzIChvbiBhIHNlY3VyaXR5IGdyb3VwKVxuICAgKi9cbiAgSW5ncmVzc1J1bGVzID0gJ0luZ3Jlc3NSdWxlcycsXG5cbiAgLyoqXG4gICAqIEEgc2V0IG9mIGVncmVzcyBydWxlcyAob24gYSBzZWN1cml0eSBncm91cClcbiAgICovXG4gIEVncmVzc1J1bGVzID0gJ0VncmVzc1J1bGVzJyxcbn1cblxuZXhwb3J0IGNsYXNzIFJpY2hQcm9wZXJ0eVR5cGUge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IHR5cGU6IFByb3BlcnR5VHlwZSkge31cblxuICBwdWJsaWMgZXF1YWxzKHJoczogUHJvcGVydHlUeXBlKTogYm9vbGVhbiB7XG4gICAgc3dpdGNoICh0aGlzLnR5cGUudHlwZSkge1xuICAgICAgY2FzZSAnaW50ZWdlcic6XG4gICAgICBjYXNlICdib29sZWFuJzpcbiAgICAgIGNhc2UgJ2RhdGUtdGltZSc6XG4gICAgICBjYXNlICdqc29uJzpcbiAgICAgIGNhc2UgJ251bGwnOlxuICAgICAgY2FzZSAnbnVtYmVyJzpcbiAgICAgIGNhc2UgJ3N0cmluZyc6XG4gICAgICBjYXNlICd0YWcnOlxuICAgICAgICByZXR1cm4gcmhzLnR5cGUgPT09IHRoaXMudHlwZS50eXBlO1xuICAgICAgY2FzZSAnYXJyYXknOlxuICAgICAgY2FzZSAnbWFwJzpcbiAgICAgICAgcmV0dXJuIHJocy50eXBlID09PSB0aGlzLnR5cGUudHlwZSAmJiBuZXcgUmljaFByb3BlcnR5VHlwZSh0aGlzLnR5cGUuZWxlbWVudCkuZXF1YWxzKHJocy5lbGVtZW50KTtcbiAgICAgIGNhc2UgJ3JlZic6XG4gICAgICAgIHJldHVybiByaHMudHlwZSA9PT0gJ3JlZicgJiYgdGhpcy50eXBlLnJlZmVyZW5jZS4kcmVmID09PSByaHMucmVmZXJlbmNlLiRyZWY7XG4gICAgICBjYXNlICd1bmlvbic6XG4gICAgICAgIGNvbnN0IGxoc0tleSA9IHRoaXMuc29ydEtleSgpO1xuICAgICAgICBjb25zdCByaHNLZXkgPSBuZXcgUmljaFByb3BlcnR5VHlwZShyaHMpLnNvcnRLZXkoKTtcbiAgICAgICAgcmV0dXJuIGxoc0tleS5sZW5ndGggPT09IHJoc0tleS5sZW5ndGggJiYgbGhzS2V5LmV2ZXJ5KChsLCBpKSA9PiBsID09PSByaHNLZXlbaV0pO1xuICAgIH1cbiAgfVxuXG4gIC8qKlxuICAgKiBXaGV0aGVyIHRoZSBjdXJyZW50IHR5cGUgaXMgSmF2YVNjcmlwdC1lcXVhbCB0byB0aGUgUkhTIHR5cGVcbiAgICpcbiAgICogU2FtZSBhcyBub3JtYWwgZXF1YWxpdHksIGJ1dCBjb25zaWRlciBgaW50ZWdlcmAgYW5kIGBudW1iZXJgIHRoZSBzYW1lIHR5cGVzLlxuICAgKi9cbiAgcHVibGljIGphdmFzY3JpcHRFcXVhbHMocmhzOiBQcm9wZXJ0eVR5cGUpOiBib29sZWFuIHtcbiAgICBzd2l0Y2ggKHRoaXMudHlwZS50eXBlKSB7XG4gICAgICBjYXNlICdudW1iZXInOlxuICAgICAgY2FzZSAnaW50ZWdlcic6XG4gICAgICAgIC8vIFdpZGVuaW5nXG4gICAgICAgIHJldHVybiByaHMudHlwZSA9PT0gJ2ludGVnZXInIHx8IHJocy50eXBlID09PSAnbnVtYmVyJztcblxuICAgICAgY2FzZSAnYXJyYXknOlxuICAgICAgY2FzZSAnbWFwJzpcbiAgICAgICAgcmV0dXJuIHJocy50eXBlID09PSB0aGlzLnR5cGUudHlwZSAmJiBuZXcgUmljaFByb3BlcnR5VHlwZSh0aGlzLnR5cGUuZWxlbWVudCkuamF2YXNjcmlwdEVxdWFscyhyaHMuZWxlbWVudCk7XG5cbiAgICAgIGNhc2UgJ3VuaW9uJzpcbiAgICAgICAgaWYgKHJocy50eXBlICE9PSAndW5pb24nKSB7XG4gICAgICAgICAgcmV0dXJuIGZhbHNlO1xuICAgICAgICB9XG4gICAgICAgIC8vIEV2ZXJ5IHR5cGUgaW4gdGhpcyB1bmlvbiBuZWVkcyB0byBiZSBlcXVhbCBvbmUgdHlwZSBpbiBSSFNcbiAgICAgICAgcmV0dXJuIHRoaXMudHlwZS50eXBlcy5ldmVyeSgodDEpID0+IHJocy50eXBlcy5zb21lKCh0MikgPT4gbmV3IFJpY2hQcm9wZXJ0eVR5cGUodDEpLmphdmFzY3JpcHRFcXVhbHModDIpKSk7XG5cbiAgICAgIGRlZmF1bHQ6XG4gICAgICAgIC8vIEZvciBhbnl0aGluZyBlbHNlLCBuZWVkIHN0cmljdCBlcXVhbGl0eVxuICAgICAgICByZXR1cm4gdGhpcy5lcXVhbHMocmhzKTtcbiAgICB9XG4gIH1cblxuICAvKipcbiAgICogV2hldGhlciB0aGUgY3VycmVudCB0eXBlIGlzIGFzc2lnbmFibGUgdG8gdGhlIFJIUyB0eXBlLlxuICAgKlxuICAgKiBUaGlzIGlzIG1lYW5zIGV2ZXJ5IHR5cGUgbWVtYmVyIG9mIHRoZSBMSFMgbXVzdCBiZSBwcmVzZW50IGluIHRoZSBSSFMgdHlwZVxuICAgKi9cbiAgcHVibGljIGFzc2lnbmFibGVUbyhyaHM6IFByb3BlcnR5VHlwZSk6IGJvb2xlYW4ge1xuICAgIGNvbnN0IGV4dHJhY3RNZW1iZXJzID0gKHR5cGU6IFByb3BlcnR5VHlwZSk6IFByb3BlcnR5VHlwZVtdID0+ICh0eXBlLnR5cGUgPT0gJ3VuaW9uJyA/IHR5cGUudHlwZXMgOiBbdHlwZV0pO1xuICAgIGNvbnN0IGFzUmljaFR5cGUgPSAodHlwZTogUHJvcGVydHlUeXBlKTogUmljaFByb3BlcnR5VHlwZSA9PiBuZXcgUmljaFByb3BlcnR5VHlwZSh0eXBlKTtcblxuICAgIGNvbnN0IHJoc01lbWJlcnMgPSBleHRyYWN0TWVtYmVycyhyaHMpO1xuICAgIGZvciAoY29uc3QgbGhzTWVtYmVyIG9mIGV4dHJhY3RNZW1iZXJzKHRoaXMudHlwZSkubWFwKGFzUmljaFR5cGUpKSB7XG4gICAgICBpZiAoIXJoc01lbWJlcnMuc29tZSgodHlwZSkgPT4gbGhzTWVtYmVyLmVxdWFscyh0eXBlKSkpIHtcbiAgICAgICAgcmV0dXJuIGZhbHNlO1xuICAgICAgfVxuICAgIH1cblxuICAgIHJldHVybiB0cnVlO1xuICB9XG5cbiAgLyoqXG4gICAqIFJldHVybiBhIHZlcnNpb24gb2YgdGhpcyB0eXBlLCBidXQgd2l0aCBhbGwgdHlwZSB1bmlvbnMgaW4gYSByZWd1bGFyaXplZCBvcmRlclxuICAgKi9cbiAgcHVibGljIG5vcm1hbGl6ZShkYjogU3BlY0RhdGFiYXNlKTogUmljaFByb3BlcnR5VHlwZSB7XG4gICAgc3dpdGNoICh0aGlzLnR5cGUudHlwZSkge1xuICAgICAgY2FzZSAnYXJyYXknOlxuICAgICAgY2FzZSAnbWFwJzpcbiAgICAgICAgcmV0dXJuIG5ldyBSaWNoUHJvcGVydHlUeXBlKHtcbiAgICAgICAgICB0eXBlOiB0aGlzLnR5cGUudHlwZSxcbiAgICAgICAgICBlbGVtZW50OiBuZXcgUmljaFByb3BlcnR5VHlwZSh0aGlzLnR5cGUuZWxlbWVudCkubm9ybWFsaXplKGRiKS50eXBlLFxuICAgICAgICB9KTtcbiAgICAgIGNhc2UgJ3VuaW9uJzpcbiAgICAgICAgY29uc3QgdHlwZXMgPSB0aGlzLnR5cGUudHlwZXNcbiAgICAgICAgICAubWFwKCh0KSA9PiBuZXcgUmljaFByb3BlcnR5VHlwZSh0KS5ub3JtYWxpemUoZGIpKVxuICAgICAgICAgIC5tYXAoKHQpID0+IFt0LCB0LnNvcnRLZXkoZGIpXSBhcyBjb25zdCk7XG4gICAgICAgIHR5cGVzLnNvcnQoc29ydEtleUNvbXBhcmF0b3IoKFtfLCBzb3J0S2V5XSkgPT4gc29ydEtleSkpO1xuICAgICAgICByZXR1cm4gbmV3IFJpY2hQcm9wZXJ0eVR5cGUoe1xuICAgICAgICAgIHR5cGU6ICd1bmlvbicsXG4gICAgICAgICAgdHlwZXM6IHR5cGVzLm1hcCgoW3QsIF9dKSA9PiB0LnR5cGUpLFxuICAgICAgICB9KTtcbiAgICAgIGRlZmF1bHQ6XG4gICAgICAgIHJldHVybiB0aGlzO1xuICAgIH1cbiAgfVxuXG4gIHB1YmxpYyBzdHJpbmdpZnkoZGI6IFNwZWNEYXRhYmFzZSwgd2l0aElkID0gdHJ1ZSk6IHN0cmluZyB7XG4gICAgc3dpdGNoICh0aGlzLnR5cGUudHlwZSkge1xuICAgICAgY2FzZSAnaW50ZWdlcic6XG4gICAgICBjYXNlICdib29sZWFuJzpcbiAgICAgIGNhc2UgJ2RhdGUtdGltZSc6XG4gICAgICBjYXNlICdqc29uJzpcbiAgICAgIGNhc2UgJ251bGwnOlxuICAgICAgY2FzZSAnbnVtYmVyJzpcbiAgICAgIGNhc2UgJ3N0cmluZyc6XG4gICAgICBjYXNlICd0YWcnOlxuICAgICAgICByZXR1cm4gdGhpcy50eXBlLnR5cGU7XG4gICAgICBjYXNlICdhcnJheSc6XG4gICAgICAgIHJldHVybiBgQXJyYXk8JHtuZXcgUmljaFByb3BlcnR5VHlwZSh0aGlzLnR5cGUuZWxlbWVudCkuc3RyaW5naWZ5KGRiLCB3aXRoSWQpfT5gO1xuICAgICAgY2FzZSAnbWFwJzpcbiAgICAgICAgcmV0dXJuIGBNYXA8c3RyaW5nLCAke25ldyBSaWNoUHJvcGVydHlUeXBlKHRoaXMudHlwZS5lbGVtZW50KS5zdHJpbmdpZnkoZGIsIHdpdGhJZCl9PmA7XG4gICAgICBjYXNlICdyZWYnOlxuICAgICAgICBjb25zdCB0eXBlID0gZGIuZ2V0KCd0eXBlRGVmaW5pdGlvbicsIHRoaXMudHlwZS5yZWZlcmVuY2UpO1xuICAgICAgICByZXR1cm4gd2l0aElkID8gYCR7dHlwZS5uYW1lfSgke3RoaXMudHlwZS5yZWZlcmVuY2UuJHJlZn0pYCA6IHR5cGUubmFtZTtcbiAgICAgIGNhc2UgJ3VuaW9uJzpcbiAgICAgICAgcmV0dXJuIHRoaXMudHlwZS50eXBlcy5tYXAoKHQpID0+IG5ldyBSaWNoUHJvcGVydHlUeXBlKHQpLnN0cmluZ2lmeShkYiwgd2l0aElkKSkuam9pbignIHwgJyk7XG4gICAgfVxuICB9XG5cbiAgLyoqXG4gICAqIFJldHVybiBhIHNvcnRhYmxlIGtleSBiYXNlZCBvbiB0aGlzIHR5cGVcbiAgICpcbiAgICogSWYgYSBkYXRhYmFzZSBpcyBnaXZlbiwgdHlwZSBkZWZpbml0aW9ucyB3aWxsIGJlIHNvcnRlZCBiYXNlZCBvbiB0eXBlIG5hbWUsXG4gICAqIG90aGVyd2lzZSBvbiBpZGVudGlmaWVyXG4gICAqL1xuICBwdWJsaWMgc29ydEtleShkYj86IFNwZWNEYXRhYmFzZSk6IHN0cmluZ1tdIHtcbiAgICBzd2l0Y2ggKHRoaXMudHlwZS50eXBlKSB7XG4gICAgICBjYXNlICdpbnRlZ2VyJzpcbiAgICAgIGNhc2UgJ2Jvb2xlYW4nOlxuICAgICAgY2FzZSAnZGF0ZS10aW1lJzpcbiAgICAgIGNhc2UgJ2pzb24nOlxuICAgICAgY2FzZSAnbnVsbCc6XG4gICAgICBjYXNlICdudW1iZXInOlxuICAgICAgY2FzZSAnc3RyaW5nJzpcbiAgICAgIGNhc2UgJ3RhZyc6XG4gICAgICAgIHJldHVybiBbJzAnLCB0aGlzLnR5cGUudHlwZV07XG4gICAgICBjYXNlICdhcnJheSc6XG4gICAgICBjYXNlICdtYXAnOlxuICAgICAgICByZXR1cm4gWycxJywgdGhpcy50eXBlLnR5cGUsIC4uLm5ldyBSaWNoUHJvcGVydHlUeXBlKHRoaXMudHlwZS5lbGVtZW50KS5zb3J0S2V5KGRiKV07XG4gICAgICBjYXNlICdyZWYnOlxuICAgICAgICByZXR1cm4gWycyJywgdGhpcy50eXBlLnR5cGUsIGRiPy5nZXQoJ3R5cGVEZWZpbml0aW9uJywgdGhpcy50eXBlLnJlZmVyZW5jZSk/Lm5hbWUgPz8gdGhpcy50eXBlLnJlZmVyZW5jZS4kcmVmXTtcbiAgICAgIGNhc2UgJ3VuaW9uJzpcbiAgICAgICAgY29uc3QgdHlwZUtleXMgPSB0aGlzLnR5cGUudHlwZXMubWFwKCh0KSA9PiBuZXcgUmljaFByb3BlcnR5VHlwZSh0KS5zb3J0S2V5KGRiKSk7XG4gICAgICAgIHR5cGVLZXlzLnNvcnQoc29ydEtleUNvbXBhcmF0b3IoKHgpID0+IHgpKTtcbiAgICAgICAgcmV0dXJuIFsnMycsIHRoaXMudHlwZS50eXBlLCAuLi50eXBlS2V5cy5mbGF0TWFwKCh4KSA9PiB4KV07XG4gICAgfVxuICB9XG59XG4iXX0=
+
+/***/ }),
+
+/***/ 61917:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.sortKeyComparator = void 0;
+/**
+ * Make a sorting comparator that will sort by a given sort key
+ */
+function sortKeyComparator(keyFn) {
+    return (a, b) => {
+        const ak = keyFn(a);
+        const bk = keyFn(b);
+        for (let i = 0; i < ak.length && i < bk.length; i++) {
+            const av = ak[i];
+            const bv = bk[i];
+            let diff = 0;
+            if (typeof av === 'number' && typeof bv === 'number') {
+                diff = av - bv;
+            }
+            else if (typeof av === 'string' && typeof bv === 'string') {
+                diff = av.localeCompare(bv);
+            }
+            if (diff !== 0) {
+                return diff;
+            }
+        }
+        return bk.length - ak.length;
+    };
+}
+exports.sortKeyComparator = sortKeyComparator;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic29ydGluZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlsL3NvcnRpbmcudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUE7O0dBRUc7QUFDSCxTQUFnQixpQkFBaUIsQ0FBSSxLQUF1QztJQUMxRSxPQUFPLENBQUMsQ0FBSSxFQUFFLENBQUksRUFBVSxFQUFFO1FBQzVCLE1BQU0sRUFBRSxHQUFHLEtBQUssQ0FBQyxDQUFDLENBQUMsQ0FBQztRQUNwQixNQUFNLEVBQUUsR0FBRyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUM7UUFFcEIsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxNQUFNLElBQUksQ0FBQyxHQUFHLEVBQUUsQ0FBQyxNQUFNLEVBQUUsQ0FBQyxFQUFFLEVBQUU7WUFDbkQsTUFBTSxFQUFFLEdBQUcsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDO1lBQ2pCLE1BQU0sRUFBRSxHQUFHLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztZQUVqQixJQUFJLElBQUksR0FBRyxDQUFDLENBQUM7WUFDYixJQUFJLE9BQU8sRUFBRSxLQUFLLFFBQVEsSUFBSSxPQUFPLEVBQUUsS0FBSyxRQUFRLEVBQUU7Z0JBQ3BELElBQUksR0FBRyxFQUFFLEdBQUcsRUFBRSxDQUFDO2FBQ2hCO2lCQUFNLElBQUksT0FBTyxFQUFFLEtBQUssUUFBUSxJQUFJLE9BQU8sRUFBRSxLQUFLLFFBQVEsRUFBRTtnQkFDM0QsSUFBSSxHQUFHLEVBQUUsQ0FBQyxhQUFhLENBQUMsRUFBRSxDQUFDLENBQUM7YUFDN0I7WUFFRCxJQUFJLElBQUksS0FBSyxDQUFDLEVBQUU7Z0JBQ2QsT0FBTyxJQUFJLENBQUM7YUFDYjtTQUNGO1FBRUQsT0FBTyxFQUFFLENBQUMsTUFBTSxHQUFHLEVBQUUsQ0FBQyxNQUFNLENBQUM7SUFDL0IsQ0FBQyxDQUFDO0FBQ0osQ0FBQztBQXZCRCw4Q0F1QkMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIE1ha2UgYSBzb3J0aW5nIGNvbXBhcmF0b3IgdGhhdCB3aWxsIHNvcnQgYnkgYSBnaXZlbiBzb3J0IGtleVxuICovXG5leHBvcnQgZnVuY3Rpb24gc29ydEtleUNvbXBhcmF0b3I8QT4oa2V5Rm46ICh4OiBBKSA9PiBBcnJheTxzdHJpbmcgfCBudW1iZXI+KSB7XG4gIHJldHVybiAoYTogQSwgYjogQSk6IG51bWJlciA9PiB7XG4gICAgY29uc3QgYWsgPSBrZXlGbihhKTtcbiAgICBjb25zdCBiayA9IGtleUZuKGIpO1xuXG4gICAgZm9yIChsZXQgaSA9IDA7IGkgPCBhay5sZW5ndGggJiYgaSA8IGJrLmxlbmd0aDsgaSsrKSB7XG4gICAgICBjb25zdCBhdiA9IGFrW2ldO1xuICAgICAgY29uc3QgYnYgPSBia1tpXTtcblxuICAgICAgbGV0IGRpZmYgPSAwO1xuICAgICAgaWYgKHR5cGVvZiBhdiA9PT0gJ251bWJlcicgJiYgdHlwZW9mIGJ2ID09PSAnbnVtYmVyJykge1xuICAgICAgICBkaWZmID0gYXYgLSBidjtcbiAgICAgIH0gZWxzZSBpZiAodHlwZW9mIGF2ID09PSAnc3RyaW5nJyAmJiB0eXBlb2YgYnYgPT09ICdzdHJpbmcnKSB7XG4gICAgICAgIGRpZmYgPSBhdi5sb2NhbGVDb21wYXJlKGJ2KTtcbiAgICAgIH1cblxuICAgICAgaWYgKGRpZmYgIT09IDApIHtcbiAgICAgICAgcmV0dXJuIGRpZmY7XG4gICAgICB9XG4gICAgfVxuXG4gICAgcmV0dXJuIGJrLmxlbmd0aCAtIGFrLmxlbmd0aDtcbiAgfTtcbn1cbiJdfQ==
 
 /***/ }),
 
@@ -4527,7 +5027,7 @@ var ArtifactMetadataEntryType;
      */
     ArtifactMetadataEntryType["STACK_TAGS"] = "aws:cdk:stack-tags";
 })(ArtifactMetadataEntryType || (exports.ArtifactMetadataEntryType = ArtifactMetadataEntryType = {}));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWV0YWRhdGEtc2NoZW1hLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibWV0YWRhdGEtc2NoZW1hLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQStRQTs7R0FFRztBQUNILElBQVkseUJBOEJYO0FBOUJELFdBQVkseUJBQXlCO0lBQ25DOztPQUVHO0lBQ0gsb0RBQXVCLENBQUE7SUFFdkI7O09BRUc7SUFDSCxrREFBcUIsQ0FBQTtJQUVyQjs7T0FFRztJQUNILHFEQUF3QixDQUFBO0lBRXhCOztPQUVHO0lBQ0gsb0RBQXVCLENBQUE7SUFFdkI7O09BRUc7SUFDSCw2REFBZ0MsQ0FBQTtJQUVoQzs7T0FFRztJQUNILDhEQUFpQyxDQUFBO0FBQ25DLENBQUMsRUE5QlcseUJBQXlCLHlDQUF6Qix5QkFBeUIsUUE4QnBDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBDb21tb24gcHJvcGVydGllcyBmb3IgYXNzZXQgbWV0YWRhdGEuXG4gKi9cbmludGVyZmFjZSBCYXNlQXNzZXRNZXRhZGF0YUVudHJ5IHtcbiAgLyoqXG4gICAqIFJlcXVlc3RlZCBwYWNrYWdpbmcgc3R5bGVcbiAgICovXG4gIHJlYWRvbmx5IHBhY2thZ2luZzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBMb2dpY2FsIGlkZW50aWZpZXIgZm9yIHRoZSBhc3NldFxuICAgKi9cbiAgcmVhZG9ubHkgaWQ6IHN0cmluZztcblxuICAvKipcbiAgICogVGhlIGhhc2ggb2YgdGhlIGFzc2V0IHNvdXJjZS5cbiAgICovXG4gIHJlYWRvbmx5IHNvdXJjZUhhc2g6IHN0cmluZztcblxuICAvKipcbiAgICogUGF0aCBvbiBkaXNrIHRvIHRoZSBhc3NldFxuICAgKi9cbiAgcmVhZG9ubHkgcGF0aDogc3RyaW5nO1xufVxuXG4vKipcbiAqIE1ldGFkYXRhIEVudHJ5IHNwZWMgZm9yIGZpbGVzLlxuICpcbiAqIEBleGFtcGxlXG4gKiBjb25zdCBlbnRyeSA9IHtcbiAqICAgcGFja2FnaW5nOiAnZmlsZScsXG4gKiAgIHMzQnVja2V0UGFyYW1ldGVyOiAnYnVja2V0LXBhcmFtZXRlcicsXG4gKiAgIHMzS2V5UGFyYW1lbnRlcjogJ2tleS1wYXJhbWV0ZXInLFxuICogICBhcnRpZmFjdEhhc2hQYXJhbWV0ZXI6ICdoYXNoLXBhcmFtZXRlcicsXG4gKiB9XG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRmlsZUFzc2V0TWV0YWRhdGFFbnRyeSBleHRlbmRzIEJhc2VBc3NldE1ldGFkYXRhRW50cnkge1xuICAvKipcbiAgICogUmVxdWVzdGVkIHBhY2thZ2luZyBzdHlsZVxuICAgKi9cbiAgcmVhZG9ubHkgcGFja2FnaW5nOiAnemlwJyB8ICdmaWxlJztcblxuICAvKipcbiAgICogTmFtZSBvZiBwYXJhbWV0ZXIgd2hlcmUgUzMgYnVja2V0IHNob3VsZCBiZSBwYXNzZWQgaW5cbiAgICovXG4gIHJlYWRvbmx5IHMzQnVja2V0UGFyYW1ldGVyOiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIE5hbWUgb2YgcGFyYW1ldGVyIHdoZXJlIFMzIGtleSBzaG91bGQgYmUgcGFzc2VkIGluXG4gICAqL1xuICByZWFkb25seSBzM0tleVBhcmFtZXRlcjogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgcGFyYW1ldGVyIHdoZXJlIHRoZSBoYXNoIG9mIHRoZSBidW5kbGVkIGFzc2V0IHNob3VsZCBiZSBwYXNzZWQgaW4uXG4gICAqL1xuICByZWFkb25seSBhcnRpZmFjdEhhc2hQYXJhbWV0ZXI6IHN0cmluZztcbn1cblxuLyoqXG4gKiBNZXRhZGF0YSBFbnRyeSBzcGVjIGZvciBzdGFjayB0YWcuXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgVGFnIHtcbiAgLyoqXG4gICAqIFRhZyBrZXkuXG4gICAqXG4gICAqIChJbiB0aGUgYWN0dWFsIGZpbGUgb24gZGlzayB0aGlzIHdpbGwgYmUgY2FzZWQgYXMgXCJLZXlcIiwgYW5kIHRoZSBzdHJ1Y3R1cmUgaXNcbiAgICogcGF0Y2hlZCB0byBtYXRjaCB0aGlzIHN0cnVjdHVyZSB1cG9uIGxvYWRpbmc6XG4gICAqIGh0dHBzOi8vZ2l0aHViLmNvbS9hd3MvYXdzLWNkay9ibG9iLzRhYWRhYTc3OWI0OGYzNTgzOGNjY2Q0ZTI1MTA3YjIzMzhmMDU1NDcvcGFja2FnZXMvJTQwYXdzLWNkay9jbG91ZC1hc3NlbWJseS1zY2hlbWEvbGliL21hbmlmZXN0LnRzI0wxMzcpXG4gICAqL1xuICByZWFkb25seSBrZXk6IHN0cmluZztcblxuICAvKipcbiAgICogVGFnIHZhbHVlLlxuICAgKlxuICAgKiAoSW4gdGhlIGFjdHVhbCBmaWxlIG9uIGRpc2sgdGhpcyB3aWxsIGJlIGNhc2VkIGFzIFwiVmFsdWVcIiwgYW5kIHRoZSBzdHJ1Y3R1cmUgaXNcbiAgICogcGF0Y2hlZCB0byBtYXRjaCB0aGlzIHN0cnVjdHVyZSB1cG9uIGxvYWRpbmc6XG4gICAqIGh0dHBzOi8vZ2l0aHViLmNvbS9hd3MvYXdzLWNkay9ibG9iLzRhYWRhYTc3OWI0OGYzNTgzOGNjY2Q0ZTI1MTA3YjIzMzhmMDU1NDcvcGFja2FnZXMvJTQwYXdzLWNkay9jbG91ZC1hc3NlbWJseS1zY2hlbWEvbGliL21hbmlmZXN0LnRzI0wxMzcpXG4gICAqL1xuICByZWFkb25seSB2YWx1ZTogc3RyaW5nO1xufVxuXG4vKipcbiAqIE9wdGlvbnMgZm9yIGNvbmZpZ3VyaW5nIHRoZSBEb2NrZXIgY2FjaGUgYmFja2VuZFxuICovXG5leHBvcnQgaW50ZXJmYWNlIENvbnRhaW5lckltYWdlQXNzZXRDYWNoZU9wdGlvbiB7XG4gIC8qKlxuICAgKiBUaGUgdHlwZSBvZiBjYWNoZSB0byB1c2UuXG4gICAqIFJlZmVyIHRvIGh0dHBzOi8vZG9jcy5kb2NrZXIuY29tL2J1aWxkL2NhY2hlL2JhY2tlbmRzLyBmb3IgZnVsbCBsaXN0IG9mIGJhY2tlbmRzLlxuICAgKiBAZGVmYXVsdCAtIHVuc3BlY2lmaWVkXG4gICAqXG4gICAqIEBleGFtcGxlICdyZWdpc3RyeSdcbiAgICovXG4gIHJlYWRvbmx5IHR5cGU6IHN0cmluZztcbiAgLyoqXG4gICAqIEFueSBwYXJhbWV0ZXJzIHRvIHBhc3MgaW50byB0aGUgZG9ja2VyIGNhY2hlIGJhY2tlbmQgY29uZmlndXJhdGlvbi5cbiAgICogUmVmZXIgdG8gaHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vYnVpbGQvY2FjaGUvYmFja2VuZHMvIGZvciBjYWNoZSBiYWNrZW5kIGNvbmZpZ3VyYXRpb24uXG4gICAqIEBkZWZhdWx0IHt9IE5vIG9wdGlvbnMgcHJvdmlkZWRcbiAgICpcbiAgICogQGV4YW1wbGVcbiAgICogZGVjbGFyZSBjb25zdCBicmFuY2g6IHN0cmluZztcbiAgICpcbiAgICogY29uc3QgcGFyYW1zID0ge1xuICAgKiAgIHJlZjogYDEyMzQ1Njc4LmRrci5lY3IudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vY2FjaGU6JHticmFuY2h9YCxcbiAgICogICBtb2RlOiBcIm1heFwiLFxuICAgKiB9O1xuICAgKi9cbiAgcmVhZG9ubHkgcGFyYW1zPzogeyBba2V5OiBzdHJpbmddOiBzdHJpbmcgfTtcbn1cblxuLyoqXG4gKiBNZXRhZGF0YSBFbnRyeSBzcGVjIGZvciBjb250YWluZXIgaW1hZ2VzLlxuICpcbiAqIEBleGFtcGxlXG4gKiBjb25zdCBlbnRyeSA9IHtcbiAqICAgcGFja2FnaW5nOiAnY29udGFpbmVyLWltYWdlJyxcbiAqICAgcmVwb3NpdG9yeU5hbWU6ICdyZXBvc2l0b3J5LW5hbWUnLFxuICogICBpbWFnZVRhZzogJ3RhZycsXG4gKiB9XG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgQ29udGFpbmVySW1hZ2VBc3NldE1ldGFkYXRhRW50cnkgZXh0ZW5kcyBCYXNlQXNzZXRNZXRhZGF0YUVudHJ5IHtcbiAgLyoqXG4gICAqIFR5cGUgb2YgYXNzZXRcbiAgICovXG4gIHJlYWRvbmx5IHBhY2thZ2luZzogJ2NvbnRhaW5lci1pbWFnZSc7XG5cbiAgLyoqXG4gICAqIEVDUiBSZXBvc2l0b3J5IG5hbWUgYW5kIHJlcG8gZGlnZXN0IChzZXBhcmF0ZWQgYnkgXCJAc2hhMjU2OlwiKSB3aGVyZSB0aGlzXG4gICAqIGltYWdlIGlzIHN0b3JlZC5cbiAgICpcbiAgICogQGRlZmF1bHQgdW5kZWZpbmVkIElmIG5vdCBzcGVjaWZpZWQsIGByZXBvc2l0b3J5TmFtZWAgYW5kIGBpbWFnZVRhZ2AgYXJlXG4gICAqIHJlcXVpcmVkIGJlY2F1c2Ugb3RoZXJ3aXNlIGhvdyB3aWxsIHRoZSBzdGFjayBrbm93IHdoZXJlIHRvIGZpbmQgdGhlIGFzc2V0LFxuICAgKiBoYT9cbiAgICogQGRlcHJlY2F0ZWQgc3BlY2lmeSBgcmVwb3NpdG9yeU5hbWVgIGFuZCBgaW1hZ2VUYWdgIGluc3RlYWQsIGFuZCB0aGVuIHlvdVxuICAgKiBrbm93IHdoZXJlIHRoZSBpbWFnZSB3aWxsIGdvLlxuICAgKi9cbiAgcmVhZG9ubHkgaW1hZ2VOYW1lUGFyYW1ldGVyPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBFQ1IgcmVwb3NpdG9yeSBuYW1lLCBpZiBvbWl0dGVkIGEgZGVmYXVsdCBuYW1lIGJhc2VkIG9uIHRoZSBhc3NldCdzIElEIGlzXG4gICAqIHVzZWQgaW5zdGVhZC4gU3BlY2lmeSB0aGlzIHByb3BlcnR5IGlmIHlvdSBuZWVkIHRvIHN0YXRpY2FsbHkgYWRkcmVzcyB0aGVcbiAgICogaW1hZ2UsIGUuZy4gZnJvbSBhIEt1YmVybmV0ZXMgUG9kLiBOb3RlLCB0aGlzIGlzIG9ubHkgdGhlIHJlcG9zaXRvcnkgbmFtZSxcbiAgICogd2l0aG91dCB0aGUgcmVnaXN0cnkgYW5kIHRoZSB0YWcgcGFydHMuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gdGhpcyBwYXJhbWV0ZXIgaXMgUkVRVUlSRUQgYWZ0ZXIgMS4yMS4wXG4gICAqL1xuICByZWFkb25seSByZXBvc2l0b3J5TmFtZT86IHN0cmluZztcblxuICAvKipcbiAgICogVGhlIGRvY2tlciBpbWFnZSB0YWcgdG8gdXNlIGZvciB0YWdnaW5nIHB1c2hlZCBpbWFnZXMuIFRoaXMgZmllbGQgaXNcbiAgICogcmVxdWlyZWQgaWYgYGltYWdlUGFyYW1ldGVyTmFtZWAgaXMgb21taXRlZCAob3RoZXJ3aXNlLCB0aGUgYXBwIHdvbid0IGJlXG4gICAqIGFibGUgdG8gZmluZCB0aGUgaW1hZ2UpLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIHRoaXMgcGFyYW1ldGVyIGlzIFJFUVVJUkVEIGFmdGVyIDEuMjEuMFxuICAgKi9cbiAgcmVhZG9ubHkgaW1hZ2VUYWc/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIEJ1aWxkIGFyZ3MgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZFxuICAgKlxuICAgKiBAZGVmYXVsdCBubyBidWlsZCBhcmdzIGFyZSBwYXNzZWRcbiAgICovXG4gIHJlYWRvbmx5IGJ1aWxkQXJncz86IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH07XG5cbiAgLyoqXG4gICAqIFNTSCBhZ2VudCBzb2NrZXQgb3Iga2V5cyB0byBwYXNzIHRvIHRoZSBgZG9ja2VyIGJ1aWxkYCBjb21tYW5kXG4gICAqXG4gICAqIEBkZWZhdWx0IG5vIHNzaCBhcmcgaXMgcGFzc2VkXG4gICAqL1xuICByZWFkb25seSBidWlsZFNzaD86IHN0cmluZztcblxuICAvKipcbiAgICogQnVpbGQgc2VjcmV0cyB0byBwYXNzIHRvIHRoZSBgZG9ja2VyIGJ1aWxkYCBjb21tYW5kXG4gICAqXG4gICAqIEBkZWZhdWx0IG5vIGJ1aWxkIHNlY3JldHMgYXJlIHBhc3NlZFxuICAgKi9cbiAgcmVhZG9ubHkgYnVpbGRTZWNyZXRzPzogeyBba2V5OiBzdHJpbmddOiBzdHJpbmcgfTtcblxuICAvKipcbiAgICogRG9ja2VyIHRhcmdldCB0byBidWlsZCB0b1xuICAgKlxuICAgKiBAZGVmYXVsdCBubyBidWlsZCB0YXJnZXRcbiAgICovXG4gIHJlYWRvbmx5IHRhcmdldD86IHN0cmluZztcblxuICAvKipcbiAgICogUGF0aCB0byB0aGUgRG9ja2VyZmlsZSAocmVsYXRpdmUgdG8gdGhlIGRpcmVjdG9yeSkuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gZmlsZSBpcyBwYXNzZWRcbiAgICovXG4gIHJlYWRvbmx5IGZpbGU/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIE5ldHdvcmtpbmcgbW9kZSBmb3IgdGhlIFJVTiBjb21tYW5kcyBkdXJpbmcgYnVpbGQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gbmV0d29ya2luZyBtb2RlIHNwZWNpZmllZFxuICAgKi9cbiAgcmVhZG9ubHkgbmV0d29ya01vZGU/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFBsYXRmb3JtIHRvIGJ1aWxkIGZvci4gX1JlcXVpcmVzIERvY2tlciBCdWlsZHhfLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIGN1cnJlbnQgbWFjaGluZSBwbGF0Zm9ybVxuICAgKi9cbiAgcmVhZG9ubHkgcGxhdGZvcm0/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIE91dHB1dHMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyBvdXRwdXRzIGFyZSBwYXNzZWQgdG8gdGhlIGJ1aWxkIGNvbW1hbmQgKGRlZmF1bHQgb3V0cHV0cyBhcmUgdXNlZClcbiAgICogQHNlZSBodHRwczovL2RvY3MuZG9ja2VyLmNvbS9lbmdpbmUvcmVmZXJlbmNlL2NvbW1hbmRsaW5lL2J1aWxkLyNjdXN0b20tYnVpbGQtb3V0cHV0c1xuICAgKi9cbiAgcmVhZG9ubHkgb3V0cHV0cz86IHN0cmluZ1tdO1xuXG4gIC8qKlxuICAgKiBDYWNoZSBmcm9tIG9wdGlvbnMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyBjYWNoZSBmcm9tIG9wdGlvbnMgYXJlIHBhc3NlZCB0byB0aGUgYnVpbGQgY29tbWFuZFxuICAgKiBAc2VlIGh0dHBzOi8vZG9jcy5kb2NrZXIuY29tL2J1aWxkL2NhY2hlL2JhY2tlbmRzL1xuICAgKi9cbiAgcmVhZG9ubHkgY2FjaGVGcm9tPzogQ29udGFpbmVySW1hZ2VBc3NldENhY2hlT3B0aW9uW107XG5cbiAgLyoqXG4gICAqIENhY2hlIHRvIG9wdGlvbnMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyBjYWNoZSB0byBvcHRpb25zIGFyZSBwYXNzZWQgdG8gdGhlIGJ1aWxkIGNvbW1hbmRcbiAgICogQHNlZSBodHRwczovL2RvY3MuZG9ja2VyLmNvbS9idWlsZC9jYWNoZS9iYWNrZW5kcy9cbiAgICovXG4gIHJlYWRvbmx5IGNhY2hlVG8/OiBDb250YWluZXJJbWFnZUFzc2V0Q2FjaGVPcHRpb247XG5cbiAgLyoqXG4gICAqIERpc2FibGUgdGhlIGNhY2hlIGFuZCBwYXNzIGAtLW5vLWNhY2hlYCB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBjYWNoZSBpcyB1c2VkXG4gICAqL1xuICByZWFkb25seSBjYWNoZURpc2FibGVkPzogYm9vbGVhbjtcbn1cblxuLyoqXG4gKiBAc2VlIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuQVNTRVRcbiAqL1xuZXhwb3J0IHR5cGUgQXNzZXRNZXRhZGF0YUVudHJ5ID0gRmlsZUFzc2V0TWV0YWRhdGFFbnRyeSB8IENvbnRhaW5lckltYWdlQXNzZXRNZXRhZGF0YUVudHJ5O1xuXG4vLyBUeXBlIGFsaWFzZXMgZm9yIG1ldGFkYXRhIGVudHJpZXMuXG4vLyBVc2VkIHNpbXBseSB0byBhc3NpZ24gbmFtZXMgdG8gZGF0YSB0eXBlcyBmb3IgbW9yZSBjbGFyaXR5LlxuXG4vKipcbiAqIEBzZWUgQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZS5JTkZPXG4gKiBAc2VlIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuV0FSTlxuICogQHNlZSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlLkVSUk9SXG4gKi9cbmV4cG9ydCB0eXBlIExvZ01lc3NhZ2VNZXRhZGF0YUVudHJ5ID0gc3RyaW5nO1xuXG4vKipcbiAqIEBzZWUgQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZS5MT0dJQ0FMX0lEXG4gKi9cbmV4cG9ydCB0eXBlIExvZ2ljYWxJZE1ldGFkYXRhRW50cnkgPSBzdHJpbmc7XG5cbi8qKlxuICogQHNlZSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlLlNUQUNLX1RBR1NcbiAqL1xuZXhwb3J0IHR5cGUgU3RhY2tUYWdzTWV0YWRhdGFFbnRyeSA9IFRhZ1tdO1xuXG4vKipcbiAqIFVuaW9uIHR5cGUgZm9yIGFsbCBtZXRhZGF0YSBlbnRyaWVzIHRoYXQgbWlnaHQgZXhpc3QgaW4gdGhlIG1hbmlmZXN0LlxuICovXG5leHBvcnQgdHlwZSBNZXRhZGF0YUVudHJ5RGF0YSA9XG4gIHwgQXNzZXRNZXRhZGF0YUVudHJ5XG4gIHwgTG9nTWVzc2FnZU1ldGFkYXRhRW50cnlcbiAgfCBMb2dpY2FsSWRNZXRhZGF0YUVudHJ5XG4gIHwgU3RhY2tUYWdzTWV0YWRhdGFFbnRyeTtcblxuLyoqXG4gKiBUeXBlIG9mIGFydGlmYWN0IG1ldGFkYXRhIGVudHJ5LlxuICovXG5leHBvcnQgZW51bSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlIHtcbiAgLyoqXG4gICAqIEFzc2V0IGluIG1ldGFkYXRhLlxuICAgKi9cbiAgQVNTRVQgPSAnYXdzOmNkazphc3NldCcsXG5cbiAgLyoqXG4gICAqIE1ldGFkYXRhIGtleSB1c2VkIHRvIHByaW50IElORk8tbGV2ZWwgbWVzc2FnZXMgYnkgdGhlIHRvb2xraXQgd2hlbiBhbiBhcHAgaXMgc3ludGhlaXplZC5cbiAgICovXG4gIElORk8gPSAnYXdzOmNkazppbmZvJyxcblxuICAvKipcbiAgICogTWV0YWRhdGEga2V5IHVzZWQgdG8gcHJpbnQgV0FSTklORy1sZXZlbCBtZXNzYWdlcyBieSB0aGUgdG9vbGtpdCB3aGVuIGFuIGFwcCBpcyBzeW50aGVpemVkLlxuICAgKi9cbiAgV0FSTiA9ICdhd3M6Y2RrOndhcm5pbmcnLFxuXG4gIC8qKlxuICAgKiBNZXRhZGF0YSBrZXkgdXNlZCB0byBwcmludCBFUlJPUi1sZXZlbCBtZXNzYWdlcyBieSB0aGUgdG9vbGtpdCB3aGVuIGFuIGFwcCBpcyBzeW50aGVpemVkLlxuICAgKi9cbiAgRVJST1IgPSAnYXdzOmNkazplcnJvcicsXG5cbiAgLyoqXG4gICAqIFJlcHJlc2VudHMgdGhlIENsb3VkRm9ybWF0aW9uIGxvZ2ljYWwgSUQgb2YgYSByZXNvdXJjZSBhdCBhIGNlcnRhaW4gcGF0aC5cbiAgICovXG4gIExPR0lDQUxfSUQgPSAnYXdzOmNkazpsb2dpY2FsSWQnLFxuXG4gIC8qKlxuICAgKiBSZXByZXNlbnRzIHRhZ3Mgb2YgYSBzdGFjay5cbiAgICovXG4gIFNUQUNLX1RBR1MgPSAnYXdzOmNkazpzdGFjay10YWdzJyxcbn1cblxuLyoqXG4gKiBBIG1ldGFkYXRhIGVudHJ5IGluIGEgY2xvdWQgYXNzZW1ibHkgYXJ0aWZhY3QuXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgTWV0YWRhdGFFbnRyeSB7XG4gIC8qKlxuICAgKiBUaGUgdHlwZSBvZiB0aGUgbWV0YWRhdGEgZW50cnkuXG4gICAqL1xuICByZWFkb25seSB0eXBlOiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFRoZSBkYXRhLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIG5vIGRhdGEuXG4gICAqL1xuICByZWFkb25seSBkYXRhPzogTWV0YWRhdGFFbnRyeURhdGE7XG5cbiAgLyoqXG4gICAqIEEgc3RhY2sgdHJhY2UgZm9yIHdoZW4gdGhlIGVudHJ5IHdhcyBjcmVhdGVkLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIG5vIHRyYWNlLlxuICAgKi9cbiAgcmVhZG9ubHkgdHJhY2U/OiBzdHJpbmdbXTtcbn1cbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWV0YWRhdGEtc2NoZW1hLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibWV0YWRhdGEtc2NoZW1hLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQXlSQTs7R0FFRztBQUNILElBQVkseUJBOEJYO0FBOUJELFdBQVkseUJBQXlCO0lBQ25DOztPQUVHO0lBQ0gsb0RBQXVCLENBQUE7SUFFdkI7O09BRUc7SUFDSCxrREFBcUIsQ0FBQTtJQUVyQjs7T0FFRztJQUNILHFEQUF3QixDQUFBO0lBRXhCOztPQUVHO0lBQ0gsb0RBQXVCLENBQUE7SUFFdkI7O09BRUc7SUFDSCw2REFBZ0MsQ0FBQTtJQUVoQzs7T0FFRztJQUNILDhEQUFpQyxDQUFBO0FBQ25DLENBQUMsRUE5QlcseUJBQXlCLHlDQUF6Qix5QkFBeUIsUUE4QnBDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBDb21tb24gcHJvcGVydGllcyBmb3IgYXNzZXQgbWV0YWRhdGEuXG4gKi9cbmludGVyZmFjZSBCYXNlQXNzZXRNZXRhZGF0YUVudHJ5IHtcbiAgLyoqXG4gICAqIFJlcXVlc3RlZCBwYWNrYWdpbmcgc3R5bGVcbiAgICovXG4gIHJlYWRvbmx5IHBhY2thZ2luZzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBMb2dpY2FsIGlkZW50aWZpZXIgZm9yIHRoZSBhc3NldFxuICAgKi9cbiAgcmVhZG9ubHkgaWQ6IHN0cmluZztcblxuICAvKipcbiAgICogVGhlIGhhc2ggb2YgdGhlIGFzc2V0IHNvdXJjZS5cbiAgICovXG4gIHJlYWRvbmx5IHNvdXJjZUhhc2g6IHN0cmluZztcblxuICAvKipcbiAgICogUGF0aCBvbiBkaXNrIHRvIHRoZSBhc3NldFxuICAgKi9cbiAgcmVhZG9ubHkgcGF0aDogc3RyaW5nO1xufVxuXG4vKipcbiAqIE1ldGFkYXRhIEVudHJ5IHNwZWMgZm9yIGZpbGVzLlxuICpcbiAqIEBleGFtcGxlXG4gKiBjb25zdCBlbnRyeSA9IHtcbiAqICAgcGFja2FnaW5nOiAnZmlsZScsXG4gKiAgIHMzQnVja2V0UGFyYW1ldGVyOiAnYnVja2V0LXBhcmFtZXRlcicsXG4gKiAgIHMzS2V5UGFyYW1lbnRlcjogJ2tleS1wYXJhbWV0ZXInLFxuICogICBhcnRpZmFjdEhhc2hQYXJhbWV0ZXI6ICdoYXNoLXBhcmFtZXRlcicsXG4gKiB9XG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRmlsZUFzc2V0TWV0YWRhdGFFbnRyeSBleHRlbmRzIEJhc2VBc3NldE1ldGFkYXRhRW50cnkge1xuICAvKipcbiAgICogUmVxdWVzdGVkIHBhY2thZ2luZyBzdHlsZVxuICAgKi9cbiAgcmVhZG9ubHkgcGFja2FnaW5nOiAnemlwJyB8ICdmaWxlJztcblxuICAvKipcbiAgICogTmFtZSBvZiBwYXJhbWV0ZXIgd2hlcmUgUzMgYnVja2V0IHNob3VsZCBiZSBwYXNzZWQgaW5cbiAgICovXG4gIHJlYWRvbmx5IHMzQnVja2V0UGFyYW1ldGVyOiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIE5hbWUgb2YgcGFyYW1ldGVyIHdoZXJlIFMzIGtleSBzaG91bGQgYmUgcGFzc2VkIGluXG4gICAqL1xuICByZWFkb25seSBzM0tleVBhcmFtZXRlcjogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgcGFyYW1ldGVyIHdoZXJlIHRoZSBoYXNoIG9mIHRoZSBidW5kbGVkIGFzc2V0IHNob3VsZCBiZSBwYXNzZWQgaW4uXG4gICAqL1xuICByZWFkb25seSBhcnRpZmFjdEhhc2hQYXJhbWV0ZXI6IHN0cmluZztcbn1cblxuLyoqXG4gKiBNZXRhZGF0YSBFbnRyeSBzcGVjIGZvciBzdGFjayB0YWcuXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgVGFnIHtcbiAgLyoqXG4gICAqIFRhZyBrZXkuXG4gICAqXG4gICAqIChJbiB0aGUgYWN0dWFsIGZpbGUgb24gZGlzayB0aGlzIHdpbGwgYmUgY2FzZWQgYXMgXCJLZXlcIiwgYW5kIHRoZSBzdHJ1Y3R1cmUgaXNcbiAgICogcGF0Y2hlZCB0byBtYXRjaCB0aGlzIHN0cnVjdHVyZSB1cG9uIGxvYWRpbmc6XG4gICAqIGh0dHBzOi8vZ2l0aHViLmNvbS9hd3MvYXdzLWNkay9ibG9iLzRhYWRhYTc3OWI0OGYzNTgzOGNjY2Q0ZTI1MTA3YjIzMzhmMDU1NDcvcGFja2FnZXMvJTQwYXdzLWNkay9jbG91ZC1hc3NlbWJseS1zY2hlbWEvbGliL21hbmlmZXN0LnRzI0wxMzcpXG4gICAqL1xuICByZWFkb25seSBrZXk6IHN0cmluZztcblxuICAvKipcbiAgICogVGFnIHZhbHVlLlxuICAgKlxuICAgKiAoSW4gdGhlIGFjdHVhbCBmaWxlIG9uIGRpc2sgdGhpcyB3aWxsIGJlIGNhc2VkIGFzIFwiVmFsdWVcIiwgYW5kIHRoZSBzdHJ1Y3R1cmUgaXNcbiAgICogcGF0Y2hlZCB0byBtYXRjaCB0aGlzIHN0cnVjdHVyZSB1cG9uIGxvYWRpbmc6XG4gICAqIGh0dHBzOi8vZ2l0aHViLmNvbS9hd3MvYXdzLWNkay9ibG9iLzRhYWRhYTc3OWI0OGYzNTgzOGNjY2Q0ZTI1MTA3YjIzMzhmMDU1NDcvcGFja2FnZXMvJTQwYXdzLWNkay9jbG91ZC1hc3NlbWJseS1zY2hlbWEvbGliL21hbmlmZXN0LnRzI0wxMzcpXG4gICAqL1xuICByZWFkb25seSB2YWx1ZTogc3RyaW5nO1xufVxuXG4vKipcbiAqIE9wdGlvbnMgZm9yIGNvbmZpZ3VyaW5nIHRoZSBEb2NrZXIgY2FjaGUgYmFja2VuZFxuICovXG5leHBvcnQgaW50ZXJmYWNlIENvbnRhaW5lckltYWdlQXNzZXRDYWNoZU9wdGlvbiB7XG4gIC8qKlxuICAgKiBUaGUgdHlwZSBvZiBjYWNoZSB0byB1c2UuXG4gICAqIFJlZmVyIHRvIGh0dHBzOi8vZG9jcy5kb2NrZXIuY29tL2J1aWxkL2NhY2hlL2JhY2tlbmRzLyBmb3IgZnVsbCBsaXN0IG9mIGJhY2tlbmRzLlxuICAgKiBAZGVmYXVsdCAtIHVuc3BlY2lmaWVkXG4gICAqXG4gICAqIEBleGFtcGxlICdyZWdpc3RyeSdcbiAgICovXG4gIHJlYWRvbmx5IHR5cGU6IHN0cmluZztcbiAgLyoqXG4gICAqIEFueSBwYXJhbWV0ZXJzIHRvIHBhc3MgaW50byB0aGUgZG9ja2VyIGNhY2hlIGJhY2tlbmQgY29uZmlndXJhdGlvbi5cbiAgICogUmVmZXIgdG8gaHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vYnVpbGQvY2FjaGUvYmFja2VuZHMvIGZvciBjYWNoZSBiYWNrZW5kIGNvbmZpZ3VyYXRpb24uXG4gICAqIEBkZWZhdWx0IHt9IE5vIG9wdGlvbnMgcHJvdmlkZWRcbiAgICpcbiAgICogQGV4YW1wbGVcbiAgICogZGVjbGFyZSBjb25zdCBicmFuY2g6IHN0cmluZztcbiAgICpcbiAgICogY29uc3QgcGFyYW1zID0ge1xuICAgKiAgIHJlZjogYDEyMzQ1Njc4LmRrci5lY3IudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vY2FjaGU6JHticmFuY2h9YCxcbiAgICogICBtb2RlOiBcIm1heFwiLFxuICAgKiB9O1xuICAgKi9cbiAgcmVhZG9ubHkgcGFyYW1zPzogeyBba2V5OiBzdHJpbmddOiBzdHJpbmcgfTtcbn1cblxuLyoqXG4gKiBNZXRhZGF0YSBFbnRyeSBzcGVjIGZvciBjb250YWluZXIgaW1hZ2VzLlxuICpcbiAqIEBleGFtcGxlXG4gKiBjb25zdCBlbnRyeSA9IHtcbiAqICAgcGFja2FnaW5nOiAnY29udGFpbmVyLWltYWdlJyxcbiAqICAgcmVwb3NpdG9yeU5hbWU6ICdyZXBvc2l0b3J5LW5hbWUnLFxuICogICBpbWFnZVRhZzogJ3RhZycsXG4gKiB9XG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgQ29udGFpbmVySW1hZ2VBc3NldE1ldGFkYXRhRW50cnkgZXh0ZW5kcyBCYXNlQXNzZXRNZXRhZGF0YUVudHJ5IHtcbiAgLyoqXG4gICAqIFR5cGUgb2YgYXNzZXRcbiAgICovXG4gIHJlYWRvbmx5IHBhY2thZ2luZzogJ2NvbnRhaW5lci1pbWFnZSc7XG5cbiAgLyoqXG4gICAqIEVDUiBSZXBvc2l0b3J5IG5hbWUgYW5kIHJlcG8gZGlnZXN0IChzZXBhcmF0ZWQgYnkgXCJAc2hhMjU2OlwiKSB3aGVyZSB0aGlzXG4gICAqIGltYWdlIGlzIHN0b3JlZC5cbiAgICpcbiAgICogQGRlZmF1bHQgdW5kZWZpbmVkIElmIG5vdCBzcGVjaWZpZWQsIGByZXBvc2l0b3J5TmFtZWAgYW5kIGBpbWFnZVRhZ2AgYXJlXG4gICAqIHJlcXVpcmVkIGJlY2F1c2Ugb3RoZXJ3aXNlIGhvdyB3aWxsIHRoZSBzdGFjayBrbm93IHdoZXJlIHRvIGZpbmQgdGhlIGFzc2V0LFxuICAgKiBoYT9cbiAgICogQGRlcHJlY2F0ZWQgc3BlY2lmeSBgcmVwb3NpdG9yeU5hbWVgIGFuZCBgaW1hZ2VUYWdgIGluc3RlYWQsIGFuZCB0aGVuIHlvdVxuICAgKiBrbm93IHdoZXJlIHRoZSBpbWFnZSB3aWxsIGdvLlxuICAgKi9cbiAgcmVhZG9ubHkgaW1hZ2VOYW1lUGFyYW1ldGVyPzogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBFQ1IgcmVwb3NpdG9yeSBuYW1lLCBpZiBvbWl0dGVkIGEgZGVmYXVsdCBuYW1lIGJhc2VkIG9uIHRoZSBhc3NldCdzIElEIGlzXG4gICAqIHVzZWQgaW5zdGVhZC4gU3BlY2lmeSB0aGlzIHByb3BlcnR5IGlmIHlvdSBuZWVkIHRvIHN0YXRpY2FsbHkgYWRkcmVzcyB0aGVcbiAgICogaW1hZ2UsIGUuZy4gZnJvbSBhIEt1YmVybmV0ZXMgUG9kLiBOb3RlLCB0aGlzIGlzIG9ubHkgdGhlIHJlcG9zaXRvcnkgbmFtZSxcbiAgICogd2l0aG91dCB0aGUgcmVnaXN0cnkgYW5kIHRoZSB0YWcgcGFydHMuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gdGhpcyBwYXJhbWV0ZXIgaXMgUkVRVUlSRUQgYWZ0ZXIgMS4yMS4wXG4gICAqL1xuICByZWFkb25seSByZXBvc2l0b3J5TmFtZT86IHN0cmluZztcblxuICAvKipcbiAgICogVGhlIGRvY2tlciBpbWFnZSB0YWcgdG8gdXNlIGZvciB0YWdnaW5nIHB1c2hlZCBpbWFnZXMuIFRoaXMgZmllbGQgaXNcbiAgICogcmVxdWlyZWQgaWYgYGltYWdlUGFyYW1ldGVyTmFtZWAgaXMgb21taXRlZCAob3RoZXJ3aXNlLCB0aGUgYXBwIHdvbid0IGJlXG4gICAqIGFibGUgdG8gZmluZCB0aGUgaW1hZ2UpLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIHRoaXMgcGFyYW1ldGVyIGlzIFJFUVVJUkVEIGFmdGVyIDEuMjEuMFxuICAgKi9cbiAgcmVhZG9ubHkgaW1hZ2VUYWc/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIEJ1aWxkIGFyZ3MgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZFxuICAgKlxuICAgKiBAZGVmYXVsdCBubyBidWlsZCBhcmdzIGFyZSBwYXNzZWRcbiAgICovXG4gIHJlYWRvbmx5IGJ1aWxkQXJncz86IHsgW2tleTogc3RyaW5nXTogc3RyaW5nIH07XG5cbiAgLyoqXG4gICAqIFNTSCBhZ2VudCBzb2NrZXQgb3Iga2V5cyB0byBwYXNzIHRvIHRoZSBgZG9ja2VyIGJ1aWxkYCBjb21tYW5kXG4gICAqXG4gICAqIEBkZWZhdWx0IG5vIHNzaCBhcmcgaXMgcGFzc2VkXG4gICAqL1xuICByZWFkb25seSBidWlsZFNzaD86IHN0cmluZztcblxuICAvKipcbiAgICogQnVpbGQgc2VjcmV0cyB0byBwYXNzIHRvIHRoZSBgZG9ja2VyIGJ1aWxkYCBjb21tYW5kXG4gICAqXG4gICAqIEBkZWZhdWx0IG5vIGJ1aWxkIHNlY3JldHMgYXJlIHBhc3NlZFxuICAgKi9cbiAgcmVhZG9ubHkgYnVpbGRTZWNyZXRzPzogeyBba2V5OiBzdHJpbmddOiBzdHJpbmcgfTtcblxuICAvKipcbiAgICogRG9ja2VyIHRhcmdldCB0byBidWlsZCB0b1xuICAgKlxuICAgKiBAZGVmYXVsdCBubyBidWlsZCB0YXJnZXRcbiAgICovXG4gIHJlYWRvbmx5IHRhcmdldD86IHN0cmluZztcblxuICAvKipcbiAgICogUGF0aCB0byB0aGUgRG9ja2VyZmlsZSAocmVsYXRpdmUgdG8gdGhlIGRpcmVjdG9yeSkuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gZmlsZSBpcyBwYXNzZWRcbiAgICovXG4gIHJlYWRvbmx5IGZpbGU/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIE5ldHdvcmtpbmcgbW9kZSBmb3IgdGhlIFJVTiBjb21tYW5kcyBkdXJpbmcgYnVpbGQuXG4gICAqXG4gICAqIEBkZWZhdWx0IC0gbm8gbmV0d29ya2luZyBtb2RlIHNwZWNpZmllZFxuICAgKi9cbiAgcmVhZG9ubHkgbmV0d29ya01vZGU/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIFBsYXRmb3JtIHRvIGJ1aWxkIGZvci4gX1JlcXVpcmVzIERvY2tlciBCdWlsZHhfLlxuICAgKlxuICAgKiBAZGVmYXVsdCAtIGN1cnJlbnQgbWFjaGluZSBwbGF0Zm9ybVxuICAgKi9cbiAgcmVhZG9ubHkgcGxhdGZvcm0/OiBzdHJpbmc7XG5cbiAgLyoqXG4gICAqIE91dHB1dHMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyBvdXRwdXRzIGFyZSBwYXNzZWQgdG8gdGhlIGJ1aWxkIGNvbW1hbmQgKGRlZmF1bHQgb3V0cHV0cyBhcmUgdXNlZClcbiAgICogQHNlZSBodHRwczovL2RvY3MuZG9ja2VyLmNvbS9lbmdpbmUvcmVmZXJlbmNlL2NvbW1hbmRsaW5lL2J1aWxkLyNjdXN0b20tYnVpbGQtb3V0cHV0c1xuICAgKi9cbiAgcmVhZG9ubHkgb3V0cHV0cz86IHN0cmluZ1tdO1xuXG4gIC8qKlxuICAgKiBDYWNoZSBmcm9tIG9wdGlvbnMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyBjYWNoZSBmcm9tIG9wdGlvbnMgYXJlIHBhc3NlZCB0byB0aGUgYnVpbGQgY29tbWFuZFxuICAgKiBAc2VlIGh0dHBzOi8vZG9jcy5kb2NrZXIuY29tL2J1aWxkL2NhY2hlL2JhY2tlbmRzL1xuICAgKi9cbiAgcmVhZG9ubHkgY2FjaGVGcm9tPzogQ29udGFpbmVySW1hZ2VBc3NldENhY2hlT3B0aW9uW107XG5cbiAgLyoqXG4gICAqIENhY2hlIHRvIG9wdGlvbnMgdG8gcGFzcyB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyBjYWNoZSB0byBvcHRpb25zIGFyZSBwYXNzZWQgdG8gdGhlIGJ1aWxkIGNvbW1hbmRcbiAgICogQHNlZSBodHRwczovL2RvY3MuZG9ja2VyLmNvbS9idWlsZC9jYWNoZS9iYWNrZW5kcy9cbiAgICovXG4gIHJlYWRvbmx5IGNhY2hlVG8/OiBDb250YWluZXJJbWFnZUFzc2V0Q2FjaGVPcHRpb247XG5cbiAgLyoqXG4gICAqIERpc2FibGUgdGhlIGNhY2hlIGFuZCBwYXNzIGAtLW5vLWNhY2hlYCB0byB0aGUgYGRvY2tlciBidWlsZGAgY29tbWFuZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBjYWNoZSBpcyB1c2VkXG4gICAqL1xuICByZWFkb25seSBjYWNoZURpc2FibGVkPzogYm9vbGVhbjtcbn1cblxuLyoqXG4gKiBAc2VlIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuQVNTRVRcbiAqL1xuZXhwb3J0IHR5cGUgQXNzZXRNZXRhZGF0YUVudHJ5ID0gRmlsZUFzc2V0TWV0YWRhdGFFbnRyeSB8IENvbnRhaW5lckltYWdlQXNzZXRNZXRhZGF0YUVudHJ5O1xuXG4vLyBUeXBlIGFsaWFzZXMgZm9yIG1ldGFkYXRhIGVudHJpZXMuXG4vLyBVc2VkIHNpbXBseSB0byBhc3NpZ24gbmFtZXMgdG8gZGF0YSB0eXBlcyBmb3IgbW9yZSBjbGFyaXR5LlxuXG4vKipcbiAqIEBzZWUgQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZS5JTkZPXG4gKiBAc2VlIEFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuV0FSTlxuICogQHNlZSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlLkVSUk9SXG4gKi9cbmV4cG9ydCB0eXBlIExvZ01lc3NhZ2VNZXRhZGF0YUVudHJ5ID0gc3RyaW5nO1xuXG4vKipcbiAqIEBzZWUgQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZS5MT0dJQ0FMX0lEXG4gKi9cbmV4cG9ydCB0eXBlIExvZ2ljYWxJZE1ldGFkYXRhRW50cnkgPSBzdHJpbmc7XG5cbi8qKlxuICogQHNlZSBBcnRpZmFjdE1ldGFkYXRhRW50cnlUeXBlLlNUQUNLX1RBR1NcbiAqL1xuZXhwb3J0IHR5cGUgU3RhY2tUYWdzTWV0YWRhdGFFbnRyeSA9IFRhZ1tdO1xuXG4vKipcbiAqIEFueSBvdGhlciB0eXBlIG9mIG1ldGFkYXRhIGVudHJ5XG4gKlxuICogVGhpcyBjb3VsZCBwcm9iYWJseSBiZSBjaGFuZ2VkIHRvIGBhbnlgLCBidXQgaXQncyBzYWZlciBub3RcbiAqIHRvIGRvIHNvIHJpZ2h0IG5vdy5cbiAqIFNlZSBodHRwczovL2dpdGh1Yi5jb20vY2RrbGFicy9jbG91ZC1hc3NlbWJseS1zY2hlbWEvcHVsbC8xMjEuXG4gKi9cbmV4cG9ydCB0eXBlIFByaW1pdGl2ZVR5cGUgPSBib29sZWFuIHwgbnVtYmVyIHwgc3RyaW5nO1xuXG4vKipcbiAqIFVuaW9uIHR5cGUgZm9yIGFsbCBtZXRhZGF0YSBlbnRyaWVzIHRoYXQgbWlnaHQgZXhpc3QgaW4gdGhlIG1hbmlmZXN0LlxuICovXG5leHBvcnQgdHlwZSBNZXRhZGF0YUVudHJ5RGF0YSA9XG4gIHwgQXNzZXRNZXRhZGF0YUVudHJ5XG4gIHwgTG9nTWVzc2FnZU1ldGFkYXRhRW50cnlcbiAgfCBMb2dpY2FsSWRNZXRhZGF0YUVudHJ5XG4gIHwgU3RhY2tUYWdzTWV0YWRhdGFFbnRyeVxuICB8IFByaW1pdGl2ZVR5cGU7XG5cbi8qKlxuICogVHlwZSBvZiBhcnRpZmFjdCBtZXRhZGF0YSBlbnRyeS5cbiAqL1xuZXhwb3J0IGVudW0gQXJ0aWZhY3RNZXRhZGF0YUVudHJ5VHlwZSB7XG4gIC8qKlxuICAgKiBBc3NldCBpbiBtZXRhZGF0YS5cbiAgICovXG4gIEFTU0VUID0gJ2F3czpjZGs6YXNzZXQnLFxuXG4gIC8qKlxuICAgKiBNZXRhZGF0YSBrZXkgdXNlZCB0byBwcmludCBJTkZPLWxldmVsIG1lc3NhZ2VzIGJ5IHRoZSB0b29sa2l0IHdoZW4gYW4gYXBwIGlzIHN5bnRoZWl6ZWQuXG4gICAqL1xuICBJTkZPID0gJ2F3czpjZGs6aW5mbycsXG5cbiAgLyoqXG4gICAqIE1ldGFkYXRhIGtleSB1c2VkIHRvIHByaW50IFdBUk5JTkctbGV2ZWwgbWVzc2FnZXMgYnkgdGhlIHRvb2xraXQgd2hlbiBhbiBhcHAgaXMgc3ludGhlaXplZC5cbiAgICovXG4gIFdBUk4gPSAnYXdzOmNkazp3YXJuaW5nJyxcblxuICAvKipcbiAgICogTWV0YWRhdGEga2V5IHVzZWQgdG8gcHJpbnQgRVJST1ItbGV2ZWwgbWVzc2FnZXMgYnkgdGhlIHRvb2xraXQgd2hlbiBhbiBhcHAgaXMgc3ludGhlaXplZC5cbiAgICovXG4gIEVSUk9SID0gJ2F3czpjZGs6ZXJyb3InLFxuXG4gIC8qKlxuICAgKiBSZXByZXNlbnRzIHRoZSBDbG91ZEZvcm1hdGlvbiBsb2dpY2FsIElEIG9mIGEgcmVzb3VyY2UgYXQgYSBjZXJ0YWluIHBhdGguXG4gICAqL1xuICBMT0dJQ0FMX0lEID0gJ2F3czpjZGs6bG9naWNhbElkJyxcblxuICAvKipcbiAgICogUmVwcmVzZW50cyB0YWdzIG9mIGEgc3RhY2suXG4gICAqL1xuICBTVEFDS19UQUdTID0gJ2F3czpjZGs6c3RhY2stdGFncycsXG59XG5cbi8qKlxuICogQSBtZXRhZGF0YSBlbnRyeSBpbiBhIGNsb3VkIGFzc2VtYmx5IGFydGlmYWN0LlxuICovXG5leHBvcnQgaW50ZXJmYWNlIE1ldGFkYXRhRW50cnkge1xuICAvKipcbiAgICogVGhlIHR5cGUgb2YgdGhlIG1ldGFkYXRhIGVudHJ5LlxuICAgKi9cbiAgcmVhZG9ubHkgdHlwZTogc3RyaW5nO1xuXG4gIC8qKlxuICAgKiBUaGUgZGF0YS5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyBkYXRhLlxuICAgKi9cbiAgcmVhZG9ubHkgZGF0YT86IE1ldGFkYXRhRW50cnlEYXRhO1xuXG4gIC8qKlxuICAgKiBBIHN0YWNrIHRyYWNlIGZvciB3aGVuIHRoZSBlbnRyeSB3YXMgY3JlYXRlZC5cbiAgICpcbiAgICogQGRlZmF1bHQgLSBubyB0cmFjZS5cbiAgICovXG4gIHJlYWRvbmx5IHRyYWNlPzogc3RyaW5nW107XG59XG4iXX0=
 
 /***/ }),
 
@@ -4823,7 +5323,7 @@ class Manifest {
 }
 exports.Manifest = Manifest;
 _a = JSII_RTTI_SYMBOL_1;
-Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "39.1.37" };
+Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "39.1.44" };
 function mapValues(xs, fn) {
     if (!xs) {
         return undefined;
@@ -13153,7 +13653,14 @@ var resolveRuntimeExtensions = /* @__PURE__ */ __name((runtimeConfig, extensions
 }, "resolveRuntimeExtensions");
 
 // src/CloudFormationClient.ts
-var _CloudFormationClient = class _CloudFormationClient extends import_smithy_client.Client {
+var CloudFormationClient = class extends import_smithy_client.Client {
+  static {
+    __name(this, "CloudFormationClient");
+  }
+  /**
+   * The resolved configuration of CloudFormationClient class. This is resolved and normalized from the {@link CloudFormationClientConfig | constructor configuration interface}.
+   */
+  config;
   constructor(...[configuration]) {
     const _config_0 = (0, import_runtimeConfig.getRuntimeConfig)(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -13163,7 +13670,7 @@ var _CloudFormationClient = class _CloudFormationClient extends import_smithy_cl
     const _config_5 = (0, import_middleware_host_header.resolveHostHeaderConfig)(_config_4);
     const _config_6 = (0, import_middleware_endpoint.resolveEndpointConfig)(_config_5);
     const _config_7 = (0, import_httpAuthSchemeProvider.resolveHttpAuthSchemeConfig)(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, (configuration == null ? void 0 : configuration.extensions) || []);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;
     this.middlewareStack.use((0, import_middleware_user_agent.getUserAgentPlugin)(this.config));
@@ -13191,8 +13698,6 @@ var _CloudFormationClient = class _CloudFormationClient extends import_smithy_cl
     super.destroy();
   }
 };
-__name(_CloudFormationClient, "CloudFormationClient");
-var CloudFormationClient = _CloudFormationClient;
 
 // src/CloudFormation.ts
 
@@ -13210,7 +13715,10 @@ var import_uuid = __nccwpck_require__(12048);
 
 // src/models/CloudFormationServiceException.ts
 
-var _CloudFormationServiceException = class _CloudFormationServiceException extends import_smithy_client.ServiceException {
+var CloudFormationServiceException = class _CloudFormationServiceException extends import_smithy_client.ServiceException {
+  static {
+    __name(this, "CloudFormationServiceException");
+  }
   /**
    * @internal
    */
@@ -13219,8 +13727,6 @@ var _CloudFormationServiceException = class _CloudFormationServiceException exte
     Object.setPrototypeOf(this, _CloudFormationServiceException.prototype);
   }
 };
-__name(_CloudFormationServiceException, "CloudFormationServiceException");
-var CloudFormationServiceException = _CloudFormationServiceException;
 
 // src/models/models_0.ts
 var AccountFilterType = {
@@ -13234,7 +13740,13 @@ var AccountGateStatus = {
   SKIPPED: "SKIPPED",
   SUCCEEDED: "SUCCEEDED"
 };
-var _InvalidOperationException = class _InvalidOperationException extends CloudFormationServiceException {
+var InvalidOperationException = class _InvalidOperationException extends CloudFormationServiceException {
+  static {
+    __name(this, "InvalidOperationException");
+  }
+  name = "InvalidOperationException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13244,15 +13756,17 @@ var _InvalidOperationException = class _InvalidOperationException extends CloudF
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidOperationException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidOperationException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_InvalidOperationException, "InvalidOperationException");
-var InvalidOperationException = _InvalidOperationException;
-var _OperationNotFoundException = class _OperationNotFoundException extends CloudFormationServiceException {
+var OperationNotFoundException = class _OperationNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "OperationNotFoundException");
+  }
+  name = "OperationNotFoundException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13262,14 +13776,10 @@ var _OperationNotFoundException = class _OperationNotFoundException extends Clou
       $fault: "client",
       ...opts
     });
-    this.name = "OperationNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _OperationNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_OperationNotFoundException, "OperationNotFoundException");
-var OperationNotFoundException = _OperationNotFoundException;
 var ThirdPartyType = {
   HOOK: "HOOK",
   MODULE: "MODULE",
@@ -13279,7 +13789,17 @@ var VersionBump = {
   MAJOR: "MAJOR",
   MINOR: "MINOR"
 };
-var _CFNRegistryException = class _CFNRegistryException extends CloudFormationServiceException {
+var CFNRegistryException = class _CFNRegistryException extends CloudFormationServiceException {
+  static {
+    __name(this, "CFNRegistryException");
+  }
+  name = "CFNRegistryException";
+  $fault = "client";
+  /**
+   * <p>A message with details about the error that occurred.</p>
+   * @public
+   */
+  Message;
   /**
    * @internal
    */
@@ -13289,15 +13809,21 @@ var _CFNRegistryException = class _CFNRegistryException extends CloudFormationSe
       $fault: "client",
       ...opts
     });
-    this.name = "CFNRegistryException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _CFNRegistryException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_CFNRegistryException, "CFNRegistryException");
-var CFNRegistryException = _CFNRegistryException;
-var _TypeNotFoundException = class _TypeNotFoundException extends CloudFormationServiceException {
+var TypeNotFoundException = class _TypeNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "TypeNotFoundException");
+  }
+  name = "TypeNotFoundException";
+  $fault = "client";
+  /**
+   * <p>A message with details about the error that occurred.</p>
+   * @public
+   */
+  Message;
   /**
    * @internal
    */
@@ -13307,15 +13833,17 @@ var _TypeNotFoundException = class _TypeNotFoundException extends CloudFormation
       $fault: "client",
       ...opts
     });
-    this.name = "TypeNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _TypeNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_TypeNotFoundException, "TypeNotFoundException");
-var TypeNotFoundException = _TypeNotFoundException;
-var _AlreadyExistsException = class _AlreadyExistsException extends CloudFormationServiceException {
+var AlreadyExistsException = class _AlreadyExistsException extends CloudFormationServiceException {
+  static {
+    __name(this, "AlreadyExistsException");
+  }
+  name = "AlreadyExistsException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13325,20 +13853,26 @@ var _AlreadyExistsException = class _AlreadyExistsException extends CloudFormati
       $fault: "client",
       ...opts
     });
-    this.name = "AlreadyExistsException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _AlreadyExistsException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_AlreadyExistsException, "AlreadyExistsException");
-var AlreadyExistsException = _AlreadyExistsException;
 var AttributeChangeType = {
   Add: "Add",
   Modify: "Modify",
   Remove: "Remove"
 };
-var _TypeConfigurationNotFoundException = class _TypeConfigurationNotFoundException extends CloudFormationServiceException {
+var TypeConfigurationNotFoundException = class _TypeConfigurationNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "TypeConfigurationNotFoundException");
+  }
+  name = "TypeConfigurationNotFoundException";
+  $fault = "client";
+  /**
+   * <p>A message with details about the error that occurred.</p>
+   * @public
+   */
+  Message;
   /**
    * @internal
    */
@@ -13348,19 +13882,21 @@ var _TypeConfigurationNotFoundException = class _TypeConfigurationNotFoundExcept
       $fault: "client",
       ...opts
     });
-    this.name = "TypeConfigurationNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _TypeConfigurationNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_TypeConfigurationNotFoundException, "TypeConfigurationNotFoundException");
-var TypeConfigurationNotFoundException = _TypeConfigurationNotFoundException;
 var CallAs = {
   DELEGATED_ADMIN: "DELEGATED_ADMIN",
   SELF: "SELF"
 };
-var _TokenAlreadyExistsException = class _TokenAlreadyExistsException extends CloudFormationServiceException {
+var TokenAlreadyExistsException = class _TokenAlreadyExistsException extends CloudFormationServiceException {
+  static {
+    __name(this, "TokenAlreadyExistsException");
+  }
+  name = "TokenAlreadyExistsException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13370,14 +13906,10 @@ var _TokenAlreadyExistsException = class _TokenAlreadyExistsException extends Cl
       $fault: "client",
       ...opts
     });
-    this.name = "TokenAlreadyExistsException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _TokenAlreadyExistsException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_TokenAlreadyExistsException, "TokenAlreadyExistsException");
-var TokenAlreadyExistsException = _TokenAlreadyExistsException;
 var Capability = {
   CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
   CAPABILITY_IAM: "CAPABILITY_IAM",
@@ -13452,7 +13984,13 @@ var ChangeSetHooksStatus = {
   PLANNING: "PLANNING",
   UNAVAILABLE: "UNAVAILABLE"
 };
-var _ChangeSetNotFoundException = class _ChangeSetNotFoundException extends CloudFormationServiceException {
+var ChangeSetNotFoundException = class _ChangeSetNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "ChangeSetNotFoundException");
+  }
+  name = "ChangeSetNotFoundException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13462,14 +14000,10 @@ var _ChangeSetNotFoundException = class _ChangeSetNotFoundException extends Clou
       $fault: "client",
       ...opts
     });
-    this.name = "ChangeSetNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ChangeSetNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_ChangeSetNotFoundException, "ChangeSetNotFoundException");
-var ChangeSetNotFoundException = _ChangeSetNotFoundException;
 var ChangeSetStatus = {
   CREATE_COMPLETE: "CREATE_COMPLETE",
   CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
@@ -13498,7 +14032,13 @@ var OnStackFailure = {
   DO_NOTHING: "DO_NOTHING",
   ROLLBACK: "ROLLBACK"
 };
-var _InsufficientCapabilitiesException = class _InsufficientCapabilitiesException extends CloudFormationServiceException {
+var InsufficientCapabilitiesException = class _InsufficientCapabilitiesException extends CloudFormationServiceException {
+  static {
+    __name(this, "InsufficientCapabilitiesException");
+  }
+  name = "InsufficientCapabilitiesException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13508,15 +14048,17 @@ var _InsufficientCapabilitiesException = class _InsufficientCapabilitiesExceptio
       $fault: "client",
       ...opts
     });
-    this.name = "InsufficientCapabilitiesException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InsufficientCapabilitiesException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_InsufficientCapabilitiesException, "InsufficientCapabilitiesException");
-var InsufficientCapabilitiesException = _InsufficientCapabilitiesException;
-var _LimitExceededException = class _LimitExceededException extends CloudFormationServiceException {
+var LimitExceededException = class _LimitExceededException extends CloudFormationServiceException {
+  static {
+    __name(this, "LimitExceededException");
+  }
+  name = "LimitExceededException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13526,15 +14068,17 @@ var _LimitExceededException = class _LimitExceededException extends CloudFormati
       $fault: "client",
       ...opts
     });
-    this.name = "LimitExceededException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _LimitExceededException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_LimitExceededException, "LimitExceededException");
-var LimitExceededException = _LimitExceededException;
-var _ConcurrentResourcesLimitExceededException = class _ConcurrentResourcesLimitExceededException extends CloudFormationServiceException {
+var ConcurrentResourcesLimitExceededException = class _ConcurrentResourcesLimitExceededException extends CloudFormationServiceException {
+  static {
+    __name(this, "ConcurrentResourcesLimitExceededException");
+  }
+  name = "ConcurrentResourcesLimitExceededException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13544,14 +14088,10 @@ var _ConcurrentResourcesLimitExceededException = class _ConcurrentResourcesLimit
       $fault: "client",
       ...opts
     });
-    this.name = "ConcurrentResourcesLimitExceededException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ConcurrentResourcesLimitExceededException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_ConcurrentResourcesLimitExceededException, "ConcurrentResourcesLimitExceededException");
-var ConcurrentResourcesLimitExceededException = _ConcurrentResourcesLimitExceededException;
 var GeneratedTemplateDeletionPolicy = {
   DELETE: "DELETE",
   RETAIN: "RETAIN"
@@ -13573,7 +14113,13 @@ var RegionConcurrencyType = {
   PARALLEL: "PARALLEL",
   SEQUENTIAL: "SEQUENTIAL"
 };
-var _OperationIdAlreadyExistsException = class _OperationIdAlreadyExistsException extends CloudFormationServiceException {
+var OperationIdAlreadyExistsException = class _OperationIdAlreadyExistsException extends CloudFormationServiceException {
+  static {
+    __name(this, "OperationIdAlreadyExistsException");
+  }
+  name = "OperationIdAlreadyExistsException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13583,15 +14129,17 @@ var _OperationIdAlreadyExistsException = class _OperationIdAlreadyExistsExceptio
       $fault: "client",
       ...opts
     });
-    this.name = "OperationIdAlreadyExistsException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _OperationIdAlreadyExistsException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_OperationIdAlreadyExistsException, "OperationIdAlreadyExistsException");
-var OperationIdAlreadyExistsException = _OperationIdAlreadyExistsException;
-var _OperationInProgressException = class _OperationInProgressException extends CloudFormationServiceException {
+var OperationInProgressException = class _OperationInProgressException extends CloudFormationServiceException {
+  static {
+    __name(this, "OperationInProgressException");
+  }
+  name = "OperationInProgressException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13601,15 +14149,17 @@ var _OperationInProgressException = class _OperationInProgressException extends 
       $fault: "client",
       ...opts
     });
-    this.name = "OperationInProgressException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _OperationInProgressException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_OperationInProgressException, "OperationInProgressException");
-var OperationInProgressException = _OperationInProgressException;
-var _StackSetNotFoundException = class _StackSetNotFoundException extends CloudFormationServiceException {
+var StackSetNotFoundException = class _StackSetNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "StackSetNotFoundException");
+  }
+  name = "StackSetNotFoundException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13619,15 +14169,17 @@ var _StackSetNotFoundException = class _StackSetNotFoundException extends CloudF
       $fault: "client",
       ...opts
     });
-    this.name = "StackSetNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _StackSetNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_StackSetNotFoundException, "StackSetNotFoundException");
-var StackSetNotFoundException = _StackSetNotFoundException;
-var _StaleRequestException = class _StaleRequestException extends CloudFormationServiceException {
+var StaleRequestException = class _StaleRequestException extends CloudFormationServiceException {
+  static {
+    __name(this, "StaleRequestException");
+  }
+  name = "StaleRequestException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13637,15 +14189,17 @@ var _StaleRequestException = class _StaleRequestException extends CloudFormation
       $fault: "client",
       ...opts
     });
-    this.name = "StaleRequestException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _StaleRequestException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_StaleRequestException, "StaleRequestException");
-var StaleRequestException = _StaleRequestException;
-var _CreatedButModifiedException = class _CreatedButModifiedException extends CloudFormationServiceException {
+var CreatedButModifiedException = class _CreatedButModifiedException extends CloudFormationServiceException {
+  static {
+    __name(this, "CreatedButModifiedException");
+  }
+  name = "CreatedButModifiedException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13655,19 +14209,21 @@ var _CreatedButModifiedException = class _CreatedButModifiedException extends Cl
       $fault: "client",
       ...opts
     });
-    this.name = "CreatedButModifiedException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _CreatedButModifiedException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_CreatedButModifiedException, "CreatedButModifiedException");
-var CreatedButModifiedException = _CreatedButModifiedException;
 var PermissionModels = {
   SELF_MANAGED: "SELF_MANAGED",
   SERVICE_MANAGED: "SERVICE_MANAGED"
 };
-var _NameAlreadyExistsException = class _NameAlreadyExistsException extends CloudFormationServiceException {
+var NameAlreadyExistsException = class _NameAlreadyExistsException extends CloudFormationServiceException {
+  static {
+    __name(this, "NameAlreadyExistsException");
+  }
+  name = "NameAlreadyExistsException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13677,15 +14233,17 @@ var _NameAlreadyExistsException = class _NameAlreadyExistsException extends Clou
       $fault: "client",
       ...opts
     });
-    this.name = "NameAlreadyExistsException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _NameAlreadyExistsException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_NameAlreadyExistsException, "NameAlreadyExistsException");
-var NameAlreadyExistsException = _NameAlreadyExistsException;
-var _InvalidChangeSetStatusException = class _InvalidChangeSetStatusException extends CloudFormationServiceException {
+var InvalidChangeSetStatusException = class _InvalidChangeSetStatusException extends CloudFormationServiceException {
+  static {
+    __name(this, "InvalidChangeSetStatusException");
+  }
+  name = "InvalidChangeSetStatusException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13695,15 +14253,17 @@ var _InvalidChangeSetStatusException = class _InvalidChangeSetStatusException ex
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidChangeSetStatusException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidChangeSetStatusException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_InvalidChangeSetStatusException, "InvalidChangeSetStatusException");
-var InvalidChangeSetStatusException = _InvalidChangeSetStatusException;
-var _GeneratedTemplateNotFoundException = class _GeneratedTemplateNotFoundException extends CloudFormationServiceException {
+var GeneratedTemplateNotFoundException = class _GeneratedTemplateNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "GeneratedTemplateNotFoundException");
+  }
+  name = "GeneratedTemplateNotFoundException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13713,19 +14273,21 @@ var _GeneratedTemplateNotFoundException = class _GeneratedTemplateNotFoundExcept
       $fault: "client",
       ...opts
     });
-    this.name = "GeneratedTemplateNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _GeneratedTemplateNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_GeneratedTemplateNotFoundException, "GeneratedTemplateNotFoundException");
-var GeneratedTemplateNotFoundException = _GeneratedTemplateNotFoundException;
 var DeletionMode = {
   FORCE_DELETE_STACK: "FORCE_DELETE_STACK",
   STANDARD: "STANDARD"
 };
-var _StackSetNotEmptyException = class _StackSetNotEmptyException extends CloudFormationServiceException {
+var StackSetNotEmptyException = class _StackSetNotEmptyException extends CloudFormationServiceException {
+  static {
+    __name(this, "StackSetNotEmptyException");
+  }
+  name = "StackSetNotEmptyException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13735,14 +14297,10 @@ var _StackSetNotEmptyException = class _StackSetNotEmptyException extends CloudF
       $fault: "client",
       ...opts
     });
-    this.name = "StackSetNotEmptyException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _StackSetNotEmptyException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_StackSetNotEmptyException, "StackSetNotEmptyException");
-var StackSetNotEmptyException = _StackSetNotEmptyException;
 var RegistryType = {
   HOOK: "HOOK",
   MODULE: "MODULE",
@@ -13789,7 +14347,13 @@ var ResourceScanStatus = {
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS"
 };
-var _ResourceScanNotFoundException = class _ResourceScanNotFoundException extends CloudFormationServiceException {
+var ResourceScanNotFoundException = class _ResourceScanNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "ResourceScanNotFoundException");
+  }
+  name = "ResourceScanNotFoundException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13799,14 +14363,10 @@ var _ResourceScanNotFoundException = class _ResourceScanNotFoundException extend
       $fault: "client",
       ...opts
     });
-    this.name = "ResourceScanNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ResourceScanNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_ResourceScanNotFoundException, "ResourceScanNotFoundException");
-var ResourceScanNotFoundException = _ResourceScanNotFoundException;
 var StackDriftDetectionStatus = {
   DETECTION_COMPLETE: "DETECTION_COMPLETE",
   DETECTION_FAILED: "DETECTION_FAILED",
@@ -13867,7 +14427,13 @@ var StackInstanceStatus = {
   INOPERABLE: "INOPERABLE",
   OUTDATED: "OUTDATED"
 };
-var _StackInstanceNotFoundException = class _StackInstanceNotFoundException extends CloudFormationServiceException {
+var StackInstanceNotFoundException = class _StackInstanceNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "StackInstanceNotFoundException");
+  }
+  name = "StackInstanceNotFoundException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13877,14 +14443,10 @@ var _StackInstanceNotFoundException = class _StackInstanceNotFoundException exte
       $fault: "client",
       ...opts
     });
-    this.name = "StackInstanceNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _StackInstanceNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_StackInstanceNotFoundException, "StackInstanceNotFoundException");
-var StackInstanceNotFoundException = _StackInstanceNotFoundException;
 var StackResourceDriftStatus = {
   DELETED: "DELETED",
   IN_SYNC: "IN_SYNC",
@@ -13983,7 +14545,13 @@ var TemplateStage = {
   Original: "Original",
   Processed: "Processed"
 };
-var _StackNotFoundException = class _StackNotFoundException extends CloudFormationServiceException {
+var StackNotFoundException = class _StackNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "StackNotFoundException");
+  }
+  name = "StackNotFoundException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -13993,15 +14561,17 @@ var _StackNotFoundException = class _StackNotFoundException extends CloudFormati
       $fault: "client",
       ...opts
     });
-    this.name = "StackNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _StackNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_StackNotFoundException, "StackNotFoundException");
-var StackNotFoundException = _StackNotFoundException;
-var _HookResultNotFoundException = class _HookResultNotFoundException extends CloudFormationServiceException {
+var HookResultNotFoundException = class _HookResultNotFoundException extends CloudFormationServiceException {
+  static {
+    __name(this, "HookResultNotFoundException");
+  }
+  name = "HookResultNotFoundException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -14011,21 +14581,23 @@ var _HookResultNotFoundException = class _HookResultNotFoundException extends Cl
       $fault: "client",
       ...opts
     });
-    this.name = "HookResultNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _HookResultNotFoundException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_HookResultNotFoundException, "HookResultNotFoundException");
-var HookResultNotFoundException = _HookResultNotFoundException;
 var ListHookResultsTargetType = {
   CHANGE_SET: "CHANGE_SET",
   CLOUD_CONTROL: "CLOUD_CONTROL",
   RESOURCE: "RESOURCE",
   STACK: "STACK"
 };
-var _ResourceScanInProgressException = class _ResourceScanInProgressException extends CloudFormationServiceException {
+var ResourceScanInProgressException = class _ResourceScanInProgressException extends CloudFormationServiceException {
+  static {
+    __name(this, "ResourceScanInProgressException");
+  }
+  name = "ResourceScanInProgressException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -14035,14 +14607,10 @@ var _ResourceScanInProgressException = class _ResourceScanInProgressException ex
       $fault: "client",
       ...opts
     });
-    this.name = "ResourceScanInProgressException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ResourceScanInProgressException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_ResourceScanInProgressException, "ResourceScanInProgressException");
-var ResourceScanInProgressException = _ResourceScanInProgressException;
 var StackInstanceFilterName = {
   DETAILED_STATUS: "DETAILED_STATUS",
   DRIFT_STATUS: "DRIFT_STATUS",
@@ -14058,7 +14626,13 @@ var StackSetOperationResultStatus = {
   RUNNING: "RUNNING",
   SUCCEEDED: "SUCCEEDED"
 };
-var _InvalidStateTransitionException = class _InvalidStateTransitionException extends CloudFormationServiceException {
+var InvalidStateTransitionException = class _InvalidStateTransitionException extends CloudFormationServiceException {
+  static {
+    __name(this, "InvalidStateTransitionException");
+  }
+  name = "InvalidStateTransitionException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -14068,15 +14642,17 @@ var _InvalidStateTransitionException = class _InvalidStateTransitionException ex
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidStateTransitionException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidStateTransitionException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_InvalidStateTransitionException, "InvalidStateTransitionException");
-var InvalidStateTransitionException = _InvalidStateTransitionException;
-var _OperationStatusCheckFailedException = class _OperationStatusCheckFailedException extends CloudFormationServiceException {
+var OperationStatusCheckFailedException = class _OperationStatusCheckFailedException extends CloudFormationServiceException {
+  static {
+    __name(this, "OperationStatusCheckFailedException");
+  }
+  name = "OperationStatusCheckFailedException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -14086,14 +14662,10 @@ var _OperationStatusCheckFailedException = class _OperationStatusCheckFailedExce
       $fault: "client",
       ...opts
     });
-    this.name = "OperationStatusCheckFailedException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _OperationStatusCheckFailedException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_OperationStatusCheckFailedException, "OperationStatusCheckFailedException");
-var OperationStatusCheckFailedException = _OperationStatusCheckFailedException;
 var OperationStatus = {
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
@@ -14127,7 +14699,13 @@ var ResourceSignalStatus = {
   FAILURE: "FAILURE",
   SUCCESS: "SUCCESS"
 };
-var _ResourceScanLimitExceededException = class _ResourceScanLimitExceededException extends CloudFormationServiceException {
+var ResourceScanLimitExceededException = class _ResourceScanLimitExceededException extends CloudFormationServiceException {
+  static {
+    __name(this, "ResourceScanLimitExceededException");
+  }
+  name = "ResourceScanLimitExceededException";
+  $fault = "client";
+  Message;
   /**
    * @internal
    */
@@ -14137,14 +14715,10 @@ var _ResourceScanLimitExceededException = class _ResourceScanLimitExceededExcept
       $fault: "client",
       ...opts
     });
-    this.name = "ResourceScanLimitExceededException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ResourceScanLimitExceededException.prototype);
     this.Message = opts.Message;
   }
 };
-__name(_ResourceScanLimitExceededException, "ResourceScanLimitExceededException");
-var ResourceScanLimitExceededException = _ResourceScanLimitExceededException;
 
 // src/protocols/Aws_query.ts
 var se_ActivateOrganizationsAccessCommand = /* @__PURE__ */ __name(async (input, context) => {
@@ -16458,11 +17032,10 @@ var se_AutoDeployment = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_AutoDeployment");
 var se_BatchDescribeTypeConfigurationsInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_TCI] != null) {
     const memberEntries = se_TypeConfigurationIdentifiers(input[_TCI], context);
-    if (((_a = input[_TCI]) == null ? void 0 : _a.length) === 0) {
+    if (input[_TCI]?.length === 0) {
       entries.TypeConfigurationIdentifiers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16495,7 +17068,6 @@ var se_Capabilities = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_Capabilities");
 var se_ContinueUpdateRollbackInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
@@ -16505,7 +17077,7 @@ var se_ContinueUpdateRollbackInput = /* @__PURE__ */ __name((input, context) => 
   }
   if (input[_RTS] != null) {
     const memberEntries = se_ResourcesToSkip(input[_RTS], context);
-    if (((_a = input[_RTS]) == null ? void 0 : _a.length) === 0) {
+    if (input[_RTS]?.length === 0) {
       entries.ResourcesToSkip = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16519,7 +17091,6 @@ var se_ContinueUpdateRollbackInput = /* @__PURE__ */ __name((input, context) => 
   return entries;
 }, "se_ContinueUpdateRollbackInput");
 var se_CreateChangeSetInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b, _c, _d, _e2, _f;
   const entries = {};
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
@@ -16535,7 +17106,7 @@ var se_CreateChangeSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_P] != null) {
     const memberEntries = se_Parameters(input[_P], context);
-    if (((_a = input[_P]) == null ? void 0 : _a.length) === 0) {
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16545,7 +17116,7 @@ var se_CreateChangeSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_C] != null) {
     const memberEntries = se_Capabilities(input[_C], context);
-    if (((_b = input[_C]) == null ? void 0 : _b.length) === 0) {
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16555,7 +17126,7 @@ var se_CreateChangeSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_RTe] != null) {
     const memberEntries = se_ResourceTypes(input[_RTe], context);
-    if (((_c = input[_RTe]) == null ? void 0 : _c.length) === 0) {
+    if (input[_RTe]?.length === 0) {
       entries.ResourceTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16575,7 +17146,7 @@ var se_CreateChangeSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_NARN] != null) {
     const memberEntries = se_NotificationARNs(input[_NARN], context);
-    if (((_d = input[_NARN]) == null ? void 0 : _d.length) === 0) {
+    if (input[_NARN]?.length === 0) {
       entries.NotificationARNs = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16585,7 +17156,7 @@ var se_CreateChangeSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Ta] != null) {
     const memberEntries = se_Tags(input[_Ta], context);
-    if (((_e2 = input[_Ta]) == null ? void 0 : _e2.length) === 0) {
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16607,7 +17178,7 @@ var se_CreateChangeSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_RTI] != null) {
     const memberEntries = se_ResourcesToImport(input[_RTI], context);
-    if (((_f = input[_RTI]) == null ? void 0 : _f.length) === 0) {
+    if (input[_RTI]?.length === 0) {
       entries.ResourcesToImport = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16627,11 +17198,10 @@ var se_CreateChangeSetInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_CreateChangeSetInput");
 var se_CreateGeneratedTemplateInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_R] != null) {
     const memberEntries = se_ResourceDefinitions(input[_R], context);
-    if (((_a = input[_R]) == null ? void 0 : _a.length) === 0) {
+    if (input[_R]?.length === 0) {
       entries.Resources = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16655,7 +17225,6 @@ var se_CreateGeneratedTemplateInput = /* @__PURE__ */ __name((input, context) =>
   return entries;
 }, "se_CreateGeneratedTemplateInput");
 var se_CreateStackInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b, _c, _d, _e2;
   const entries = {};
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
@@ -16668,7 +17237,7 @@ var se_CreateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_P] != null) {
     const memberEntries = se_Parameters(input[_P], context);
-    if (((_a = input[_P]) == null ? void 0 : _a.length) === 0) {
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16691,7 +17260,7 @@ var se_CreateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_NARN] != null) {
     const memberEntries = se_NotificationARNs(input[_NARN], context);
-    if (((_b = input[_NARN]) == null ? void 0 : _b.length) === 0) {
+    if (input[_NARN]?.length === 0) {
       entries.NotificationARNs = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16701,7 +17270,7 @@ var se_CreateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_C] != null) {
     const memberEntries = se_Capabilities(input[_C], context);
-    if (((_c = input[_C]) == null ? void 0 : _c.length) === 0) {
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16711,7 +17280,7 @@ var se_CreateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_RTe] != null) {
     const memberEntries = se_ResourceTypes(input[_RTe], context);
-    if (((_d = input[_RTe]) == null ? void 0 : _d.length) === 0) {
+    if (input[_RTe]?.length === 0) {
       entries.ResourceTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16733,7 +17302,7 @@ var se_CreateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Ta] != null) {
     const memberEntries = se_Tags(input[_Ta], context);
-    if (((_e2 = input[_Ta]) == null ? void 0 : _e2.length) === 0) {
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16753,14 +17322,13 @@ var se_CreateStackInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_CreateStackInput");
 var se_CreateStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b, _c;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
   }
   if (input[_Ac] != null) {
     const memberEntries = se_AccountList(input[_Ac], context);
-    if (((_a = input[_Ac]) == null ? void 0 : _a.length) === 0) {
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16777,7 +17345,7 @@ var se_CreateStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Re] != null) {
     const memberEntries = se_RegionList(input[_Re], context);
-    if (((_b = input[_Re]) == null ? void 0 : _b.length) === 0) {
+    if (input[_Re]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16787,7 +17355,7 @@ var se_CreateStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_PO] != null) {
     const memberEntries = se_Parameters(input[_PO], context);
-    if (((_c = input[_PO]) == null ? void 0 : _c.length) === 0) {
+    if (input[_PO]?.length === 0) {
       entries.ParameterOverrides = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16814,7 +17382,6 @@ var se_CreateStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_CreateStackInstancesInput");
 var se_CreateStackSetInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b, _c;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
@@ -16833,7 +17400,7 @@ var se_CreateStackSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_P] != null) {
     const memberEntries = se_Parameters(input[_P], context);
-    if (((_a = input[_P]) == null ? void 0 : _a.length) === 0) {
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16843,7 +17410,7 @@ var se_CreateStackSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_C] != null) {
     const memberEntries = se_Capabilities(input[_C], context);
-    if (((_b = input[_C]) == null ? void 0 : _b.length) === 0) {
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16853,7 +17420,7 @@ var se_CreateStackSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Ta] != null) {
     const memberEntries = se_Tags(input[_Ta], context);
-    if (((_c = input[_Ta]) == null ? void 0 : _c.length) === 0) {
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16930,14 +17497,13 @@ var se_DeleteGeneratedTemplateInput = /* @__PURE__ */ __name((input, context) =>
   return entries;
 }, "se_DeleteGeneratedTemplateInput");
 var se_DeleteStackInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
   }
   if (input[_RR] != null) {
     const memberEntries = se_RetainResources(input[_RR], context);
-    if (((_a = input[_RR]) == null ? void 0 : _a.length) === 0) {
+    if (input[_RR]?.length === 0) {
       entries.RetainResources = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16957,14 +17523,13 @@ var se_DeleteStackInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_DeleteStackInput");
 var se_DeleteStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
   }
   if (input[_Ac] != null) {
     const memberEntries = se_AccountList(input[_Ac], context);
-    if (((_a = input[_Ac]) == null ? void 0 : _a.length) === 0) {
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16981,7 +17546,7 @@ var se_DeleteStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Re] != null) {
     const memberEntries = se_RegionList(input[_Re], context);
-    if (((_b = input[_Re]) == null ? void 0 : _b.length) === 0) {
+    if (input[_Re]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17021,11 +17586,10 @@ var se_DeleteStackSetInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_DeleteStackSetInput");
 var se_DeploymentTargets = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b;
   const entries = {};
   if (input[_Ac] != null) {
     const memberEntries = se_AccountList(input[_Ac], context);
-    if (((_a = input[_Ac]) == null ? void 0 : _a.length) === 0) {
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17038,7 +17602,7 @@ var se_DeploymentTargets = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_OUI] != null) {
     const memberEntries = se_OrganizationalUnitIdList(input[_OUI], context);
-    if (((_b = input[_OUI]) == null ? void 0 : _b.length) === 0) {
+    if (input[_OUI]?.length === 0) {
       entries.OrganizationalUnitIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17168,14 +17732,13 @@ var se_DescribeStackInstanceInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_DescribeStackInstanceInput");
 var se_DescribeStackResourceDriftsInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
   }
   if (input[_SRDSF] != null) {
     const memberEntries = se_StackResourceDriftStatusFilters(input[_SRDSF], context);
-    if (((_a = input[_SRDSF]) == null ? void 0 : _a.length) === 0) {
+    if (input[_SRDSF]?.length === 0) {
       entries.StackResourceDriftStatusFilters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17277,14 +17840,13 @@ var se_DescribeTypeRegistrationInput = /* @__PURE__ */ __name((input, context) =
   return entries;
 }, "se_DescribeTypeRegistrationInput");
 var se_DetectStackDriftInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
   }
   if (input[_LRIo] != null) {
     const memberEntries = se_LogicalResourceIds(input[_LRIo], context);
-    if (((_a = input[_LRIo]) == null ? void 0 : _a.length) === 0) {
+    if (input[_LRIo]?.length === 0) {
       entries.LogicalResourceIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17328,7 +17890,6 @@ var se_DetectStackSetDriftInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_DetectStackSetDriftInput");
 var se_EstimateTemplateCostInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_TB] != null) {
     entries[_TB] = input[_TB];
@@ -17338,7 +17899,7 @@ var se_EstimateTemplateCostInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_P] != null) {
     const memberEntries = se_Parameters(input[_P], context);
-    if (((_a = input[_P]) == null ? void 0 : _a.length) === 0) {
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17424,14 +17985,13 @@ var se_GetTemplateSummaryInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_GetTemplateSummaryInput");
 var se_ImportStacksToStackSetInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
   }
   if (input[_SIt] != null) {
     const memberEntries = se_StackIdList(input[_SIt], context);
-    if (((_a = input[_SIt]) == null ? void 0 : _a.length) === 0) {
+    if (input[_SIt]?.length === 0) {
       entries.StackIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17444,7 +18004,7 @@ var se_ImportStacksToStackSetInput = /* @__PURE__ */ __name((input, context) => 
   }
   if (input[_OUI] != null) {
     const memberEntries = se_OrganizationalUnitIdList(input[_OUI], context);
-    if (((_b = input[_OUI]) == null ? void 0 : _b.length) === 0) {
+    if (input[_OUI]?.length === 0) {
       entries.OrganizationalUnitIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17543,14 +18103,13 @@ var se_ListImportsInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_ListImportsInput");
 var se_ListResourceScanRelatedResourcesInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_RSI] != null) {
     entries[_RSI] = input[_RSI];
   }
   if (input[_R] != null) {
     const memberEntries = se_ScannedResourceIdentifiers(input[_R], context);
-    if (((_a = input[_R]) == null ? void 0 : _a.length) === 0) {
+    if (input[_R]?.length === 0) {
       entries.Resources = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17602,7 +18161,6 @@ var se_ListResourceScansInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_ListResourceScansInput");
 var se_ListStackInstanceResourceDriftsInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
@@ -17615,7 +18173,7 @@ var se_ListStackInstanceResourceDriftsInput = /* @__PURE__ */ __name((input, con
   }
   if (input[_SIRDS] != null) {
     const memberEntries = se_StackResourceDriftStatusFilters(input[_SIRDS], context);
-    if (((_a = input[_SIRDS]) == null ? void 0 : _a.length) === 0) {
+    if (input[_SIRDS]?.length === 0) {
       entries.StackInstanceResourceDriftStatuses = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17638,7 +18196,6 @@ var se_ListStackInstanceResourceDriftsInput = /* @__PURE__ */ __name((input, con
   return entries;
 }, "se_ListStackInstanceResourceDriftsInput");
 var se_ListStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
@@ -17651,7 +18208,7 @@ var se_ListStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Fi] != null) {
     const memberEntries = se_StackInstanceFilters(input[_Fi], context);
-    if (((_a = input[_Fi]) == null ? void 0 : _a.length) === 0) {
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17697,7 +18254,6 @@ var se_ListStackSetAutoDeploymentTargetsInput = /* @__PURE__ */ __name((input, c
   return entries;
 }, "se_ListStackSetAutoDeploymentTargetsInput");
 var se_ListStackSetOperationResultsInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
@@ -17716,7 +18272,7 @@ var se_ListStackSetOperationResultsInput = /* @__PURE__ */ __name((input, contex
   }
   if (input[_Fi] != null) {
     const memberEntries = se_OperationResultFilters(input[_Fi], context);
-    if (((_a = input[_Fi]) == null ? void 0 : _a.length) === 0) {
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17759,14 +18315,13 @@ var se_ListStackSetsInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_ListStackSetsInput");
 var se_ListStacksInput = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
   if (input[_SSF] != null) {
     const memberEntries = se_StackStatusFilter(input[_SSF], context);
-    if (((_a = input[_SSF]) == null ? void 0 : _a.length) === 0) {
+    if (input[_SSF]?.length === 0) {
       entries.StackStatusFilter = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18161,11 +18716,10 @@ var se_RetainResources = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_RetainResources");
 var se_RollbackConfiguration = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_RTo] != null) {
     const memberEntries = se_RollbackTriggers(input[_RTo], context);
-    if (((_a = input[_RTo]) == null ? void 0 : _a.length) === 0) {
+    if (input[_RTo]?.length === 0) {
       entries.RollbackTriggers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18362,14 +18916,13 @@ var se_StackResourceDriftStatusFilters = /* @__PURE__ */ __name((input, context)
   return entries;
 }, "se_StackResourceDriftStatusFilters");
 var se_StackSetOperationPreferences = /* @__PURE__ */ __name((input, context) => {
-  var _a;
   const entries = {};
   if (input[_RCT] != null) {
     entries[_RCT] = input[_RCT];
   }
   if (input[_RO] != null) {
     const memberEntries = se_RegionList(input[_RO], context);
-    if (((_a = input[_RO]) == null ? void 0 : _a.length) === 0) {
+    if (input[_RO]?.length === 0) {
       entries.RegionOrder = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18535,7 +19088,6 @@ var se_TypeFilters = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_TypeFilters");
 var se_UpdateGeneratedTemplateInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b;
   const entries = {};
   if (input[_GTN] != null) {
     entries[_GTN] = input[_GTN];
@@ -18545,7 +19097,7 @@ var se_UpdateGeneratedTemplateInput = /* @__PURE__ */ __name((input, context) =>
   }
   if (input[_AR] != null) {
     const memberEntries = se_ResourceDefinitions(input[_AR], context);
-    if (((_a = input[_AR]) == null ? void 0 : _a.length) === 0) {
+    if (input[_AR]?.length === 0) {
       entries.AddResources = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18555,7 +19107,7 @@ var se_UpdateGeneratedTemplateInput = /* @__PURE__ */ __name((input, context) =>
   }
   if (input[_RRe] != null) {
     const memberEntries = se_JazzLogicalResourceIds(input[_RRe], context);
-    if (((_b = input[_RRe]) == null ? void 0 : _b.length) === 0) {
+    if (input[_RRe]?.length === 0) {
       entries.RemoveResources = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18576,7 +19128,6 @@ var se_UpdateGeneratedTemplateInput = /* @__PURE__ */ __name((input, context) =>
   return entries;
 }, "se_UpdateGeneratedTemplateInput");
 var se_UpdateStackInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b, _c, _d, _e2;
   const entries = {};
   if (input[_SN] != null) {
     entries[_SN] = input[_SN];
@@ -18598,7 +19149,7 @@ var se_UpdateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_P] != null) {
     const memberEntries = se_Parameters(input[_P], context);
-    if (((_a = input[_P]) == null ? void 0 : _a.length) === 0) {
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18608,7 +19159,7 @@ var se_UpdateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_C] != null) {
     const memberEntries = se_Capabilities(input[_C], context);
-    if (((_b = input[_C]) == null ? void 0 : _b.length) === 0) {
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18618,7 +19169,7 @@ var se_UpdateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_RTe] != null) {
     const memberEntries = se_ResourceTypes(input[_RTe], context);
-    if (((_c = input[_RTe]) == null ? void 0 : _c.length) === 0) {
+    if (input[_RTe]?.length === 0) {
       entries.ResourceTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18644,7 +19195,7 @@ var se_UpdateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_NARN] != null) {
     const memberEntries = se_NotificationARNs(input[_NARN], context);
-    if (((_d = input[_NARN]) == null ? void 0 : _d.length) === 0) {
+    if (input[_NARN]?.length === 0) {
       entries.NotificationARNs = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18654,7 +19205,7 @@ var se_UpdateStackInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Ta] != null) {
     const memberEntries = se_Tags(input[_Ta], context);
-    if (((_e2 = input[_Ta]) == null ? void 0 : _e2.length) === 0) {
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18674,14 +19225,13 @@ var se_UpdateStackInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_UpdateStackInput");
 var se_UpdateStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b, _c;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
   }
   if (input[_Ac] != null) {
     const memberEntries = se_AccountList(input[_Ac], context);
-    if (((_a = input[_Ac]) == null ? void 0 : _a.length) === 0) {
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18698,7 +19248,7 @@ var se_UpdateStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Re] != null) {
     const memberEntries = se_RegionList(input[_Re], context);
-    if (((_b = input[_Re]) == null ? void 0 : _b.length) === 0) {
+    if (input[_Re]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18708,7 +19258,7 @@ var se_UpdateStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_PO] != null) {
     const memberEntries = se_Parameters(input[_PO], context);
-    if (((_c = input[_PO]) == null ? void 0 : _c.length) === 0) {
+    if (input[_PO]?.length === 0) {
       entries.ParameterOverrides = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18735,7 +19285,6 @@ var se_UpdateStackInstancesInput = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_UpdateStackInstancesInput");
 var se_UpdateStackSetInput = /* @__PURE__ */ __name((input, context) => {
-  var _a, _b, _c, _d, _e2;
   const entries = {};
   if (input[_SSN] != null) {
     entries[_SSN] = input[_SSN];
@@ -18754,7 +19303,7 @@ var se_UpdateStackSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_P] != null) {
     const memberEntries = se_Parameters(input[_P], context);
-    if (((_a = input[_P]) == null ? void 0 : _a.length) === 0) {
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18764,7 +19313,7 @@ var se_UpdateStackSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_C] != null) {
     const memberEntries = se_Capabilities(input[_C], context);
-    if (((_b = input[_C]) == null ? void 0 : _b.length) === 0) {
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18774,7 +19323,7 @@ var se_UpdateStackSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Ta] != null) {
     const memberEntries = se_Tags(input[_Ta], context);
-    if (((_c = input[_Ta]) == null ? void 0 : _c.length) === 0) {
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18820,7 +19369,7 @@ var se_UpdateStackSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Ac] != null) {
     const memberEntries = se_AccountList(input[_Ac], context);
-    if (((_d = input[_Ac]) == null ? void 0 : _d.length) === 0) {
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18830,7 +19379,7 @@ var se_UpdateStackSetInput = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_Re] != null) {
     const memberEntries = se_RegionList(input[_Re], context);
-    if (((_e2 = input[_Re]) == null ? void 0 : _e2.length) === 0) {
+    if (input[_Re]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -22285,8 +22834,7 @@ var _e = "entry";
 var _m = "member";
 var buildFormUrlencodedString = /* @__PURE__ */ __name((formEntries) => Object.entries(formEntries).map(([key, value]) => (0, import_smithy_client.extendedEncodeURIComponent)(key) + "=" + (0, import_smithy_client.extendedEncodeURIComponent)(value)).join("&"), "buildFormUrlencodedString");
 var loadQueryErrorCode = /* @__PURE__ */ __name((output, data) => {
-  var _a;
-  if (((_a = data.Error) == null ? void 0 : _a.Code) !== void 0) {
+  if (data.Error?.Code !== void 0) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
@@ -22295,1163 +22843,1246 @@ var loadQueryErrorCode = /* @__PURE__ */ __name((output, data) => {
 }, "loadQueryErrorCode");
 
 // src/commands/ActivateOrganizationsAccessCommand.ts
-var _ActivateOrganizationsAccessCommand = class _ActivateOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ActivateOrganizationsAccessCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ActivateOrganizationsAccess", {}).n("CloudFormationClient", "ActivateOrganizationsAccessCommand").f(void 0, void 0).ser(se_ActivateOrganizationsAccessCommand).de(de_ActivateOrganizationsAccessCommand).build() {
+  static {
+    __name(this, "ActivateOrganizationsAccessCommand");
+  }
 };
-__name(_ActivateOrganizationsAccessCommand, "ActivateOrganizationsAccessCommand");
-var ActivateOrganizationsAccessCommand = _ActivateOrganizationsAccessCommand;
 
 // src/commands/ActivateTypeCommand.ts
 
 
 
-var _ActivateTypeCommand = class _ActivateTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ActivateTypeCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ActivateType", {}).n("CloudFormationClient", "ActivateTypeCommand").f(void 0, void 0).ser(se_ActivateTypeCommand).de(de_ActivateTypeCommand).build() {
+  static {
+    __name(this, "ActivateTypeCommand");
+  }
 };
-__name(_ActivateTypeCommand, "ActivateTypeCommand");
-var ActivateTypeCommand = _ActivateTypeCommand;
 
 // src/commands/BatchDescribeTypeConfigurationsCommand.ts
 
 
 
-var _BatchDescribeTypeConfigurationsCommand = class _BatchDescribeTypeConfigurationsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var BatchDescribeTypeConfigurationsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "BatchDescribeTypeConfigurations", {}).n("CloudFormationClient", "BatchDescribeTypeConfigurationsCommand").f(void 0, void 0).ser(se_BatchDescribeTypeConfigurationsCommand).de(de_BatchDescribeTypeConfigurationsCommand).build() {
+  static {
+    __name(this, "BatchDescribeTypeConfigurationsCommand");
+  }
 };
-__name(_BatchDescribeTypeConfigurationsCommand, "BatchDescribeTypeConfigurationsCommand");
-var BatchDescribeTypeConfigurationsCommand = _BatchDescribeTypeConfigurationsCommand;
 
 // src/commands/CancelUpdateStackCommand.ts
 
 
 
-var _CancelUpdateStackCommand = class _CancelUpdateStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CancelUpdateStackCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "CancelUpdateStack", {}).n("CloudFormationClient", "CancelUpdateStackCommand").f(void 0, void 0).ser(se_CancelUpdateStackCommand).de(de_CancelUpdateStackCommand).build() {
+  static {
+    __name(this, "CancelUpdateStackCommand");
+  }
 };
-__name(_CancelUpdateStackCommand, "CancelUpdateStackCommand");
-var CancelUpdateStackCommand = _CancelUpdateStackCommand;
 
 // src/commands/ContinueUpdateRollbackCommand.ts
 
 
 
-var _ContinueUpdateRollbackCommand = class _ContinueUpdateRollbackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ContinueUpdateRollbackCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ContinueUpdateRollback", {}).n("CloudFormationClient", "ContinueUpdateRollbackCommand").f(void 0, void 0).ser(se_ContinueUpdateRollbackCommand).de(de_ContinueUpdateRollbackCommand).build() {
+  static {
+    __name(this, "ContinueUpdateRollbackCommand");
+  }
 };
-__name(_ContinueUpdateRollbackCommand, "ContinueUpdateRollbackCommand");
-var ContinueUpdateRollbackCommand = _ContinueUpdateRollbackCommand;
 
 // src/commands/CreateChangeSetCommand.ts
 
 
 
-var _CreateChangeSetCommand = class _CreateChangeSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CreateChangeSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "CreateChangeSet", {}).n("CloudFormationClient", "CreateChangeSetCommand").f(void 0, void 0).ser(se_CreateChangeSetCommand).de(de_CreateChangeSetCommand).build() {
+  static {
+    __name(this, "CreateChangeSetCommand");
+  }
 };
-__name(_CreateChangeSetCommand, "CreateChangeSetCommand");
-var CreateChangeSetCommand = _CreateChangeSetCommand;
 
 // src/commands/CreateGeneratedTemplateCommand.ts
 
 
 
-var _CreateGeneratedTemplateCommand = class _CreateGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CreateGeneratedTemplateCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "CreateGeneratedTemplate", {}).n("CloudFormationClient", "CreateGeneratedTemplateCommand").f(void 0, void 0).ser(se_CreateGeneratedTemplateCommand).de(de_CreateGeneratedTemplateCommand).build() {
+  static {
+    __name(this, "CreateGeneratedTemplateCommand");
+  }
 };
-__name(_CreateGeneratedTemplateCommand, "CreateGeneratedTemplateCommand");
-var CreateGeneratedTemplateCommand = _CreateGeneratedTemplateCommand;
 
 // src/commands/CreateStackCommand.ts
 
 
 
-var _CreateStackCommand = class _CreateStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CreateStackCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "CreateStack", {}).n("CloudFormationClient", "CreateStackCommand").f(void 0, void 0).ser(se_CreateStackCommand).de(de_CreateStackCommand).build() {
+  static {
+    __name(this, "CreateStackCommand");
+  }
 };
-__name(_CreateStackCommand, "CreateStackCommand");
-var CreateStackCommand = _CreateStackCommand;
 
 // src/commands/CreateStackInstancesCommand.ts
 
 
 
-var _CreateStackInstancesCommand = class _CreateStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CreateStackInstancesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "CreateStackInstances", {}).n("CloudFormationClient", "CreateStackInstancesCommand").f(void 0, void 0).ser(se_CreateStackInstancesCommand).de(de_CreateStackInstancesCommand).build() {
+  static {
+    __name(this, "CreateStackInstancesCommand");
+  }
 };
-__name(_CreateStackInstancesCommand, "CreateStackInstancesCommand");
-var CreateStackInstancesCommand = _CreateStackInstancesCommand;
 
 // src/commands/CreateStackSetCommand.ts
 
 
 
-var _CreateStackSetCommand = class _CreateStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CreateStackSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "CreateStackSet", {}).n("CloudFormationClient", "CreateStackSetCommand").f(void 0, void 0).ser(se_CreateStackSetCommand).de(de_CreateStackSetCommand).build() {
+  static {
+    __name(this, "CreateStackSetCommand");
+  }
 };
-__name(_CreateStackSetCommand, "CreateStackSetCommand");
-var CreateStackSetCommand = _CreateStackSetCommand;
 
 // src/commands/DeactivateOrganizationsAccessCommand.ts
 
 
 
-var _DeactivateOrganizationsAccessCommand = class _DeactivateOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeactivateOrganizationsAccessCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DeactivateOrganizationsAccess", {}).n("CloudFormationClient", "DeactivateOrganizationsAccessCommand").f(void 0, void 0).ser(se_DeactivateOrganizationsAccessCommand).de(de_DeactivateOrganizationsAccessCommand).build() {
+  static {
+    __name(this, "DeactivateOrganizationsAccessCommand");
+  }
 };
-__name(_DeactivateOrganizationsAccessCommand, "DeactivateOrganizationsAccessCommand");
-var DeactivateOrganizationsAccessCommand = _DeactivateOrganizationsAccessCommand;
 
 // src/commands/DeactivateTypeCommand.ts
 
 
 
-var _DeactivateTypeCommand = class _DeactivateTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeactivateTypeCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DeactivateType", {}).n("CloudFormationClient", "DeactivateTypeCommand").f(void 0, void 0).ser(se_DeactivateTypeCommand).de(de_DeactivateTypeCommand).build() {
+  static {
+    __name(this, "DeactivateTypeCommand");
+  }
 };
-__name(_DeactivateTypeCommand, "DeactivateTypeCommand");
-var DeactivateTypeCommand = _DeactivateTypeCommand;
 
 // src/commands/DeleteChangeSetCommand.ts
 
 
 
-var _DeleteChangeSetCommand = class _DeleteChangeSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeleteChangeSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DeleteChangeSet", {}).n("CloudFormationClient", "DeleteChangeSetCommand").f(void 0, void 0).ser(se_DeleteChangeSetCommand).de(de_DeleteChangeSetCommand).build() {
+  static {
+    __name(this, "DeleteChangeSetCommand");
+  }
 };
-__name(_DeleteChangeSetCommand, "DeleteChangeSetCommand");
-var DeleteChangeSetCommand = _DeleteChangeSetCommand;
 
 // src/commands/DeleteGeneratedTemplateCommand.ts
 
 
 
-var _DeleteGeneratedTemplateCommand = class _DeleteGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeleteGeneratedTemplateCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DeleteGeneratedTemplate", {}).n("CloudFormationClient", "DeleteGeneratedTemplateCommand").f(void 0, void 0).ser(se_DeleteGeneratedTemplateCommand).de(de_DeleteGeneratedTemplateCommand).build() {
+  static {
+    __name(this, "DeleteGeneratedTemplateCommand");
+  }
 };
-__name(_DeleteGeneratedTemplateCommand, "DeleteGeneratedTemplateCommand");
-var DeleteGeneratedTemplateCommand = _DeleteGeneratedTemplateCommand;
 
 // src/commands/DeleteStackCommand.ts
 
 
 
-var _DeleteStackCommand = class _DeleteStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeleteStackCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DeleteStack", {}).n("CloudFormationClient", "DeleteStackCommand").f(void 0, void 0).ser(se_DeleteStackCommand).de(de_DeleteStackCommand).build() {
+  static {
+    __name(this, "DeleteStackCommand");
+  }
 };
-__name(_DeleteStackCommand, "DeleteStackCommand");
-var DeleteStackCommand = _DeleteStackCommand;
 
 // src/commands/DeleteStackInstancesCommand.ts
 
 
 
-var _DeleteStackInstancesCommand = class _DeleteStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeleteStackInstancesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DeleteStackInstances", {}).n("CloudFormationClient", "DeleteStackInstancesCommand").f(void 0, void 0).ser(se_DeleteStackInstancesCommand).de(de_DeleteStackInstancesCommand).build() {
+  static {
+    __name(this, "DeleteStackInstancesCommand");
+  }
 };
-__name(_DeleteStackInstancesCommand, "DeleteStackInstancesCommand");
-var DeleteStackInstancesCommand = _DeleteStackInstancesCommand;
 
 // src/commands/DeleteStackSetCommand.ts
 
 
 
-var _DeleteStackSetCommand = class _DeleteStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeleteStackSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DeleteStackSet", {}).n("CloudFormationClient", "DeleteStackSetCommand").f(void 0, void 0).ser(se_DeleteStackSetCommand).de(de_DeleteStackSetCommand).build() {
+  static {
+    __name(this, "DeleteStackSetCommand");
+  }
 };
-__name(_DeleteStackSetCommand, "DeleteStackSetCommand");
-var DeleteStackSetCommand = _DeleteStackSetCommand;
 
 // src/commands/DeregisterTypeCommand.ts
 
 
 
-var _DeregisterTypeCommand = class _DeregisterTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeregisterTypeCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DeregisterType", {}).n("CloudFormationClient", "DeregisterTypeCommand").f(void 0, void 0).ser(se_DeregisterTypeCommand).de(de_DeregisterTypeCommand).build() {
+  static {
+    __name(this, "DeregisterTypeCommand");
+  }
 };
-__name(_DeregisterTypeCommand, "DeregisterTypeCommand");
-var DeregisterTypeCommand = _DeregisterTypeCommand;
 
 // src/commands/DescribeAccountLimitsCommand.ts
 
 
 
-var _DescribeAccountLimitsCommand = class _DescribeAccountLimitsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeAccountLimitsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeAccountLimits", {}).n("CloudFormationClient", "DescribeAccountLimitsCommand").f(void 0, void 0).ser(se_DescribeAccountLimitsCommand).de(de_DescribeAccountLimitsCommand).build() {
+  static {
+    __name(this, "DescribeAccountLimitsCommand");
+  }
 };
-__name(_DescribeAccountLimitsCommand, "DescribeAccountLimitsCommand");
-var DescribeAccountLimitsCommand = _DescribeAccountLimitsCommand;
 
 // src/commands/DescribeChangeSetCommand.ts
 
 
 
-var _DescribeChangeSetCommand = class _DescribeChangeSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeChangeSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeChangeSet", {}).n("CloudFormationClient", "DescribeChangeSetCommand").f(void 0, void 0).ser(se_DescribeChangeSetCommand).de(de_DescribeChangeSetCommand).build() {
+  static {
+    __name(this, "DescribeChangeSetCommand");
+  }
 };
-__name(_DescribeChangeSetCommand, "DescribeChangeSetCommand");
-var DescribeChangeSetCommand = _DescribeChangeSetCommand;
 
 // src/commands/DescribeChangeSetHooksCommand.ts
 
 
 
-var _DescribeChangeSetHooksCommand = class _DescribeChangeSetHooksCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeChangeSetHooksCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeChangeSetHooks", {}).n("CloudFormationClient", "DescribeChangeSetHooksCommand").f(void 0, void 0).ser(se_DescribeChangeSetHooksCommand).de(de_DescribeChangeSetHooksCommand).build() {
+  static {
+    __name(this, "DescribeChangeSetHooksCommand");
+  }
 };
-__name(_DescribeChangeSetHooksCommand, "DescribeChangeSetHooksCommand");
-var DescribeChangeSetHooksCommand = _DescribeChangeSetHooksCommand;
 
 // src/commands/DescribeGeneratedTemplateCommand.ts
 
 
 
-var _DescribeGeneratedTemplateCommand = class _DescribeGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeGeneratedTemplateCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeGeneratedTemplate", {}).n("CloudFormationClient", "DescribeGeneratedTemplateCommand").f(void 0, void 0).ser(se_DescribeGeneratedTemplateCommand).de(de_DescribeGeneratedTemplateCommand).build() {
+  static {
+    __name(this, "DescribeGeneratedTemplateCommand");
+  }
 };
-__name(_DescribeGeneratedTemplateCommand, "DescribeGeneratedTemplateCommand");
-var DescribeGeneratedTemplateCommand = _DescribeGeneratedTemplateCommand;
 
 // src/commands/DescribeOrganizationsAccessCommand.ts
 
 
 
-var _DescribeOrganizationsAccessCommand = class _DescribeOrganizationsAccessCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeOrganizationsAccessCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeOrganizationsAccess", {}).n("CloudFormationClient", "DescribeOrganizationsAccessCommand").f(void 0, void 0).ser(se_DescribeOrganizationsAccessCommand).de(de_DescribeOrganizationsAccessCommand).build() {
+  static {
+    __name(this, "DescribeOrganizationsAccessCommand");
+  }
 };
-__name(_DescribeOrganizationsAccessCommand, "DescribeOrganizationsAccessCommand");
-var DescribeOrganizationsAccessCommand = _DescribeOrganizationsAccessCommand;
 
 // src/commands/DescribePublisherCommand.ts
 
 
 
-var _DescribePublisherCommand = class _DescribePublisherCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribePublisherCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribePublisher", {}).n("CloudFormationClient", "DescribePublisherCommand").f(void 0, void 0).ser(se_DescribePublisherCommand).de(de_DescribePublisherCommand).build() {
+  static {
+    __name(this, "DescribePublisherCommand");
+  }
 };
-__name(_DescribePublisherCommand, "DescribePublisherCommand");
-var DescribePublisherCommand = _DescribePublisherCommand;
 
 // src/commands/DescribeResourceScanCommand.ts
 
 
 
-var _DescribeResourceScanCommand = class _DescribeResourceScanCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeResourceScanCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeResourceScan", {}).n("CloudFormationClient", "DescribeResourceScanCommand").f(void 0, void 0).ser(se_DescribeResourceScanCommand).de(de_DescribeResourceScanCommand).build() {
+  static {
+    __name(this, "DescribeResourceScanCommand");
+  }
 };
-__name(_DescribeResourceScanCommand, "DescribeResourceScanCommand");
-var DescribeResourceScanCommand = _DescribeResourceScanCommand;
 
 // src/commands/DescribeStackDriftDetectionStatusCommand.ts
 
 
 
-var _DescribeStackDriftDetectionStatusCommand = class _DescribeStackDriftDetectionStatusCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStackDriftDetectionStatusCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStackDriftDetectionStatus", {}).n("CloudFormationClient", "DescribeStackDriftDetectionStatusCommand").f(void 0, void 0).ser(se_DescribeStackDriftDetectionStatusCommand).de(de_DescribeStackDriftDetectionStatusCommand).build() {
+  static {
+    __name(this, "DescribeStackDriftDetectionStatusCommand");
+  }
 };
-__name(_DescribeStackDriftDetectionStatusCommand, "DescribeStackDriftDetectionStatusCommand");
-var DescribeStackDriftDetectionStatusCommand = _DescribeStackDriftDetectionStatusCommand;
 
 // src/commands/DescribeStackEventsCommand.ts
 
 
 
-var _DescribeStackEventsCommand = class _DescribeStackEventsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStackEventsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStackEvents", {}).n("CloudFormationClient", "DescribeStackEventsCommand").f(void 0, void 0).ser(se_DescribeStackEventsCommand).de(de_DescribeStackEventsCommand).build() {
+  static {
+    __name(this, "DescribeStackEventsCommand");
+  }
 };
-__name(_DescribeStackEventsCommand, "DescribeStackEventsCommand");
-var DescribeStackEventsCommand = _DescribeStackEventsCommand;
 
 // src/commands/DescribeStackInstanceCommand.ts
 
 
 
-var _DescribeStackInstanceCommand = class _DescribeStackInstanceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStackInstanceCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStackInstance", {}).n("CloudFormationClient", "DescribeStackInstanceCommand").f(void 0, void 0).ser(se_DescribeStackInstanceCommand).de(de_DescribeStackInstanceCommand).build() {
+  static {
+    __name(this, "DescribeStackInstanceCommand");
+  }
 };
-__name(_DescribeStackInstanceCommand, "DescribeStackInstanceCommand");
-var DescribeStackInstanceCommand = _DescribeStackInstanceCommand;
 
 // src/commands/DescribeStackResourceCommand.ts
 
 
 
-var _DescribeStackResourceCommand = class _DescribeStackResourceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStackResourceCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStackResource", {}).n("CloudFormationClient", "DescribeStackResourceCommand").f(void 0, void 0).ser(se_DescribeStackResourceCommand).de(de_DescribeStackResourceCommand).build() {
+  static {
+    __name(this, "DescribeStackResourceCommand");
+  }
 };
-__name(_DescribeStackResourceCommand, "DescribeStackResourceCommand");
-var DescribeStackResourceCommand = _DescribeStackResourceCommand;
 
 // src/commands/DescribeStackResourceDriftsCommand.ts
 
 
 
-var _DescribeStackResourceDriftsCommand = class _DescribeStackResourceDriftsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStackResourceDriftsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStackResourceDrifts", {}).n("CloudFormationClient", "DescribeStackResourceDriftsCommand").f(void 0, void 0).ser(se_DescribeStackResourceDriftsCommand).de(de_DescribeStackResourceDriftsCommand).build() {
+  static {
+    __name(this, "DescribeStackResourceDriftsCommand");
+  }
 };
-__name(_DescribeStackResourceDriftsCommand, "DescribeStackResourceDriftsCommand");
-var DescribeStackResourceDriftsCommand = _DescribeStackResourceDriftsCommand;
 
 // src/commands/DescribeStackResourcesCommand.ts
 
 
 
-var _DescribeStackResourcesCommand = class _DescribeStackResourcesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStackResourcesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStackResources", {}).n("CloudFormationClient", "DescribeStackResourcesCommand").f(void 0, void 0).ser(se_DescribeStackResourcesCommand).de(de_DescribeStackResourcesCommand).build() {
+  static {
+    __name(this, "DescribeStackResourcesCommand");
+  }
 };
-__name(_DescribeStackResourcesCommand, "DescribeStackResourcesCommand");
-var DescribeStackResourcesCommand = _DescribeStackResourcesCommand;
 
 // src/commands/DescribeStacksCommand.ts
 
 
 
-var _DescribeStacksCommand = class _DescribeStacksCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStacksCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStacks", {}).n("CloudFormationClient", "DescribeStacksCommand").f(void 0, void 0).ser(se_DescribeStacksCommand).de(de_DescribeStacksCommand).build() {
+  static {
+    __name(this, "DescribeStacksCommand");
+  }
 };
-__name(_DescribeStacksCommand, "DescribeStacksCommand");
-var DescribeStacksCommand = _DescribeStacksCommand;
 
 // src/commands/DescribeStackSetCommand.ts
 
 
 
-var _DescribeStackSetCommand = class _DescribeStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStackSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStackSet", {}).n("CloudFormationClient", "DescribeStackSetCommand").f(void 0, void 0).ser(se_DescribeStackSetCommand).de(de_DescribeStackSetCommand).build() {
+  static {
+    __name(this, "DescribeStackSetCommand");
+  }
 };
-__name(_DescribeStackSetCommand, "DescribeStackSetCommand");
-var DescribeStackSetCommand = _DescribeStackSetCommand;
 
 // src/commands/DescribeStackSetOperationCommand.ts
 
 
 
-var _DescribeStackSetOperationCommand = class _DescribeStackSetOperationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeStackSetOperationCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeStackSetOperation", {}).n("CloudFormationClient", "DescribeStackSetOperationCommand").f(void 0, void 0).ser(se_DescribeStackSetOperationCommand).de(de_DescribeStackSetOperationCommand).build() {
+  static {
+    __name(this, "DescribeStackSetOperationCommand");
+  }
 };
-__name(_DescribeStackSetOperationCommand, "DescribeStackSetOperationCommand");
-var DescribeStackSetOperationCommand = _DescribeStackSetOperationCommand;
 
 // src/commands/DescribeTypeCommand.ts
 
 
 
-var _DescribeTypeCommand = class _DescribeTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeTypeCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeType", {}).n("CloudFormationClient", "DescribeTypeCommand").f(void 0, void 0).ser(se_DescribeTypeCommand).de(de_DescribeTypeCommand).build() {
+  static {
+    __name(this, "DescribeTypeCommand");
+  }
 };
-__name(_DescribeTypeCommand, "DescribeTypeCommand");
-var DescribeTypeCommand = _DescribeTypeCommand;
 
 // src/commands/DescribeTypeRegistrationCommand.ts
 
 
 
-var _DescribeTypeRegistrationCommand = class _DescribeTypeRegistrationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeTypeRegistrationCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DescribeTypeRegistration", {}).n("CloudFormationClient", "DescribeTypeRegistrationCommand").f(void 0, void 0).ser(se_DescribeTypeRegistrationCommand).de(de_DescribeTypeRegistrationCommand).build() {
+  static {
+    __name(this, "DescribeTypeRegistrationCommand");
+  }
 };
-__name(_DescribeTypeRegistrationCommand, "DescribeTypeRegistrationCommand");
-var DescribeTypeRegistrationCommand = _DescribeTypeRegistrationCommand;
 
 // src/commands/DetectStackDriftCommand.ts
 
 
 
-var _DetectStackDriftCommand = class _DetectStackDriftCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DetectStackDriftCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DetectStackDrift", {}).n("CloudFormationClient", "DetectStackDriftCommand").f(void 0, void 0).ser(se_DetectStackDriftCommand).de(de_DetectStackDriftCommand).build() {
+  static {
+    __name(this, "DetectStackDriftCommand");
+  }
 };
-__name(_DetectStackDriftCommand, "DetectStackDriftCommand");
-var DetectStackDriftCommand = _DetectStackDriftCommand;
 
 // src/commands/DetectStackResourceDriftCommand.ts
 
 
 
-var _DetectStackResourceDriftCommand = class _DetectStackResourceDriftCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DetectStackResourceDriftCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DetectStackResourceDrift", {}).n("CloudFormationClient", "DetectStackResourceDriftCommand").f(void 0, void 0).ser(se_DetectStackResourceDriftCommand).de(de_DetectStackResourceDriftCommand).build() {
+  static {
+    __name(this, "DetectStackResourceDriftCommand");
+  }
 };
-__name(_DetectStackResourceDriftCommand, "DetectStackResourceDriftCommand");
-var DetectStackResourceDriftCommand = _DetectStackResourceDriftCommand;
 
 // src/commands/DetectStackSetDriftCommand.ts
 
 
 
-var _DetectStackSetDriftCommand = class _DetectStackSetDriftCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DetectStackSetDriftCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "DetectStackSetDrift", {}).n("CloudFormationClient", "DetectStackSetDriftCommand").f(void 0, void 0).ser(se_DetectStackSetDriftCommand).de(de_DetectStackSetDriftCommand).build() {
+  static {
+    __name(this, "DetectStackSetDriftCommand");
+  }
 };
-__name(_DetectStackSetDriftCommand, "DetectStackSetDriftCommand");
-var DetectStackSetDriftCommand = _DetectStackSetDriftCommand;
 
 // src/commands/EstimateTemplateCostCommand.ts
 
 
 
-var _EstimateTemplateCostCommand = class _EstimateTemplateCostCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var EstimateTemplateCostCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "EstimateTemplateCost", {}).n("CloudFormationClient", "EstimateTemplateCostCommand").f(void 0, void 0).ser(se_EstimateTemplateCostCommand).de(de_EstimateTemplateCostCommand).build() {
+  static {
+    __name(this, "EstimateTemplateCostCommand");
+  }
 };
-__name(_EstimateTemplateCostCommand, "EstimateTemplateCostCommand");
-var EstimateTemplateCostCommand = _EstimateTemplateCostCommand;
 
 // src/commands/ExecuteChangeSetCommand.ts
 
 
 
-var _ExecuteChangeSetCommand = class _ExecuteChangeSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ExecuteChangeSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ExecuteChangeSet", {}).n("CloudFormationClient", "ExecuteChangeSetCommand").f(void 0, void 0).ser(se_ExecuteChangeSetCommand).de(de_ExecuteChangeSetCommand).build() {
+  static {
+    __name(this, "ExecuteChangeSetCommand");
+  }
 };
-__name(_ExecuteChangeSetCommand, "ExecuteChangeSetCommand");
-var ExecuteChangeSetCommand = _ExecuteChangeSetCommand;
 
 // src/commands/GetGeneratedTemplateCommand.ts
 
 
 
-var _GetGeneratedTemplateCommand = class _GetGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetGeneratedTemplateCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "GetGeneratedTemplate", {}).n("CloudFormationClient", "GetGeneratedTemplateCommand").f(void 0, void 0).ser(se_GetGeneratedTemplateCommand).de(de_GetGeneratedTemplateCommand).build() {
+  static {
+    __name(this, "GetGeneratedTemplateCommand");
+  }
 };
-__name(_GetGeneratedTemplateCommand, "GetGeneratedTemplateCommand");
-var GetGeneratedTemplateCommand = _GetGeneratedTemplateCommand;
 
 // src/commands/GetStackPolicyCommand.ts
 
 
 
-var _GetStackPolicyCommand = class _GetStackPolicyCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetStackPolicyCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "GetStackPolicy", {}).n("CloudFormationClient", "GetStackPolicyCommand").f(void 0, void 0).ser(se_GetStackPolicyCommand).de(de_GetStackPolicyCommand).build() {
+  static {
+    __name(this, "GetStackPolicyCommand");
+  }
 };
-__name(_GetStackPolicyCommand, "GetStackPolicyCommand");
-var GetStackPolicyCommand = _GetStackPolicyCommand;
 
 // src/commands/GetTemplateCommand.ts
 
 
 
-var _GetTemplateCommand = class _GetTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetTemplateCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "GetTemplate", {}).n("CloudFormationClient", "GetTemplateCommand").f(void 0, void 0).ser(se_GetTemplateCommand).de(de_GetTemplateCommand).build() {
+  static {
+    __name(this, "GetTemplateCommand");
+  }
 };
-__name(_GetTemplateCommand, "GetTemplateCommand");
-var GetTemplateCommand = _GetTemplateCommand;
 
 // src/commands/GetTemplateSummaryCommand.ts
 
 
 
-var _GetTemplateSummaryCommand = class _GetTemplateSummaryCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetTemplateSummaryCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "GetTemplateSummary", {}).n("CloudFormationClient", "GetTemplateSummaryCommand").f(void 0, void 0).ser(se_GetTemplateSummaryCommand).de(de_GetTemplateSummaryCommand).build() {
+  static {
+    __name(this, "GetTemplateSummaryCommand");
+  }
 };
-__name(_GetTemplateSummaryCommand, "GetTemplateSummaryCommand");
-var GetTemplateSummaryCommand = _GetTemplateSummaryCommand;
 
 // src/commands/ImportStacksToStackSetCommand.ts
 
 
 
-var _ImportStacksToStackSetCommand = class _ImportStacksToStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ImportStacksToStackSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ImportStacksToStackSet", {}).n("CloudFormationClient", "ImportStacksToStackSetCommand").f(void 0, void 0).ser(se_ImportStacksToStackSetCommand).de(de_ImportStacksToStackSetCommand).build() {
+  static {
+    __name(this, "ImportStacksToStackSetCommand");
+  }
 };
-__name(_ImportStacksToStackSetCommand, "ImportStacksToStackSetCommand");
-var ImportStacksToStackSetCommand = _ImportStacksToStackSetCommand;
 
 // src/commands/ListChangeSetsCommand.ts
 
 
 
-var _ListChangeSetsCommand = class _ListChangeSetsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListChangeSetsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListChangeSets", {}).n("CloudFormationClient", "ListChangeSetsCommand").f(void 0, void 0).ser(se_ListChangeSetsCommand).de(de_ListChangeSetsCommand).build() {
+  static {
+    __name(this, "ListChangeSetsCommand");
+  }
 };
-__name(_ListChangeSetsCommand, "ListChangeSetsCommand");
-var ListChangeSetsCommand = _ListChangeSetsCommand;
 
 // src/commands/ListExportsCommand.ts
 
 
 
-var _ListExportsCommand = class _ListExportsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListExportsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListExports", {}).n("CloudFormationClient", "ListExportsCommand").f(void 0, void 0).ser(se_ListExportsCommand).de(de_ListExportsCommand).build() {
+  static {
+    __name(this, "ListExportsCommand");
+  }
 };
-__name(_ListExportsCommand, "ListExportsCommand");
-var ListExportsCommand = _ListExportsCommand;
 
 // src/commands/ListGeneratedTemplatesCommand.ts
 
 
 
-var _ListGeneratedTemplatesCommand = class _ListGeneratedTemplatesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListGeneratedTemplatesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListGeneratedTemplates", {}).n("CloudFormationClient", "ListGeneratedTemplatesCommand").f(void 0, void 0).ser(se_ListGeneratedTemplatesCommand).de(de_ListGeneratedTemplatesCommand).build() {
+  static {
+    __name(this, "ListGeneratedTemplatesCommand");
+  }
 };
-__name(_ListGeneratedTemplatesCommand, "ListGeneratedTemplatesCommand");
-var ListGeneratedTemplatesCommand = _ListGeneratedTemplatesCommand;
 
 // src/commands/ListHookResultsCommand.ts
 
 
 
-var _ListHookResultsCommand = class _ListHookResultsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListHookResultsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListHookResults", {}).n("CloudFormationClient", "ListHookResultsCommand").f(void 0, void 0).ser(se_ListHookResultsCommand).de(de_ListHookResultsCommand).build() {
+  static {
+    __name(this, "ListHookResultsCommand");
+  }
 };
-__name(_ListHookResultsCommand, "ListHookResultsCommand");
-var ListHookResultsCommand = _ListHookResultsCommand;
 
 // src/commands/ListImportsCommand.ts
 
 
 
-var _ListImportsCommand = class _ListImportsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListImportsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListImports", {}).n("CloudFormationClient", "ListImportsCommand").f(void 0, void 0).ser(se_ListImportsCommand).de(de_ListImportsCommand).build() {
+  static {
+    __name(this, "ListImportsCommand");
+  }
 };
-__name(_ListImportsCommand, "ListImportsCommand");
-var ListImportsCommand = _ListImportsCommand;
 
 // src/commands/ListResourceScanRelatedResourcesCommand.ts
 
 
 
-var _ListResourceScanRelatedResourcesCommand = class _ListResourceScanRelatedResourcesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListResourceScanRelatedResourcesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListResourceScanRelatedResources", {}).n("CloudFormationClient", "ListResourceScanRelatedResourcesCommand").f(void 0, void 0).ser(se_ListResourceScanRelatedResourcesCommand).de(de_ListResourceScanRelatedResourcesCommand).build() {
+  static {
+    __name(this, "ListResourceScanRelatedResourcesCommand");
+  }
 };
-__name(_ListResourceScanRelatedResourcesCommand, "ListResourceScanRelatedResourcesCommand");
-var ListResourceScanRelatedResourcesCommand = _ListResourceScanRelatedResourcesCommand;
 
 // src/commands/ListResourceScanResourcesCommand.ts
 
 
 
-var _ListResourceScanResourcesCommand = class _ListResourceScanResourcesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListResourceScanResourcesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListResourceScanResources", {}).n("CloudFormationClient", "ListResourceScanResourcesCommand").f(void 0, void 0).ser(se_ListResourceScanResourcesCommand).de(de_ListResourceScanResourcesCommand).build() {
+  static {
+    __name(this, "ListResourceScanResourcesCommand");
+  }
 };
-__name(_ListResourceScanResourcesCommand, "ListResourceScanResourcesCommand");
-var ListResourceScanResourcesCommand = _ListResourceScanResourcesCommand;
 
 // src/commands/ListResourceScansCommand.ts
 
 
 
-var _ListResourceScansCommand = class _ListResourceScansCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListResourceScansCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListResourceScans", {}).n("CloudFormationClient", "ListResourceScansCommand").f(void 0, void 0).ser(se_ListResourceScansCommand).de(de_ListResourceScansCommand).build() {
+  static {
+    __name(this, "ListResourceScansCommand");
+  }
 };
-__name(_ListResourceScansCommand, "ListResourceScansCommand");
-var ListResourceScansCommand = _ListResourceScansCommand;
 
 // src/commands/ListStackInstanceResourceDriftsCommand.ts
 
 
 
-var _ListStackInstanceResourceDriftsCommand = class _ListStackInstanceResourceDriftsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListStackInstanceResourceDriftsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListStackInstanceResourceDrifts", {}).n("CloudFormationClient", "ListStackInstanceResourceDriftsCommand").f(void 0, void 0).ser(se_ListStackInstanceResourceDriftsCommand).de(de_ListStackInstanceResourceDriftsCommand).build() {
+  static {
+    __name(this, "ListStackInstanceResourceDriftsCommand");
+  }
 };
-__name(_ListStackInstanceResourceDriftsCommand, "ListStackInstanceResourceDriftsCommand");
-var ListStackInstanceResourceDriftsCommand = _ListStackInstanceResourceDriftsCommand;
 
 // src/commands/ListStackInstancesCommand.ts
 
 
 
-var _ListStackInstancesCommand = class _ListStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListStackInstancesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListStackInstances", {}).n("CloudFormationClient", "ListStackInstancesCommand").f(void 0, void 0).ser(se_ListStackInstancesCommand).de(de_ListStackInstancesCommand).build() {
+  static {
+    __name(this, "ListStackInstancesCommand");
+  }
 };
-__name(_ListStackInstancesCommand, "ListStackInstancesCommand");
-var ListStackInstancesCommand = _ListStackInstancesCommand;
 
 // src/commands/ListStackResourcesCommand.ts
 
 
 
-var _ListStackResourcesCommand = class _ListStackResourcesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListStackResourcesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListStackResources", {}).n("CloudFormationClient", "ListStackResourcesCommand").f(void 0, void 0).ser(se_ListStackResourcesCommand).de(de_ListStackResourcesCommand).build() {
+  static {
+    __name(this, "ListStackResourcesCommand");
+  }
 };
-__name(_ListStackResourcesCommand, "ListStackResourcesCommand");
-var ListStackResourcesCommand = _ListStackResourcesCommand;
 
 // src/commands/ListStacksCommand.ts
 
 
 
-var _ListStacksCommand = class _ListStacksCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListStacksCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListStacks", {}).n("CloudFormationClient", "ListStacksCommand").f(void 0, void 0).ser(se_ListStacksCommand).de(de_ListStacksCommand).build() {
+  static {
+    __name(this, "ListStacksCommand");
+  }
 };
-__name(_ListStacksCommand, "ListStacksCommand");
-var ListStacksCommand = _ListStacksCommand;
 
 // src/commands/ListStackSetAutoDeploymentTargetsCommand.ts
 
 
 
-var _ListStackSetAutoDeploymentTargetsCommand = class _ListStackSetAutoDeploymentTargetsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListStackSetAutoDeploymentTargetsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListStackSetAutoDeploymentTargets", {}).n("CloudFormationClient", "ListStackSetAutoDeploymentTargetsCommand").f(void 0, void 0).ser(se_ListStackSetAutoDeploymentTargetsCommand).de(de_ListStackSetAutoDeploymentTargetsCommand).build() {
+  static {
+    __name(this, "ListStackSetAutoDeploymentTargetsCommand");
+  }
 };
-__name(_ListStackSetAutoDeploymentTargetsCommand, "ListStackSetAutoDeploymentTargetsCommand");
-var ListStackSetAutoDeploymentTargetsCommand = _ListStackSetAutoDeploymentTargetsCommand;
 
 // src/commands/ListStackSetOperationResultsCommand.ts
 
 
 
-var _ListStackSetOperationResultsCommand = class _ListStackSetOperationResultsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListStackSetOperationResultsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListStackSetOperationResults", {}).n("CloudFormationClient", "ListStackSetOperationResultsCommand").f(void 0, void 0).ser(se_ListStackSetOperationResultsCommand).de(de_ListStackSetOperationResultsCommand).build() {
+  static {
+    __name(this, "ListStackSetOperationResultsCommand");
+  }
 };
-__name(_ListStackSetOperationResultsCommand, "ListStackSetOperationResultsCommand");
-var ListStackSetOperationResultsCommand = _ListStackSetOperationResultsCommand;
 
 // src/commands/ListStackSetOperationsCommand.ts
 
 
 
-var _ListStackSetOperationsCommand = class _ListStackSetOperationsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListStackSetOperationsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListStackSetOperations", {}).n("CloudFormationClient", "ListStackSetOperationsCommand").f(void 0, void 0).ser(se_ListStackSetOperationsCommand).de(de_ListStackSetOperationsCommand).build() {
+  static {
+    __name(this, "ListStackSetOperationsCommand");
+  }
 };
-__name(_ListStackSetOperationsCommand, "ListStackSetOperationsCommand");
-var ListStackSetOperationsCommand = _ListStackSetOperationsCommand;
 
 // src/commands/ListStackSetsCommand.ts
 
 
 
-var _ListStackSetsCommand = class _ListStackSetsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListStackSetsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListStackSets", {}).n("CloudFormationClient", "ListStackSetsCommand").f(void 0, void 0).ser(se_ListStackSetsCommand).de(de_ListStackSetsCommand).build() {
+  static {
+    __name(this, "ListStackSetsCommand");
+  }
 };
-__name(_ListStackSetsCommand, "ListStackSetsCommand");
-var ListStackSetsCommand = _ListStackSetsCommand;
 
 // src/commands/ListTypeRegistrationsCommand.ts
 
 
 
-var _ListTypeRegistrationsCommand = class _ListTypeRegistrationsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListTypeRegistrationsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListTypeRegistrations", {}).n("CloudFormationClient", "ListTypeRegistrationsCommand").f(void 0, void 0).ser(se_ListTypeRegistrationsCommand).de(de_ListTypeRegistrationsCommand).build() {
+  static {
+    __name(this, "ListTypeRegistrationsCommand");
+  }
 };
-__name(_ListTypeRegistrationsCommand, "ListTypeRegistrationsCommand");
-var ListTypeRegistrationsCommand = _ListTypeRegistrationsCommand;
 
 // src/commands/ListTypesCommand.ts
 
 
 
-var _ListTypesCommand = class _ListTypesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListTypesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListTypes", {}).n("CloudFormationClient", "ListTypesCommand").f(void 0, void 0).ser(se_ListTypesCommand).de(de_ListTypesCommand).build() {
+  static {
+    __name(this, "ListTypesCommand");
+  }
 };
-__name(_ListTypesCommand, "ListTypesCommand");
-var ListTypesCommand = _ListTypesCommand;
 
 // src/commands/ListTypeVersionsCommand.ts
 
 
 
-var _ListTypeVersionsCommand = class _ListTypeVersionsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListTypeVersionsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ListTypeVersions", {}).n("CloudFormationClient", "ListTypeVersionsCommand").f(void 0, void 0).ser(se_ListTypeVersionsCommand).de(de_ListTypeVersionsCommand).build() {
+  static {
+    __name(this, "ListTypeVersionsCommand");
+  }
 };
-__name(_ListTypeVersionsCommand, "ListTypeVersionsCommand");
-var ListTypeVersionsCommand = _ListTypeVersionsCommand;
 
 // src/commands/PublishTypeCommand.ts
 
 
 
-var _PublishTypeCommand = class _PublishTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var PublishTypeCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "PublishType", {}).n("CloudFormationClient", "PublishTypeCommand").f(void 0, void 0).ser(se_PublishTypeCommand).de(de_PublishTypeCommand).build() {
+  static {
+    __name(this, "PublishTypeCommand");
+  }
 };
-__name(_PublishTypeCommand, "PublishTypeCommand");
-var PublishTypeCommand = _PublishTypeCommand;
 
 // src/commands/RecordHandlerProgressCommand.ts
 
 
 
-var _RecordHandlerProgressCommand = class _RecordHandlerProgressCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var RecordHandlerProgressCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "RecordHandlerProgress", {}).n("CloudFormationClient", "RecordHandlerProgressCommand").f(void 0, void 0).ser(se_RecordHandlerProgressCommand).de(de_RecordHandlerProgressCommand).build() {
+  static {
+    __name(this, "RecordHandlerProgressCommand");
+  }
 };
-__name(_RecordHandlerProgressCommand, "RecordHandlerProgressCommand");
-var RecordHandlerProgressCommand = _RecordHandlerProgressCommand;
 
 // src/commands/RegisterPublisherCommand.ts
 
 
 
-var _RegisterPublisherCommand = class _RegisterPublisherCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var RegisterPublisherCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "RegisterPublisher", {}).n("CloudFormationClient", "RegisterPublisherCommand").f(void 0, void 0).ser(se_RegisterPublisherCommand).de(de_RegisterPublisherCommand).build() {
+  static {
+    __name(this, "RegisterPublisherCommand");
+  }
 };
-__name(_RegisterPublisherCommand, "RegisterPublisherCommand");
-var RegisterPublisherCommand = _RegisterPublisherCommand;
 
 // src/commands/RegisterTypeCommand.ts
 
 
 
-var _RegisterTypeCommand = class _RegisterTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var RegisterTypeCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "RegisterType", {}).n("CloudFormationClient", "RegisterTypeCommand").f(void 0, void 0).ser(se_RegisterTypeCommand).de(de_RegisterTypeCommand).build() {
+  static {
+    __name(this, "RegisterTypeCommand");
+  }
 };
-__name(_RegisterTypeCommand, "RegisterTypeCommand");
-var RegisterTypeCommand = _RegisterTypeCommand;
 
 // src/commands/RollbackStackCommand.ts
 
 
 
-var _RollbackStackCommand = class _RollbackStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var RollbackStackCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "RollbackStack", {}).n("CloudFormationClient", "RollbackStackCommand").f(void 0, void 0).ser(se_RollbackStackCommand).de(de_RollbackStackCommand).build() {
+  static {
+    __name(this, "RollbackStackCommand");
+  }
 };
-__name(_RollbackStackCommand, "RollbackStackCommand");
-var RollbackStackCommand = _RollbackStackCommand;
 
 // src/commands/SetStackPolicyCommand.ts
 
 
 
-var _SetStackPolicyCommand = class _SetStackPolicyCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var SetStackPolicyCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "SetStackPolicy", {}).n("CloudFormationClient", "SetStackPolicyCommand").f(void 0, void 0).ser(se_SetStackPolicyCommand).de(de_SetStackPolicyCommand).build() {
+  static {
+    __name(this, "SetStackPolicyCommand");
+  }
 };
-__name(_SetStackPolicyCommand, "SetStackPolicyCommand");
-var SetStackPolicyCommand = _SetStackPolicyCommand;
 
 // src/commands/SetTypeConfigurationCommand.ts
 
 
 
-var _SetTypeConfigurationCommand = class _SetTypeConfigurationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var SetTypeConfigurationCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "SetTypeConfiguration", {}).n("CloudFormationClient", "SetTypeConfigurationCommand").f(void 0, void 0).ser(se_SetTypeConfigurationCommand).de(de_SetTypeConfigurationCommand).build() {
+  static {
+    __name(this, "SetTypeConfigurationCommand");
+  }
 };
-__name(_SetTypeConfigurationCommand, "SetTypeConfigurationCommand");
-var SetTypeConfigurationCommand = _SetTypeConfigurationCommand;
 
 // src/commands/SetTypeDefaultVersionCommand.ts
 
 
 
-var _SetTypeDefaultVersionCommand = class _SetTypeDefaultVersionCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var SetTypeDefaultVersionCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "SetTypeDefaultVersion", {}).n("CloudFormationClient", "SetTypeDefaultVersionCommand").f(void 0, void 0).ser(se_SetTypeDefaultVersionCommand).de(de_SetTypeDefaultVersionCommand).build() {
+  static {
+    __name(this, "SetTypeDefaultVersionCommand");
+  }
 };
-__name(_SetTypeDefaultVersionCommand, "SetTypeDefaultVersionCommand");
-var SetTypeDefaultVersionCommand = _SetTypeDefaultVersionCommand;
 
 // src/commands/SignalResourceCommand.ts
 
 
 
-var _SignalResourceCommand = class _SignalResourceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var SignalResourceCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "SignalResource", {}).n("CloudFormationClient", "SignalResourceCommand").f(void 0, void 0).ser(se_SignalResourceCommand).de(de_SignalResourceCommand).build() {
+  static {
+    __name(this, "SignalResourceCommand");
+  }
 };
-__name(_SignalResourceCommand, "SignalResourceCommand");
-var SignalResourceCommand = _SignalResourceCommand;
 
 // src/commands/StartResourceScanCommand.ts
 
 
 
-var _StartResourceScanCommand = class _StartResourceScanCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var StartResourceScanCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "StartResourceScan", {}).n("CloudFormationClient", "StartResourceScanCommand").f(void 0, void 0).ser(se_StartResourceScanCommand).de(de_StartResourceScanCommand).build() {
+  static {
+    __name(this, "StartResourceScanCommand");
+  }
 };
-__name(_StartResourceScanCommand, "StartResourceScanCommand");
-var StartResourceScanCommand = _StartResourceScanCommand;
 
 // src/commands/StopStackSetOperationCommand.ts
 
 
 
-var _StopStackSetOperationCommand = class _StopStackSetOperationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var StopStackSetOperationCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "StopStackSetOperation", {}).n("CloudFormationClient", "StopStackSetOperationCommand").f(void 0, void 0).ser(se_StopStackSetOperationCommand).de(de_StopStackSetOperationCommand).build() {
+  static {
+    __name(this, "StopStackSetOperationCommand");
+  }
 };
-__name(_StopStackSetOperationCommand, "StopStackSetOperationCommand");
-var StopStackSetOperationCommand = _StopStackSetOperationCommand;
 
 // src/commands/TestTypeCommand.ts
 
 
 
-var _TestTypeCommand = class _TestTypeCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var TestTypeCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "TestType", {}).n("CloudFormationClient", "TestTypeCommand").f(void 0, void 0).ser(se_TestTypeCommand).de(de_TestTypeCommand).build() {
+  static {
+    __name(this, "TestTypeCommand");
+  }
 };
-__name(_TestTypeCommand, "TestTypeCommand");
-var TestTypeCommand = _TestTypeCommand;
 
 // src/commands/UpdateGeneratedTemplateCommand.ts
 
 
 
-var _UpdateGeneratedTemplateCommand = class _UpdateGeneratedTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UpdateGeneratedTemplateCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "UpdateGeneratedTemplate", {}).n("CloudFormationClient", "UpdateGeneratedTemplateCommand").f(void 0, void 0).ser(se_UpdateGeneratedTemplateCommand).de(de_UpdateGeneratedTemplateCommand).build() {
+  static {
+    __name(this, "UpdateGeneratedTemplateCommand");
+  }
 };
-__name(_UpdateGeneratedTemplateCommand, "UpdateGeneratedTemplateCommand");
-var UpdateGeneratedTemplateCommand = _UpdateGeneratedTemplateCommand;
 
 // src/commands/UpdateStackCommand.ts
 
 
 
-var _UpdateStackCommand = class _UpdateStackCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UpdateStackCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "UpdateStack", {}).n("CloudFormationClient", "UpdateStackCommand").f(void 0, void 0).ser(se_UpdateStackCommand).de(de_UpdateStackCommand).build() {
+  static {
+    __name(this, "UpdateStackCommand");
+  }
 };
-__name(_UpdateStackCommand, "UpdateStackCommand");
-var UpdateStackCommand = _UpdateStackCommand;
 
 // src/commands/UpdateStackInstancesCommand.ts
 
 
 
-var _UpdateStackInstancesCommand = class _UpdateStackInstancesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UpdateStackInstancesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "UpdateStackInstances", {}).n("CloudFormationClient", "UpdateStackInstancesCommand").f(void 0, void 0).ser(se_UpdateStackInstancesCommand).de(de_UpdateStackInstancesCommand).build() {
+  static {
+    __name(this, "UpdateStackInstancesCommand");
+  }
 };
-__name(_UpdateStackInstancesCommand, "UpdateStackInstancesCommand");
-var UpdateStackInstancesCommand = _UpdateStackInstancesCommand;
 
 // src/commands/UpdateStackSetCommand.ts
 
 
 
-var _UpdateStackSetCommand = class _UpdateStackSetCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UpdateStackSetCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "UpdateStackSet", {}).n("CloudFormationClient", "UpdateStackSetCommand").f(void 0, void 0).ser(se_UpdateStackSetCommand).de(de_UpdateStackSetCommand).build() {
+  static {
+    __name(this, "UpdateStackSetCommand");
+  }
 };
-__name(_UpdateStackSetCommand, "UpdateStackSetCommand");
-var UpdateStackSetCommand = _UpdateStackSetCommand;
 
 // src/commands/UpdateTerminationProtectionCommand.ts
 
 
 
-var _UpdateTerminationProtectionCommand = class _UpdateTerminationProtectionCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UpdateTerminationProtectionCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "UpdateTerminationProtection", {}).n("CloudFormationClient", "UpdateTerminationProtectionCommand").f(void 0, void 0).ser(se_UpdateTerminationProtectionCommand).de(de_UpdateTerminationProtectionCommand).build() {
+  static {
+    __name(this, "UpdateTerminationProtectionCommand");
+  }
 };
-__name(_UpdateTerminationProtectionCommand, "UpdateTerminationProtectionCommand");
-var UpdateTerminationProtectionCommand = _UpdateTerminationProtectionCommand;
 
 // src/commands/ValidateTemplateCommand.ts
 
 
 
-var _ValidateTemplateCommand = class _ValidateTemplateCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ValidateTemplateCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("CloudFormation", "ValidateTemplate", {}).n("CloudFormationClient", "ValidateTemplateCommand").f(void 0, void 0).ser(se_ValidateTemplateCommand).de(de_ValidateTemplateCommand).build() {
+  static {
+    __name(this, "ValidateTemplateCommand");
+  }
 };
-__name(_ValidateTemplateCommand, "ValidateTemplateCommand");
-var ValidateTemplateCommand = _ValidateTemplateCommand;
 
 // src/CloudFormation.ts
 var commands = {
@@ -23539,10 +24170,11 @@ var commands = {
   UpdateTerminationProtectionCommand,
   ValidateTemplateCommand
 };
-var _CloudFormation = class _CloudFormation extends CloudFormationClient {
+var CloudFormation = class extends CloudFormationClient {
+  static {
+    __name(this, "CloudFormation");
+  }
 };
-__name(_CloudFormation, "CloudFormation");
-var CloudFormation = _CloudFormation;
 (0, import_smithy_client.createAggregatedClient)(commands, CloudFormation);
 
 // src/pagination/DescribeAccountLimitsPaginator.ts
@@ -24829,7 +25461,14 @@ var resolveRuntimeExtensions = /* @__PURE__ */ __name((runtimeConfig, extensions
 }, "resolveRuntimeExtensions");
 
 // src/CognitoIdentityClient.ts
-var _CognitoIdentityClient = class _CognitoIdentityClient extends import_smithy_client.Client {
+var CognitoIdentityClient = class extends import_smithy_client.Client {
+  static {
+    __name(this, "CognitoIdentityClient");
+  }
+  /**
+   * The resolved configuration of CognitoIdentityClient class. This is resolved and normalized from the {@link CognitoIdentityClientConfig | constructor configuration interface}.
+   */
+  config;
   constructor(...[configuration]) {
     const _config_0 = (0, import_runtimeConfig.getRuntimeConfig)(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -24839,7 +25478,7 @@ var _CognitoIdentityClient = class _CognitoIdentityClient extends import_smithy_
     const _config_5 = (0, import_middleware_host_header.resolveHostHeaderConfig)(_config_4);
     const _config_6 = (0, import_middleware_endpoint.resolveEndpointConfig)(_config_5);
     const _config_7 = (0, import_httpAuthSchemeProvider.resolveHttpAuthSchemeConfig)(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, (configuration == null ? void 0 : configuration.extensions) || []);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;
     this.middlewareStack.use((0, import_middleware_user_agent.getUserAgentPlugin)(this.config));
@@ -24867,8 +25506,6 @@ var _CognitoIdentityClient = class _CognitoIdentityClient extends import_smithy_
     super.destroy();
   }
 };
-__name(_CognitoIdentityClient, "CognitoIdentityClient");
-var CognitoIdentityClient = _CognitoIdentityClient;
 
 // src/CognitoIdentity.ts
 
@@ -24885,7 +25522,10 @@ var import_core2 = __nccwpck_require__(8704);
 
 // src/models/CognitoIdentityServiceException.ts
 
-var _CognitoIdentityServiceException = class _CognitoIdentityServiceException extends import_smithy_client.ServiceException {
+var CognitoIdentityServiceException = class _CognitoIdentityServiceException extends import_smithy_client.ServiceException {
+  static {
+    __name(this, "CognitoIdentityServiceException");
+  }
   /**
    * @internal
    */
@@ -24894,8 +25534,6 @@ var _CognitoIdentityServiceException = class _CognitoIdentityServiceException ex
     Object.setPrototypeOf(this, _CognitoIdentityServiceException.prototype);
   }
 };
-__name(_CognitoIdentityServiceException, "CognitoIdentityServiceException");
-var CognitoIdentityServiceException = _CognitoIdentityServiceException;
 
 // src/models/models_0.ts
 
@@ -24903,7 +25541,12 @@ var AmbiguousRoleResolutionType = {
   AUTHENTICATED_ROLE: "AuthenticatedRole",
   DENY: "Deny"
 };
-var _InternalErrorException = class _InternalErrorException extends CognitoIdentityServiceException {
+var InternalErrorException = class _InternalErrorException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "InternalErrorException");
+  }
+  name = "InternalErrorException";
+  $fault = "server";
   /**
    * @internal
    */
@@ -24913,14 +25556,15 @@ var _InternalErrorException = class _InternalErrorException extends CognitoIdent
       $fault: "server",
       ...opts
     });
-    this.name = "InternalErrorException";
-    this.$fault = "server";
     Object.setPrototypeOf(this, _InternalErrorException.prototype);
   }
 };
-__name(_InternalErrorException, "InternalErrorException");
-var InternalErrorException = _InternalErrorException;
-var _InvalidParameterException = class _InvalidParameterException extends CognitoIdentityServiceException {
+var InvalidParameterException = class _InvalidParameterException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "InvalidParameterException");
+  }
+  name = "InvalidParameterException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -24930,14 +25574,15 @@ var _InvalidParameterException = class _InvalidParameterException extends Cognit
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidParameterException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidParameterException.prototype);
   }
 };
-__name(_InvalidParameterException, "InvalidParameterException");
-var InvalidParameterException = _InvalidParameterException;
-var _LimitExceededException = class _LimitExceededException extends CognitoIdentityServiceException {
+var LimitExceededException = class _LimitExceededException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "LimitExceededException");
+  }
+  name = "LimitExceededException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -24947,14 +25592,15 @@ var _LimitExceededException = class _LimitExceededException extends CognitoIdent
       $fault: "client",
       ...opts
     });
-    this.name = "LimitExceededException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _LimitExceededException.prototype);
   }
 };
-__name(_LimitExceededException, "LimitExceededException");
-var LimitExceededException = _LimitExceededException;
-var _NotAuthorizedException = class _NotAuthorizedException extends CognitoIdentityServiceException {
+var NotAuthorizedException = class _NotAuthorizedException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "NotAuthorizedException");
+  }
+  name = "NotAuthorizedException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -24964,14 +25610,15 @@ var _NotAuthorizedException = class _NotAuthorizedException extends CognitoIdent
       $fault: "client",
       ...opts
     });
-    this.name = "NotAuthorizedException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _NotAuthorizedException.prototype);
   }
 };
-__name(_NotAuthorizedException, "NotAuthorizedException");
-var NotAuthorizedException = _NotAuthorizedException;
-var _ResourceConflictException = class _ResourceConflictException extends CognitoIdentityServiceException {
+var ResourceConflictException = class _ResourceConflictException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "ResourceConflictException");
+  }
+  name = "ResourceConflictException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -24981,14 +25628,15 @@ var _ResourceConflictException = class _ResourceConflictException extends Cognit
       $fault: "client",
       ...opts
     });
-    this.name = "ResourceConflictException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ResourceConflictException.prototype);
   }
 };
-__name(_ResourceConflictException, "ResourceConflictException");
-var ResourceConflictException = _ResourceConflictException;
-var _TooManyRequestsException = class _TooManyRequestsException extends CognitoIdentityServiceException {
+var TooManyRequestsException = class _TooManyRequestsException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "TooManyRequestsException");
+  }
+  name = "TooManyRequestsException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -24998,18 +25646,19 @@ var _TooManyRequestsException = class _TooManyRequestsException extends CognitoI
       $fault: "client",
       ...opts
     });
-    this.name = "TooManyRequestsException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _TooManyRequestsException.prototype);
   }
 };
-__name(_TooManyRequestsException, "TooManyRequestsException");
-var TooManyRequestsException = _TooManyRequestsException;
 var ErrorCode = {
   ACCESS_DENIED: "AccessDenied",
   INTERNAL_SERVER_ERROR: "InternalServerError"
 };
-var _ResourceNotFoundException = class _ResourceNotFoundException extends CognitoIdentityServiceException {
+var ResourceNotFoundException = class _ResourceNotFoundException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "ResourceNotFoundException");
+  }
+  name = "ResourceNotFoundException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -25019,14 +25668,15 @@ var _ResourceNotFoundException = class _ResourceNotFoundException extends Cognit
       $fault: "client",
       ...opts
     });
-    this.name = "ResourceNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ResourceNotFoundException.prototype);
   }
 };
-__name(_ResourceNotFoundException, "ResourceNotFoundException");
-var ResourceNotFoundException = _ResourceNotFoundException;
-var _ExternalServiceException = class _ExternalServiceException extends CognitoIdentityServiceException {
+var ExternalServiceException = class _ExternalServiceException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "ExternalServiceException");
+  }
+  name = "ExternalServiceException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -25036,14 +25686,15 @@ var _ExternalServiceException = class _ExternalServiceException extends CognitoI
       $fault: "client",
       ...opts
     });
-    this.name = "ExternalServiceException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ExternalServiceException.prototype);
   }
 };
-__name(_ExternalServiceException, "ExternalServiceException");
-var ExternalServiceException = _ExternalServiceException;
-var _InvalidIdentityPoolConfigurationException = class _InvalidIdentityPoolConfigurationException extends CognitoIdentityServiceException {
+var InvalidIdentityPoolConfigurationException = class _InvalidIdentityPoolConfigurationException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "InvalidIdentityPoolConfigurationException");
+  }
+  name = "InvalidIdentityPoolConfigurationException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -25053,13 +25704,9 @@ var _InvalidIdentityPoolConfigurationException = class _InvalidIdentityPoolConfi
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidIdentityPoolConfigurationException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidIdentityPoolConfigurationException.prototype);
   }
 };
-__name(_InvalidIdentityPoolConfigurationException, "InvalidIdentityPoolConfigurationException");
-var InvalidIdentityPoolConfigurationException = _InvalidIdentityPoolConfigurationException;
 var MappingRuleMatchType = {
   CONTAINS: "Contains",
   EQUALS: "Equals",
@@ -25070,7 +25717,12 @@ var RoleMappingType = {
   RULES: "Rules",
   TOKEN: "Token"
 };
-var _DeveloperUserAlreadyRegisteredException = class _DeveloperUserAlreadyRegisteredException extends CognitoIdentityServiceException {
+var DeveloperUserAlreadyRegisteredException = class _DeveloperUserAlreadyRegisteredException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "DeveloperUserAlreadyRegisteredException");
+  }
+  name = "DeveloperUserAlreadyRegisteredException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -25080,14 +25732,15 @@ var _DeveloperUserAlreadyRegisteredException = class _DeveloperUserAlreadyRegist
       $fault: "client",
       ...opts
     });
-    this.name = "DeveloperUserAlreadyRegisteredException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _DeveloperUserAlreadyRegisteredException.prototype);
   }
 };
-__name(_DeveloperUserAlreadyRegisteredException, "DeveloperUserAlreadyRegisteredException");
-var DeveloperUserAlreadyRegisteredException = _DeveloperUserAlreadyRegisteredException;
-var _ConcurrentModificationException = class _ConcurrentModificationException extends CognitoIdentityServiceException {
+var ConcurrentModificationException = class _ConcurrentModificationException extends CognitoIdentityServiceException {
+  static {
+    __name(this, "ConcurrentModificationException");
+  }
+  name = "ConcurrentModificationException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -25097,13 +25750,9 @@ var _ConcurrentModificationException = class _ConcurrentModificationException ex
       $fault: "client",
       ...opts
     });
-    this.name = "ConcurrentModificationException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ConcurrentModificationException.prototype);
   }
 };
-__name(_ConcurrentModificationException, "ConcurrentModificationException");
-var ConcurrentModificationException = _ConcurrentModificationException;
 var GetCredentialsForIdentityInputFilterSensitiveLog = /* @__PURE__ */ __name((obj) => ({
   ...obj,
   ...obj.Logins && { Logins: import_smithy_client.SENSITIVE_STRING }
@@ -25784,133 +26433,142 @@ function sharedHeaders(operation) {
 __name(sharedHeaders, "sharedHeaders");
 
 // src/commands/CreateIdentityPoolCommand.ts
-var _CreateIdentityPoolCommand = class _CreateIdentityPoolCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CreateIdentityPoolCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "CreateIdentityPool", {}).n("CognitoIdentityClient", "CreateIdentityPoolCommand").f(void 0, void 0).ser(se_CreateIdentityPoolCommand).de(de_CreateIdentityPoolCommand).build() {
+  static {
+    __name(this, "CreateIdentityPoolCommand");
+  }
 };
-__name(_CreateIdentityPoolCommand, "CreateIdentityPoolCommand");
-var CreateIdentityPoolCommand = _CreateIdentityPoolCommand;
 
 // src/commands/DeleteIdentitiesCommand.ts
 
 
 
-var _DeleteIdentitiesCommand = class _DeleteIdentitiesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeleteIdentitiesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "DeleteIdentities", {}).n("CognitoIdentityClient", "DeleteIdentitiesCommand").f(void 0, void 0).ser(se_DeleteIdentitiesCommand).de(de_DeleteIdentitiesCommand).build() {
+  static {
+    __name(this, "DeleteIdentitiesCommand");
+  }
 };
-__name(_DeleteIdentitiesCommand, "DeleteIdentitiesCommand");
-var DeleteIdentitiesCommand = _DeleteIdentitiesCommand;
 
 // src/commands/DeleteIdentityPoolCommand.ts
 
 
 
-var _DeleteIdentityPoolCommand = class _DeleteIdentityPoolCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DeleteIdentityPoolCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "DeleteIdentityPool", {}).n("CognitoIdentityClient", "DeleteIdentityPoolCommand").f(void 0, void 0).ser(se_DeleteIdentityPoolCommand).de(de_DeleteIdentityPoolCommand).build() {
+  static {
+    __name(this, "DeleteIdentityPoolCommand");
+  }
 };
-__name(_DeleteIdentityPoolCommand, "DeleteIdentityPoolCommand");
-var DeleteIdentityPoolCommand = _DeleteIdentityPoolCommand;
 
 // src/commands/DescribeIdentityCommand.ts
 
 
 
-var _DescribeIdentityCommand = class _DescribeIdentityCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeIdentityCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "DescribeIdentity", {}).n("CognitoIdentityClient", "DescribeIdentityCommand").f(void 0, void 0).ser(se_DescribeIdentityCommand).de(de_DescribeIdentityCommand).build() {
+  static {
+    __name(this, "DescribeIdentityCommand");
+  }
 };
-__name(_DescribeIdentityCommand, "DescribeIdentityCommand");
-var DescribeIdentityCommand = _DescribeIdentityCommand;
 
 // src/commands/DescribeIdentityPoolCommand.ts
 
 
 
-var _DescribeIdentityPoolCommand = class _DescribeIdentityPoolCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var DescribeIdentityPoolCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "DescribeIdentityPool", {}).n("CognitoIdentityClient", "DescribeIdentityPoolCommand").f(void 0, void 0).ser(se_DescribeIdentityPoolCommand).de(de_DescribeIdentityPoolCommand).build() {
+  static {
+    __name(this, "DescribeIdentityPoolCommand");
+  }
 };
-__name(_DescribeIdentityPoolCommand, "DescribeIdentityPoolCommand");
-var DescribeIdentityPoolCommand = _DescribeIdentityPoolCommand;
 
 // src/commands/GetCredentialsForIdentityCommand.ts
 
 
 
-var _GetCredentialsForIdentityCommand = class _GetCredentialsForIdentityCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetCredentialsForIdentityCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "GetCredentialsForIdentity", {}).n("CognitoIdentityClient", "GetCredentialsForIdentityCommand").f(GetCredentialsForIdentityInputFilterSensitiveLog, GetCredentialsForIdentityResponseFilterSensitiveLog).ser(se_GetCredentialsForIdentityCommand).de(de_GetCredentialsForIdentityCommand).build() {
+  static {
+    __name(this, "GetCredentialsForIdentityCommand");
+  }
 };
-__name(_GetCredentialsForIdentityCommand, "GetCredentialsForIdentityCommand");
-var GetCredentialsForIdentityCommand = _GetCredentialsForIdentityCommand;
 
 // src/commands/GetIdCommand.ts
 
 
 
-var _GetIdCommand = class _GetIdCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetIdCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "GetId", {}).n("CognitoIdentityClient", "GetIdCommand").f(GetIdInputFilterSensitiveLog, void 0).ser(se_GetIdCommand).de(de_GetIdCommand).build() {
+  static {
+    __name(this, "GetIdCommand");
+  }
 };
-__name(_GetIdCommand, "GetIdCommand");
-var GetIdCommand = _GetIdCommand;
 
 // src/commands/GetIdentityPoolRolesCommand.ts
 
 
 
-var _GetIdentityPoolRolesCommand = class _GetIdentityPoolRolesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetIdentityPoolRolesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "GetIdentityPoolRoles", {}).n("CognitoIdentityClient", "GetIdentityPoolRolesCommand").f(void 0, void 0).ser(se_GetIdentityPoolRolesCommand).de(de_GetIdentityPoolRolesCommand).build() {
+  static {
+    __name(this, "GetIdentityPoolRolesCommand");
+  }
 };
-__name(_GetIdentityPoolRolesCommand, "GetIdentityPoolRolesCommand");
-var GetIdentityPoolRolesCommand = _GetIdentityPoolRolesCommand;
 
 // src/commands/GetOpenIdTokenCommand.ts
 
 
 
-var _GetOpenIdTokenCommand = class _GetOpenIdTokenCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetOpenIdTokenCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "GetOpenIdToken", {}).n("CognitoIdentityClient", "GetOpenIdTokenCommand").f(GetOpenIdTokenInputFilterSensitiveLog, GetOpenIdTokenResponseFilterSensitiveLog).ser(se_GetOpenIdTokenCommand).de(de_GetOpenIdTokenCommand).build() {
+  static {
+    __name(this, "GetOpenIdTokenCommand");
+  }
 };
-__name(_GetOpenIdTokenCommand, "GetOpenIdTokenCommand");
-var GetOpenIdTokenCommand = _GetOpenIdTokenCommand;
 
 // src/commands/GetOpenIdTokenForDeveloperIdentityCommand.ts
 
 
 
-var _GetOpenIdTokenForDeveloperIdentityCommand = class _GetOpenIdTokenForDeveloperIdentityCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetOpenIdTokenForDeveloperIdentityCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
@@ -25919,191 +26577,205 @@ var _GetOpenIdTokenForDeveloperIdentityCommand = class _GetOpenIdTokenForDevelop
   GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
   GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog
 ).ser(se_GetOpenIdTokenForDeveloperIdentityCommand).de(de_GetOpenIdTokenForDeveloperIdentityCommand).build() {
+  static {
+    __name(this, "GetOpenIdTokenForDeveloperIdentityCommand");
+  }
 };
-__name(_GetOpenIdTokenForDeveloperIdentityCommand, "GetOpenIdTokenForDeveloperIdentityCommand");
-var GetOpenIdTokenForDeveloperIdentityCommand = _GetOpenIdTokenForDeveloperIdentityCommand;
 
 // src/commands/GetPrincipalTagAttributeMapCommand.ts
 
 
 
-var _GetPrincipalTagAttributeMapCommand = class _GetPrincipalTagAttributeMapCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetPrincipalTagAttributeMapCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "GetPrincipalTagAttributeMap", {}).n("CognitoIdentityClient", "GetPrincipalTagAttributeMapCommand").f(void 0, void 0).ser(se_GetPrincipalTagAttributeMapCommand).de(de_GetPrincipalTagAttributeMapCommand).build() {
+  static {
+    __name(this, "GetPrincipalTagAttributeMapCommand");
+  }
 };
-__name(_GetPrincipalTagAttributeMapCommand, "GetPrincipalTagAttributeMapCommand");
-var GetPrincipalTagAttributeMapCommand = _GetPrincipalTagAttributeMapCommand;
 
 // src/commands/ListIdentitiesCommand.ts
 
 
 
-var _ListIdentitiesCommand = class _ListIdentitiesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListIdentitiesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "ListIdentities", {}).n("CognitoIdentityClient", "ListIdentitiesCommand").f(void 0, void 0).ser(se_ListIdentitiesCommand).de(de_ListIdentitiesCommand).build() {
+  static {
+    __name(this, "ListIdentitiesCommand");
+  }
 };
-__name(_ListIdentitiesCommand, "ListIdentitiesCommand");
-var ListIdentitiesCommand = _ListIdentitiesCommand;
 
 // src/commands/ListIdentityPoolsCommand.ts
 
 
 
-var _ListIdentityPoolsCommand = class _ListIdentityPoolsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListIdentityPoolsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "ListIdentityPools", {}).n("CognitoIdentityClient", "ListIdentityPoolsCommand").f(void 0, void 0).ser(se_ListIdentityPoolsCommand).de(de_ListIdentityPoolsCommand).build() {
+  static {
+    __name(this, "ListIdentityPoolsCommand");
+  }
 };
-__name(_ListIdentityPoolsCommand, "ListIdentityPoolsCommand");
-var ListIdentityPoolsCommand = _ListIdentityPoolsCommand;
 
 // src/commands/ListTagsForResourceCommand.ts
 
 
 
-var _ListTagsForResourceCommand = class _ListTagsForResourceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListTagsForResourceCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "ListTagsForResource", {}).n("CognitoIdentityClient", "ListTagsForResourceCommand").f(void 0, void 0).ser(se_ListTagsForResourceCommand).de(de_ListTagsForResourceCommand).build() {
+  static {
+    __name(this, "ListTagsForResourceCommand");
+  }
 };
-__name(_ListTagsForResourceCommand, "ListTagsForResourceCommand");
-var ListTagsForResourceCommand = _ListTagsForResourceCommand;
 
 // src/commands/LookupDeveloperIdentityCommand.ts
 
 
 
-var _LookupDeveloperIdentityCommand = class _LookupDeveloperIdentityCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var LookupDeveloperIdentityCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "LookupDeveloperIdentity", {}).n("CognitoIdentityClient", "LookupDeveloperIdentityCommand").f(void 0, void 0).ser(se_LookupDeveloperIdentityCommand).de(de_LookupDeveloperIdentityCommand).build() {
+  static {
+    __name(this, "LookupDeveloperIdentityCommand");
+  }
 };
-__name(_LookupDeveloperIdentityCommand, "LookupDeveloperIdentityCommand");
-var LookupDeveloperIdentityCommand = _LookupDeveloperIdentityCommand;
 
 // src/commands/MergeDeveloperIdentitiesCommand.ts
 
 
 
-var _MergeDeveloperIdentitiesCommand = class _MergeDeveloperIdentitiesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var MergeDeveloperIdentitiesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "MergeDeveloperIdentities", {}).n("CognitoIdentityClient", "MergeDeveloperIdentitiesCommand").f(void 0, void 0).ser(se_MergeDeveloperIdentitiesCommand).de(de_MergeDeveloperIdentitiesCommand).build() {
+  static {
+    __name(this, "MergeDeveloperIdentitiesCommand");
+  }
 };
-__name(_MergeDeveloperIdentitiesCommand, "MergeDeveloperIdentitiesCommand");
-var MergeDeveloperIdentitiesCommand = _MergeDeveloperIdentitiesCommand;
 
 // src/commands/SetIdentityPoolRolesCommand.ts
 
 
 
-var _SetIdentityPoolRolesCommand = class _SetIdentityPoolRolesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var SetIdentityPoolRolesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "SetIdentityPoolRoles", {}).n("CognitoIdentityClient", "SetIdentityPoolRolesCommand").f(void 0, void 0).ser(se_SetIdentityPoolRolesCommand).de(de_SetIdentityPoolRolesCommand).build() {
+  static {
+    __name(this, "SetIdentityPoolRolesCommand");
+  }
 };
-__name(_SetIdentityPoolRolesCommand, "SetIdentityPoolRolesCommand");
-var SetIdentityPoolRolesCommand = _SetIdentityPoolRolesCommand;
 
 // src/commands/SetPrincipalTagAttributeMapCommand.ts
 
 
 
-var _SetPrincipalTagAttributeMapCommand = class _SetPrincipalTagAttributeMapCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var SetPrincipalTagAttributeMapCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "SetPrincipalTagAttributeMap", {}).n("CognitoIdentityClient", "SetPrincipalTagAttributeMapCommand").f(void 0, void 0).ser(se_SetPrincipalTagAttributeMapCommand).de(de_SetPrincipalTagAttributeMapCommand).build() {
+  static {
+    __name(this, "SetPrincipalTagAttributeMapCommand");
+  }
 };
-__name(_SetPrincipalTagAttributeMapCommand, "SetPrincipalTagAttributeMapCommand");
-var SetPrincipalTagAttributeMapCommand = _SetPrincipalTagAttributeMapCommand;
 
 // src/commands/TagResourceCommand.ts
 
 
 
-var _TagResourceCommand = class _TagResourceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var TagResourceCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "TagResource", {}).n("CognitoIdentityClient", "TagResourceCommand").f(void 0, void 0).ser(se_TagResourceCommand).de(de_TagResourceCommand).build() {
+  static {
+    __name(this, "TagResourceCommand");
+  }
 };
-__name(_TagResourceCommand, "TagResourceCommand");
-var TagResourceCommand = _TagResourceCommand;
 
 // src/commands/UnlinkDeveloperIdentityCommand.ts
 
 
 
-var _UnlinkDeveloperIdentityCommand = class _UnlinkDeveloperIdentityCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UnlinkDeveloperIdentityCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "UnlinkDeveloperIdentity", {}).n("CognitoIdentityClient", "UnlinkDeveloperIdentityCommand").f(void 0, void 0).ser(se_UnlinkDeveloperIdentityCommand).de(de_UnlinkDeveloperIdentityCommand).build() {
+  static {
+    __name(this, "UnlinkDeveloperIdentityCommand");
+  }
 };
-__name(_UnlinkDeveloperIdentityCommand, "UnlinkDeveloperIdentityCommand");
-var UnlinkDeveloperIdentityCommand = _UnlinkDeveloperIdentityCommand;
 
 // src/commands/UnlinkIdentityCommand.ts
 
 
 
-var _UnlinkIdentityCommand = class _UnlinkIdentityCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UnlinkIdentityCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "UnlinkIdentity", {}).n("CognitoIdentityClient", "UnlinkIdentityCommand").f(UnlinkIdentityInputFilterSensitiveLog, void 0).ser(se_UnlinkIdentityCommand).de(de_UnlinkIdentityCommand).build() {
+  static {
+    __name(this, "UnlinkIdentityCommand");
+  }
 };
-__name(_UnlinkIdentityCommand, "UnlinkIdentityCommand");
-var UnlinkIdentityCommand = _UnlinkIdentityCommand;
 
 // src/commands/UntagResourceCommand.ts
 
 
 
-var _UntagResourceCommand = class _UntagResourceCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UntagResourceCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "UntagResource", {}).n("CognitoIdentityClient", "UntagResourceCommand").f(void 0, void 0).ser(se_UntagResourceCommand).de(de_UntagResourceCommand).build() {
+  static {
+    __name(this, "UntagResourceCommand");
+  }
 };
-__name(_UntagResourceCommand, "UntagResourceCommand");
-var UntagResourceCommand = _UntagResourceCommand;
 
 // src/commands/UpdateIdentityPoolCommand.ts
 
 
 
-var _UpdateIdentityPoolCommand = class _UpdateIdentityPoolCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var UpdateIdentityPoolCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSCognitoIdentityService", "UpdateIdentityPool", {}).n("CognitoIdentityClient", "UpdateIdentityPoolCommand").f(void 0, void 0).ser(se_UpdateIdentityPoolCommand).de(de_UpdateIdentityPoolCommand).build() {
+  static {
+    __name(this, "UpdateIdentityPoolCommand");
+  }
 };
-__name(_UpdateIdentityPoolCommand, "UpdateIdentityPoolCommand");
-var UpdateIdentityPoolCommand = _UpdateIdentityPoolCommand;
 
 // src/CognitoIdentity.ts
 var commands = {
@@ -26131,10 +26803,11 @@ var commands = {
   UntagResourceCommand,
   UpdateIdentityPoolCommand
 };
-var _CognitoIdentity = class _CognitoIdentity extends CognitoIdentityClient {
+var CognitoIdentity = class extends CognitoIdentityClient {
+  static {
+    __name(this, "CognitoIdentity");
+  }
 };
-__name(_CognitoIdentity, "CognitoIdentity");
-var CognitoIdentity = _CognitoIdentity;
 (0, import_smithy_client.createAggregatedClient)(commands, CognitoIdentity);
 
 // src/pagination/ListIdentityPoolsPaginator.ts
@@ -26523,7 +27196,14 @@ var resolveRuntimeExtensions = /* @__PURE__ */ __name((runtimeConfig, extensions
 }, "resolveRuntimeExtensions");
 
 // src/SSOOIDCClient.ts
-var _SSOOIDCClient = class _SSOOIDCClient extends import_smithy_client.Client {
+var SSOOIDCClient = class extends import_smithy_client.Client {
+  static {
+    __name(this, "SSOOIDCClient");
+  }
+  /**
+   * The resolved configuration of SSOOIDCClient class. This is resolved and normalized from the {@link SSOOIDCClientConfig | constructor configuration interface}.
+   */
+  config;
   constructor(...[configuration]) {
     const _config_0 = (0, import_runtimeConfig.getRuntimeConfig)(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -26533,7 +27213,7 @@ var _SSOOIDCClient = class _SSOOIDCClient extends import_smithy_client.Client {
     const _config_5 = (0, import_middleware_host_header.resolveHostHeaderConfig)(_config_4);
     const _config_6 = (0, import_middleware_endpoint.resolveEndpointConfig)(_config_5);
     const _config_7 = (0, import_httpAuthSchemeProvider.resolveHttpAuthSchemeConfig)(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, (configuration == null ? void 0 : configuration.extensions) || []);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;
     this.middlewareStack.use((0, import_middleware_user_agent.getUserAgentPlugin)(this.config));
@@ -26561,8 +27241,6 @@ var _SSOOIDCClient = class _SSOOIDCClient extends import_smithy_client.Client {
     super.destroy();
   }
 };
-__name(_SSOOIDCClient, "SSOOIDCClient");
-var SSOOIDCClient = _SSOOIDCClient;
 
 // src/SSOOIDC.ts
 
@@ -26577,7 +27255,10 @@ var import_middleware_serde = __nccwpck_require__(83255);
 
 // src/models/SSOOIDCServiceException.ts
 
-var _SSOOIDCServiceException = class _SSOOIDCServiceException extends import_smithy_client.ServiceException {
+var SSOOIDCServiceException = class _SSOOIDCServiceException extends import_smithy_client.ServiceException {
+  static {
+    __name(this, "SSOOIDCServiceException");
+  }
   /**
    * @internal
    */
@@ -26586,11 +27267,26 @@ var _SSOOIDCServiceException = class _SSOOIDCServiceException extends import_smi
     Object.setPrototypeOf(this, _SSOOIDCServiceException.prototype);
   }
 };
-__name(_SSOOIDCServiceException, "SSOOIDCServiceException");
-var SSOOIDCServiceException = _SSOOIDCServiceException;
 
 // src/models/models_0.ts
-var _AccessDeniedException = class _AccessDeniedException extends SSOOIDCServiceException {
+var AccessDeniedException = class _AccessDeniedException extends SSOOIDCServiceException {
+  static {
+    __name(this, "AccessDeniedException");
+  }
+  name = "AccessDeniedException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>access_denied</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26600,16 +27296,29 @@ var _AccessDeniedException = class _AccessDeniedException extends SSOOIDCService
       $fault: "client",
       ...opts
     });
-    this.name = "AccessDeniedException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _AccessDeniedException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_AccessDeniedException, "AccessDeniedException");
-var AccessDeniedException = _AccessDeniedException;
-var _AuthorizationPendingException = class _AuthorizationPendingException extends SSOOIDCServiceException {
+var AuthorizationPendingException = class _AuthorizationPendingException extends SSOOIDCServiceException {
+  static {
+    __name(this, "AuthorizationPendingException");
+  }
+  name = "AuthorizationPendingException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>authorization_pending</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26619,16 +27328,29 @@ var _AuthorizationPendingException = class _AuthorizationPendingException extend
       $fault: "client",
       ...opts
     });
-    this.name = "AuthorizationPendingException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _AuthorizationPendingException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_AuthorizationPendingException, "AuthorizationPendingException");
-var AuthorizationPendingException = _AuthorizationPendingException;
-var _ExpiredTokenException = class _ExpiredTokenException extends SSOOIDCServiceException {
+var ExpiredTokenException = class _ExpiredTokenException extends SSOOIDCServiceException {
+  static {
+    __name(this, "ExpiredTokenException");
+  }
+  name = "ExpiredTokenException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>expired_token</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26638,16 +27360,29 @@ var _ExpiredTokenException = class _ExpiredTokenException extends SSOOIDCService
       $fault: "client",
       ...opts
     });
-    this.name = "ExpiredTokenException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ExpiredTokenException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_ExpiredTokenException, "ExpiredTokenException");
-var ExpiredTokenException = _ExpiredTokenException;
-var _InternalServerException = class _InternalServerException extends SSOOIDCServiceException {
+var InternalServerException = class _InternalServerException extends SSOOIDCServiceException {
+  static {
+    __name(this, "InternalServerException");
+  }
+  name = "InternalServerException";
+  $fault = "server";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>server_error</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26657,16 +27392,29 @@ var _InternalServerException = class _InternalServerException extends SSOOIDCSer
       $fault: "server",
       ...opts
     });
-    this.name = "InternalServerException";
-    this.$fault = "server";
     Object.setPrototypeOf(this, _InternalServerException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_InternalServerException, "InternalServerException");
-var InternalServerException = _InternalServerException;
-var _InvalidClientException = class _InvalidClientException extends SSOOIDCServiceException {
+var InvalidClientException = class _InvalidClientException extends SSOOIDCServiceException {
+  static {
+    __name(this, "InvalidClientException");
+  }
+  name = "InvalidClientException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>invalid_client</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26676,16 +27424,29 @@ var _InvalidClientException = class _InvalidClientException extends SSOOIDCServi
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidClientException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidClientException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_InvalidClientException, "InvalidClientException");
-var InvalidClientException = _InvalidClientException;
-var _InvalidGrantException = class _InvalidGrantException extends SSOOIDCServiceException {
+var InvalidGrantException = class _InvalidGrantException extends SSOOIDCServiceException {
+  static {
+    __name(this, "InvalidGrantException");
+  }
+  name = "InvalidGrantException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>invalid_grant</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26695,16 +27456,29 @@ var _InvalidGrantException = class _InvalidGrantException extends SSOOIDCService
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidGrantException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidGrantException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_InvalidGrantException, "InvalidGrantException");
-var InvalidGrantException = _InvalidGrantException;
-var _InvalidRequestException = class _InvalidRequestException extends SSOOIDCServiceException {
+var InvalidRequestException = class _InvalidRequestException extends SSOOIDCServiceException {
+  static {
+    __name(this, "InvalidRequestException");
+  }
+  name = "InvalidRequestException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>invalid_request</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26714,16 +27488,29 @@ var _InvalidRequestException = class _InvalidRequestException extends SSOOIDCSer
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidRequestException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidRequestException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_InvalidRequestException, "InvalidRequestException");
-var InvalidRequestException = _InvalidRequestException;
-var _InvalidScopeException = class _InvalidScopeException extends SSOOIDCServiceException {
+var InvalidScopeException = class _InvalidScopeException extends SSOOIDCServiceException {
+  static {
+    __name(this, "InvalidScopeException");
+  }
+  name = "InvalidScopeException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>invalid_scope</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26733,16 +27520,29 @@ var _InvalidScopeException = class _InvalidScopeException extends SSOOIDCService
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidScopeException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidScopeException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_InvalidScopeException, "InvalidScopeException");
-var InvalidScopeException = _InvalidScopeException;
-var _SlowDownException = class _SlowDownException extends SSOOIDCServiceException {
+var SlowDownException = class _SlowDownException extends SSOOIDCServiceException {
+  static {
+    __name(this, "SlowDownException");
+  }
+  name = "SlowDownException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>slow_down</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26752,16 +27552,29 @@ var _SlowDownException = class _SlowDownException extends SSOOIDCServiceExceptio
       $fault: "client",
       ...opts
     });
-    this.name = "SlowDownException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _SlowDownException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_SlowDownException, "SlowDownException");
-var SlowDownException = _SlowDownException;
-var _UnauthorizedClientException = class _UnauthorizedClientException extends SSOOIDCServiceException {
+var UnauthorizedClientException = class _UnauthorizedClientException extends SSOOIDCServiceException {
+  static {
+    __name(this, "UnauthorizedClientException");
+  }
+  name = "UnauthorizedClientException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>unauthorized_client</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26771,16 +27584,29 @@ var _UnauthorizedClientException = class _UnauthorizedClientException extends SS
       $fault: "client",
       ...opts
     });
-    this.name = "UnauthorizedClientException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _UnauthorizedClientException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_UnauthorizedClientException, "UnauthorizedClientException");
-var UnauthorizedClientException = _UnauthorizedClientException;
-var _UnsupportedGrantTypeException = class _UnsupportedGrantTypeException extends SSOOIDCServiceException {
+var UnsupportedGrantTypeException = class _UnsupportedGrantTypeException extends SSOOIDCServiceException {
+  static {
+    __name(this, "UnsupportedGrantTypeException");
+  }
+  name = "UnsupportedGrantTypeException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>unsupported_grant_type</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26790,16 +27616,39 @@ var _UnsupportedGrantTypeException = class _UnsupportedGrantTypeException extend
       $fault: "client",
       ...opts
     });
-    this.name = "UnsupportedGrantTypeException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _UnsupportedGrantTypeException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_UnsupportedGrantTypeException, "UnsupportedGrantTypeException");
-var UnsupportedGrantTypeException = _UnsupportedGrantTypeException;
-var _InvalidRequestRegionException = class _InvalidRequestRegionException extends SSOOIDCServiceException {
+var InvalidRequestRegionException = class _InvalidRequestRegionException extends SSOOIDCServiceException {
+  static {
+    __name(this, "InvalidRequestRegionException");
+  }
+  name = "InvalidRequestRegionException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>invalid_request</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
+  /**
+   * <p>Indicates the IAM Identity Center endpoint which the requester may call with this token.</p>
+   * @public
+   */
+  endpoint;
+  /**
+   * <p>Indicates the region which the requester may call with this token.</p>
+   * @public
+   */
+  region;
   /**
    * @internal
    */
@@ -26809,8 +27658,6 @@ var _InvalidRequestRegionException = class _InvalidRequestRegionException extend
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidRequestRegionException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidRequestRegionException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
@@ -26818,9 +27665,24 @@ var _InvalidRequestRegionException = class _InvalidRequestRegionException extend
     this.region = opts.region;
   }
 };
-__name(_InvalidRequestRegionException, "InvalidRequestRegionException");
-var InvalidRequestRegionException = _InvalidRequestRegionException;
-var _InvalidClientMetadataException = class _InvalidClientMetadataException extends SSOOIDCServiceException {
+var InvalidClientMetadataException = class _InvalidClientMetadataException extends SSOOIDCServiceException {
+  static {
+    __name(this, "InvalidClientMetadataException");
+  }
+  name = "InvalidClientMetadataException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>invalid_client_metadata</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26830,16 +27692,29 @@ var _InvalidClientMetadataException = class _InvalidClientMetadataException exte
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidClientMetadataException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidClientMetadataException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_InvalidClientMetadataException, "InvalidClientMetadataException");
-var InvalidClientMetadataException = _InvalidClientMetadataException;
-var _InvalidRedirectUriException = class _InvalidRedirectUriException extends SSOOIDCServiceException {
+var InvalidRedirectUriException = class _InvalidRedirectUriException extends SSOOIDCServiceException {
+  static {
+    __name(this, "InvalidRedirectUriException");
+  }
+  name = "InvalidRedirectUriException";
+  $fault = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>invalid_redirect_uri</code>.</p>
+   * @public
+   */
+  error;
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description;
   /**
    * @internal
    */
@@ -26849,15 +27724,11 @@ var _InvalidRedirectUriException = class _InvalidRedirectUriException extends SS
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidRedirectUriException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidRedirectUriException.prototype);
     this.error = opts.error;
     this.error_description = opts.error_description;
   }
 };
-__name(_InvalidRedirectUriException, "InvalidRedirectUriException");
-var InvalidRedirectUriException = _InvalidRedirectUriException;
 var CreateTokenRequestFilterSensitiveLog = /* @__PURE__ */ __name((obj) => ({
   ...obj,
   ...obj.clientSecret && { clientSecret: import_smithy_client.SENSITIVE_STRING },
@@ -27327,57 +28198,61 @@ var deserializeMetadata = /* @__PURE__ */ __name((output) => ({
 var _ai = "aws_iam";
 
 // src/commands/CreateTokenCommand.ts
-var _CreateTokenCommand = class _CreateTokenCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CreateTokenCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSSOOIDCService", "CreateToken", {}).n("SSOOIDCClient", "CreateTokenCommand").f(CreateTokenRequestFilterSensitiveLog, CreateTokenResponseFilterSensitiveLog).ser(se_CreateTokenCommand).de(de_CreateTokenCommand).build() {
+  static {
+    __name(this, "CreateTokenCommand");
+  }
 };
-__name(_CreateTokenCommand, "CreateTokenCommand");
-var CreateTokenCommand = _CreateTokenCommand;
 
 // src/commands/CreateTokenWithIAMCommand.ts
 
 
 
-var _CreateTokenWithIAMCommand = class _CreateTokenWithIAMCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var CreateTokenWithIAMCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSSOOIDCService", "CreateTokenWithIAM", {}).n("SSOOIDCClient", "CreateTokenWithIAMCommand").f(CreateTokenWithIAMRequestFilterSensitiveLog, CreateTokenWithIAMResponseFilterSensitiveLog).ser(se_CreateTokenWithIAMCommand).de(de_CreateTokenWithIAMCommand).build() {
+  static {
+    __name(this, "CreateTokenWithIAMCommand");
+  }
 };
-__name(_CreateTokenWithIAMCommand, "CreateTokenWithIAMCommand");
-var CreateTokenWithIAMCommand = _CreateTokenWithIAMCommand;
 
 // src/commands/RegisterClientCommand.ts
 
 
 
-var _RegisterClientCommand = class _RegisterClientCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var RegisterClientCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSSOOIDCService", "RegisterClient", {}).n("SSOOIDCClient", "RegisterClientCommand").f(void 0, RegisterClientResponseFilterSensitiveLog).ser(se_RegisterClientCommand).de(de_RegisterClientCommand).build() {
+  static {
+    __name(this, "RegisterClientCommand");
+  }
 };
-__name(_RegisterClientCommand, "RegisterClientCommand");
-var RegisterClientCommand = _RegisterClientCommand;
 
 // src/commands/StartDeviceAuthorizationCommand.ts
 
 
 
-var _StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var StartDeviceAuthorizationCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSSOOIDCService", "StartDeviceAuthorization", {}).n("SSOOIDCClient", "StartDeviceAuthorizationCommand").f(StartDeviceAuthorizationRequestFilterSensitiveLog, void 0).ser(se_StartDeviceAuthorizationCommand).de(de_StartDeviceAuthorizationCommand).build() {
+  static {
+    __name(this, "StartDeviceAuthorizationCommand");
+  }
 };
-__name(_StartDeviceAuthorizationCommand, "StartDeviceAuthorizationCommand");
-var StartDeviceAuthorizationCommand = _StartDeviceAuthorizationCommand;
 
 // src/SSOOIDC.ts
 var commands = {
@@ -27386,10 +28261,11 @@ var commands = {
   RegisterClientCommand,
   StartDeviceAuthorizationCommand
 };
-var _SSOOIDC = class _SSOOIDC extends SSOOIDCClient {
+var SSOOIDC = class extends SSOOIDCClient {
+  static {
+    __name(this, "SSOOIDC");
+  }
 };
-__name(_SSOOIDC, "SSOOIDC");
-var SSOOIDC = _SSOOIDC;
 (0, import_smithy_client.createAggregatedClient)(commands, SSOOIDC);
 // Annotate the CommonJS export names for ESM import in node:
 
@@ -27770,7 +28646,14 @@ var resolveRuntimeExtensions = /* @__PURE__ */ __name((runtimeConfig, extensions
 }, "resolveRuntimeExtensions");
 
 // src/SSOClient.ts
-var _SSOClient = class _SSOClient extends import_smithy_client.Client {
+var SSOClient = class extends import_smithy_client.Client {
+  static {
+    __name(this, "SSOClient");
+  }
+  /**
+   * The resolved configuration of SSOClient class. This is resolved and normalized from the {@link SSOClientConfig | constructor configuration interface}.
+   */
+  config;
   constructor(...[configuration]) {
     const _config_0 = (0, import_runtimeConfig.getRuntimeConfig)(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -27780,7 +28663,7 @@ var _SSOClient = class _SSOClient extends import_smithy_client.Client {
     const _config_5 = (0, import_middleware_host_header.resolveHostHeaderConfig)(_config_4);
     const _config_6 = (0, import_middleware_endpoint.resolveEndpointConfig)(_config_5);
     const _config_7 = (0, import_httpAuthSchemeProvider.resolveHttpAuthSchemeConfig)(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, (configuration == null ? void 0 : configuration.extensions) || []);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;
     this.middlewareStack.use((0, import_middleware_user_agent.getUserAgentPlugin)(this.config));
@@ -27808,8 +28691,6 @@ var _SSOClient = class _SSOClient extends import_smithy_client.Client {
     super.destroy();
   }
 };
-__name(_SSOClient, "SSOClient");
-var SSOClient = _SSOClient;
 
 // src/SSO.ts
 
@@ -27824,7 +28705,10 @@ var import_middleware_serde = __nccwpck_require__(83255);
 
 // src/models/SSOServiceException.ts
 
-var _SSOServiceException = class _SSOServiceException extends import_smithy_client.ServiceException {
+var SSOServiceException = class _SSOServiceException extends import_smithy_client.ServiceException {
+  static {
+    __name(this, "SSOServiceException");
+  }
   /**
    * @internal
    */
@@ -27833,11 +28717,14 @@ var _SSOServiceException = class _SSOServiceException extends import_smithy_clie
     Object.setPrototypeOf(this, _SSOServiceException.prototype);
   }
 };
-__name(_SSOServiceException, "SSOServiceException");
-var SSOServiceException = _SSOServiceException;
 
 // src/models/models_0.ts
-var _InvalidRequestException = class _InvalidRequestException extends SSOServiceException {
+var InvalidRequestException = class _InvalidRequestException extends SSOServiceException {
+  static {
+    __name(this, "InvalidRequestException");
+  }
+  name = "InvalidRequestException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -27847,14 +28734,15 @@ var _InvalidRequestException = class _InvalidRequestException extends SSOService
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidRequestException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidRequestException.prototype);
   }
 };
-__name(_InvalidRequestException, "InvalidRequestException");
-var InvalidRequestException = _InvalidRequestException;
-var _ResourceNotFoundException = class _ResourceNotFoundException extends SSOServiceException {
+var ResourceNotFoundException = class _ResourceNotFoundException extends SSOServiceException {
+  static {
+    __name(this, "ResourceNotFoundException");
+  }
+  name = "ResourceNotFoundException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -27864,14 +28752,15 @@ var _ResourceNotFoundException = class _ResourceNotFoundException extends SSOSer
       $fault: "client",
       ...opts
     });
-    this.name = "ResourceNotFoundException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ResourceNotFoundException.prototype);
   }
 };
-__name(_ResourceNotFoundException, "ResourceNotFoundException");
-var ResourceNotFoundException = _ResourceNotFoundException;
-var _TooManyRequestsException = class _TooManyRequestsException extends SSOServiceException {
+var TooManyRequestsException = class _TooManyRequestsException extends SSOServiceException {
+  static {
+    __name(this, "TooManyRequestsException");
+  }
+  name = "TooManyRequestsException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -27881,14 +28770,15 @@ var _TooManyRequestsException = class _TooManyRequestsException extends SSOServi
       $fault: "client",
       ...opts
     });
-    this.name = "TooManyRequestsException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _TooManyRequestsException.prototype);
   }
 };
-__name(_TooManyRequestsException, "TooManyRequestsException");
-var TooManyRequestsException = _TooManyRequestsException;
-var _UnauthorizedException = class _UnauthorizedException extends SSOServiceException {
+var UnauthorizedException = class _UnauthorizedException extends SSOServiceException {
+  static {
+    __name(this, "UnauthorizedException");
+  }
+  name = "UnauthorizedException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -27898,13 +28788,9 @@ var _UnauthorizedException = class _UnauthorizedException extends SSOServiceExce
       $fault: "client",
       ...opts
     });
-    this.name = "UnauthorizedException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _UnauthorizedException.prototype);
   }
 };
-__name(_UnauthorizedException, "UnauthorizedException");
-var UnauthorizedException = _UnauthorizedException;
 var GetRoleCredentialsRequestFilterSensitiveLog = /* @__PURE__ */ __name((obj) => ({
   ...obj,
   ...obj.accessToken && { accessToken: import_smithy_client.SENSITIVE_STRING }
@@ -28141,57 +29027,61 @@ var _rn = "role_name";
 var _xasbt = "x-amz-sso_bearer_token";
 
 // src/commands/GetRoleCredentialsCommand.ts
-var _GetRoleCredentialsCommand = class _GetRoleCredentialsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var GetRoleCredentialsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("SWBPortalService", "GetRoleCredentials", {}).n("SSOClient", "GetRoleCredentialsCommand").f(GetRoleCredentialsRequestFilterSensitiveLog, GetRoleCredentialsResponseFilterSensitiveLog).ser(se_GetRoleCredentialsCommand).de(de_GetRoleCredentialsCommand).build() {
+  static {
+    __name(this, "GetRoleCredentialsCommand");
+  }
 };
-__name(_GetRoleCredentialsCommand, "GetRoleCredentialsCommand");
-var GetRoleCredentialsCommand = _GetRoleCredentialsCommand;
 
 // src/commands/ListAccountRolesCommand.ts
 
 
 
-var _ListAccountRolesCommand = class _ListAccountRolesCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListAccountRolesCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("SWBPortalService", "ListAccountRoles", {}).n("SSOClient", "ListAccountRolesCommand").f(ListAccountRolesRequestFilterSensitiveLog, void 0).ser(se_ListAccountRolesCommand).de(de_ListAccountRolesCommand).build() {
+  static {
+    __name(this, "ListAccountRolesCommand");
+  }
 };
-__name(_ListAccountRolesCommand, "ListAccountRolesCommand");
-var ListAccountRolesCommand = _ListAccountRolesCommand;
 
 // src/commands/ListAccountsCommand.ts
 
 
 
-var _ListAccountsCommand = class _ListAccountsCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var ListAccountsCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("SWBPortalService", "ListAccounts", {}).n("SSOClient", "ListAccountsCommand").f(ListAccountsRequestFilterSensitiveLog, void 0).ser(se_ListAccountsCommand).de(de_ListAccountsCommand).build() {
+  static {
+    __name(this, "ListAccountsCommand");
+  }
 };
-__name(_ListAccountsCommand, "ListAccountsCommand");
-var ListAccountsCommand = _ListAccountsCommand;
 
 // src/commands/LogoutCommand.ts
 
 
 
-var _LogoutCommand = class _LogoutCommand extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
+var LogoutCommand = class extends import_smithy_client.Command.classBuilder().ep(commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("SWBPortalService", "Logout", {}).n("SSOClient", "LogoutCommand").f(LogoutRequestFilterSensitiveLog, void 0).ser(se_LogoutCommand).de(de_LogoutCommand).build() {
+  static {
+    __name(this, "LogoutCommand");
+  }
 };
-__name(_LogoutCommand, "LogoutCommand");
-var LogoutCommand = _LogoutCommand;
 
 // src/SSO.ts
 var commands = {
@@ -28200,10 +29090,11 @@ var commands = {
   ListAccountsCommand,
   LogoutCommand
 };
-var _SSO = class _SSO extends SSOClient {
+var SSO = class extends SSOClient {
+  static {
+    __name(this, "SSO");
+  }
 };
-__name(_SSO, "SSO");
-var SSO = _SSO;
 (0, import_smithy_client.createAggregatedClient)(commands, SSO);
 
 // src/pagination/ListAccountRolesPaginator.ts
@@ -28350,6 +29241,7 @@ const EndpointParameters_1 = __nccwpck_require__(42912);
 const runtimeConfig_1 = __nccwpck_require__(12769);
 const runtimeExtensions_1 = __nccwpck_require__(60309);
 class STSClient extends smithy_client_1.Client {
+    config;
     constructor(...[configuration]) {
         const _config_0 = (0, runtimeConfig_1.getRuntimeConfig)(configuration || {});
         const _config_1 = (0, EndpointParameters_1.resolveClientEndpointParameters)(_config_0);
@@ -28658,7 +29550,10 @@ var import_EndpointParameters = __nccwpck_require__(42912);
 
 // src/models/STSServiceException.ts
 var import_smithy_client = __nccwpck_require__(61411);
-var _STSServiceException = class _STSServiceException extends import_smithy_client.ServiceException {
+var STSServiceException = class _STSServiceException extends import_smithy_client.ServiceException {
+  static {
+    __name(this, "STSServiceException");
+  }
   /**
    * @internal
    */
@@ -28667,11 +29562,14 @@ var _STSServiceException = class _STSServiceException extends import_smithy_clie
     Object.setPrototypeOf(this, _STSServiceException.prototype);
   }
 };
-__name(_STSServiceException, "STSServiceException");
-var STSServiceException = _STSServiceException;
 
 // src/models/models_0.ts
-var _ExpiredTokenException = class _ExpiredTokenException extends STSServiceException {
+var ExpiredTokenException = class _ExpiredTokenException extends STSServiceException {
+  static {
+    __name(this, "ExpiredTokenException");
+  }
+  name = "ExpiredTokenException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -28681,14 +29579,15 @@ var _ExpiredTokenException = class _ExpiredTokenException extends STSServiceExce
       $fault: "client",
       ...opts
     });
-    this.name = "ExpiredTokenException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _ExpiredTokenException.prototype);
   }
 };
-__name(_ExpiredTokenException, "ExpiredTokenException");
-var ExpiredTokenException = _ExpiredTokenException;
-var _MalformedPolicyDocumentException = class _MalformedPolicyDocumentException extends STSServiceException {
+var MalformedPolicyDocumentException = class _MalformedPolicyDocumentException extends STSServiceException {
+  static {
+    __name(this, "MalformedPolicyDocumentException");
+  }
+  name = "MalformedPolicyDocumentException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -28698,14 +29597,15 @@ var _MalformedPolicyDocumentException = class _MalformedPolicyDocumentException 
       $fault: "client",
       ...opts
     });
-    this.name = "MalformedPolicyDocumentException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _MalformedPolicyDocumentException.prototype);
   }
 };
-__name(_MalformedPolicyDocumentException, "MalformedPolicyDocumentException");
-var MalformedPolicyDocumentException = _MalformedPolicyDocumentException;
-var _PackedPolicyTooLargeException = class _PackedPolicyTooLargeException extends STSServiceException {
+var PackedPolicyTooLargeException = class _PackedPolicyTooLargeException extends STSServiceException {
+  static {
+    __name(this, "PackedPolicyTooLargeException");
+  }
+  name = "PackedPolicyTooLargeException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -28715,14 +29615,15 @@ var _PackedPolicyTooLargeException = class _PackedPolicyTooLargeException extend
       $fault: "client",
       ...opts
     });
-    this.name = "PackedPolicyTooLargeException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _PackedPolicyTooLargeException.prototype);
   }
 };
-__name(_PackedPolicyTooLargeException, "PackedPolicyTooLargeException");
-var PackedPolicyTooLargeException = _PackedPolicyTooLargeException;
-var _RegionDisabledException = class _RegionDisabledException extends STSServiceException {
+var RegionDisabledException = class _RegionDisabledException extends STSServiceException {
+  static {
+    __name(this, "RegionDisabledException");
+  }
+  name = "RegionDisabledException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -28732,14 +29633,15 @@ var _RegionDisabledException = class _RegionDisabledException extends STSService
       $fault: "client",
       ...opts
     });
-    this.name = "RegionDisabledException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _RegionDisabledException.prototype);
   }
 };
-__name(_RegionDisabledException, "RegionDisabledException");
-var RegionDisabledException = _RegionDisabledException;
-var _IDPRejectedClaimException = class _IDPRejectedClaimException extends STSServiceException {
+var IDPRejectedClaimException = class _IDPRejectedClaimException extends STSServiceException {
+  static {
+    __name(this, "IDPRejectedClaimException");
+  }
+  name = "IDPRejectedClaimException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -28749,14 +29651,15 @@ var _IDPRejectedClaimException = class _IDPRejectedClaimException extends STSSer
       $fault: "client",
       ...opts
     });
-    this.name = "IDPRejectedClaimException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _IDPRejectedClaimException.prototype);
   }
 };
-__name(_IDPRejectedClaimException, "IDPRejectedClaimException");
-var IDPRejectedClaimException = _IDPRejectedClaimException;
-var _InvalidIdentityTokenException = class _InvalidIdentityTokenException extends STSServiceException {
+var InvalidIdentityTokenException = class _InvalidIdentityTokenException extends STSServiceException {
+  static {
+    __name(this, "InvalidIdentityTokenException");
+  }
+  name = "InvalidIdentityTokenException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -28766,14 +29669,15 @@ var _InvalidIdentityTokenException = class _InvalidIdentityTokenException extend
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidIdentityTokenException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidIdentityTokenException.prototype);
   }
 };
-__name(_InvalidIdentityTokenException, "InvalidIdentityTokenException");
-var InvalidIdentityTokenException = _InvalidIdentityTokenException;
-var _IDPCommunicationErrorException = class _IDPCommunicationErrorException extends STSServiceException {
+var IDPCommunicationErrorException = class _IDPCommunicationErrorException extends STSServiceException {
+  static {
+    __name(this, "IDPCommunicationErrorException");
+  }
+  name = "IDPCommunicationErrorException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -28783,14 +29687,15 @@ var _IDPCommunicationErrorException = class _IDPCommunicationErrorException exte
       $fault: "client",
       ...opts
     });
-    this.name = "IDPCommunicationErrorException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _IDPCommunicationErrorException.prototype);
   }
 };
-__name(_IDPCommunicationErrorException, "IDPCommunicationErrorException");
-var IDPCommunicationErrorException = _IDPCommunicationErrorException;
-var _InvalidAuthorizationMessageException = class _InvalidAuthorizationMessageException extends STSServiceException {
+var InvalidAuthorizationMessageException = class _InvalidAuthorizationMessageException extends STSServiceException {
+  static {
+    __name(this, "InvalidAuthorizationMessageException");
+  }
+  name = "InvalidAuthorizationMessageException";
+  $fault = "client";
   /**
    * @internal
    */
@@ -28800,13 +29705,9 @@ var _InvalidAuthorizationMessageException = class _InvalidAuthorizationMessageEx
       $fault: "client",
       ...opts
     });
-    this.name = "InvalidAuthorizationMessageException";
-    this.$fault = "client";
     Object.setPrototypeOf(this, _InvalidAuthorizationMessageException.prototype);
   }
 };
-__name(_InvalidAuthorizationMessageException, "InvalidAuthorizationMessageException");
-var InvalidAuthorizationMessageException = _InvalidAuthorizationMessageException;
 var CredentialsFilterSensitiveLog = /* @__PURE__ */ __name((obj) => ({
   ...obj,
   ...obj.SecretAccessKey && { SecretAccessKey: import_smithy_client.SENSITIVE_STRING }
@@ -29168,7 +30069,6 @@ var de_RegionDisabledExceptionRes = /* @__PURE__ */ __name(async (parsedOutput, 
   return (0, import_smithy_client.decorateServiceException)(exception, body);
 }, "de_RegionDisabledExceptionRes");
 var se_AssumeRoleRequest = /* @__PURE__ */ __name((input, context) => {
-  var _a2, _b, _c, _d;
   const entries = {};
   if (input[_RA] != null) {
     entries[_RA] = input[_RA];
@@ -29178,7 +30078,7 @@ var se_AssumeRoleRequest = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_PA] != null) {
     const memberEntries = se_policyDescriptorListType(input[_PA], context);
-    if (((_a2 = input[_PA]) == null ? void 0 : _a2.length) === 0) {
+    if (input[_PA]?.length === 0) {
       entries.PolicyArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -29194,7 +30094,7 @@ var se_AssumeRoleRequest = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_T] != null) {
     const memberEntries = se_tagListType(input[_T], context);
-    if (((_b = input[_T]) == null ? void 0 : _b.length) === 0) {
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -29204,7 +30104,7 @@ var se_AssumeRoleRequest = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_TTK] != null) {
     const memberEntries = se_tagKeyListType(input[_TTK], context);
-    if (((_c = input[_TTK]) == null ? void 0 : _c.length) === 0) {
+    if (input[_TTK]?.length === 0) {
       entries.TransitiveTagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -29226,7 +30126,7 @@ var se_AssumeRoleRequest = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_PC] != null) {
     const memberEntries = se_ProvidedContextsListType(input[_PC], context);
-    if (((_d = input[_PC]) == null ? void 0 : _d.length) === 0) {
+    if (input[_PC]?.length === 0) {
       entries.ProvidedContexts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -29237,7 +30137,6 @@ var se_AssumeRoleRequest = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_AssumeRoleRequest");
 var se_AssumeRoleWithSAMLRequest = /* @__PURE__ */ __name((input, context) => {
-  var _a2;
   const entries = {};
   if (input[_RA] != null) {
     entries[_RA] = input[_RA];
@@ -29250,7 +30149,7 @@ var se_AssumeRoleWithSAMLRequest = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_PA] != null) {
     const memberEntries = se_policyDescriptorListType(input[_PA], context);
-    if (((_a2 = input[_PA]) == null ? void 0 : _a2.length) === 0) {
+    if (input[_PA]?.length === 0) {
       entries.PolicyArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -29267,7 +30166,6 @@ var se_AssumeRoleWithSAMLRequest = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_AssumeRoleWithSAMLRequest");
 var se_AssumeRoleWithWebIdentityRequest = /* @__PURE__ */ __name((input, context) => {
-  var _a2;
   const entries = {};
   if (input[_RA] != null) {
     entries[_RA] = input[_RA];
@@ -29283,7 +30181,7 @@ var se_AssumeRoleWithWebIdentityRequest = /* @__PURE__ */ __name((input, context
   }
   if (input[_PA] != null) {
     const memberEntries = se_policyDescriptorListType(input[_PA], context);
-    if (((_a2 = input[_PA]) == null ? void 0 : _a2.length) === 0) {
+    if (input[_PA]?.length === 0) {
       entries.PolicyArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -29335,7 +30233,6 @@ var se_GetCallerIdentityRequest = /* @__PURE__ */ __name((input, context) => {
   return entries;
 }, "se_GetCallerIdentityRequest");
 var se_GetFederationTokenRequest = /* @__PURE__ */ __name((input, context) => {
-  var _a2, _b;
   const entries = {};
   if (input[_N] != null) {
     entries[_N] = input[_N];
@@ -29345,7 +30242,7 @@ var se_GetFederationTokenRequest = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_PA] != null) {
     const memberEntries = se_policyDescriptorListType(input[_PA], context);
-    if (((_a2 = input[_PA]) == null ? void 0 : _a2.length) === 0) {
+    if (input[_PA]?.length === 0) {
       entries.PolicyArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -29358,7 +30255,7 @@ var se_GetFederationTokenRequest = /* @__PURE__ */ __name((input, context) => {
   }
   if (input[_T] != null) {
     const memberEntries = se_tagListType(input[_T], context);
-    if (((_b = input[_T]) == null ? void 0 : _b.length) === 0) {
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -29775,8 +30672,7 @@ var _a = "arn";
 var _m = "message";
 var buildFormUrlencodedString = /* @__PURE__ */ __name((formEntries) => Object.entries(formEntries).map(([key, value]) => (0, import_smithy_client.extendedEncodeURIComponent)(key) + "=" + (0, import_smithy_client.extendedEncodeURIComponent)(value)).join("&"), "buildFormUrlencodedString");
 var loadQueryErrorCode = /* @__PURE__ */ __name((output, data) => {
-  var _a2;
-  if (((_a2 = data.Error) == null ? void 0 : _a2.Code) !== void 0) {
+  if (data.Error?.Code !== void 0) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
@@ -29785,135 +30681,144 @@ var loadQueryErrorCode = /* @__PURE__ */ __name((output, data) => {
 }, "loadQueryErrorCode");
 
 // src/commands/AssumeRoleCommand.ts
-var _AssumeRoleCommand = class _AssumeRoleCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters.commonParams).m(function(Command, cs, config, o) {
+var AssumeRoleCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "AssumeRole", {}).n("STSClient", "AssumeRoleCommand").f(void 0, AssumeRoleResponseFilterSensitiveLog).ser(se_AssumeRoleCommand).de(de_AssumeRoleCommand).build() {
+  static {
+    __name(this, "AssumeRoleCommand");
+  }
 };
-__name(_AssumeRoleCommand, "AssumeRoleCommand");
-var AssumeRoleCommand = _AssumeRoleCommand;
 
 // src/commands/AssumeRoleWithSAMLCommand.ts
 
 
 
 var import_EndpointParameters2 = __nccwpck_require__(42912);
-var _AssumeRoleWithSAMLCommand = class _AssumeRoleWithSAMLCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters2.commonParams).m(function(Command, cs, config, o) {
+var AssumeRoleWithSAMLCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters2.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "AssumeRoleWithSAML", {}).n("STSClient", "AssumeRoleWithSAMLCommand").f(AssumeRoleWithSAMLRequestFilterSensitiveLog, AssumeRoleWithSAMLResponseFilterSensitiveLog).ser(se_AssumeRoleWithSAMLCommand).de(de_AssumeRoleWithSAMLCommand).build() {
+  static {
+    __name(this, "AssumeRoleWithSAMLCommand");
+  }
 };
-__name(_AssumeRoleWithSAMLCommand, "AssumeRoleWithSAMLCommand");
-var AssumeRoleWithSAMLCommand = _AssumeRoleWithSAMLCommand;
 
 // src/commands/AssumeRoleWithWebIdentityCommand.ts
 
 
 
 var import_EndpointParameters3 = __nccwpck_require__(42912);
-var _AssumeRoleWithWebIdentityCommand = class _AssumeRoleWithWebIdentityCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters3.commonParams).m(function(Command, cs, config, o) {
+var AssumeRoleWithWebIdentityCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters3.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "AssumeRoleWithWebIdentity", {}).n("STSClient", "AssumeRoleWithWebIdentityCommand").f(AssumeRoleWithWebIdentityRequestFilterSensitiveLog, AssumeRoleWithWebIdentityResponseFilterSensitiveLog).ser(se_AssumeRoleWithWebIdentityCommand).de(de_AssumeRoleWithWebIdentityCommand).build() {
+  static {
+    __name(this, "AssumeRoleWithWebIdentityCommand");
+  }
 };
-__name(_AssumeRoleWithWebIdentityCommand, "AssumeRoleWithWebIdentityCommand");
-var AssumeRoleWithWebIdentityCommand = _AssumeRoleWithWebIdentityCommand;
 
 // src/commands/AssumeRootCommand.ts
 
 
 
 var import_EndpointParameters4 = __nccwpck_require__(42912);
-var _AssumeRootCommand = class _AssumeRootCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters4.commonParams).m(function(Command, cs, config, o) {
+var AssumeRootCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters4.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "AssumeRoot", {}).n("STSClient", "AssumeRootCommand").f(void 0, AssumeRootResponseFilterSensitiveLog).ser(se_AssumeRootCommand).de(de_AssumeRootCommand).build() {
+  static {
+    __name(this, "AssumeRootCommand");
+  }
 };
-__name(_AssumeRootCommand, "AssumeRootCommand");
-var AssumeRootCommand = _AssumeRootCommand;
 
 // src/commands/DecodeAuthorizationMessageCommand.ts
 
 
 
 var import_EndpointParameters5 = __nccwpck_require__(42912);
-var _DecodeAuthorizationMessageCommand = class _DecodeAuthorizationMessageCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters5.commonParams).m(function(Command, cs, config, o) {
+var DecodeAuthorizationMessageCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters5.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "DecodeAuthorizationMessage", {}).n("STSClient", "DecodeAuthorizationMessageCommand").f(void 0, void 0).ser(se_DecodeAuthorizationMessageCommand).de(de_DecodeAuthorizationMessageCommand).build() {
+  static {
+    __name(this, "DecodeAuthorizationMessageCommand");
+  }
 };
-__name(_DecodeAuthorizationMessageCommand, "DecodeAuthorizationMessageCommand");
-var DecodeAuthorizationMessageCommand = _DecodeAuthorizationMessageCommand;
 
 // src/commands/GetAccessKeyInfoCommand.ts
 
 
 
 var import_EndpointParameters6 = __nccwpck_require__(42912);
-var _GetAccessKeyInfoCommand = class _GetAccessKeyInfoCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters6.commonParams).m(function(Command, cs, config, o) {
+var GetAccessKeyInfoCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters6.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "GetAccessKeyInfo", {}).n("STSClient", "GetAccessKeyInfoCommand").f(void 0, void 0).ser(se_GetAccessKeyInfoCommand).de(de_GetAccessKeyInfoCommand).build() {
+  static {
+    __name(this, "GetAccessKeyInfoCommand");
+  }
 };
-__name(_GetAccessKeyInfoCommand, "GetAccessKeyInfoCommand");
-var GetAccessKeyInfoCommand = _GetAccessKeyInfoCommand;
 
 // src/commands/GetCallerIdentityCommand.ts
 
 
 
 var import_EndpointParameters7 = __nccwpck_require__(42912);
-var _GetCallerIdentityCommand = class _GetCallerIdentityCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters7.commonParams).m(function(Command, cs, config, o) {
+var GetCallerIdentityCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters7.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "GetCallerIdentity", {}).n("STSClient", "GetCallerIdentityCommand").f(void 0, void 0).ser(se_GetCallerIdentityCommand).de(de_GetCallerIdentityCommand).build() {
+  static {
+    __name(this, "GetCallerIdentityCommand");
+  }
 };
-__name(_GetCallerIdentityCommand, "GetCallerIdentityCommand");
-var GetCallerIdentityCommand = _GetCallerIdentityCommand;
 
 // src/commands/GetFederationTokenCommand.ts
 
 
 
 var import_EndpointParameters8 = __nccwpck_require__(42912);
-var _GetFederationTokenCommand = class _GetFederationTokenCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters8.commonParams).m(function(Command, cs, config, o) {
+var GetFederationTokenCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters8.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "GetFederationToken", {}).n("STSClient", "GetFederationTokenCommand").f(void 0, GetFederationTokenResponseFilterSensitiveLog).ser(se_GetFederationTokenCommand).de(de_GetFederationTokenCommand).build() {
+  static {
+    __name(this, "GetFederationTokenCommand");
+  }
 };
-__name(_GetFederationTokenCommand, "GetFederationTokenCommand");
-var GetFederationTokenCommand = _GetFederationTokenCommand;
 
 // src/commands/GetSessionTokenCommand.ts
 
 
 
 var import_EndpointParameters9 = __nccwpck_require__(42912);
-var _GetSessionTokenCommand = class _GetSessionTokenCommand extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters9.commonParams).m(function(Command, cs, config, o) {
+var GetSessionTokenCommand = class extends import_smithy_client.Command.classBuilder().ep(import_EndpointParameters9.commonParams).m(function(Command, cs, config, o) {
   return [
     (0, import_middleware_serde.getSerdePlugin)(config, this.serialize, this.deserialize),
     (0, import_middleware_endpoint.getEndpointPlugin)(config, Command.getEndpointParameterInstructions())
   ];
 }).s("AWSSecurityTokenServiceV20110615", "GetSessionToken", {}).n("STSClient", "GetSessionTokenCommand").f(void 0, GetSessionTokenResponseFilterSensitiveLog).ser(se_GetSessionTokenCommand).de(de_GetSessionTokenCommand).build() {
+  static {
+    __name(this, "GetSessionTokenCommand");
+  }
 };
-__name(_GetSessionTokenCommand, "GetSessionTokenCommand");
-var GetSessionTokenCommand = _GetSessionTokenCommand;
 
 // src/STS.ts
 var import_STSClient = __nccwpck_require__(51548);
@@ -29928,10 +30833,11 @@ var commands = {
   GetFederationTokenCommand,
   GetSessionTokenCommand
 };
-var _STS = class _STS extends import_STSClient.STSClient {
+var STS = class extends import_STSClient.STSClient {
+  static {
+    __name(this, "STS");
+  }
 };
-__name(_STS, "STS");
-var STS = _STS;
 (0, import_smithy_client.createAggregatedClient)(commands, STS);
 
 // src/index.ts
@@ -29941,7 +30847,7 @@ var import_EndpointParameters10 = __nccwpck_require__(42912);
 var import_client = __nccwpck_require__(5152);
 var ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 var getAccountIdFromAssumedRoleUser = /* @__PURE__ */ __name((assumedRoleUser) => {
-  if (typeof (assumedRoleUser == null ? void 0 : assumedRoleUser.Arn) === "string") {
+  if (typeof assumedRoleUser?.Arn === "string") {
     const arnComponents = assumedRoleUser.Arn.split(":");
     if (arnComponents.length > 4 && arnComponents[4] !== "") {
       return arnComponents[4];
@@ -29950,11 +30856,9 @@ var getAccountIdFromAssumedRoleUser = /* @__PURE__ */ __name((assumedRoleUser) =
   return void 0;
 }, "getAccountIdFromAssumedRoleUser");
 var resolveRegion = /* @__PURE__ */ __name(async (_region, _parentRegion, credentialProviderLogger) => {
-  var _a2;
   const region = typeof _region === "function" ? await _region() : _region;
   const parentRegion = typeof _parentRegion === "function" ? await _parentRegion() : _parentRegion;
-  (_a2 = credentialProviderLogger == null ? void 0 : credentialProviderLogger.debug) == null ? void 0 : _a2.call(
-    credentialProviderLogger,
+  credentialProviderLogger?.debug?.(
     "@aws-sdk/client-sts::resolveRegion",
     "accepting first of:",
     `${region} (provider)`,
@@ -29967,18 +30871,17 @@ var getDefaultRoleAssumer = /* @__PURE__ */ __name((stsOptions, stsClientCtor) =
   let stsClient;
   let closureSourceCreds;
   return async (sourceCreds, params) => {
-    var _a2, _b, _c;
     closureSourceCreds = sourceCreds;
     if (!stsClient) {
       const {
-        logger = (_a2 = stsOptions == null ? void 0 : stsOptions.parentClientConfig) == null ? void 0 : _a2.logger,
+        logger = stsOptions?.parentClientConfig?.logger,
         region,
-        requestHandler = (_b = stsOptions == null ? void 0 : stsOptions.parentClientConfig) == null ? void 0 : _b.requestHandler,
+        requestHandler = stsOptions?.parentClientConfig?.requestHandler,
         credentialProviderLogger
       } = stsOptions;
       const resolvedRegion = await resolveRegion(
         region,
-        (_c = stsOptions == null ? void 0 : stsOptions.parentClientConfig) == null ? void 0 : _c.region,
+        stsOptions?.parentClientConfig?.region,
         credentialProviderLogger
       );
       const isCompatibleRequestHandler = !isH2(requestHandler);
@@ -30011,17 +30914,16 @@ var getDefaultRoleAssumer = /* @__PURE__ */ __name((stsOptions, stsClientCtor) =
 var getDefaultRoleAssumerWithWebIdentity = /* @__PURE__ */ __name((stsOptions, stsClientCtor) => {
   let stsClient;
   return async (params) => {
-    var _a2, _b, _c;
     if (!stsClient) {
       const {
-        logger = (_a2 = stsOptions == null ? void 0 : stsOptions.parentClientConfig) == null ? void 0 : _a2.logger,
+        logger = stsOptions?.parentClientConfig?.logger,
         region,
-        requestHandler = (_b = stsOptions == null ? void 0 : stsOptions.parentClientConfig) == null ? void 0 : _b.requestHandler,
+        requestHandler = stsOptions?.parentClientConfig?.requestHandler,
         credentialProviderLogger
       } = stsOptions;
       const resolvedRegion = await resolveRegion(
         region,
-        (_c = stsOptions == null ? void 0 : stsOptions.parentClientConfig) == null ? void 0 : _c.region,
+        stsOptions?.parentClientConfig?.region,
         credentialProviderLogger
       );
       const isCompatibleRequestHandler = !isH2(requestHandler);
@@ -30053,25 +30955,26 @@ var getDefaultRoleAssumerWithWebIdentity = /* @__PURE__ */ __name((stsOptions, s
   };
 }, "getDefaultRoleAssumerWithWebIdentity");
 var isH2 = /* @__PURE__ */ __name((requestHandler) => {
-  var _a2;
-  return ((_a2 = requestHandler == null ? void 0 : requestHandler.metadata) == null ? void 0 : _a2.handlerProtocol) === "h2";
+  return requestHandler?.metadata?.handlerProtocol === "h2";
 }, "isH2");
 
 // src/defaultRoleAssumers.ts
 var import_STSClient2 = __nccwpck_require__(51548);
 var getCustomizableStsClientCtor = /* @__PURE__ */ __name((baseCtor, customizations) => {
-  var _a2;
   if (!customizations)
     return baseCtor;
   else
-    return _a2 = class extends baseCtor {
+    return class CustomizableSTSClient extends baseCtor {
+      static {
+        __name(this, "CustomizableSTSClient");
+      }
       constructor(config) {
         super(config);
         for (const customization of customizations) {
           this.middlewareStack.use(customization);
         }
       }
-    }, __name(_a2, "CustomizableSTSClient"), _a2;
+    };
 }, "getCustomizableStsClientCtor");
 var getDefaultRoleAssumer2 = /* @__PURE__ */ __name((stsOptions = {}, stsPlugins) => getDefaultRoleAssumer(stsOptions, getCustomizableStsClientCtor(import_STSClient2.STSClient, stsPlugins)), "getDefaultRoleAssumer");
 var getDefaultRoleAssumerWithWebIdentity2 = /* @__PURE__ */ __name((stsOptions = {}, stsPlugins) => getDefaultRoleAssumerWithWebIdentity(stsOptions, getCustomizableStsClientCtor(import_STSClient2.STSClient, stsPlugins)), "getDefaultRoleAssumerWithWebIdentity");
@@ -30381,10 +31284,7 @@ var import_protocol_http2 = __nccwpck_require__(72356);
 
 // src/submodules/httpAuthSchemes/utils/getDateHeader.ts
 var import_protocol_http = __nccwpck_require__(72356);
-var getDateHeader = /* @__PURE__ */ __name((response) => {
-  var _a, _b;
-  return import_protocol_http.HttpResponse.isInstance(response) ? ((_a = response.headers) == null ? void 0 : _a.date) ?? ((_b = response.headers) == null ? void 0 : _b.Date) : void 0;
-}, "getDateHeader");
+var getDateHeader = /* @__PURE__ */ __name((response) => import_protocol_http.HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : void 0, "getDateHeader");
 
 // src/submodules/httpAuthSchemes/utils/getSkewCorrectedDate.ts
 var getSkewCorrectedDate = /* @__PURE__ */ __name((systemClockOffset) => new Date(Date.now() + systemClockOffset), "getSkewCorrectedDate");
@@ -30409,21 +31309,20 @@ var throwSigningPropertyError = /* @__PURE__ */ __name((name, property) => {
   return property;
 }, "throwSigningPropertyError");
 var validateSigningProperties = /* @__PURE__ */ __name(async (signingProperties) => {
-  var _a, _b, _c;
   const context = throwSigningPropertyError(
     "context",
     signingProperties.context
   );
   const config = throwSigningPropertyError("config", signingProperties.config);
-  const authScheme = (_c = (_b = (_a = context.endpointV2) == null ? void 0 : _a.properties) == null ? void 0 : _b.authSchemes) == null ? void 0 : _c[0];
+  const authScheme = context.endpointV2?.properties?.authSchemes?.[0];
   const signerFunction = throwSigningPropertyError(
     "signer",
     config.signer
   );
   const signer = await signerFunction(authScheme);
-  const signingRegion = signingProperties == null ? void 0 : signingProperties.signingRegion;
-  const signingRegionSet = signingProperties == null ? void 0 : signingProperties.signingRegionSet;
-  const signingName = signingProperties == null ? void 0 : signingProperties.signingName;
+  const signingRegion = signingProperties?.signingRegion;
+  const signingRegionSet = signingProperties?.signingRegionSet;
+  const signingName = signingProperties?.signingName;
   return {
     config,
     signer,
@@ -30432,9 +31331,11 @@ var validateSigningProperties = /* @__PURE__ */ __name(async (signingProperties)
     signingName
   };
 }, "validateSigningProperties");
-var _AwsSdkSigV4Signer = class _AwsSdkSigV4Signer {
+var AwsSdkSigV4Signer = class {
+  static {
+    __name(this, "AwsSdkSigV4Signer");
+  }
   async sign(httpRequest, identity, signingProperties) {
-    var _a;
     if (!import_protocol_http2.HttpRequest.isInstance(httpRequest)) {
       throw new Error("The request is not an instance of `HttpRequest` and cannot be signed");
     }
@@ -30442,11 +31343,11 @@ var _AwsSdkSigV4Signer = class _AwsSdkSigV4Signer {
     const { config, signer } = validatedProps;
     let { signingRegion, signingName } = validatedProps;
     const handlerExecutionContext = signingProperties.context;
-    if (((_a = handlerExecutionContext == null ? void 0 : handlerExecutionContext.authSchemes) == null ? void 0 : _a.length) ?? 0 > 1) {
+    if (handlerExecutionContext?.authSchemes?.length ?? 0 > 1) {
       const [first, second] = handlerExecutionContext.authSchemes;
-      if ((first == null ? void 0 : first.name) === "sigv4a" && (second == null ? void 0 : second.name) === "sigv4") {
-        signingRegion = (second == null ? void 0 : second.signingRegion) ?? signingRegion;
-        signingName = (second == null ? void 0 : second.signingName) ?? signingName;
+      if (first?.name === "sigv4a" && second?.name === "sigv4") {
+        signingRegion = second?.signingRegion ?? signingRegion;
+        signingName = second?.signingName ?? signingName;
       }
     }
     const signedRequest = await signer.sign(httpRequest, {
@@ -30479,22 +31380,22 @@ var _AwsSdkSigV4Signer = class _AwsSdkSigV4Signer {
     }
   }
 };
-__name(_AwsSdkSigV4Signer, "AwsSdkSigV4Signer");
-var AwsSdkSigV4Signer = _AwsSdkSigV4Signer;
 var AWSSDKSigV4Signer = AwsSdkSigV4Signer;
 
 // src/submodules/httpAuthSchemes/aws_sdk/AwsSdkSigV4ASigner.ts
 var import_protocol_http3 = __nccwpck_require__(72356);
-var _AwsSdkSigV4ASigner = class _AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
+var AwsSdkSigV4ASigner = class extends AwsSdkSigV4Signer {
+  static {
+    __name(this, "AwsSdkSigV4ASigner");
+  }
   async sign(httpRequest, identity, signingProperties) {
-    var _a;
     if (!import_protocol_http3.HttpRequest.isInstance(httpRequest)) {
       throw new Error("The request is not an instance of `HttpRequest` and cannot be signed");
     }
     const { config, signer, signingRegion, signingRegionSet, signingName } = await validateSigningProperties(
       signingProperties
     );
-    const configResolvedSigningRegionSet = await ((_a = config.sigv4aSigningRegionSet) == null ? void 0 : _a.call(config));
+    const configResolvedSigningRegionSet = await config.sigv4aSigningRegionSet?.();
     const multiRegionOverride = (configResolvedSigningRegionSet ?? signingRegionSet ?? [signingRegion]).join(",");
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),
@@ -30504,8 +31405,6 @@ var _AwsSdkSigV4ASigner = class _AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
     return signedRequest;
   }
 };
-__name(_AwsSdkSigV4ASigner, "AwsSdkSigV4ASigner");
-var AwsSdkSigV4ASigner = _AwsSdkSigV4ASigner;
 
 // src/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4AConfig.ts
 var import_core = __nccwpck_require__(90402);
@@ -30758,7 +31657,7 @@ var parseJsonBody = /* @__PURE__ */ __name((streamBody, context) => collectBodyS
     try {
       return JSON.parse(encoded);
     } catch (e) {
-      if ((e == null ? void 0 : e.name) === "SyntaxError") {
+      if (e?.name === "SyntaxError") {
         Object.defineProperty(e, "$responseBodyText", {
           value: encoded
         });
@@ -30849,11 +31748,10 @@ var parseXmlErrorBody = /* @__PURE__ */ __name(async (errorBody, context) => {
   return value;
 }, "parseXmlErrorBody");
 var loadRestXmlErrorCode = /* @__PURE__ */ __name((output, data) => {
-  var _a;
-  if (((_a = data == null ? void 0 : data.Error) == null ? void 0 : _a.Code) !== void 0) {
+  if (data?.Error?.Code !== void 0) {
     return data.Error.Code;
   }
-  if ((data == null ? void 0 : data.Code) !== void 0) {
+  if (data?.Code !== void 0) {
     return data.Code;
   }
   if (output.statusCode == 404) {
@@ -30943,13 +31841,9 @@ __name(resolveLogins, "resolveLogins");
 // src/fromCognitoIdentity.ts
 function fromCognitoIdentity(parameters) {
   return async (awsIdentityProperties) => {
-    var _a;
-    (_a = parameters.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
+    parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
     const { GetCredentialsForIdentityCommand: GetCredentialsForIdentityCommand2, CognitoIdentityClient: CognitoIdentityClient2 } = await Promise.resolve().then(() => (init_loadCognitoIdentity(), loadCognitoIdentity_exports));
-    const fromConfigs = /* @__PURE__ */ __name((property) => {
-      var _a2, _b, _c;
-      return ((_a2 = parameters.clientConfig) == null ? void 0 : _a2[property]) ?? ((_b = parameters.parentClientConfig) == null ? void 0 : _b[property]) ?? ((_c = awsIdentityProperties == null ? void 0 : awsIdentityProperties.callerClientConfig) == null ? void 0 : _c[property]);
-    }, "fromConfigs");
+    const fromConfigs = /* @__PURE__ */ __name((property) => parameters.clientConfig?.[property] ?? parameters.parentClientConfig?.[property] ?? awsIdentityProperties?.callerClientConfig?.[property], "fromConfigs");
     const {
       Credentials: {
         AccessKeyId = throwOnMissingAccessKeyId(parameters.logger),
@@ -30997,9 +31891,12 @@ __name(throwOnMissingSecretKey, "throwOnMissingSecretKey");
 
 // src/IndexedDbStorage.ts
 var STORE_NAME = "IdentityIds";
-var _IndexedDbStorage = class _IndexedDbStorage {
+var IndexedDbStorage = class {
   constructor(dbName = "aws:cognito-identity-ids") {
     this.dbName = dbName;
+  }
+  static {
+    __name(this, "IndexedDbStorage");
   }
   getItem(key) {
     return this.withObjectStore("readonly", (store) => {
@@ -31063,13 +31960,14 @@ var _IndexedDbStorage = class _IndexedDbStorage {
     });
   }
 };
-__name(_IndexedDbStorage, "IndexedDbStorage");
-var IndexedDbStorage = _IndexedDbStorage;
 
 // src/InMemoryStorage.ts
-var _InMemoryStorage = class _InMemoryStorage {
+var InMemoryStorage = class {
   constructor(store = {}) {
     this.store = store;
+  }
+  static {
+    __name(this, "InMemoryStorage");
   }
   getItem(key) {
     if (key in this.store) {
@@ -31084,8 +31982,6 @@ var _InMemoryStorage = class _InMemoryStorage {
     this.store[key] = value;
   }
 };
-__name(_InMemoryStorage, "InMemoryStorage");
-var InMemoryStorage = _InMemoryStorage;
 
 // src/localStorage.ts
 var inMemoryStorage = new InMemoryStorage();
@@ -31113,14 +32009,11 @@ function fromCognitoIdentityPool({
   logger,
   parentClientConfig
 }) {
-  logger == null ? void 0 : logger.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
+  logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
   const cacheKey = userIdentifier ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}` : void 0;
   let provider = /* @__PURE__ */ __name(async (awsIdentityProperties) => {
     const { GetIdCommand: GetIdCommand2, CognitoIdentityClient: CognitoIdentityClient2 } = await Promise.resolve().then(() => (init_loadCognitoIdentity(), loadCognitoIdentity_exports));
-    const fromConfigs = /* @__PURE__ */ __name((property) => {
-      var _a;
-      return (clientConfig == null ? void 0 : clientConfig[property]) ?? (parentClientConfig == null ? void 0 : parentClientConfig[property]) ?? ((_a = awsIdentityProperties == null ? void 0 : awsIdentityProperties.callerClientConfig) == null ? void 0 : _a[property]);
-    }, "fromConfigs");
+    const fromConfigs = /* @__PURE__ */ __name((property) => clientConfig?.[property] ?? parentClientConfig?.[property] ?? awsIdentityProperties?.callerClientConfig?.[property], "fromConfigs");
     const _client = client ?? new CognitoIdentityClient2(
       Object.assign({}, clientConfig ?? {}, {
         region: fromConfigs("region"),
@@ -31218,8 +32111,7 @@ var ENV_EXPIRATION = "AWS_CREDENTIAL_EXPIRATION";
 var ENV_CREDENTIAL_SCOPE = "AWS_CREDENTIAL_SCOPE";
 var ENV_ACCOUNT_ID = "AWS_ACCOUNT_ID";
 var fromEnv = /* @__PURE__ */ __name((init) => async () => {
-  var _a;
-  (_a = init == null ? void 0 : init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-env - fromEnv");
+  init?.logger?.debug("@aws-sdk/credential-provider-env - fromEnv");
   const accessKeyId = process.env[ENV_KEY];
   const secretAccessKey = process.env[ENV_SECRET];
   const sessionToken = process.env[ENV_SESSION];
@@ -31238,7 +32130,7 @@ var fromEnv = /* @__PURE__ */ __name((init) => async () => {
     (0, import_client.setCredentialFeature)(credentials, "CREDENTIALS_ENV_VARS", "g");
     return credentials;
   }
-  throw new import_property_provider.CredentialsProviderError("Unable to find environment variable credentials.", { logger: init == null ? void 0 : init.logger });
+  throw new import_property_provider.CredentialsProviderError("Unable to find environment variable credentials.", { logger: init?.logger });
 }, "fromEnv");
 // Annotate the CommonJS export names for ESM import in node:
 
@@ -31538,16 +32430,16 @@ var resolveCredentialSource = /* @__PURE__ */ __name((credentialSource, profileN
     EcsContainer: async (options) => {
       const { fromHttp } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(98605)));
       const { fromContainerMetadata } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(40566)));
-      logger == null ? void 0 : logger.debug("@aws-sdk/credential-provider-ini - credential_source is EcsContainer");
+      logger?.debug("@aws-sdk/credential-provider-ini - credential_source is EcsContainer");
       return async () => (0, import_property_provider.chain)(fromHttp(options ?? {}), fromContainerMetadata(options))().then(setNamedProvider);
     },
     Ec2InstanceMetadata: async (options) => {
-      logger == null ? void 0 : logger.debug("@aws-sdk/credential-provider-ini - credential_source is Ec2InstanceMetadata");
+      logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Ec2InstanceMetadata");
       const { fromInstanceMetadata } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(40566)));
       return async () => fromInstanceMetadata(options)().then(setNamedProvider);
     },
     Environment: async (options) => {
-      logger == null ? void 0 : logger.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
+      logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
       const { fromEnv } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(55606)));
       return async () => fromEnv(options)().then(setNamedProvider);
     }
@@ -31568,24 +32460,21 @@ var isAssumeRoleProfile = /* @__PURE__ */ __name((arg, { profile = "default", lo
   return Boolean(arg) && typeof arg === "object" && typeof arg.role_arn === "string" && ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1 && ["undefined", "string"].indexOf(typeof arg.external_id) > -1 && ["undefined", "string"].indexOf(typeof arg.mfa_serial) > -1 && (isAssumeRoleWithSourceProfile(arg, { profile, logger }) || isCredentialSourceProfile(arg, { profile, logger }));
 }, "isAssumeRoleProfile");
 var isAssumeRoleWithSourceProfile = /* @__PURE__ */ __name((arg, { profile, logger }) => {
-  var _a;
   const withSourceProfile = typeof arg.source_profile === "string" && typeof arg.credential_source === "undefined";
   if (withSourceProfile) {
-    (_a = logger == null ? void 0 : logger.debug) == null ? void 0 : _a.call(logger, `    ${profile} isAssumeRoleWithSourceProfile source_profile=${arg.source_profile}`);
+    logger?.debug?.(`    ${profile} isAssumeRoleWithSourceProfile source_profile=${arg.source_profile}`);
   }
   return withSourceProfile;
 }, "isAssumeRoleWithSourceProfile");
 var isCredentialSourceProfile = /* @__PURE__ */ __name((arg, { profile, logger }) => {
-  var _a;
   const withProviderProfile = typeof arg.credential_source === "string" && typeof arg.source_profile === "undefined";
   if (withProviderProfile) {
-    (_a = logger == null ? void 0 : logger.debug) == null ? void 0 : _a.call(logger, `    ${profile} isCredentialSourceProfile credential_source=${arg.credential_source}`);
+    logger?.debug?.(`    ${profile} isCredentialSourceProfile credential_source=${arg.credential_source}`);
   }
   return withProviderProfile;
 }, "isCredentialSourceProfile");
 var resolveAssumeRoleCredentials = /* @__PURE__ */ __name(async (profileName, profiles, options, visitedProfiles = {}) => {
-  var _a, _b, _c;
-  (_a = options.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-ini - resolveAssumeRoleCredentials (STS)");
+  options.logger?.debug("@aws-sdk/credential-provider-ini - resolveAssumeRoleCredentials (STS)");
   const profileData = profiles[profileName];
   const { source_profile, region } = profileData;
   if (!options.roleAssumer) {
@@ -31595,8 +32484,8 @@ var resolveAssumeRoleCredentials = /* @__PURE__ */ __name(async (profileName, pr
         ...options.clientConfig,
         credentialProviderLogger: options.logger,
         parentClientConfig: {
-          ...options == null ? void 0 : options.parentClientConfig,
-          region: region ?? ((_b = options == null ? void 0 : options.parentClientConfig) == null ? void 0 : _b.region)
+          ...options?.parentClientConfig,
+          region: region ?? options?.parentClientConfig?.region
         }
       },
       options.clientPlugins
@@ -31608,7 +32497,7 @@ var resolveAssumeRoleCredentials = /* @__PURE__ */ __name(async (profileName, pr
       { logger: options.logger }
     );
   }
-  (_c = options.logger) == null ? void 0 : _c.debug(
+  options.logger?.debug(
     `@aws-sdk/credential-provider-ini - finding credential resolver using ${source_profile ? `source_profile=[${source_profile}]` : `profile=[${profileName}]`}`
   );
   const sourceCredsProvider = source_profile ? resolveProfileData(
@@ -31684,8 +32573,7 @@ var isSsoProfile = /* @__PURE__ */ __name((arg) => arg && (typeof arg.sso_start_
 
 var isStaticCredsProfile = /* @__PURE__ */ __name((arg) => Boolean(arg) && typeof arg === "object" && typeof arg.aws_access_key_id === "string" && typeof arg.aws_secret_access_key === "string" && ["undefined", "string"].indexOf(typeof arg.aws_session_token) > -1 && ["undefined", "string"].indexOf(typeof arg.aws_account_id) > -1, "isStaticCredsProfile");
 var resolveStaticCredentials = /* @__PURE__ */ __name(async (profile, options) => {
-  var _a;
-  (_a = options == null ? void 0 : options.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-ini - resolveStaticCredentials");
+  options?.logger?.debug("@aws-sdk/credential-provider-ini - resolveStaticCredentials");
   const credentials = {
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,
@@ -31739,7 +32627,6 @@ var resolveProfileData = /* @__PURE__ */ __name(async (profileName, profiles, op
 
 // src/fromIni.ts
 var fromIni = /* @__PURE__ */ __name((_init = {}) => async ({ callerClientConfig } = {}) => {
-  var _a;
   const init = {
     ..._init,
     parentClientConfig: {
@@ -31747,11 +32634,11 @@ var fromIni = /* @__PURE__ */ __name((_init = {}) => async ({ callerClientConfig
       ..._init.parentClientConfig
     }
   };
-  (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-ini - fromIni");
+  init.logger?.debug("@aws-sdk/credential-provider-ini - fromIni");
   const profiles = await (0, import_shared_ini_file_loader.parseKnownFiles)(init);
   return resolveProfileData(
     (0, import_shared_ini_file_loader.getProfileName)({
-      profile: _init.profile ?? (callerClientConfig == null ? void 0 : callerClientConfig.profile)
+      profile: _init.profile ?? callerClientConfig?.profile
     }),
     profiles,
     init
@@ -31817,10 +32704,9 @@ var import_shared_ini_file_loader = __nccwpck_require__(94964);
 var import_property_provider = __nccwpck_require__(71238);
 var ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 var remoteProvider = /* @__PURE__ */ __name(async (init) => {
-  var _a, _b;
   const { ENV_CMDS_FULL_URI, ENV_CMDS_RELATIVE_URI, fromContainerMetadata, fromInstanceMetadata } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(40566)));
   if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
-    (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
+    init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
     const { fromHttp } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(98605)));
     return (0, import_property_provider.chain)(fromHttp(init), fromContainerMetadata(init));
   }
@@ -31829,7 +32715,7 @@ var remoteProvider = /* @__PURE__ */ __name(async (init) => {
       throw new import_property_provider.CredentialsProviderError("EC2 Instance Metadata Service access disabled", { logger: init.logger });
     };
   }
-  (_b = init.logger) == null ? void 0 : _b.debug("@aws-sdk/credential-provider-node - remoteProvider::fromInstanceMetadata");
+  init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromInstanceMetadata");
   return fromInstanceMetadata(init);
 }, "remoteProvider");
 
@@ -31838,13 +32724,12 @@ var multipleCredentialSourceWarningEmitted = false;
 var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_provider.memoize)(
   (0, import_property_provider.chain)(
     async () => {
-      var _a, _b, _c, _d;
       const profile = init.profile ?? process.env[import_shared_ini_file_loader.ENV_PROFILE];
       if (profile) {
         const envStaticCredentialsAreSet = process.env[import_credential_provider_env.ENV_KEY] && process.env[import_credential_provider_env.ENV_SECRET];
         if (envStaticCredentialsAreSet) {
           if (!multipleCredentialSourceWarningEmitted) {
-            const warnFn = ((_a = init.logger) == null ? void 0 : _a.warn) && ((_c = (_b = init.logger) == null ? void 0 : _b.constructor) == null ? void 0 : _c.name) !== "NoOpLogger" ? init.logger.warn : console.warn;
+            const warnFn = init.logger?.warn && init.logger?.constructor?.name !== "NoOpLogger" ? init.logger.warn : console.warn;
             warnFn(
               `@aws-sdk/credential-provider-node - defaultProvider::fromEnv WARNING:
     Multiple credential sources detected: 
@@ -31864,12 +32749,11 @@ var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_
           tryNextLink: true
         });
       }
-      (_d = init.logger) == null ? void 0 : _d.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
       return (0, import_credential_provider_env.fromEnv)(init)();
     },
     async () => {
-      var _a;
-      (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
       const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
       if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
         throw new import_property_provider.CredentialsProviderError(
@@ -31881,26 +32765,22 @@ var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_
       return fromSSO(init)();
     },
     async () => {
-      var _a;
-      (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
       const { fromIni } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(75869)));
       return fromIni(init)();
     },
     async () => {
-      var _a;
-      (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
       const { fromProcess } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(75360)));
       return fromProcess(init)();
     },
     async () => {
-      var _a;
-      (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
       const { fromTokenFile } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(29956)));
       return fromTokenFile(init)();
     },
     async () => {
-      var _a;
-      (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
+      init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
       return (await remoteProvider(init))();
     },
     async () => {
@@ -31913,8 +32793,8 @@ var defaultProvider = /* @__PURE__ */ __name((init = {}) => (0, import_property_
   credentialsTreatedAsExpired,
   credentialsWillNeedRefresh
 ), "defaultProvider");
-var credentialsWillNeedRefresh = /* @__PURE__ */ __name((credentials) => (credentials == null ? void 0 : credentials.expiration) !== void 0, "credentialsWillNeedRefresh");
-var credentialsTreatedAsExpired = /* @__PURE__ */ __name((credentials) => (credentials == null ? void 0 : credentials.expiration) !== void 0 && credentials.expiration.getTime() - Date.now() < 3e5, "credentialsTreatedAsExpired");
+var credentialsWillNeedRefresh = /* @__PURE__ */ __name((credentials) => credentials?.expiration !== void 0, "credentialsWillNeedRefresh");
+var credentialsTreatedAsExpired = /* @__PURE__ */ __name((credentials) => credentials?.expiration !== void 0 && credentials.expiration.getTime() - Date.now() < 3e5, "credentialsTreatedAsExpired");
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -31965,7 +32845,6 @@ var import_util = __nccwpck_require__(39023);
 // src/getValidatedProcessCredentials.ts
 var import_client = __nccwpck_require__(5152);
 var getValidatedProcessCredentials = /* @__PURE__ */ __name((profileName, data, profiles) => {
-  var _a;
   if (data.Version !== 1) {
     throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
   }
@@ -31980,7 +32859,7 @@ var getValidatedProcessCredentials = /* @__PURE__ */ __name((profileName, data, 
     }
   }
   let accountId = data.AccountId;
-  if (!accountId && ((_a = profiles == null ? void 0 : profiles[profileName]) == null ? void 0 : _a.aws_account_id)) {
+  if (!accountId && profiles?.[profileName]?.aws_account_id) {
     accountId = profiles[profileName].aws_account_id;
   }
   const credentials = {
@@ -32026,12 +32905,11 @@ var resolveProcessCredentials = /* @__PURE__ */ __name(async (profileName, profi
 
 // src/fromProcess.ts
 var fromProcess = /* @__PURE__ */ __name((init = {}) => async ({ callerClientConfig } = {}) => {
-  var _a;
-  (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-process - fromProcess");
+  init.logger?.debug("@aws-sdk/credential-provider-process - fromProcess");
   const profiles = await (0, import_shared_ini_file_loader.parseKnownFiles)(init);
   return resolveProcessCredentials(
     (0, import_shared_ini_file_loader.getProfileName)({
-      profile: init.profile ?? (callerClientConfig == null ? void 0 : callerClientConfig.profile)
+      profile: init.profile ?? callerClientConfig?.profile
     }),
     profiles,
     init.logger
@@ -32155,8 +33033,8 @@ var resolveSSOCredentials = /* @__PURE__ */ __name(async ({
   const { SSOClient: SSOClient2, GetRoleCredentialsCommand: GetRoleCredentialsCommand2 } = await Promise.resolve().then(() => (init_loadSso(), loadSso_exports));
   const sso = ssoClient || new SSOClient2(
     Object.assign({}, clientConfig ?? {}, {
-      logger: (clientConfig == null ? void 0 : clientConfig.logger) ?? (parentClientConfig == null ? void 0 : parentClientConfig.logger),
-      region: (clientConfig == null ? void 0 : clientConfig.region) ?? ssoRegion
+      logger: clientConfig?.logger ?? parentClientConfig?.logger,
+      region: clientConfig?.region ?? ssoRegion
     })
   );
   let ssoResp;
@@ -32217,12 +33095,11 @@ Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.ht
 
 // src/fromSSO.ts
 var fromSSO = /* @__PURE__ */ __name((init = {}) => async ({ callerClientConfig } = {}) => {
-  var _a;
-  (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/credential-provider-sso - fromSSO");
+  init.logger?.debug("@aws-sdk/credential-provider-sso - fromSSO");
   const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
   const { ssoClient } = init;
   const profileName = (0, import_shared_ini_file_loader.getProfileName)({
-    profile: init.profile ?? (callerClientConfig == null ? void 0 : callerClientConfig.profile)
+    profile: init.profile ?? callerClientConfig?.profile
   });
   if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
     const profiles = await (0, import_shared_ini_file_loader.parseKnownFiles)(init);
@@ -32235,7 +33112,7 @@ var fromSSO = /* @__PURE__ */ __name((init = {}) => async ({ callerClientConfig 
         logger: init.logger
       });
     }
-    if (profile == null ? void 0 : profile.sso_session) {
+    if (profile?.sso_session) {
       const ssoSessions = await (0, import_shared_ini_file_loader.loadSsoSessionData)(init);
       const session = ssoSessions[profile.sso_session];
       const conflictMsg = ` configurations in profile ${profileName} and sso-session ${profile.sso_session}`;
@@ -32881,7 +33758,6 @@ module.exports = __toCommonJS(src_exports);
 
 // src/loggerMiddleware.ts
 var loggerMiddleware = /* @__PURE__ */ __name(() => (next, context) => async (args) => {
-  var _a, _b;
   try {
     const response = await next(args);
     const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
@@ -32889,7 +33765,7 @@ var loggerMiddleware = /* @__PURE__ */ __name(() => (next, context) => async (ar
     const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
     const outputFilterSensitiveLog = overrideOutputFilterSensitiveLog ?? context.outputFilterSensitiveLog;
     const { $metadata, ...outputWithoutMetadata } = response.output;
-    (_a = logger == null ? void 0 : logger.info) == null ? void 0 : _a.call(logger, {
+    logger?.info?.({
       clientName,
       commandName,
       input: inputFilterSensitiveLog(args.input),
@@ -32901,7 +33777,7 @@ var loggerMiddleware = /* @__PURE__ */ __name(() => (next, context) => async (ar
     const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
     const { overrideInputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
     const inputFilterSensitiveLog = overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
-    (_b = logger == null ? void 0 : logger.error) == null ? void 0 : _b.call(logger, {
+    logger?.error?.({
       clientName,
       commandName,
       input: inputFilterSensitiveLog(args.input),
@@ -33053,14 +33929,13 @@ function resolveUserAgentConfig(input) {
     ...input,
     customUserAgent: typeof input.customUserAgent === "string" ? [[input.customUserAgent]] : input.customUserAgent,
     userAgentAppId: async () => {
-      var _a, _b;
       const appId = await normalizedAppIdProvider();
       if (!isValidUserAgentAppId(appId)) {
-        const logger = ((_b = (_a = input.logger) == null ? void 0 : _a.constructor) == null ? void 0 : _b.name) === "NoOpLogger" || !input.logger ? console : input.logger;
+        const logger = input.logger?.constructor?.name === "NoOpLogger" || !input.logger ? console : input.logger;
         if (typeof appId !== "string") {
-          logger == null ? void 0 : logger.warn("userAgentAppId must be a string or undefined.");
+          logger?.warn("userAgentAppId must be a string or undefined.");
         } else if (appId.length > 50) {
-          logger == null ? void 0 : logger.warn("The provided userAgentAppId exceeds the maximum length of 50 characters.");
+          logger?.warn("The provided userAgentAppId exceeds the maximum length of 50 characters.");
         }
       }
       return appId;
@@ -33077,15 +33952,14 @@ var import_protocol_http = __nccwpck_require__(72356);
 var import_core2 = __nccwpck_require__(8704);
 var ACCOUNT_ID_ENDPOINT_REGEX = /\d{12}\.ddb/;
 async function checkFeatures(context, config, args) {
-  var _a, _b, _c, _d, _e, _f, _g;
   const request = args.request;
-  if (((_a = request == null ? void 0 : request.headers) == null ? void 0 : _a["smithy-protocol"]) === "rpc-v2-cbor") {
+  if (request?.headers?.["smithy-protocol"] === "rpc-v2-cbor") {
     (0, import_core2.setFeature)(context, "PROTOCOL_RPC_V2_CBOR", "M");
   }
   if (typeof config.retryStrategy === "function") {
     const retryStrategy = await config.retryStrategy();
     if (typeof retryStrategy.acquireInitialRetryToken === "function") {
-      if ((_c = (_b = retryStrategy.constructor) == null ? void 0 : _b.name) == null ? void 0 : _c.includes("Adaptive")) {
+      if (retryStrategy.constructor?.name?.includes("Adaptive")) {
         (0, import_core2.setFeature)(context, "RETRY_MODE_ADAPTIVE", "F");
       } else {
         (0, import_core2.setFeature)(context, "RETRY_MODE_STANDARD", "E");
@@ -33096,10 +33970,10 @@ async function checkFeatures(context, config, args) {
   }
   if (typeof config.accountIdEndpointMode === "function") {
     const endpointV2 = context.endpointV2;
-    if (String((_d = endpointV2 == null ? void 0 : endpointV2.url) == null ? void 0 : _d.hostname).match(ACCOUNT_ID_ENDPOINT_REGEX)) {
+    if (String(endpointV2?.url?.hostname).match(ACCOUNT_ID_ENDPOINT_REGEX)) {
       (0, import_core2.setFeature)(context, "ACCOUNT_ID_ENDPOINT", "O");
     }
-    switch (await ((_e = config.accountIdEndpointMode) == null ? void 0 : _e.call(config))) {
+    switch (await config.accountIdEndpointMode?.()) {
       case "disabled":
         (0, import_core2.setFeature)(context, "ACCOUNT_ID_MODE_DISABLED", "Q");
         break;
@@ -33111,8 +33985,8 @@ async function checkFeatures(context, config, args) {
         break;
     }
   }
-  const identity = (_g = (_f = context.__smithy_context) == null ? void 0 : _f.selectedHttpAuthScheme) == null ? void 0 : _g.identity;
-  if (identity == null ? void 0 : identity.$source) {
+  const identity = context.__smithy_context?.selectedHttpAuthScheme?.identity;
+  if (identity?.$source) {
     const credentials = identity;
     if (credentials.accountId) {
       (0, import_core2.setFeature)(context, "RESOLVED_ACCOUNT_ID", "T");
@@ -33155,22 +34029,21 @@ __name(encodeFeatures, "encodeFeatures");
 
 // src/user-agent-middleware.ts
 var userAgentMiddleware = /* @__PURE__ */ __name((options) => (next, context) => async (args) => {
-  var _a, _b, _c, _d;
   const { request } = args;
   if (!import_protocol_http.HttpRequest.isInstance(request)) {
     return next(args);
   }
   const { headers } = request;
-  const userAgent = ((_a = context == null ? void 0 : context.userAgent) == null ? void 0 : _a.map(escapeUserAgent)) || [];
+  const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
   const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
   await checkFeatures(context, options, args);
   const awsContext = context;
   defaultUserAgent.push(
     `m/${encodeFeatures(
-      Object.assign({}, (_b = context.__smithy_context) == null ? void 0 : _b.features, (_c = awsContext.__aws_sdk_context) == null ? void 0 : _c.features)
+      Object.assign({}, context.__smithy_context?.features, awsContext.__aws_sdk_context?.features)
     )}`
   );
-  const customUserAgent = ((_d = options == null ? void 0 : options.customUserAgent) == null ? void 0 : _d.map(escapeUserAgent)) || [];
+  const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
   const appId = await options.userAgentAppId();
   if (appId) {
     defaultUserAgent.push(escapeUserAgent([`app/${appId}`]));
@@ -33195,9 +34068,8 @@ var userAgentMiddleware = /* @__PURE__ */ __name((options) => (next, context) =>
   });
 }, "userAgentMiddleware");
 var escapeUserAgent = /* @__PURE__ */ __name((userAgentPair) => {
-  var _a;
   const name = userAgentPair[0].split(UA_NAME_SEPARATOR).map((part) => part.replace(UA_NAME_ESCAPE_REGEX, UA_ESCAPE_CHAR)).join(UA_NAME_SEPARATOR);
-  const version = (_a = userAgentPair[1]) == null ? void 0 : _a.replace(UA_VALUE_ESCAPE_REGEX, UA_ESCAPE_CHAR);
+  const version = userAgentPair[1]?.replace(UA_VALUE_ESCAPE_REGEX, UA_ESCAPE_CHAR);
   const prefixSeparatorIndex = name.indexOf(UA_NAME_SEPARATOR);
   const prefix = name.substring(0, prefixSeparatorIndex);
   let uaName = name.substring(prefixSeparatorIndex + 1);
@@ -33404,12 +34276,11 @@ var REFRESH_MESSAGE = `To refresh this SSO session run 'aws sso login' with the 
 
 // src/getSsoOidcClient.ts
 var getSsoOidcClient = /* @__PURE__ */ __name(async (ssoRegion, init = {}) => {
-  var _a, _b, _c;
   const { SSOOIDCClient } = await Promise.resolve().then(() => __toESM(__nccwpck_require__(6879)));
   const ssoOidcClient = new SSOOIDCClient(
     Object.assign({}, init.clientConfig ?? {}, {
-      region: ssoRegion ?? ((_a = init.clientConfig) == null ? void 0 : _a.region),
-      logger: ((_b = init.clientConfig) == null ? void 0 : _b.logger) ?? ((_c = init.parentClientConfig) == null ? void 0 : _c.logger)
+      region: ssoRegion ?? init.clientConfig?.region,
+      logger: init.clientConfig?.logger ?? init.parentClientConfig?.logger
     })
   );
   return ssoOidcClient;
@@ -33461,7 +34332,6 @@ var writeSSOTokenToFile = /* @__PURE__ */ __name((id, ssoToken) => {
 // src/fromSso.ts
 var lastRefreshAttemptTime = /* @__PURE__ */ new Date(0);
 var fromSso = /* @__PURE__ */ __name((_init = {}) => async ({ callerClientConfig } = {}) => {
-  var _a;
   const init = {
     ..._init,
     parentClientConfig: {
@@ -33469,10 +34339,10 @@ var fromSso = /* @__PURE__ */ __name((_init = {}) => async ({ callerClientConfig
       ..._init.parentClientConfig
     }
   };
-  (_a = init.logger) == null ? void 0 : _a.debug("@aws-sdk/token-providers - fromSso");
+  init.logger?.debug("@aws-sdk/token-providers - fromSso");
   const profiles = await (0, import_shared_ini_file_loader.parseKnownFiles)(init);
   const profileName = (0, import_shared_ini_file_loader.getProfileName)({
-    profile: init.profile ?? (callerClientConfig == null ? void 0 : callerClientConfig.profile)
+    profile: init.profile ?? callerClientConfig?.profile
   });
   const profile = profiles[profileName];
   if (!profile) {
@@ -33550,7 +34420,7 @@ var fromSso = /* @__PURE__ */ __name((_init = {}) => async ({ callerClientConfig
 // src/fromStatic.ts
 
 var fromStatic = /* @__PURE__ */ __name(({ token, logger }) => async () => {
-  logger == null ? void 0 : logger.debug("@aws-sdk/token-providers - fromStatic");
+  logger?.debug("@aws-sdk/token-providers - fromStatic");
   if (!token || !token.token) {
     throw new import_property_provider.TokenProviderError(`Please pass a valid token to fromStatic`, false);
   }
@@ -33735,6 +34605,9 @@ var partitions_default = {
       },
       "ap-southeast-5": {
         description: "Asia Pacific (Malaysia)"
+      },
+      "ap-southeast-7": {
+        description: "Asia Pacific (Thailand)"
       },
       "aws-global": {
         description: "AWS Standard global region"
@@ -34046,7 +34919,6 @@ var isCrtAvailable = /* @__PURE__ */ __name(() => {
 // src/defaultUserAgent.ts
 var createDefaultUserAgentProvider = /* @__PURE__ */ __name(({ serviceId, clientVersion }) => {
   return async (config) => {
-    var _a;
     const sections = [
       // sdk-metadata
       ["aws-sdk-js", clientVersion],
@@ -34069,7 +34941,7 @@ var createDefaultUserAgentProvider = /* @__PURE__ */ __name(({ serviceId, client
     if (import_process.env.AWS_EXECUTION_ENV) {
       sections.push([`exec-env/${import_process.env.AWS_EXECUTION_ENV}`]);
     }
-    const appId = await ((_a = config == null ? void 0 : config.userAgentAppId) == null ? void 0 : _a.call(config));
+    const appId = await config?.userAgentAppId?.();
     const resolvedUserAgent = appId ? [...sections, [`app/${appId}`]] : [...sections];
     return resolvedUserAgent;
   };
@@ -38557,12 +39429,9 @@ var resolveRegionConfig = /* @__PURE__ */ __name((input) => {
 }, "resolveRegionConfig");
 
 // src/regionInfo/getHostnameFromVariants.ts
-var getHostnameFromVariants = /* @__PURE__ */ __name((variants = [], { useFipsEndpoint, useDualstackEndpoint }) => {
-  var _a;
-  return (_a = variants.find(
-    ({ tags }) => useFipsEndpoint === tags.includes("fips") && useDualstackEndpoint === tags.includes("dualstack")
-  )) == null ? void 0 : _a.hostname;
-}, "getHostnameFromVariants");
+var getHostnameFromVariants = /* @__PURE__ */ __name((variants = [], { useFipsEndpoint, useDualstackEndpoint }) => variants.find(
+  ({ tags }) => useFipsEndpoint === tags.includes("fips") && useDualstackEndpoint === tags.includes("dualstack")
+)?.hostname, "getHostnameFromVariants");
 
 // src/regionInfo/getResolvedHostname.ts
 var getResolvedHostname = /* @__PURE__ */ __name((resolvedRegion, { regionHostname, partitionHostname }) => regionHostname ? regionHostname : partitionHostname ? partitionHostname.replace("{region}", resolvedRegion) : void 0, "getResolvedHostname");
@@ -38591,18 +39460,17 @@ var getRegionInfo = /* @__PURE__ */ __name((region, {
   regionHash,
   partitionHash
 }) => {
-  var _a, _b, _c, _d, _e;
   const partition = getResolvedPartition(region, { partitionHash });
-  const resolvedRegion = region in regionHash ? region : ((_a = partitionHash[partition]) == null ? void 0 : _a.endpoint) ?? region;
+  const resolvedRegion = region in regionHash ? region : partitionHash[partition]?.endpoint ?? region;
   const hostnameOptions = { useFipsEndpoint, useDualstackEndpoint };
-  const regionHostname = getHostnameFromVariants((_b = regionHash[resolvedRegion]) == null ? void 0 : _b.variants, hostnameOptions);
-  const partitionHostname = getHostnameFromVariants((_c = partitionHash[partition]) == null ? void 0 : _c.variants, hostnameOptions);
+  const regionHostname = getHostnameFromVariants(regionHash[resolvedRegion]?.variants, hostnameOptions);
+  const partitionHostname = getHostnameFromVariants(partitionHash[partition]?.variants, hostnameOptions);
   const hostname = getResolvedHostname(resolvedRegion, { regionHostname, partitionHostname });
   if (hostname === void 0) {
     throw new Error(`Endpoint resolution failed for: ${{ resolvedRegion, useFipsEndpoint, useDualstackEndpoint }}`);
   }
   const signingRegion = getResolvedSigningRegion(hostname, {
-    signingRegion: (_d = regionHash[resolvedRegion]) == null ? void 0 : _d.signingRegion,
+    signingRegion: regionHash[resolvedRegion]?.signingRegion,
     regionRegex: partitionHash[partition].regionRegex,
     useFipsEndpoint
   });
@@ -38611,7 +39479,7 @@ var getRegionInfo = /* @__PURE__ */ __name((region, {
     signingService,
     hostname,
     ...signingRegion && { signingRegion },
-    ...((_e = regionHash[resolvedRegion]) == null ? void 0 : _e.signingService) && {
+    ...regionHash[resolvedRegion]?.signingService && {
       signingService: regionHash[resolvedRegion].signingService
     }
   };
@@ -38689,7 +39557,6 @@ function convertHttpAuthSchemesToMap(httpAuthSchemes) {
 }
 __name(convertHttpAuthSchemesToMap, "convertHttpAuthSchemesToMap");
 var httpAuthSchemeMiddleware = /* @__PURE__ */ __name((config, mwOptions) => (next, context) => async (args) => {
-  var _a;
   const options = config.httpAuthSchemeProvider(
     await mwOptions.httpAuthSchemeParametersProvider(config, context, args.input)
   );
@@ -38707,7 +39574,7 @@ var httpAuthSchemeMiddleware = /* @__PURE__ */ __name((config, mwOptions) => (ne
       failureReasons.push(`HttpAuthScheme \`${option.schemeId}\` did not have an IdentityProvider configured.`);
       continue;
     }
-    const { identityProperties = {}, signingProperties = {} } = ((_a = option.propertiesExtractor) == null ? void 0 : _a.call(option, config, context)) || {};
+    const { identityProperties = {}, signingProperties = {} } = option.propertiesExtractor?.(config, context) || {};
     option.identityProperties = Object.assign(option.identityProperties || {}, identityProperties);
     option.signingProperties = Object.assign(option.signingProperties || {}, signingProperties);
     smithyContext.selectedHttpAuthScheme = {
@@ -38827,21 +39694,30 @@ var normalizeProvider = /* @__PURE__ */ __name((input) => {
 }, "normalizeProvider");
 
 // src/pagination/createPaginator.ts
-var makePagedClientRequest = /* @__PURE__ */ __name(async (CommandCtor, client, input, ...args) => {
-  return await client.send(new CommandCtor(input), ...args);
+var makePagedClientRequest = /* @__PURE__ */ __name(async (CommandCtor, client, input, withCommand = (_) => _, ...args) => {
+  let command = new CommandCtor(input);
+  command = withCommand(command) ?? command;
+  return await client.send(command, ...args);
 }, "makePagedClientRequest");
 function createPaginator(ClientCtor, CommandCtor, inputTokenName, outputTokenName, pageSizeTokenName) {
   return /* @__PURE__ */ __name(async function* paginateOperation(config, input, ...additionalArguments) {
-    let token = config.startingToken || void 0;
+    const _input = input;
+    let token = config.startingToken ?? _input[inputTokenName];
     let hasNext = true;
     let page;
     while (hasNext) {
-      input[inputTokenName] = token;
+      _input[inputTokenName] = token;
       if (pageSizeTokenName) {
-        input[pageSizeTokenName] = input[pageSizeTokenName] ?? config.pageSize;
+        _input[pageSizeTokenName] = _input[pageSizeTokenName] ?? config.pageSize;
       }
       if (config.client instanceof ClientCtor) {
-        page = await makePagedClientRequest(CommandCtor, config.client, input, ...additionalArguments);
+        page = await makePagedClientRequest(
+          CommandCtor,
+          config.client,
+          input,
+          config.withCommand,
+          ...additionalArguments
+        );
       } else {
         throw new Error(`Invalid client, expected instance of ${ClientCtor.name}`);
       }
@@ -38883,7 +39759,7 @@ function setFeature(context, feature, value) {
 __name(setFeature, "setFeature");
 
 // src/util-identity-and-auth/DefaultIdentityProviderConfig.ts
-var _DefaultIdentityProviderConfig = class _DefaultIdentityProviderConfig {
+var DefaultIdentityProviderConfig = class {
   /**
    * Creates an IdentityProviderConfig with a record of scheme IDs to identity providers.
    *
@@ -38897,17 +39773,21 @@ var _DefaultIdentityProviderConfig = class _DefaultIdentityProviderConfig {
       }
     }
   }
+  static {
+    __name(this, "DefaultIdentityProviderConfig");
+  }
   getIdentityProvider(schemeId) {
     return this.authSchemes.get(schemeId);
   }
 };
-__name(_DefaultIdentityProviderConfig, "DefaultIdentityProviderConfig");
-var DefaultIdentityProviderConfig = _DefaultIdentityProviderConfig;
 
 // src/util-identity-and-auth/httpAuthSchemes/httpApiKeyAuth.ts
 
 
-var _HttpApiKeyAuthSigner = class _HttpApiKeyAuthSigner {
+var HttpApiKeyAuthSigner = class {
+  static {
+    __name(this, "HttpApiKeyAuthSigner");
+  }
   async sign(httpRequest, identity, signingProperties) {
     if (!signingProperties) {
       throw new Error(
@@ -38936,12 +39816,13 @@ var _HttpApiKeyAuthSigner = class _HttpApiKeyAuthSigner {
     return clonedRequest;
   }
 };
-__name(_HttpApiKeyAuthSigner, "HttpApiKeyAuthSigner");
-var HttpApiKeyAuthSigner = _HttpApiKeyAuthSigner;
 
 // src/util-identity-and-auth/httpAuthSchemes/httpBearerAuth.ts
 
-var _HttpBearerAuthSigner = class _HttpBearerAuthSigner {
+var HttpBearerAuthSigner = class {
+  static {
+    __name(this, "HttpBearerAuthSigner");
+  }
   async sign(httpRequest, identity, signingProperties) {
     const clonedRequest = import_protocol_http.HttpRequest.clone(httpRequest);
     if (!identity.token) {
@@ -38951,17 +39832,16 @@ var _HttpBearerAuthSigner = class _HttpBearerAuthSigner {
     return clonedRequest;
   }
 };
-__name(_HttpBearerAuthSigner, "HttpBearerAuthSigner");
-var HttpBearerAuthSigner = _HttpBearerAuthSigner;
 
 // src/util-identity-and-auth/httpAuthSchemes/noAuth.ts
-var _NoAuthSigner = class _NoAuthSigner {
+var NoAuthSigner = class {
+  static {
+    __name(this, "NoAuthSigner");
+  }
   async sign(httpRequest, identity, signingProperties) {
     return httpRequest;
   }
 };
-__name(_NoAuthSigner, "NoAuthSigner");
-var NoAuthSigner = _NoAuthSigner;
 
 // src/util-identity-and-auth/memoizeIdentityProvider.ts
 var createIsIdentityExpiredFunction = /* @__PURE__ */ __name((expirationMs) => (identity) => doesIdentityRequireRefresh(identity) && identity.expiration.getTime() - Date.now() < expirationMs, "createIsIdentityExpiredFunction");
@@ -38992,14 +39872,14 @@ var memoizeIdentityProvider = /* @__PURE__ */ __name((provider, isExpired, requi
   }, "coalesceProvider");
   if (isExpired === void 0) {
     return async (options) => {
-      if (!hasResult || (options == null ? void 0 : options.forceRefresh)) {
+      if (!hasResult || options?.forceRefresh) {
         resolved = await coalesceProvider(options);
       }
       return resolved;
     };
   }
   return async (options) => {
-    if (!hasResult || (options == null ? void 0 : options.forceRefresh)) {
+    if (!hasResult || options?.forceRefresh) {
       resolved = await coalesceProvider(options);
     }
     if (isConstant) {
@@ -39141,7 +40021,7 @@ var RequestBuilder = class {
    */
   bp(uriLabel) {
     this.resolvePathStack.push((basePath) => {
-      this.path = `${(basePath == null ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || ""}` + uriLabel;
+      this.path = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + uriLabel;
     });
     return this;
   }
@@ -39383,13 +40263,12 @@ var import_buffer = __nccwpck_require__(20181);
 var import_http = __nccwpck_require__(58611);
 function httpRequest(options) {
   return new Promise((resolve, reject) => {
-    var _a;
     const req = (0, import_http.request)({
       method: "GET",
       ...options,
       // Node.js http module doesn't accept hostname with square brackets
       // Refs: https://github.com/nodejs/node/issues/39738
-      hostname: (_a = options.hostname) == null ? void 0 : _a.replace(/^\[(.+)\]$/, "$1")
+      hostname: options.hostname?.replace(/^\[(.+)\]$/, "$1")
     });
     req.on("error", (err) => {
       reject(Object.assign(new import_property_provider.ProviderError("Unable to connect to instance metadata service"), err));
@@ -39528,16 +40407,17 @@ var getCmdsUri = /* @__PURE__ */ __name(async ({ logger }) => {
 
 // src/error/InstanceMetadataV1FallbackError.ts
 
-var _InstanceMetadataV1FallbackError = class _InstanceMetadataV1FallbackError extends import_property_provider.CredentialsProviderError {
+var InstanceMetadataV1FallbackError = class _InstanceMetadataV1FallbackError extends import_property_provider.CredentialsProviderError {
   constructor(message, tryNextLink = true) {
     super(message, tryNextLink);
     this.tryNextLink = tryNextLink;
     this.name = "InstanceMetadataV1FallbackError";
     Object.setPrototypeOf(this, _InstanceMetadataV1FallbackError.prototype);
   }
+  static {
+    __name(this, "InstanceMetadataV1FallbackError");
+  }
 };
-__name(_InstanceMetadataV1FallbackError, "InstanceMetadataV1FallbackError");
-var InstanceMetadataV1FallbackError = _InstanceMetadataV1FallbackError;
 
 // src/utils/getInstanceMetadataEndpoint.ts
 var import_node_config_provider = __nccwpck_require__(55704);
@@ -39611,7 +40491,7 @@ For more information, please visit: ` + STATIC_STABILITY_DOC_URL
 
 // src/utils/staticStabilityProvider.ts
 var staticStabilityProvider = /* @__PURE__ */ __name((provider, options = {}) => {
-  const logger = (options == null ? void 0 : options.logger) || console;
+  const logger = options?.logger || console;
   let pastCredentials;
   return async () => {
     let credentials;
@@ -39645,8 +40525,7 @@ var getInstanceMetadataProvider = /* @__PURE__ */ __name((init = {}) => {
   const { logger, profile } = init;
   const { timeout, maxRetries } = providerConfigFromInit(init);
   const getCredentials = /* @__PURE__ */ __name(async (maxRetries2, options) => {
-    var _a;
-    const isImdsV1Fallback = disableFetchToken || ((_a = options.headers) == null ? void 0 : _a[X_AWS_EC2_METADATA_TOKEN]) == null;
+    const isImdsV1Fallback = disableFetchToken || options.headers?.[X_AWS_EC2_METADATA_TOKEN] == null;
     if (isImdsV1Fallback) {
       let fallbackBlockedFromProfile = false;
       let fallbackBlockedFromProcessEnv = false;
@@ -39717,21 +40596,21 @@ var getInstanceMetadataProvider = /* @__PURE__ */ __name((init = {}) => {
   return async () => {
     const endpoint = await getInstanceMetadataEndpoint();
     if (disableFetchToken) {
-      logger == null ? void 0 : logger.debug("AWS SDK Instance Metadata", "using v1 fallback (no token fetch)");
+      logger?.debug("AWS SDK Instance Metadata", "using v1 fallback (no token fetch)");
       return getCredentials(maxRetries, { ...endpoint, timeout });
     } else {
       let token;
       try {
         token = (await getMetadataToken({ ...endpoint, timeout })).toString();
       } catch (error) {
-        if ((error == null ? void 0 : error.statusCode) === 400) {
+        if (error?.statusCode === 400) {
           throw Object.assign(error, {
             message: "EC2 Metadata token request returned error"
           });
         } else if (error.message === "TimeoutError" || [403, 404, 405].includes(error.statusCode)) {
           disableFetchToken = true;
         }
-        logger == null ? void 0 : logger.debug("AWS SDK Instance Metadata", "using v1 fallback (initial)");
+        logger?.debug("AWS SDK Instance Metadata", "using v1 fallback (initial)");
         return getCredentials(maxRetries, { ...endpoint, timeout });
       }
       return getCredentials(maxRetries, {
@@ -39834,13 +40713,16 @@ __name(requestTimeout, "requestTimeout");
 var keepAliveSupport = {
   supported: void 0
 };
-var _FetchHttpHandler = class _FetchHttpHandler {
+var FetchHttpHandler = class _FetchHttpHandler {
+  static {
+    __name(this, "FetchHttpHandler");
+  }
   /**
    * @returns the input if it is an HttpHandler of any class,
    * or instantiates a new instance of this handler.
    */
   static create(instanceOrOptions) {
-    if (typeof (instanceOrOptions == null ? void 0 : instanceOrOptions.handle) === "function") {
+    if (typeof instanceOrOptions?.handle === "function") {
       return instanceOrOptions;
     }
     return new _FetchHttpHandler(instanceOrOptions);
@@ -39861,14 +40743,13 @@ var _FetchHttpHandler = class _FetchHttpHandler {
   destroy() {
   }
   async handle(request, { abortSignal } = {}) {
-    var _a;
     if (!this.config) {
       this.config = await this.configProvider;
     }
     const requestTimeoutInMs = this.config.requestTimeout;
     const keepAlive = this.config.keepAlive === true;
     const credentials = this.config.credentials;
-    if (abortSignal == null ? void 0 : abortSignal.aborted) {
+    if (abortSignal?.aborted) {
       const abortError = new Error("Request aborted");
       abortError.name = "AbortError";
       return Promise.reject(abortError);
@@ -39896,7 +40777,7 @@ var _FetchHttpHandler = class _FetchHttpHandler {
       method,
       credentials
     };
-    if ((_a = this.config) == null ? void 0 : _a.cache) {
+    if (this.config?.cache) {
       requestOptions.cache = this.config.cache;
     }
     if (body) {
@@ -39974,14 +40855,11 @@ var _FetchHttpHandler = class _FetchHttpHandler {
     return this.config ?? {};
   }
 };
-__name(_FetchHttpHandler, "FetchHttpHandler");
-var FetchHttpHandler = _FetchHttpHandler;
 
 // src/stream-collector.ts
 var import_util_base64 = __nccwpck_require__(68385);
 var streamCollector = /* @__PURE__ */ __name(async (stream) => {
-  var _a;
-  if (typeof Blob === "function" && stream instanceof Blob || ((_a = stream.constructor) == null ? void 0 : _a.name) === "Blob") {
+  if (typeof Blob === "function" && stream instanceof Blob || stream.constructor?.name === "Blob") {
     if (Blob.prototype.arrayBuffer !== void 0) {
       return new Uint8Array(await stream.arrayBuffer());
     }
@@ -40075,7 +40953,10 @@ var import_util_buffer_from = __nccwpck_require__(44151);
 var import_util_utf8 = __nccwpck_require__(71577);
 var import_buffer = __nccwpck_require__(20181);
 var import_crypto = __nccwpck_require__(76982);
-var _Hash = class _Hash {
+var Hash = class {
+  static {
+    __name(this, "Hash");
+  }
   constructor(algorithmIdentifier, secret) {
     this.algorithmIdentifier = algorithmIdentifier;
     this.secret = secret;
@@ -40091,8 +40972,6 @@ var _Hash = class _Hash {
     this.hash = this.secret ? (0, import_crypto.createHmac)(this.algorithmIdentifier, castSourceData(this.secret)) : (0, import_crypto.createHash)(this.algorithmIdentifier);
   }
 };
-__name(_Hash, "Hash");
-var Hash = _Hash;
 function castSourceData(toCast, encoding) {
   if (import_buffer.Buffer.isBuffer(toCast)) {
     return toCast;
@@ -40320,7 +41199,7 @@ module.exports = __toCommonJS(src_exports);
 
 // src/service-customizations/s3.ts
 var resolveParamsForS3 = /* @__PURE__ */ __name(async (endpointParams) => {
-  const bucket = (endpointParams == null ? void 0 : endpointParams.Bucket) || "";
+  const bucket = endpointParams?.Bucket || "";
   if (typeof endpointParams.Bucket === "string") {
     endpointParams.Bucket = bucket.replace(/#/g, encodeURIComponent("#")).replace(/\?/g, encodeURIComponent("?"));
   }
@@ -40363,14 +41242,14 @@ var createConfigValueProvider = /* @__PURE__ */ __name((configKey, canonicalEndp
   if (configKey === "credentialScope" || canonicalEndpointParamKey === "CredentialScope") {
     return async () => {
       const credentials = typeof config.credentials === "function" ? await config.credentials() : config.credentials;
-      const configValue = (credentials == null ? void 0 : credentials.credentialScope) ?? (credentials == null ? void 0 : credentials.CredentialScope);
+      const configValue = credentials?.credentialScope ?? credentials?.CredentialScope;
       return configValue;
     };
   }
   if (configKey === "accountId" || canonicalEndpointParamKey === "AccountId") {
     return async () => {
       const credentials = typeof config.credentials === "function" ? await config.credentials() : config.credentials;
-      const configValue = (credentials == null ? void 0 : credentials.accountId) ?? (credentials == null ? void 0 : credentials.AccountId);
+      const configValue = credentials?.accountId ?? credentials?.AccountId;
       return configValue;
     };
   }
@@ -40428,9 +41307,8 @@ var getEndpointFromInstructions = /* @__PURE__ */ __name(async (commandInput, in
   return endpoint;
 }, "getEndpointFromInstructions");
 var resolveParams = /* @__PURE__ */ __name(async (commandInput, instructionsSupplier, clientConfig) => {
-  var _a;
   const endpointParams = {};
-  const instructions = ((_a = instructionsSupplier == null ? void 0 : instructionsSupplier.getEndpointParameterInstructions) == null ? void 0 : _a.call(instructionsSupplier)) || {};
+  const instructions = instructionsSupplier?.getEndpointParameterInstructions?.() || {};
   for (const [name, instruction] of Object.entries(instructions)) {
     switch (instruction.type) {
       case "staticContextParams":
@@ -40467,7 +41345,6 @@ var endpointMiddleware = /* @__PURE__ */ __name(({
   instructions
 }) => {
   return (next, context) => async (args) => {
-    var _a, _b, _c;
     if (config.endpoint) {
       (0, import_core.setFeature)(context, "ENDPOINT_OVERRIDE", "N");
     }
@@ -40482,13 +41359,13 @@ var endpointMiddleware = /* @__PURE__ */ __name(({
       context
     );
     context.endpointV2 = endpoint;
-    context.authSchemes = (_a = endpoint.properties) == null ? void 0 : _a.authSchemes;
-    const authScheme = (_b = context.authSchemes) == null ? void 0 : _b[0];
+    context.authSchemes = endpoint.properties?.authSchemes;
+    const authScheme = context.authSchemes?.[0];
     if (authScheme) {
       context["signing_region"] = authScheme.signingRegion;
       context["signing_service"] = authScheme.signingName;
       const smithyContext = (0, import_util_middleware.getSmithyContext)(context);
-      const httpAuthOption = (_c = smithyContext == null ? void 0 : smithyContext.selectedHttpAuthScheme) == null ? void 0 : _c.httpAuthOption;
+      const httpAuthOption = smithyContext?.selectedHttpAuthScheme?.httpAuthOption;
       if (httpAuthOption) {
         httpAuthOption.signingProperties = Object.assign(
           httpAuthOption.signingProperties || {},
@@ -40623,9 +41500,9 @@ var import_uuid = __nccwpck_require__(12048);
 var import_util_retry = __nccwpck_require__(15518);
 var getDefaultRetryQuota = /* @__PURE__ */ __name((initialRetryTokens, options) => {
   const MAX_CAPACITY = initialRetryTokens;
-  const noRetryIncrement = (options == null ? void 0 : options.noRetryIncrement) ?? import_util_retry.NO_RETRY_INCREMENT;
-  const retryCost = (options == null ? void 0 : options.retryCost) ?? import_util_retry.RETRY_COST;
-  const timeoutRetryCost = (options == null ? void 0 : options.timeoutRetryCost) ?? import_util_retry.TIMEOUT_RETRY_COST;
+  const noRetryIncrement = options?.noRetryIncrement ?? import_util_retry.NO_RETRY_INCREMENT;
+  const retryCost = options?.retryCost ?? import_util_retry.RETRY_COST;
+  const timeoutRetryCost = options?.timeoutRetryCost ?? import_util_retry.TIMEOUT_RETRY_COST;
   let availableCapacity = initialRetryTokens;
   const getCapacityAmount = /* @__PURE__ */ __name((error) => error.name === "TimeoutError" ? timeoutRetryCost : retryCost, "getCapacityAmount");
   const hasRetryTokens = /* @__PURE__ */ __name((error) => getCapacityAmount(error) <= availableCapacity, "hasRetryTokens");
@@ -40673,13 +41550,16 @@ var asSdkError = /* @__PURE__ */ __name((error) => {
 }, "asSdkError");
 
 // src/StandardRetryStrategy.ts
-var _StandardRetryStrategy = class _StandardRetryStrategy {
+var StandardRetryStrategy = class {
   constructor(maxAttemptsProvider, options) {
     this.maxAttemptsProvider = maxAttemptsProvider;
     this.mode = import_util_retry.RETRY_MODES.STANDARD;
-    this.retryDecider = (options == null ? void 0 : options.retryDecider) ?? defaultRetryDecider;
-    this.delayDecider = (options == null ? void 0 : options.delayDecider) ?? defaultDelayDecider;
-    this.retryQuota = (options == null ? void 0 : options.retryQuota) ?? getDefaultRetryQuota(import_util_retry.INITIAL_RETRY_TOKENS);
+    this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
+    this.delayDecider = options?.delayDecider ?? defaultDelayDecider;
+    this.retryQuota = options?.retryQuota ?? getDefaultRetryQuota(import_util_retry.INITIAL_RETRY_TOKENS);
+  }
+  static {
+    __name(this, "StandardRetryStrategy");
   }
   shouldRetry(error, attempts, maxAttempts) {
     return attempts < maxAttempts && this.retryDecider(error) && this.retryQuota.hasRetryTokens(error);
@@ -40707,11 +41587,11 @@ var _StandardRetryStrategy = class _StandardRetryStrategy {
         if (import_protocol_http.HttpRequest.isInstance(request)) {
           request.headers[import_util_retry.REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
         }
-        if (options == null ? void 0 : options.beforeRequest) {
+        if (options?.beforeRequest) {
           await options.beforeRequest();
         }
         const { response, output } = await next(args);
-        if (options == null ? void 0 : options.afterRequest) {
+        if (options?.afterRequest) {
           options.afterRequest(response);
         }
         this.retryQuota.releaseRetryTokens(retryTokenAmount);
@@ -40743,8 +41623,6 @@ var _StandardRetryStrategy = class _StandardRetryStrategy {
     }
   }
 };
-__name(_StandardRetryStrategy, "StandardRetryStrategy");
-var StandardRetryStrategy = _StandardRetryStrategy;
 var getDelayFromRetryAfterHeader = /* @__PURE__ */ __name((response) => {
   if (!import_protocol_http.HttpResponse.isInstance(response))
     return;
@@ -40760,7 +41638,10 @@ var getDelayFromRetryAfterHeader = /* @__PURE__ */ __name((response) => {
 }, "getDelayFromRetryAfterHeader");
 
 // src/AdaptiveRetryStrategy.ts
-var _AdaptiveRetryStrategy = class _AdaptiveRetryStrategy extends StandardRetryStrategy {
+var AdaptiveRetryStrategy = class extends StandardRetryStrategy {
+  static {
+    __name(this, "AdaptiveRetryStrategy");
+  }
   constructor(maxAttemptsProvider, options) {
     const { rateLimiter, ...superOptions } = options ?? {};
     super(maxAttemptsProvider, superOptions);
@@ -40778,8 +41659,6 @@ var _AdaptiveRetryStrategy = class _AdaptiveRetryStrategy extends StandardRetryS
     });
   }
 };
-__name(_AdaptiveRetryStrategy, "AdaptiveRetryStrategy");
-var AdaptiveRetryStrategy = _AdaptiveRetryStrategy;
 
 // src/configurations.ts
 var import_util_middleware = __nccwpck_require__(76324);
@@ -40867,7 +41746,6 @@ var import_smithy_client = __nccwpck_require__(61411);
 
 var import_isStreamingPayload = __nccwpck_require__(49831);
 var retryMiddleware = /* @__PURE__ */ __name((options) => (next, context) => async (args) => {
-  var _a;
   let retryStrategy = await options.retryStrategy();
   const maxAttempts = await options.maxAttempts();
   if (isRetryStrategyV2(retryStrategy)) {
@@ -40895,7 +41773,7 @@ var retryMiddleware = /* @__PURE__ */ __name((options) => (next, context) => asy
         const retryErrorInfo = getRetryErrorInfo(e);
         lastError = asSdkError(e);
         if (isRequest && (0, import_isStreamingPayload.isStreamingPayload)(request)) {
-          (_a = context.logger instanceof import_smithy_client.NoOpLogger ? console : context.logger) == null ? void 0 : _a.warn(
+          (context.logger instanceof import_smithy_client.NoOpLogger ? console : context.logger)?.warn(
             "An error was encountered in a non-retryable streaming request."
           );
           throw lastError;
@@ -40918,7 +41796,7 @@ var retryMiddleware = /* @__PURE__ */ __name((options) => (next, context) => asy
     }
   } else {
     retryStrategy = retryStrategy;
-    if (retryStrategy == null ? void 0 : retryStrategy.mode)
+    if (retryStrategy?.mode)
       context.userAgent = [...context.userAgent || [], ["cfg/retry-mode", retryStrategy.mode]];
     return retryStrategy.retry(next, args);
   }
@@ -41053,8 +41931,7 @@ var deserializerMiddleware = /* @__PURE__ */ __name((options, deserializer) => (
 
 // src/serializerMiddleware.ts
 var serializerMiddleware = /* @__PURE__ */ __name((options, serializer) => (next, context) => async (args) => {
-  var _a;
-  const endpoint = ((_a = context.endpointV2) == null ? void 0 : _a.url) && options.urlParser ? async () => options.urlParser(context.endpointV2.url) : options.endpoint;
+  const endpoint = context.endpointV2?.url && options.urlParser ? async () => options.urlParser(context.endpointV2.url) : options.endpoint;
   if (!endpoint) {
     throw new Error("No valid endpoint provider available.");
   }
@@ -41182,14 +42059,13 @@ var constructStack = /* @__PURE__ */ __name(() => {
     return isRemoved;
   }, "removeByReference");
   const cloneTo = /* @__PURE__ */ __name((toStack) => {
-    var _a;
     absoluteEntries.forEach((entry) => {
       toStack.add(entry.middleware, { ...entry });
     });
     relativeEntries.forEach((entry) => {
       toStack.addRelativeTo(entry.middleware, { ...entry });
     });
-    (_a = toStack.identifyOnResolve) == null ? void 0 : _a.call(toStack, stack.identifyOnResolve());
+    toStack.identifyOnResolve?.(stack.identifyOnResolve());
     return toStack;
   }, "cloneTo");
   const expandRelativeMiddlewareList = /* @__PURE__ */ __name((from) => {
@@ -41281,10 +42157,7 @@ var constructStack = /* @__PURE__ */ __name(() => {
             throw new Error(`Duplicate middleware name '${getMiddlewareNameWithAliases(name, _aliases)}'`);
           for (const alias of aliases) {
             const toOverrideIndex = absoluteEntries.findIndex(
-              (entry2) => {
-                var _a;
-                return entry2.name === alias || ((_a = entry2.aliases) == null ? void 0 : _a.some((a) => a === alias));
-              }
+              (entry2) => entry2.name === alias || entry2.aliases?.some((a) => a === alias)
             );
             if (toOverrideIndex === -1) {
               continue;
@@ -41317,10 +42190,7 @@ var constructStack = /* @__PURE__ */ __name(() => {
             throw new Error(`Duplicate middleware name '${getMiddlewareNameWithAliases(name, _aliases)}'`);
           for (const alias of aliases) {
             const toOverrideIndex = relativeEntries.findIndex(
-              (entry2) => {
-                var _a;
-                return entry2.name === alias || ((_a = entry2.aliases) == null ? void 0 : _a.some((a) => a === alias));
-              }
+              (entry2) => entry2.name === alias || entry2.aliases?.some((a) => a === alias)
             );
             if (toOverrideIndex === -1) {
               continue;
@@ -41369,11 +42239,10 @@ var constructStack = /* @__PURE__ */ __name(() => {
       return isRemoved;
     },
     concat: (from) => {
-      var _a;
       const cloned = cloneTo(constructStack());
       cloned.use(from);
       cloned.identifyOnResolve(
-        identifyOnResolve || cloned.identifyOnResolve() || (((_a = from.identifyOnResolve) == null ? void 0 : _a.call(from)) ?? false)
+        identifyOnResolve || cloned.identifyOnResolve() || (from.identifyOnResolve?.() ?? false)
       );
       return cloned;
     },
@@ -41614,7 +42483,7 @@ var setConnectionTimeout = /* @__PURE__ */ __name((request, reject, timeoutInMs 
       );
     }, timeoutInMs - offset);
     const doWithSocket = /* @__PURE__ */ __name((socket) => {
-      if (socket == null ? void 0 : socket.connecting) {
+      if (socket?.connecting) {
         socket.on("connect", () => {
           timing.clearTimeout(timeoutId);
         });
@@ -41659,7 +42528,7 @@ var setSocketKeepAlive = /* @__PURE__ */ __name((request, { keepAlive, keepAlive
 
 // src/set-socket-timeout.ts
 var DEFER_EVENT_LISTENER_TIME3 = 3e3;
-var setSocketTimeout = /* @__PURE__ */ __name((request, reject, timeoutInMs = 0) => {
+var setSocketTimeout = /* @__PURE__ */ __name((request, reject, timeoutInMs = DEFAULT_REQUEST_TIMEOUT) => {
   const registerTimeout = /* @__PURE__ */ __name((offset) => {
     const timeout = timeoutInMs - offset;
     const onTimeout = /* @__PURE__ */ __name(() => {
@@ -41740,7 +42609,7 @@ __name(writeBody, "writeBody");
 
 // src/node-http-handler.ts
 var DEFAULT_REQUEST_TIMEOUT = 0;
-var _NodeHttpHandler = class _NodeHttpHandler {
+var NodeHttpHandler = class _NodeHttpHandler {
   constructor(options) {
     this.socketWarningTimestamp = 0;
     // Node http handler is hard-coded to http/1.1: https://github.com/nodejs/node/blob/ff5664b83b89c55e4ab5d5f60068fb457f1f5872/lib/_http_server.js#L286
@@ -41755,12 +42624,15 @@ var _NodeHttpHandler = class _NodeHttpHandler {
       }
     });
   }
+  static {
+    __name(this, "NodeHttpHandler");
+  }
   /**
    * @returns the input if it is an HttpHandler of any class,
    * or instantiates a new instance of this handler.
    */
   static create(instanceOrOptions) {
-    if (typeof (instanceOrOptions == null ? void 0 : instanceOrOptions.handle) === "function") {
+    if (typeof instanceOrOptions?.handle === "function") {
       return instanceOrOptions;
     }
     return new _NodeHttpHandler(instanceOrOptions);
@@ -41774,7 +42646,6 @@ var _NodeHttpHandler = class _NodeHttpHandler {
    * @returns timestamp of last emitted warning.
    */
   static checkSocketUsage(agent, socketWarningTimestamp, logger = console) {
-    var _a, _b, _c;
     const { sockets, requests, maxSockets } = agent;
     if (typeof maxSockets !== "number" || maxSockets === Infinity) {
       return socketWarningTimestamp;
@@ -41785,11 +42656,10 @@ var _NodeHttpHandler = class _NodeHttpHandler {
     }
     if (sockets && requests) {
       for (const origin in sockets) {
-        const socketsInUse = ((_a = sockets[origin]) == null ? void 0 : _a.length) ?? 0;
-        const requestsEnqueued = ((_b = requests[origin]) == null ? void 0 : _b.length) ?? 0;
+        const socketsInUse = sockets[origin]?.length ?? 0;
+        const requestsEnqueued = requests[origin]?.length ?? 0;
         if (socketsInUse >= maxSockets && requestsEnqueued >= 2 * maxSockets) {
-          (_c = logger == null ? void 0 : logger.warn) == null ? void 0 : _c.call(
-            logger,
+          logger?.warn?.(
             `@smithy/node-http-handler:WARN - socket usage at capacity=${socketsInUse} and ${requestsEnqueued} additional requests are enqueued.
 See https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/node-configuring-maxsockets.html
 or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler config.`
@@ -41808,13 +42678,13 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
       connectionTimeout,
       requestTimeout: requestTimeout ?? socketTimeout,
       httpAgent: (() => {
-        if (httpAgent instanceof import_http.Agent || typeof (httpAgent == null ? void 0 : httpAgent.destroy) === "function") {
+        if (httpAgent instanceof import_http.Agent || typeof httpAgent?.destroy === "function") {
           return httpAgent;
         }
         return new import_http.Agent({ keepAlive, maxSockets, ...httpAgent });
       })(),
       httpsAgent: (() => {
-        if (httpsAgent instanceof import_https.Agent || typeof (httpsAgent == null ? void 0 : httpsAgent.destroy) === "function") {
+        if (httpsAgent instanceof import_https.Agent || typeof httpsAgent?.destroy === "function") {
           return httpsAgent;
         }
         return new import_https.Agent({ keepAlive, maxSockets, ...httpsAgent });
@@ -41823,9 +42693,8 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
     };
   }
   destroy() {
-    var _a, _b, _c, _d;
-    (_b = (_a = this.config) == null ? void 0 : _a.httpAgent) == null ? void 0 : _b.destroy();
-    (_d = (_c = this.config) == null ? void 0 : _c.httpsAgent) == null ? void 0 : _d.destroy();
+    this.config?.httpAgent?.destroy();
+    this.config?.httpsAgent?.destroy();
   }
   async handle(request, { abortSignal } = {}) {
     if (!this.config) {
@@ -41847,7 +42716,7 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
       if (!this.config) {
         throw new Error("Node HTTP request handler config is not resolved");
       }
-      if (abortSignal == null ? void 0 : abortSignal.aborted) {
+      if (abortSignal?.aborted) {
         const abortError = new Error("Request aborted");
         abortError.name = "AbortError";
         reject(abortError);
@@ -41960,8 +42829,6 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
     return this.config ?? {};
   }
 };
-__name(_NodeHttpHandler, "NodeHttpHandler");
-var NodeHttpHandler = _NodeHttpHandler;
 
 // src/node-http2-handler.ts
 
@@ -41972,10 +42839,13 @@ var import_http22 = __nccwpck_require__(85675);
 var import_http2 = __toESM(__nccwpck_require__(85675));
 
 // src/node-http2-connection-pool.ts
-var _NodeHttp2ConnectionPool = class _NodeHttp2ConnectionPool {
+var NodeHttp2ConnectionPool = class {
   constructor(sessions) {
     this.sessions = [];
     this.sessions = sessions ?? [];
+  }
+  static {
+    __name(this, "NodeHttp2ConnectionPool");
   }
   poll() {
     if (this.sessions.length > 0) {
@@ -42004,17 +42874,18 @@ var _NodeHttp2ConnectionPool = class _NodeHttp2ConnectionPool {
     }
   }
 };
-__name(_NodeHttp2ConnectionPool, "NodeHttp2ConnectionPool");
-var NodeHttp2ConnectionPool = _NodeHttp2ConnectionPool;
 
 // src/node-http2-connection-manager.ts
-var _NodeHttp2ConnectionManager = class _NodeHttp2ConnectionManager {
+var NodeHttp2ConnectionManager = class {
   constructor(config) {
     this.sessionCache = /* @__PURE__ */ new Map();
     this.config = config;
     if (this.config.maxConcurrency && this.config.maxConcurrency <= 0) {
       throw new RangeError("maxConcurrency must be greater than zero.");
     }
+  }
+  static {
+    __name(this, "NodeHttp2ConnectionManager");
   }
   lease(requestContext, connectionConfiguration) {
     const url = this.getUrlString(requestContext);
@@ -42069,9 +42940,8 @@ var _NodeHttp2ConnectionManager = class _NodeHttp2ConnectionManager {
     this.sessionCache.set(authority, existingConnectionPool);
   }
   release(requestContext, session) {
-    var _a;
     const cacheKey = this.getUrlString(requestContext);
-    (_a = this.sessionCache.get(cacheKey)) == null ? void 0 : _a.offerLast(session);
+    this.sessionCache.get(cacheKey)?.offerLast(session);
   }
   destroy() {
     for (const [key, connectionPool] of this.sessionCache) {
@@ -42097,11 +42967,9 @@ var _NodeHttp2ConnectionManager = class _NodeHttp2ConnectionManager {
     return request.destination.toString();
   }
 };
-__name(_NodeHttp2ConnectionManager, "NodeHttp2ConnectionManager");
-var NodeHttp2ConnectionManager = _NodeHttp2ConnectionManager;
 
 // src/node-http2-handler.ts
-var _NodeHttp2Handler = class _NodeHttp2Handler {
+var NodeHttp2Handler = class _NodeHttp2Handler {
   constructor(options) {
     this.metadata = { handlerProtocol: "h2" };
     this.connectionManager = new NodeHttp2ConnectionManager({});
@@ -42115,12 +42983,15 @@ var _NodeHttp2Handler = class _NodeHttp2Handler {
       }
     });
   }
+  static {
+    __name(this, "NodeHttp2Handler");
+  }
   /**
    * @returns the input if it is an HttpHandler of any class,
    * or instantiates a new instance of this handler.
    */
   static create(instanceOrOptions) {
-    if (typeof (instanceOrOptions == null ? void 0 : instanceOrOptions.handle) === "function") {
+    if (typeof instanceOrOptions?.handle === "function") {
       return instanceOrOptions;
     }
     return new _NodeHttp2Handler(instanceOrOptions);
@@ -42138,7 +43009,6 @@ var _NodeHttp2Handler = class _NodeHttp2Handler {
     }
     const { requestTimeout, disableConcurrentStreams } = this.config;
     return new Promise((_resolve, _reject) => {
-      var _a;
       let fulfilled = false;
       let writeRequestBodyPromise = void 0;
       const resolve = /* @__PURE__ */ __name(async (arg) => {
@@ -42149,7 +43019,7 @@ var _NodeHttp2Handler = class _NodeHttp2Handler {
         await writeRequestBodyPromise;
         _reject(arg);
       }, "reject");
-      if (abortSignal == null ? void 0 : abortSignal.aborted) {
+      if (abortSignal?.aborted) {
         fulfilled = true;
         const abortError = new Error("Request aborted");
         abortError.name = "AbortError";
@@ -42166,7 +43036,7 @@ var _NodeHttp2Handler = class _NodeHttp2Handler {
       const authority = `${protocol}//${auth}${hostname}${port ? `:${port}` : ""}`;
       const requestContext = { destination: new URL(authority) };
       const session = this.connectionManager.lease(requestContext, {
-        requestTimeout: (_a = this.config) == null ? void 0 : _a.sessionTimeout,
+        requestTimeout: this.config?.sessionTimeout,
         disableConcurrentStreams: disableConcurrentStreams || false
       });
       const rejectWithDestroy = /* @__PURE__ */ __name((err) => {
@@ -42261,7 +43131,7 @@ var _NodeHttp2Handler = class _NodeHttp2Handler {
   }
   /**
    * Destroys a session.
-   * @param session The session to destroy.
+   * @param session - the session to destroy.
    */
   destroySession(session) {
     if (!session.destroyed) {
@@ -42269,23 +43139,22 @@ var _NodeHttp2Handler = class _NodeHttp2Handler {
     }
   }
 };
-__name(_NodeHttp2Handler, "NodeHttp2Handler");
-var NodeHttp2Handler = _NodeHttp2Handler;
 
 // src/stream-collector/collector.ts
 
-var _Collector = class _Collector extends import_stream.Writable {
+var Collector = class extends import_stream.Writable {
   constructor() {
     super(...arguments);
     this.bufferedBytes = [];
+  }
+  static {
+    __name(this, "Collector");
   }
   _write(chunk, encoding, callback) {
     this.bufferedBytes.push(chunk);
     callback();
   }
 };
-__name(_Collector, "Collector");
-var Collector = _Collector;
 
 // src/stream-collector/index.ts
 var streamCollector = /* @__PURE__ */ __name((stream) => {
@@ -42372,9 +43241,8 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/ProviderError.ts
-var _ProviderError = class _ProviderError extends Error {
+var ProviderError = class _ProviderError extends Error {
   constructor(message, options = true) {
-    var _a;
     let logger;
     let tryNextLink = true;
     if (typeof options === "boolean") {
@@ -42388,7 +43256,10 @@ var _ProviderError = class _ProviderError extends Error {
     this.name = "ProviderError";
     this.tryNextLink = tryNextLink;
     Object.setPrototypeOf(this, _ProviderError.prototype);
-    (_a = logger == null ? void 0 : logger.debug) == null ? void 0 : _a.call(logger, `@smithy/property-provider ${tryNextLink ? "->" : "(!)"} ${message}`);
+    logger?.debug?.(`@smithy/property-provider ${tryNextLink ? "->" : "(!)"} ${message}`);
+  }
+  static {
+    __name(this, "ProviderError");
   }
   /**
    * @deprecated use new operator.
@@ -42397,11 +43268,9 @@ var _ProviderError = class _ProviderError extends Error {
     return Object.assign(new this(error.message, options), error);
   }
 };
-__name(_ProviderError, "ProviderError");
-var ProviderError = _ProviderError;
 
 // src/CredentialsProviderError.ts
-var _CredentialsProviderError = class _CredentialsProviderError extends ProviderError {
+var CredentialsProviderError = class _CredentialsProviderError extends ProviderError {
   /**
    * @override
    */
@@ -42410,12 +43279,13 @@ var _CredentialsProviderError = class _CredentialsProviderError extends Provider
     this.name = "CredentialsProviderError";
     Object.setPrototypeOf(this, _CredentialsProviderError.prototype);
   }
+  static {
+    __name(this, "CredentialsProviderError");
+  }
 };
-__name(_CredentialsProviderError, "CredentialsProviderError");
-var CredentialsProviderError = _CredentialsProviderError;
 
 // src/TokenProviderError.ts
-var _TokenProviderError = class _TokenProviderError extends ProviderError {
+var TokenProviderError = class _TokenProviderError extends ProviderError {
   /**
    * @override
    */
@@ -42424,9 +43294,10 @@ var _TokenProviderError = class _TokenProviderError extends ProviderError {
     this.name = "TokenProviderError";
     Object.setPrototypeOf(this, _TokenProviderError.prototype);
   }
+  static {
+    __name(this, "TokenProviderError");
+  }
 };
-__name(_TokenProviderError, "TokenProviderError");
-var TokenProviderError = _TokenProviderError;
 
 // src/chain.ts
 var chain = /* @__PURE__ */ __name((...providers) => async () => {
@@ -42440,7 +43311,7 @@ var chain = /* @__PURE__ */ __name((...providers) => async () => {
       return credentials;
     } catch (err) {
       lastProviderError = err;
-      if (err == null ? void 0 : err.tryNextLink) {
+      if (err?.tryNextLink) {
         continue;
       }
       throw err;
@@ -42473,14 +43344,14 @@ var memoize = /* @__PURE__ */ __name((provider, isExpired, requiresRefresh) => {
   }, "coalesceProvider");
   if (isExpired === void 0) {
     return async (options) => {
-      if (!hasResult || (options == null ? void 0 : options.forceRefresh)) {
+      if (!hasResult || options?.forceRefresh) {
         resolved = await coalesceProvider();
       }
       return resolved;
     };
   }
   return async (options) => {
-    if (!hasResult || (options == null ? void 0 : options.forceRefresh)) {
+    if (!hasResult || options?.forceRefresh) {
       resolved = await coalesceProvider();
     }
     if (isConstant) {
@@ -42567,7 +43438,10 @@ var resolveHttpHandlerRuntimeConfig = /* @__PURE__ */ __name((httpHandlerExtensi
 
 // src/Field.ts
 var import_types = __nccwpck_require__(35132);
-var _Field = class _Field {
+var Field = class {
+  static {
+    __name(this, "Field");
+  }
   constructor({ name, kind = import_types.FieldPosition.HEADER, values = [] }) {
     this.name = name;
     this.kind = kind;
@@ -42614,15 +43488,16 @@ var _Field = class _Field {
     return this.values;
   }
 };
-__name(_Field, "Field");
-var Field = _Field;
 
 // src/Fields.ts
-var _Fields = class _Fields {
+var Fields = class {
   constructor({ fields = [], encoding = "utf-8" }) {
     this.entries = {};
     fields.forEach(this.setField.bind(this));
     this.encoding = encoding;
+  }
+  static {
+    __name(this, "Fields");
   }
   /**
    * Set entry for a {@link Field} name. The `name`
@@ -42663,12 +43538,13 @@ var _Fields = class _Fields {
     return Object.values(this.entries).filter((field) => field.kind === kind);
   }
 };
-__name(_Fields, "Fields");
-var Fields = _Fields;
 
 // src/httpRequest.ts
 
-var _HttpRequest = class _HttpRequest {
+var HttpRequest = class _HttpRequest {
+  static {
+    __name(this, "HttpRequest");
+  }
   constructor(options) {
     this.method = options.method || "GET";
     this.hostname = options.hostname || "localhost";
@@ -42718,8 +43594,6 @@ var _HttpRequest = class _HttpRequest {
     return _HttpRequest.clone(this);
   }
 };
-__name(_HttpRequest, "HttpRequest");
-var HttpRequest = _HttpRequest;
 function cloneQuery(query) {
   return Object.keys(query).reduce((carry, paramName) => {
     const param = query[paramName];
@@ -42732,7 +43606,10 @@ function cloneQuery(query) {
 __name(cloneQuery, "cloneQuery");
 
 // src/httpResponse.ts
-var _HttpResponse = class _HttpResponse {
+var HttpResponse = class {
+  static {
+    __name(this, "HttpResponse");
+  }
   constructor(options) {
     this.statusCode = options.statusCode;
     this.reason = options.reason;
@@ -42746,8 +43623,6 @@ var _HttpResponse = class _HttpResponse {
     return typeof resp.statusCode === "number" && typeof resp.headers === "object";
   }
 };
-__name(_HttpResponse, "HttpResponse");
-var HttpResponse = _HttpResponse;
 
 // src/isValidHostname.ts
 function isValidHostname(hostname) {
@@ -43090,21 +43965,11 @@ var NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMED
 // src/index.ts
 var isRetryableByTrait = /* @__PURE__ */ __name((error) => error.$retryable !== void 0, "isRetryableByTrait");
 var isClockSkewError = /* @__PURE__ */ __name((error) => CLOCK_SKEW_ERROR_CODES.includes(error.name), "isClockSkewError");
-var isClockSkewCorrectedError = /* @__PURE__ */ __name((error) => {
-  var _a;
-  return (_a = error.$metadata) == null ? void 0 : _a.clockSkewCorrected;
-}, "isClockSkewCorrectedError");
-var isThrottlingError = /* @__PURE__ */ __name((error) => {
-  var _a, _b;
-  return ((_a = error.$metadata) == null ? void 0 : _a.httpStatusCode) === 429 || THROTTLING_ERROR_CODES.includes(error.name) || ((_b = error.$retryable) == null ? void 0 : _b.throttling) == true;
-}, "isThrottlingError");
-var isTransientError = /* @__PURE__ */ __name((error, depth = 0) => {
-  var _a;
-  return isClockSkewCorrectedError(error) || TRANSIENT_ERROR_CODES.includes(error.name) || NODEJS_TIMEOUT_ERROR_CODES.includes((error == null ? void 0 : error.code) || "") || TRANSIENT_ERROR_STATUS_CODES.includes(((_a = error.$metadata) == null ? void 0 : _a.httpStatusCode) || 0) || error.cause !== void 0 && depth <= 10 && isTransientError(error.cause, depth + 1);
-}, "isTransientError");
+var isClockSkewCorrectedError = /* @__PURE__ */ __name((error) => error.$metadata?.clockSkewCorrected, "isClockSkewCorrectedError");
+var isThrottlingError = /* @__PURE__ */ __name((error) => error.$metadata?.httpStatusCode === 429 || THROTTLING_ERROR_CODES.includes(error.name) || error.$retryable?.throttling == true, "isThrottlingError");
+var isTransientError = /* @__PURE__ */ __name((error, depth = 0) => isClockSkewCorrectedError(error) || TRANSIENT_ERROR_CODES.includes(error.name) || NODEJS_TIMEOUT_ERROR_CODES.includes(error?.code || "") || TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0) || error.cause !== void 0 && depth <= 10 && isTransientError(error.cause, depth + 1), "isTransientError");
 var isServerError = /* @__PURE__ */ __name((error) => {
-  var _a;
-  if (((_a = error.$metadata) == null ? void 0 : _a.httpStatusCode) !== void 0) {
+  if (error.$metadata?.httpStatusCode !== void 0) {
     const statusCode = error.$metadata.httpStatusCode;
     if (500 <= statusCode && statusCode <= 599 && !isTransientError(error)) {
       return true;
@@ -43689,7 +44554,7 @@ var getCanonicalHeaders = /* @__PURE__ */ __name(({ headers }, unsignableHeaders
       continue;
     }
     const canonicalHeaderName = headerName.toLowerCase();
-    if (canonicalHeaderName in ALWAYS_UNSIGNABLE_HEADERS || (unsignableHeaders == null ? void 0 : unsignableHeaders.has(canonicalHeaderName)) || PROXY_HEADER_PATTERN.test(canonicalHeaderName) || SEC_HEADER_PATTERN.test(canonicalHeaderName)) {
+    if (canonicalHeaderName in ALWAYS_UNSIGNABLE_HEADERS || unsignableHeaders?.has(canonicalHeaderName) || PROXY_HEADER_PATTERN.test(canonicalHeaderName) || SEC_HEADER_PATTERN.test(canonicalHeaderName)) {
       if (!signableHeaders || signableHeaders && !signableHeaders.has(canonicalHeaderName)) {
         continue;
       }
@@ -43743,7 +44608,10 @@ var getPayloadHash = /* @__PURE__ */ __name(async ({ headers, body }, hashConstr
 // src/HeaderFormatter.ts
 
 var import_util_utf83 = __nccwpck_require__(71577);
-var _HeaderFormatter = class _HeaderFormatter {
+var HeaderFormatter = class {
+  static {
+    __name(this, "HeaderFormatter");
+  }
   format(headers) {
     const chunks = [];
     for (const headerName of Object.keys(headers)) {
@@ -43810,15 +44678,16 @@ var _HeaderFormatter = class _HeaderFormatter {
     }
   }
 };
-__name(_HeaderFormatter, "HeaderFormatter");
-var HeaderFormatter = _HeaderFormatter;
 var UUID_PATTERN = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
-var _Int64 = class _Int64 {
+var Int64 = class _Int64 {
   constructor(bytes) {
     this.bytes = bytes;
     if (bytes.byteLength !== 8) {
       throw new Error("Int64 buffers must be exactly 8 bytes");
     }
+  }
+  static {
+    __name(this, "Int64");
   }
   static fromNumber(number) {
     if (number > 9223372036854776e3 || number < -9223372036854776e3) {
@@ -43848,8 +44717,6 @@ var _Int64 = class _Int64 {
     return String(this.valueOf());
   }
 };
-__name(_Int64, "Int64");
-var Int64 = _Int64;
 function negate(bytes) {
   for (let i = 0; i < 8; i++) {
     bytes[i] ^= 255;
@@ -43876,11 +44743,10 @@ var hasHeader = /* @__PURE__ */ __name((soughtHeader, headers) => {
 // src/moveHeadersToQuery.ts
 var import_protocol_http = __nccwpck_require__(72356);
 var moveHeadersToQuery = /* @__PURE__ */ __name((request, options = {}) => {
-  var _a, _b;
   const { headers, query = {} } = import_protocol_http.HttpRequest.clone(request);
   for (const name of Object.keys(headers)) {
     const lname = name.toLowerCase();
-    if (lname.slice(0, 6) === "x-amz-" && !((_a = options.unhoistableHeaders) == null ? void 0 : _a.has(lname)) || ((_b = options.hoistableHeaders) == null ? void 0 : _b.has(lname))) {
+    if (lname.slice(0, 6) === "x-amz-" && !options.unhoistableHeaders?.has(lname) || options.hoistableHeaders?.has(lname)) {
       query[name] = headers[name];
       delete headers[name];
     }
@@ -43920,7 +44786,7 @@ var toDate = /* @__PURE__ */ __name((time) => {
 }, "toDate");
 
 // src/SignatureV4.ts
-var _SignatureV4 = class _SignatureV4 {
+var SignatureV4 = class {
   constructor({
     applyChecksum,
     credentials,
@@ -43936,6 +44802,9 @@ var _SignatureV4 = class _SignatureV4 {
     this.applyChecksum = typeof applyChecksum === "boolean" ? applyChecksum : true;
     this.regionProvider = (0, import_util_middleware.normalizeProvider)(region);
     this.credentialProvider = (0, import_util_middleware.normalizeProvider)(credentials);
+  }
+  static {
+    __name(this, "SignatureV4");
   }
   async presign(originalRequest, options = {}) {
     const {
@@ -44085,7 +44954,7 @@ ${(0, import_util_hex_encoding.toHex)(hashedRequest)}`;
     if (this.uriEscapePath) {
       const normalizedPathSegments = [];
       for (const pathSegment of path.split("/")) {
-        if ((pathSegment == null ? void 0 : pathSegment.length) === 0)
+        if (pathSegment?.length === 0)
           continue;
         if (pathSegment === ".")
           continue;
@@ -44095,7 +44964,7 @@ ${(0, import_util_hex_encoding.toHex)(hashedRequest)}`;
           normalizedPathSegments.push(pathSegment);
         }
       }
-      const normalizedPath = `${(path == null ? void 0 : path.startsWith("/")) ? "/" : ""}${normalizedPathSegments.join("/")}${normalizedPathSegments.length > 0 && (path == null ? void 0 : path.endsWith("/")) ? "/" : ""}`;
+      const normalizedPath = `${path?.startsWith("/") ? "/" : ""}${normalizedPathSegments.join("/")}${normalizedPathSegments.length > 0 && path?.endsWith("/") ? "/" : ""}`;
       const doubleEncoded = (0, import_util_uri_escape.escapeUri)(normalizedPath);
       return doubleEncoded.replace(/%2F/g, "/");
     }
@@ -44118,8 +44987,6 @@ ${(0, import_util_hex_encoding.toHex)(hashedRequest)}`;
     }
   }
 };
-__name(_SignatureV4, "SignatureV4");
-var SignatureV4 = _SignatureV4;
 var formatDate = /* @__PURE__ */ __name((now) => {
   const longDate = iso8601(now).replace(/[\-:]/g, "");
   return {
@@ -44227,10 +45094,13 @@ module.exports = __toCommonJS(src_exports);
 
 // src/client.ts
 var import_middleware_stack = __nccwpck_require__(9208);
-var _Client = class _Client {
+var Client = class {
   constructor(config) {
     this.config = config;
     this.middlewareStack = (0, import_middleware_stack.constructStack)();
+  }
+  static {
+    __name(this, "Client");
   }
   send(command, optionsOrCb, cb) {
     const options = typeof optionsOrCb !== "function" ? optionsOrCb : void 0;
@@ -44267,13 +45137,10 @@ var _Client = class _Client {
     }
   }
   destroy() {
-    var _a, _b, _c;
-    (_c = (_b = (_a = this.config) == null ? void 0 : _a.requestHandler) == null ? void 0 : _b.destroy) == null ? void 0 : _c.call(_b);
+    this.config?.requestHandler?.destroy?.();
     delete this.handlers;
   }
 };
-__name(_Client, "Client");
-var Client = _Client;
 
 // src/collect-stream-body.ts
 var import_protocols = __nccwpck_require__(93422);
@@ -44281,9 +45148,12 @@ var import_protocols = __nccwpck_require__(93422);
 // src/command.ts
 
 var import_types = __nccwpck_require__(20809);
-var _Command = class _Command {
+var Command = class {
   constructor() {
     this.middlewareStack = (0, import_middleware_stack.constructStack)();
+  }
+  static {
+    __name(this, "Command");
   }
   /**
    * Factory for Command ClassBuilder.
@@ -44329,9 +45199,7 @@ var _Command = class _Command {
     );
   }
 };
-__name(_Command, "Command");
-var Command = _Command;
-var _ClassBuilder = class _ClassBuilder {
+var ClassBuilder = class {
   constructor() {
     this._init = () => {
     };
@@ -44345,6 +45213,9 @@ var _ClassBuilder = class _ClassBuilder {
     this._outputFilterSensitiveLog = (_) => _;
     this._serializer = null;
     this._deserializer = null;
+  }
+  static {
+    __name(this, "ClassBuilder");
   }
   /**
    * Optional init callback.
@@ -44418,10 +45289,9 @@ var _ClassBuilder = class _ClassBuilder {
    * @returns a Command class with the classBuilder properties.
    */
   build() {
-    var _a;
     const closure = this;
     let CommandRef;
-    return CommandRef = (_a = class extends Command {
+    return CommandRef = class extends Command {
       /**
        * @public
        */
@@ -44439,6 +45309,9 @@ var _ClassBuilder = class _ClassBuilder {
         this.deserialize = closure._deserializer;
         this.input = input ?? {};
         closure._init(this);
+      }
+      static {
+        __name(this, "CommandRef");
       }
       /**
        * @public
@@ -44461,11 +45334,9 @@ var _ClassBuilder = class _ClassBuilder {
           additionalContext: closure._additionalContext
         });
       }
-    }, __name(_a, "CommandRef"), _a);
+    };
   }
 };
-__name(_ClassBuilder, "ClassBuilder");
-var ClassBuilder = _ClassBuilder;
 
 // src/constants.ts
 var SENSITIVE_STRING = "***SensitiveInformation***";
@@ -44946,10 +45817,13 @@ var stripLeadingZeroes = /* @__PURE__ */ __name((value) => {
 }, "stripLeadingZeroes");
 
 // src/exceptions.ts
-var _ServiceException = class _ServiceException extends Error {
+var ServiceException = class _ServiceException extends Error {
+  static {
+    __name(this, "ServiceException");
+  }
   constructor(options) {
     super(options.message);
-    Object.setPrototypeOf(this, _ServiceException.prototype);
+    Object.setPrototypeOf(this, Object.getPrototypeOf(this).constructor.prototype);
     this.name = options.name;
     this.$fault = options.$fault;
     this.$metadata = options.$metadata;
@@ -44963,9 +45837,25 @@ var _ServiceException = class _ServiceException extends Error {
     const candidate = value;
     return Boolean(candidate.$fault) && Boolean(candidate.$metadata) && (candidate.$fault === "client" || candidate.$fault === "server");
   }
+  /**
+   * Custom instanceof check to support the operator for ServiceException base class
+   */
+  static [Symbol.hasInstance](instance) {
+    if (!instance)
+      return false;
+    const candidate = instance;
+    if (this === _ServiceException) {
+      return _ServiceException.isInstance(instance);
+    }
+    if (_ServiceException.isInstance(instance)) {
+      if (candidate.name && this.name) {
+        return this.prototype.isPrototypeOf(instance) || candidate.name === this.name;
+      }
+      return this.prototype.isPrototypeOf(instance);
+    }
+    return false;
+  }
 };
-__name(_ServiceException, "ServiceException");
-var ServiceException = _ServiceException;
 var decorateServiceException = /* @__PURE__ */ __name((exception, additions = {}) => {
   Object.entries(additions).filter(([, v]) => v !== void 0).forEach(([k, v]) => {
     if (exception[k] == void 0 || exception[k] === "") {
@@ -44983,7 +45873,7 @@ var throwDefaultError = /* @__PURE__ */ __name(({ output, parsedBody, exceptionC
   const $metadata = deserializeMetadata(output);
   const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : void 0;
   const response = new exceptionCtor({
-    name: (parsedBody == null ? void 0 : parsedBody.code) || (parsedBody == null ? void 0 : parsedBody.Code) || errorCode || statusCode || "UnknownError",
+    name: parsedBody?.code || parsedBody?.Code || errorCode || statusCode || "UnknownError",
     $fault: "client",
     $metadata
   });
@@ -45152,7 +46042,10 @@ LazyJsonString.from = (object) => {
 LazyJsonString.fromObject = LazyJsonString.from;
 
 // src/NoOpLogger.ts
-var _NoOpLogger = class _NoOpLogger {
+var NoOpLogger = class {
+  static {
+    __name(this, "NoOpLogger");
+  }
   trace() {
   }
   debug() {
@@ -45164,8 +46057,6 @@ var _NoOpLogger = class _NoOpLogger {
   error() {
   }
 };
-__name(_NoOpLogger, "NoOpLogger");
-var NoOpLogger = _NoOpLogger;
 
 // src/object-mapping.ts
 function map(arg0, arg1, arg2) {
@@ -45914,7 +46805,7 @@ var resolveDefaultsModeConfig = /* @__PURE__ */ __name(({
   defaultsMode = (0, import_node_config_provider.loadConfig)(NODE_DEFAULTS_MODE_CONFIG_OPTIONS)
 } = {}) => (0, import_property_provider.memoize)(async () => {
   const mode = typeof defaultsMode === "function" ? await defaultsMode() : defaultsMode;
-  switch (mode == null ? void 0 : mode.toLowerCase()) {
+  switch (mode?.toLowerCase()) {
     case "auto":
       return resolveNodeDefaultsModeAuto(region);
     case "in-region":
@@ -45922,7 +46813,7 @@ var resolveDefaultsModeConfig = /* @__PURE__ */ __name(({
     case "mobile":
     case "standard":
     case "legacy":
-      return Promise.resolve(mode == null ? void 0 : mode.toLocaleLowerCase());
+      return Promise.resolve(mode?.toLocaleLowerCase());
     case void 0:
       return Promise.resolve("legacy");
     default:
@@ -46002,7 +46893,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 
 // src/cache/EndpointCache.ts
-var _EndpointCache = class _EndpointCache {
+var EndpointCache = class {
   /**
    * @param [size] - desired average maximum capacity. A buffer of 10 additional keys will be allowed
    *                 before keys are dropped.
@@ -46018,6 +46909,9 @@ var _EndpointCache = class _EndpointCache {
     if (params) {
       this.parameters = params;
     }
+  }
+  static {
+    __name(this, "EndpointCache");
   }
   /**
    * @param endpointParams - query for endpoint.
@@ -46067,8 +46961,6 @@ var _EndpointCache = class _EndpointCache {
     return buffer;
   }
 };
-__name(_EndpointCache, "EndpointCache");
-var EndpointCache = _EndpointCache;
 
 // src/lib/isIpAddress.ts
 var IP_V4_REGEX = new RegExp(
@@ -46113,14 +47005,15 @@ function toDebugString(input) {
 __name(toDebugString, "toDebugString");
 
 // src/types/EndpointError.ts
-var _EndpointError = class _EndpointError extends Error {
+var EndpointError = class extends Error {
+  static {
+    __name(this, "EndpointError");
+  }
   constructor(message) {
     super(message);
     this.name = "EndpointError";
   }
 };
-__name(_EndpointError, "EndpointError");
-var EndpointError = _EndpointError;
 
 // src/lib/booleanEquals.ts
 var booleanEquals = /* @__PURE__ */ __name((value1, value2) => value1 === value2, "booleanEquals");
@@ -46315,12 +47208,11 @@ var callFunction = /* @__PURE__ */ __name(({ fn, argv }, options) => {
 
 // src/utils/evaluateCondition.ts
 var evaluateCondition = /* @__PURE__ */ __name(({ assign, ...fnArgs }, options) => {
-  var _a, _b;
   if (assign && assign in options.referenceRecord) {
     throw new EndpointError(`'${assign}' is already defined in Reference Record.`);
   }
   const value = callFunction(fnArgs, options);
-  (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, `${debugId} evaluateCondition: ${toDebugString(fnArgs)} = ${toDebugString(value)}`);
+  options.logger?.debug?.(`${debugId} evaluateCondition: ${toDebugString(fnArgs)} = ${toDebugString(value)}`);
   return {
     result: value === "" ? true : !!value,
     ...assign != null && { toAssign: { name: assign, value } }
@@ -46329,7 +47221,6 @@ var evaluateCondition = /* @__PURE__ */ __name(({ assign, ...fnArgs }, options) 
 
 // src/utils/evaluateConditions.ts
 var evaluateConditions = /* @__PURE__ */ __name((conditions = [], options) => {
-  var _a, _b;
   const conditionsReferenceRecord = {};
   for (const condition of conditions) {
     const { result, toAssign } = evaluateCondition(condition, {
@@ -46344,7 +47235,7 @@ var evaluateConditions = /* @__PURE__ */ __name((conditions = [], options) => {
     }
     if (toAssign) {
       conditionsReferenceRecord[toAssign.name] = toAssign.value;
-      (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, `${debugId} assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`);
+      options.logger?.debug?.(`${debugId} assign: ${toAssign.name} := ${toDebugString(toAssign.value)}`);
     }
   }
   return { result: true, referenceRecord: conditionsReferenceRecord };
@@ -46410,7 +47301,6 @@ var getEndpointUrl = /* @__PURE__ */ __name((endpointUrl, options) => {
 
 // src/utils/evaluateEndpointRule.ts
 var evaluateEndpointRule = /* @__PURE__ */ __name((endpointRule, options) => {
-  var _a, _b;
   const { conditions, endpoint } = endpointRule;
   const { result, referenceRecord } = evaluateConditions(conditions, options);
   if (!result) {
@@ -46421,7 +47311,7 @@ var evaluateEndpointRule = /* @__PURE__ */ __name((endpointRule, options) => {
     referenceRecord: { ...options.referenceRecord, ...referenceRecord }
   };
   const { url, properties, headers } = endpoint;
-  (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, `${debugId} Resolving endpoint from template: ${toDebugString(endpoint)}`);
+  options.logger?.debug?.(`${debugId} Resolving endpoint from template: ${toDebugString(endpoint)}`);
   return {
     ...headers != void 0 && {
       headers: getEndpointHeaders(headers, endpointRuleOptions)
@@ -46485,10 +47375,9 @@ var evaluateRules = /* @__PURE__ */ __name((rules, options) => {
 
 // src/resolveEndpoint.ts
 var resolveEndpoint = /* @__PURE__ */ __name((ruleSetObject, options) => {
-  var _a, _b, _c, _d;
   const { endpointParams, logger } = options;
   const { parameters, rules } = ruleSetObject;
-  (_b = (_a = options.logger) == null ? void 0 : _a.debug) == null ? void 0 : _b.call(_a, `${debugId} Initial EndpointParams: ${toDebugString(endpointParams)}`);
+  options.logger?.debug?.(`${debugId} Initial EndpointParams: ${toDebugString(endpointParams)}`);
   const paramsWithDefault = Object.entries(parameters).filter(([, v]) => v.default != null).map(([k, v]) => [k, v.default]);
   if (paramsWithDefault.length > 0) {
     for (const [paramKey, paramDefaultValue] of paramsWithDefault) {
@@ -46502,7 +47391,7 @@ var resolveEndpoint = /* @__PURE__ */ __name((ruleSetObject, options) => {
     }
   }
   const endpoint = evaluateRules(rules, { endpointParams, logger, referenceRecord: {} });
-  (_d = (_c = options.logger) == null ? void 0 : _c.debug) == null ? void 0 : _d.call(_c, `${debugId} Resolved endpoint: ${toDebugString(endpoint)}`);
+  options.logger?.debug?.(`${debugId} Resolved endpoint: ${toDebugString(endpoint)}`);
   return endpoint;
 }, "resolveEndpoint");
 // Annotate the CommonJS export names for ESM import in node:
@@ -46978,7 +47867,7 @@ var DEFAULT_RETRY_MODE = "standard" /* STANDARD */;
 
 // src/DefaultRateLimiter.ts
 var import_service_error_classification = __nccwpck_require__(42058);
-var _DefaultRateLimiter = class _DefaultRateLimiter {
+var DefaultRateLimiter = class _DefaultRateLimiter {
   constructor(options) {
     // Pre-set state variables
     this.currentCapacity = 0;
@@ -46988,16 +47877,25 @@ var _DefaultRateLimiter = class _DefaultRateLimiter {
     this.requestCount = 0;
     this.lastTimestamp = 0;
     this.timeWindow = 0;
-    this.beta = (options == null ? void 0 : options.beta) ?? 0.7;
-    this.minCapacity = (options == null ? void 0 : options.minCapacity) ?? 1;
-    this.minFillRate = (options == null ? void 0 : options.minFillRate) ?? 0.5;
-    this.scaleConstant = (options == null ? void 0 : options.scaleConstant) ?? 0.4;
-    this.smooth = (options == null ? void 0 : options.smooth) ?? 0.8;
+    this.beta = options?.beta ?? 0.7;
+    this.minCapacity = options?.minCapacity ?? 1;
+    this.minFillRate = options?.minFillRate ?? 0.5;
+    this.scaleConstant = options?.scaleConstant ?? 0.4;
+    this.smooth = options?.smooth ?? 0.8;
     const currentTimeInSeconds = this.getCurrentTimeInSeconds();
     this.lastThrottleTime = currentTimeInSeconds;
     this.lastTxRateBucket = Math.floor(this.getCurrentTimeInSeconds());
     this.fillRate = this.minFillRate;
     this.maxCapacity = this.minCapacity;
+  }
+  static {
+    __name(this, "DefaultRateLimiter");
+  }
+  static {
+    /**
+     * Only used in testing.
+     */
+    this.setTimeoutFn = setTimeout;
   }
   getCurrentTimeInSeconds() {
     return Date.now() / 1e3;
@@ -47078,12 +47976,6 @@ var _DefaultRateLimiter = class _DefaultRateLimiter {
     return parseFloat(num.toFixed(8));
   }
 };
-__name(_DefaultRateLimiter, "DefaultRateLimiter");
-/**
- * Only used in testing.
- */
-_DefaultRateLimiter.setTimeoutFn = setTimeout;
-var DefaultRateLimiter = _DefaultRateLimiter;
 
 // src/constants.ts
 var DEFAULT_RETRY_DELAY_BASE = 100;
@@ -47128,13 +48020,16 @@ var createDefaultRetryToken = /* @__PURE__ */ __name(({
 }, "createDefaultRetryToken");
 
 // src/StandardRetryStrategy.ts
-var _StandardRetryStrategy = class _StandardRetryStrategy {
+var StandardRetryStrategy = class {
   constructor(maxAttempts) {
     this.maxAttempts = maxAttempts;
     this.mode = "standard" /* STANDARD */;
     this.capacity = INITIAL_RETRY_TOKENS;
     this.retryBackoffStrategy = getDefaultRetryBackoffStrategy();
     this.maxAttemptsProvider = typeof maxAttempts === "function" ? maxAttempts : async () => maxAttempts;
+  }
+  static {
+    __name(this, "StandardRetryStrategy");
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async acquireInitialRetryToken(retryTokenScope) {
@@ -47192,17 +48087,18 @@ var _StandardRetryStrategy = class _StandardRetryStrategy {
     return errorType === "THROTTLING" || errorType === "TRANSIENT";
   }
 };
-__name(_StandardRetryStrategy, "StandardRetryStrategy");
-var StandardRetryStrategy = _StandardRetryStrategy;
 
 // src/AdaptiveRetryStrategy.ts
-var _AdaptiveRetryStrategy = class _AdaptiveRetryStrategy {
+var AdaptiveRetryStrategy = class {
   constructor(maxAttemptsProvider, options) {
     this.maxAttemptsProvider = maxAttemptsProvider;
     this.mode = "adaptive" /* ADAPTIVE */;
     const { rateLimiter } = options ?? {};
     this.rateLimiter = rateLimiter ?? new DefaultRateLimiter();
     this.standardRetryStrategy = new StandardRetryStrategy(maxAttemptsProvider);
+  }
+  static {
+    __name(this, "AdaptiveRetryStrategy");
   }
   async acquireInitialRetryToken(retryTokenScope) {
     await this.rateLimiter.getSendToken();
@@ -47217,11 +48113,12 @@ var _AdaptiveRetryStrategy = class _AdaptiveRetryStrategy {
     this.standardRetryStrategy.recordSuccess(token);
   }
 };
-__name(_AdaptiveRetryStrategy, "AdaptiveRetryStrategy");
-var AdaptiveRetryStrategy = _AdaptiveRetryStrategy;
 
 // src/ConfiguredRetryStrategy.ts
-var _ConfiguredRetryStrategy = class _ConfiguredRetryStrategy extends StandardRetryStrategy {
+var ConfiguredRetryStrategy = class extends StandardRetryStrategy {
+  static {
+    __name(this, "ConfiguredRetryStrategy");
+  }
   /**
    * @param maxAttempts - the maximum number of retry attempts allowed.
    *                      e.g., if set to 3, then 4 total requests are possible.
@@ -47255,8 +48152,6 @@ var _ConfiguredRetryStrategy = class _ConfiguredRetryStrategy extends StandardRe
     return token;
   }
 };
-__name(_ConfiguredRetryStrategy, "ConfiguredRetryStrategy");
-var ConfiguredRetryStrategy = _ConfiguredRetryStrategy;
 // Annotate the CommonJS export names for ESM import in node:
 
 0 && (0);
@@ -47591,7 +48486,10 @@ function transformFromString(str, encoding) {
 __name(transformFromString, "transformFromString");
 
 // src/blob/Uint8ArrayBlobAdapter.ts
-var _Uint8ArrayBlobAdapter = class _Uint8ArrayBlobAdapter extends Uint8Array {
+var Uint8ArrayBlobAdapter = class _Uint8ArrayBlobAdapter extends Uint8Array {
+  static {
+    __name(this, "Uint8ArrayBlobAdapter");
+  }
   /**
    * @param source - such as a string or Stream.
    * @returns a new Uint8ArrayBlobAdapter extending Uint8Array.
@@ -47620,8 +48518,6 @@ var _Uint8ArrayBlobAdapter = class _Uint8ArrayBlobAdapter extends Uint8Array {
     return transformToString(this, encoding);
   }
 };
-__name(_Uint8ArrayBlobAdapter, "Uint8ArrayBlobAdapter");
-var Uint8ArrayBlobAdapter = _Uint8ArrayBlobAdapter;
 
 // src/index.ts
 __reExport(src_exports, __nccwpck_require__(6522), module.exports);
@@ -47767,7 +48663,7 @@ const sdkStreamMixin = (stream) => {
                 throw new Error("The stream has been consumed by other callbacks.");
             }
             if (typeof stream_1.Readable.toWeb !== "function") {
-                throw new Error("Readable.toWeb() is not supported. Please make sure you are using Node.js >= 17.0.0, or polyfill is available.");
+                throw new Error("Readable.toWeb() is not supported. Please ensure a polyfill is available.");
             }
             transformed = true;
             return stream_1.Readable.toWeb(stream);
@@ -48044,7 +48940,6 @@ var exponentialBackoffWithJitter = /* @__PURE__ */ __name((minDelay, maxDelay, a
 }, "exponentialBackoffWithJitter");
 var randomInRange = /* @__PURE__ */ __name((min, max) => min + Math.random() * (max - min), "randomInRange");
 var runPolling = /* @__PURE__ */ __name(async ({ minDelay, maxDelay, maxWaitTime, abortController, client, abortSignal }, input, acceptorChecks) => {
-  var _a;
   const observedResponses = {};
   const { state, reason } = await acceptorChecks(client, input);
   if (reason) {
@@ -48059,7 +48954,7 @@ var runPolling = /* @__PURE__ */ __name(async ({ minDelay, maxDelay, maxWaitTime
   const waitUntil = Date.now() + maxWaitTime * 1e3;
   const attemptCeiling = Math.log(maxDelay / minDelay) / Math.log(2) + 1;
   while (true) {
-    if (((_a = abortController == null ? void 0 : abortController.signal) == null ? void 0 : _a.aborted) || (abortSignal == null ? void 0 : abortSignal.aborted)) {
+    if (abortController?.signal?.aborted || abortSignal?.aborted) {
       const message = "AbortController signal aborted.";
       observedResponses[message] |= 0;
       observedResponses[message] += 1;
@@ -48083,26 +48978,25 @@ var runPolling = /* @__PURE__ */ __name(async ({ minDelay, maxDelay, maxWaitTime
   }
 }, "runPolling");
 var createMessageFromResponse = /* @__PURE__ */ __name((reason) => {
-  var _a;
-  if (reason == null ? void 0 : reason.$responseBodyText) {
+  if (reason?.$responseBodyText) {
     return `Deserialization error for body: ${reason.$responseBodyText}`;
   }
-  if ((_a = reason == null ? void 0 : reason.$metadata) == null ? void 0 : _a.httpStatusCode) {
+  if (reason?.$metadata?.httpStatusCode) {
     if (reason.$response || reason.message) {
       return `${reason.$response.statusCode ?? reason.$metadata.httpStatusCode ?? "Unknown"}: ${reason.message}`;
     }
     return `${reason.$metadata.httpStatusCode}: OK`;
   }
-  return String((reason == null ? void 0 : reason.message) ?? JSON.stringify(reason) ?? "Unknown");
+  return String(reason?.message ?? JSON.stringify(reason) ?? "Unknown");
 }, "createMessageFromResponse");
 
 // src/utils/validate.ts
 var validateWaiterOptions = /* @__PURE__ */ __name((options) => {
-  if (options.maxWaitTime < 1) {
+  if (options.maxWaitTime <= 0) {
     throw new Error(`WaiterConfiguration.maxWaitTime must be greater than 0`);
-  } else if (options.minDelay < 1) {
+  } else if (options.minDelay <= 0) {
     throw new Error(`WaiterConfiguration.minDelay must be greater than 0`);
-  } else if (options.maxDelay < 1) {
+  } else if (options.maxDelay <= 0) {
     throw new Error(`WaiterConfiguration.maxDelay must be greater than 0`);
   } else if (options.maxWaitTime <= options.minDelay) {
     throw new Error(
@@ -89030,7 +89924,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$ref":"#/definitions/AssetManifest",
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$ref":"#/definitions/AssemblyManifest","definitions":{"AssemblyManifest":{"description":"A manifest which describes the cloud assembly.","type":"object","properties":{"version":{"description":"Protocol version","type":"string"},"minimumCliVersion":{"description":"Required CLI version, if available\\n\\nIf the manifest producer knows, it can put the minimum version of the CLI\\nhere that supports reading this assembly.\\n\\nIf set, it can be used to show a more informative error message to users. (Default - Minimum CLI version unknown)","type":"string"},"artifacts":{"description":"The set of artifacts in this assembly. (Default - no artifacts.)","type":"object","additionalProperties":{"$ref":"#/definitions/ArtifactManifest"}},"missing":{"description":"Missing context information. If this field has values, it means that the\\ncloud assembly is not complete and should not be deployed. (Default - no missing context.)","type":"array","items":{"$ref":"#/definitions/MissingContext"}},"runtime":{"description":"Runtime information. (Default - no info.)","$ref":"#/definitions/RuntimeInfo"}},"required":["version"]},"ArtifactManifest":{"description":"A manifest for a single artifact within the cloud assembly.","type":"object","properties":{"type":{"$ref":"#/definitions/ArtifactType","description":"The type of artifact."},"environment":{"description":"The environment into which this artifact is deployed. (Default - no envrionment.)","type":"string"},"metadata":{"description":"Associated metadata. (Default - no metadata.)","type":"object","additionalProperties":{"type":"array","items":{"$ref":"#/definitions/MetadataEntry"}}},"dependencies":{"description":"IDs of artifacts that must be deployed before this artifact. (Default - no dependencies.)","type":"array","items":{"type":"string"}},"properties":{"description":"The set of properties for this artifact (depends on type) (Default - no properties.)","anyOf":[{"$ref":"#/definitions/AwsCloudFormationStackProperties"},{"$ref":"#/definitions/AssetManifestProperties"},{"$ref":"#/definitions/TreeArtifactProperties"},{"$ref":"#/definitions/NestedCloudAssemblyProperties"}]},"displayName":{"description":"A string that represents this artifact. Should only be used in user interfaces. (Default - no display name)","type":"string"}},"required":["type"]},"ArtifactType":{"description":"Type of cloud artifact.","type":"string","enum":["none","aws:cloudformation:stack","cdk:tree","cdk:asset-manifest","cdk:cloud-assembly"]},"MetadataEntry":{"description":"A metadata entry in a cloud assembly artifact.","type":"object","properties":{"type":{"description":"The type of the metadata entry.","type":"string"},"data":{"description":"The data. (Default - no data.)","anyOf":[{"$ref":"#/definitions/FileAssetMetadataEntry"},{"$ref":"#/definitions/ContainerImageAssetMetadataEntry"},{"type":"array","items":{"$ref":"#/definitions/Tag"}},{"type":"string"},{"description":"Free form data."}]},"trace":{"description":"A stack trace for when the entry was created. (Default - no trace.)","type":"array","items":{"type":"string"}}},"required":["type"]},"FileAssetMetadataEntry":{"description":"Metadata Entry spec for files.","type":"object","properties":{"packaging":{"description":"Requested packaging style","enum":["file","zip"],"type":"string"},"s3BucketParameter":{"description":"Name of parameter where S3 bucket should be passed in","type":"string"},"s3KeyParameter":{"description":"Name of parameter where S3 key should be passed in","type":"string"},"artifactHashParameter":{"description":"The name of the parameter where the hash of the bundled asset should be passed in.","type":"string"},"id":{"description":"Logical identifier for the asset","type":"string"},"sourceHash":{"description":"The hash of the asset source.","type":"string"},"path":{"description":"Path on disk to the asset","type":"string"}},"required":["artifactHashParameter","id","packaging","path","s3BucketParameter","s3KeyParameter","sourceHash"]},"ContainerImageAssetMetadataEntry":{"description":"Metadata Entry spec for container images.","type":"object","properties":{"packaging":{"description":"Type of asset","type":"string","const":"container-image"},"imageNameParameter":{"description":"ECR Repository name and repo digest (separated by \\"@sha256:\\") where this\\nimage is stored. (Default undefined If not specified, `repositoryName` and `imageTag` are\\nrequired because otherwise how will the stack know where to find the asset,\\nha?)","type":"string"},"repositoryName":{"description":"ECR repository name, if omitted a default name based on the asset\'s ID is\\nused instead. Specify this property if you need to statically address the\\nimage, e.g. from a Kubernetes Pod. Note, this is only the repository name,\\nwithout the registry and the tag parts. (Default - this parameter is REQUIRED after 1.21.0)","type":"string"},"imageTag":{"description":"The docker image tag to use for tagging pushed images. This field is\\nrequired if `imageParameterName` is ommited (otherwise, the app won\'t be\\nable to find the image). (Default - this parameter is REQUIRED after 1.21.0)","type":"string"},"buildArgs":{"description":"Build args to pass to the `docker build` command (Default no build args are passed)","type":"object","additionalProperties":{"type":"string"}},"buildSsh":{"description":"SSH agent socket or keys to pass to the `docker build` command (Default no ssh arg is passed)","type":"string"},"buildSecrets":{"description":"Build secrets to pass to the `docker build` command (Default no build secrets are passed)","type":"object","additionalProperties":{"type":"string"}},"target":{"description":"Docker target to build to (Default no build target)","type":"string"},"file":{"description":"Path to the Dockerfile (relative to the directory). (Default - no file is passed)","type":"string"},"networkMode":{"description":"Networking mode for the RUN commands during build. (Default - no networking mode specified)","type":"string"},"platform":{"description":"Platform to build for. _Requires Docker Buildx_. (Default - current machine platform)","type":"string"},"outputs":{"description":"Outputs to pass to the `docker build` command. (Default - no outputs are passed to the build command (default outputs are used))","type":"array","items":{"type":"string"}},"cacheFrom":{"description":"Cache from options to pass to the `docker build` command. (Default - no cache from options are passed to the build command)","type":"array","items":{"$ref":"#/definitions/ContainerImageAssetCacheOption"}},"cacheTo":{"description":"Cache to options to pass to the `docker build` command. (Default - no cache to options are passed to the build command)","$ref":"#/definitions/ContainerImageAssetCacheOption"},"cacheDisabled":{"description":"Disable the cache and pass `--no-cache` to the `docker build` command. (Default - cache is used)","type":"boolean"},"id":{"description":"Logical identifier for the asset","type":"string"},"sourceHash":{"description":"The hash of the asset source.","type":"string"},"path":{"description":"Path on disk to the asset","type":"string"}},"required":["id","packaging","path","sourceHash"]},"ContainerImageAssetCacheOption":{"description":"Options for configuring the Docker cache backend","type":"object","properties":{"type":{"description":"The type of cache to use.\\nRefer to https://docs.docker.com/build/cache/backends/ for full list of backends. (Default - unspecified)","type":"string"},"params":{"description":"Any parameters to pass into the docker cache backend configuration.\\nRefer to https://docs.docker.com/build/cache/backends/ for cache backend configuration. (Default {} No options provided)","type":"object","additionalProperties":{"type":"string"}}},"required":["type"]},"Tag":{"description":"Metadata Entry spec for stack tag.","type":"object","properties":{"key":{"description":"Tag key.\\n\\n(In the actual file on disk this will be cased as \\"Key\\", and the structure is\\npatched to match this structure upon loading:\\nhttps://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)","type":"string"},"value":{"description":"Tag value.\\n\\n(In the actual file on disk this will be cased as \\"Value\\", and the structure is\\npatched to match this structure upon loading:\\nhttps://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)","type":"string"}},"required":["key","value"]},"AwsCloudFormationStackProperties":{"description":"Artifact properties for CloudFormation stacks.","type":"object","properties":{"templateFile":{"description":"A file relative to the assembly root which contains the CloudFormation template for this stack.","type":"string"},"parameters":{"description":"Values for CloudFormation stack parameters that should be passed when the stack is deployed. (Default - No parameters)","type":"object","additionalProperties":{"type":"string"}},"tags":{"description":"Values for CloudFormation stack tags that should be passed when the stack is deployed. (Default - No tags)","type":"object","additionalProperties":{"type":"string"}},"notificationArns":{"description":"SNS Notification ARNs that should receive CloudFormation Stack Events. (Default - No notification arns)","type":"array","items":{"type":"string"}},"stackName":{"description":"The name to use for the CloudFormation stack. (Default - name derived from artifact ID)","type":"string"},"terminationProtection":{"description":"Whether to enable termination protection for this stack.","default":false,"type":"boolean"},"assumeRoleArn":{"description":"The role that needs to be assumed to deploy the stack (Default - No role is assumed (current credentials are used))","type":"string"},"assumeRoleExternalId":{"description":"External ID to use when assuming role for cloudformation deployments (Default - No external ID)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the role.\\n\\n- `RoleArn` should not be used. Use the dedicated `assumeRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `assumeRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}},"cloudFormationExecutionRoleArn":{"description":"The role that is passed to CloudFormation to execute the change set (Default - No role is passed (currently assumed role/credentials are used))","type":"string"},"lookupRole":{"description":"The role to use to look up values from the target AWS account (Default - No role is assumed (current credentials are used))","$ref":"#/definitions/BootstrapRole"},"stackTemplateAssetObjectUrl":{"description":"If the stack template has already been included in the asset manifest, its asset URL (Default - Not uploaded yet, upload just before deploying)","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to deploy this stack (Default - No bootstrap stack required)","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"SSM parameter where the bootstrap stack version number can be found\\n\\nOnly used if `requiresBootstrapStackVersion` is set.\\n\\n- If this value is not set, the bootstrap stack name must be known at\\n  deployment time so the stack version can be looked up from the stack\\n  outputs.\\n- If this value is set, the bootstrap stack can have any name because\\n  we won\'t need to look it up. (Default - Bootstrap stack version number looked up)","type":"string"},"validateOnSynth":{"description":"Whether this stack should be validated by the CLI after synthesis (Default - false)","type":"boolean"}},"required":["templateFile"]},"BootstrapRole":{"description":"Information needed to access an IAM role created\\nas part of the bootstrap process","type":"object","properties":{"arn":{"description":"The ARN of the IAM role created as part of bootrapping\\ne.g. lookupRoleArn","type":"string"},"assumeRoleExternalId":{"description":"External ID to use when assuming the bootstrap role (Default - No external ID)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the role.\\n\\n- `RoleArn` should not be used. Use the dedicated `arn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `assumeRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to use this role (Default - No bootstrap stack required)","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"Name of SSM parameter with bootstrap stack version (Default - Discover SSM parameter by reading stack)","type":"string"}},"required":["arn"]},"AssetManifestProperties":{"description":"Artifact properties for the Asset Manifest","type":"object","properties":{"file":{"description":"Filename of the asset manifest","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to deploy this stack (Default - Version 1 (basic modern bootstrap stack))","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"SSM parameter where the bootstrap stack version number can be found\\n\\n- If this value is not set, the bootstrap stack name must be known at\\n  deployment time so the stack version can be looked up from the stack\\n  outputs.\\n- If this value is set, the bootstrap stack can have any name because\\n  we won\'t need to look it up. (Default - Bootstrap stack version number looked up)","type":"string"}},"required":["file"]},"TreeArtifactProperties":{"description":"Artifact properties for the Construct Tree Artifact","type":"object","properties":{"file":{"description":"Filename of the tree artifact","type":"string"}},"required":["file"]},"NestedCloudAssemblyProperties":{"description":"Artifact properties for nested cloud assemblies","type":"object","properties":{"directoryName":{"description":"Relative path to the nested cloud assembly","type":"string"},"displayName":{"description":"Display name for the cloud assembly (Default - The artifact ID)","type":"string"}},"required":["directoryName"]},"MissingContext":{"description":"Represents a missing piece of context.","type":"object","properties":{"key":{"description":"The missing context key.","type":"string"},"provider":{"$ref":"#/definitions/ContextProvider","description":"The provider from which we expect this context key to be obtained."},"props":{"$ref":"#/definitions/ContextQueryProperties","description":"A set of provider-specific options."}},"required":["key","props","provider"]},"ContextProvider":{"description":"Identifier for the context provider","type":"string","enum":["ami","availability-zones","hosted-zone","ssm","vpc-provider","endpoint-service-availability-zones","load-balancer","load-balancer-listener","security-group","key-provider","plugin"]},"ContextQueryProperties":{"anyOf":[{"$ref":"#/definitions/AmiContextQuery"},{"$ref":"#/definitions/AvailabilityZonesContextQuery"},{"$ref":"#/definitions/HostedZoneContextQuery"},{"$ref":"#/definitions/SSMParameterContextQuery"},{"$ref":"#/definitions/VpcContextQuery"},{"$ref":"#/definitions/EndpointServiceAvailabilityZonesContextQuery"},{"$ref":"#/definitions/LoadBalancerContextQuery"},{"$ref":"#/definitions/LoadBalancerListenerContextQuery"},{"$ref":"#/definitions/SecurityGroupContextQuery"},{"$ref":"#/definitions/KeyContextQuery"},{"$ref":"#/definitions/PluginContextQuery"}]},"AmiContextQuery":{"description":"Query to AMI context provider","type":"object","properties":{"owners":{"description":"Owners to DescribeImages call (Default - All owners)","type":"array","items":{"type":"string"}},"filters":{"description":"Filters to DescribeImages call","type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","filters","region"]},"AvailabilityZonesContextQuery":{"description":"Query to availability zone context provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","region"]},"HostedZoneContextQuery":{"description":"Query to hosted zone context provider","type":"object","properties":{"domainName":{"description":"The domain name e.g. example.com to lookup","type":"string"},"privateZone":{"description":"True if the zone you want to find is a private hosted zone","default":false,"type":"boolean"},"vpcId":{"description":"The VPC ID to that the private zone must be associated with\\n\\nIf you provide VPC ID and privateZone is false, this will return no results\\nand raise an error. (Default - Required if privateZone=true)","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","domainName","region"]},"SSMParameterContextQuery":{"description":"Query to SSM Parameter Context Provider","type":"object","properties":{"parameterName":{"description":"Parameter name to query","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","parameterName","region"]},"VpcContextQuery":{"description":"Query input for looking up a VPC","type":"object","properties":{"filter":{"description":"Filters to apply to the VPC\\n\\nFilter parameters are the same as passed to DescribeVpcs.","type":"object","additionalProperties":{"type":"string"}},"returnAsymmetricSubnets":{"description":"Whether to populate the subnetGroups field of the `VpcContextResponse`,\\nwhich contains potentially asymmetric subnet groups.","default":false,"type":"boolean"},"subnetGroupNameTag":{"description":"Optional tag for subnet group name.\\nIf not provided, we\'ll look at the aws-cdk:subnet-name tag.\\nIf the subnet does not have the specified tag,\\nwe\'ll use its type as the name. (Default \'aws-cdk:subnet-name\')","type":"string"},"returnVpnGateways":{"description":"Whether to populate the `vpnGatewayId` field of the `VpcContextResponse`,\\nwhich contains the VPN Gateway ID, if one exists. You can explicitly\\ndisable this in order to avoid the lookup if you know the VPC does not have\\na VPN Gatway attached. (Default true)","type":"boolean"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","filter","region"]},"EndpointServiceAvailabilityZonesContextQuery":{"description":"Query to endpoint service context provider","type":"object","properties":{"serviceName":{"description":"Query service name","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","region","serviceName"]},"LoadBalancerContextQuery":{"description":"Query input for looking up a load balancer","type":"object","properties":{"loadBalancerType":{"$ref":"#/definitions/LoadBalancerType","description":"Filter load balancers by their type"},"loadBalancerArn":{"description":"Find by load balancer\'s ARN (Default - does not search by load balancer arn)","type":"string"},"loadBalancerTags":{"description":"Match load balancer tags (Default - does not match load balancers by tags)","type":"array","items":{"$ref":"#/definitions/Tag"}},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","loadBalancerType","region"]},"LoadBalancerType":{"description":"Type of load balancer","type":"string","enum":["network","application"]},"LoadBalancerListenerContextQuery":{"description":"Query input for looking up a load balancer listener","type":"object","properties":{"listenerArn":{"description":"Find by listener\'s arn (Default - does not find by listener arn)","type":"string"},"listenerProtocol":{"description":"Filter by listener protocol (Default - does not filter by listener protocol)","enum":["HTTP","HTTPS","TCP","TCP_UDP","TLS","UDP"],"type":"string"},"listenerPort":{"description":"Filter listeners by listener port (Default - does not filter by a listener port)","type":"number"},"loadBalancerType":{"$ref":"#/definitions/LoadBalancerType","description":"Filter load balancers by their type"},"loadBalancerArn":{"description":"Find by load balancer\'s ARN (Default - does not search by load balancer arn)","type":"string"},"loadBalancerTags":{"description":"Match load balancer tags (Default - does not match load balancers by tags)","type":"array","items":{"$ref":"#/definitions/Tag"}},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","loadBalancerType","region"]},"SecurityGroupContextQuery":{"description":"Query input for looking up a security group","type":"object","properties":{"securityGroupId":{"description":"Security group id (Default - None)","type":"string"},"securityGroupName":{"description":"Security group name (Default - None)","type":"string"},"vpcId":{"description":"VPC ID (Default - None)","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","region"]},"KeyContextQuery":{"description":"Query input for looking up a KMS Key","type":"object","properties":{"aliasName":{"description":"Alias name used to search the Key","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","aliasName","region"]},"PluginContextQuery":{"description":"Query input for plugins\\n\\nThis alternate branch is necessary because it needs to be able to escape all type checking\\nwe do on on the cloud assembly -- we cannot know the properties that will be used a priori.","type":"object","additionalProperties":{},"properties":{"pluginName":{"description":"The name of the plugin","type":"string"}},"required":["pluginName"]},"RuntimeInfo":{"description":"Information about the application\'s runtime components.","type":"object","properties":{"libraries":{"description":"The list of libraries loaded in the application, associated with their versions.","type":"object","additionalProperties":{"type":"string"}}},"required":["libraries"]}},"$schema":"http://json-schema.org/draft-07/schema#"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$ref":"#/definitions/AssemblyManifest","definitions":{"AssemblyManifest":{"description":"A manifest which describes the cloud assembly.","type":"object","properties":{"version":{"description":"Protocol version","type":"string"},"minimumCliVersion":{"description":"Required CLI version, if available\\n\\nIf the manifest producer knows, it can put the minimum version of the CLI\\nhere that supports reading this assembly.\\n\\nIf set, it can be used to show a more informative error message to users. (Default - Minimum CLI version unknown)","type":"string"},"artifacts":{"description":"The set of artifacts in this assembly. (Default - no artifacts.)","type":"object","additionalProperties":{"$ref":"#/definitions/ArtifactManifest"}},"missing":{"description":"Missing context information. If this field has values, it means that the\\ncloud assembly is not complete and should not be deployed. (Default - no missing context.)","type":"array","items":{"$ref":"#/definitions/MissingContext"}},"runtime":{"description":"Runtime information. (Default - no info.)","$ref":"#/definitions/RuntimeInfo"}},"required":["version"]},"ArtifactManifest":{"description":"A manifest for a single artifact within the cloud assembly.","type":"object","properties":{"type":{"$ref":"#/definitions/ArtifactType","description":"The type of artifact."},"environment":{"description":"The environment into which this artifact is deployed. (Default - no envrionment.)","type":"string"},"metadata":{"description":"Associated metadata. (Default - no metadata.)","type":"object","additionalProperties":{"type":"array","items":{"$ref":"#/definitions/MetadataEntry"}}},"dependencies":{"description":"IDs of artifacts that must be deployed before this artifact. (Default - no dependencies.)","type":"array","items":{"type":"string"}},"properties":{"description":"The set of properties for this artifact (depends on type) (Default - no properties.)","anyOf":[{"$ref":"#/definitions/AwsCloudFormationStackProperties"},{"$ref":"#/definitions/AssetManifestProperties"},{"$ref":"#/definitions/TreeArtifactProperties"},{"$ref":"#/definitions/NestedCloudAssemblyProperties"}]},"displayName":{"description":"A string that represents this artifact. Should only be used in user interfaces. (Default - no display name)","type":"string"}},"required":["type"]},"ArtifactType":{"description":"Type of cloud artifact.","type":"string","enum":["none","aws:cloudformation:stack","cdk:tree","cdk:asset-manifest","cdk:cloud-assembly"]},"MetadataEntry":{"description":"A metadata entry in a cloud assembly artifact.","type":"object","properties":{"type":{"description":"The type of the metadata entry.","type":"string"},"data":{"description":"The data. (Default - no data.)","anyOf":[{"$ref":"#/definitions/FileAssetMetadataEntry"},{"$ref":"#/definitions/ContainerImageAssetMetadataEntry"},{"type":"array","items":{"$ref":"#/definitions/Tag"}},{"type":["string","number","boolean"]},{"description":"Free form data."}]},"trace":{"description":"A stack trace for when the entry was created. (Default - no trace.)","type":"array","items":{"type":"string"}}},"required":["type"]},"FileAssetMetadataEntry":{"description":"Metadata Entry spec for files.","type":"object","properties":{"packaging":{"description":"Requested packaging style","enum":["file","zip"],"type":"string"},"s3BucketParameter":{"description":"Name of parameter where S3 bucket should be passed in","type":"string"},"s3KeyParameter":{"description":"Name of parameter where S3 key should be passed in","type":"string"},"artifactHashParameter":{"description":"The name of the parameter where the hash of the bundled asset should be passed in.","type":"string"},"id":{"description":"Logical identifier for the asset","type":"string"},"sourceHash":{"description":"The hash of the asset source.","type":"string"},"path":{"description":"Path on disk to the asset","type":"string"}},"required":["artifactHashParameter","id","packaging","path","s3BucketParameter","s3KeyParameter","sourceHash"]},"ContainerImageAssetMetadataEntry":{"description":"Metadata Entry spec for container images.","type":"object","properties":{"packaging":{"description":"Type of asset","type":"string","const":"container-image"},"imageNameParameter":{"description":"ECR Repository name and repo digest (separated by \\"@sha256:\\") where this\\nimage is stored. (Default undefined If not specified, `repositoryName` and `imageTag` are\\nrequired because otherwise how will the stack know where to find the asset,\\nha?)","type":"string"},"repositoryName":{"description":"ECR repository name, if omitted a default name based on the asset\'s ID is\\nused instead. Specify this property if you need to statically address the\\nimage, e.g. from a Kubernetes Pod. Note, this is only the repository name,\\nwithout the registry and the tag parts. (Default - this parameter is REQUIRED after 1.21.0)","type":"string"},"imageTag":{"description":"The docker image tag to use for tagging pushed images. This field is\\nrequired if `imageParameterName` is ommited (otherwise, the app won\'t be\\nable to find the image). (Default - this parameter is REQUIRED after 1.21.0)","type":"string"},"buildArgs":{"description":"Build args to pass to the `docker build` command (Default no build args are passed)","type":"object","additionalProperties":{"type":"string"}},"buildSsh":{"description":"SSH agent socket or keys to pass to the `docker build` command (Default no ssh arg is passed)","type":"string"},"buildSecrets":{"description":"Build secrets to pass to the `docker build` command (Default no build secrets are passed)","type":"object","additionalProperties":{"type":"string"}},"target":{"description":"Docker target to build to (Default no build target)","type":"string"},"file":{"description":"Path to the Dockerfile (relative to the directory). (Default - no file is passed)","type":"string"},"networkMode":{"description":"Networking mode for the RUN commands during build. (Default - no networking mode specified)","type":"string"},"platform":{"description":"Platform to build for. _Requires Docker Buildx_. (Default - current machine platform)","type":"string"},"outputs":{"description":"Outputs to pass to the `docker build` command. (Default - no outputs are passed to the build command (default outputs are used))","type":"array","items":{"type":"string"}},"cacheFrom":{"description":"Cache from options to pass to the `docker build` command. (Default - no cache from options are passed to the build command)","type":"array","items":{"$ref":"#/definitions/ContainerImageAssetCacheOption"}},"cacheTo":{"description":"Cache to options to pass to the `docker build` command. (Default - no cache to options are passed to the build command)","$ref":"#/definitions/ContainerImageAssetCacheOption"},"cacheDisabled":{"description":"Disable the cache and pass `--no-cache` to the `docker build` command. (Default - cache is used)","type":"boolean"},"id":{"description":"Logical identifier for the asset","type":"string"},"sourceHash":{"description":"The hash of the asset source.","type":"string"},"path":{"description":"Path on disk to the asset","type":"string"}},"required":["id","packaging","path","sourceHash"]},"ContainerImageAssetCacheOption":{"description":"Options for configuring the Docker cache backend","type":"object","properties":{"type":{"description":"The type of cache to use.\\nRefer to https://docs.docker.com/build/cache/backends/ for full list of backends. (Default - unspecified)","type":"string"},"params":{"description":"Any parameters to pass into the docker cache backend configuration.\\nRefer to https://docs.docker.com/build/cache/backends/ for cache backend configuration. (Default {} No options provided)","type":"object","additionalProperties":{"type":"string"}}},"required":["type"]},"Tag":{"description":"Metadata Entry spec for stack tag.","type":"object","properties":{"key":{"description":"Tag key.\\n\\n(In the actual file on disk this will be cased as \\"Key\\", and the structure is\\npatched to match this structure upon loading:\\nhttps://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)","type":"string"},"value":{"description":"Tag value.\\n\\n(In the actual file on disk this will be cased as \\"Value\\", and the structure is\\npatched to match this structure upon loading:\\nhttps://github.com/aws/aws-cdk/blob/4aadaa779b48f35838cccd4e25107b2338f05547/packages/%40aws-cdk/cloud-assembly-schema/lib/manifest.ts#L137)","type":"string"}},"required":["key","value"]},"AwsCloudFormationStackProperties":{"description":"Artifact properties for CloudFormation stacks.","type":"object","properties":{"templateFile":{"description":"A file relative to the assembly root which contains the CloudFormation template for this stack.","type":"string"},"parameters":{"description":"Values for CloudFormation stack parameters that should be passed when the stack is deployed. (Default - No parameters)","type":"object","additionalProperties":{"type":"string"}},"tags":{"description":"Values for CloudFormation stack tags that should be passed when the stack is deployed. (Default - No tags)","type":"object","additionalProperties":{"type":"string"}},"notificationArns":{"description":"SNS Notification ARNs that should receive CloudFormation Stack Events. (Default - No notification arns)","type":"array","items":{"type":"string"}},"stackName":{"description":"The name to use for the CloudFormation stack. (Default - name derived from artifact ID)","type":"string"},"terminationProtection":{"description":"Whether to enable termination protection for this stack.","default":false,"type":"boolean"},"assumeRoleArn":{"description":"The role that needs to be assumed to deploy the stack (Default - No role is assumed (current credentials are used))","type":"string"},"assumeRoleExternalId":{"description":"External ID to use when assuming role for cloudformation deployments (Default - No external ID)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the role.\\n\\n- `RoleArn` should not be used. Use the dedicated `assumeRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `assumeRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}},"cloudFormationExecutionRoleArn":{"description":"The role that is passed to CloudFormation to execute the change set (Default - No role is passed (currently assumed role/credentials are used))","type":"string"},"lookupRole":{"description":"The role to use to look up values from the target AWS account (Default - No role is assumed (current credentials are used))","$ref":"#/definitions/BootstrapRole"},"stackTemplateAssetObjectUrl":{"description":"If the stack template has already been included in the asset manifest, its asset URL (Default - Not uploaded yet, upload just before deploying)","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to deploy this stack (Default - No bootstrap stack required)","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"SSM parameter where the bootstrap stack version number can be found\\n\\nOnly used if `requiresBootstrapStackVersion` is set.\\n\\n- If this value is not set, the bootstrap stack name must be known at\\n  deployment time so the stack version can be looked up from the stack\\n  outputs.\\n- If this value is set, the bootstrap stack can have any name because\\n  we won\'t need to look it up. (Default - Bootstrap stack version number looked up)","type":"string"},"validateOnSynth":{"description":"Whether this stack should be validated by the CLI after synthesis (Default - false)","type":"boolean"}},"required":["templateFile"]},"BootstrapRole":{"description":"Information needed to access an IAM role created\\nas part of the bootstrap process","type":"object","properties":{"arn":{"description":"The ARN of the IAM role created as part of bootrapping\\ne.g. lookupRoleArn","type":"string"},"assumeRoleExternalId":{"description":"External ID to use when assuming the bootstrap role (Default - No external ID)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the role.\\n\\n- `RoleArn` should not be used. Use the dedicated `arn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `assumeRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to use this role (Default - No bootstrap stack required)","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"Name of SSM parameter with bootstrap stack version (Default - Discover SSM parameter by reading stack)","type":"string"}},"required":["arn"]},"AssetManifestProperties":{"description":"Artifact properties for the Asset Manifest","type":"object","properties":{"file":{"description":"Filename of the asset manifest","type":"string"},"requiresBootstrapStackVersion":{"description":"Version of bootstrap stack required to deploy this stack (Default - Version 1 (basic modern bootstrap stack))","type":"number"},"bootstrapStackVersionSsmParameter":{"description":"SSM parameter where the bootstrap stack version number can be found\\n\\n- If this value is not set, the bootstrap stack name must be known at\\n  deployment time so the stack version can be looked up from the stack\\n  outputs.\\n- If this value is set, the bootstrap stack can have any name because\\n  we won\'t need to look it up. (Default - Bootstrap stack version number looked up)","type":"string"}},"required":["file"]},"TreeArtifactProperties":{"description":"Artifact properties for the Construct Tree Artifact","type":"object","properties":{"file":{"description":"Filename of the tree artifact","type":"string"}},"required":["file"]},"NestedCloudAssemblyProperties":{"description":"Artifact properties for nested cloud assemblies","type":"object","properties":{"directoryName":{"description":"Relative path to the nested cloud assembly","type":"string"},"displayName":{"description":"Display name for the cloud assembly (Default - The artifact ID)","type":"string"}},"required":["directoryName"]},"MissingContext":{"description":"Represents a missing piece of context.","type":"object","properties":{"key":{"description":"The missing context key.","type":"string"},"provider":{"$ref":"#/definitions/ContextProvider","description":"The provider from which we expect this context key to be obtained."},"props":{"$ref":"#/definitions/ContextQueryProperties","description":"A set of provider-specific options."}},"required":["key","props","provider"]},"ContextProvider":{"description":"Identifier for the context provider","type":"string","enum":["ami","availability-zones","hosted-zone","ssm","vpc-provider","endpoint-service-availability-zones","load-balancer","load-balancer-listener","security-group","key-provider","plugin"]},"ContextQueryProperties":{"anyOf":[{"$ref":"#/definitions/AmiContextQuery"},{"$ref":"#/definitions/AvailabilityZonesContextQuery"},{"$ref":"#/definitions/HostedZoneContextQuery"},{"$ref":"#/definitions/SSMParameterContextQuery"},{"$ref":"#/definitions/VpcContextQuery"},{"$ref":"#/definitions/EndpointServiceAvailabilityZonesContextQuery"},{"$ref":"#/definitions/LoadBalancerContextQuery"},{"$ref":"#/definitions/LoadBalancerListenerContextQuery"},{"$ref":"#/definitions/SecurityGroupContextQuery"},{"$ref":"#/definitions/KeyContextQuery"},{"$ref":"#/definitions/PluginContextQuery"}]},"AmiContextQuery":{"description":"Query to AMI context provider","type":"object","properties":{"owners":{"description":"Owners to DescribeImages call (Default - All owners)","type":"array","items":{"type":"string"}},"filters":{"description":"Filters to DescribeImages call","type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","filters","region"]},"AvailabilityZonesContextQuery":{"description":"Query to availability zone context provider","type":"object","properties":{"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","region"]},"HostedZoneContextQuery":{"description":"Query to hosted zone context provider","type":"object","properties":{"domainName":{"description":"The domain name e.g. example.com to lookup","type":"string"},"privateZone":{"description":"True if the zone you want to find is a private hosted zone","default":false,"type":"boolean"},"vpcId":{"description":"The VPC ID to that the private zone must be associated with\\n\\nIf you provide VPC ID and privateZone is false, this will return no results\\nand raise an error. (Default - Required if privateZone=true)","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","domainName","region"]},"SSMParameterContextQuery":{"description":"Query to SSM Parameter Context Provider","type":"object","properties":{"parameterName":{"description":"Parameter name to query","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","parameterName","region"]},"VpcContextQuery":{"description":"Query input for looking up a VPC","type":"object","properties":{"filter":{"description":"Filters to apply to the VPC\\n\\nFilter parameters are the same as passed to DescribeVpcs.","type":"object","additionalProperties":{"type":"string"}},"returnAsymmetricSubnets":{"description":"Whether to populate the subnetGroups field of the `VpcContextResponse`,\\nwhich contains potentially asymmetric subnet groups.","default":false,"type":"boolean"},"subnetGroupNameTag":{"description":"Optional tag for subnet group name.\\nIf not provided, we\'ll look at the aws-cdk:subnet-name tag.\\nIf the subnet does not have the specified tag,\\nwe\'ll use its type as the name. (Default \'aws-cdk:subnet-name\')","type":"string"},"returnVpnGateways":{"description":"Whether to populate the `vpnGatewayId` field of the `VpcContextResponse`,\\nwhich contains the VPN Gateway ID, if one exists. You can explicitly\\ndisable this in order to avoid the lookup if you know the VPC does not have\\na VPN Gatway attached. (Default true)","type":"boolean"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","filter","region"]},"EndpointServiceAvailabilityZonesContextQuery":{"description":"Query to endpoint service context provider","type":"object","properties":{"serviceName":{"description":"Query service name","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","region","serviceName"]},"LoadBalancerContextQuery":{"description":"Query input for looking up a load balancer","type":"object","properties":{"loadBalancerType":{"$ref":"#/definitions/LoadBalancerType","description":"Filter load balancers by their type"},"loadBalancerArn":{"description":"Find by load balancer\'s ARN (Default - does not search by load balancer arn)","type":"string"},"loadBalancerTags":{"description":"Match load balancer tags (Default - does not match load balancers by tags)","type":"array","items":{"$ref":"#/definitions/Tag"}},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","loadBalancerType","region"]},"LoadBalancerType":{"description":"Type of load balancer","type":"string","enum":["network","application"]},"LoadBalancerListenerContextQuery":{"description":"Query input for looking up a load balancer listener","type":"object","properties":{"listenerArn":{"description":"Find by listener\'s arn (Default - does not find by listener arn)","type":"string"},"listenerProtocol":{"description":"Filter by listener protocol (Default - does not filter by listener protocol)","enum":["HTTP","HTTPS","TCP","TCP_UDP","TLS","UDP"],"type":"string"},"listenerPort":{"description":"Filter listeners by listener port (Default - does not filter by a listener port)","type":"number"},"loadBalancerType":{"$ref":"#/definitions/LoadBalancerType","description":"Filter load balancers by their type"},"loadBalancerArn":{"description":"Find by load balancer\'s ARN (Default - does not search by load balancer arn)","type":"string"},"loadBalancerTags":{"description":"Match load balancer tags (Default - does not match load balancers by tags)","type":"array","items":{"$ref":"#/definitions/Tag"}},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","loadBalancerType","region"]},"SecurityGroupContextQuery":{"description":"Query input for looking up a security group","type":"object","properties":{"securityGroupId":{"description":"Security group id (Default - None)","type":"string"},"securityGroupName":{"description":"Security group name (Default - None)","type":"string"},"vpcId":{"description":"VPC ID (Default - None)","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","region"]},"KeyContextQuery":{"description":"Query input for looking up a KMS Key","type":"object","properties":{"aliasName":{"description":"Alias name used to search the Key","type":"string"},"account":{"description":"Query account","type":"string"},"region":{"description":"Query region","type":"string"},"lookupRoleArn":{"description":"The ARN of the role that should be used to look up the missing values (Default - None)","type":"string"},"lookupRoleExternalId":{"description":"The ExternalId that needs to be supplied while assuming this role (Default - No ExternalId will be supplied)","type":"string"},"assumeRoleAdditionalOptions":{"description":"Additional options to pass to STS when assuming the lookup role.\\n\\n- `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.\\n- `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead. (Default - No additional options.)","type":"object","additionalProperties":{}}},"required":["account","aliasName","region"]},"PluginContextQuery":{"description":"Query input for plugins\\n\\nThis alternate branch is necessary because it needs to be able to escape all type checking\\nwe do on on the cloud assembly -- we cannot know the properties that will be used a priori.","type":"object","additionalProperties":{},"properties":{"pluginName":{"description":"The name of the plugin","type":"string"}},"required":["pluginName"]},"RuntimeInfo":{"description":"Information about the application\'s runtime components.","type":"object","properties":{"libraries":{"description":"The list of libraries loaded in the application, associated with their versions.","type":"object","additionalProperties":{"type":"string"}}},"required":["libraries"]}},"$schema":"http://json-schema.org/draft-07/schema#"}');
 
 /***/ }),
 
@@ -89046,7 +89940,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$ref":"#/definitions/IntegManifest",
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"schemaHash":"f0ccc3212331af8a1c75830878d218fd667e5957063831be3b5bfd803b25f0cc","revision":39}');
+module.exports = /*#__PURE__*/JSON.parse('{"schemaHash":"bf762e5da559c685e06892ef65fdfc33d1c4bd53d4eb07d4a326d476ac58ae25","revision":39}');
 
 /***/ }),
 
@@ -89054,7 +89948,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"schemaHash":"f0ccc3212331af8a1c75830
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.721.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.721.0","@aws-sdk/client-sts":"3.721.0","@aws-sdk/core":"3.716.0","@aws-sdk/credential-provider-node":"3.721.0","@aws-sdk/middleware-host-header":"3.714.0","@aws-sdk/middleware-logger":"3.714.0","@aws-sdk/middleware-recursion-detection":"3.714.0","@aws-sdk/middleware-user-agent":"3.721.0","@aws-sdk/region-config-resolver":"3.714.0","@aws-sdk/types":"3.714.0","@aws-sdk/util-endpoints":"3.714.0","@aws-sdk/util-user-agent-browser":"3.714.0","@aws-sdk/util-user-agent-node":"3.721.0","@smithy/config-resolver":"^3.0.13","@smithy/core":"^2.5.5","@smithy/fetch-http-handler":"^4.1.2","@smithy/hash-node":"^3.0.11","@smithy/invalid-dependency":"^3.0.11","@smithy/middleware-content-length":"^3.0.13","@smithy/middleware-endpoint":"^3.2.6","@smithy/middleware-retry":"^3.0.31","@smithy/middleware-serde":"^3.0.11","@smithy/middleware-stack":"^3.0.11","@smithy/node-config-provider":"^3.1.12","@smithy/node-http-handler":"^3.3.2","@smithy/protocol-http":"^4.1.8","@smithy/smithy-client":"^3.5.1","@smithy/types":"^3.7.2","@smithy/url-parser":"^3.0.11","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.31","@smithy/util-defaults-mode-node":"^3.0.31","@smithy/util-endpoints":"^2.1.7","@smithy/util-middleware":"^3.0.11","@smithy/util-retry":"^3.0.11","@smithy/util-utf8":"^3.0.0","@smithy/util-waiter":"^3.2.0","@types/uuid":"^9.0.1","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.726.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.726.0","@aws-sdk/client-sts":"3.726.1","@aws-sdk/core":"3.723.0","@aws-sdk/credential-provider-node":"3.726.0","@aws-sdk/middleware-host-header":"3.723.0","@aws-sdk/middleware-logger":"3.723.0","@aws-sdk/middleware-recursion-detection":"3.723.0","@aws-sdk/middleware-user-agent":"3.726.0","@aws-sdk/region-config-resolver":"3.723.0","@aws-sdk/types":"3.723.0","@aws-sdk/util-endpoints":"3.726.0","@aws-sdk/util-user-agent-browser":"3.723.0","@aws-sdk/util-user-agent-node":"3.726.0","@smithy/config-resolver":"^4.0.0","@smithy/core":"^3.0.0","@smithy/fetch-http-handler":"^5.0.0","@smithy/hash-node":"^4.0.0","@smithy/invalid-dependency":"^4.0.0","@smithy/middleware-content-length":"^4.0.0","@smithy/middleware-endpoint":"^4.0.0","@smithy/middleware-retry":"^4.0.0","@smithy/middleware-serde":"^4.0.0","@smithy/middleware-stack":"^4.0.0","@smithy/node-config-provider":"^4.0.0","@smithy/node-http-handler":"^4.0.0","@smithy/protocol-http":"^5.0.0","@smithy/smithy-client":"^4.0.0","@smithy/types":"^4.0.0","@smithy/url-parser":"^4.0.0","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.0","@smithy/util-defaults-mode-node":"^4.0.0","@smithy/util-endpoints":"^3.0.0","@smithy/util-middleware":"^4.0.0","@smithy/util-retry":"^4.0.0","@smithy/util-utf8":"^4.0.0","@smithy/util-waiter":"^4.0.0","@types/uuid":"^9.0.1","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -89062,7 +89956,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.721.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cognito-identity","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"yarn g:vitest run -c vitest.config.e2e.ts --mode development","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.ts"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.721.0","@aws-sdk/client-sts":"3.721.0","@aws-sdk/core":"3.716.0","@aws-sdk/credential-provider-node":"3.721.0","@aws-sdk/middleware-host-header":"3.714.0","@aws-sdk/middleware-logger":"3.714.0","@aws-sdk/middleware-recursion-detection":"3.714.0","@aws-sdk/middleware-user-agent":"3.721.0","@aws-sdk/region-config-resolver":"3.714.0","@aws-sdk/types":"3.714.0","@aws-sdk/util-endpoints":"3.714.0","@aws-sdk/util-user-agent-browser":"3.714.0","@aws-sdk/util-user-agent-node":"3.721.0","@smithy/config-resolver":"^3.0.13","@smithy/core":"^2.5.5","@smithy/fetch-http-handler":"^4.1.2","@smithy/hash-node":"^3.0.11","@smithy/invalid-dependency":"^3.0.11","@smithy/middleware-content-length":"^3.0.13","@smithy/middleware-endpoint":"^3.2.6","@smithy/middleware-retry":"^3.0.31","@smithy/middleware-serde":"^3.0.11","@smithy/middleware-stack":"^3.0.11","@smithy/node-config-provider":"^3.1.12","@smithy/node-http-handler":"^3.3.2","@smithy/protocol-http":"^4.1.8","@smithy/smithy-client":"^3.5.1","@smithy/types":"^3.7.2","@smithy/url-parser":"^3.0.11","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.31","@smithy/util-defaults-mode-node":"^3.0.31","@smithy/util-endpoints":"^2.1.7","@smithy/util-middleware":"^3.0.11","@smithy/util-retry":"^3.0.11","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@aws-sdk/client-iam":"3.721.0","@tsconfig/node16":"16.1.3","@types/chai":"^4.2.11","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.726.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cognito-identity","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"yarn g:vitest run -c vitest.config.e2e.ts --mode development","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.ts"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.726.0","@aws-sdk/client-sts":"3.726.1","@aws-sdk/core":"3.723.0","@aws-sdk/credential-provider-node":"3.726.0","@aws-sdk/middleware-host-header":"3.723.0","@aws-sdk/middleware-logger":"3.723.0","@aws-sdk/middleware-recursion-detection":"3.723.0","@aws-sdk/middleware-user-agent":"3.726.0","@aws-sdk/region-config-resolver":"3.723.0","@aws-sdk/types":"3.723.0","@aws-sdk/util-endpoints":"3.726.0","@aws-sdk/util-user-agent-browser":"3.723.0","@aws-sdk/util-user-agent-node":"3.726.0","@smithy/config-resolver":"^4.0.0","@smithy/core":"^3.0.0","@smithy/fetch-http-handler":"^5.0.0","@smithy/hash-node":"^4.0.0","@smithy/invalid-dependency":"^4.0.0","@smithy/middleware-content-length":"^4.0.0","@smithy/middleware-endpoint":"^4.0.0","@smithy/middleware-retry":"^4.0.0","@smithy/middleware-serde":"^4.0.0","@smithy/middleware-stack":"^4.0.0","@smithy/node-config-provider":"^4.0.0","@smithy/node-http-handler":"^4.0.0","@smithy/protocol-http":"^5.0.0","@smithy/smithy-client":"^4.0.0","@smithy/types":"^4.0.0","@smithy/url-parser":"^4.0.0","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.0","@smithy/util-defaults-mode-node":"^4.0.0","@smithy/util-endpoints":"^3.0.0","@smithy/util-middleware":"^4.0.0","@smithy/util-retry":"^4.0.0","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@aws-sdk/client-iam":"3.726.1","@tsconfig/node18":"18.2.4","@types/chai":"^4.2.11","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
 
 /***/ }),
 
@@ -89070,7 +89964,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-ident
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.721.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.716.0","@aws-sdk/credential-provider-node":"3.721.0","@aws-sdk/middleware-host-header":"3.714.0","@aws-sdk/middleware-logger":"3.714.0","@aws-sdk/middleware-recursion-detection":"3.714.0","@aws-sdk/middleware-user-agent":"3.721.0","@aws-sdk/region-config-resolver":"3.714.0","@aws-sdk/types":"3.714.0","@aws-sdk/util-endpoints":"3.714.0","@aws-sdk/util-user-agent-browser":"3.714.0","@aws-sdk/util-user-agent-node":"3.721.0","@smithy/config-resolver":"^3.0.13","@smithy/core":"^2.5.5","@smithy/fetch-http-handler":"^4.1.2","@smithy/hash-node":"^3.0.11","@smithy/invalid-dependency":"^3.0.11","@smithy/middleware-content-length":"^3.0.13","@smithy/middleware-endpoint":"^3.2.6","@smithy/middleware-retry":"^3.0.31","@smithy/middleware-serde":"^3.0.11","@smithy/middleware-stack":"^3.0.11","@smithy/node-config-provider":"^3.1.12","@smithy/node-http-handler":"^3.3.2","@smithy/protocol-http":"^4.1.8","@smithy/smithy-client":"^3.5.1","@smithy/types":"^3.7.2","@smithy/url-parser":"^3.0.11","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.31","@smithy/util-defaults-mode-node":"^3.0.31","@smithy/util-endpoints":"^2.1.7","@smithy/util-middleware":"^3.0.11","@smithy/util-retry":"^3.0.11","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/client-sts":"^3.721.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso-oidc","description":"AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native","version":"3.726.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso-oidc","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso-oidc"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.723.0","@aws-sdk/credential-provider-node":"3.726.0","@aws-sdk/middleware-host-header":"3.723.0","@aws-sdk/middleware-logger":"3.723.0","@aws-sdk/middleware-recursion-detection":"3.723.0","@aws-sdk/middleware-user-agent":"3.726.0","@aws-sdk/region-config-resolver":"3.723.0","@aws-sdk/types":"3.723.0","@aws-sdk/util-endpoints":"3.726.0","@aws-sdk/util-user-agent-browser":"3.723.0","@aws-sdk/util-user-agent-node":"3.726.0","@smithy/config-resolver":"^4.0.0","@smithy/core":"^3.0.0","@smithy/fetch-http-handler":"^5.0.0","@smithy/hash-node":"^4.0.0","@smithy/invalid-dependency":"^4.0.0","@smithy/middleware-content-length":"^4.0.0","@smithy/middleware-endpoint":"^4.0.0","@smithy/middleware-retry":"^4.0.0","@smithy/middleware-serde":"^4.0.0","@smithy/middleware-stack":"^4.0.0","@smithy/node-config-provider":"^4.0.0","@smithy/node-http-handler":"^4.0.0","@smithy/protocol-http":"^5.0.0","@smithy/smithy-client":"^4.0.0","@smithy/types":"^4.0.0","@smithy/url-parser":"^4.0.0","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.0","@smithy/util-defaults-mode-node":"^4.0.0","@smithy/util-endpoints":"^3.0.0","@smithy/util-middleware":"^4.0.0","@smithy/util-retry":"^4.0.0","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","peerDependencies":{"@aws-sdk/client-sts":"^3.726.0"},"browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso-oidc","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso-oidc"}}');
 
 /***/ }),
 
@@ -89078,7 +89972,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso-oidc","de
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.721.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.716.0","@aws-sdk/middleware-host-header":"3.714.0","@aws-sdk/middleware-logger":"3.714.0","@aws-sdk/middleware-recursion-detection":"3.714.0","@aws-sdk/middleware-user-agent":"3.721.0","@aws-sdk/region-config-resolver":"3.714.0","@aws-sdk/types":"3.714.0","@aws-sdk/util-endpoints":"3.714.0","@aws-sdk/util-user-agent-browser":"3.714.0","@aws-sdk/util-user-agent-node":"3.721.0","@smithy/config-resolver":"^3.0.13","@smithy/core":"^2.5.5","@smithy/fetch-http-handler":"^4.1.2","@smithy/hash-node":"^3.0.11","@smithy/invalid-dependency":"^3.0.11","@smithy/middleware-content-length":"^3.0.13","@smithy/middleware-endpoint":"^3.2.6","@smithy/middleware-retry":"^3.0.31","@smithy/middleware-serde":"^3.0.11","@smithy/middleware-stack":"^3.0.11","@smithy/node-config-provider":"^3.1.12","@smithy/node-http-handler":"^3.3.2","@smithy/protocol-http":"^4.1.8","@smithy/smithy-client":"^3.5.1","@smithy/types":"^3.7.2","@smithy/url-parser":"^3.0.11","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.31","@smithy/util-defaults-mode-node":"^3.0.31","@smithy/util-endpoints":"^2.1.7","@smithy/util-middleware":"^3.0.11","@smithy/util-retry":"^3.0.11","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.726.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.723.0","@aws-sdk/middleware-host-header":"3.723.0","@aws-sdk/middleware-logger":"3.723.0","@aws-sdk/middleware-recursion-detection":"3.723.0","@aws-sdk/middleware-user-agent":"3.726.0","@aws-sdk/region-config-resolver":"3.723.0","@aws-sdk/types":"3.723.0","@aws-sdk/util-endpoints":"3.726.0","@aws-sdk/util-user-agent-browser":"3.723.0","@aws-sdk/util-user-agent-node":"3.726.0","@smithy/config-resolver":"^4.0.0","@smithy/core":"^3.0.0","@smithy/fetch-http-handler":"^5.0.0","@smithy/hash-node":"^4.0.0","@smithy/invalid-dependency":"^4.0.0","@smithy/middleware-content-length":"^4.0.0","@smithy/middleware-endpoint":"^4.0.0","@smithy/middleware-retry":"^4.0.0","@smithy/middleware-serde":"^4.0.0","@smithy/middleware-stack":"^4.0.0","@smithy/node-config-provider":"^4.0.0","@smithy/node-http-handler":"^4.0.0","@smithy/protocol-http":"^5.0.0","@smithy/smithy-client":"^4.0.0","@smithy/types":"^4.0.0","@smithy/url-parser":"^4.0.0","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.0","@smithy/util-defaults-mode-node":"^4.0.0","@smithy/util-endpoints":"^3.0.0","@smithy/util-middleware":"^4.0.0","@smithy/util-retry":"^4.0.0","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
@@ -89086,7 +89980,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","descrip
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.721.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn g:vitest run","test:watch":"yarn g:vitest watch"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.721.0","@aws-sdk/core":"3.716.0","@aws-sdk/credential-provider-node":"3.721.0","@aws-sdk/middleware-host-header":"3.714.0","@aws-sdk/middleware-logger":"3.714.0","@aws-sdk/middleware-recursion-detection":"3.714.0","@aws-sdk/middleware-user-agent":"3.721.0","@aws-sdk/region-config-resolver":"3.714.0","@aws-sdk/types":"3.714.0","@aws-sdk/util-endpoints":"3.714.0","@aws-sdk/util-user-agent-browser":"3.714.0","@aws-sdk/util-user-agent-node":"3.721.0","@smithy/config-resolver":"^3.0.13","@smithy/core":"^2.5.5","@smithy/fetch-http-handler":"^4.1.2","@smithy/hash-node":"^3.0.11","@smithy/invalid-dependency":"^3.0.11","@smithy/middleware-content-length":"^3.0.13","@smithy/middleware-endpoint":"^3.2.6","@smithy/middleware-retry":"^3.0.31","@smithy/middleware-serde":"^3.0.11","@smithy/middleware-stack":"^3.0.11","@smithy/node-config-provider":"^3.1.12","@smithy/node-http-handler":"^3.3.2","@smithy/protocol-http":"^4.1.8","@smithy/smithy-client":"^3.5.1","@smithy/types":"^3.7.2","@smithy/url-parser":"^3.0.11","@smithy/util-base64":"^3.0.0","@smithy/util-body-length-browser":"^3.0.0","@smithy/util-body-length-node":"^3.0.0","@smithy/util-defaults-mode-browser":"^3.0.31","@smithy/util-defaults-mode-node":"^3.0.31","@smithy/util-endpoints":"^2.1.7","@smithy/util-middleware":"^3.0.11","@smithy/util-retry":"^3.0.11","@smithy/util-utf8":"^3.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node16":"16.1.3","@types/node":"^16.18.96","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~4.9.5"},"engines":{"node":">=16.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.726.1","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn g:vitest run","test:watch":"yarn g:vitest watch"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/client-sso-oidc":"3.726.0","@aws-sdk/core":"3.723.0","@aws-sdk/credential-provider-node":"3.726.0","@aws-sdk/middleware-host-header":"3.723.0","@aws-sdk/middleware-logger":"3.723.0","@aws-sdk/middleware-recursion-detection":"3.723.0","@aws-sdk/middleware-user-agent":"3.726.0","@aws-sdk/region-config-resolver":"3.723.0","@aws-sdk/types":"3.723.0","@aws-sdk/util-endpoints":"3.726.0","@aws-sdk/util-user-agent-browser":"3.723.0","@aws-sdk/util-user-agent-node":"3.726.0","@smithy/config-resolver":"^4.0.0","@smithy/core":"^3.0.0","@smithy/fetch-http-handler":"^5.0.0","@smithy/hash-node":"^4.0.0","@smithy/invalid-dependency":"^4.0.0","@smithy/middleware-content-length":"^4.0.0","@smithy/middleware-endpoint":"^4.0.0","@smithy/middleware-retry":"^4.0.0","@smithy/middleware-serde":"^4.0.0","@smithy/middleware-stack":"^4.0.0","@smithy/node-config-provider":"^4.0.0","@smithy/node-http-handler":"^4.0.0","@smithy/protocol-http":"^5.0.0","@smithy/smithy-client":"^4.0.0","@smithy/types":"^4.0.0","@smithy/url-parser":"^4.0.0","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.0","@smithy/util-defaults-mode-node":"^4.0.0","@smithy/util-endpoints":"^3.0.0","@smithy/util-middleware":"^4.0.0","@smithy/util-retry":"^4.0.0","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ })
 
