@@ -5100,7 +5100,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Manifest = exports.VERSION_MISMATCH = void 0;
 const JSII_RTTI_SYMBOL_1 = Symbol.for("jsii.rtti");
 const fs = __nccwpck_require__(79896);
-const jsonschema = __nccwpck_require__(44145);
+const jsonschema = __nccwpck_require__(75282);
 const semver = __nccwpck_require__(22955);
 const assembly = __nccwpck_require__(77144);
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -5346,7 +5346,7 @@ class Manifest {
 }
 exports.Manifest = Manifest;
 _a = JSII_RTTI_SYMBOL_1;
-Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "40.2.0" };
+Manifest[_a] = { fqn: "@aws-cdk/cloud-assembly-schema.Manifest", version: "40.6.0" };
 function mapValues(xs, fn) {
     if (!xs) {
         return undefined;
@@ -5370,6 +5370,1840 @@ function stripEnumErrors(errors) {
     return errors.filter((e) => typeof e.schema === 'string' || !('enum' in e.schema));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFuaWZlc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJtYW5pZmVzdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBLHlCQUF5QjtBQUN6Qix5Q0FBeUM7QUFDekMsaUNBQWlDO0FBRWpDLDZDQUE2QztBQUc3Qyx1REFBdUQ7QUFDdkQsMERBQTBEO0FBRTFELGtFQUFrRTtBQUNsRSxpRUFBaUU7QUFDakUsNkJBQTZCO0FBQ2hCLFFBQUEsZ0JBQWdCLEdBQVcsd0NBQXdDLENBQUM7QUFFakYsOERBQStEO0FBRS9ELHdFQUF5RTtBQUV6RSw0REFBNkQ7QUFFN0Q7O0dBRUc7QUFDSCx5REFBMEQ7QUFzQzFEOztHQUVHO0FBQ0gsTUFBYSxRQUFRO0lBQ25COzs7OztPQUtHO0lBQ0ksTUFBTSxDQUFDLG9CQUFvQixDQUFDLFFBQW1DLEVBQUUsUUFBZ0I7UUFDdEYsUUFBUSxDQUFDLFlBQVksQ0FBQyxRQUFRLEVBQUUsUUFBUSxFQUFFLGVBQWUsRUFBRSxRQUFRLENBQUMscUJBQXFCLENBQUMsQ0FBQztJQUM3RixDQUFDO0lBRUQ7Ozs7T0FJRztJQUNJLE1BQU0sQ0FBQyxvQkFBb0IsQ0FDaEMsUUFBZ0IsRUFDaEIsT0FBNkI7UUFFN0IsT0FBTyxRQUFRLENBQUMsWUFBWSxDQUFDLFFBQVEsRUFBRSxlQUFlLEVBQUUsUUFBUSxDQUFDLG9CQUFvQixFQUFFLE9BQU8sQ0FBQyxDQUFDO0lBQ2xHLENBQUM7SUFFRDs7Ozs7T0FLRztJQUNJLE1BQU0sQ0FBQyxpQkFBaUIsQ0FBQyxRQUE4QixFQUFFLFFBQWdCO1FBQzlFLFFBQVEsQ0FBQyxZQUFZLENBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxhQUFhLEVBQUUsUUFBUSxDQUFDLG9CQUFvQixDQUFDLENBQUM7SUFDMUYsQ0FBQztJQUVEOzs7O09BSUc7SUFDSSxNQUFNLENBQUMsaUJBQWlCLENBQUMsUUFBZ0I7UUFDOUMsT0FBTyxJQUFJLENBQUMsWUFBWSxDQUFDLFFBQVEsRUFBRSxhQUFhLENBQUMsQ0FBQztJQUNwRCxDQUFDO0lBRUQ7Ozs7O09BS0c7SUFDSSxNQUFNLENBQUMsaUJBQWlCLENBQUMsUUFBNkIsRUFBRSxRQUFnQjtRQUM3RSxRQUFRLENBQUMsWUFBWSxDQUFDLFFBQVEsRUFBRSxRQUFRLEVBQUUsWUFBWSxDQUFDLENBQUM7SUFDMUQsQ0FBQztJQUVEOzs7O09BSUc7SUFDSSxNQUFNLENBQUMsaUJBQWlCLENBQUMsUUFBZ0I7UUFDOUMsTUFBTSxRQUFRLEdBQUcsSUFBSSxDQUFDLFlBQVksQ0FBQyxRQUFRLEVBQUUsWUFBWSxDQUFDLENBQUM7UUFFM0QsMEVBQTBFO1FBQzFFLGdFQUFnRTtRQUNoRSx1RUFBdUU7UUFDdkUsdUVBQXVFO1FBQ3ZFLGlGQUFpRjtRQUNqRixPQUFPO1lBQ0wsR0FBRyxRQUFRO1lBQ1gsU0FBUyxFQUFHLFFBQWdCLENBQUMsU0FBUyxJQUFJLEVBQUU7U0FDN0MsQ0FBQztJQUNKLENBQUM7SUFFRDs7T0FFRztJQUNJLE1BQU0sQ0FBQyxPQUFPO1FBQ25CLE9BQU8sR0FBRyxjQUFjLENBQUMsUUFBUSxNQUFNLENBQUM7SUFDMUMsQ0FBQztJQUVEOzs7T0FHRztJQUNJLE1BQU0sQ0FBQyxJQUFJLENBQUMsUUFBbUMsRUFBRSxRQUFnQjtRQUN0RSxPQUFPLElBQUksQ0FBQyxvQkFBb0IsQ0FBQyxRQUFRLEVBQUUsUUFBUSxDQUFDLENBQUM7SUFDdkQsQ0FBQztJQUVEOzs7T0FHRztJQUNJLE1BQU0sQ0FBQyxJQUFJLENBQUMsUUFBZ0I7UUFDakMsT0FBTyxJQUFJLENBQUMsb0JBQW9CLENBQUMsUUFBUSxDQUFDLENBQUM7SUFDN0MsQ0FBQztJQUVPLE1BQU0sQ0FBQyxRQUFRLENBQ3JCLFFBQWEsRUFDYixNQUF5QixFQUN6QixPQUE2QjtRQUU3QixTQUFTLFlBQVksQ0FBQyxPQUFlO1lBQ25DLE1BQU0sR0FBRyxHQUFHLE1BQU0sQ0FBQyxLQUFLLENBQUMsT0FBTyxDQUFDLENBQUM7WUFDbEMsSUFBSSxDQUFDLEdBQUcsRUFBRSxDQUFDO2dCQUNULE1BQU0sSUFBSSxLQUFLLENBQUMsMkJBQTJCLE9BQU8sR0FBRyxDQUFDLENBQUM7WUFDekQsQ0FBQztZQUNELE9BQU8sR0FBRyxDQUFDO1FBQ2IsQ0FBQztRQUVELE1BQU0sWUFBWSxHQUFHLE1BQU0sQ0FBQyxLQUFLLENBQUMsWUFBWSxDQUFDLFFBQVEsQ0FBQyxPQUFPLEVBQUUsQ0FBQyxDQUFDLENBQUM7UUFDcEUsTUFBTSxNQUFNLEdBQUcsWUFBWSxDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQUMsQ0FBQztRQUU5QyxxR0FBcUc7UUFDckcsSUFBSSxZQUFZLEdBQUcsTUFBTSxDQUFDLEtBQUssQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLE9BQU8sRUFBRSxnQkFBZ0IsRUFBRSxDQUFDO1lBQ3RFLG9HQUFvRztZQUNwRyxNQUFNLFVBQVUsR0FBSSxRQUFzQyxDQUFDLGlCQUFpQixDQUFDO1lBQzdFLElBQUksVUFBVSxHQUFHLEVBQUUsQ0FBQztZQUNwQixJQUFJLFVBQVUsRUFBRSxDQUFDO2dCQUNmLFVBQVUsR0FBRyxtQ0FBbUMsVUFBVSx5QkFBeUIsQ0FBQztZQUN0RixDQUFDO1lBRUQsb0ZBQW9GO1lBQ3BGLDJDQUEyQztZQUMzQyxNQUFNLElBQUksS0FBSyxDQUNiLEdBQUcsd0JBQWdCLHlDQUF5QyxZQUFZLG1CQUFtQixNQUFNLEdBQUcsVUFBVSxFQUFFLENBQ2pILENBQUM7UUFDSixDQUFDO1FBRUQsbUNBQW1DO1FBQ25DLE1BQU0sU0FBUyxHQUFHLElBQUksVUFBVSxDQUFDLFNBQVMsRUFBRSxDQUFDO1FBQzdDLE1BQU0sTUFBTSxHQUFHLFNBQVMsQ0FBQyxRQUFRLENBQUMsUUFBUSxFQUFFLE1BQU0sRUFBRTtZQUNsRCxzREFBc0Q7WUFDdEQsWUFBWSxFQUFFLElBQUk7WUFFbEIsc0JBQXNCLEVBQUUsS0FBSztZQUM3QixtQkFBbUIsRUFBRSxRQUFRLENBQUMsbUNBQW1DO1NBQ2xFLENBQUMsQ0FBQztRQUVILElBQUksTUFBTSxHQUFHLE1BQU0sQ0FBQyxNQUFNLENBQUM7UUFDM0IsSUFBSSxPQUFPLEVBQUUsYUFBYSxFQUFFLENBQUM7WUFDM0Isc0NBQXNDO1lBQ3RDLE1BQU0sR0FBRyxlQUFlLENBQUMsTUFBTSxDQUFDLENBQUM7UUFDbkMsQ0FBQztRQUVELElBQUksTUFBTSxDQUFDLE1BQU0sR0FBRyxDQUFDLEVBQUUsQ0FBQztZQUN0QixNQUFNLElBQUksS0FBSyxDQUFDLCtCQUErQixNQUFNLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUMsS0FBSyxDQUFDLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsQ0FBQztRQUMxRixDQUFDO0lBQ0gsQ0FBQztJQUVPLE1BQU0sQ0FBQyxZQUFZLENBQ3pCLFFBQWEsRUFDYixRQUFnQixFQUNoQixNQUF5QixFQUN6QixVQUE4QjtRQUU5QixJQUFJLFdBQVcsR0FBRyxFQUFFLEdBQUcsUUFBUSxFQUFFLE9BQU8sRUFBRSxRQUFRLENBQUMsT0FBTyxFQUFFLEVBQUUsQ0FBQztRQUMvRCxRQUFRLENBQUMsUUFBUSxDQUFDLFdBQVcsRUFBRSxNQUFNLENBQUMsQ0FBQztRQUN2QyxJQUFJLFVBQVUsRUFBRSxDQUFDO1lBQ2YsV0FBVyxHQUFHLFVBQVUsQ0FBQyxXQUFXLENBQUMsQ0FBQztRQUN4QyxDQUFDO1FBQ0QsRUFBRSxDQUFDLGFBQWEsQ0FBQyxRQUFRLEVBQUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxXQUFXLEVBQUUsU0FBUyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDeEUsQ0FBQztJQUVPLE1BQU0sQ0FBQyxZQUFZLENBQ3pCLFFBQWdCLEVBQ2hCLE1BQXlCLEVBQ3pCLFVBQThCLEVBQzlCLE9BQTZCO1FBRTdCLE1BQU0sUUFBUSxHQUFHLEVBQUUsQ0FBQyxZQUFZLENBQUMsUUFBUSxFQUFFLEVBQUUsUUFBUSxFQUFFLE9BQU8sRUFBRSxDQUFDLENBQUM7UUFDbEUsSUFBSSxHQUFHLENBQUM7UUFDUixJQUFJLENBQUM7WUFDSCxHQUFHLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxRQUFRLENBQUMsQ0FBQztRQUM3QixDQUFDO1FBQUMsT0FBTyxDQUFNLEVBQUUsQ0FBQztZQUNoQixNQUFNLElBQUksS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDLE9BQU8sbUJBQW1CLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLEVBQUUsQ0FBQyxDQUFDO1FBQzdFLENBQUM7UUFDRCxJQUFJLFVBQVUsRUFBRSxDQUFDO1lBQ2YsR0FBRyxHQUFHLFVBQVUsQ0FBQyxHQUFHLENBQUMsQ0FBQztRQUN4QixDQUFDO1FBQ0QsUUFBUSxDQUFDLFFBQVEsQ0FBQyxHQUFHLEVBQUUsTUFBTSxFQUFFLE9BQU8sQ0FBQyxDQUFDO1FBQ3hDLE9BQU8sR0FBRyxDQUFDO0lBQ2IsQ0FBQztJQUVEOzs7Ozs7Ozs7Ozs7OztPQWNHO0lBQ0ssTUFBTSxDQUFDLG9CQUFvQixDQUFDLFFBQW1DO1FBQ3JFLE9BQU8sUUFBUSxDQUFDLGdCQUFnQixDQUFDLFFBQVEsRUFBRSxDQUFDLElBQUksRUFBRSxFQUFFLENBQ2xELElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQyxPQUFZLEVBQUUsRUFBRSxDQUFDLENBQUM7WUFDMUIsR0FBRyxFQUFFLE9BQU8sQ0FBQyxHQUFHO1lBQ2hCLEtBQUssRUFBRSxPQUFPLENBQUMsS0FBSztTQUNyQixDQUFDLENBQUMsQ0FDSixDQUFDO0lBQ0osQ0FBQztJQUVEOzs7T0FHRztJQUNLLE1BQU0sQ0FBQyxtQ0FBbUMsQ0FDaEQsUUFBYSxFQUNiLEdBQVcsRUFDWCxPQUEwQixFQUMxQixRQUE0QixFQUM1QixJQUE4QjtRQUU5QixJQUFJLEdBQUcsS0FBSyw2QkFBNkIsRUFBRSxDQUFDO1lBQzFDLHNGQUFzRjtZQUN0RixnSEFBZ0g7WUFDaEgsNEdBQTRHO1lBQzVHLGdEQUFnRDtZQUNoRCxPQUFPO1FBQ1QsQ0FBQztRQUVELE1BQU0saUJBQWlCLEdBQUcsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFDO1FBQ3hDLElBQUksaUJBQWlCLEVBQUUsT0FBTyxFQUFFLENBQUM7WUFDL0IsTUFBTSxJQUFJLEtBQUssQ0FBQyxrQ0FBa0MsR0FBRyxHQUFHLENBQUMsQ0FBQztRQUM1RCxDQUFDO1FBQ0QsSUFBSSxpQkFBaUIsRUFBRSxVQUFVLEVBQUUsQ0FBQztZQUNsQyxNQUFNLElBQUksS0FBSyxDQUFDLHFDQUFxQyxHQUFHLEdBQUcsQ0FBQyxDQUFDO1FBQy9ELENBQUM7SUFDSCxDQUFDO0lBRUQ7Ozs7T0FJRztJQUNLLE1BQU0sQ0FBQyxxQkFBcUIsQ0FBQyxRQUFtQztRQUN0RSxPQUFPLFFBQVEsQ0FBQyxnQkFBZ0IsQ0FBQyxRQUFRLEVBQUUsQ0FBQyxJQUFJLEVBQUUsRUFBRSxDQUNsRCxJQUFJLENBQUMsR0FBRyxDQUNOLENBQUMsTUFBTSxFQUFFLEVBQUU7UUFDVCx1RkFBdUY7UUFDdkYsQ0FBQyxLQUFLLElBQUksTUFBTSxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLEVBQUUsR0FBRyxFQUFFLE1BQU0sQ0FBQyxHQUFHLEVBQUUsS0FBSyxFQUFFLE1BQU0sQ0FBQyxLQUFLLEVBQUUsQ0FBUSxDQUMvRSxDQUNGLENBQUM7SUFDSixDQUFDO0lBRUQ7O09BRUc7SUFDSyxNQUFNLENBQUMsZ0JBQWdCLENBQzdCLFFBQW1DLEVBQ25DLEVBQWdEO1FBRWhELGlHQUFpRztRQUNqRyxxR0FBcUc7UUFDckcsT0FBTyxXQUFXLENBQUM7WUFDakIsR0FBRyxRQUFRO1lBQ1gsU0FBUyxFQUFFLFNBQVMsQ0FBQyxRQUFRLENBQUMsU0FBUyxFQUFFLENBQUMsUUFBUSxFQUFFLEVBQUU7Z0JBQ3BELElBQUksUUFBUSxDQUFDLElBQUksS0FBSyxRQUFRLENBQUMsWUFBWSxDQUFDLHdCQUF3QixFQUFFLENBQUM7b0JBQ3JFLE9BQU8sUUFBUSxDQUFDO2dCQUNsQixDQUFDO2dCQUNELE9BQU8sV0FBVyxDQUFDO29CQUNqQixHQUFHLFFBQVE7b0JBQ1gsUUFBUSxFQUFFLFNBQVMsQ0FBQyxRQUFRLENBQUMsUUFBUSxFQUFFLENBQUMsZUFBZSxFQUFFLEVBQUUsQ0FDekQsZUFBZSxDQUFDLEdBQUcsQ0FBQyxDQUFDLGFBQWEsRUFBRSxFQUFFO3dCQUNwQyxJQUNFLGFBQWEsQ0FBQyxJQUFJLEtBQUssUUFBUSxDQUFDLHlCQUF5QixDQUFDLFVBQVU7NEJBQ3BFLENBQUMsYUFBYSxDQUFDLElBQUksRUFDbkIsQ0FBQzs0QkFDRCxPQUFPLGFBQWEsQ0FBQzt3QkFDdkIsQ0FBQzt3QkFDRCxPQUFPOzRCQUNMLEdBQUcsYUFBYTs0QkFDaEIsSUFBSSxFQUFFLEVBQUUsQ0FBQyxhQUFhLENBQUMsSUFBdUMsQ0FBQzt5QkFDaEUsQ0FBQztvQkFDSixDQUFDLENBQUMsQ0FDSDtpQkFDMkIsQ0FBQyxDQUFDO1lBQ2xDLENBQUMsQ0FBQztTQUNILENBQUMsQ0FBQztJQUNMLENBQUM7SUFFRDtJQUNBLENBQUM7O0FBN1JILDRCQThSQzs7O0FBSUQsU0FBUyxTQUFTLENBQ2hCLEVBQWlDLEVBQ2pDLEVBQWU7SUFFZixJQUFJLENBQUMsRUFBRSxFQUFFLENBQUM7UUFDUixPQUFPLFNBQVMsQ0FBQztJQUNuQixDQUFDO0lBQ0QsTUFBTSxHQUFHLEdBQWtDLEVBQUUsQ0FBQztJQUM5QyxLQUFLLE1BQU0sQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLElBQUksTUFBTSxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDO1FBQ3hDLEdBQUcsQ0FBQyxDQUFDLENBQUMsR0FBRyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDakIsQ0FBQztJQUNELE9BQU8sR0FBRyxDQUFDO0FBQ2IsQ0FBQztBQUVELFNBQVMsV0FBVyxDQUFtQixFQUFLO0lBQzFDLE1BQU0sR0FBRyxHQUFRLEVBQUUsQ0FBQztJQUNwQixLQUFLLE1BQU0sQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLElBQUksTUFBTSxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDO1FBQ3hDLElBQUksQ0FBQyxLQUFLLFNBQVMsRUFBRSxDQUFDO1lBQ3BCLEdBQUcsQ0FBQyxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUM7UUFDYixDQUFDO0lBQ0gsQ0FBQztJQUNELE9BQU8sR0FBRyxDQUFDO0FBQ2IsQ0FBQztBQUVELFNBQVMsZUFBZSxDQUFDLE1BQW9DO0lBQzNELE9BQU8sTUFBTSxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLENBQUMsT0FBTyxDQUFDLENBQUMsTUFBTSxLQUFLLFFBQVEsSUFBSSxDQUFDLENBQUMsTUFBTSxJQUFJLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDO0FBQ3JGLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBmcyBmcm9tICdmcyc7XG5pbXBvcnQgKiBhcyBqc29uc2NoZW1hIGZyb20gJ2pzb25zY2hlbWEnO1xuaW1wb3J0ICogYXMgc2VtdmVyIGZyb20gJ3NlbXZlcic7XG5pbXBvcnQgKiBhcyBhc3NldHMgZnJvbSAnLi9hc3NldHMnO1xuaW1wb3J0ICogYXMgYXNzZW1ibHkgZnJvbSAnLi9jbG91ZC1hc3NlbWJseSc7XG5pbXBvcnQgKiBhcyBpbnRlZyBmcm9tICcuL2ludGVnLXRlc3RzJztcblxuLyogZXNsaW50LWRpc2FibGUgQHR5cGVzY3JpcHQtZXNsaW50L25vLXZhci1yZXF1aXJlcyAqL1xuLyogZXNsaW50LWRpc2FibGUgQHR5cGVzY3JpcHQtZXNsaW50L25vLXJlcXVpcmUtaW1wb3J0cyAqL1xuXG4vLyB0aGlzIHByZWZpeCBpcyB1c2VkIGJ5IHRoZSBDTEkgdG8gaWRlbnRpZnkgdGhpcyBzcGVjaWZpYyBlcnJvci5cbi8vIGluIHdoaWNoIGNhc2Ugd2Ugd2FudCB0byBpbnN0cnVjdCB0aGUgdXNlciB0byB1cGdyYWRlIGhpcyBDTEkuXG4vLyBzZWUgZXhlYy50cyNjcmVhdGVBc3NlbWJseVxuZXhwb3J0IGNvbnN0IFZFUlNJT05fTUlTTUFUQ0g6IHN0cmluZyA9ICdDbG91ZCBhc3NlbWJseSBzY2hlbWEgdmVyc2lvbiBtaXNtYXRjaCc7XG5cbmltcG9ydCBBU1NFVFNfU0NIRU1BID0gcmVxdWlyZSgnLi4vc2NoZW1hL2Fzc2V0cy5zY2hlbWEuanNvbicpO1xuXG5pbXBvcnQgQVNTRU1CTFlfU0NIRU1BID0gcmVxdWlyZSgnLi4vc2NoZW1hL2Nsb3VkLWFzc2VtYmx5LnNjaGVtYS5qc29uJyk7XG5cbmltcG9ydCBJTlRFR19TQ0hFTUEgPSByZXF1aXJlKCcuLi9zY2hlbWEvaW50ZWcuc2NoZW1hLmpzb24nKTtcblxuLyoqXG4gKiBWZXJzaW9uIGlzIHNoYXJlZCBmb3IgYm90aCBtYW5pZmVzdHNcbiAqL1xuaW1wb3J0IFNDSEVNQV9WRVJTSU9OID0gcmVxdWlyZSgnLi4vc2NoZW1hL3ZlcnNpb24uanNvbicpO1xuXG4vKipcbiAqIE9wdGlvbnMgZm9yIHRoZSBsb2FkTWFuaWZlc3Qgb3BlcmF0aW9uXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgTG9hZE1hbmlmZXN0T3B0aW9ucyB7XG4gIC8qKlxuICAgKiBTa2lwIHRoZSB2ZXJzaW9uIGNoZWNrXG4gICAqXG4gICAqIFRoaXMgbWVhbnMgeW91IG1heSByZWFkIGEgbmV3ZXIgY2xvdWQgYXNzZW1ibHkgdGhhbiB0aGUgQ1ggQVBJIGlzIGRlc2lnbmVkXG4gICAqIHRvIHN1cHBvcnQsIGFuZCB5b3VyIGFwcGxpY2F0aW9uIG1heSBub3QgYmUgYXdhcmUgb2YgYWxsIGZlYXR1cmVzIHRoYXQgaW4gdXNlXG4gICAqIGluIHRoZSBDbG91ZCBBc3NlbWJseS5cbiAgICpcbiAgICogQGRlZmF1bHQgZmFsc2VcbiAgICovXG4gIHJlYWRvbmx5IHNraXBWZXJzaW9uQ2hlY2s/OiBib29sZWFuO1xuXG4gIC8qKlxuICAgKiBTa2lwIGVudW0gY2hlY2tzXG4gICAqXG4gICAqIFRoaXMgbWVhbnMgeW91IG1heSByZWFkIGVudW0gdmFsdWVzIHlvdSBkb24ndCBrbm93IGFib3V0IHlldC4gTWFrZSBzdXJlIHRvIGFsd2F5c1xuICAgKiBjaGVjayB0aGUgdmFsdWVzIG9mIGVudW1zIHlvdSBlbmNvdW50ZXIgaW4gdGhlIG1hbmlmZXN0LlxuICAgKlxuICAgKiBAZGVmYXVsdCBmYWxzZVxuICAgKi9cbiAgcmVhZG9ubHkgc2tpcEVudW1DaGVjaz86IGJvb2xlYW47XG5cbiAgLyoqXG4gICAqIFRvcG9sb2dpY2FsbHkgc29ydCBhbGwgYXJ0aWZhY3RzXG4gICAqXG4gICAqIFRoaXMgcGFyYW1ldGVyIGlzIG9ubHkgcmVzcGVjdGVkIGJ5IHRoZSBjb25zdHJ1Y3RvciBvZiBgQ2xvdWRBc3NlbWJseWAuIFRoZVxuICAgKiBwcm9wZXJ0eSBsaXZlcyBoZXJlIGZvciBiYWNrd2FyZHMgY29tcGF0aWJpbGl0eSByZWFzb25zLlxuICAgKlxuICAgKiBAZGVmYXVsdCB0cnVlXG4gICAqL1xuICByZWFkb25seSB0b3BvU29ydD86IGJvb2xlYW47XG59XG5cbi8qKlxuICogUHJvdG9jb2wgdXRpbGl0eSBjbGFzcy5cbiAqL1xuZXhwb3J0IGNsYXNzIE1hbmlmZXN0IHtcbiAgLyoqXG4gICAqIFZhbGlkYXRlcyBhbmQgc2F2ZXMgdGhlIGNsb3VkIGFzc2VtYmx5IG1hbmlmZXN0IHRvIGZpbGUuXG4gICAqXG4gICAqIEBwYXJhbSBtYW5pZmVzdCAtIG1hbmlmZXN0LlxuICAgKiBAcGFyYW0gZmlsZVBhdGggLSBvdXRwdXQgZmlsZSBwYXRoLlxuICAgKi9cbiAgcHVibGljIHN0YXRpYyBzYXZlQXNzZW1ibHlNYW5pZmVzdChtYW5pZmVzdDogYXNzZW1ibHkuQXNzZW1ibHlNYW5pZmVzdCwgZmlsZVBhdGg6IHN0cmluZykge1xuICAgIE1hbmlmZXN0LnNhdmVNYW5pZmVzdChtYW5pZmVzdCwgZmlsZVBhdGgsIEFTU0VNQkxZX1NDSEVNQSwgTWFuaWZlc3QucGF0Y2hTdGFja1RhZ3NPbldyaXRlKTtcbiAgfVxuXG4gIC8qKlxuICAgKiBMb2FkIGFuZCB2YWxpZGF0ZXMgdGhlIGNsb3VkIGFzc2VtYmx5IG1hbmlmZXN0IGZyb20gZmlsZS5cbiAgICpcbiAgICogQHBhcmFtIGZpbGVQYXRoIC0gcGF0aCB0byB0aGUgbWFuaWZlc3QgZmlsZS5cbiAgICovXG4gIHB1YmxpYyBzdGF0aWMgbG9hZEFzc2VtYmx5TWFuaWZlc3QoXG4gICAgZmlsZVBhdGg6IHN0cmluZyxcbiAgICBvcHRpb25zPzogTG9hZE1hbmlmZXN0T3B0aW9ucyxcbiAgKTogYXNzZW1ibHkuQXNzZW1ibHlNYW5pZmVzdCB7XG4gICAgcmV0dXJuIE1hbmlmZXN0LmxvYWRNYW5pZmVzdChmaWxlUGF0aCwgQVNTRU1CTFlfU0NIRU1BLCBNYW5pZmVzdC5wYXRjaFN0YWNrVGFnc09uUmVhZCwgb3B0aW9ucyk7XG4gIH1cblxuICAvKipcbiAgICogVmFsaWRhdGVzIGFuZCBzYXZlcyB0aGUgYXNzZXQgbWFuaWZlc3QgdG8gZmlsZS5cbiAgICpcbiAgICogQHBhcmFtIG1hbmlmZXN0IC0gbWFuaWZlc3QuXG4gICAqIEBwYXJhbSBmaWxlUGF0aCAtIG91dHB1dCBmaWxlIHBhdGguXG4gICAqL1xuICBwdWJsaWMgc3RhdGljIHNhdmVBc3NldE1hbmlmZXN0KG1hbmlmZXN0OiBhc3NldHMuQXNzZXRNYW5pZmVzdCwgZmlsZVBhdGg6IHN0cmluZykge1xuICAgIE1hbmlmZXN0LnNhdmVNYW5pZmVzdChtYW5pZmVzdCwgZmlsZVBhdGgsIEFTU0VUU19TQ0hFTUEsIE1hbmlmZXN0LnBhdGNoU3RhY2tUYWdzT25SZWFkKTtcbiAgfVxuXG4gIC8qKlxuICAgKiBMb2FkIGFuZCB2YWxpZGF0ZXMgdGhlIGFzc2V0IG1hbmlmZXN0IGZyb20gZmlsZS5cbiAgICpcbiAgICogQHBhcmFtIGZpbGVQYXRoIC0gcGF0aCB0byB0aGUgbWFuaWZlc3QgZmlsZS5cbiAgICovXG4gIHB1YmxpYyBzdGF0aWMgbG9hZEFzc2V0TWFuaWZlc3QoZmlsZVBhdGg6IHN0cmluZyk6IGFzc2V0cy5Bc3NldE1hbmlmZXN0IHtcbiAgICByZXR1cm4gdGhpcy5sb2FkTWFuaWZlc3QoZmlsZVBhdGgsIEFTU0VUU19TQ0hFTUEpO1xuICB9XG5cbiAgLyoqXG4gICAqIFZhbGlkYXRlcyBhbmQgc2F2ZXMgdGhlIGludGVnIG1hbmlmZXN0IHRvIGZpbGUuXG4gICAqXG4gICAqIEBwYXJhbSBtYW5pZmVzdCAtIG1hbmlmZXN0LlxuICAgKiBAcGFyYW0gZmlsZVBhdGggLSBvdXRwdXQgZmlsZSBwYXRoLlxuICAgKi9cbiAgcHVibGljIHN0YXRpYyBzYXZlSW50ZWdNYW5pZmVzdChtYW5pZmVzdDogaW50ZWcuSW50ZWdNYW5pZmVzdCwgZmlsZVBhdGg6IHN0cmluZykge1xuICAgIE1hbmlmZXN0LnNhdmVNYW5pZmVzdChtYW5pZmVzdCwgZmlsZVBhdGgsIElOVEVHX1NDSEVNQSk7XG4gIH1cblxuICAvKipcbiAgICogTG9hZCBhbmQgdmFsaWRhdGVzIHRoZSBpbnRlZyBtYW5pZmVzdCBmcm9tIGZpbGUuXG4gICAqXG4gICAqIEBwYXJhbSBmaWxlUGF0aCAtIHBhdGggdG8gdGhlIG1hbmlmZXN0IGZpbGUuXG4gICAqL1xuICBwdWJsaWMgc3RhdGljIGxvYWRJbnRlZ01hbmlmZXN0KGZpbGVQYXRoOiBzdHJpbmcpOiBpbnRlZy5JbnRlZ01hbmlmZXN0IHtcbiAgICBjb25zdCBtYW5pZmVzdCA9IHRoaXMubG9hZE1hbmlmZXN0KGZpbGVQYXRoLCBJTlRFR19TQ0hFTUEpO1xuXG4gICAgLy8gQWRkaW5nIHR5cGluZyB0byBgdmFsaWRhdGUoKWAgbGVkIHRvIGBsb2FkTWFuaWZlc3QoKWAgdG8gcHJvcGVybHkgaW5mZXJcbiAgICAvLyBpdHMgcmV0dXJuIHR5cGUsIHdoaWNoIGluZGljYXRlZCB0aGF0IHRoZSByZXR1cm4gdHlwZSBvZiB0aGlzXG4gICAgLy8gZnVuY3Rpb24gbWF5IGJlIGEgbGllLiBJIGNvdWxkIGNoYW5nZSB0aGUgc2NoZW1hIHRvIG1ha2UgYHRlc3RDYXNlc2BcbiAgICAvLyBvcHRpb25hbCwgYnV0IHRoYXQgd2lsbCBidW1wIHRoZSBtYWpvciB2ZXJzaW9uIG9mIHRoaXMgcGFja2FnZSBhbmQgSVxuICAgIC8vIGRvbid0IHdhbnQgdG8gZG8gdGhhdC4gU28gaW5zdGVhZCwganVzdCBtYWtlIHN1cmUgYHRlc3RDYXNlc2AgaXMgYWx3YXlzIHRoZXJlLlxuICAgIHJldHVybiB7XG4gICAgICAuLi5tYW5pZmVzdCxcbiAgICAgIHRlc3RDYXNlczogKG1hbmlmZXN0IGFzIGFueSkudGVzdENhc2VzID8/IFtdLFxuICAgIH07XG4gIH1cblxuICAvKipcbiAgICogRmV0Y2ggdGhlIGN1cnJlbnQgc2NoZW1hIHZlcnNpb24gbnVtYmVyLlxuICAgKi9cbiAgcHVibGljIHN0YXRpYyB2ZXJzaW9uKCk6IHN0cmluZyB7XG4gICAgcmV0dXJuIGAke1NDSEVNQV9WRVJTSU9OLnJldmlzaW9ufS4wLjBgO1xuICB9XG5cbiAgLyoqXG4gICAqIERlcHJlY2F0ZWRcbiAgICogQGRlcHJlY2F0ZWQgdXNlIGBzYXZlQXNzZW1ibHlNYW5pZmVzdCgpYFxuICAgKi9cbiAgcHVibGljIHN0YXRpYyBzYXZlKG1hbmlmZXN0OiBhc3NlbWJseS5Bc3NlbWJseU1hbmlmZXN0LCBmaWxlUGF0aDogc3RyaW5nKSB7XG4gICAgcmV0dXJuIHRoaXMuc2F2ZUFzc2VtYmx5TWFuaWZlc3QobWFuaWZlc3QsIGZpbGVQYXRoKTtcbiAgfVxuXG4gIC8qKlxuICAgKiBEZXByZWNhdGVkXG4gICAqIEBkZXByZWNhdGVkIHVzZSBgbG9hZEFzc2VtYmx5TWFuaWZlc3QoKWBcbiAgICovXG4gIHB1YmxpYyBzdGF0aWMgbG9hZChmaWxlUGF0aDogc3RyaW5nKTogYXNzZW1ibHkuQXNzZW1ibHlNYW5pZmVzdCB7XG4gICAgcmV0dXJuIHRoaXMubG9hZEFzc2VtYmx5TWFuaWZlc3QoZmlsZVBhdGgpO1xuICB9XG5cbiAgcHJpdmF0ZSBzdGF0aWMgdmFsaWRhdGUoXG4gICAgbWFuaWZlc3Q6IGFueSxcbiAgICBzY2hlbWE6IGpzb25zY2hlbWEuU2NoZW1hLFxuICAgIG9wdGlvbnM/OiBMb2FkTWFuaWZlc3RPcHRpb25zLFxuICApOiBhc3NlcnRzIG1hbmlmZXN0IGlzIGFzc2VtYmx5LkFzc2VtYmx5TWFuaWZlc3Qge1xuICAgIGZ1bmN0aW9uIHBhcnNlVmVyc2lvbih2ZXJzaW9uOiBzdHJpbmcpIHtcbiAgICAgIGNvbnN0IHZlciA9IHNlbXZlci52YWxpZCh2ZXJzaW9uKTtcbiAgICAgIGlmICghdmVyKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgSW52YWxpZCBzZW12ZXIgc3RyaW5nOiBcIiR7dmVyc2lvbn1cImApO1xuICAgICAgfVxuICAgICAgcmV0dXJuIHZlcjtcbiAgICB9XG5cbiAgICBjb25zdCBtYXhTdXBwb3J0ZWQgPSBzZW12ZXIubWFqb3IocGFyc2VWZXJzaW9uKE1hbmlmZXN0LnZlcnNpb24oKSkpO1xuICAgIGNvbnN0IGFjdHVhbCA9IHBhcnNlVmVyc2lvbihtYW5pZmVzdC52ZXJzaW9uKTtcblxuICAgIC8vIGZpcnN0IHZhbGlkYXRlIHRoZSB2ZXJzaW9uIHNob3VsZCBiZSBhY2NlcHRlZC4gYWxsIHZlcnNpb25zIHdpdGhpbiB0aGUgc2FtZSBtaW5vciB2ZXJzaW9uIGFyZSBmaW5lXG4gICAgaWYgKG1heFN1cHBvcnRlZCA8IHNlbXZlci5tYWpvcihhY3R1YWwpICYmICFvcHRpb25zPy5za2lwVmVyc2lvbkNoZWNrKSB7XG4gICAgICAvLyBJZiB3ZSBoYXZlIGEgbW9yZSBzcGVjaWZpYyBlcnJvciB0byB0aHJvdyB0aGFuIHRoZSBnZW5lcmljIG9uZSBiZWxvdywgbWFrZSBzdXJlIHRvIGFkZCB0aGF0IGluZm8uXG4gICAgICBjb25zdCBjbGlWZXJzaW9uID0gKG1hbmlmZXN0IGFzIGFzc2VtYmx5LkFzc2VtYmx5TWFuaWZlc3QpLm1pbmltdW1DbGlWZXJzaW9uO1xuICAgICAgbGV0IGNsaVdhcm5pbmcgPSAnJztcbiAgICAgIGlmIChjbGlWZXJzaW9uKSB7XG4gICAgICAgIGNsaVdhcm5pbmcgPSBgLiBZb3UgbmVlZCBhdCBsZWFzdCBDTEkgdmVyc2lvbiAke2NsaVZlcnNpb259IHRvIHJlYWQgdGhpcyBtYW5pZmVzdC5gO1xuICAgICAgfVxuXG4gICAgICAvLyB3ZSB1c2UgYSB3ZWxsIGtub3duIGVycm9yIHByZWZpeCBzbyB0aGF0IHRoZSBDTEkgY2FuIGlkZW50aWZ5IHRoaXMgc3BlY2lmaWMgZXJyb3JcbiAgICAgIC8vIGFuZCBwcmludCBzb21lIG1vcmUgY29udGV4dCB0byB0aGUgdXNlci5cbiAgICAgIHRocm93IG5ldyBFcnJvcihcbiAgICAgICAgYCR7VkVSU0lPTl9NSVNNQVRDSH06IE1heGltdW0gc2NoZW1hIHZlcnNpb24gc3VwcG9ydGVkIGlzICR7bWF4U3VwcG9ydGVkfS54LngsIGJ1dCBmb3VuZCAke2FjdHVhbH0ke2NsaVdhcm5pbmd9YCxcbiAgICAgICk7XG4gICAgfVxuXG4gICAgLy8gbm93IHZhbGlkYXRlIHRoZSBmb3JtYXQgaXMgZ29vZC5cbiAgICBjb25zdCB2YWxpZGF0b3IgPSBuZXcganNvbnNjaGVtYS5WYWxpZGF0b3IoKTtcbiAgICBjb25zdCByZXN1bHQgPSB2YWxpZGF0b3IudmFsaWRhdGUobWFuaWZlc3QsIHNjaGVtYSwge1xuICAgICAgLy8gZG9lcyBleGlzdCBidXQgaXMgbm90IGluIHRoZSBUeXBlU2NyaXB0IGRlZmluaXRpb25zXG4gICAgICBuZXN0ZWRFcnJvcnM6IHRydWUsXG5cbiAgICAgIGFsbG93VW5rbm93bkF0dHJpYnV0ZXM6IGZhbHNlLFxuICAgICAgcHJlVmFsaWRhdGVQcm9wZXJ0eTogTWFuaWZlc3QudmFsaWRhdGVBc3N1bWVSb2xlQWRkaXRpb25hbE9wdGlvbnMsXG4gICAgfSk7XG5cbiAgICBsZXQgZXJyb3JzID0gcmVzdWx0LmVycm9ycztcbiAgICBpZiAob3B0aW9ucz8uc2tpcEVudW1DaGVjaykge1xuICAgICAgLy8gRW51bSB2YWxpZGF0aW9ucyBhcmVuJ3QgdXNlZnVsIHdoZW5cbiAgICAgIGVycm9ycyA9IHN0cmlwRW51bUVycm9ycyhlcnJvcnMpO1xuICAgIH1cblxuICAgIGlmIChlcnJvcnMubGVuZ3RoID4gMCkge1xuICAgICAgdGhyb3cgbmV3IEVycm9yKGBJbnZhbGlkIGFzc2VtYmx5IG1hbmlmZXN0OlxcbiR7ZXJyb3JzLm1hcCgoZSkgPT4gZS5zdGFjaykuam9pbignXFxuJyl9YCk7XG4gICAgfVxuICB9XG5cbiAgcHJpdmF0ZSBzdGF0aWMgc2F2ZU1hbmlmZXN0KFxuICAgIG1hbmlmZXN0OiBhbnksXG4gICAgZmlsZVBhdGg6IHN0cmluZyxcbiAgICBzY2hlbWE6IGpzb25zY2hlbWEuU2NoZW1hLFxuICAgIHByZXByb2Nlc3M/OiAob2JqOiBhbnkpID0+IGFueSxcbiAgKSB7XG4gICAgbGV0IHdpdGhWZXJzaW9uID0geyAuLi5tYW5pZmVzdCwgdmVyc2lvbjogTWFuaWZlc3QudmVyc2lvbigpIH07XG4gICAgTWFuaWZlc3QudmFsaWRhdGUod2l0aFZlcnNpb24sIHNjaGVtYSk7XG4gICAgaWYgKHByZXByb2Nlc3MpIHtcbiAgICAgIHdpdGhWZXJzaW9uID0gcHJlcHJvY2Vzcyh3aXRoVmVyc2lvbik7XG4gICAgfVxuICAgIGZzLndyaXRlRmlsZVN5bmMoZmlsZVBhdGgsIEpTT04uc3RyaW5naWZ5KHdpdGhWZXJzaW9uLCB1bmRlZmluZWQsIDIpKTtcbiAgfVxuXG4gIHByaXZhdGUgc3RhdGljIGxvYWRNYW5pZmVzdChcbiAgICBmaWxlUGF0aDogc3RyaW5nLFxuICAgIHNjaGVtYToganNvbnNjaGVtYS5TY2hlbWEsXG4gICAgcHJlcHJvY2Vzcz86IChvYmo6IGFueSkgPT4gYW55LFxuICAgIG9wdGlvbnM/OiBMb2FkTWFuaWZlc3RPcHRpb25zLFxuICApIHtcbiAgICBjb25zdCBjb250ZW50cyA9IGZzLnJlYWRGaWxlU3luYyhmaWxlUGF0aCwgeyBlbmNvZGluZzogJ3V0Zi04JyB9KTtcbiAgICBsZXQgb2JqO1xuICAgIHRyeSB7XG4gICAgICBvYmogPSBKU09OLnBhcnNlKGNvbnRlbnRzKTtcbiAgICB9IGNhdGNoIChlOiBhbnkpIHtcbiAgICAgIHRocm93IG5ldyBFcnJvcihgJHtlLm1lc3NhZ2V9LCB3aGlsZSBwYXJzaW5nICR7SlNPTi5zdHJpbmdpZnkoY29udGVudHMpfWApO1xuICAgIH1cbiAgICBpZiAocHJlcHJvY2Vzcykge1xuICAgICAgb2JqID0gcHJlcHJvY2VzcyhvYmopO1xuICAgIH1cbiAgICBNYW5pZmVzdC52YWxpZGF0ZShvYmosIHNjaGVtYSwgb3B0aW9ucyk7XG4gICAgcmV0dXJuIG9iajtcbiAgfVxuXG4gIC8qKlxuICAgKiBUaGlzIHJlcXVpcmVzIHNvbWUgZXhwbGFpbmluZy4uLlxuICAgKlxuICAgKiBXZSBwcmV2aW91c2x5IHVzZWQgYHsgS2V5LCBWYWx1ZSB9YCBmb3IgdGhlIG9iamVjdCB0aGF0IHJlcHJlc2VudHMgYSBzdGFjayB0YWcuIChOb3RpY2UgdGhlIGNhc2luZylcbiAgICogQGxpbmsgaHR0cHM6Ly9naXRodWIuY29tL2F3cy9hd3MtY2RrL2Jsb2IvdjEuMjcuMC9wYWNrYWdlcy9hd3MtY2RrL2xpYi9hcGkvY3hhcHAvc3RhY2tzLnRzI0w0MjcuXG4gICAqXG4gICAqIFdoZW4gdGhhdCBvYmplY3QgbW92ZWQgdG8gdGhpcyBwYWNrYWdlLCBpdCBoYWQgdG8gYmUgSlNJSSBjb21wbGlhbnQsIHdoaWNoIG1lYW50IHRoZSBwcm9wZXJ0eVxuICAgKiBuYW1lcyBtdXN0IGJlIGBjYW1lbENhc2VkYCwgYW5kIG5vdCBgUGFzY2FsQ2FzZWRgLiBUaGlzIG1lYW50IGl0IG5vIGxvbmdlciBtYXRjaGVzIHRoZSBzdHJ1Y3R1cmUgaW4gdGhlIGBtYW5pZmVzdC5qc29uYCBmaWxlLlxuICAgKiBJbiBvcmRlciB0byBzdXBwb3J0IGN1cnJlbnQgbWFuaWZlc3QgZmlsZXMsIHdlIGhhdmUgdG8gdHJhbnNsYXRlIHRoZSBgUGFzY2FsQ2FzZWRgIHJlcHJlc2VudGF0aW9uIHRvIHRoZSBuZXcgYGNhbWVsQ2FzZWRgIG9uZS5cbiAgICpcbiAgICogTm90ZSB0aGF0IHRoZSBzZXJpYWxpemF0aW9uIGl0c2VsZiBzdGlsbCB3cml0ZXMgYFBhc2NhbENhc2VkYCBiZWNhdXNlIGl0IHJlbGF0ZXMgdG8gaG93IENsb3VkRm9ybWF0aW9uIGV4cGVjdHMgaXQuXG4gICAqXG4gICAqIElkZWFsbHksIHdlIHdvdWxkIHN0YXJ0IHdyaXRpbmcgdGhlIGBjYW1lbENhc2VkYCBhbmQgdHJhbnNsYXRlIHRvIGhvdyBDbG91ZEZvcm1hdGlvbiBleHBlY3RzIGl0IHdoZW4gbmVlZGVkLiBCdXQgdGhpcyByZXF1aXJlcyBuYXN0eVxuICAgKiBiYWNrd2FyZHMtY29tcGF0aWJpbGl0eSBjb2RlIGFuZCBpdCBqdXN0IGRvZXNuJ3Qgc2VlbSB0byBiZSB3b3J0aCB0aGUgZWZmb3J0LlxuICAgKi9cbiAgcHJpdmF0ZSBzdGF0aWMgcGF0Y2hTdGFja1RhZ3NPblJlYWQobWFuaWZlc3Q6IGFzc2VtYmx5LkFzc2VtYmx5TWFuaWZlc3QpIHtcbiAgICByZXR1cm4gTWFuaWZlc3QucmVwbGFjZVN0YWNrVGFncyhtYW5pZmVzdCwgKHRhZ3MpID0+XG4gICAgICB0YWdzLm1hcCgoZGlza1RhZzogYW55KSA9PiAoe1xuICAgICAgICBrZXk6IGRpc2tUYWcuS2V5LFxuICAgICAgICB2YWx1ZTogZGlza1RhZy5WYWx1ZSxcbiAgICAgIH0pKSxcbiAgICApO1xuICB9XG5cbiAgLyoqXG4gICAqIFZhbGlkYXRlcyB0aGF0IGBhc3N1bWVSb2xlQWRkaXRpb25hbE9wdGlvbnNgIGRvZXNuJ3QgY29udGFpbiBub3IgYEV4dGVybmFsSWRgIG5laXRoZXIgYFJvbGVBcm5gLCBhcyB0aGV5XG4gICAqIHNob3VsZCBoYXZlIGRlZGljYXRlZCBwcm9wZXJ0aWVzIHByZWNlZGluZyB0aGlzIChlLmcgYGFzc3VtZVJvbGVBcm5gIGFuZCBgYXNzdW1lUm9sZUV4dGVybmFsSWRgKS5cbiAgICovXG4gIHByaXZhdGUgc3RhdGljIHZhbGlkYXRlQXNzdW1lUm9sZUFkZGl0aW9uYWxPcHRpb25zKFxuICAgIGluc3RhbmNlOiBhbnksXG4gICAga2V5OiBzdHJpbmcsXG4gICAgX3NjaGVtYToganNvbnNjaGVtYS5TY2hlbWEsXG4gICAgX29wdGlvbnM6IGpzb25zY2hlbWEuT3B0aW9ucyxcbiAgICBfY3R4OiBqc29uc2NoZW1hLlNjaGVtYUNvbnRleHQsXG4gICkge1xuICAgIGlmIChrZXkgIT09ICdhc3N1bWVSb2xlQWRkaXRpb25hbE9wdGlvbnMnKSB7XG4gICAgICAvLyBub3RlIHRoYXQgdGhpcyBtZWFucyB0aGF0IGlmIHdlIGhhcHBlbiB0byBoYXZlIGEgcHJvcGVydHkgbmFtZWQgbGlrZSB0aGlzLCBidXQgdGhhdFxuICAgICAgLy8gZG9lcyB3YW50IHRvIGFsbG93ICdSb2xlQXJuJyBvciAnRXh0ZXJuYWxJZCcsIHRoaXMgY29kZSB3aWxsIGhhdmUgdG8gY2hhbmdlIHRvIGNvbnNpZGVyIHRoZSBmdWxsIHNjaGVtYSBwYXRoLlxuICAgICAgLy8gSSBkZWNpZGVkIHRvIG1ha2UgdGhpcyBsZXNzIGdyYW51bGFyIGZvciBub3cgb24gcHVycG9zZSBiZWNhdXNlIGl0IGZpdHMgb3VyIG5lZWRzIGFuZCBhdm9pZHMgaGF2aW5nIG1lc3N5XG4gICAgICAvLyB2YWxpZGF0aW9uIGxvZ2ljIGR1ZSB0byB2YXJpb3VzIHNjaGVtYSBwYXRocy5cbiAgICAgIHJldHVybjtcbiAgICB9XG5cbiAgICBjb25zdCBhc3N1bWVSb2xlT3B0aW9ucyA9IGluc3RhbmNlW2tleV07XG4gICAgaWYgKGFzc3VtZVJvbGVPcHRpb25zPy5Sb2xlQXJuKSB7XG4gICAgICB0aHJvdyBuZXcgRXJyb3IoYFJvbGVBcm4gaXMgbm90IGFsbG93ZWQgaW5zaWRlICcke2tleX0nYCk7XG4gICAgfVxuICAgIGlmIChhc3N1bWVSb2xlT3B0aW9ucz8uRXh0ZXJuYWxJZCkge1xuICAgICAgdGhyb3cgbmV3IEVycm9yKGBFeHRlcm5hbElkIGlzIG5vdCBhbGxvd2VkIGluc2lkZSAnJHtrZXl9J2ApO1xuICAgIH1cbiAgfVxuXG4gIC8qKlxuICAgKiBTZWUgZXhwbGFuYXRpb24gb24gYHBhdGNoU3RhY2tUYWdzT25SZWFkYFxuICAgKlxuICAgKiBUcmFuc2xhdGUgc3RhY2sgdGFncyBtZXRhZGF0YSBpZiBpdCBoYXMgdGhlIFwicmlnaHRcIiBjYXNpbmcuXG4gICAqL1xuICBwcml2YXRlIHN0YXRpYyBwYXRjaFN0YWNrVGFnc09uV3JpdGUobWFuaWZlc3Q6IGFzc2VtYmx5LkFzc2VtYmx5TWFuaWZlc3QpIHtcbiAgICByZXR1cm4gTWFuaWZlc3QucmVwbGFjZVN0YWNrVGFncyhtYW5pZmVzdCwgKHRhZ3MpID0+XG4gICAgICB0YWdzLm1hcChcbiAgICAgICAgKG1lbVRhZykgPT5cbiAgICAgICAgICAvLyBNaWdodCBhbHJlYWR5IGJlIHVwcGVyY2FzZWQgKGJlY2F1c2Ugc3RhY2sgc3ludGhlc2lzIGdlbmVyYXRlcyBpdCBpbiBmaW5hbCBmb3JtIHlldClcbiAgICAgICAgICAoJ0tleScgaW4gbWVtVGFnID8gbWVtVGFnIDogeyBLZXk6IG1lbVRhZy5rZXksIFZhbHVlOiBtZW1UYWcudmFsdWUgfSkgYXMgYW55LFxuICAgICAgKSxcbiAgICApO1xuICB9XG5cbiAgLyoqXG4gICAqIFJlY3Vyc2l2ZWx5IHJlcGxhY2Ugc3RhY2sgdGFncyBpbiB0aGUgc3RhY2sgbWV0YWRhdGFcbiAgICovXG4gIHByaXZhdGUgc3RhdGljIHJlcGxhY2VTdGFja1RhZ3MoXG4gICAgbWFuaWZlc3Q6IGFzc2VtYmx5LkFzc2VtYmx5TWFuaWZlc3QsXG4gICAgZm46IEVuZG9mdW5jdG9yPGFzc2VtYmx5LlN0YWNrVGFnc01ldGFkYXRhRW50cnk+LFxuICApOiBhc3NlbWJseS5Bc3NlbWJseU1hbmlmZXN0IHtcbiAgICAvLyBOZWVkIHRvIGFkZCBpbiB0aGUgYG5vVW5kZWZpbmVkYHMgYmVjYXVzZSBvdGhlcndpc2UgamVzdCBzbmFwc2hvdCB0ZXN0cyBhcmUgZ29pbmcgdG8gZnJlYWsgb3V0XG4gICAgLy8gYWJvdXQgdGhlIGtleXMgd2l0aCB2YWx1ZXMgdGhhdCBhcmUgYHVuZGVmaW5lZGAgKGV2ZW4gdGhvdWdoIHRoZXkgd291bGQgbmV2ZXIgYmUgSlNPTi5zdHJpbmdpZmllZClcbiAgICByZXR1cm4gbm9VbmRlZmluZWQoe1xuICAgICAgLi4ubWFuaWZlc3QsXG4gICAgICBhcnRpZmFjdHM6IG1hcFZhbHVlcyhtYW5pZmVzdC5hcnRpZmFjdHMsIChhcnRpZmFjdCkgPT4ge1xuICAgICAgICBpZiAoYXJ0aWZhY3QudHlwZSAhPT0gYXNzZW1ibHkuQXJ0aWZhY3RUeXBlLkFXU19DTE9VREZPUk1BVElPTl9TVEFDSykge1xuICAgICAgICAgIHJldHVybiBhcnRpZmFjdDtcbiAgICAgICAgfVxuICAgICAgICByZXR1cm4gbm9VbmRlZmluZWQoe1xuICAgICAgICAgIC4uLmFydGlmYWN0LFxuICAgICAgICAgIG1ldGFkYXRhOiBtYXBWYWx1ZXMoYXJ0aWZhY3QubWV0YWRhdGEsIChtZXRhZGF0YUVudHJpZXMpID0+XG4gICAgICAgICAgICBtZXRhZGF0YUVudHJpZXMubWFwKChtZXRhZGF0YUVudHJ5KSA9PiB7XG4gICAgICAgICAgICAgIGlmIChcbiAgICAgICAgICAgICAgICBtZXRhZGF0YUVudHJ5LnR5cGUgIT09IGFzc2VtYmx5LkFydGlmYWN0TWV0YWRhdGFFbnRyeVR5cGUuU1RBQ0tfVEFHUyB8fFxuICAgICAgICAgICAgICAgICFtZXRhZGF0YUVudHJ5LmRhdGFcbiAgICAgICAgICAgICAgKSB7XG4gICAgICAgICAgICAgICAgcmV0dXJuIG1ldGFkYXRhRW50cnk7XG4gICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgICAgICAuLi5tZXRhZGF0YUVudHJ5LFxuICAgICAgICAgICAgICAgIGRhdGE6IGZuKG1ldGFkYXRhRW50cnkuZGF0YSBhcyBhc3NlbWJseS5TdGFja1RhZ3NNZXRhZGF0YUVudHJ5KSxcbiAgICAgICAgICAgICAgfTtcbiAgICAgICAgICAgIH0pLFxuICAgICAgICAgICksXG4gICAgICAgIH0gYXMgYXNzZW1ibHkuQXJ0aWZhY3RNYW5pZmVzdCk7XG4gICAgICB9KSxcbiAgICB9KTtcbiAgfVxuXG4gIHByaXZhdGUgY29uc3RydWN0b3IoKSB7XG4gIH1cbn1cblxudHlwZSBFbmRvZnVuY3RvcjxBPiA9ICh4OiBBKSA9PiBBO1xuXG5mdW5jdGlvbiBtYXBWYWx1ZXM8QSwgQj4oXG4gIHhzOiBSZWNvcmQ8c3RyaW5nLCBBPiB8IHVuZGVmaW5lZCxcbiAgZm46ICh4OiBBKSA9PiBCLFxuKTogUmVjb3JkPHN0cmluZywgQj4gfCB1bmRlZmluZWQge1xuICBpZiAoIXhzKSB7XG4gICAgcmV0dXJuIHVuZGVmaW5lZDtcbiAgfVxuICBjb25zdCByZXQ6IFJlY29yZDxzdHJpbmcsIEI+IHwgdW5kZWZpbmVkID0ge307XG4gIGZvciAoY29uc3QgW2ssIHZdIG9mIE9iamVjdC5lbnRyaWVzKHhzKSkge1xuICAgIHJldFtrXSA9IGZuKHYpO1xuICB9XG4gIHJldHVybiByZXQ7XG59XG5cbmZ1bmN0aW9uIG5vVW5kZWZpbmVkPEEgZXh0ZW5kcyBvYmplY3Q+KHhzOiBBKTogQSB7XG4gIGNvbnN0IHJldDogYW55ID0ge307XG4gIGZvciAoY29uc3QgW2ssIHZdIG9mIE9iamVjdC5lbnRyaWVzKHhzKSkge1xuICAgIGlmICh2ICE9PSB1bmRlZmluZWQpIHtcbiAgICAgIHJldFtrXSA9IHY7XG4gICAgfVxuICB9XG4gIHJldHVybiByZXQ7XG59XG5cbmZ1bmN0aW9uIHN0cmlwRW51bUVycm9ycyhlcnJvcnM6IGpzb25zY2hlbWEuVmFsaWRhdGlvbkVycm9yW10pIHtcbiAgcmV0dXJuIGVycm9ycy5maWx0ZXIoKGUpID0+IHR5cGVvZiBlLnNjaGVtYSA9PT0gJ3N0cmluZycgfHwgISgnZW51bScgaW4gZS5zY2hlbWEpKTtcbn1cbiJdfQ==
+
+/***/ }),
+
+/***/ 32610:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+var helpers = __nccwpck_require__(34099);
+
+/** @type ValidatorResult */
+var ValidatorResult = helpers.ValidatorResult;
+/** @type SchemaError */
+var SchemaError = helpers.SchemaError;
+
+var attribute = {};
+
+attribute.ignoreProperties = {
+  // informative properties
+  'id': true,
+  'default': true,
+  'description': true,
+  'title': true,
+  // arguments to other properties
+  'additionalItems': true,
+  'then': true,
+  'else': true,
+  // special-handled properties
+  '$schema': true,
+  '$ref': true,
+  'extends': true,
+};
+
+/**
+ * @name validators
+ */
+var validators = attribute.validators = {};
+
+/**
+ * Validates whether the instance if of a certain type
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {ValidatorResult|null}
+ */
+validators.type = function validateType (instance, schema, options, ctx) {
+  // Ignore undefined instances
+  if (instance === undefined) {
+    return null;
+  }
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var types = Array.isArray(schema.type) ? schema.type : [schema.type];
+  if (!types.some(this.testType.bind(this, instance, schema, options, ctx))) {
+    var list = types.map(function (v) {
+      if(!v) return;
+      var id = v.$id || v.id;
+      return id ? ('<' + id + '>') : (v+'');
+    });
+    result.addError({
+      name: 'type',
+      argument: list,
+      message: "is not of a type(s) " + list,
+    });
+  }
+  return result;
+};
+
+function testSchemaNoThrow(instance, options, ctx, callback, schema){
+  var throwError = options.throwError;
+  var throwAll = options.throwAll;
+  options.throwError = false;
+  options.throwAll = false;
+  var res = this.validateSchema(instance, schema, options, ctx);
+  options.throwError = throwError;
+  options.throwAll = throwAll;
+
+  if (!res.valid && callback instanceof Function) {
+    callback(res);
+  }
+  return res.valid;
+}
+
+/**
+ * Validates whether the instance matches some of the given schemas
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {ValidatorResult|null}
+ */
+validators.anyOf = function validateAnyOf (instance, schema, options, ctx) {
+  // Ignore undefined instances
+  if (instance === undefined) {
+    return null;
+  }
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var inner = new ValidatorResult(instance, schema, options, ctx);
+  if (!Array.isArray(schema.anyOf)){
+    throw new SchemaError("anyOf must be an array");
+  }
+  if (!schema.anyOf.some(
+    testSchemaNoThrow.bind(
+      this, instance, options, ctx, function(res){inner.importErrors(res);}
+    ))) {
+    var list = schema.anyOf.map(function (v, i) {
+      var id = v.$id || v.id;
+      if(id) return '<' + id + '>';
+      return(v.title && JSON.stringify(v.title)) || (v['$ref'] && ('<' + v['$ref'] + '>')) || '[subschema '+i+']';
+    });
+    if (options.nestedErrors) {
+      result.importErrors(inner);
+    }
+    result.addError({
+      name: 'anyOf',
+      argument: list,
+      message: "is not any of " + list.join(','),
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance matches every given schema
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null}
+ */
+validators.allOf = function validateAllOf (instance, schema, options, ctx) {
+  // Ignore undefined instances
+  if (instance === undefined) {
+    return null;
+  }
+  if (!Array.isArray(schema.allOf)){
+    throw new SchemaError("allOf must be an array");
+  }
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var self = this;
+  schema.allOf.forEach(function(v, i){
+    var valid = self.validateSchema(instance, v, options, ctx);
+    if(!valid.valid){
+      var id = v.$id || v.id;
+      var msg = id || (v.title && JSON.stringify(v.title)) || (v['$ref'] && ('<' + v['$ref'] + '>')) || '[subschema '+i+']';
+      result.addError({
+        name: 'allOf',
+        argument: { id: msg, length: valid.errors.length, valid: valid },
+        message: 'does not match allOf schema ' + msg + ' with ' + valid.errors.length + ' error[s]:',
+      });
+      result.importErrors(valid);
+    }
+  });
+  return result;
+};
+
+/**
+ * Validates whether the instance matches exactly one of the given schemas
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null}
+ */
+validators.oneOf = function validateOneOf (instance, schema, options, ctx) {
+  // Ignore undefined instances
+  if (instance === undefined) {
+    return null;
+  }
+  if (!Array.isArray(schema.oneOf)){
+    throw new SchemaError("oneOf must be an array");
+  }
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var inner = new ValidatorResult(instance, schema, options, ctx);
+  var count = schema.oneOf.filter(
+    testSchemaNoThrow.bind(
+      this, instance, options, ctx, function(res) {inner.importErrors(res);}
+    ) ).length;
+  var list = schema.oneOf.map(function (v, i) {
+    var id = v.$id || v.id;
+    return id || (v.title && JSON.stringify(v.title)) || (v['$ref'] && ('<' + v['$ref'] + '>')) || '[subschema '+i+']';
+  });
+  if (count!==1) {
+    if (options.nestedErrors) {
+      result.importErrors(inner);
+    }
+    result.addError({
+      name: 'oneOf',
+      argument: list,
+      message: "is not exactly one from " + list.join(','),
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates "then" or "else" depending on the result of validating "if"
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null}
+ */
+validators.if = function validateIf (instance, schema, options, ctx) {
+  // Ignore undefined instances
+  if (instance === undefined) return null;
+  if (!helpers.isSchema(schema.if)) throw new Error('Expected "if" keyword to be a schema');
+  var ifValid = testSchemaNoThrow.call(this, instance, options, ctx, null, schema.if);
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var res;
+  if(ifValid){
+    if (schema.then === undefined) return;
+    if (!helpers.isSchema(schema.then)) throw new Error('Expected "then" keyword to be a schema');
+    res = this.validateSchema(instance, schema.then, options, ctx.makeChild(schema.then));
+    result.importErrors(res);
+  }else{
+    if (schema.else === undefined) return;
+    if (!helpers.isSchema(schema.else)) throw new Error('Expected "else" keyword to be a schema');
+    res = this.validateSchema(instance, schema.else, options, ctx.makeChild(schema.else));
+    result.importErrors(res);
+  }
+  return result;
+};
+
+function getEnumerableProperty(object, key){
+  // Determine if `key` shows up in `for(var key in object)`
+  // First test Object.hasOwnProperty.call as an optimization: that guarantees it does
+  if(Object.hasOwnProperty.call(object, key)) return object[key];
+  // Test `key in object` as an optimization; false means it won't
+  if(!(key in object)) return;
+  while( (object = Object.getPrototypeOf(object)) ){
+    if(Object.propertyIsEnumerable.call(object, key)) return object[key];
+  }
+}
+
+/**
+ * Validates propertyNames
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null|ValidatorResult}
+ */
+validators.propertyNames = function validatePropertyNames (instance, schema, options, ctx) {
+  if(!this.types.object(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var subschema = schema.propertyNames!==undefined ? schema.propertyNames : {};
+  if(!helpers.isSchema(subschema)) throw new SchemaError('Expected "propertyNames" to be a schema (object or boolean)');
+
+  for (var property in instance) {
+    if(getEnumerableProperty(instance, property) !== undefined){
+      var res = this.validateSchema(property, subschema, options, ctx.makeChild(subschema));
+      result.importErrors(res);
+    }
+  }
+
+  return result;
+};
+
+/**
+ * Validates properties
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null|ValidatorResult}
+ */
+validators.properties = function validateProperties (instance, schema, options, ctx) {
+  if(!this.types.object(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var properties = schema.properties || {};
+  for (var property in properties) {
+    var subschema = properties[property];
+    if(subschema===undefined){
+      continue;
+    }else if(subschema===null){
+      throw new SchemaError('Unexpected null, expected schema in "properties"');
+    }
+    if (typeof options.preValidateProperty == 'function') {
+      options.preValidateProperty(instance, property, subschema, options, ctx);
+    }
+    var prop = getEnumerableProperty(instance, property);
+    var res = this.validateSchema(prop, subschema, options, ctx.makeChild(subschema, property));
+    if(res.instance !== result.instance[property]) result.instance[property] = res.instance;
+    result.importErrors(res);
+  }
+  return result;
+};
+
+/**
+ * Test a specific property within in instance against the additionalProperties schema attribute
+ * This ignores properties with definitions in the properties schema attribute, but no other attributes.
+ * If too many more types of property-existence tests pop up they may need their own class of tests (like `type` has)
+ * @private
+ * @return {boolean}
+ */
+function testAdditionalProperty (instance, schema, options, ctx, property, result) {
+  if(!this.types.object(instance)) return;
+  if (schema.properties && schema.properties[property] !== undefined) {
+    return;
+  }
+  if (schema.additionalProperties === false) {
+    result.addError({
+      name: 'additionalProperties',
+      argument: property,
+      message: "is not allowed to have the additional property " + JSON.stringify(property),
+    });
+  } else {
+    var additionalProperties = schema.additionalProperties || {};
+
+    if (typeof options.preValidateProperty == 'function') {
+      options.preValidateProperty(instance, property, additionalProperties, options, ctx);
+    }
+
+    var res = this.validateSchema(instance[property], additionalProperties, options, ctx.makeChild(additionalProperties, property));
+    if(res.instance !== result.instance[property]) result.instance[property] = res.instance;
+    result.importErrors(res);
+  }
+}
+
+/**
+ * Validates patternProperties
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null|ValidatorResult}
+ */
+validators.patternProperties = function validatePatternProperties (instance, schema, options, ctx) {
+  if(!this.types.object(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var patternProperties = schema.patternProperties || {};
+
+  for (var property in instance) {
+    var test = true;
+    for (var pattern in patternProperties) {
+      var subschema = patternProperties[pattern];
+      if(subschema===undefined){
+        continue;
+      }else if(subschema===null){
+        throw new SchemaError('Unexpected null, expected schema in "patternProperties"');
+      }
+      try {
+        var regexp = new RegExp(pattern, 'u');
+      } catch(_e) {
+        // In the event the stricter handling causes an error, fall back on the forgiving handling
+        // DEPRECATED
+        regexp = new RegExp(pattern);
+      }
+      if (!regexp.test(property)) {
+        continue;
+      }
+      test = false;
+
+      if (typeof options.preValidateProperty == 'function') {
+        options.preValidateProperty(instance, property, subschema, options, ctx);
+      }
+
+      var res = this.validateSchema(instance[property], subschema, options, ctx.makeChild(subschema, property));
+      if(res.instance !== result.instance[property]) result.instance[property] = res.instance;
+      result.importErrors(res);
+    }
+    if (test) {
+      testAdditionalProperty.call(this, instance, schema, options, ctx, property, result);
+    }
+  }
+
+  return result;
+};
+
+/**
+ * Validates additionalProperties
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null|ValidatorResult}
+ */
+validators.additionalProperties = function validateAdditionalProperties (instance, schema, options, ctx) {
+  if(!this.types.object(instance)) return;
+  // if patternProperties is defined then we'll test when that one is called instead
+  if (schema.patternProperties) {
+    return null;
+  }
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  for (var property in instance) {
+    testAdditionalProperty.call(this, instance, schema, options, ctx, property, result);
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance value is at least of a certain length, when the instance value is a string.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.minProperties = function validateMinProperties (instance, schema, options, ctx) {
+  if (!this.types.object(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var keys = Object.keys(instance);
+  if (!(keys.length >= schema.minProperties)) {
+    result.addError({
+      name: 'minProperties',
+      argument: schema.minProperties,
+      message: "does not meet minimum property length of " + schema.minProperties,
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance value is at most of a certain length, when the instance value is a string.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.maxProperties = function validateMaxProperties (instance, schema, options, ctx) {
+  if (!this.types.object(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var keys = Object.keys(instance);
+  if (!(keys.length <= schema.maxProperties)) {
+    result.addError({
+      name: 'maxProperties',
+      argument: schema.maxProperties,
+      message: "does not meet maximum property length of " + schema.maxProperties,
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates items when instance is an array
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null|ValidatorResult}
+ */
+validators.items = function validateItems (instance, schema, options, ctx) {
+  var self = this;
+  if (!this.types.array(instance)) return;
+  if (schema.items===undefined) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  instance.every(function (value, i) {
+    if(Array.isArray(schema.items)){
+      var items =  schema.items[i]===undefined ? schema.additionalItems : schema.items[i];
+    }else{
+      var items = schema.items;
+    }
+    if (items === undefined) {
+      return true;
+    }
+    if (items === false) {
+      result.addError({
+        name: 'items',
+        message: "additionalItems not permitted",
+      });
+      return false;
+    }
+    var res = self.validateSchema(value, items, options, ctx.makeChild(items, i));
+    if(res.instance !== result.instance[i]) result.instance[i] = res.instance;
+    result.importErrors(res);
+    return true;
+  });
+  return result;
+};
+
+/**
+ * Validates the "contains" keyword
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {String|null|ValidatorResult}
+ */
+validators.contains = function validateContains (instance, schema, options, ctx) {
+  var self = this;
+  if (!this.types.array(instance)) return;
+  if (schema.contains===undefined) return;
+  if (!helpers.isSchema(schema.contains)) throw new Error('Expected "contains" keyword to be a schema');
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var count = instance.some(function (value, i) {
+    var res = self.validateSchema(value, schema.contains, options, ctx.makeChild(schema.contains, i));
+    return res.errors.length===0;
+  });
+  if(count===false){
+    result.addError({
+      name: 'contains',
+      argument: schema.contains,
+      message: "must contain an item matching given schema",
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates minimum and exclusiveMinimum when the type of the instance value is a number.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.minimum = function validateMinimum (instance, schema, options, ctx) {
+  if (!this.types.number(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (schema.exclusiveMinimum && schema.exclusiveMinimum === true) {
+    if(!(instance > schema.minimum)){
+      result.addError({
+        name: 'minimum',
+        argument: schema.minimum,
+        message: "must be greater than " + schema.minimum,
+      });
+    }
+  } else {
+    if(!(instance >= schema.minimum)){
+      result.addError({
+        name: 'minimum',
+        argument: schema.minimum,
+        message: "must be greater than or equal to " + schema.minimum,
+      });
+    }
+  }
+  return result;
+};
+
+/**
+ * Validates maximum and exclusiveMaximum when the type of the instance value is a number.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.maximum = function validateMaximum (instance, schema, options, ctx) {
+  if (!this.types.number(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (schema.exclusiveMaximum && schema.exclusiveMaximum === true) {
+    if(!(instance < schema.maximum)){
+      result.addError({
+        name: 'maximum',
+        argument: schema.maximum,
+        message: "must be less than " + schema.maximum,
+      });
+    }
+  } else {
+    if(!(instance <= schema.maximum)){
+      result.addError({
+        name: 'maximum',
+        argument: schema.maximum,
+        message: "must be less than or equal to " + schema.maximum,
+      });
+    }
+  }
+  return result;
+};
+
+/**
+ * Validates the number form of exclusiveMinimum when the type of the instance value is a number.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.exclusiveMinimum = function validateExclusiveMinimum (instance, schema, options, ctx) {
+  // Support the boolean form of exclusiveMinimum, which is handled by the "minimum" keyword.
+  if(typeof schema.exclusiveMinimum === 'boolean') return;
+  if (!this.types.number(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var valid = instance > schema.exclusiveMinimum;
+  if (!valid) {
+    result.addError({
+      name: 'exclusiveMinimum',
+      argument: schema.exclusiveMinimum,
+      message: "must be strictly greater than " + schema.exclusiveMinimum,
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates the number form of exclusiveMaximum when the type of the instance value is a number.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.exclusiveMaximum = function validateExclusiveMaximum (instance, schema, options, ctx) {
+  // Support the boolean form of exclusiveMaximum, which is handled by the "maximum" keyword.
+  if(typeof schema.exclusiveMaximum === 'boolean') return;
+  if (!this.types.number(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var valid = instance < schema.exclusiveMaximum;
+  if (!valid) {
+    result.addError({
+      name: 'exclusiveMaximum',
+      argument: schema.exclusiveMaximum,
+      message: "must be strictly less than " + schema.exclusiveMaximum,
+    });
+  }
+  return result;
+};
+
+/**
+ * Perform validation for multipleOf and divisibleBy, which are essentially the same.
+ * @param instance
+ * @param schema
+ * @param validationType
+ * @param errorMessage
+ * @returns {String|null}
+ */
+var validateMultipleOfOrDivisbleBy = function validateMultipleOfOrDivisbleBy (instance, schema, options, ctx, validationType, errorMessage) {
+  if (!this.types.number(instance)) return;
+
+  var validationArgument = schema[validationType];
+  if (validationArgument == 0) {
+    throw new SchemaError(validationType + " cannot be zero");
+  }
+
+  var result = new ValidatorResult(instance, schema, options, ctx);
+
+  var instanceDecimals = helpers.getDecimalPlaces(instance);
+  var divisorDecimals = helpers.getDecimalPlaces(validationArgument);
+
+  var maxDecimals = Math.max(instanceDecimals , divisorDecimals);
+  var multiplier = Math.pow(10, maxDecimals);
+
+  if (Math.round(instance * multiplier) % Math.round(validationArgument * multiplier) !== 0) {
+    result.addError({
+      name: validationType,
+      argument:  validationArgument,
+      message: errorMessage + JSON.stringify(validationArgument),
+    });
+  }
+
+  return result;
+};
+
+/**
+ * Validates divisibleBy when the type of the instance value is a number.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.multipleOf = function validateMultipleOf (instance, schema, options, ctx) {
+  return validateMultipleOfOrDivisbleBy.call(this, instance, schema, options, ctx, "multipleOf", "is not a multiple of (divisible by) ");
+};
+
+/**
+ * Validates multipleOf when the type of the instance value is a number.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.divisibleBy = function validateDivisibleBy (instance, schema, options, ctx) {
+  return validateMultipleOfOrDivisbleBy.call(this, instance, schema, options, ctx, "divisibleBy", "is not divisible by (multiple of) ");
+};
+
+/**
+ * Validates whether the instance value is present.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.required = function validateRequired (instance, schema, options, ctx) {
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (instance === undefined && schema.required === true) {
+    // A boolean form is implemented for reverse-compatibility with schemas written against older drafts
+    result.addError({
+      name: 'required',
+      message: "is required",
+    });
+  } else if (this.types.object(instance) && Array.isArray(schema.required)) {
+    schema.required.forEach(function(n){
+      if(getEnumerableProperty(instance, n)===undefined){
+        result.addError({
+          name: 'required',
+          argument: n,
+          message: "requires property " + JSON.stringify(n),
+        });
+      }
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance value matches the regular expression, when the instance value is a string.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.pattern = function validatePattern (instance, schema, options, ctx) {
+  if (!this.types.string(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var pattern = schema.pattern;
+  try {
+    var regexp = new RegExp(pattern, 'u');
+  } catch(_e) {
+    // In the event the stricter handling causes an error, fall back on the forgiving handling
+    // DEPRECATED
+    regexp = new RegExp(pattern);
+  }
+  if (!instance.match(regexp)) {
+    result.addError({
+      name: 'pattern',
+      argument: schema.pattern,
+      message: "does not match pattern " + JSON.stringify(schema.pattern.toString()),
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance value is of a certain defined format or a custom
+ * format.
+ * The following formats are supported for string types:
+ *   - date-time
+ *   - date
+ *   - time
+ *   - ip-address
+ *   - ipv6
+ *   - uri
+ *   - color
+ *   - host-name
+ *   - alpha
+ *   - alpha-numeric
+ *   - utc-millisec
+ * @param instance
+ * @param schema
+ * @param [options]
+ * @param [ctx]
+ * @return {String|null}
+ */
+validators.format = function validateFormat (instance, schema, options, ctx) {
+  if (instance===undefined) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (!result.disableFormat && !helpers.isFormat(instance, schema.format, this)) {
+    result.addError({
+      name: 'format',
+      argument: schema.format,
+      message: "does not conform to the " + JSON.stringify(schema.format) + " format",
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance value is at least of a certain length, when the instance value is a string.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.minLength = function validateMinLength (instance, schema, options, ctx) {
+  if (!this.types.string(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var hsp = instance.match(/[\uDC00-\uDFFF]/g);
+  var length = instance.length - (hsp ? hsp.length : 0);
+  if (!(length >= schema.minLength)) {
+    result.addError({
+      name: 'minLength',
+      argument: schema.minLength,
+      message: "does not meet minimum length of " + schema.minLength,
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance value is at most of a certain length, when the instance value is a string.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.maxLength = function validateMaxLength (instance, schema, options, ctx) {
+  if (!this.types.string(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  // TODO if this was already computed in "minLength", use that value instead of re-computing
+  var hsp = instance.match(/[\uDC00-\uDFFF]/g);
+  var length = instance.length - (hsp ? hsp.length : 0);
+  if (!(length <= schema.maxLength)) {
+    result.addError({
+      name: 'maxLength',
+      argument: schema.maxLength,
+      message: "does not meet maximum length of " + schema.maxLength,
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether instance contains at least a minimum number of items, when the instance is an Array.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.minItems = function validateMinItems (instance, schema, options, ctx) {
+  if (!this.types.array(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (!(instance.length >= schema.minItems)) {
+    result.addError({
+      name: 'minItems',
+      argument: schema.minItems,
+      message: "does not meet minimum length of " + schema.minItems,
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether instance contains no more than a maximum number of items, when the instance is an Array.
+ * @param instance
+ * @param schema
+ * @return {String|null}
+ */
+validators.maxItems = function validateMaxItems (instance, schema, options, ctx) {
+  if (!this.types.array(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (!(instance.length <= schema.maxItems)) {
+    result.addError({
+      name: 'maxItems',
+      argument: schema.maxItems,
+      message: "does not meet maximum length of " + schema.maxItems,
+    });
+  }
+  return result;
+};
+
+/**
+ * Deep compares arrays for duplicates
+ * @param v
+ * @param i
+ * @param a
+ * @private
+ * @return {boolean}
+ */
+function testArrays (v, i, a) {
+  var j, len = a.length;
+  for (j = i + 1, len; j < len; j++) {
+    if (helpers.deepCompareStrict(v, a[j])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * Validates whether there are no duplicates, when the instance is an Array.
+ * @param instance
+ * @return {String|null}
+ */
+validators.uniqueItems = function validateUniqueItems (instance, schema, options, ctx) {
+  if (schema.uniqueItems!==true) return;
+  if (!this.types.array(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (!instance.every(testArrays)) {
+    result.addError({
+      name: 'uniqueItems',
+      message: "contains duplicate item",
+    });
+  }
+  return result;
+};
+
+/**
+ * Validate for the presence of dependency properties, if the instance is an object.
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {null|ValidatorResult}
+ */
+validators.dependencies = function validateDependencies (instance, schema, options, ctx) {
+  if (!this.types.object(instance)) return;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  for (var property in schema.dependencies) {
+    if (instance[property] === undefined) {
+      continue;
+    }
+    var dep = schema.dependencies[property];
+    var childContext = ctx.makeChild(dep, property);
+    if (typeof dep == 'string') {
+      dep = [dep];
+    }
+    if (Array.isArray(dep)) {
+      dep.forEach(function (prop) {
+        if (instance[prop] === undefined) {
+          result.addError({
+            // FIXME there's two different "dependencies" errors here with slightly different outputs
+            // Can we make these the same? Or should we create different error types?
+            name: 'dependencies',
+            argument: childContext.propertyPath,
+            message: "property " + prop + " not found, required by " + childContext.propertyPath,
+          });
+        }
+      });
+    } else {
+      var res = this.validateSchema(instance, dep, options, childContext);
+      if(result.instance !== res.instance) result.instance = res.instance;
+      if (res && res.errors.length) {
+        result.addError({
+          name: 'dependencies',
+          argument: childContext.propertyPath,
+          message: "does not meet dependency required by " + childContext.propertyPath,
+        });
+        result.importErrors(res);
+      }
+    }
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance value is one of the enumerated values.
+ *
+ * @param instance
+ * @param schema
+ * @return {ValidatorResult|null}
+ */
+validators['enum'] = function validateEnum (instance, schema, options, ctx) {
+  if (instance === undefined) {
+    return null;
+  }
+  if (!Array.isArray(schema['enum'])) {
+    throw new SchemaError("enum expects an array", schema);
+  }
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (!schema['enum'].some(helpers.deepCompareStrict.bind(null, instance))) {
+    result.addError({
+      name: 'enum',
+      argument: schema['enum'],
+      message: "is not one of enum values: " + schema['enum'].map(String).join(','),
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance exactly matches a given value
+ *
+ * @param instance
+ * @param schema
+ * @return {ValidatorResult|null}
+ */
+validators['const'] = function validateEnum (instance, schema, options, ctx) {
+  if (instance === undefined) {
+    return null;
+  }
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  if (!helpers.deepCompareStrict(schema['const'], instance)) {
+    result.addError({
+      name: 'const',
+      argument: schema['const'],
+      message: "does not exactly match expected constant: " + schema['const'],
+    });
+  }
+  return result;
+};
+
+/**
+ * Validates whether the instance if of a prohibited type.
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @return {null|ValidatorResult}
+ */
+validators.not = validators.disallow = function validateNot (instance, schema, options, ctx) {
+  var self = this;
+  if(instance===undefined) return null;
+  var result = new ValidatorResult(instance, schema, options, ctx);
+  var notTypes = schema.not || schema.disallow;
+  if(!notTypes) return null;
+  if(!Array.isArray(notTypes)) notTypes=[notTypes];
+  notTypes.forEach(function (type) {
+    if (self.testType(instance, schema, options, ctx, type)) {
+      var id = type && (type.$id || type.id);
+      var schemaId = id || type;
+      result.addError({
+        name: 'not',
+        argument: schemaId,
+        message: "is of prohibited type " + schemaId,
+      });
+    }
+  });
+  return result;
+};
+
+module.exports = attribute;
+
+
+/***/ }),
+
+/***/ 34099:
+/***/ ((module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+var uri = __nccwpck_require__(87016);
+
+var ValidationError = exports.ValidationError = function ValidationError (message, instance, schema, path, name, argument) {
+  if(Array.isArray(path)){
+    this.path = path;
+    this.property = path.reduce(function(sum, item){
+      return sum + makeSuffix(item);
+    }, 'instance');
+  }else if(path !== undefined){
+    this.property = path;
+  }
+  if (message) {
+    this.message = message;
+  }
+  if (schema) {
+    var id = schema.$id || schema.id;
+    this.schema = id || schema;
+  }
+  if (instance !== undefined) {
+    this.instance = instance;
+  }
+  this.name = name;
+  this.argument = argument;
+  this.stack = this.toString();
+};
+
+ValidationError.prototype.toString = function toString() {
+  return this.property + ' ' + this.message;
+};
+
+var ValidatorResult = exports.ValidatorResult = function ValidatorResult(instance, schema, options, ctx) {
+  this.instance = instance;
+  this.schema = schema;
+  this.options = options;
+  this.path = ctx.path;
+  this.propertyPath = ctx.propertyPath;
+  this.errors = [];
+  this.throwError = options && options.throwError;
+  this.throwFirst = options && options.throwFirst;
+  this.throwAll = options && options.throwAll;
+  this.disableFormat = options && options.disableFormat === true;
+};
+
+ValidatorResult.prototype.addError = function addError(detail) {
+  var err;
+  if (typeof detail == 'string') {
+    err = new ValidationError(detail, this.instance, this.schema, this.path);
+  } else {
+    if (!detail) throw new Error('Missing error detail');
+    if (!detail.message) throw new Error('Missing error message');
+    if (!detail.name) throw new Error('Missing validator type');
+    err = new ValidationError(detail.message, this.instance, this.schema, this.path, detail.name, detail.argument);
+  }
+
+  this.errors.push(err);
+  if (this.throwFirst) {
+    throw new ValidatorResultError(this);
+  }else if(this.throwError){
+    throw err;
+  }
+  return err;
+};
+
+ValidatorResult.prototype.importErrors = function importErrors(res) {
+  if (typeof res == 'string' || (res && res.validatorType)) {
+    this.addError(res);
+  } else if (res && res.errors) {
+    this.errors = this.errors.concat(res.errors);
+  }
+};
+
+function stringizer (v,i){
+  return i+': '+v.toString()+'\n';
+}
+ValidatorResult.prototype.toString = function toString(res) {
+  return this.errors.map(stringizer).join('');
+};
+
+Object.defineProperty(ValidatorResult.prototype, "valid", { get: function() {
+  return !this.errors.length;
+} });
+
+module.exports.ValidatorResultError = ValidatorResultError;
+function ValidatorResultError(result) {
+  if(Error.captureStackTrace){
+    Error.captureStackTrace(this, ValidatorResultError);
+  }
+  this.instance = result.instance;
+  this.schema = result.schema;
+  this.options = result.options;
+  this.errors = result.errors;
+}
+ValidatorResultError.prototype = new Error();
+ValidatorResultError.prototype.constructor = ValidatorResultError;
+ValidatorResultError.prototype.name = "Validation Error";
+
+/**
+ * Describes a problem with a Schema which prevents validation of an instance
+ * @name SchemaError
+ * @constructor
+ */
+var SchemaError = exports.SchemaError = function SchemaError (msg, schema) {
+  this.message = msg;
+  this.schema = schema;
+  Error.call(this, msg);
+  Error.captureStackTrace(this, SchemaError);
+};
+SchemaError.prototype = Object.create(Error.prototype,
+  {
+    constructor: {value: SchemaError, enumerable: false},
+    name: {value: 'SchemaError', enumerable: false},
+  });
+
+var SchemaContext = exports.SchemaContext = function SchemaContext (schema, options, path, base, schemas) {
+  this.schema = schema;
+  this.options = options;
+  if(Array.isArray(path)){
+    this.path = path;
+    this.propertyPath = path.reduce(function(sum, item){
+      return sum + makeSuffix(item);
+    }, 'instance');
+  }else{
+    this.propertyPath = path;
+  }
+  this.base = base;
+  this.schemas = schemas;
+};
+
+SchemaContext.prototype.resolve = function resolve (target) {
+  return uri.resolve(this.base, target);
+};
+
+SchemaContext.prototype.makeChild = function makeChild(schema, propertyName){
+  var path = (propertyName===undefined) ? this.path : this.path.concat([propertyName]);
+  var id = schema.$id || schema.id;
+  var base = uri.resolve(this.base, id||'');
+  var ctx = new SchemaContext(schema, this.options, path, base, Object.create(this.schemas));
+  if(id && !ctx.schemas[base]){
+    ctx.schemas[base] = schema;
+  }
+  return ctx;
+};
+
+var FORMAT_REGEXPS = exports.FORMAT_REGEXPS = {
+  // 7.3.1. Dates, Times, and Duration
+  'date-time': /^\d{4}-(?:0[0-9]{1}|1[0-2]{1})-(3[01]|0[1-9]|[12][0-9])[tT ](2[0-4]|[01][0-9]):([0-5][0-9]):(60|[0-5][0-9])(\.\d+)?([zZ]|[+-]([0-5][0-9]):(60|[0-5][0-9]))$/,
+  'date': /^\d{4}-(?:0[0-9]{1}|1[0-2]{1})-(3[01]|0[1-9]|[12][0-9])$/,
+  'time': /^(2[0-4]|[01][0-9]):([0-5][0-9]):(60|[0-5][0-9])$/,
+  'duration': /P(T\d+(H(\d+M(\d+S)?)?|M(\d+S)?|S)|\d+(D|M(\d+D)?|Y(\d+M(\d+D)?)?)(T\d+(H(\d+M(\d+S)?)?|M(\d+S)?|S))?|\d+W)/i,
+
+  // 7.3.2. Email Addresses
+  // TODO: fix the email production
+  'email': /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/,
+  'idn-email': /^("(?:[!#-\[\]-\u{10FFFF}]|\\[\t -\u{10FFFF}])*"|[!#-'*+\-/-9=?A-Z\^-\u{10FFFF}](?:\.?[!#-'*+\-/-9=?A-Z\^-\u{10FFFF}])*)@([!#-'*+\-/-9=?A-Z\^-\u{10FFFF}](?:\.?[!#-'*+\-/-9=?A-Z\^-\u{10FFFF}])*|\[[!-Z\^-\u{10FFFF}]*\])$/u,
+
+  // 7.3.3. Hostnames
+
+  // 7.3.4. IP Addresses
+  'ip-address': /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
+  // FIXME whitespace is invalid
+  'ipv6': /^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$/,
+
+  // 7.3.5. Resource Identifiers
+  // TODO: A more accurate regular expression for "uri" goes:
+  // [A-Za-z][+\-.0-9A-Za-z]*:((/(/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?)?)?#(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|(/(/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~])|/?%[0-9A-Fa-f]{2}|[!$&-.0-;=?-Z_a-z~])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*(#(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*)?|/(/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+(:\d*)?|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?:\d*|\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)?)?
+  'uri': /^[a-zA-Z][a-zA-Z0-9+.-]*:[^\s]*$/,
+  'uri-reference': /^(((([A-Za-z][+\-.0-9A-Za-z]*(:%[0-9A-Fa-f]{2}|:[!$&-.0-;=?-Z_a-z~]|[/?])|\?)(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|([A-Za-z][+\-.0-9A-Za-z]*:?)?)|([A-Za-z][+\-.0-9A-Za-z]*:)?\/((%[0-9A-Fa-f]{2}|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|(\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?)?))#(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|(([A-Za-z][+\-.0-9A-Za-z]*)?%[0-9A-Fa-f]{2}|[!$&-.0-9;=@_~]|[A-Za-z][+\-.0-9A-Za-z]*[!$&-*,;=@_~])(%[0-9A-Fa-f]{2}|[!$&-.0-9;=@-Z_a-z~])*((([/?](%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*)?#|[/?])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*)?|([A-Za-z][+\-.0-9A-Za-z]*(:%[0-9A-Fa-f]{2}|:[!$&-.0-;=?-Z_a-z~]|[/?])|\?)(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|([A-Za-z][+\-.0-9A-Za-z]*:)?\/((%[0-9A-Fa-f]{2}|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+(:\d*)?|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?:\d*|\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)?|[A-Za-z][+\-.0-9A-Za-z]*:?)?$/,
+  'iri': /^[a-zA-Z][a-zA-Z0-9+.-]*:[^\s]*$/,
+  'iri-reference': /^(((([A-Za-z][+\-.0-9A-Za-z]*(:%[0-9A-Fa-f]{2}|:[!$&-.0-;=?-Z_a-z~-\u{10FFFF}]|[/?])|\?)(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|([A-Za-z][+\-.0-9A-Za-z]*:?)?)|([A-Za-z][+\-.0-9A-Za-z]*:)?\/((%[0-9A-Fa-f]{2}|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~-\u{10FFFF}])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~-\u{10FFFF}])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|(\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~-\u{10FFFF}])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?)?))#(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|(([A-Za-z][+\-.0-9A-Za-z]*)?%[0-9A-Fa-f]{2}|[!$&-.0-9;=@_~-\u{10FFFF}]|[A-Za-z][+\-.0-9A-Za-z]*[!$&-*,;=@_~-\u{10FFFF}])(%[0-9A-Fa-f]{2}|[!$&-.0-9;=@-Z_a-z~-\u{10FFFF}])*((([/?](%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*)?#|[/?])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*)?|([A-Za-z][+\-.0-9A-Za-z]*(:%[0-9A-Fa-f]{2}|:[!$&-.0-;=?-Z_a-z~-\u{10FFFF}]|[/?])|\?)(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|([A-Za-z][+\-.0-9A-Za-z]*:)?\/((%[0-9A-Fa-f]{2}|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~-\u{10FFFF}])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~-\u{10FFFF}])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~-\u{10FFFF}])+(:\d*)?|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?:\d*|\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?)?|[A-Za-z][+\-.0-9A-Za-z]*:?)?$/u,
+  'uuid': /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i,
+
+  // 7.3.6. uri-template
+  'uri-template': /(%[0-9a-f]{2}|[!#$&(-;=?@\[\]_a-z~]|\{[!#&+,./;=?@|]?(%[0-9a-f]{2}|[0-9_a-z])(\.?(%[0-9a-f]{2}|[0-9_a-z]))*(:[1-9]\d{0,3}|\*)?(,(%[0-9a-f]{2}|[0-9_a-z])(\.?(%[0-9a-f]{2}|[0-9_a-z]))*(:[1-9]\d{0,3}|\*)?)*\})*/iu,
+
+  // 7.3.7. JSON Pointers
+  'json-pointer': /^(\/([\x00-\x2e0-@\[-}\x7f]|~[01])*)*$/iu,
+  'relative-json-pointer': /^\d+(#|(\/([\x00-\x2e0-@\[-}\x7f]|~[01])*)*)$/iu,
+
+  // hostname regex from: http://stackoverflow.com/a/1420225/5628
+  'hostname': /^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\.?$/,
+  'host-name': /^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\.?$/,
+
+  'utc-millisec': function (input) {
+    return (typeof input === 'string') && parseFloat(input) === parseInt(input, 10) && !isNaN(input);
+  },
+
+  // 7.3.8. regex
+  'regex': function (input) {
+    var result = true;
+    try {
+      new RegExp(input);
+    } catch (e) {
+      result = false;
+    }
+    return result;
+  },
+
+  // Other definitions
+  // "style" was removed from JSON Schema in draft-4 and is deprecated
+  'style': /[\r\n\t ]*[^\r\n\t ][^:]*:[\r\n\t ]*[^\r\n\t ;]*[\r\n\t ]*;?/,
+  // "color" was removed from JSON Schema in draft-4 and is deprecated
+  'color': /^(#?([0-9A-Fa-f]{3}){1,2}\b|aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow|(rgb\(\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*,\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*,\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*\))|(rgb\(\s*(\d?\d%|100%)+\s*,\s*(\d?\d%|100%)+\s*,\s*(\d?\d%|100%)+\s*\)))$/,
+  'phone': /^\+(?:[0-9] ?){6,14}[0-9]$/,
+  'alpha': /^[a-zA-Z]+$/,
+  'alphanumeric': /^[a-zA-Z0-9]+$/,
+};
+
+FORMAT_REGEXPS.regexp = FORMAT_REGEXPS.regex;
+FORMAT_REGEXPS.pattern = FORMAT_REGEXPS.regex;
+FORMAT_REGEXPS.ipv4 = FORMAT_REGEXPS['ip-address'];
+
+exports.isFormat = function isFormat (input, format, validator) {
+  if (typeof input === 'string' && FORMAT_REGEXPS[format] !== undefined) {
+    if (FORMAT_REGEXPS[format] instanceof RegExp) {
+      return FORMAT_REGEXPS[format].test(input);
+    }
+    if (typeof FORMAT_REGEXPS[format] === 'function') {
+      return FORMAT_REGEXPS[format](input);
+    }
+  } else if (validator && validator.customFormats &&
+      typeof validator.customFormats[format] === 'function') {
+    return validator.customFormats[format](input);
+  }
+  return true;
+};
+
+var makeSuffix = exports.makeSuffix = function makeSuffix (key) {
+  key = key.toString();
+  // This function could be capable of outputting valid a ECMAScript string, but the
+  // resulting code for testing which form to use would be tens of thousands of characters long
+  // That means this will use the name form for some illegal forms
+  if (!key.match(/[.\s\[\]]/) && !key.match(/^[\d]/)) {
+    return '.' + key;
+  }
+  if (key.match(/^\d+$/)) {
+    return '[' + key + ']';
+  }
+  return '[' + JSON.stringify(key) + ']';
+};
+
+exports.deepCompareStrict = function deepCompareStrict (a, b) {
+  if (typeof a !== typeof b) {
+    return false;
+  }
+  if (Array.isArray(a)) {
+    if (!Array.isArray(b)) {
+      return false;
+    }
+    if (a.length !== b.length) {
+      return false;
+    }
+    return a.every(function (v, i) {
+      return deepCompareStrict(a[i], b[i]);
+    });
+  }
+  if (typeof a === 'object') {
+    if (!a || !b) {
+      return a === b;
+    }
+    var aKeys = Object.keys(a);
+    var bKeys = Object.keys(b);
+    if (aKeys.length !== bKeys.length) {
+      return false;
+    }
+    return aKeys.every(function (v) {
+      return deepCompareStrict(a[v], b[v]);
+    });
+  }
+  return a === b;
+};
+
+function deepMerger (target, dst, e, i) {
+  if (typeof e === 'object') {
+    dst[i] = deepMerge(target[i], e);
+  } else {
+    if (target.indexOf(e) === -1) {
+      dst.push(e);
+    }
+  }
+}
+
+function copyist (src, dst, key) {
+  dst[key] = src[key];
+}
+
+function copyistWithDeepMerge (target, src, dst, key) {
+  if (typeof src[key] !== 'object' || !src[key]) {
+    dst[key] = src[key];
+  }
+  else {
+    if (!target[key]) {
+      dst[key] = src[key];
+    } else {
+      dst[key] = deepMerge(target[key], src[key]);
+    }
+  }
+}
+
+function deepMerge (target, src) {
+  var array = Array.isArray(src);
+  var dst = array && [] || {};
+
+  if (array) {
+    target = target || [];
+    dst = dst.concat(target);
+    src.forEach(deepMerger.bind(null, target, dst));
+  } else {
+    if (target && typeof target === 'object') {
+      Object.keys(target).forEach(copyist.bind(null, target, dst));
+    }
+    Object.keys(src).forEach(copyistWithDeepMerge.bind(null, target, src, dst));
+  }
+
+  return dst;
+}
+
+module.exports.deepMerge = deepMerge;
+
+/**
+ * Validates instance against the provided schema
+ * Implements URI+JSON Pointer encoding, e.g. "%7e"="~0"=>"~", "~1"="%2f"=>"/"
+ * @param o
+ * @param s The path to walk o along
+ * @return any
+ */
+exports.objectGetPath = function objectGetPath(o, s) {
+  var parts = s.split('/').slice(1);
+  var k;
+  while (typeof (k=parts.shift()) == 'string') {
+    var n = decodeURIComponent(k.replace(/~0/,'~').replace(/~1/g,'/'));
+    if (!(n in o)) return;
+    o = o[n];
+  }
+  return o;
+};
+
+function pathEncoder (v) {
+  return '/'+encodeURIComponent(v).replace(/~/g,'%7E');
+}
+/**
+ * Accept an Array of property names and return a JSON Pointer URI fragment
+ * @param Array a
+ * @return {String}
+ */
+exports.encodePath = function encodePointer(a){
+  // ~ must be encoded explicitly because hacks
+  // the slash is encoded by encodeURIComponent
+  return a.map(pathEncoder).join('');
+};
+
+
+/**
+ * Calculate the number of decimal places a number uses
+ * We need this to get correct results out of multipleOf and divisibleBy
+ * when either figure is has decimal places, due to IEEE-754 float issues.
+ * @param number
+ * @returns {number}
+ */
+exports.getDecimalPlaces = function getDecimalPlaces(number) {
+
+  var decimalPlaces = 0;
+  if (isNaN(number)) return decimalPlaces;
+
+  if (typeof number !== 'number') {
+    number = Number(number);
+  }
+
+  var parts = number.toString().split('e');
+  if (parts.length === 2) {
+    if (parts[1][0] !== '-') {
+      return decimalPlaces;
+    } else {
+      decimalPlaces = Number(parts[1].slice(1));
+    }
+  }
+
+  var decimalParts = parts[0].split('.');
+  if (decimalParts.length === 2) {
+    decimalPlaces += decimalParts[1].length;
+  }
+
+  return decimalPlaces;
+};
+
+exports.isSchema = function isSchema(val){
+  return (typeof val === 'object' && val) || (typeof val === 'boolean');
+};
+
+
+
+/***/ }),
+
+/***/ 75282:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+var Validator = module.exports.Validator = __nccwpck_require__(69092);
+
+module.exports.ValidatorResult = __nccwpck_require__(34099).ValidatorResult;
+module.exports.ValidatorResultError = __nccwpck_require__(34099).ValidatorResultError;
+module.exports.ValidationError = __nccwpck_require__(34099).ValidationError;
+module.exports.SchemaError = __nccwpck_require__(34099).SchemaError;
+module.exports.SchemaScanResult = __nccwpck_require__(66749).SchemaScanResult;
+module.exports.scan = __nccwpck_require__(66749).scan;
+
+module.exports.validate = function (instance, schema, options) {
+  var v = new Validator();
+  return v.validate(instance, schema, options);
+};
+
+
+/***/ }),
+
+/***/ 66749:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+var urilib = __nccwpck_require__(87016);
+var helpers = __nccwpck_require__(34099);
+
+module.exports.SchemaScanResult = SchemaScanResult;
+function SchemaScanResult(found, ref){
+  this.id = found;
+  this.ref = ref;
+}
+
+/**
+ * Adds a schema with a certain urn to the Validator instance.
+ * @param string uri
+ * @param object schema
+ * @return {Object}
+ */
+module.exports.scan = function scan(base, schema){
+  function scanSchema(baseuri, schema){
+    if(!schema || typeof schema!='object') return;
+    // Mark all referenced schemas so we can tell later which schemas are referred to, but never defined
+    if(schema.$ref){
+      var resolvedUri = urilib.resolve(baseuri, schema.$ref);
+      ref[resolvedUri] = ref[resolvedUri] ? ref[resolvedUri]+1 : 0;
+      return;
+    }
+    var id = schema.$id || schema.id;
+    var ourBase = id ? urilib.resolve(baseuri, id) : baseuri;
+    if (ourBase) {
+      // If there's no fragment, append an empty one
+      if(ourBase.indexOf('#')<0) ourBase += '#';
+      if(found[ourBase]){
+        if(!helpers.deepCompareStrict(found[ourBase], schema)){
+          throw new Error('Schema <'+ourBase+'> already exists with different definition');
+        }
+        return found[ourBase];
+      }
+      found[ourBase] = schema;
+      // strip trailing fragment
+      if(ourBase[ourBase.length-1]=='#'){
+        found[ourBase.substring(0, ourBase.length-1)] = schema;
+      }
+    }
+    scanArray(ourBase+'/items', (Array.isArray(schema.items)?schema.items:[schema.items]));
+    scanArray(ourBase+'/extends', (Array.isArray(schema.extends)?schema.extends:[schema.extends]));
+    scanSchema(ourBase+'/additionalItems', schema.additionalItems);
+    scanObject(ourBase+'/properties', schema.properties);
+    scanSchema(ourBase+'/additionalProperties', schema.additionalProperties);
+    scanObject(ourBase+'/definitions', schema.definitions);
+    scanObject(ourBase+'/patternProperties', schema.patternProperties);
+    scanObject(ourBase+'/dependencies', schema.dependencies);
+    scanArray(ourBase+'/disallow', schema.disallow);
+    scanArray(ourBase+'/allOf', schema.allOf);
+    scanArray(ourBase+'/anyOf', schema.anyOf);
+    scanArray(ourBase+'/oneOf', schema.oneOf);
+    scanSchema(ourBase+'/not', schema.not);
+  }
+  function scanArray(baseuri, schemas){
+    if(!Array.isArray(schemas)) return;
+    for(var i=0; i<schemas.length; i++){
+      scanSchema(baseuri+'/'+i, schemas[i]);
+    }
+  }
+  function scanObject(baseuri, schemas){
+    if(!schemas || typeof schemas!='object') return;
+    for(var p in schemas){
+      scanSchema(baseuri+'/'+p, schemas[p]);
+    }
+  }
+
+  var found = {};
+  var ref = {};
+  scanSchema(base, schema);
+  return new SchemaScanResult(found, ref);
+};
+
+
+/***/ }),
+
+/***/ 69092:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+var urilib = __nccwpck_require__(87016);
+
+var attribute = __nccwpck_require__(32610);
+var helpers = __nccwpck_require__(34099);
+var scanSchema = (__nccwpck_require__(66749).scan);
+var ValidatorResult = helpers.ValidatorResult;
+var ValidatorResultError = helpers.ValidatorResultError;
+var SchemaError = helpers.SchemaError;
+var SchemaContext = helpers.SchemaContext;
+//var anonymousBase = 'vnd.jsonschema:///';
+var anonymousBase = '/';
+
+/**
+ * Creates a new Validator object
+ * @name Validator
+ * @constructor
+ */
+var Validator = function Validator () {
+  // Allow a validator instance to override global custom formats or to have their
+  // own custom formats.
+  this.customFormats = Object.create(Validator.prototype.customFormats);
+  this.schemas = {};
+  this.unresolvedRefs = [];
+
+  // Use Object.create to make this extensible without Validator instances stepping on each other's toes.
+  this.types = Object.create(types);
+  this.attributes = Object.create(attribute.validators);
+};
+
+// Allow formats to be registered globally.
+Validator.prototype.customFormats = {};
+
+// Hint at the presence of a property
+Validator.prototype.schemas = null;
+Validator.prototype.types = null;
+Validator.prototype.attributes = null;
+Validator.prototype.unresolvedRefs = null;
+
+/**
+ * Adds a schema with a certain urn to the Validator instance.
+ * @param schema
+ * @param urn
+ * @return {Object}
+ */
+Validator.prototype.addSchema = function addSchema (schema, base) {
+  var self = this;
+  if (!schema) {
+    return null;
+  }
+  var scan = scanSchema(base||anonymousBase, schema);
+  var ourUri = base || schema.$id || schema.id;
+  for(var uri in scan.id){
+    this.schemas[uri] = scan.id[uri];
+  }
+  for(var uri in scan.ref){
+    // If this schema is already defined, it will be filtered out by the next step
+    this.unresolvedRefs.push(uri);
+  }
+  // Remove newly defined schemas from unresolvedRefs
+  this.unresolvedRefs = this.unresolvedRefs.filter(function(uri){
+    return typeof self.schemas[uri]==='undefined';
+  });
+  return this.schemas[ourUri];
+};
+
+Validator.prototype.addSubSchemaArray = function addSubSchemaArray(baseuri, schemas) {
+  if(!Array.isArray(schemas)) return;
+  for(var i=0; i<schemas.length; i++){
+    this.addSubSchema(baseuri, schemas[i]);
+  }
+};
+
+Validator.prototype.addSubSchemaObject = function addSubSchemaArray(baseuri, schemas) {
+  if(!schemas || typeof schemas!='object') return;
+  for(var p in schemas){
+    this.addSubSchema(baseuri, schemas[p]);
+  }
+};
+
+
+
+/**
+ * Sets all the schemas of the Validator instance.
+ * @param schemas
+ */
+Validator.prototype.setSchemas = function setSchemas (schemas) {
+  this.schemas = schemas;
+};
+
+/**
+ * Returns the schema of a certain urn
+ * @param urn
+ */
+Validator.prototype.getSchema = function getSchema (urn) {
+  return this.schemas[urn];
+};
+
+/**
+ * Validates instance against the provided schema
+ * @param instance
+ * @param schema
+ * @param [options]
+ * @param [ctx]
+ * @return {Array}
+ */
+Validator.prototype.validate = function validate (instance, schema, options, ctx) {
+  if((typeof schema !== 'boolean' && typeof schema !== 'object') || schema === null){
+    throw new SchemaError('Expected `schema` to be an object or boolean');
+  }
+  if (!options) {
+    options = {};
+  }
+  // This section indexes subschemas in the provided schema, so they don't need to be added with Validator#addSchema
+  // This will work so long as the function at uri.resolve() will resolve a relative URI to a relative URI
+  var id = schema.$id || schema.id;
+  var base = urilib.resolve(options.base||anonymousBase, id||'');
+  if(!ctx){
+    ctx = new SchemaContext(schema, options, [], base, Object.create(this.schemas));
+    if (!ctx.schemas[base]) {
+      ctx.schemas[base] = schema;
+    }
+    var found = scanSchema(base, schema);
+    for(var n in found.id){
+      var sch = found.id[n];
+      ctx.schemas[n] = sch;
+    }
+  }
+  if(options.required && instance===undefined){
+    var result = new ValidatorResult(instance, schema, options, ctx);
+    result.addError('is required, but is undefined');
+    return result;
+  }
+  var result = this.validateSchema(instance, schema, options, ctx);
+  if (!result) {
+    throw new Error('Result undefined');
+  }else if(options.throwAll && result.errors.length){
+    throw new ValidatorResultError(result);
+  }
+  return result;
+};
+
+/**
+* @param Object schema
+* @return mixed schema uri or false
+*/
+function shouldResolve(schema) {
+  var ref = (typeof schema === 'string') ? schema : schema.$ref;
+  if (typeof ref=='string') return ref;
+  return false;
+}
+
+/**
+ * Validates an instance against the schema (the actual work horse)
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @private
+ * @return {ValidatorResult}
+ */
+Validator.prototype.validateSchema = function validateSchema (instance, schema, options, ctx) {
+  var result = new ValidatorResult(instance, schema, options, ctx);
+
+  // Support for the true/false schemas
+  if(typeof schema==='boolean') {
+    if(schema===true){
+      // `true` is always valid
+      schema = {};
+    }else if(schema===false){
+      // `false` is always invalid
+      schema = {type: []};
+    }
+  }else if(!schema){
+    // This might be a string
+    throw new Error("schema is undefined");
+  }
+
+  if (schema['extends']) {
+    if (Array.isArray(schema['extends'])) {
+      var schemaobj = {schema: schema, ctx: ctx};
+      schema['extends'].forEach(this.schemaTraverser.bind(this, schemaobj));
+      schema = schemaobj.schema;
+      schemaobj.schema = null;
+      schemaobj.ctx = null;
+      schemaobj = null;
+    } else {
+      schema = helpers.deepMerge(schema, this.superResolve(schema['extends'], ctx));
+    }
+  }
+
+  // If passed a string argument, load that schema URI
+  var switchSchema = shouldResolve(schema);
+  if (switchSchema) {
+    var resolved = this.resolve(schema, switchSchema, ctx);
+    var subctx = new SchemaContext(resolved.subschema, options, ctx.path, resolved.switchSchema, ctx.schemas);
+    return this.validateSchema(instance, resolved.subschema, options, subctx);
+  }
+
+  var skipAttributes = options && options.skipAttributes || [];
+  // Validate each schema attribute against the instance
+  for (var key in schema) {
+    if (!attribute.ignoreProperties[key] && skipAttributes.indexOf(key) < 0) {
+      var validatorErr = null;
+      var validator = this.attributes[key];
+      if (validator) {
+        validatorErr = validator.call(this, instance, schema, options, ctx);
+      } else if (options.allowUnknownAttributes === false) {
+        // This represents an error with the schema itself, not an invalid instance
+        throw new SchemaError("Unsupported attribute: " + key, schema);
+      }
+      if (validatorErr) {
+        result.importErrors(validatorErr);
+      }
+    }
+  }
+
+  if (typeof options.rewrite == 'function') {
+    var value = options.rewrite.call(this, instance, schema, options, ctx);
+    result.instance = value;
+  }
+  return result;
+};
+
+/**
+* @private
+* @param Object schema
+* @param SchemaContext ctx
+* @returns Object schema or resolved schema
+*/
+Validator.prototype.schemaTraverser = function schemaTraverser (schemaobj, s) {
+  schemaobj.schema = helpers.deepMerge(schemaobj.schema, this.superResolve(s, schemaobj.ctx));
+};
+
+/**
+* @private
+* @param Object schema
+* @param SchemaContext ctx
+* @returns Object schema or resolved schema
+*/
+Validator.prototype.superResolve = function superResolve (schema, ctx) {
+  var ref = shouldResolve(schema);
+  if(ref) {
+    return this.resolve(schema, ref, ctx).subschema;
+  }
+  return schema;
+};
+
+/**
+* @private
+* @param Object schema
+* @param Object switchSchema
+* @param SchemaContext ctx
+* @return Object resolved schemas {subschema:String, switchSchema: String}
+* @throws SchemaError
+*/
+Validator.prototype.resolve = function resolve (schema, switchSchema, ctx) {
+  switchSchema = ctx.resolve(switchSchema);
+  // First see if the schema exists under the provided URI
+  if (ctx.schemas[switchSchema]) {
+    return {subschema: ctx.schemas[switchSchema], switchSchema: switchSchema};
+  }
+  // Else try walking the property pointer
+  var parsed = urilib.parse(switchSchema);
+  var fragment = parsed && parsed.hash;
+  var document = fragment && fragment.length && switchSchema.substr(0, switchSchema.length - fragment.length);
+  if (!document || !ctx.schemas[document]) {
+    throw new SchemaError("no such schema <" + switchSchema + ">", schema);
+  }
+  var subschema = helpers.objectGetPath(ctx.schemas[document], fragment.substr(1));
+  if(subschema===undefined){
+    throw new SchemaError("no such schema " + fragment + " located in <" + document + ">", schema);
+  }
+  return {subschema: subschema, switchSchema: switchSchema};
+};
+
+/**
+ * Tests whether the instance if of a certain type.
+ * @private
+ * @param instance
+ * @param schema
+ * @param options
+ * @param ctx
+ * @param type
+ * @return {boolean}
+ */
+Validator.prototype.testType = function validateType (instance, schema, options, ctx, type) {
+  if(type===undefined){
+    return;
+  }else if(type===null){
+    throw new SchemaError('Unexpected null in "type" keyword');
+  }
+  if (typeof this.types[type] == 'function') {
+    return this.types[type].call(this, instance);
+  }
+  if (type && typeof type == 'object') {
+    var res = this.validateSchema(instance, type, options, ctx);
+    return res === undefined || !(res && res.errors.length);
+  }
+  // Undefined or properties not on the list are acceptable, same as not being defined
+  return true;
+};
+
+var types = Validator.prototype.types = {};
+types.string = function testString (instance) {
+  return typeof instance == 'string';
+};
+types.number = function testNumber (instance) {
+  // isFinite returns false for NaN, Infinity, and -Infinity
+  return typeof instance == 'number' && isFinite(instance);
+};
+types.integer = function testInteger (instance) {
+  return (typeof instance == 'number') && instance % 1 === 0;
+};
+types.boolean = function testBoolean (instance) {
+  return typeof instance == 'boolean';
+};
+types.array = function testArray (instance) {
+  return Array.isArray(instance);
+};
+types['null'] = function testNull (instance) {
+  return instance === null;
+};
+types.date = function testDate (instance) {
+  return instance instanceof Date;
+};
+types.any = function testAny (instance) {
+  return true;
+};
+types.object = function testObject (instance) {
+  // TODO: fix this - see #15
+  return instance && (typeof instance === 'object') && !(Array.isArray(instance)) && !(instance instanceof Date);
+};
+
+module.exports = Validator;
+
 
 /***/ }),
 
@@ -42533,6 +44367,7 @@ var setSocketTimeout = /* @__PURE__ */ __name((request, reject, timeoutInMs = DE
     }, "onTimeout");
     if (request.socket) {
       request.socket.setTimeout(timeout, onTimeout);
+      request.on("close", () => request.socket?.removeListener("timeout", onTimeout));
     } else {
       request.setTimeout(timeout, onTimeout);
     }
@@ -42667,12 +44502,13 @@ or increase socketAcquisitionWarningTimeout=(millis) in the NodeHttpHandler conf
     return socketWarningTimestamp;
   }
   resolveDefaultConfig(options) {
-    const { requestTimeout, connectionTimeout, socketTimeout, httpAgent, httpsAgent } = options || {};
+    const { requestTimeout, connectionTimeout, socketTimeout, socketAcquisitionWarningTimeout, httpAgent, httpsAgent } = options || {};
     const keepAlive = true;
     const maxSockets = 50;
     return {
       connectionTimeout,
       requestTimeout: requestTimeout ?? socketTimeout,
+      socketAcquisitionWarningTimeout,
       httpAgent: (() => {
         if (httpAgent instanceof import_http.Agent || typeof httpAgent?.destroy === "function") {
           return httpAgent;
@@ -58970,1840 +60806,6 @@ module.exports = { stringify, stripBom }
 
 /***/ }),
 
-/***/ 88569:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-var helpers = __nccwpck_require__(58924);
-
-/** @type ValidatorResult */
-var ValidatorResult = helpers.ValidatorResult;
-/** @type SchemaError */
-var SchemaError = helpers.SchemaError;
-
-var attribute = {};
-
-attribute.ignoreProperties = {
-  // informative properties
-  'id': true,
-  'default': true,
-  'description': true,
-  'title': true,
-  // arguments to other properties
-  'additionalItems': true,
-  'then': true,
-  'else': true,
-  // special-handled properties
-  '$schema': true,
-  '$ref': true,
-  'extends': true,
-};
-
-/**
- * @name validators
- */
-var validators = attribute.validators = {};
-
-/**
- * Validates whether the instance if of a certain type
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {ValidatorResult|null}
- */
-validators.type = function validateType (instance, schema, options, ctx) {
-  // Ignore undefined instances
-  if (instance === undefined) {
-    return null;
-  }
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var types = Array.isArray(schema.type) ? schema.type : [schema.type];
-  if (!types.some(this.testType.bind(this, instance, schema, options, ctx))) {
-    var list = types.map(function (v) {
-      if(!v) return;
-      var id = v.$id || v.id;
-      return id ? ('<' + id + '>') : (v+'');
-    });
-    result.addError({
-      name: 'type',
-      argument: list,
-      message: "is not of a type(s) " + list,
-    });
-  }
-  return result;
-};
-
-function testSchemaNoThrow(instance, options, ctx, callback, schema){
-  var throwError = options.throwError;
-  var throwAll = options.throwAll;
-  options.throwError = false;
-  options.throwAll = false;
-  var res = this.validateSchema(instance, schema, options, ctx);
-  options.throwError = throwError;
-  options.throwAll = throwAll;
-
-  if (!res.valid && callback instanceof Function) {
-    callback(res);
-  }
-  return res.valid;
-}
-
-/**
- * Validates whether the instance matches some of the given schemas
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {ValidatorResult|null}
- */
-validators.anyOf = function validateAnyOf (instance, schema, options, ctx) {
-  // Ignore undefined instances
-  if (instance === undefined) {
-    return null;
-  }
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var inner = new ValidatorResult(instance, schema, options, ctx);
-  if (!Array.isArray(schema.anyOf)){
-    throw new SchemaError("anyOf must be an array");
-  }
-  if (!schema.anyOf.some(
-    testSchemaNoThrow.bind(
-      this, instance, options, ctx, function(res){inner.importErrors(res);}
-    ))) {
-    var list = schema.anyOf.map(function (v, i) {
-      var id = v.$id || v.id;
-      if(id) return '<' + id + '>';
-      return(v.title && JSON.stringify(v.title)) || (v['$ref'] && ('<' + v['$ref'] + '>')) || '[subschema '+i+']';
-    });
-    if (options.nestedErrors) {
-      result.importErrors(inner);
-    }
-    result.addError({
-      name: 'anyOf',
-      argument: list,
-      message: "is not any of " + list.join(','),
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance matches every given schema
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null}
- */
-validators.allOf = function validateAllOf (instance, schema, options, ctx) {
-  // Ignore undefined instances
-  if (instance === undefined) {
-    return null;
-  }
-  if (!Array.isArray(schema.allOf)){
-    throw new SchemaError("allOf must be an array");
-  }
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var self = this;
-  schema.allOf.forEach(function(v, i){
-    var valid = self.validateSchema(instance, v, options, ctx);
-    if(!valid.valid){
-      var id = v.$id || v.id;
-      var msg = id || (v.title && JSON.stringify(v.title)) || (v['$ref'] && ('<' + v['$ref'] + '>')) || '[subschema '+i+']';
-      result.addError({
-        name: 'allOf',
-        argument: { id: msg, length: valid.errors.length, valid: valid },
-        message: 'does not match allOf schema ' + msg + ' with ' + valid.errors.length + ' error[s]:',
-      });
-      result.importErrors(valid);
-    }
-  });
-  return result;
-};
-
-/**
- * Validates whether the instance matches exactly one of the given schemas
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null}
- */
-validators.oneOf = function validateOneOf (instance, schema, options, ctx) {
-  // Ignore undefined instances
-  if (instance === undefined) {
-    return null;
-  }
-  if (!Array.isArray(schema.oneOf)){
-    throw new SchemaError("oneOf must be an array");
-  }
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var inner = new ValidatorResult(instance, schema, options, ctx);
-  var count = schema.oneOf.filter(
-    testSchemaNoThrow.bind(
-      this, instance, options, ctx, function(res) {inner.importErrors(res);}
-    ) ).length;
-  var list = schema.oneOf.map(function (v, i) {
-    var id = v.$id || v.id;
-    return id || (v.title && JSON.stringify(v.title)) || (v['$ref'] && ('<' + v['$ref'] + '>')) || '[subschema '+i+']';
-  });
-  if (count!==1) {
-    if (options.nestedErrors) {
-      result.importErrors(inner);
-    }
-    result.addError({
-      name: 'oneOf',
-      argument: list,
-      message: "is not exactly one from " + list.join(','),
-    });
-  }
-  return result;
-};
-
-/**
- * Validates "then" or "else" depending on the result of validating "if"
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null}
- */
-validators.if = function validateIf (instance, schema, options, ctx) {
-  // Ignore undefined instances
-  if (instance === undefined) return null;
-  if (!helpers.isSchema(schema.if)) throw new Error('Expected "if" keyword to be a schema');
-  var ifValid = testSchemaNoThrow.call(this, instance, options, ctx, null, schema.if);
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var res;
-  if(ifValid){
-    if (schema.then === undefined) return;
-    if (!helpers.isSchema(schema.then)) throw new Error('Expected "then" keyword to be a schema');
-    res = this.validateSchema(instance, schema.then, options, ctx.makeChild(schema.then));
-    result.importErrors(res);
-  }else{
-    if (schema.else === undefined) return;
-    if (!helpers.isSchema(schema.else)) throw new Error('Expected "else" keyword to be a schema');
-    res = this.validateSchema(instance, schema.else, options, ctx.makeChild(schema.else));
-    result.importErrors(res);
-  }
-  return result;
-};
-
-function getEnumerableProperty(object, key){
-  // Determine if `key` shows up in `for(var key in object)`
-  // First test Object.hasOwnProperty.call as an optimization: that guarantees it does
-  if(Object.hasOwnProperty.call(object, key)) return object[key];
-  // Test `key in object` as an optimization; false means it won't
-  if(!(key in object)) return;
-  while( (object = Object.getPrototypeOf(object)) ){
-    if(Object.propertyIsEnumerable.call(object, key)) return object[key];
-  }
-}
-
-/**
- * Validates propertyNames
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null|ValidatorResult}
- */
-validators.propertyNames = function validatePropertyNames (instance, schema, options, ctx) {
-  if(!this.types.object(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var subschema = schema.propertyNames!==undefined ? schema.propertyNames : {};
-  if(!helpers.isSchema(subschema)) throw new SchemaError('Expected "propertyNames" to be a schema (object or boolean)');
-
-  for (var property in instance) {
-    if(getEnumerableProperty(instance, property) !== undefined){
-      var res = this.validateSchema(property, subschema, options, ctx.makeChild(subschema));
-      result.importErrors(res);
-    }
-  }
-
-  return result;
-};
-
-/**
- * Validates properties
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null|ValidatorResult}
- */
-validators.properties = function validateProperties (instance, schema, options, ctx) {
-  if(!this.types.object(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var properties = schema.properties || {};
-  for (var property in properties) {
-    var subschema = properties[property];
-    if(subschema===undefined){
-      continue;
-    }else if(subschema===null){
-      throw new SchemaError('Unexpected null, expected schema in "properties"');
-    }
-    if (typeof options.preValidateProperty == 'function') {
-      options.preValidateProperty(instance, property, subschema, options, ctx);
-    }
-    var prop = getEnumerableProperty(instance, property);
-    var res = this.validateSchema(prop, subschema, options, ctx.makeChild(subschema, property));
-    if(res.instance !== result.instance[property]) result.instance[property] = res.instance;
-    result.importErrors(res);
-  }
-  return result;
-};
-
-/**
- * Test a specific property within in instance against the additionalProperties schema attribute
- * This ignores properties with definitions in the properties schema attribute, but no other attributes.
- * If too many more types of property-existence tests pop up they may need their own class of tests (like `type` has)
- * @private
- * @return {boolean}
- */
-function testAdditionalProperty (instance, schema, options, ctx, property, result) {
-  if(!this.types.object(instance)) return;
-  if (schema.properties && schema.properties[property] !== undefined) {
-    return;
-  }
-  if (schema.additionalProperties === false) {
-    result.addError({
-      name: 'additionalProperties',
-      argument: property,
-      message: "is not allowed to have the additional property " + JSON.stringify(property),
-    });
-  } else {
-    var additionalProperties = schema.additionalProperties || {};
-
-    if (typeof options.preValidateProperty == 'function') {
-      options.preValidateProperty(instance, property, additionalProperties, options, ctx);
-    }
-
-    var res = this.validateSchema(instance[property], additionalProperties, options, ctx.makeChild(additionalProperties, property));
-    if(res.instance !== result.instance[property]) result.instance[property] = res.instance;
-    result.importErrors(res);
-  }
-}
-
-/**
- * Validates patternProperties
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null|ValidatorResult}
- */
-validators.patternProperties = function validatePatternProperties (instance, schema, options, ctx) {
-  if(!this.types.object(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var patternProperties = schema.patternProperties || {};
-
-  for (var property in instance) {
-    var test = true;
-    for (var pattern in patternProperties) {
-      var subschema = patternProperties[pattern];
-      if(subschema===undefined){
-        continue;
-      }else if(subschema===null){
-        throw new SchemaError('Unexpected null, expected schema in "patternProperties"');
-      }
-      try {
-        var regexp = new RegExp(pattern, 'u');
-      } catch(_e) {
-        // In the event the stricter handling causes an error, fall back on the forgiving handling
-        // DEPRECATED
-        regexp = new RegExp(pattern);
-      }
-      if (!regexp.test(property)) {
-        continue;
-      }
-      test = false;
-
-      if (typeof options.preValidateProperty == 'function') {
-        options.preValidateProperty(instance, property, subschema, options, ctx);
-      }
-
-      var res = this.validateSchema(instance[property], subschema, options, ctx.makeChild(subschema, property));
-      if(res.instance !== result.instance[property]) result.instance[property] = res.instance;
-      result.importErrors(res);
-    }
-    if (test) {
-      testAdditionalProperty.call(this, instance, schema, options, ctx, property, result);
-    }
-  }
-
-  return result;
-};
-
-/**
- * Validates additionalProperties
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null|ValidatorResult}
- */
-validators.additionalProperties = function validateAdditionalProperties (instance, schema, options, ctx) {
-  if(!this.types.object(instance)) return;
-  // if patternProperties is defined then we'll test when that one is called instead
-  if (schema.patternProperties) {
-    return null;
-  }
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  for (var property in instance) {
-    testAdditionalProperty.call(this, instance, schema, options, ctx, property, result);
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance value is at least of a certain length, when the instance value is a string.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.minProperties = function validateMinProperties (instance, schema, options, ctx) {
-  if (!this.types.object(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var keys = Object.keys(instance);
-  if (!(keys.length >= schema.minProperties)) {
-    result.addError({
-      name: 'minProperties',
-      argument: schema.minProperties,
-      message: "does not meet minimum property length of " + schema.minProperties,
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance value is at most of a certain length, when the instance value is a string.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.maxProperties = function validateMaxProperties (instance, schema, options, ctx) {
-  if (!this.types.object(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var keys = Object.keys(instance);
-  if (!(keys.length <= schema.maxProperties)) {
-    result.addError({
-      name: 'maxProperties',
-      argument: schema.maxProperties,
-      message: "does not meet maximum property length of " + schema.maxProperties,
-    });
-  }
-  return result;
-};
-
-/**
- * Validates items when instance is an array
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null|ValidatorResult}
- */
-validators.items = function validateItems (instance, schema, options, ctx) {
-  var self = this;
-  if (!this.types.array(instance)) return;
-  if (schema.items===undefined) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  instance.every(function (value, i) {
-    if(Array.isArray(schema.items)){
-      var items =  schema.items[i]===undefined ? schema.additionalItems : schema.items[i];
-    }else{
-      var items = schema.items;
-    }
-    if (items === undefined) {
-      return true;
-    }
-    if (items === false) {
-      result.addError({
-        name: 'items',
-        message: "additionalItems not permitted",
-      });
-      return false;
-    }
-    var res = self.validateSchema(value, items, options, ctx.makeChild(items, i));
-    if(res.instance !== result.instance[i]) result.instance[i] = res.instance;
-    result.importErrors(res);
-    return true;
-  });
-  return result;
-};
-
-/**
- * Validates the "contains" keyword
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {String|null|ValidatorResult}
- */
-validators.contains = function validateContains (instance, schema, options, ctx) {
-  var self = this;
-  if (!this.types.array(instance)) return;
-  if (schema.contains===undefined) return;
-  if (!helpers.isSchema(schema.contains)) throw new Error('Expected "contains" keyword to be a schema');
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var count = instance.some(function (value, i) {
-    var res = self.validateSchema(value, schema.contains, options, ctx.makeChild(schema.contains, i));
-    return res.errors.length===0;
-  });
-  if(count===false){
-    result.addError({
-      name: 'contains',
-      argument: schema.contains,
-      message: "must contain an item matching given schema",
-    });
-  }
-  return result;
-};
-
-/**
- * Validates minimum and exclusiveMinimum when the type of the instance value is a number.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.minimum = function validateMinimum (instance, schema, options, ctx) {
-  if (!this.types.number(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (schema.exclusiveMinimum && schema.exclusiveMinimum === true) {
-    if(!(instance > schema.minimum)){
-      result.addError({
-        name: 'minimum',
-        argument: schema.minimum,
-        message: "must be greater than " + schema.minimum,
-      });
-    }
-  } else {
-    if(!(instance >= schema.minimum)){
-      result.addError({
-        name: 'minimum',
-        argument: schema.minimum,
-        message: "must be greater than or equal to " + schema.minimum,
-      });
-    }
-  }
-  return result;
-};
-
-/**
- * Validates maximum and exclusiveMaximum when the type of the instance value is a number.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.maximum = function validateMaximum (instance, schema, options, ctx) {
-  if (!this.types.number(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (schema.exclusiveMaximum && schema.exclusiveMaximum === true) {
-    if(!(instance < schema.maximum)){
-      result.addError({
-        name: 'maximum',
-        argument: schema.maximum,
-        message: "must be less than " + schema.maximum,
-      });
-    }
-  } else {
-    if(!(instance <= schema.maximum)){
-      result.addError({
-        name: 'maximum',
-        argument: schema.maximum,
-        message: "must be less than or equal to " + schema.maximum,
-      });
-    }
-  }
-  return result;
-};
-
-/**
- * Validates the number form of exclusiveMinimum when the type of the instance value is a number.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.exclusiveMinimum = function validateExclusiveMinimum (instance, schema, options, ctx) {
-  // Support the boolean form of exclusiveMinimum, which is handled by the "minimum" keyword.
-  if(typeof schema.exclusiveMinimum === 'boolean') return;
-  if (!this.types.number(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var valid = instance > schema.exclusiveMinimum;
-  if (!valid) {
-    result.addError({
-      name: 'exclusiveMinimum',
-      argument: schema.exclusiveMinimum,
-      message: "must be strictly greater than " + schema.exclusiveMinimum,
-    });
-  }
-  return result;
-};
-
-/**
- * Validates the number form of exclusiveMaximum when the type of the instance value is a number.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.exclusiveMaximum = function validateExclusiveMaximum (instance, schema, options, ctx) {
-  // Support the boolean form of exclusiveMaximum, which is handled by the "maximum" keyword.
-  if(typeof schema.exclusiveMaximum === 'boolean') return;
-  if (!this.types.number(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var valid = instance < schema.exclusiveMaximum;
-  if (!valid) {
-    result.addError({
-      name: 'exclusiveMaximum',
-      argument: schema.exclusiveMaximum,
-      message: "must be strictly less than " + schema.exclusiveMaximum,
-    });
-  }
-  return result;
-};
-
-/**
- * Perform validation for multipleOf and divisibleBy, which are essentially the same.
- * @param instance
- * @param schema
- * @param validationType
- * @param errorMessage
- * @returns {String|null}
- */
-var validateMultipleOfOrDivisbleBy = function validateMultipleOfOrDivisbleBy (instance, schema, options, ctx, validationType, errorMessage) {
-  if (!this.types.number(instance)) return;
-
-  var validationArgument = schema[validationType];
-  if (validationArgument == 0) {
-    throw new SchemaError(validationType + " cannot be zero");
-  }
-
-  var result = new ValidatorResult(instance, schema, options, ctx);
-
-  var instanceDecimals = helpers.getDecimalPlaces(instance);
-  var divisorDecimals = helpers.getDecimalPlaces(validationArgument);
-
-  var maxDecimals = Math.max(instanceDecimals , divisorDecimals);
-  var multiplier = Math.pow(10, maxDecimals);
-
-  if (Math.round(instance * multiplier) % Math.round(validationArgument * multiplier) !== 0) {
-    result.addError({
-      name: validationType,
-      argument:  validationArgument,
-      message: errorMessage + JSON.stringify(validationArgument),
-    });
-  }
-
-  return result;
-};
-
-/**
- * Validates divisibleBy when the type of the instance value is a number.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.multipleOf = function validateMultipleOf (instance, schema, options, ctx) {
-  return validateMultipleOfOrDivisbleBy.call(this, instance, schema, options, ctx, "multipleOf", "is not a multiple of (divisible by) ");
-};
-
-/**
- * Validates multipleOf when the type of the instance value is a number.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.divisibleBy = function validateDivisibleBy (instance, schema, options, ctx) {
-  return validateMultipleOfOrDivisbleBy.call(this, instance, schema, options, ctx, "divisibleBy", "is not divisible by (multiple of) ");
-};
-
-/**
- * Validates whether the instance value is present.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.required = function validateRequired (instance, schema, options, ctx) {
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (instance === undefined && schema.required === true) {
-    // A boolean form is implemented for reverse-compatibility with schemas written against older drafts
-    result.addError({
-      name: 'required',
-      message: "is required",
-    });
-  } else if (this.types.object(instance) && Array.isArray(schema.required)) {
-    schema.required.forEach(function(n){
-      if(getEnumerableProperty(instance, n)===undefined){
-        result.addError({
-          name: 'required',
-          argument: n,
-          message: "requires property " + JSON.stringify(n),
-        });
-      }
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance value matches the regular expression, when the instance value is a string.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.pattern = function validatePattern (instance, schema, options, ctx) {
-  if (!this.types.string(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var pattern = schema.pattern;
-  try {
-    var regexp = new RegExp(pattern, 'u');
-  } catch(_e) {
-    // In the event the stricter handling causes an error, fall back on the forgiving handling
-    // DEPRECATED
-    regexp = new RegExp(pattern);
-  }
-  if (!instance.match(regexp)) {
-    result.addError({
-      name: 'pattern',
-      argument: schema.pattern,
-      message: "does not match pattern " + JSON.stringify(schema.pattern.toString()),
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance value is of a certain defined format or a custom
- * format.
- * The following formats are supported for string types:
- *   - date-time
- *   - date
- *   - time
- *   - ip-address
- *   - ipv6
- *   - uri
- *   - color
- *   - host-name
- *   - alpha
- *   - alpha-numeric
- *   - utc-millisec
- * @param instance
- * @param schema
- * @param [options]
- * @param [ctx]
- * @return {String|null}
- */
-validators.format = function validateFormat (instance, schema, options, ctx) {
-  if (instance===undefined) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (!result.disableFormat && !helpers.isFormat(instance, schema.format, this)) {
-    result.addError({
-      name: 'format',
-      argument: schema.format,
-      message: "does not conform to the " + JSON.stringify(schema.format) + " format",
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance value is at least of a certain length, when the instance value is a string.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.minLength = function validateMinLength (instance, schema, options, ctx) {
-  if (!this.types.string(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var hsp = instance.match(/[\uDC00-\uDFFF]/g);
-  var length = instance.length - (hsp ? hsp.length : 0);
-  if (!(length >= schema.minLength)) {
-    result.addError({
-      name: 'minLength',
-      argument: schema.minLength,
-      message: "does not meet minimum length of " + schema.minLength,
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance value is at most of a certain length, when the instance value is a string.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.maxLength = function validateMaxLength (instance, schema, options, ctx) {
-  if (!this.types.string(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  // TODO if this was already computed in "minLength", use that value instead of re-computing
-  var hsp = instance.match(/[\uDC00-\uDFFF]/g);
-  var length = instance.length - (hsp ? hsp.length : 0);
-  if (!(length <= schema.maxLength)) {
-    result.addError({
-      name: 'maxLength',
-      argument: schema.maxLength,
-      message: "does not meet maximum length of " + schema.maxLength,
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether instance contains at least a minimum number of items, when the instance is an Array.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.minItems = function validateMinItems (instance, schema, options, ctx) {
-  if (!this.types.array(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (!(instance.length >= schema.minItems)) {
-    result.addError({
-      name: 'minItems',
-      argument: schema.minItems,
-      message: "does not meet minimum length of " + schema.minItems,
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether instance contains no more than a maximum number of items, when the instance is an Array.
- * @param instance
- * @param schema
- * @return {String|null}
- */
-validators.maxItems = function validateMaxItems (instance, schema, options, ctx) {
-  if (!this.types.array(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (!(instance.length <= schema.maxItems)) {
-    result.addError({
-      name: 'maxItems',
-      argument: schema.maxItems,
-      message: "does not meet maximum length of " + schema.maxItems,
-    });
-  }
-  return result;
-};
-
-/**
- * Deep compares arrays for duplicates
- * @param v
- * @param i
- * @param a
- * @private
- * @return {boolean}
- */
-function testArrays (v, i, a) {
-  var j, len = a.length;
-  for (j = i + 1, len; j < len; j++) {
-    if (helpers.deepCompareStrict(v, a[j])) {
-      return false;
-    }
-  }
-  return true;
-}
-
-/**
- * Validates whether there are no duplicates, when the instance is an Array.
- * @param instance
- * @return {String|null}
- */
-validators.uniqueItems = function validateUniqueItems (instance, schema, options, ctx) {
-  if (schema.uniqueItems!==true) return;
-  if (!this.types.array(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (!instance.every(testArrays)) {
-    result.addError({
-      name: 'uniqueItems',
-      message: "contains duplicate item",
-    });
-  }
-  return result;
-};
-
-/**
- * Validate for the presence of dependency properties, if the instance is an object.
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {null|ValidatorResult}
- */
-validators.dependencies = function validateDependencies (instance, schema, options, ctx) {
-  if (!this.types.object(instance)) return;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  for (var property in schema.dependencies) {
-    if (instance[property] === undefined) {
-      continue;
-    }
-    var dep = schema.dependencies[property];
-    var childContext = ctx.makeChild(dep, property);
-    if (typeof dep == 'string') {
-      dep = [dep];
-    }
-    if (Array.isArray(dep)) {
-      dep.forEach(function (prop) {
-        if (instance[prop] === undefined) {
-          result.addError({
-            // FIXME there's two different "dependencies" errors here with slightly different outputs
-            // Can we make these the same? Or should we create different error types?
-            name: 'dependencies',
-            argument: childContext.propertyPath,
-            message: "property " + prop + " not found, required by " + childContext.propertyPath,
-          });
-        }
-      });
-    } else {
-      var res = this.validateSchema(instance, dep, options, childContext);
-      if(result.instance !== res.instance) result.instance = res.instance;
-      if (res && res.errors.length) {
-        result.addError({
-          name: 'dependencies',
-          argument: childContext.propertyPath,
-          message: "does not meet dependency required by " + childContext.propertyPath,
-        });
-        result.importErrors(res);
-      }
-    }
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance value is one of the enumerated values.
- *
- * @param instance
- * @param schema
- * @return {ValidatorResult|null}
- */
-validators['enum'] = function validateEnum (instance, schema, options, ctx) {
-  if (instance === undefined) {
-    return null;
-  }
-  if (!Array.isArray(schema['enum'])) {
-    throw new SchemaError("enum expects an array", schema);
-  }
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (!schema['enum'].some(helpers.deepCompareStrict.bind(null, instance))) {
-    result.addError({
-      name: 'enum',
-      argument: schema['enum'],
-      message: "is not one of enum values: " + schema['enum'].map(String).join(','),
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance exactly matches a given value
- *
- * @param instance
- * @param schema
- * @return {ValidatorResult|null}
- */
-validators['const'] = function validateEnum (instance, schema, options, ctx) {
-  if (instance === undefined) {
-    return null;
-  }
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  if (!helpers.deepCompareStrict(schema['const'], instance)) {
-    result.addError({
-      name: 'const',
-      argument: schema['const'],
-      message: "does not exactly match expected constant: " + schema['const'],
-    });
-  }
-  return result;
-};
-
-/**
- * Validates whether the instance if of a prohibited type.
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @return {null|ValidatorResult}
- */
-validators.not = validators.disallow = function validateNot (instance, schema, options, ctx) {
-  var self = this;
-  if(instance===undefined) return null;
-  var result = new ValidatorResult(instance, schema, options, ctx);
-  var notTypes = schema.not || schema.disallow;
-  if(!notTypes) return null;
-  if(!Array.isArray(notTypes)) notTypes=[notTypes];
-  notTypes.forEach(function (type) {
-    if (self.testType(instance, schema, options, ctx, type)) {
-      var id = type && (type.$id || type.id);
-      var schemaId = id || type;
-      result.addError({
-        name: 'not',
-        argument: schemaId,
-        message: "is of prohibited type " + schemaId,
-      });
-    }
-  });
-  return result;
-};
-
-module.exports = attribute;
-
-
-/***/ }),
-
-/***/ 58924:
-/***/ ((module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-var uri = __nccwpck_require__(87016);
-
-var ValidationError = exports.ValidationError = function ValidationError (message, instance, schema, path, name, argument) {
-  if(Array.isArray(path)){
-    this.path = path;
-    this.property = path.reduce(function(sum, item){
-      return sum + makeSuffix(item);
-    }, 'instance');
-  }else if(path !== undefined){
-    this.property = path;
-  }
-  if (message) {
-    this.message = message;
-  }
-  if (schema) {
-    var id = schema.$id || schema.id;
-    this.schema = id || schema;
-  }
-  if (instance !== undefined) {
-    this.instance = instance;
-  }
-  this.name = name;
-  this.argument = argument;
-  this.stack = this.toString();
-};
-
-ValidationError.prototype.toString = function toString() {
-  return this.property + ' ' + this.message;
-};
-
-var ValidatorResult = exports.ValidatorResult = function ValidatorResult(instance, schema, options, ctx) {
-  this.instance = instance;
-  this.schema = schema;
-  this.options = options;
-  this.path = ctx.path;
-  this.propertyPath = ctx.propertyPath;
-  this.errors = [];
-  this.throwError = options && options.throwError;
-  this.throwFirst = options && options.throwFirst;
-  this.throwAll = options && options.throwAll;
-  this.disableFormat = options && options.disableFormat === true;
-};
-
-ValidatorResult.prototype.addError = function addError(detail) {
-  var err;
-  if (typeof detail == 'string') {
-    err = new ValidationError(detail, this.instance, this.schema, this.path);
-  } else {
-    if (!detail) throw new Error('Missing error detail');
-    if (!detail.message) throw new Error('Missing error message');
-    if (!detail.name) throw new Error('Missing validator type');
-    err = new ValidationError(detail.message, this.instance, this.schema, this.path, detail.name, detail.argument);
-  }
-
-  this.errors.push(err);
-  if (this.throwFirst) {
-    throw new ValidatorResultError(this);
-  }else if(this.throwError){
-    throw err;
-  }
-  return err;
-};
-
-ValidatorResult.prototype.importErrors = function importErrors(res) {
-  if (typeof res == 'string' || (res && res.validatorType)) {
-    this.addError(res);
-  } else if (res && res.errors) {
-    this.errors = this.errors.concat(res.errors);
-  }
-};
-
-function stringizer (v,i){
-  return i+': '+v.toString()+'\n';
-}
-ValidatorResult.prototype.toString = function toString(res) {
-  return this.errors.map(stringizer).join('');
-};
-
-Object.defineProperty(ValidatorResult.prototype, "valid", { get: function() {
-  return !this.errors.length;
-} });
-
-module.exports.ValidatorResultError = ValidatorResultError;
-function ValidatorResultError(result) {
-  if(Error.captureStackTrace){
-    Error.captureStackTrace(this, ValidatorResultError);
-  }
-  this.instance = result.instance;
-  this.schema = result.schema;
-  this.options = result.options;
-  this.errors = result.errors;
-}
-ValidatorResultError.prototype = new Error();
-ValidatorResultError.prototype.constructor = ValidatorResultError;
-ValidatorResultError.prototype.name = "Validation Error";
-
-/**
- * Describes a problem with a Schema which prevents validation of an instance
- * @name SchemaError
- * @constructor
- */
-var SchemaError = exports.SchemaError = function SchemaError (msg, schema) {
-  this.message = msg;
-  this.schema = schema;
-  Error.call(this, msg);
-  Error.captureStackTrace(this, SchemaError);
-};
-SchemaError.prototype = Object.create(Error.prototype,
-  {
-    constructor: {value: SchemaError, enumerable: false},
-    name: {value: 'SchemaError', enumerable: false},
-  });
-
-var SchemaContext = exports.SchemaContext = function SchemaContext (schema, options, path, base, schemas) {
-  this.schema = schema;
-  this.options = options;
-  if(Array.isArray(path)){
-    this.path = path;
-    this.propertyPath = path.reduce(function(sum, item){
-      return sum + makeSuffix(item);
-    }, 'instance');
-  }else{
-    this.propertyPath = path;
-  }
-  this.base = base;
-  this.schemas = schemas;
-};
-
-SchemaContext.prototype.resolve = function resolve (target) {
-  return uri.resolve(this.base, target);
-};
-
-SchemaContext.prototype.makeChild = function makeChild(schema, propertyName){
-  var path = (propertyName===undefined) ? this.path : this.path.concat([propertyName]);
-  var id = schema.$id || schema.id;
-  var base = uri.resolve(this.base, id||'');
-  var ctx = new SchemaContext(schema, this.options, path, base, Object.create(this.schemas));
-  if(id && !ctx.schemas[base]){
-    ctx.schemas[base] = schema;
-  }
-  return ctx;
-};
-
-var FORMAT_REGEXPS = exports.FORMAT_REGEXPS = {
-  // 7.3.1. Dates, Times, and Duration
-  'date-time': /^\d{4}-(?:0[0-9]{1}|1[0-2]{1})-(3[01]|0[1-9]|[12][0-9])[tT ](2[0-4]|[01][0-9]):([0-5][0-9]):(60|[0-5][0-9])(\.\d+)?([zZ]|[+-]([0-5][0-9]):(60|[0-5][0-9]))$/,
-  'date': /^\d{4}-(?:0[0-9]{1}|1[0-2]{1})-(3[01]|0[1-9]|[12][0-9])$/,
-  'time': /^(2[0-4]|[01][0-9]):([0-5][0-9]):(60|[0-5][0-9])$/,
-  'duration': /P(T\d+(H(\d+M(\d+S)?)?|M(\d+S)?|S)|\d+(D|M(\d+D)?|Y(\d+M(\d+D)?)?)(T\d+(H(\d+M(\d+S)?)?|M(\d+S)?|S))?|\d+W)/i,
-
-  // 7.3.2. Email Addresses
-  // TODO: fix the email production
-  'email': /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/,
-  'idn-email': /^("(?:[!#-\[\]-\u{10FFFF}]|\\[\t -\u{10FFFF}])*"|[!#-'*+\-/-9=?A-Z\^-\u{10FFFF}](?:\.?[!#-'*+\-/-9=?A-Z\^-\u{10FFFF}])*)@([!#-'*+\-/-9=?A-Z\^-\u{10FFFF}](?:\.?[!#-'*+\-/-9=?A-Z\^-\u{10FFFF}])*|\[[!-Z\^-\u{10FFFF}]*\])$/u,
-
-  // 7.3.3. Hostnames
-
-  // 7.3.4. IP Addresses
-  'ip-address': /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
-  // FIXME whitespace is invalid
-  'ipv6': /^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$/,
-
-  // 7.3.5. Resource Identifiers
-  // TODO: A more accurate regular expression for "uri" goes:
-  // [A-Za-z][+\-.0-9A-Za-z]*:((/(/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?)?)?#(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|(/(/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~])|/?%[0-9A-Fa-f]{2}|[!$&-.0-;=?-Z_a-z~])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*(#(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*)?|/(/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+(:\d*)?|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?:\d*|\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)?)?
-  'uri': /^[a-zA-Z][a-zA-Z0-9+.-]*:[^\s]*$/,
-  'uri-reference': /^(((([A-Za-z][+\-.0-9A-Za-z]*(:%[0-9A-Fa-f]{2}|:[!$&-.0-;=?-Z_a-z~]|[/?])|\?)(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|([A-Za-z][+\-.0-9A-Za-z]*:?)?)|([A-Za-z][+\-.0-9A-Za-z]*:)?\/((%[0-9A-Fa-f]{2}|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|(\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?)?))#(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|(([A-Za-z][+\-.0-9A-Za-z]*)?%[0-9A-Fa-f]{2}|[!$&-.0-9;=@_~]|[A-Za-z][+\-.0-9A-Za-z]*[!$&-*,;=@_~])(%[0-9A-Fa-f]{2}|[!$&-.0-9;=@-Z_a-z~])*((([/?](%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*)?#|[/?])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*)?|([A-Za-z][+\-.0-9A-Za-z]*(:%[0-9A-Fa-f]{2}|:[!$&-.0-;=?-Z_a-z~]|[/?])|\?)(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|([A-Za-z][+\-.0-9A-Za-z]*:)?\/((%[0-9A-Fa-f]{2}|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~])*|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~])+(:\d*)?|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?:\d*|\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~]+)?|[.0-:A-Fa-f]+)\])?)?|[A-Za-z][+\-.0-9A-Za-z]*:?)?$/,
-  'iri': /^[a-zA-Z][a-zA-Z0-9+.-]*:[^\s]*$/,
-  'iri-reference': /^(((([A-Za-z][+\-.0-9A-Za-z]*(:%[0-9A-Fa-f]{2}|:[!$&-.0-;=?-Z_a-z~-\u{10FFFF}]|[/?])|\?)(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|([A-Za-z][+\-.0-9A-Za-z]*:?)?)|([A-Za-z][+\-.0-9A-Za-z]*:)?\/((%[0-9A-Fa-f]{2}|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~-\u{10FFFF}])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~-\u{10FFFF}])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|(\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~-\u{10FFFF}])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?)?))#(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|(([A-Za-z][+\-.0-9A-Za-z]*)?%[0-9A-Fa-f]{2}|[!$&-.0-9;=@_~-\u{10FFFF}]|[A-Za-z][+\-.0-9A-Za-z]*[!$&-*,;=@_~-\u{10FFFF}])(%[0-9A-Fa-f]{2}|[!$&-.0-9;=@-Z_a-z~-\u{10FFFF}])*((([/?](%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*)?#|[/?])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*)?|([A-Za-z][+\-.0-9A-Za-z]*(:%[0-9A-Fa-f]{2}|:[!$&-.0-;=?-Z_a-z~-\u{10FFFF}]|[/?])|\?)(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|([A-Za-z][+\-.0-9A-Za-z]*:)?\/((%[0-9A-Fa-f]{2}|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~-\u{10FFFF}])+|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?)(:\d*)?[/?]|[!$&-.0-;=?-Z_a-z~-\u{10FFFF}])(%[0-9A-Fa-f]{2}|[!$&-;=?-Z_a-z~-\u{10FFFF}])*|\/((%[0-9A-Fa-f]{2}|[!$&-.0-9;=A-Z_a-z~-\u{10FFFF}])+(:\d*)?|(\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?:\d*|\[(([Vv][0-9A-Fa-f]+\.[!$&-.0-;=A-Z_a-z~-\u{10FFFF}]+)?|[.0-:A-Fa-f]+)\])?)?|[A-Za-z][+\-.0-9A-Za-z]*:?)?$/u,
-  'uuid': /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i,
-
-  // 7.3.6. uri-template
-  'uri-template': /(%[0-9a-f]{2}|[!#$&(-;=?@\[\]_a-z~]|\{[!#&+,./;=?@|]?(%[0-9a-f]{2}|[0-9_a-z])(\.?(%[0-9a-f]{2}|[0-9_a-z]))*(:[1-9]\d{0,3}|\*)?(,(%[0-9a-f]{2}|[0-9_a-z])(\.?(%[0-9a-f]{2}|[0-9_a-z]))*(:[1-9]\d{0,3}|\*)?)*\})*/iu,
-
-  // 7.3.7. JSON Pointers
-  'json-pointer': /^(\/([\x00-\x2e0-@\[-}\x7f]|~[01])*)*$/iu,
-  'relative-json-pointer': /^\d+(#|(\/([\x00-\x2e0-@\[-}\x7f]|~[01])*)*)$/iu,
-
-  // hostname regex from: http://stackoverflow.com/a/1420225/5628
-  'hostname': /^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\.?$/,
-  'host-name': /^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\.?$/,
-
-  'utc-millisec': function (input) {
-    return (typeof input === 'string') && parseFloat(input) === parseInt(input, 10) && !isNaN(input);
-  },
-
-  // 7.3.8. regex
-  'regex': function (input) {
-    var result = true;
-    try {
-      new RegExp(input);
-    } catch (e) {
-      result = false;
-    }
-    return result;
-  },
-
-  // Other definitions
-  // "style" was removed from JSON Schema in draft-4 and is deprecated
-  'style': /[\r\n\t ]*[^\r\n\t ][^:]*:[\r\n\t ]*[^\r\n\t ;]*[\r\n\t ]*;?/,
-  // "color" was removed from JSON Schema in draft-4 and is deprecated
-  'color': /^(#?([0-9A-Fa-f]{3}){1,2}\b|aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow|(rgb\(\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*,\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*,\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*\))|(rgb\(\s*(\d?\d%|100%)+\s*,\s*(\d?\d%|100%)+\s*,\s*(\d?\d%|100%)+\s*\)))$/,
-  'phone': /^\+(?:[0-9] ?){6,14}[0-9]$/,
-  'alpha': /^[a-zA-Z]+$/,
-  'alphanumeric': /^[a-zA-Z0-9]+$/,
-};
-
-FORMAT_REGEXPS.regexp = FORMAT_REGEXPS.regex;
-FORMAT_REGEXPS.pattern = FORMAT_REGEXPS.regex;
-FORMAT_REGEXPS.ipv4 = FORMAT_REGEXPS['ip-address'];
-
-exports.isFormat = function isFormat (input, format, validator) {
-  if (typeof input === 'string' && FORMAT_REGEXPS[format] !== undefined) {
-    if (FORMAT_REGEXPS[format] instanceof RegExp) {
-      return FORMAT_REGEXPS[format].test(input);
-    }
-    if (typeof FORMAT_REGEXPS[format] === 'function') {
-      return FORMAT_REGEXPS[format](input);
-    }
-  } else if (validator && validator.customFormats &&
-      typeof validator.customFormats[format] === 'function') {
-    return validator.customFormats[format](input);
-  }
-  return true;
-};
-
-var makeSuffix = exports.makeSuffix = function makeSuffix (key) {
-  key = key.toString();
-  // This function could be capable of outputting valid a ECMAScript string, but the
-  // resulting code for testing which form to use would be tens of thousands of characters long
-  // That means this will use the name form for some illegal forms
-  if (!key.match(/[.\s\[\]]/) && !key.match(/^[\d]/)) {
-    return '.' + key;
-  }
-  if (key.match(/^\d+$/)) {
-    return '[' + key + ']';
-  }
-  return '[' + JSON.stringify(key) + ']';
-};
-
-exports.deepCompareStrict = function deepCompareStrict (a, b) {
-  if (typeof a !== typeof b) {
-    return false;
-  }
-  if (Array.isArray(a)) {
-    if (!Array.isArray(b)) {
-      return false;
-    }
-    if (a.length !== b.length) {
-      return false;
-    }
-    return a.every(function (v, i) {
-      return deepCompareStrict(a[i], b[i]);
-    });
-  }
-  if (typeof a === 'object') {
-    if (!a || !b) {
-      return a === b;
-    }
-    var aKeys = Object.keys(a);
-    var bKeys = Object.keys(b);
-    if (aKeys.length !== bKeys.length) {
-      return false;
-    }
-    return aKeys.every(function (v) {
-      return deepCompareStrict(a[v], b[v]);
-    });
-  }
-  return a === b;
-};
-
-function deepMerger (target, dst, e, i) {
-  if (typeof e === 'object') {
-    dst[i] = deepMerge(target[i], e);
-  } else {
-    if (target.indexOf(e) === -1) {
-      dst.push(e);
-    }
-  }
-}
-
-function copyist (src, dst, key) {
-  dst[key] = src[key];
-}
-
-function copyistWithDeepMerge (target, src, dst, key) {
-  if (typeof src[key] !== 'object' || !src[key]) {
-    dst[key] = src[key];
-  }
-  else {
-    if (!target[key]) {
-      dst[key] = src[key];
-    } else {
-      dst[key] = deepMerge(target[key], src[key]);
-    }
-  }
-}
-
-function deepMerge (target, src) {
-  var array = Array.isArray(src);
-  var dst = array && [] || {};
-
-  if (array) {
-    target = target || [];
-    dst = dst.concat(target);
-    src.forEach(deepMerger.bind(null, target, dst));
-  } else {
-    if (target && typeof target === 'object') {
-      Object.keys(target).forEach(copyist.bind(null, target, dst));
-    }
-    Object.keys(src).forEach(copyistWithDeepMerge.bind(null, target, src, dst));
-  }
-
-  return dst;
-}
-
-module.exports.deepMerge = deepMerge;
-
-/**
- * Validates instance against the provided schema
- * Implements URI+JSON Pointer encoding, e.g. "%7e"="~0"=>"~", "~1"="%2f"=>"/"
- * @param o
- * @param s The path to walk o along
- * @return any
- */
-exports.objectGetPath = function objectGetPath(o, s) {
-  var parts = s.split('/').slice(1);
-  var k;
-  while (typeof (k=parts.shift()) == 'string') {
-    var n = decodeURIComponent(k.replace(/~0/,'~').replace(/~1/g,'/'));
-    if (!(n in o)) return;
-    o = o[n];
-  }
-  return o;
-};
-
-function pathEncoder (v) {
-  return '/'+encodeURIComponent(v).replace(/~/g,'%7E');
-}
-/**
- * Accept an Array of property names and return a JSON Pointer URI fragment
- * @param Array a
- * @return {String}
- */
-exports.encodePath = function encodePointer(a){
-  // ~ must be encoded explicitly because hacks
-  // the slash is encoded by encodeURIComponent
-  return a.map(pathEncoder).join('');
-};
-
-
-/**
- * Calculate the number of decimal places a number uses
- * We need this to get correct results out of multipleOf and divisibleBy
- * when either figure is has decimal places, due to IEEE-754 float issues.
- * @param number
- * @returns {number}
- */
-exports.getDecimalPlaces = function getDecimalPlaces(number) {
-
-  var decimalPlaces = 0;
-  if (isNaN(number)) return decimalPlaces;
-
-  if (typeof number !== 'number') {
-    number = Number(number);
-  }
-
-  var parts = number.toString().split('e');
-  if (parts.length === 2) {
-    if (parts[1][0] !== '-') {
-      return decimalPlaces;
-    } else {
-      decimalPlaces = Number(parts[1].slice(1));
-    }
-  }
-
-  var decimalParts = parts[0].split('.');
-  if (decimalParts.length === 2) {
-    decimalPlaces += decimalParts[1].length;
-  }
-
-  return decimalPlaces;
-};
-
-exports.isSchema = function isSchema(val){
-  return (typeof val === 'object' && val) || (typeof val === 'boolean');
-};
-
-
-
-/***/ }),
-
-/***/ 44145:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-var Validator = module.exports.Validator = __nccwpck_require__(87431);
-
-module.exports.ValidatorResult = __nccwpck_require__(58924).ValidatorResult;
-module.exports.ValidatorResultError = __nccwpck_require__(58924).ValidatorResultError;
-module.exports.ValidationError = __nccwpck_require__(58924).ValidationError;
-module.exports.SchemaError = __nccwpck_require__(58924).SchemaError;
-module.exports.SchemaScanResult = __nccwpck_require__(81548).SchemaScanResult;
-module.exports.scan = __nccwpck_require__(81548).scan;
-
-module.exports.validate = function (instance, schema, options) {
-  var v = new Validator();
-  return v.validate(instance, schema, options);
-};
-
-
-/***/ }),
-
-/***/ 81548:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-var urilib = __nccwpck_require__(87016);
-var helpers = __nccwpck_require__(58924);
-
-module.exports.SchemaScanResult = SchemaScanResult;
-function SchemaScanResult(found, ref){
-  this.id = found;
-  this.ref = ref;
-}
-
-/**
- * Adds a schema with a certain urn to the Validator instance.
- * @param string uri
- * @param object schema
- * @return {Object}
- */
-module.exports.scan = function scan(base, schema){
-  function scanSchema(baseuri, schema){
-    if(!schema || typeof schema!='object') return;
-    // Mark all referenced schemas so we can tell later which schemas are referred to, but never defined
-    if(schema.$ref){
-      var resolvedUri = urilib.resolve(baseuri, schema.$ref);
-      ref[resolvedUri] = ref[resolvedUri] ? ref[resolvedUri]+1 : 0;
-      return;
-    }
-    var id = schema.$id || schema.id;
-    var ourBase = id ? urilib.resolve(baseuri, id) : baseuri;
-    if (ourBase) {
-      // If there's no fragment, append an empty one
-      if(ourBase.indexOf('#')<0) ourBase += '#';
-      if(found[ourBase]){
-        if(!helpers.deepCompareStrict(found[ourBase], schema)){
-          throw new Error('Schema <'+ourBase+'> already exists with different definition');
-        }
-        return found[ourBase];
-      }
-      found[ourBase] = schema;
-      // strip trailing fragment
-      if(ourBase[ourBase.length-1]=='#'){
-        found[ourBase.substring(0, ourBase.length-1)] = schema;
-      }
-    }
-    scanArray(ourBase+'/items', (Array.isArray(schema.items)?schema.items:[schema.items]));
-    scanArray(ourBase+'/extends', (Array.isArray(schema.extends)?schema.extends:[schema.extends]));
-    scanSchema(ourBase+'/additionalItems', schema.additionalItems);
-    scanObject(ourBase+'/properties', schema.properties);
-    scanSchema(ourBase+'/additionalProperties', schema.additionalProperties);
-    scanObject(ourBase+'/definitions', schema.definitions);
-    scanObject(ourBase+'/patternProperties', schema.patternProperties);
-    scanObject(ourBase+'/dependencies', schema.dependencies);
-    scanArray(ourBase+'/disallow', schema.disallow);
-    scanArray(ourBase+'/allOf', schema.allOf);
-    scanArray(ourBase+'/anyOf', schema.anyOf);
-    scanArray(ourBase+'/oneOf', schema.oneOf);
-    scanSchema(ourBase+'/not', schema.not);
-  }
-  function scanArray(baseuri, schemas){
-    if(!Array.isArray(schemas)) return;
-    for(var i=0; i<schemas.length; i++){
-      scanSchema(baseuri+'/'+i, schemas[i]);
-    }
-  }
-  function scanObject(baseuri, schemas){
-    if(!schemas || typeof schemas!='object') return;
-    for(var p in schemas){
-      scanSchema(baseuri+'/'+p, schemas[p]);
-    }
-  }
-
-  var found = {};
-  var ref = {};
-  scanSchema(base, schema);
-  return new SchemaScanResult(found, ref);
-};
-
-
-/***/ }),
-
-/***/ 87431:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-var urilib = __nccwpck_require__(87016);
-
-var attribute = __nccwpck_require__(88569);
-var helpers = __nccwpck_require__(58924);
-var scanSchema = (__nccwpck_require__(81548).scan);
-var ValidatorResult = helpers.ValidatorResult;
-var ValidatorResultError = helpers.ValidatorResultError;
-var SchemaError = helpers.SchemaError;
-var SchemaContext = helpers.SchemaContext;
-//var anonymousBase = 'vnd.jsonschema:///';
-var anonymousBase = '/';
-
-/**
- * Creates a new Validator object
- * @name Validator
- * @constructor
- */
-var Validator = function Validator () {
-  // Allow a validator instance to override global custom formats or to have their
-  // own custom formats.
-  this.customFormats = Object.create(Validator.prototype.customFormats);
-  this.schemas = {};
-  this.unresolvedRefs = [];
-
-  // Use Object.create to make this extensible without Validator instances stepping on each other's toes.
-  this.types = Object.create(types);
-  this.attributes = Object.create(attribute.validators);
-};
-
-// Allow formats to be registered globally.
-Validator.prototype.customFormats = {};
-
-// Hint at the presence of a property
-Validator.prototype.schemas = null;
-Validator.prototype.types = null;
-Validator.prototype.attributes = null;
-Validator.prototype.unresolvedRefs = null;
-
-/**
- * Adds a schema with a certain urn to the Validator instance.
- * @param schema
- * @param urn
- * @return {Object}
- */
-Validator.prototype.addSchema = function addSchema (schema, base) {
-  var self = this;
-  if (!schema) {
-    return null;
-  }
-  var scan = scanSchema(base||anonymousBase, schema);
-  var ourUri = base || schema.$id || schema.id;
-  for(var uri in scan.id){
-    this.schemas[uri] = scan.id[uri];
-  }
-  for(var uri in scan.ref){
-    // If this schema is already defined, it will be filtered out by the next step
-    this.unresolvedRefs.push(uri);
-  }
-  // Remove newly defined schemas from unresolvedRefs
-  this.unresolvedRefs = this.unresolvedRefs.filter(function(uri){
-    return typeof self.schemas[uri]==='undefined';
-  });
-  return this.schemas[ourUri];
-};
-
-Validator.prototype.addSubSchemaArray = function addSubSchemaArray(baseuri, schemas) {
-  if(!Array.isArray(schemas)) return;
-  for(var i=0; i<schemas.length; i++){
-    this.addSubSchema(baseuri, schemas[i]);
-  }
-};
-
-Validator.prototype.addSubSchemaObject = function addSubSchemaArray(baseuri, schemas) {
-  if(!schemas || typeof schemas!='object') return;
-  for(var p in schemas){
-    this.addSubSchema(baseuri, schemas[p]);
-  }
-};
-
-
-
-/**
- * Sets all the schemas of the Validator instance.
- * @param schemas
- */
-Validator.prototype.setSchemas = function setSchemas (schemas) {
-  this.schemas = schemas;
-};
-
-/**
- * Returns the schema of a certain urn
- * @param urn
- */
-Validator.prototype.getSchema = function getSchema (urn) {
-  return this.schemas[urn];
-};
-
-/**
- * Validates instance against the provided schema
- * @param instance
- * @param schema
- * @param [options]
- * @param [ctx]
- * @return {Array}
- */
-Validator.prototype.validate = function validate (instance, schema, options, ctx) {
-  if((typeof schema !== 'boolean' && typeof schema !== 'object') || schema === null){
-    throw new SchemaError('Expected `schema` to be an object or boolean');
-  }
-  if (!options) {
-    options = {};
-  }
-  // This section indexes subschemas in the provided schema, so they don't need to be added with Validator#addSchema
-  // This will work so long as the function at uri.resolve() will resolve a relative URI to a relative URI
-  var id = schema.$id || schema.id;
-  var base = urilib.resolve(options.base||anonymousBase, id||'');
-  if(!ctx){
-    ctx = new SchemaContext(schema, options, [], base, Object.create(this.schemas));
-    if (!ctx.schemas[base]) {
-      ctx.schemas[base] = schema;
-    }
-    var found = scanSchema(base, schema);
-    for(var n in found.id){
-      var sch = found.id[n];
-      ctx.schemas[n] = sch;
-    }
-  }
-  if(options.required && instance===undefined){
-    var result = new ValidatorResult(instance, schema, options, ctx);
-    result.addError('is required, but is undefined');
-    return result;
-  }
-  var result = this.validateSchema(instance, schema, options, ctx);
-  if (!result) {
-    throw new Error('Result undefined');
-  }else if(options.throwAll && result.errors.length){
-    throw new ValidatorResultError(result);
-  }
-  return result;
-};
-
-/**
-* @param Object schema
-* @return mixed schema uri or false
-*/
-function shouldResolve(schema) {
-  var ref = (typeof schema === 'string') ? schema : schema.$ref;
-  if (typeof ref=='string') return ref;
-  return false;
-}
-
-/**
- * Validates an instance against the schema (the actual work horse)
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @private
- * @return {ValidatorResult}
- */
-Validator.prototype.validateSchema = function validateSchema (instance, schema, options, ctx) {
-  var result = new ValidatorResult(instance, schema, options, ctx);
-
-  // Support for the true/false schemas
-  if(typeof schema==='boolean') {
-    if(schema===true){
-      // `true` is always valid
-      schema = {};
-    }else if(schema===false){
-      // `false` is always invalid
-      schema = {type: []};
-    }
-  }else if(!schema){
-    // This might be a string
-    throw new Error("schema is undefined");
-  }
-
-  if (schema['extends']) {
-    if (Array.isArray(schema['extends'])) {
-      var schemaobj = {schema: schema, ctx: ctx};
-      schema['extends'].forEach(this.schemaTraverser.bind(this, schemaobj));
-      schema = schemaobj.schema;
-      schemaobj.schema = null;
-      schemaobj.ctx = null;
-      schemaobj = null;
-    } else {
-      schema = helpers.deepMerge(schema, this.superResolve(schema['extends'], ctx));
-    }
-  }
-
-  // If passed a string argument, load that schema URI
-  var switchSchema = shouldResolve(schema);
-  if (switchSchema) {
-    var resolved = this.resolve(schema, switchSchema, ctx);
-    var subctx = new SchemaContext(resolved.subschema, options, ctx.path, resolved.switchSchema, ctx.schemas);
-    return this.validateSchema(instance, resolved.subschema, options, subctx);
-  }
-
-  var skipAttributes = options && options.skipAttributes || [];
-  // Validate each schema attribute against the instance
-  for (var key in schema) {
-    if (!attribute.ignoreProperties[key] && skipAttributes.indexOf(key) < 0) {
-      var validatorErr = null;
-      var validator = this.attributes[key];
-      if (validator) {
-        validatorErr = validator.call(this, instance, schema, options, ctx);
-      } else if (options.allowUnknownAttributes === false) {
-        // This represents an error with the schema itself, not an invalid instance
-        throw new SchemaError("Unsupported attribute: " + key, schema);
-      }
-      if (validatorErr) {
-        result.importErrors(validatorErr);
-      }
-    }
-  }
-
-  if (typeof options.rewrite == 'function') {
-    var value = options.rewrite.call(this, instance, schema, options, ctx);
-    result.instance = value;
-  }
-  return result;
-};
-
-/**
-* @private
-* @param Object schema
-* @param SchemaContext ctx
-* @returns Object schema or resolved schema
-*/
-Validator.prototype.schemaTraverser = function schemaTraverser (schemaobj, s) {
-  schemaobj.schema = helpers.deepMerge(schemaobj.schema, this.superResolve(s, schemaobj.ctx));
-};
-
-/**
-* @private
-* @param Object schema
-* @param SchemaContext ctx
-* @returns Object schema or resolved schema
-*/
-Validator.prototype.superResolve = function superResolve (schema, ctx) {
-  var ref = shouldResolve(schema);
-  if(ref) {
-    return this.resolve(schema, ref, ctx).subschema;
-  }
-  return schema;
-};
-
-/**
-* @private
-* @param Object schema
-* @param Object switchSchema
-* @param SchemaContext ctx
-* @return Object resolved schemas {subschema:String, switchSchema: String}
-* @throws SchemaError
-*/
-Validator.prototype.resolve = function resolve (schema, switchSchema, ctx) {
-  switchSchema = ctx.resolve(switchSchema);
-  // First see if the schema exists under the provided URI
-  if (ctx.schemas[switchSchema]) {
-    return {subschema: ctx.schemas[switchSchema], switchSchema: switchSchema};
-  }
-  // Else try walking the property pointer
-  var parsed = urilib.parse(switchSchema);
-  var fragment = parsed && parsed.hash;
-  var document = fragment && fragment.length && switchSchema.substr(0, switchSchema.length - fragment.length);
-  if (!document || !ctx.schemas[document]) {
-    throw new SchemaError("no such schema <" + switchSchema + ">", schema);
-  }
-  var subschema = helpers.objectGetPath(ctx.schemas[document], fragment.substr(1));
-  if(subschema===undefined){
-    throw new SchemaError("no such schema " + fragment + " located in <" + document + ">", schema);
-  }
-  return {subschema: subschema, switchSchema: switchSchema};
-};
-
-/**
- * Tests whether the instance if of a certain type.
- * @private
- * @param instance
- * @param schema
- * @param options
- * @param ctx
- * @param type
- * @return {boolean}
- */
-Validator.prototype.testType = function validateType (instance, schema, options, ctx, type) {
-  if(type===undefined){
-    return;
-  }else if(type===null){
-    throw new SchemaError('Unexpected null in "type" keyword');
-  }
-  if (typeof this.types[type] == 'function') {
-    return this.types[type].call(this, instance);
-  }
-  if (type && typeof type == 'object') {
-    var res = this.validateSchema(instance, type, options, ctx);
-    return res === undefined || !(res && res.errors.length);
-  }
-  // Undefined or properties not on the list are acceptable, same as not being defined
-  return true;
-};
-
-var types = Validator.prototype.types = {};
-types.string = function testString (instance) {
-  return typeof instance == 'string';
-};
-types.number = function testNumber (instance) {
-  // isFinite returns false for NaN, Infinity, and -Infinity
-  return typeof instance == 'number' && isFinite(instance);
-};
-types.integer = function testInteger (instance) {
-  return (typeof instance == 'number') && instance % 1 === 0;
-};
-types.boolean = function testBoolean (instance) {
-  return typeof instance == 'boolean';
-};
-types.array = function testArray (instance) {
-  return Array.isArray(instance);
-};
-types['null'] = function testNull (instance) {
-  return instance === null;
-};
-types.date = function testDate (instance) {
-  return instance instanceof Date;
-};
-types.any = function testAny (instance) {
-  return true;
-};
-types.object = function testObject (instance) {
-  // TODO: fix this - see #15
-  return instance && (typeof instance === 'object') && !(Array.isArray(instance)) && !(instance instanceof Date);
-};
-
-module.exports = Validator;
-
-
-/***/ }),
-
 /***/ 4055:
 /***/ ((module, exports, __nccwpck_require__) => {
 
@@ -61692,11 +61694,11 @@ const consider = {
 function toNumber(str, options = {}){
     options = Object.assign({}, consider, options );
     if(!str || typeof str !== "string" ) return str;
-    else if(str==="0") return 0;
-
+    
     let trimmedStr  = str.trim();
-
+    
     if(options.skipLike !== undefined && options.skipLike.test(trimmedStr)) return str;
+    else if(str==="0") return 0;
     else if (options.hex && hexRegex.test(trimmedStr)) {
         return parse_int(trimmedStr, 16);
     // }else if (options.oct && octRegex.test(str)) {
@@ -92026,7 +92028,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"schemaHash":"1063bafc562a50e6dafeb86
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.750.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.750.0","@aws-sdk/credential-provider-node":"3.750.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.750.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.750.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.4","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.5","@smithy/middleware-retry":"^4.0.6","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.2","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.5","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.6","@smithy/util-defaults-mode-node":"^4.0.6","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","@smithy/util-waiter":"^4.0.2","@types/uuid":"^9.0.1","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformation","description":"AWS SDK for JavaScript Cloudformation Client for Node.js, Browser and React Native","version":"3.758.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cloudformation","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cloudformation"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.758.0","@aws-sdk/credential-provider-node":"3.758.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.758.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.758.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.5","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.6","@smithy/middleware-retry":"^4.0.7","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.3","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.6","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.7","@smithy/util-defaults-mode-node":"^4.0.7","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","@smithy/util-waiter":"^4.0.2","@types/uuid":"^9.0.1","tslib":"^2.6.2","uuid":"^9.0.1"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cloudformation","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cloudformation"}}');
 
 /***/ }),
 
@@ -92034,7 +92036,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cloudformatio
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.750.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cognito-identity","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"yarn g:vitest run -c vitest.config.e2e.ts --mode development","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.ts"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.750.0","@aws-sdk/credential-provider-node":"3.750.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.750.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.750.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.4","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.5","@smithy/middleware-retry":"^4.0.6","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.2","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.5","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.6","@smithy/util-defaults-mode-node":"^4.0.6","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@aws-sdk/client-iam":"3.750.0","@tsconfig/node18":"18.2.4","@types/chai":"^4.2.11","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-identity","description":"AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native","version":"3.758.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-cognito-identity","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo cognito-identity","test:e2e":"yarn g:vitest run -c vitest.config.e2e.ts --mode development","test:e2e:watch":"yarn g:vitest watch -c vitest.config.e2e.ts"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.758.0","@aws-sdk/credential-provider-node":"3.758.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.758.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.758.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.5","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.6","@smithy/middleware-retry":"^4.0.7","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.3","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.6","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.7","@smithy/util-defaults-mode-node":"^4.0.7","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@aws-sdk/client-iam":"3.758.0","@tsconfig/node18":"18.2.4","@types/chai":"^4.2.11","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-cognito-identity"}}');
 
 /***/ }),
 
@@ -92042,7 +92044,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-cognito-ident
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.750.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.750.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.750.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.750.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.4","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.5","@smithy/middleware-retry":"^4.0.6","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.2","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.5","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.6","@smithy/util-defaults-mode-node":"^4.0.6","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","description":"AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native","version":"3.758.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sso","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sso"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.758.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.758.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.758.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.5","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.6","@smithy/middleware-retry":"^4.0.7","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.3","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.6","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.7","@smithy/util-defaults-mode-node":"^4.0.7","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sso","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sso"}}');
 
 /***/ }),
 
@@ -92050,7 +92052,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sso","descrip
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.750.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn g:vitest run","test:watch":"yarn g:vitest watch"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.750.0","@aws-sdk/credential-provider-node":"3.750.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.750.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.750.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.4","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.5","@smithy/middleware-retry":"^4.0.6","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.2","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.5","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.6","@smithy/util-defaults-mode-node":"^4.0.6","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","description":"AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native","version":"3.758.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline client-sts","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"rimraf ./dist-types tsconfig.types.tsbuildinfo && tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","extract:docs":"api-extractor run --local","generate:client":"node ../../scripts/generate-clients/single-service --solo sts","test":"yarn g:vitest run","test:watch":"yarn g:vitest watch"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.758.0","@aws-sdk/credential-provider-node":"3.758.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.758.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.758.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.5","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.6","@smithy/middleware-retry":"^4.0.7","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.3","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.6","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.7","@smithy/util-defaults-mode-node":"^4.0.7","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"@tsconfig/node18":"18.2.4","@types/node":"^18.19.69","concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"engines":{"node":">=18.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*/**"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sts","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-sts"}}');
 
 /***/ }),
 
@@ -92058,7 +92060,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","descrip
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/nested-clients","version":"3.750.0","description":"Nested clients for AWS SDK packages.","main":"./dist-cjs/index.js","module":"./dist-es/index.js","types":"./dist-types/index.d.ts","scripts":{"build":"yarn lint && concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline nested-clients","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","lint":"node ../../scripts/validation/submodules-linter.js --pkg nested-clients","test":"yarn g:vitest run","test:watch":"yarn g:vitest watch"},"engines":{"node":">=18.0.0"},"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.750.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.750.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.750.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.4","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.5","@smithy/middleware-retry":"^4.0.6","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.2","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.5","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.6","@smithy/util-defaults-mode-node":"^4.0.6","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["./sso-oidc.d.ts","./sso-oidc.js","./sts.d.ts","./sts.js","dist-*/**"],"browser":{"./dist-es/submodules/sso-oidc/runtimeConfig":"./dist-es/submodules/sso-oidc/runtimeConfig.browser","./dist-es/submodules/sts/runtimeConfig":"./dist-es/submodules/sts/runtimeConfig.browser"},"react-native":{},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/packages/nested-clients","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"packages/nested-clients"},"exports":{"./sso-oidc":{"module":"./dist-es/submodules/sso-oidc/index.js","node":"./dist-cjs/submodules/sso-oidc/index.js","import":"./dist-es/submodules/sso-oidc/index.js","require":"./dist-cjs/submodules/sso-oidc/index.js","types":"./dist-types/submodules/sso-oidc/index.d.ts"},"./sts":{"module":"./dist-es/submodules/sts/index.js","node":"./dist-cjs/submodules/sts/index.js","import":"./dist-es/submodules/sts/index.js","require":"./dist-cjs/submodules/sts/index.js","types":"./dist-types/submodules/sts/index.d.ts"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/nested-clients","version":"3.758.0","description":"Nested clients for AWS SDK packages.","main":"./dist-cjs/index.js","module":"./dist-es/index.js","types":"./dist-types/index.d.ts","scripts":{"build":"yarn lint && concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"node ../../scripts/compilation/inline nested-clients","build:es":"tsc -p tsconfig.es.json","build:include:deps":"lerna run --scope $npm_package_name --include-dependencies build","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo","lint":"node ../../scripts/validation/submodules-linter.js --pkg nested-clients","test":"yarn g:vitest run","test:watch":"yarn g:vitest watch"},"engines":{"node":">=18.0.0"},"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","dependencies":{"@aws-crypto/sha256-browser":"5.2.0","@aws-crypto/sha256-js":"5.2.0","@aws-sdk/core":"3.758.0","@aws-sdk/middleware-host-header":"3.734.0","@aws-sdk/middleware-logger":"3.734.0","@aws-sdk/middleware-recursion-detection":"3.734.0","@aws-sdk/middleware-user-agent":"3.758.0","@aws-sdk/region-config-resolver":"3.734.0","@aws-sdk/types":"3.734.0","@aws-sdk/util-endpoints":"3.743.0","@aws-sdk/util-user-agent-browser":"3.734.0","@aws-sdk/util-user-agent-node":"3.758.0","@smithy/config-resolver":"^4.0.1","@smithy/core":"^3.1.5","@smithy/fetch-http-handler":"^5.0.1","@smithy/hash-node":"^4.0.1","@smithy/invalid-dependency":"^4.0.1","@smithy/middleware-content-length":"^4.0.1","@smithy/middleware-endpoint":"^4.0.6","@smithy/middleware-retry":"^4.0.7","@smithy/middleware-serde":"^4.0.2","@smithy/middleware-stack":"^4.0.1","@smithy/node-config-provider":"^4.0.1","@smithy/node-http-handler":"^4.0.3","@smithy/protocol-http":"^5.0.1","@smithy/smithy-client":"^4.1.6","@smithy/types":"^4.1.0","@smithy/url-parser":"^4.0.1","@smithy/util-base64":"^4.0.0","@smithy/util-body-length-browser":"^4.0.0","@smithy/util-body-length-node":"^4.0.0","@smithy/util-defaults-mode-browser":"^4.0.7","@smithy/util-defaults-mode-node":"^4.0.7","@smithy/util-endpoints":"^3.0.1","@smithy/util-middleware":"^4.0.1","@smithy/util-retry":"^4.0.1","@smithy/util-utf8":"^4.0.0","tslib":"^2.6.2"},"devDependencies":{"concurrently":"7.0.0","downlevel-dts":"0.10.1","rimraf":"3.0.2","typescript":"~5.2.2"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["./sso-oidc.d.ts","./sso-oidc.js","./sts.d.ts","./sts.js","dist-*/**"],"browser":{"./dist-es/submodules/sso-oidc/runtimeConfig":"./dist-es/submodules/sso-oidc/runtimeConfig.browser","./dist-es/submodules/sts/runtimeConfig":"./dist-es/submodules/sts/runtimeConfig.browser"},"react-native":{},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/packages/nested-clients","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"packages/nested-clients"},"exports":{"./sso-oidc":{"module":"./dist-es/submodules/sso-oidc/index.js","node":"./dist-cjs/submodules/sso-oidc/index.js","import":"./dist-es/submodules/sso-oidc/index.js","require":"./dist-cjs/submodules/sso-oidc/index.js","types":"./dist-types/submodules/sso-oidc/index.d.ts"},"./sts":{"module":"./dist-es/submodules/sts/index.js","node":"./dist-cjs/submodules/sts/index.js","import":"./dist-es/submodules/sts/index.js","require":"./dist-cjs/submodules/sts/index.js","types":"./dist-types/submodules/sts/index.d.ts"}}}');
 
 /***/ })
 
