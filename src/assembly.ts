@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { AssemblyManifest, ArtifactType, AwsCloudFormationStackProperties, NestedCloudAssemblyProperties, BootstrapRole } from '@aws-cdk/cloud-assembly-schema/lib/cloud-assembly';
+import { AssemblyManifest, ArtifactType, AwsCloudFormationStackProperties, NestedCloudAssemblyProperties } from '@aws-cdk/cloud-assembly-schema/lib/cloud-assembly';
 import { Manifest } from '@aws-cdk/cloud-assembly-schema/lib/manifest';
 import * as fs from 'fs-extra';
 
@@ -26,32 +26,6 @@ export interface StackInfo {
    * The name of the stack
    */
   name: string;
-
-  /**
-   * The region the stack is deployed to
-   *
-   * @default - unknown-region
-   */
-  region?: string;
-
-  /**
-   * The account the stack is deployed to
-   *
-   * @default - unknown-account
-   */
-  account?: string;
-
-  /**
-   * The lookup role to use
-   *
-   * @default - no lookup role
-   */
-  lookupRole?: BootstrapRole;
-
-  /**
-   * The JSON content of the stack
-   */
-  content: { [key: string]: any };
 }
 
 /**
@@ -110,26 +84,9 @@ export class AssemblyManifestReader {
     for (const [artifactId, artifact] of Object.entries(this.manifest.artifacts ?? {})) {
       if (artifact.type !== ArtifactType.AWS_CLOUDFORMATION_STACK) { continue; }
       const props = artifact.properties as AwsCloudFormationStackProperties;
-      const template = fs.readJSONSync(path.resolve(this.directory, props.templateFile));
-      const env = artifact.environment?.split(/\/\/?/);
-      const validEnv = env && env.length === 3;
-      let region: string | undefined;
-      let account: string | undefined;
-      if (validEnv) {
-        region = env[2];
-        account = env[1];
-      }
-      if (region === 'unknown-region') {
-        region = undefined;
-      }
-      if (account === 'unknown-account') {
-        account = undefined;
-      }
       stacks.push({
-        content: template,
-        region,
-        account,
-        lookupRole: props.lookupRole,
+        // Stacks within a stage will have a stackName
+        // and stacks in the root will not
         name: props.stackName ?? artifactId,
       });
     }

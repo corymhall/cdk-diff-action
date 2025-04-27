@@ -94,12 +94,6 @@ describe('cloud assembly manifest reader', () => {
     expect(manifest.stacks).toEqual([
       {
         name: 'test-stack',
-        content: { data: 'data' },
-        region: 'us-east-1',
-        account: '1234567891012',
-        lookupRole: expect.objectContaining({
-          arn: lookupRoleArn,
-        }),
       },
     ]);
   });
@@ -109,11 +103,8 @@ describe('cloud assembly manifest reader', () => {
     expect(manifest.stages).toEqual([
       {
         name: 'SomeStage',
-        region: undefined,
-        account: undefined,
         stacks: [{
           name: 'test-stack2',
-          content: { data: 'data' },
         }],
       },
     ]);

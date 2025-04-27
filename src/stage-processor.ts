@@ -2,9 +2,11 @@ import * as crypto from 'crypto';
 import { Writable, WritableOptions } from 'stream';
 import { StringDecoder } from 'string_decoder';
 import { TemplateDiff, formatDifferences } from '@aws-cdk/cloudformation-diff';
-import { StackInfo, StageInfo } from './assembly';
+import { DiffMethod, NonInteractiveIoHost, StackSelectionStrategy, StackSelector, Toolkit } from '@aws-cdk/toolkit-lib';
+import { AssemblyManifestReader, StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
-import { ChangeDetails, StackDiff } from './diff';
+import { ChangeDetails, StackDiff, StackDiffInfo, StageDiffInfo } from './diff';
+import { Inputs } from './inputs';
 
 // the max comment length allowed by GitHub
 const MAX_COMMENT_LENGTH = 65536;
@@ -31,17 +33,43 @@ interface StageComment {
   destructiveChanges: number;
 }
 
+export interface AssemblyProcessorOptions extends Omit<Inputs, 'githubToken' | 'diffMethod'> {
+  diffMethod: DiffMethod;
+  toolkit: Toolkit;
+}
+
 /**
  * StageProcessor processes a CDK stage and creates a comment on the GitHub PR
  * detailing the stack diffs
  */
-export class StageProcessor {
+export class AssemblyProcessor {
   private readonly stageComments: { [stageName: string]: StageComment } = {};
-  constructor(
-    private readonly stages: StageInfo[],
-    private readonly allowedDestroyTypes: string[],
-  ) {
-    this.stages.forEach(stage => {
+  private readonly stageInfo: StageInfo[] = [];
+  private _stages?: StageDiffInfo[];
+  private _templateDiffs?: { [stackName: string]: TemplateDiff };
+  constructor(private options: AssemblyProcessorOptions) {
+    const assembly = AssemblyManifestReader.fromPath(options.cdkOutDir);
+    this.stageInfo = assembly.stages;
+    if (assembly.stacks.length) {
+      this.stageInfo.push({
+        name: 'DefaultStage',
+        stacks: assembly.stacks,
+      });
+    }
+  }
+
+  private get templateDiffs(): { [stackName: string]: TemplateDiff } {
+    if (!this._templateDiffs) {
+      throw new Error('Template diffs have not been created yet');
+    }
+    return this._templateDiffs;
+  }
+
+  private get stageDiffInfo(): StageDiffInfo[] {
+    if (this._stages) {
+      return this._stages;
+    }
+    this._stages = this.stageInfo.flatMap(stage => {
       this.stageComments[stage.name] = {
         destructiveChanges: 0,
         stackComments: stage.stacks.reduce((prev, curr) => {
@@ -53,27 +81,64 @@ export class StageProcessor {
           ...stage.stacks.reduce((prev, curr) => {
             prev.stacks.push({
               name: curr.name,
-              lookupRole: curr.lookupRole,
-              account: curr.account,
-              region: curr.region,
             });
             return prev;
-          }, { stacks: [] } as { stacks: Omit<StackInfo, 'content'>[] }), // we don't want the content to be part of the hash
+          }, { stacks: [] } as { stacks: StackInfo[] }),
         })),
       };
+      return {
+        name: stage.name,
+        stacks: stage.stacks.map(stack => {
+          if (!this.templateDiffs[stack.name]) {
+            throw new Error(`Template diffs have not been created yet for stack ${stack.name}`);
+          }
+          return {
+            stackName: stack.name,
+            diff: this.templateDiffs[stack.name],
+          };
+        }),
+      };
     });
+    return this._stages;
+  }
+
+  public async diffApp(): Promise<{ [name: string]: TemplateDiff }> {
+    const assemblySource = await this.options.toolkit.fromAssemblyDirectory(this.options.cdkOutDir, {
+    // When checkVersion=true it means users can't upgrade their CDK version before
+    // we do and they pull in the new action version. Probably better to default to false
+    // and see what happens
+      loadAssemblyOptions: { checkVersion: false },
+    });
+
+    const selector: StackSelector = this.options.noDiffForStages.length > 0 ? {
+      strategy: StackSelectionStrategy.PATTERN_MATCH,
+      patterns: this.options.noDiffForStages.map(name => `!${name}/*`),
+    } : {
+      strategy: StackSelectionStrategy.ALL_STACKS,
+    };
+    const diffResult = await this.options.toolkit.diff(assemblySource, {
+      stacks: selector,
+      method: this.options.diffMethod,
+    });
+    this._templateDiffs = diffResult;
+    return diffResult;
   }
 
   /**
    * Process all of the stages. Once this has been run
    * the comment can be created with `commentStages()`
    */
-  public async processStages(ignoreDestructiveChanges: string[] = []) {
-    for (const stage of this.stages) {
+  public async processStages(
+    ignoreDestructiveChanges: string[] = [],
+  ) {
+    if (!this._templateDiffs) {
+      await this.diffApp();
+    }
+    for (const stage of this.stageDiffInfo) {
       for (const stack of stage.stacks) {
         try {
           const { comment, changes } = await this.diffStack(stack);
-          this.stageComments[stage.name].stackComments[stack.name].push(...comment);
+          this.stageComments[stage.name].stackComments[stack.stackName].push(...comment);
           if (!ignoreDestructiveChanges.includes(stage.name)) {
             this.stageComments[stage.name].destructiveChanges += changes;
           }
@@ -145,12 +210,12 @@ export class StageProcessor {
     return false;
   }
 
-  private async diffStack(stack: StackInfo): Promise<{comment: string[]; changes: number}> {
+  private async diffStack(stack: StackDiffInfo): Promise<{comment: string[]; changes: number}> {
     try {
-      const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
+      const stackDiff = new StackDiff(stack, this.options.allowedDestroyTypes);
       const { diff, changes } = await stackDiff.diffStack();
       return {
-        comment: this.formatStackComment(stack.name, diff, changes),
+        comment: this.formatStackComment(stack.stackName, diff, changes),
         changes: changes.destructiveChanges.length,
       };
 

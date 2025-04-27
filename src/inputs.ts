@@ -31,6 +31,21 @@ export interface Inputs {
   noDiffForStages: string[];
 
   /**
+   * The method to create a stack diff.
+   *
+   * Valid values are `change-set` or `template-only`.
+   *
+   * Use changeset diff for the highest fidelity, including analyze resource replacements.
+   * In this method, diff will use the deploy role instead of the lookup role.
+   *
+   * Use template-only diff for a faster, less accurate diff that doesn't require
+   * permissions to create a change-set.
+   *
+   * @default 'change-set'
+   */
+  diffMethod: string;
+
+  /**
    * List of stages where breaking changes will not fail the build
    *
    * @default - breaking changes on any stage will fail the build
