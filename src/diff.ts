@@ -47,15 +47,6 @@ export interface ChangeDetails {
    * Information on any destructive changes
    */
   destructiveChanges: DestructiveChange[];
-
-  /**
-   * Whether this stack has an unknown env. If that is the case
-   * then this returns the environment credentials that are being used
-   * in the format aws://<account>/<region>
-   *
-   * @default - account is known
-   */
-  unknownEnvironment?: string;
 }
 
 /**

@@ -1,19 +1,11 @@
 import * as fs from 'fs';
 import path from 'path';
 import { DifferenceCollection, ResourceDifference, ResourceImpact, TemplateDiff } from '@aws-cdk/cloudformation-diff';
-import { Toolkit, DiffMethod, IIoHost, IoMessage, IoRequest } from '@aws-cdk/toolkit-lib';
+import { Toolkit, DiffMethod } from '@aws-cdk/toolkit-lib';
 import mock from 'mock-fs';
+import { FakeIoHost } from './util';
 import { Comments } from '../src/comment';
 import { AssemblyProcessor } from '../src/stage-processor';
-
-class FakeIoHost implements IIoHost {
-  notify(_msg: IoMessage<unknown>): Promise<void> {
-    return Promise.resolve();
-  }
-  requestResponse<T, U>(_msg: IoRequest<T, U>): Promise<U> {
-    return Promise.resolve({} as U);
-  }
-}
 
 const toolkit = new Toolkit({
   ioHost: new FakeIoHost(),

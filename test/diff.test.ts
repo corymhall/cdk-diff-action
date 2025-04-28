@@ -2,7 +2,12 @@ import * as path from 'path';
 import { ResourceImpact } from '@aws-cdk/cloudformation-diff';
 import { DiffMethod, StackSelectionStrategy, Toolkit } from '@aws-cdk/toolkit-lib';
 import mock from 'mock-fs';
+import { FakeIoHost } from './util';
 import { StackDiff } from '../src/diff';
+
+const toolkit = new Toolkit({
+  ioHost: new FakeIoHost(),
+});
 
 const cdkout = {
   'manifest.json': JSON.stringify({
@@ -45,7 +50,6 @@ describe('StackDiff', () => {
 
   test('no template diff', async () => {
     // GIVEN
-    const toolkit = new Toolkit();
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
     const templateDiffs = await toolkit.diff(assembly, {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
@@ -87,7 +91,6 @@ describe('StackDiff', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
-    const toolkit = new Toolkit();
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
     const templateDiffs = await toolkit.diff(assembly, {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
@@ -133,7 +136,6 @@ describe('StackDiff', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
-    const toolkit = new Toolkit();
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
     const templateDiffs = await toolkit.diff(assembly, {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
@@ -176,7 +178,6 @@ describe('StackDiff', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
-    const toolkit = new Toolkit();
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
     const templateDiffs = await toolkit.diff(assembly, {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
@@ -224,7 +225,6 @@ describe('StackDiff', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
-    const toolkit = new Toolkit();
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
     const templateDiffs = await toolkit.diff(assembly, {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
@@ -283,7 +283,6 @@ describe('StackDiff', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
-    const toolkit = new Toolkit();
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
     const templateDiffs = await toolkit.diff(assembly, {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
@@ -347,7 +346,6 @@ describe('StackDiff', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
-    const toolkit = new Toolkit();
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
     const templateDiffs = await toolkit.diff(assembly, {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
@@ -399,7 +397,6 @@ describe('StackDiff', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
-    const toolkit = new Toolkit();
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
     const templateDiffs = await toolkit.diff(assembly, {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },

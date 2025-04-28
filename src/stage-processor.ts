@@ -2,7 +2,7 @@ import * as crypto from 'crypto';
 import { Writable, WritableOptions } from 'stream';
 import { StringDecoder } from 'string_decoder';
 import { TemplateDiff, formatDifferences } from '@aws-cdk/cloudformation-diff';
-import { DiffMethod, NonInteractiveIoHost, StackSelectionStrategy, StackSelector, Toolkit } from '@aws-cdk/toolkit-lib';
+import { DiffMethod, StackSelectionStrategy, StackSelector, Toolkit } from '@aws-cdk/toolkit-lib';
 import { AssemblyManifestReader, StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
 import { ChangeDetails, StackDiff, StackDiffInfo, StageDiffInfo } from './diff';
@@ -250,12 +250,6 @@ export class AssemblyProcessor {
       '<details><summary>Details</summary>',
       '',
     ]);
-    if (changes.unknownEnvironment) {
-      output.push('> [!INFO]\n> ***Unknown Environment*** :information_source:');
-      output.push('> This stack has an unknown environment which may mean the diff is performed against the wrong environment');
-      output.push(`> Environmment used ${changes.unknownEnvironment}`);
-      output.push('');
-    }
     if (changes.destructiveChanges.length) {
       output.push('');
       output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),

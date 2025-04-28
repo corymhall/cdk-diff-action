@@ -33,3 +33,7 @@ inputs:
     description: The location of the CDK output directory
     required: false
     default: cdk.out
+  diffMethod:
+    description: The diff method to use
+    required: false
+    default: change-set

@@ -62,6 +62,11 @@ const project = new GitHubActionTypeScriptProject({
         required: false,
         default: 'cdk.out',
       },
+      diffMethod: {
+        description: 'The diff method to use',
+        required: false,
+        default: 'change-set',
+      },
     },
     runs: {
       using: RunsUsing.NODE_20,
