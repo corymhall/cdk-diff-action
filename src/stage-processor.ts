@@ -120,7 +120,6 @@ export class AssemblyProcessor {
     // and see what happens
       loadAssemblyOptions: { checkVersion: false },
     });
-    await using cloudAssembly = await assemblySource.produce();
 
     const selector: StackSelector = this.options.stackSelectorPatterns.length > 0 ? {
       strategy: this.options.stackSelectionStrategy as StackSelectionStrategy,
@@ -132,7 +131,9 @@ export class AssemblyProcessor {
       stacks: selector,
       method: this.options.diffMethod,
     });
+
     this._templateDiffs = diffResult;
+    await using cloudAssembly = await assemblySource.produce();
     this.processAssembly(cloudAssembly.cloudAssembly);
     return diffResult;
   }

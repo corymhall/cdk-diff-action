@@ -21,6 +21,8 @@ export async function run() {
     inputs.stackSelectionStrategy = 'pattern-must-match';
   }
 
+  console.log('Inputs: ', JSON.stringify(inputs, null, 2));
+
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
 

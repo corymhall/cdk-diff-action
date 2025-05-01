@@ -248,6 +248,6 @@ workflow?.on({
 });
 
 projenProject.packageTask.reset();
-projenProject.packageTask.exec('cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build --source-map --license licenses.txt');
+projenProject.packageTask.exec('cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build src/index.ts --source-map --transpile-only --license licenses.txt');
 workflow?.addJobs({ enableAutoMerge: autoMergeJob });
 project.synth();
