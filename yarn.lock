@@ -78,10 +78,18 @@
     "@aws-cdk/service-spec-types" "^0.0.136"
     "@cdklabs/tskb" "^0.0.3"
 
-"@aws-cdk/cloud-assembly-schema@43.5.0", "@aws-cdk/cloud-assembly-schema@>=43.5.0", "@aws-cdk/cloud-assembly-schema@^43.5.0":
+"@aws-cdk/cloud-assembly-schema@43.5.0", "@aws-cdk/cloud-assembly-schema@>=43.5.0":
   version "43.5.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-43.5.0.tgz#413308cb67dc9e7dca842e00b85d3392e0a86a4d"
   integrity sha512-q508g0tqU4Ld3BNtThhSE1T+MjwUl+c1SBnGIHTBYiuwyoOPK6zGt0dhaRSEjlGK/pgkYG2Vmctkuq9mCdcHqA==
+  dependencies:
+    jsonschema "~1.4.1"
+    semver "^7.7.1"
+
+"@aws-cdk/cloud-assembly-schema@^43.6.0":
+  version "43.6.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-43.6.0.tgz#6387934dced0e5fdbfce2571f1281e157ef73d9a"
+  integrity sha512-PZ4zhR0hXZQv/WbA4JLJ5BLCtVKlzqOkt67JTUl505wrnQjIEgsJupziba81Fj4rfPRTwNfXSWJtkufxBq9JmA==
   dependencies:
     jsonschema "~1.4.1"
     semver "^7.7.1"
@@ -99,7 +107,7 @@
     string-width "^4"
     table "^6"
 
-"@aws-cdk/cx-api@^2.190.0":
+"@aws-cdk/cx-api@2.192.0", "@aws-cdk/cx-api@^2.190.0":
   version "2.192.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cx-api/-/cx-api-2.192.0.tgz#c3ad50436ffff2a65893a22364a556fa2c3b9942"
   integrity sha512-W2sjW+CDT+QT6HV6Id4go5uK9IbRPqQayKDnzdmQXgeTLKdWe4q4s8JJ/wiC81Z68nbas3L1emlo3vCO7SdSPA==
@@ -125,12 +133,12 @@
   dependencies:
     "@cdklabs/tskb" "^0.0.3"
 
-"@aws-cdk/toolkit-lib@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/toolkit-lib/-/toolkit-lib-0.3.2.tgz#4b19f7caa4efba0544bb1ba629a02abbf988c1eb"
-  integrity sha512-dgANEwX/sD0zafEMiZjAeBW1nUeLJOesiHYXj/6/fGco7SB/gV5N62zxbMqOd4PKCOvPgtMabB8e/cuunANUmw==
+"@aws-cdk/toolkit-lib@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/toolkit-lib/-/toolkit-lib-0.3.3.tgz#472af01751af7ae8a925295beabcb02e5e8e2155"
+  integrity sha512-fhh63KfmXv/GurLgezKNssoD12pL6409SmhnwVEmjuHf72ltG2WLC02Od4crI/df0XLYsKaHqrQgolVZezIcTA==
   dependencies:
-    "@aws-cdk/cloud-assembly-schema" "^43.5.0"
+    "@aws-cdk/cloud-assembly-schema" "^43.6.0"
     "@aws-cdk/cloudformation-diff" "^2.181.1"
     "@aws-cdk/cx-api" "^2.190.0"
     "@aws-cdk/region-info" "^2.190.0"

@@ -29,7 +29,7 @@ jest.mock('../src/comment', () => {
 
 const cdkout = {
   'manifest.json': JSON.stringify({
-    version: '17.0.0',
+    version: '36.0.0',
     artifacts: {
       'assembly-SomeStage': {
         type: 'cdk:cloud-assembly',
@@ -42,7 +42,7 @@ const cdkout = {
   }),
   ['assembly-SomeStage']: {
     ['manifest.json']: JSON.stringify({
-      version: '17.0.0',
+      version: '36.0.0',
       artifacts: {
         'SomeStage-test-stack': {
           type: 'aws:cloudformation:stack',
@@ -50,8 +50,9 @@ const cdkout = {
           properties: {
             templateFile: 'SomeStage-test-stack.template.json',
             validateOnSynth: false,
+            stackName: 'SomeStage-test-stack',
           },
-          stackName: 'SomeStage-test-stack',
+          displayName: 'SomeStage/test-stack',
         },
       },
     }),
@@ -103,7 +104,8 @@ describe('StageProcessor', () => {
       cdkOutDir: 'cdk.out',
       diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
       failOnDestructiveChanges: true,
-      noDiffForStages: [],
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
       noFailOnDestructiveChanges: [],
     });
     await processor.processStages();
@@ -135,7 +137,8 @@ describe('StageProcessor', () => {
       cdkOutDir: 'cdk.out',
       diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
       failOnDestructiveChanges: true,
-      noDiffForStages: [],
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
       noFailOnDestructiveChanges: [],
     });
     await processor.processStages();
@@ -168,7 +171,8 @@ describe('StageProcessor', () => {
       cdkOutDir: 'cdk.out',
       diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
       failOnDestructiveChanges: true,
-      noDiffForStages: [],
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
       noFailOnDestructiveChanges: [],
     });
     await processor.processStages(['SomeStage']);
@@ -201,7 +205,8 @@ describe('StageProcessor', () => {
       cdkOutDir: 'cdk.out',
       diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
       failOnDestructiveChanges: true,
-      noDiffForStages: [],
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
       noFailOnDestructiveChanges: [],
     });
     await processor.processStages(['SomeStage']);
@@ -232,7 +237,8 @@ describe('StageProcessor', () => {
       cdkOutDir: 'cdk.out',
       diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
       failOnDestructiveChanges: true,
-      noDiffForStages: [],
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
       noFailOnDestructiveChanges: [],
     });
     findPreviousMock.mockResolvedValue(1);
@@ -241,6 +247,116 @@ describe('StageProcessor', () => {
     expect(findPreviousMock).toHaveBeenCalledTimes(1);
     expect(createCommentMock).toHaveBeenCalledTimes(0);
     expect(updateCommentMock).toHaveBeenCalledTimes(1);
+  });
+
+  test('filter stages', async () => {
+    mockOutDir = {
+      'SomeStage-test-stack.template.json': JSON.stringify({
+        Resources: {
+          MyRole: {
+            Type: 'AWS::IAM::Role',
+            Properties: {
+              RoleName: 'MyCustomName2',
+            },
+          },
+        },
+      }),
+      'manifest.json': JSON.stringify({
+        version: '36.0.0',
+        artifacts: {
+          'assembly-SomeOtherStage': {
+            type: 'cdk:cloud-assembly',
+            properties: {
+              directoryName: 'assembly-SomeOtherStage',
+              displayName: 'SomeOtherStage',
+            },
+          },
+          'assembly-SomeStage': {
+            type: 'cdk:cloud-assembly',
+            properties: {
+              directoryName: 'assembly-SomeStage',
+              displayName: 'SomeStage',
+            },
+          },
+        },
+      }),
+      ['assembly-SomeOtherStage']: {
+        ['manifest.json']: JSON.stringify({
+          version: '36.0.0',
+          artifacts: {
+            'SomeOtherStage-test-stack': {
+              type: 'aws:cloudformation:stack',
+              environment: 'aws://unknown-account/unknown-region',
+              properties: {
+                templateFile: 'SomeOtherStage-test-stack.template.json',
+                validateOnSynth: false,
+                stackName: 'SomeOtherStage-test-stack',
+              },
+              displayName: 'SomeOtherStage/test-stack',
+            },
+          },
+        }),
+        ['SomeOtherStage-test-stack.template.json']: JSON.stringify({
+          Resources: {
+            MyRole: {
+              Type: 'AWS::IAM::Role',
+              Properties: {
+                RoleName: 'MyCustomName',
+              },
+            },
+          },
+        }),
+      },
+      ['assembly-SomeStage']: {
+        ['manifest.json']: JSON.stringify({
+          version: '36.0.0',
+          artifacts: {
+            'SomeStage-test-stack': {
+              type: 'aws:cloudformation:stack',
+              environment: 'aws://unknown-account/unknown-region',
+              properties: {
+                templateFile: 'SomeStage-test-stack.template.json',
+                validateOnSynth: false,
+                stackName: 'SomeStage-test-stack',
+              },
+              displayName: 'SomeStage/test-stack',
+            },
+          },
+        }),
+        ['SomeStage-test-stack.template.json']: JSON.stringify({
+          Resources: {
+            MyRole: {
+              Type: 'AWS::IAM::Role',
+              Properties: {
+                RoleName: 'MyCustomName',
+              },
+            },
+          },
+        }),
+      },
+    };
+    mock({
+      'cdk.out': mockOutDir,
+      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+    });
+    const processor = new AssemblyProcessor({
+      toolkit,
+      allowedDestroyTypes: [],
+      cdkOutDir: 'cdk.out',
+      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      failOnDestructiveChanges: true,
+      stackSelectorPatterns: ['!SomeOtherStage/*'],
+      stackSelectionStrategy: 'pattern-must-match',
+      noFailOnDestructiveChanges: [],
+    });
+    await processor.processStages();
+    const p = (processor as any).stageComments;
+    expect(p).toEqual({
+      SomeStage: expect.any(Object),
+    });
+    expect(p.SomeStage.stackComments['SomeStage-test-stack'].length).not.toEqual(0);
+    expect(p.SomeStage.stackComments['SomeOtherStage-test-stack']).toEqual(undefined);
+    expect(p.SomeStage.destructiveChanges).toEqual(1);
   });
 });
 
@@ -251,24 +367,25 @@ describe('stack comments', () => {
   });
   test('stack level comments', async () => {
     const manifestJson = {
-      version: '17.0.0',
+      version: '36.0.0',
       artifacts: {},
     };
 
     const stacks = createStacks(10);
     stacks.forEach((stack) => {
-      mockOutDir[`${stack.name}.template.json`] = JSON.stringify(stack.content);
+      mockOutDir['assembly-SomeStage'][`${stack.name}.template.json`] = JSON.stringify(stack.content);
       manifestJson.artifacts[stack.name] = {
         type: 'aws:cloudformation:stack',
         environment: 'aws://1234567891012/us-east-1',
         properties: {
           templateFile: `${stack.name}.template.json`,
           validateOnSynth: false,
+          stackName: stack.name,
         },
-        stackName: stack.name,
+        displayName: `SomeStage/${stack.name}`,
       };
     });
-    mockOutDir['assembly-SomeStage'] = JSON.stringify(manifestJson);
+    mockOutDir['assembly-SomeStage']['manifest.json'] = JSON.stringify(manifestJson);
     const diffInfo: { [stackName: string]: DiffInfo } = {};
     stacks.forEach((stack) => {
       diffInfo[stack.name] = {
@@ -289,7 +406,8 @@ describe('stack comments', () => {
       cdkOutDir: 'cdk.out',
       diffMethod: DiffMethod.TemplateOnly(),
       failOnDestructiveChanges: true,
-      noDiffForStages: [],
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
       noFailOnDestructiveChanges: [],
     });
     findPreviousMock.mockResolvedValue(1);

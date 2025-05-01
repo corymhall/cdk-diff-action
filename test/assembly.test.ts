@@ -1,10 +1,9 @@
 import * as path from 'path';
+import { CloudAssembly } from '@aws-cdk/cx-api';
 import mock from 'mock-fs';
 import { AssemblyManifestReader } from '../src/assembly';
 
 describe('cloud assembly manifest reader', () => {
-  const manifestFile = 'cdk.out/manifest.json';
-  const lookupRoleArn = 'arn:${AWS::Partition}:iam::123456789012:role/cdk-hnb659fds-lookup-role-123456789012-us-east-1';
   beforeEach(() => {
     mock({
       ['cdk.out']: {
@@ -18,8 +17,9 @@ describe('cloud assembly manifest reader', () => {
                 properties: {
                   templateFile: 'test-stack.template.json',
                   validateOnSynth: false,
+                  stackName: 'test-stack2',
                 },
-                displayName: 'test-stack',
+                displayName: 'SomeStage/test-stack2',
               },
             },
           }),
@@ -46,13 +46,8 @@ describe('cloud assembly manifest reader', () => {
               properties: {
                 templateFile: 'test-stack.template.json',
                 validateOnSynth: false,
-                lookupRole: {
-                  arn: lookupRoleArn,
-                  requiresBootstrapStackVersion: 8,
-                  bootstrapStackVersionSsmParameter: '/cdk-bootstrap/hnb659fds/version',
-                },
+                stackName: 'test-stack',
               },
-              displayName: 'test-stack',
             },
           },
         }),
@@ -65,31 +60,14 @@ describe('cloud assembly manifest reader', () => {
     mock.restore();
   });
 
-  test('can read manifest from file', () => {
-    expect(() => {
-      AssemblyManifestReader.fromFile(manifestFile);
-    }).not.toThrow();
-  });
-
-  test('throws if manifest not found', () => {
-    expect(() => {
-      AssemblyManifestReader.fromFile('some-other-file');
-    }).toThrow(/Cannot read integ manifest 'some-other-file':/);
-  });
-
-  test('can read manifest from path', () => {
-    expect(() => {
-      AssemblyManifestReader.fromPath(path.dirname(manifestFile));
-    }).not.toThrow();
-  });
-
-  test('fromPath sets directory correctly', () => {
-    const manifest = AssemblyManifestReader.fromPath(path.dirname(manifestFile));
-    expect(manifest.directory).toEqual('cdk.out');
-  });
 
   test('get root stacks', () => {
-    const manifest = AssemblyManifestReader.fromFile(manifestFile);
+    const assembly = new CloudAssembly('cdk.out', {
+      skipVersionCheck: true,
+    });
+    const manifest = new AssemblyManifestReader(assembly, {
+      'test-stack': {} as any,
+    });
 
     expect(manifest.stacks).toEqual([
       {
@@ -98,7 +76,14 @@ describe('cloud assembly manifest reader', () => {
     ]);
   });
   test('get stages', () => {
-    const manifest = AssemblyManifestReader.fromFile(manifestFile);
+    const assembly = new CloudAssembly('cdk.out', {
+      skipVersionCheck: true,
+    });
+
+    const manifest = new AssemblyManifestReader(assembly, {
+      'test-stack': {} as any,
+      'test-stack2': {} as any,
+    });
 
     expect(manifest.stages).toEqual([
       {
@@ -106,6 +91,23 @@ describe('cloud assembly manifest reader', () => {
         stacks: [{
           name: 'test-stack2',
         }],
+      },
+    ]);
+  });
+
+  test('only stages with stacks', () => {
+    const assembly = new CloudAssembly('cdk.out', {
+      skipVersionCheck: true,
+    });
+
+    const manifest = new AssemblyManifestReader(assembly, {
+      'test-stack': {} as any,
+    });
+
+    expect(manifest.stages).toEqual([]);
+    expect(manifest.stacks).toEqual([
+      {
+        name: 'test-stack',
       },
     ]);
   });

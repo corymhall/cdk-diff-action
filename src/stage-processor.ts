@@ -2,6 +2,7 @@ import * as crypto from 'crypto';
 import { Writable, WritableOptions } from 'stream';
 import { StringDecoder } from 'string_decoder';
 import { TemplateDiff, formatDifferences } from '@aws-cdk/cloudformation-diff';
+import { CloudAssembly } from '@aws-cdk/cx-api';
 import { DiffMethod, StackSelectionStrategy, StackSelector, Toolkit } from '@aws-cdk/toolkit-lib';
 import { AssemblyManifestReader, StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
@@ -44,18 +45,28 @@ export interface AssemblyProcessorOptions extends Omit<Inputs, 'githubToken' | '
  */
 export class AssemblyProcessor {
   private readonly stageComments: { [stageName: string]: StageComment } = {};
-  private readonly stageInfo: StageInfo[] = [];
+  private _stageInfo?: StageInfo[];
   private _stages?: StageDiffInfo[];
   private _templateDiffs?: { [stackName: string]: TemplateDiff };
-  constructor(private options: AssemblyProcessorOptions) {
-    const assembly = AssemblyManifestReader.fromPath(options.cdkOutDir);
-    this.stageInfo = assembly.stages;
+  constructor(private options: AssemblyProcessorOptions) { }
+
+  private get stageInfo(): StageInfo[] {
+    if (!this._stageInfo) {
+      throw new Error('Stage info has not been created yet');
+    }
+    return this._stageInfo;
+  }
+
+  private processAssembly(cloudAssembly: CloudAssembly) {
+    const assembly = new AssemblyManifestReader(cloudAssembly, this.templateDiffs);
+    this._stageInfo = assembly.stages;
     if (assembly.stacks.length) {
       this.stageInfo.push({
         name: 'DefaultStage',
         stacks: assembly.stacks,
       });
     }
+
   }
 
   private get templateDiffs(): { [stackName: string]: TemplateDiff } {
@@ -109,18 +120,20 @@ export class AssemblyProcessor {
     // and see what happens
       loadAssemblyOptions: { checkVersion: false },
     });
+    await using cloudAssembly = await assemblySource.produce();
 
-    const selector: StackSelector = this.options.noDiffForStages.length > 0 ? {
-      strategy: StackSelectionStrategy.PATTERN_MATCH,
-      patterns: this.options.noDiffForStages.map(name => `!${name}/*`),
+    const selector: StackSelector = this.options.stackSelectorPatterns.length > 0 ? {
+      strategy: this.options.stackSelectionStrategy as StackSelectionStrategy,
+      patterns: this.options.stackSelectorPatterns,
     } : {
-      strategy: StackSelectionStrategy.ALL_STACKS,
+      strategy: this.options.stackSelectionStrategy as StackSelectionStrategy,
     };
     const diffResult = await this.options.toolkit.diff(assemblySource, {
       stacks: selector,
       method: this.options.diffMethod,
     });
     this._templateDiffs = diffResult;
+    this.processAssembly(cloudAssembly.cloudAssembly);
     return diffResult;
   }
 

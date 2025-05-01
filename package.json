@@ -62,7 +62,8 @@
     "@actions/tool-cache": "^2.0.0",
     "@aws-cdk/cloud-assembly-schema": "43.5.0",
     "@aws-cdk/cloudformation-diff": "^2.181.1",
-    "@aws-cdk/toolkit-lib": "^0.3.2",
+    "@aws-cdk/cx-api": "2.192.0",
+    "@aws-cdk/toolkit-lib": "^0.3.3",
     "@octokit/webhooks-definitions": "^3.67.3",
     "chalk": "^4",
     "fs-extra": "^11.3.0"

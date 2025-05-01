@@ -10,11 +10,16 @@ export async function run() {
     allowedDestroyTypes: getInput('allowedDestroyTypes').split(','),
     failOnDestructiveChanges: getBooleanInput('failOnDestructiveChanges'),
     githubToken: getInput('githubToken'),
-    noDiffForStages: getInput('noDiffForStages').split(','),
+    stackSelectorPatterns: getInput('stackSelectorPatterns').split(','),
+    stackSelectionStrategy: getInput('stackSelectionStrategy') ?? 'all-stacks',
     noFailOnDestructiveChanges: getInput('noFailOnDestructiveChanges').split(','),
     cdkOutDir: getInput('cdkOutDir') ?? 'cdk.out',
     diffMethod: getInput('diffMethod') ?? 'change-set',
   };
+
+  if (inputs.stackSelectorPatterns.length > 0 && inputs.stackSelectionStrategy === 'all-stacks') {
+    inputs.stackSelectionStrategy = 'pattern-must-match';
+  }
 
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;

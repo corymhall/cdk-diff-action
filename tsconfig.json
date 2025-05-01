@@ -10,7 +10,8 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "lib": [
-      "es2020"
+      "es2020",
+      "esnext"
     ],
     "module": "CommonJS",
     "noEmitOnError": false,

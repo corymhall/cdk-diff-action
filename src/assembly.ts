@@ -1,7 +1,5 @@
-import * as path from 'path';
-import { AssemblyManifest, ArtifactType, AwsCloudFormationStackProperties, NestedCloudAssemblyProperties } from '@aws-cdk/cloud-assembly-schema/lib/cloud-assembly';
-import { Manifest } from '@aws-cdk/cloud-assembly-schema/lib/manifest';
-import * as fs from 'fs-extra';
+import { TemplateDiff } from '@aws-cdk/cloudformation-diff';
+import { CloudAssembly } from '@aws-cdk/cx-api';
 
 /**
  * Information on the CDK Stage
@@ -32,47 +30,13 @@ export interface StackInfo {
  * Reads a Cloud Assembly manifest
  */
 export class AssemblyManifestReader {
-  public static readonly DEFAULT_FILENAME = 'manifest.json';
+  constructor(
+    private readonly assembly: CloudAssembly,
+    private readonly stackDiffs: { [name: string]: TemplateDiff },
+  ) {}
 
-  /**
-   * Reads a Cloud Assembly manifest from a file
-   */
-  public static fromFile(fileName: string): AssemblyManifestReader {
-    try {
-      // skipVersionCheck since we should always be able to load newer versions
-      const obj = Manifest.loadAssemblyManifest(fileName, { skipVersionCheck: true });
-      return new AssemblyManifestReader(path.dirname(fileName), obj);
-
-    } catch (e: any) {
-      throw new Error(`Cannot read integ manifest '${fileName}': ${e.message}`);
-    }
-  }
-
-  /**
-   * Reads a Cloud Assembly manifest from a file or a directory
-   * If the given filePath is a directory then it will look for
-   * a file within the directory with the DEFAULT_FILENAME
-   */
-  public static fromPath(filePath: string): AssemblyManifestReader {
-    let st;
-    try {
-      st = fs.statSync(filePath);
-    } catch (e: any) {
-      throw new Error(`Cannot read integ manifest at '${filePath}': ${e.message}`);
-    }
-    if (st.isDirectory()) {
-      return AssemblyManifestReader.fromFile(path.join(filePath, AssemblyManifestReader.DEFAULT_FILENAME));
-    }
-    return AssemblyManifestReader.fromFile(filePath);
-  }
-
-  /**
-   * The directory where the manifest was found
-   */
-  public readonly directory: string;
-
-  constructor(directory: string, private readonly manifest: AssemblyManifest) {
-    this.directory = directory;
+  private inDiff(stackName: string): boolean {
+    return !!this.stackDiffs[stackName];
   }
 
   /**
@@ -81,15 +45,14 @@ export class AssemblyManifestReader {
    */
   public get stacks(): StackInfo[] {
     const stacks: StackInfo[] = [];
-    for (const [artifactId, artifact] of Object.entries(this.manifest.artifacts ?? {})) {
-      if (artifact.type !== ArtifactType.AWS_CLOUDFORMATION_STACK) { continue; }
-      const props = artifact.properties as AwsCloudFormationStackProperties;
-      stacks.push({
-        // Stacks within a stage will have a stackName
-        // and stacks in the root will not
-        name: props.stackName ?? artifactId,
-      });
-    }
+    this.assembly.stacks.forEach((stack)=> {
+      const stackName = stack.stackName ?? stack.id;
+      if (this.inDiff(stackName)) {
+        stacks.push({
+          name: stack.stackName ?? stack.id,
+        });
+      }
+    });
     return stacks;
   }
 
@@ -98,15 +61,17 @@ export class AssemblyManifestReader {
    */
   public get stages(): StageInfo[] {
     const stages: StageInfo[] = [];
-    for (const [artifactId, artifact] of Object.entries(this.manifest.artifacts ?? {})) {
-      if (artifact.type !== ArtifactType.NESTED_CLOUD_ASSEMBLY) { continue; }
-      const props = artifact.properties as NestedCloudAssemblyProperties;
-      const nestedAssembly = AssemblyManifestReader.fromPath(path.join(this.directory, props.directoryName));
+    this.assembly.nestedAssemblies.forEach((nestedAssembly) => {
+      const cloudAssembly = new AssemblyManifestReader(nestedAssembly.nestedAssembly, this.stackDiffs);
+      const stacks = cloudAssembly.stacks;
+      if (stacks.length === 0) {
+        return;
+      }
       stages.push({
-        name: props.displayName ?? artifactId,
-        stacks: nestedAssembly.stacks,
+        name: nestedAssembly.displayName ?? nestedAssembly.id,
+        stacks: cloudAssembly.stacks,
       });
-    }
+    });
     return stages;
   }
 }

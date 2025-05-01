@@ -24,11 +24,22 @@ export interface Inputs {
   failOnDestructiveChanges: boolean;
 
   /**
-   * List of stages to ignore and not show a diff for
+   * List of stack selector patterns
    *
    * @default - show diff for all stages
    */
-  noDiffForStages: string[];
+  stackSelectorPatterns: string[];
+
+  /**
+   * Used in combination with 'stackSelectorPatterns' to control which stacks to diff.
+   *
+   * Valid values are 'all-stacks', 'main-assembly', 'only-single', 'pattern-match',
+   * 'pattern-must-match', 'pattern-must-match-single'
+   *
+   * @see https://github.com/aws/aws-cdk-cli/tree/main/packages/%40aws-cdk/toolkit-lib#stack-selection
+   * @default pattern-must-match if 'stackSelectorPatterns is provided, otherwise 'all-stacks'
+   */
+  stackSelectionStrategy: string;
 
   /**
    * The method to create a stack diff.
