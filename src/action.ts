@@ -1,4 +1,4 @@
-import { getInput, getBooleanInput } from '@actions/core';
+import { getInput, getBooleanInput, getMultilineInput } from '@actions/core';
 import * as github from '@actions/github';
 import { DiffMethod, NonInteractiveIoHost, Toolkit } from '@aws-cdk/toolkit-lib';
 import { Comments } from './comment';
@@ -7,14 +7,14 @@ import { AssemblyProcessor } from './stage-processor';
 
 export async function run() {
   const inputs: Inputs = {
-    allowedDestroyTypes: getInput('allowedDestroyTypes').split(','),
+    allowedDestroyTypes: getMultilineInput('allowedDestroyTypes'),
     failOnDestructiveChanges: getBooleanInput('failOnDestructiveChanges'),
     githubToken: getInput('githubToken'),
-    stackSelectorPatterns: getInput('stackSelectorPatterns').split(','),
-    stackSelectionStrategy: getInput('stackSelectionStrategy') ?? 'all-stacks',
-    noFailOnDestructiveChanges: getInput('noFailOnDestructiveChanges').split(','),
-    cdkOutDir: getInput('cdkOutDir') ?? 'cdk.out',
-    diffMethod: getInput('diffMethod') ?? 'change-set',
+    stackSelectorPatterns: getMultilineInput('stackSelectorPatterns'),
+    stackSelectionStrategy: getInput('stackSelectionStrategy', { required: true }),
+    noFailOnDestructiveChanges: getMultilineInput('noFailOnDestructiveChanges'),
+    cdkOutDir: getInput('cdkOutDir', { required: true }),
+    diffMethod: getInput('diffMethod', { required: true }),
   };
 
   if (inputs.stackSelectorPatterns.length > 0 && inputs.stackSelectionStrategy === 'all-stacks') {

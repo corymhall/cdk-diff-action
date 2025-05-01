@@ -67,9 +67,9 @@ const project = new GitHubActionTypeScriptProject({
         required: false,
       },
       noFailOnDestructiveChanges: {
-        description: '',
+        description: 'List of stages where breaking changes will not fail the build',
         required: false,
-        default: 'List of stages where breaking changes will not fail the build',
+        default: '',
       },
       cdkOutDir: {
         description: 'The location of the CDK output directory',
