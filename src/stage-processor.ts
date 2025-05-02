@@ -205,12 +205,12 @@ export class AssemblyProcessor {
    * @param comments the comments object to use to create the comment
    */
   public async commentStages(comments: Comments) {
-    for (const [stageName, info] of Object.entries(this.stageComments)) {
+    for (const [stageName, comment] of Object.entries(this.stageComments)) {
       const stageComment = this.getCommentForStage(stageName);
       if (stageComment.join('\n').length > MAX_COMMENT_LENGTH) {
         await this.commentStacks(comments);
       } else {
-        await this.commentStage(comments, info.hash, stageComment);
+        await this.commentStage(comments, comment.hash, stageComment);
       }
     }
   }
