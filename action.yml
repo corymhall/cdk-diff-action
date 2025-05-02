@@ -37,7 +37,7 @@ inputs:
 
       @default pattern-must-match if "stackSelectorPatterns" is provided, otherwise "all-stacks"
       @see https://github.com/aws/aws-cdk-cli/tree/main/packages/%40aws-cdk/toolkit-lib#stack-selection
-    default: ""
+    default: all-stacks
     required: false
   noFailOnDestructiveChanges:
     description: List of stages where breaking changes will not fail the build

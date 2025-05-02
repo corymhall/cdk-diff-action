@@ -63,7 +63,7 @@ const project = new GitHubActionTypeScriptProject({
           '@default pattern-must-match if "stackSelectorPatterns" is provided, otherwise "all-stacks"',
           '@see https://github.com/aws/aws-cdk-cli/tree/main/packages/%40aws-cdk/toolkit-lib#stack-selection',
         ].join('\n'),
-        default: '',
+        default: 'all-stacks',
         required: false,
       },
       noFailOnDestructiveChanges: {
