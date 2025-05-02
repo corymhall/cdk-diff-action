@@ -1,4 +1,4 @@
-import { getInput, getBooleanInput, getMultilineInput, info } from '@actions/core';
+import { getInput, getBooleanInput, getMultilineInput, debug } from '@actions/core';
 import * as github from '@actions/github';
 import { DiffMethod, NonInteractiveIoHost, Toolkit } from '@aws-cdk/toolkit-lib';
 import { Comments } from './comment';
@@ -21,7 +21,7 @@ export async function run() {
     inputs.stackSelectionStrategy = 'pattern-must-match';
   }
 
-  info(`Inputs: ${JSON.stringify(inputs, null, 2)}`);
+  debug(`Inputs: ${JSON.stringify(inputs, null, 2)}`);
 
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
