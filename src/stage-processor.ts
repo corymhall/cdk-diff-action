@@ -1,6 +1,7 @@
 import * as crypto from 'crypto';
 import { Writable, WritableOptions } from 'stream';
 import { StringDecoder } from 'string_decoder';
+import { info } from '@actions/core';
 import { TemplateDiff, formatDifferences } from '@aws-cdk/cloudformation-diff';
 import { CloudAssembly } from '@aws-cdk/cx-api';
 import { DiffMethod, StackSelectionStrategy, StackSelector, Toolkit } from '@aws-cdk/toolkit-lib';
@@ -148,10 +149,12 @@ export class AssemblyProcessor {
     if (!this._templateDiffs) {
       await this.diffApp();
     }
+    info(`Diffs: ${JSON.stringify(this._templateDiffs, null, 2)}`);
     for (const stage of this.stageDiffInfo) {
       for (const stack of stage.stacks) {
         try {
           const { comment, changes } = await this.diffStack(stack);
+          info(`Diff for stack ${stack.stackName}: ${JSON.stringify(comment, null, 2)}`);
           this.stageComments[stage.name].stackComments[stack.stackName].push(...comment);
           if (!ignoreDestructiveChanges.includes(stage.name)) {
             this.stageComments[stage.name].destructiveChanges += changes;
