@@ -1,4 +1,4 @@
-import { getInput, getBooleanInput } from '@actions/core';
+import { getInput, getBooleanInput, notice } from '@actions/core';
 import * as github from '@actions/github';
 import { AssemblyManifestReader } from './assembly';
 import { Comments } from './comment';
@@ -14,6 +14,10 @@ export async function run() {
     noFailOnDestructiveChanges: getInput('noFailOnDestructiveChanges').split(','),
     cdkOutDir: getInput('cdkOutDir') ?? 'cdk.out',
   };
+
+  notice('cdk-diff-action v2-beta is now available! Please consider using it and provide feedback.', {
+    title: 'cdk-diff-action v2-beta',
+  });
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
   try {
