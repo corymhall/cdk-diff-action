@@ -2,6 +2,9 @@
 
 GitHub action to comment on PRs with the stack diff.
 
+> [!INFO]
+> Try the [v2-beta](https://github.com/corymhall/cdk-diff-action/tree/v2-beta) for the latest features
+
 ![](./diff-screenshot.png)
 
 ## :sparkles: Features
