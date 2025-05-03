@@ -1,10 +1,14 @@
 import * as crypto from 'crypto';
 import { Writable, WritableOptions } from 'stream';
 import { StringDecoder } from 'string_decoder';
+import { debug } from '@actions/core';
 import { TemplateDiff, formatDifferences } from '@aws-cdk/cloudformation-diff';
-import { StackInfo, StageInfo } from './assembly';
+import { CloudAssembly } from '@aws-cdk/cx-api';
+import { DiffMethod, StackSelectionStrategy, StackSelector, Toolkit } from '@aws-cdk/toolkit-lib';
+import { AssemblyManifestReader, StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
-import { ChangeDetails, StackDiff } from './diff';
+import { ChangeDetails, StackDiff, StackDiffInfo, StageDiffInfo } from './diff';
+import { Inputs } from './inputs';
 
 // the max comment length allowed by GitHub
 const MAX_COMMENT_LENGTH = 65536;
@@ -31,17 +35,53 @@ interface StageComment {
   destructiveChanges: number;
 }
 
+export interface AssemblyProcessorOptions extends Omit<Inputs, 'githubToken' | 'diffMethod'> {
+  diffMethod: DiffMethod;
+  toolkit: Toolkit;
+}
+
 /**
  * StageProcessor processes a CDK stage and creates a comment on the GitHub PR
  * detailing the stack diffs
  */
-export class StageProcessor {
+export class AssemblyProcessor {
   private readonly stageComments: { [stageName: string]: StageComment } = {};
-  constructor(
-    private readonly stages: StageInfo[],
-    private readonly allowedDestroyTypes: string[],
-  ) {
-    this.stages.forEach(stage => {
+  private _stageInfo?: StageInfo[];
+  private _stages?: StageDiffInfo[];
+  private _templateDiffs?: { [stackName: string]: TemplateDiff };
+  constructor(private options: AssemblyProcessorOptions) { }
+
+  private get stageInfo(): StageInfo[] {
+    if (!this._stageInfo) {
+      throw new Error('Stage info has not been created yet');
+    }
+    return this._stageInfo;
+  }
+
+  private processAssembly(cloudAssembly: CloudAssembly) {
+    const assembly = new AssemblyManifestReader(cloudAssembly, this.templateDiffs);
+    this._stageInfo = assembly.stages;
+    if (assembly.stacks.length) {
+      this.stageInfo.push({
+        name: 'DefaultStage',
+        stacks: assembly.stacks,
+      });
+    }
+
+  }
+
+  private get templateDiffs(): { [stackName: string]: TemplateDiff } {
+    if (!this._templateDiffs) {
+      throw new Error('Template diffs have not been created yet');
+    }
+    return this._templateDiffs;
+  }
+
+  private get stageDiffInfo(): StageDiffInfo[] {
+    if (this._stages) {
+      return this._stages;
+    }
+    this._stages = this.stageInfo.flatMap(stage => {
       this.stageComments[stage.name] = {
         destructiveChanges: 0,
         stackComments: stage.stacks.reduce((prev, curr) => {
@@ -53,27 +93,69 @@ export class StageProcessor {
           ...stage.stacks.reduce((prev, curr) => {
             prev.stacks.push({
               name: curr.name,
-              lookupRole: curr.lookupRole,
-              account: curr.account,
-              region: curr.region,
             });
             return prev;
-          }, { stacks: [] } as { stacks: Omit<StackInfo, 'content'>[] }), // we don't want the content to be part of the hash
+          }, { stacks: [] } as { stacks: StackInfo[] }),
         })),
       };
+      return {
+        name: stage.name,
+        stacks: stage.stacks.map(stack => {
+          if (!this.templateDiffs[stack.name]) {
+            throw new Error(`Template diffs have not been created yet for stack ${stack.name}`);
+          }
+          return {
+            stackName: stack.name,
+            diff: this.templateDiffs[stack.name],
+          };
+        }),
+      };
     });
+    return this._stages;
+  }
+
+  public async diffApp(): Promise<{ [name: string]: TemplateDiff }> {
+    const assemblySource = await this.options.toolkit.fromAssemblyDirectory(this.options.cdkOutDir, {
+    // When checkVersion=true it means users can't upgrade their CDK version before
+    // we do and they pull in the new action version. Probably better to default to false
+    // and see what happens
+      loadAssemblyOptions: { checkVersion: false },
+    });
+
+    const selector: StackSelector = this.options.stackSelectorPatterns.length > 0 ? {
+      strategy: this.options.stackSelectionStrategy as StackSelectionStrategy,
+      patterns: this.options.stackSelectorPatterns,
+    } : {
+      strategy: this.options.stackSelectionStrategy as StackSelectionStrategy,
+    };
+    const diffResult = await this.options.toolkit.diff(assemblySource, {
+      stacks: selector,
+      method: this.options.diffMethod,
+    });
+
+    this._templateDiffs = diffResult;
+    await using cloudAssembly = await assemblySource.produce();
+    this.processAssembly(cloudAssembly.cloudAssembly);
+    return diffResult;
   }
 
   /**
    * Process all of the stages. Once this has been run
    * the comment can be created with `commentStages()`
    */
-  public async processStages(ignoreDestructiveChanges: string[] = []) {
-    for (const stage of this.stages) {
+  public async processStages(
+    ignoreDestructiveChanges: string[] = [],
+  ) {
+    if (!this._templateDiffs) {
+      await this.diffApp();
+    }
+    debug(`Diffs: ${JSON.stringify(this._templateDiffs, null, 2)}`);
+    for (const stage of this.stageDiffInfo) {
       for (const stack of stage.stacks) {
         try {
           const { comment, changes } = await this.diffStack(stack);
-          this.stageComments[stage.name].stackComments[stack.name].push(...comment);
+          debug(`Diff for stack ${stack.stackName}: ${JSON.stringify(comment, null, 2)}`);
+          this.stageComments[stage.name].stackComments[stack.stackName].push(...comment);
           if (!ignoreDestructiveChanges.includes(stage.name)) {
             this.stageComments[stage.name].destructiveChanges += changes;
           }
@@ -123,12 +205,12 @@ export class StageProcessor {
    * @param comments the comments object to use to create the comment
    */
   public async commentStages(comments: Comments) {
-    for (const [stageName, info] of Object.entries(this.stageComments)) {
+    for (const [stageName, comment] of Object.entries(this.stageComments)) {
       const stageComment = this.getCommentForStage(stageName);
       if (stageComment.join('\n').length > MAX_COMMENT_LENGTH) {
         await this.commentStacks(comments);
       } else {
-        await this.commentStage(comments, info.hash, stageComment);
+        await this.commentStage(comments, comment.hash, stageComment);
       }
     }
   }
@@ -145,12 +227,12 @@ export class StageProcessor {
     return false;
   }
 
-  private async diffStack(stack: StackInfo): Promise<{comment: string[]; changes: number}> {
+  private async diffStack(stack: StackDiffInfo): Promise<{comment: string[]; changes: number}> {
     try {
-      const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
+      const stackDiff = new StackDiff(stack, this.options.allowedDestroyTypes);
       const { diff, changes } = await stackDiff.diffStack();
       return {
-        comment: this.formatStackComment(stack.name, diff, changes),
+        comment: this.formatStackComment(stack.stackName, diff, changes),
         changes: changes.destructiveChanges.length,
       };
 
@@ -185,12 +267,6 @@ export class StageProcessor {
       '<details><summary>Details</summary>',
       '',
     ]);
-    if (changes.unknownEnvironment) {
-      output.push('> [!INFO]\n> ***Unknown Environment*** :information_source:');
-      output.push('> This stack has an unknown environment which may mean the diff is performed against the wrong environment');
-      output.push(`> Environmment used ${changes.unknownEnvironment}`);
-      output.push('');
-    }
     if (changes.destructiveChanges.length) {
       output.push('');
       output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),

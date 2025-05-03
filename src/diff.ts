@@ -1,9 +1,28 @@
-import { ResourceDifference, ResourceImpact, TemplateDiff, fullDiff } from '@aws-cdk/cloudformation-diff';
-import { CloudFormationClient, GetTemplateCommand, StackNotFoundException } from '@aws-sdk/client-cloudformation';
-import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
-import { fromTemporaryCredentials } from '@aws-sdk/credential-providers';
-import { AwsCredentialIdentityProvider } from '@smithy/types';
-import { StackInfo } from './assembly';
+import { ResourceDifference, ResourceImpact, TemplateDiff } from '@aws-cdk/cloudformation-diff';
+
+export interface StackDiffInfo {
+  /**
+   * The name of the stack
+   */
+  stackName: string;
+
+  /**
+   * The template diff for the stack
+   */
+  diff: TemplateDiff;
+}
+
+export interface StageDiffInfo {
+  /**
+   * The name of the stage
+   */
+  name: string;
+
+  /**
+   * The stacks within the stage
+   */
+  stacks: StackDiffInfo[];
+}
 
 /**
  * Details on what changes are occurring in this stack
@@ -28,15 +47,6 @@ export interface ChangeDetails {
    * Information on any destructive changes
    */
   destructiveChanges: DestructiveChange[];
-
-  /**
-   * Whether this stack has an unknown env. If that is the case
-   * then this returns the environment credentials that are being used
-   * in the format aws://<account>/<region>
-   *
-   * @default - account is known
-   */
-  unknownEnvironment?: string;
 }
 
 /**
@@ -63,116 +73,21 @@ export interface DestructiveChange {
  * StackDiff performs the diff on a stack
  */
 export class StackDiff {
-  private readonly client: CloudFormationClient;
-  private readonly credentials: AwsCredentialIdentityProvider | undefined;
   constructor(
-    private readonly stack: StackInfo,
+    private readonly stack: StackDiffInfo,
     private readonly allowedDestroyTypes: string[],
-  ) {
-    let credentials: AwsCredentialIdentityProvider | undefined;
-    // if there is a lookup role then assume that, otherwise
-    // just use the default credentials
-    credentials = stack.lookupRole ? fromTemporaryCredentials({
-      params: {
-        RoleArn: stack.lookupRole.arn.replace('${AWS::Partition}', this.getPartition()),
-        RoleSessionName: 'cdk-diff-action',
-        ExternalId: stack.lookupRole.assumeRoleExternalId,
-        DurationSeconds: 900,
-      },
-    }) : undefined;
-    this.credentials = credentials;
-    this.client = new CloudFormationClient({
-      credentials,
-      region: this.stack.region,
-    });
-  }
-
-  private getPartition(): string {
-    if (this.stack.region?.startsWith('us-gov-')) {
-      return 'aws-us-gov';
-    } else if (this.stack.region?.startsWith('cn-')) {
-      return 'aws-cn';
-    } else {
-      return 'aws';
-    }
-  }
-
-  /**
-   * Validates the environment of the stack and whether it matches
-   * the credentials being used by the GitHub action
-   *
-   * There are two cases that we care about:
-   * 1. The stack has an account and region defined _and_ the credentials
-   *   being used by the GitHub action are for a different account and region.
-   *   In this case we throw an error because the stack diff would not be correct
-   * 2. The stack has an account and region that are _not_ defined. In this case
-   *    We will return true to indicate that the environment is unknown. This will be used
-   *    later to print a warning in the stack diff.
-   *
-   * @returns whether or not the environment is unknown
-   */
-  private async validateEnvironment(): Promise<string | undefined> {
-    let unknownAccount = false;
-    let unknownRegion = false;
-    const stsClient = new STSClient({
-      credentials: this.credentials,
-    });
-    const callerIdentity = new GetCallerIdentityCommand({ });
-    const identity = await stsClient.send(callerIdentity);
-    const configRegion = await this.client.config.region();
-    if (!this.stack.region) {
-      unknownRegion = true;
-    }
-    if (!this.stack.account) {
-      unknownAccount = true;
-    }
-    if (this.stack.account && identity.Account !== this.stack.account) {
-      throw new Error(`Credentials are for account ${identity.Account} but stack is in account ${this.stack.account}`);
-    }
-
-    if (this.stack.region && configRegion !== this.stack.region) {
-      throw new Error(`Credentials are for region ${configRegion} but stack is in region ${this.stack.region}`);
-    }
-
-    if (unknownAccount || unknownRegion) {
-      return `aws://${identity.Account}/${configRegion}`;
-    }
-
-    return;
-  }
+  ) { }
 
   /** Performs the diff on the CloudFormation stack
    * This reads the existing stack from CFN and then uses the cloudformation-diff
    * package to perform the diff and collect additional information on the type of changes
    */
   public async diffStack(): Promise<{ diff: TemplateDiff; changes: ChangeDetails }> {
-    const unknownEnv = await this.validateEnvironment();
-
-    const cmd = new GetTemplateCommand({
-      StackName: this.stack.name,
-    });
-    let existingTemplate: { [key: string]: any } = {};
-    try {
-      const res = await this.client.send(cmd);
-      existingTemplate = res.TemplateBody ? JSON.parse(res.TemplateBody) : {};
-    } catch (e: any) {
-      if (e instanceof StackNotFoundException) {
-        existingTemplate = {};
-      }
-    }
-    try {
-      const diff = fullDiff(existingTemplate, this.stack.content);
-      const changes = this.evaluateDiff(this.stack.name, diff);
-      changes.unknownEnvironment = unknownEnv;
-      return {
-        diff,
-        changes,
-      };
-
-    } catch (e: any) {
-      console.error('Error getting remote template: ', e);
-      throw e;
-    }
+    const changes = this.evaluateDiff(this.stack.stackName, this.stack.diff);
+    return {
+      diff: this.stack.diff,
+      changes,
+    };
   }
 
   private evaluateDiff(templateId: string, templateDiff: TemplateDiff): ChangeDetails {

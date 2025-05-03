@@ -1,35 +1,45 @@
-import { getInput, getBooleanInput } from '@actions/core';
+import { getInput, getBooleanInput, getMultilineInput, debug } from '@actions/core';
 import * as github from '@actions/github';
-import { AssemblyManifestReader } from './assembly';
+import { DiffMethod, NonInteractiveIoHost, Toolkit } from '@aws-cdk/toolkit-lib';
 import { Comments } from './comment';
 import { Inputs } from './inputs';
-import { StageProcessor } from './stage-processor';
+import { AssemblyProcessor } from './stage-processor';
 
 export async function run() {
   const inputs: Inputs = {
-    allowedDestroyTypes: getInput('allowedDestroyTypes').split(','),
+    allowedDestroyTypes: getMultilineInput('allowedDestroyTypes'),
     failOnDestructiveChanges: getBooleanInput('failOnDestructiveChanges'),
     githubToken: getInput('githubToken'),
-    noDiffForStages: getInput('noDiffForStages').split(','),
-    noFailOnDestructiveChanges: getInput('noFailOnDestructiveChanges').split(','),
-    cdkOutDir: getInput('cdkOutDir') ?? 'cdk.out',
+    stackSelectorPatterns: getMultilineInput('stackSelectorPatterns'),
+    stackSelectionStrategy: getInput('stackSelectionStrategy', { required: true }),
+    noFailOnDestructiveChanges: getMultilineInput('noFailOnDestructiveChanges'),
+    cdkOutDir: getInput('cdkOutDir', { required: true }),
+    diffMethod: getInput('diffMethod', { required: true }),
   };
+
+  if (inputs.stackSelectorPatterns.length > 0 && inputs.stackSelectionStrategy === 'all-stacks') {
+    inputs.stackSelectionStrategy = 'pattern-must-match';
+  }
+
+  debug(`Inputs: ${JSON.stringify(inputs, null, 2)}`);
+
   const octokit = github.getOctokit(inputs.githubToken);
   const context = github.context;
+
+  const toolkit = new Toolkit({
+    ioHost: new NonInteractiveIoHost({
+      logLevel: 'trace',
+    }),
+  });
+  const method = inputs.diffMethod === 'template-only'
+    ? DiffMethod.TemplateOnly() : DiffMethod.ChangeSet();
   try {
-    const assembly = AssemblyManifestReader.fromPath(inputs.cdkOutDir);
-    var stages = assembly.stages;
-    if (assembly.stacks.length) {
-      stages.push({
-        name: 'DefaultStage',
-        stacks: assembly.stacks,
-      });
-    }
-    if (inputs.noDiffForStages.length) {
-      stages = stages.filter( stage => !inputs.noDiffForStages.includes(stage.name) );
-    }
     const comments = new Comments(octokit, context);
-    const processor = new StageProcessor(stages, inputs.allowedDestroyTypes);
+    const processor = new AssemblyProcessor({
+      ...inputs,
+      diffMethod: method,
+      toolkit,
+    });
     try {
       await processor.processStages(inputs.noFailOnDestructiveChanges);
     } catch (e: any) {
