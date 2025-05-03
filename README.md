@@ -56,7 +56,7 @@ jobs:
           role-to-assume: arn:aws:iam::1234567891012:role/cdk_github_actions
           role-session-name: github
       - name: Diff
-        uses: corymhall/cdk-diff-action@v1
+        uses: corymhall/cdk-diff-action@v2-beta
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -85,25 +85,33 @@ jobs:
   Synth:
     steps:
       - name: Diff
-        uses: corymhall/cdk-diff-action@v1
+        uses: corymhall/cdk-diff-action@v2-beta
         with:
-          allowedDestroyTypes: "AWS::ECS::TaskDefinition,AWS::CloudWatch::Dashboard"
+          allowedDestroyTypes: |
+            AWS::ECS::TaskDefinition
+            AWS::CloudWatch::Dashboard
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
 ```
 
 ### Disable showing diff for stages
 
-You can disable displaying the diff for certain stages by using `noDiffForStages`
+You can disable displaying the diff for certain stages or stacks by using
+`stackSelectorPatterns`. `stackSelectorPatterns` using `glob` patterns to filter
+which stacks to diff. To exclude stacks you can use an exclude pattern (e.g.
+`!SomeStage/SampleStack`). To exclude an entire stage you would provide
+`!SomeStage/*`.
 
 ```yml
 jobs:
   Synth:
     steps:
       - name: Diff
-        uses: corymhall/cdk-diff-action@v1
+        uses: corymhall/cdk-diff-action@v2-beta
         with:
-          noDiffForStages: "Stage1,Stage2"
+          StackSelectorPatterns: |
+            !Stage1/*
+            !Stage2/*
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
 
@@ -117,9 +125,11 @@ jobs:
   Synth:
     steps:
       - name: Diff
-        uses: corymhall/cdk-diff-action@v1
+        uses: corymhall/cdk-diff-action@v2-beta
         with:
-          noFailOnDestructiveChanges: "Stage1,Stage2"
+          noFailOnDestructiveChanges: |
+            Stage1
+            Stage2
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
 
@@ -133,7 +143,7 @@ jobs:
   Synth:
     steps:
       - name: Diff
-        uses: corymhall/cdk-diff-action@v1
+        uses: corymhall/cdk-diff-action@v2-beta
         with:
           failOnDestructiveChanges: false
           githubToken: ${{ secrets.GITHUB_TOKEN }}

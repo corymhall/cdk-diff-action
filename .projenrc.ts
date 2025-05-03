@@ -47,20 +47,47 @@ const project = new GitHubActionTypeScriptProject({
         required: false,
         default: 'true',
       },
-      noDiffForStages: {
-        description: 'List of stages to ignore and not show a diff for',
+      stackSelectorPatterns: {
+        description: 'Comma delimited list of stack selector patterns. Use this to control which stages/stacks to diff. By default all stages & stacks are diffed\n\n'+
+        '@see https://github.com/aws/aws-cdk-cli/tree/main/packages/%40aws-cdk/toolkit-lib#stack-selection',
         required: false,
         default: '',
       },
-      noFailOnDestructiveChanges: {
-        description: '',
+      stackSelectionStrategy: {
+        description: [
+          'Used in combination with "stackSelectorPatterns" to control which stacks to diff.',
+          '',
+          'Valid values are "all-stacks", "main-assembly", "only-single", "pattern-match",',
+          '"pattern-must-match", "pattern-must-match-single"',
+          '',
+          '@default pattern-must-match if "stackSelectorPatterns" is provided, otherwise "all-stacks"',
+          '@see https://github.com/aws/aws-cdk-cli/tree/main/packages/%40aws-cdk/toolkit-lib#stack-selection',
+        ].join('\n'),
+        default: 'all-stacks',
         required: false,
-        default: 'List of stages where breaking changes will not fail the build',
+      },
+      noFailOnDestructiveChanges: {
+        description: 'List of stages where breaking changes will not fail the build',
+        required: false,
+        default: '',
       },
       cdkOutDir: {
         description: 'The location of the CDK output directory',
         required: false,
         default: 'cdk.out',
+      },
+      diffMethod: {
+        description: ['The method to create a stack diff.',
+          '',
+          "Valid values are 'change-set' or 'template-only'.",
+          '',
+          'Use changeset diff for the highest fidelity, including analyze resource replacements.',
+          'In this method, diff will use the deploy role instead of the lookup role.',
+          '',
+          "Use template-only diff for a faster, less accurate diff that doesn't require",
+          'permissions to create a change-set.'].join('\n'),
+        required: false,
+        default: 'change-set',
       },
     },
     runs: {
@@ -69,23 +96,19 @@ const project = new GitHubActionTypeScriptProject({
     },
   },
   deps: [
-    '@octokit/webhooks-definitions',
     '@aws-cdk/cloudformation-diff',
+    '@aws-cdk/cx-api',
+    '@aws-cdk/toolkit-lib',
+    '@octokit/webhooks-definitions',
     '@aws-cdk/cloud-assembly-schema',
     '@actions/exec@^1.1.1',
     '@actions/io@^1.1.3',
     '@actions/tool-cache@^2.0.0',
     'fs-extra',
-    '@aws-sdk/client-cloudformation',
-    '@aws-sdk/client-sts',
-    '@smithy/types',
     'chalk@^4',
-    '@aws-sdk/credential-providers',
   ],
   devDeps: [
-    'aws-sdk',
     'mock-fs@^5',
-    'aws-sdk-client-mock',
     '@types/mock-fs@^4',
     'projen-github-action-typescript',
     '@types/fs-extra',
@@ -93,6 +116,20 @@ const project = new GitHubActionTypeScriptProject({
     '@swc/core',
     '@swc/jest',
   ],
+  tsconfig: {
+    compilerOptions: {
+      lib: ['es2022', 'esnext'],
+      // TODO: https://github.com/aws/aws-cdk-cli/issues/418
+      skipLibCheck: true,
+    },
+  },
+  tsconfigDev: {
+    compilerOptions: {
+      lib: ['es2022', 'esnext'],
+      // TODO: https://github.com/aws/aws-cdk-cli/issues/418
+      skipLibCheck: true,
+    },
+  },
   jestOptions: {
     configFilePath: 'jest.config.json',
   },
@@ -215,6 +252,6 @@ workflow?.on({
 });
 
 projenProject.packageTask.reset();
-projenProject.packageTask.exec('cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build --source-map --license licenses.txt');
+projenProject.packageTask.exec('cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build src/index.ts --source-map --transpile-only --license licenses.txt');
 workflow?.addJobs({ enableAutoMerge: autoMergeJob });
 project.synth();
