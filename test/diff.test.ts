@@ -1,9 +1,12 @@
 import * as path from 'path';
+import * as core from '@actions/core';
 import { ResourceImpact } from '@aws-cdk/cloudformation-diff';
 import { DiffMethod, StackSelectionStrategy, Toolkit } from '@aws-cdk/toolkit-lib';
 import mock from 'mock-fs';
 import { FakeIoHost } from './util';
 import { StackDiff } from '../src/diff';
+
+jest.spyOn(core, 'debug').mockImplementation(() => {});
 
 const toolkit = new Toolkit({
   ioHost: new FakeIoHost(),

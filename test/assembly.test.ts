@@ -1,7 +1,9 @@
-import * as path from 'path';
+import * as core from '@actions/core';
 import { CloudAssembly } from '@aws-cdk/cx-api';
 import mock from 'mock-fs';
 import { AssemblyManifestReader } from '../src/assembly';
+
+jest.spyOn(core, 'debug').mockImplementation(() => {});
 
 describe('cloud assembly manifest reader', () => {
   beforeEach(() => {

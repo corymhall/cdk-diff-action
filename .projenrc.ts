@@ -118,12 +118,16 @@ const project = new GitHubActionTypeScriptProject({
   ],
   tsconfig: {
     compilerOptions: {
-      lib: ['es2019', 'esnext'],
+      lib: ['es2022', 'esnext'],
+      // TODO: https://github.com/aws/aws-cdk-cli/issues/418
+      skipLibCheck: true,
     },
   },
   tsconfigDev: {
     compilerOptions: {
-      lib: ['es2019', 'esnext'],
+      lib: ['es2022', 'esnext'],
+      // TODO: https://github.com/aws/aws-cdk-cli/issues/418
+      skipLibCheck: true,
     },
   },
   jestOptions: {

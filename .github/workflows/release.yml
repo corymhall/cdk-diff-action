@@ -81,8 +81,6 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_REF: ${{ github.sha }}
         run: |-
           mv dist/package.json ./
           mv dist/yarn.lock ./
