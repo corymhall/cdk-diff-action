@@ -1,4 +1,4 @@
-import { getInput, getBooleanInput, getMultilineInput, debug } from '@actions/core';
+import { getInput, getBooleanInput, getMultilineInput, debug, info } from '@actions/core';
 import * as github from '@actions/github';
 import { DiffMethod, NonInteractiveIoHost, Toolkit } from '@aws-cdk/toolkit-lib';
 import { Comments } from './comment';
@@ -16,6 +16,8 @@ export async function run() {
     cdkOutDir: getInput('cdkOutDir', { required: true }),
     diffMethod: getInput('diffMethod', { required: true }),
   };
+
+  info(`context: ${JSON.stringify(github.context, null, 2)}`);
 
   if (inputs.stackSelectorPatterns.length > 0 && inputs.stackSelectionStrategy === 'all-stacks') {
     inputs.stackSelectionStrategy = 'pattern-must-match';
