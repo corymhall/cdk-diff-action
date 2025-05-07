@@ -23,6 +23,11 @@ interface StageComment {
   stackComments: { [stackName: string]: string[] };
 
   /**
+   * The title of the comment
+   */
+  title?: string;
+
+  /**
    * The unique hash for the stage comment
    * This will be used to lookup the stage comment on the PR
    * so that it can be overwritten
@@ -38,6 +43,7 @@ interface StageComment {
 export interface AssemblyProcessorOptions extends Omit<Inputs, 'githubToken' | 'diffMethod'> {
   diffMethod: DiffMethod;
   toolkit: Toolkit;
+  defaultStageDisplayName: string;
 }
 
 /**
@@ -63,7 +69,7 @@ export class AssemblyProcessor {
     this._stageInfo = assembly.stages;
     if (assembly.stacks.length) {
       this.stageInfo.push({
-        name: 'DefaultStage',
+        name: this.options.defaultStageDisplayName,
         stacks: assembly.stacks,
       });
     }
@@ -83,6 +89,7 @@ export class AssemblyProcessor {
     }
     this._stages = this.stageInfo.flatMap(stage => {
       this.stageComments[stage.name] = {
+        title: this.options.title,
         destructiveChanges: 0,
         stackComments: stage.stacks.reduce((prev, curr) => {
           prev[curr.name] = [];
@@ -90,6 +97,7 @@ export class AssemblyProcessor {
         }, {} as { [stackName: string]: string[] }),
         hash: md5Hash(JSON.stringify({
           stageName: stage.name,
+          title: this.options.title,
           ...stage.stacks.reduce((prev, curr) => {
             prev.stacks.push({
               name: curr.name,
@@ -256,6 +264,10 @@ export class AssemblyProcessor {
   private formatStackComment(stackName: string, diff: TemplateDiff, changes: ChangeDetails): string[] {
     const output: string[] = [];
     const emoji = this.getEmoji(changes);
+    if (this.options.title) {
+      output.push(`## ${this.options.title}`);
+      output.push('');
+    }
     if (diff.isEmpty) {
       output.push(`No Changes for stack: ${stackName} ${emoji}`);
       return output;

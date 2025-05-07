@@ -101,6 +101,7 @@ describe('StageProcessor', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
@@ -134,6 +135,7 @@ describe('StageProcessor', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
@@ -168,6 +170,7 @@ describe('StageProcessor', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
@@ -202,6 +205,7 @@ describe('StageProcessor', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
@@ -234,6 +238,7 @@ describe('StageProcessor', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
@@ -342,6 +347,7 @@ describe('StageProcessor', () => {
       'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
@@ -359,6 +365,100 @@ describe('StageProcessor', () => {
     expect(p.SomeStage.stackComments['SomeStage-test-stack'].length).not.toEqual(0);
     expect(p.SomeStage.stackComments['SomeOtherStage-test-stack']).toEqual(undefined);
     expect(p.SomeStage.destructiveChanges).toEqual(1);
+  });
+
+});
+
+describe('default stage', () => {
+  beforeEach(() => {
+
+    mockOutDir = {
+      'manifest.json': JSON.stringify({
+        version: '36.0.0',
+        artifacts: {
+          'test-stack': {
+            type: 'aws:cloudformation:stack',
+            environment: 'aws://unknown-account/unknown-region',
+            properties: {
+              templateFile: 'test-stack.template.json',
+              validateOnSynth: false,
+              stackName: 'test-stack',
+            },
+            displayName: 'test-stack',
+          },
+        },
+      }),
+      ['test-stack.template.json']: JSON.stringify({
+        Resources: {
+          MyRole: {
+            Type: 'AWS::IAM::Role',
+            Properties: {
+              RoleName: 'MyCustomName',
+            },
+          },
+        },
+      }),
+    };
+
+    mockOutDir['SomeStage-test-stack.template.json'] = JSON.stringify({
+      Resources: {
+        MyRole: {
+          Type: 'AWS::IAM::Role',
+          Properties: {
+            RoleName: 'MyCustomName',
+          },
+        },
+      },
+    });
+  });
+
+  test('with defaults', async () => {
+    mock({
+      'cdk.out': mockOutDir,
+      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+    });
+    const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
+      toolkit,
+      allowedDestroyTypes: [],
+      cdkOutDir: 'cdk.out',
+      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      failOnDestructiveChanges: true,
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
+      noFailOnDestructiveChanges: [],
+    });
+    await processor.processStages();
+    const p = (processor as any).stageComments;
+    expect(p).toEqual({
+      DefaultStage: expect.any(Object),
+    });
+    expect(p.DefaultStage.stackComments['test-stack']).toEqual(['No Changes for stack: test-stack :white_check_mark:']);
+  });
+
+  test('with custom', async () => {
+    mock({
+      'cdk.out': mockOutDir,
+      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+    });
+    const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'MyStage',
+      title: 'Diff for MyStage',
+      toolkit,
+      allowedDestroyTypes: [],
+      cdkOutDir: 'cdk.out',
+      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      failOnDestructiveChanges: true,
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
+      noFailOnDestructiveChanges: [],
+    });
+    await processor.processStages();
+    const p = (processor as any).stageComments;
+    expect(p).toEqual({
+      MyStage: expect.any(Object),
+    });
+    expect(p.MyStage.stackComments['test-stack']).toEqual(['## Diff for MyStage', '', 'No Changes for stack: test-stack :white_check_mark:']);
   });
 });
 
@@ -403,6 +503,7 @@ describe('stack comments', () => {
 
     jest.spyOn(Toolkit.prototype, 'diff').mockResolvedValue(templateDiff);
     const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
