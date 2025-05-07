@@ -51,7 +51,10 @@ export interface AssemblyProcessorOptions extends Omit<Inputs, 'githubToken' | '
  * detailing the stack diffs
  */
 export class AssemblyProcessor {
-  private readonly stageComments: { [stageName: string]: StageComment } = {};
+  /**
+   * @internal
+   */
+  public readonly stageComments: { [stageName: string]: StageComment } = {};
   private _stageInfo?: StageInfo[];
   private _stages?: StageDiffInfo[];
   private _templateDiffs?: { [stackName: string]: TemplateDiff };
@@ -179,6 +182,7 @@ export class AssemblyProcessor {
     for (const [stageName, stage] of Object.entries(this.stageComments)) {
       for (const [stackName, comment] of Object.entries(stage.stackComments)) {
         const hash = md5Hash(JSON.stringify({
+          title: this.options.title,
           stageName,
           stackName,
         }));
@@ -264,10 +268,6 @@ export class AssemblyProcessor {
   private formatStackComment(stackName: string, diff: TemplateDiff, changes: ChangeDetails): string[] {
     const output: string[] = [];
     const emoji = this.getEmoji(changes);
-    if (this.options.title) {
-      output.push(`## ${this.options.title}`);
-      output.push('');
-    }
     if (diff.isEmpty) {
       output.push(`No Changes for stack: ${stackName} ${emoji}`);
       return output;
@@ -301,10 +301,18 @@ export class AssemblyProcessor {
     return output;
   }
 
+  /**
+   * Only used when the stage comment is too long and we are creating
+   * a separate comment for each stack
+   */
   private getCommentForStack(stageName: string, stackName: string, comment: string[]): string[] {
     const output: string[] = [];
     if (!comment.length) {
       return output;
+    }
+    if (this.options.title) {
+      output.push(`## ${this.options.title}`);
+      output.push('');
     }
     output.push(`### Diff for stack: ${stageName} / ${stackName}`);
 
@@ -317,6 +325,10 @@ export class AssemblyProcessor {
     const comments = Object.values(this.stageComments[stageName].stackComments).flatMap(x => x);
     if (!comments.length) {
       return output;
+    }
+    if (this.options.title) {
+      output.push(`## ${this.options.title}`);
+      output.push('');
     }
     output.push(`### Diff for stage: ${stageName}`);
 

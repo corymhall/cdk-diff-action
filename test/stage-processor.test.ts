@@ -454,11 +454,12 @@ describe('default stage', () => {
       noFailOnDestructiveChanges: [],
     });
     await processor.processStages();
-    const p = (processor as any).stageComments;
+    const p = processor.stageComments;
     expect(p).toEqual({
       MyStage: expect.any(Object),
     });
-    expect(p.MyStage.stackComments['test-stack']).toEqual(['## Diff for MyStage', '', 'No Changes for stack: test-stack :white_check_mark:']);
+    expect(p.MyStage.title).toEqual('Diff for MyStage');
+    expect(p.MyStage.stackComments['test-stack']).toEqual(['No Changes for stack: test-stack :white_check_mark:']);
   });
 });
 
