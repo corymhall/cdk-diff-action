@@ -69,4 +69,18 @@ export interface Inputs {
    * @default cdk.out
    */
   cdkOutDir: string;
+
+  /**
+   * An optional display name for the CDK default stage.
+   *
+   * @default DefaultStage
+   */
+  defaultStageDisplayName: string;
+
+  /**
+   * An optional title for each diff comment on the PR.
+   *
+   * @default - no title
+   */
+  title?: string;
 }
