@@ -16,6 +16,10 @@ import { AssemblyProcessor } from "./stage-processor";
 
 export async function run() {
   const inputs: Inputs = {
+    title: getInput("title") || undefined,
+    defaultStageDisplayName: getInput("defaultStageDisplayName", {
+      required: true,
+    }),
     allowedDestroyTypes: getMultilineInput("allowedDestroyTypes"),
     failOnDestructiveChanges: getBooleanInput("failOnDestructiveChanges"),
     githubToken: getInput("githubToken"),

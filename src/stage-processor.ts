@@ -28,6 +28,11 @@ interface StageComment {
   stackComments: { [stackName: string]: string[] };
 
   /**
+   * The title of the comment
+   */
+  title?: string;
+
+  /**
    * The unique hash for the stage comment
    * This will be used to lookup the stage comment on the PR
    * so that it can be overwritten
@@ -44,6 +49,7 @@ export interface AssemblyProcessorOptions
   extends Omit<Inputs, "githubToken" | "diffMethod"> {
   diffMethod: DiffMethod;
   toolkit: Toolkit;
+  defaultStageDisplayName: string;
 }
 
 /**
@@ -51,7 +57,10 @@ export interface AssemblyProcessorOptions
  * detailing the stack diffs
  */
 export class AssemblyProcessor {
-  private readonly stageComments: { [stageName: string]: StageComment } = {};
+  /**
+   * @internal
+   */
+  public readonly stageComments: { [stageName: string]: StageComment } = {};
   private _stageInfo?: StageInfo[];
   private _stages?: StageDiffInfo[];
   private _templateDiffs?: { [stackName: string]: TemplateDiff };
@@ -72,7 +81,7 @@ export class AssemblyProcessor {
     this._stageInfo = assembly.stages;
     if (assembly.stacks.length) {
       this.stageInfo.push({
-        name: "DefaultStage",
+        name: this.options.defaultStageDisplayName,
         stacks: assembly.stacks,
       });
     }
@@ -91,6 +100,7 @@ export class AssemblyProcessor {
     }
     this._stages = this.stageInfo.flatMap((stage) => {
       this.stageComments[stage.name] = {
+        title: this.options.title,
         destructiveChanges: 0,
         stackComments: stage.stacks.reduce(
           (prev, curr) => {
@@ -102,6 +112,7 @@ export class AssemblyProcessor {
         hash: md5Hash(
           JSON.stringify({
             stageName: stage.name,
+            title: this.options.title,
             ...stage.stacks.reduce(
               (prev, curr) => {
                 prev.stacks.push({
@@ -200,8 +211,10 @@ export class AssemblyProcessor {
       for (const [stackName, comment] of Object.entries(stage.stackComments)) {
         const hash = md5Hash(
           JSON.stringify({
+            title: this.options.title,
             stageName,
             stackName,
+            comment,
           }),
         );
         const stackComment = this.getCommentForStack(
@@ -335,6 +348,10 @@ export class AssemblyProcessor {
     return output;
   }
 
+  /**
+   * Only used when the stage comment is too long and we are creating
+   * a separate comment for each stack
+   */
   private getCommentForStack(
     stageName: string,
     stackName: string,
@@ -343,6 +360,10 @@ export class AssemblyProcessor {
     const output: string[] = [];
     if (!comment.length) {
       return output;
+    }
+    if (this.options.title) {
+      output.push(`## ${this.options.title}`);
+      output.push("");
     }
     output.push(`### Diff for stack: ${stageName} / ${stackName}`);
 
@@ -357,6 +378,10 @@ export class AssemblyProcessor {
     ).flatMap((x) => x);
     if (!comments.length) {
       return output;
+    }
+    if (this.options.title) {
+      output.push(`## ${this.options.title}`);
+      output.push("");
     }
     output.push(`### Diff for stage: ${stageName}`);
 
