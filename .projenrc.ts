@@ -1,5 +1,5 @@
 import { github, typescript } from 'projen';
-import { Transform, UpgradeDependenciesSchedule } from 'projen/lib/javascript';
+import { NodePackageManager, Transform, UpgradeDependenciesSchedule } from 'projen/lib/javascript';
 import { JsonPatch } from 'projen/lib/json-patch';
 import { GitHubActionTypeScriptProject, RunsUsing } from 'projen-github-action-typescript';
 const project = new GitHubActionTypeScriptProject({
@@ -7,6 +7,7 @@ const project = new GitHubActionTypeScriptProject({
   defaultReleaseBranch: 'main',
   authorEmail: '43035978+corymhall@users.noreply.github.com',
   authorName: 'Cory Hall',
+  packageManager: NodePackageManager.NPM,
   name: 'cdk-diff-action',
   githubOptions: {
     mergify: false,
@@ -129,15 +130,11 @@ const project = new GitHubActionTypeScriptProject({
   tsconfig: {
     compilerOptions: {
       lib: ['es2022', 'esnext'],
-      // TODO: https://github.com/aws/aws-cdk-cli/issues/418
-      skipLibCheck: true,
     },
   },
   tsconfigDev: {
     compilerOptions: {
       lib: ['es2022', 'esnext'],
-      // TODO: https://github.com/aws/aws-cdk-cli/issues/418
-      skipLibCheck: true,
     },
   },
   jestOptions: {

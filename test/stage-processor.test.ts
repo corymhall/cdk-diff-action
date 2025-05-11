@@ -112,11 +112,11 @@ describe('StageProcessor', () => {
       noFailOnDestructiveChanges: [],
     });
     await processor.processStages();
-    const p = (processor as any).stageComments;
+    const p = processor.stageComments;
     expect(p).toEqual({
       SomeStage: expect.any(Object),
     });
-    expect(p.SomeStage.stackComments['SomeStage-test-stack']).toEqual(['No Changes for stack: SomeStage-test-stack :white_check_mark:']);
+    expect(p.SomeStage.stackComments['SomeStage/test-stack']).toEqual(['No Changes for stack: SomeStage/test-stack :white_check_mark:']);
   });
 
   test('stage with diff', async () => {
@@ -150,7 +150,7 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       SomeStage: expect.any(Object),
     });
-    expect(p.SomeStage.stackComments['SomeStage-test-stack'].length).not.toEqual(0);
+    expect(p.SomeStage.stackComments['SomeStage/test-stack'].length).not.toEqual(0);
     expect(p.SomeStage.destructiveChanges).toEqual(1);
   });
 
@@ -185,7 +185,7 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       SomeStage: expect.any(Object),
     });
-    expect(p.SomeStage.stackComments['SomeStage-test-stack'].length).not.toEqual(0);
+    expect(p.SomeStage.stackComments['SomeStage/test-stack'].length).not.toEqual(0);
     expect(p.SomeStage.destructiveChanges).toEqual(0);
   });
 
@@ -362,8 +362,8 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       SomeStage: expect.any(Object),
     });
-    expect(p.SomeStage.stackComments['SomeStage-test-stack'].length).not.toEqual(0);
-    expect(p.SomeStage.stackComments['SomeOtherStage-test-stack']).toEqual(undefined);
+    expect(p.SomeStage.stackComments['SomeStage/test-stack'].length).not.toEqual(0);
+    expect(p.SomeStage.stackComments['SomeOtherStage/test-stack']).toEqual(undefined);
     expect(p.SomeStage.destructiveChanges).toEqual(1);
   });
 
@@ -476,14 +476,14 @@ describe('stack comments', () => {
 
     const stacks = createStacks(10);
     stacks.forEach((stack) => {
-      mockOutDir['assembly-SomeStage'][`${stack.name}.template.json`] = JSON.stringify(stack.content);
-      manifestJson.artifacts[stack.name] = {
+      mockOutDir['assembly-SomeStage'][`SomeStage-${stack.name}.template.json`] = JSON.stringify(stack.content);
+      manifestJson.artifacts[`SomeStage-${stack.name}`] = {
         type: 'aws:cloudformation:stack',
         environment: 'aws://1234567891012/us-east-1',
         properties: {
           templateFile: `${stack.name}.template.json`,
           validateOnSynth: false,
-          stackName: stack.name,
+          stackName: `SomeStage-${stack.name}`,
         },
         displayName: `SomeStage/${stack.name}`,
       };
@@ -491,7 +491,7 @@ describe('stack comments', () => {
     mockOutDir['assembly-SomeStage']['manifest.json'] = JSON.stringify(manifestJson);
     const diffInfo: { [stackName: string]: DiffInfo } = {};
     stacks.forEach((stack) => {
-      diffInfo[stack.name] = {
+      diffInfo[`SomeStage/${stack.name}`] = {
         oldValue: 'MyCustomName',
         newValue: fs.readFileSync(path.join(__dirname, '../', 'src', 'stage-processor.ts'), 'utf-8'),
       };
@@ -563,7 +563,7 @@ function createStacks(numStacks: number): any[] {
   const stacks: any[] = [];
   for (let i = 0; i < numStacks; i++) {
     stacks.push({
-      name: `SomeStage-my-stack${i}`,
+      name: `my-stack${i}`,
       content: {
         Resources: {
           MyRole: {

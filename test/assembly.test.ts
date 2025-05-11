@@ -13,19 +13,19 @@ describe('cloud assembly manifest reader', () => {
           ['manifest.json']: JSON.stringify({
             version: '17.0.0',
             artifacts: {
-              'test-stack2': {
+              'SomeStage-test-stack2': {
                 type: 'aws:cloudformation:stack',
                 environment: 'aws://unknown-account/unknown-region',
                 properties: {
                   templateFile: 'test-stack.template.json',
                   validateOnSynth: false,
-                  stackName: 'test-stack2',
+                  stackName: 'SomeStage-test-stack2',
                 },
                 displayName: 'SomeStage/test-stack2',
               },
             },
           }),
-          ['test-stack.template.json']: JSON.stringify({
+          ['SomeStage-test-stack2.template.json']: JSON.stringify({
             data: 'data',
           }),
         },
@@ -50,10 +50,10 @@ describe('cloud assembly manifest reader', () => {
                 validateOnSynth: false,
                 stackName: 'test-stack',
               },
+              displayName: 'test-stack',
             },
           },
         }),
-
       },
     });
   });
@@ -84,14 +84,14 @@ describe('cloud assembly manifest reader', () => {
 
     const manifest = new AssemblyManifestReader(assembly, {
       'test-stack': {} as any,
-      'test-stack2': {} as any,
+      'SomeStage/test-stack2': {} as any,
     });
 
     expect(manifest.stages).toEqual([
       {
         name: 'SomeStage',
         stacks: [{
-          name: 'test-stack2',
+          name: 'SomeStage/test-stack2',
         }],
       },
     ]);
