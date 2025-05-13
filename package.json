@@ -30,12 +30,12 @@
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
-    "@swc/core": "^1.11.22",
+    "@swc/core": "^1.11.24",
     "@swc/jest": "^0.2.38",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.14",
     "@types/mock-fs": "^4",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "@vercel/ncc": "^0.38.3",
@@ -69,7 +69,7 @@
     "fs-extra": "^11.3.0"
   },
   "engines": {
-    "node": ">= 20"
+    "node": ">= 22"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",

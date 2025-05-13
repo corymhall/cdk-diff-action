@@ -102,7 +102,7 @@ const project = new GitHubActionTypeScriptProject({
       },
     },
     runs: {
-      using: RunsUsing.NODE_20,
+      using: 'node22' as RunsUsing,
       main: 'dist/index.js',
     },
   },
@@ -140,7 +140,7 @@ const project = new GitHubActionTypeScriptProject({
   jestOptions: {
     configFilePath: 'jest.config.json',
   },
-  minNodeVersion: '20',
+  minNodeVersion: '22',
 });
 
 
