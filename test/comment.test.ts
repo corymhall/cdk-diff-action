@@ -3,7 +3,7 @@ import { Context } from '@actions/github/lib/context';
 import { GitHub } from '@actions/github/lib/utils';
 import { Comments } from '../src/comment';
 
-jest.spyOn(core, 'debug').mockImplementation(() => {});
+jest.spyOn(core, 'debug').mockImplementation(() => { });
 
 const createComment = jest.fn();
 const updateComment = jest.fn();
@@ -12,6 +12,8 @@ const issues = { createComment, updateComment, listComments };
 
 const rest = { issues };
 const octokit = { rest } as unknown as InstanceType<typeof GitHub>;
+let timestamp = '';
+
 const context: Context = {
   sha: 'some-sha',
   payload: {
@@ -63,6 +65,7 @@ const commentDataWithUnMatchedTag = {
 beforeEach(() => {
   createComment.mockClear();
   updateComment.mockClear();
+  timestamp = new Date().toISOString();
 });
 
 describe('comments', () => {
@@ -94,7 +97,7 @@ describe('comments', () => {
         `<!-- cdk diff action with hash ${hash} -->`,
         'message',
         '',
-        `_Generated for commit ${context.payload.pull_request?.head.sha}_`,
+        `_Generated for commit ${context.payload.pull_request?.head.sha} at ${timestamp}_`,
       ].join('\n'),
       comment_id: 1,
     });
@@ -110,7 +113,7 @@ describe('comments', () => {
         `<!-- cdk diff action with hash ${hash} -->`,
         'message',
         '',
-        `_Generated for commit ${context.payload.pull_request?.head.sha}_`,
+        `_Generated for commit ${context.payload.pull_request?.head.sha} at ${timestamp}_`,
       ].join('\n'),
       issue_number: context.payload.pull_request?.number,
     });
