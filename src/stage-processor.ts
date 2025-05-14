@@ -1,19 +1,19 @@
-import * as crypto from "crypto";
-import { Writable, WritableOptions } from "stream";
-import { StringDecoder } from "string_decoder";
-import { debug } from "@actions/core";
-import { TemplateDiff, formatDifferences } from "@aws-cdk/cloudformation-diff";
-import { CloudAssembly } from "@aws-cdk/cx-api";
+import * as crypto from 'crypto';
+import { Writable, WritableOptions } from 'stream';
+import { StringDecoder } from 'string_decoder';
+import { debug } from '@actions/core';
+import { TemplateDiff, formatDifferences } from '@aws-cdk/cloudformation-diff';
+import { CloudAssembly } from '@aws-cdk/cx-api';
 import {
   DiffMethod,
   StackSelectionStrategy,
   StackSelector,
   Toolkit,
-} from "@aws-cdk/toolkit-lib";
-import { AssemblyManifestReader, StackInfo, StageInfo } from "./assembly";
-import { Comments } from "./comment";
-import { ChangeDetails, StackDiff, StackDiffInfo, StageDiffInfo } from "./diff";
-import { Inputs } from "./inputs";
+} from '@aws-cdk/toolkit-lib';
+import { AssemblyManifestReader, StackInfo, StageInfo } from './assembly';
+import { Comments } from './comment';
+import { ChangeDetails, StackDiff, StackDiffInfo, StageDiffInfo } from './diff';
+import { Inputs } from './inputs';
 
 // the max comment length allowed by GitHub
 const MAX_COMMENT_LENGTH = 65536;
@@ -46,7 +46,7 @@ interface StageComment {
 }
 
 export interface AssemblyProcessorOptions
-  extends Omit<Inputs, "githubToken" | "diffMethod"> {
+  extends Omit<Inputs, 'githubToken' | 'diffMethod'> {
   diffMethod: DiffMethod;
   toolkit: Toolkit;
   defaultStageDisplayName: string;
@@ -68,7 +68,7 @@ export class AssemblyProcessor {
 
   private get stageInfo(): StageInfo[] {
     if (!this._stageInfo) {
-      throw new Error("Stage info has not been created yet");
+      throw new Error('Stage info has not been created yet');
     }
     return this._stageInfo;
   }
@@ -89,7 +89,7 @@ export class AssemblyProcessor {
 
   private get templateDiffs(): { [stackName: string]: TemplateDiff } {
     if (!this._templateDiffs) {
-      throw new Error("Template diffs have not been created yet");
+      throw new Error('Template diffs have not been created yet');
     }
     return this._templateDiffs;
   }
@@ -199,7 +199,7 @@ export class AssemblyProcessor {
             this.stageComments[stage.name].destructiveChanges += changes;
           }
         } catch (e: any) {
-          console.error("Error processing stages: ", e);
+          console.error('Error processing stages: ', e);
           throw e;
         }
       }
@@ -214,7 +214,6 @@ export class AssemblyProcessor {
             title: this.options.title,
             stageName,
             stackName,
-            comment,
           }),
         );
         const stackComment = this.getCommentForStack(
@@ -222,7 +221,7 @@ export class AssemblyProcessor {
           stackName,
           comment,
         );
-        if (stackComment.join("\n").length > MAX_COMMENT_LENGTH) {
+        if (stackComment.join('\n').length > MAX_COMMENT_LENGTH) {
           throw new Error(
             `Comment for stack ${stackName} is too long, please report this as a bug https://github.com/corymhall/cdk-diff-action/issues/new`,
           );
@@ -259,7 +258,7 @@ export class AssemblyProcessor {
   public async commentStages(comments: Comments) {
     for (const [stageName, comment] of Object.entries(this.stageComments)) {
       const stageComment = this.getCommentForStage(stageName);
-      if (stageComment.join("\n").length > MAX_COMMENT_LENGTH) {
+      if (stageComment.join('\n').length > MAX_COMMENT_LENGTH) {
         await this.commentStacks(comments);
       } else {
         await this.commentStage(comments, comment.hash, stageComment);
@@ -290,20 +289,20 @@ export class AssemblyProcessor {
         changes: changes.destructiveChanges.length,
       };
     } catch (e: any) {
-      console.error("Error performing stack diff: ", e);
+      console.error('Error performing stack diff: ', e);
       throw e;
     }
   }
 
   private getEmoji(changes: ChangeDetails): string {
     if (changes.destructiveChanges.length || changes.removedResources) {
-      return ":x:";
+      return ':x:';
     } else if (changes.updatedResources) {
-      return ":yellow_circle:";
+      return ':yellow_circle:';
     } else if (changes.createdResources) {
-      return ":sparkle:";
+      return ':sparkle:';
     }
-    return ":white_check_mark:";
+    return ':white_check_mark:';
   }
 
   private formatStackComment(
@@ -322,29 +321,29 @@ export class AssemblyProcessor {
         `#### Diff for stack: ${stackName} - ` +
           `***${changes.createdResources} to add, ${changes.updatedResources} to update, ${changes.removedResources} to destroy***  ` +
           emoji,
-        "<details><summary>Details</summary>",
-        "",
+        '<details><summary>Details</summary>',
+        '',
       ],
     );
     if (changes.destructiveChanges.length) {
-      output.push("");
-      output.push("> [!WARNING]\n> ***Destructive Changes*** :bangbang:"),
+      output.push('');
+      output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),
         changes.destructiveChanges.forEach((change) => {
           output.push(
             `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
           );
-          output.push("");
+          output.push('');
         });
     }
     const writable = new StringWritable({});
     formatDifferences(writable, diff);
 
-    output.push("");
-    output.push("```shell");
+    output.push('');
+    output.push('```shell');
     output.push(writable.data);
-    output.push("```");
-    output.push("</details>");
-    output.push("");
+    output.push('```');
+    output.push('</details>');
+    output.push('');
     return output;
   }
 
@@ -363,7 +362,7 @@ export class AssemblyProcessor {
     }
     if (this.options.title) {
       output.push(`## ${this.options.title}`);
-      output.push("");
+      output.push('');
     }
     output.push(`### Diff for stack: ${stageName} / ${stackName}`);
 
@@ -381,7 +380,7 @@ export class AssemblyProcessor {
     }
     if (this.options.title) {
       output.push(`## ${this.options.title}`);
-      output.push("");
+      output.push('');
     }
     output.push(`### Diff for stage: ${stageName}`);
 
@@ -389,7 +388,7 @@ export class AssemblyProcessor {
       output.push(
         `> [!WARNING]\n> ${stageComments.destructiveChanges} Destructive Changes`,
       );
-      output.push("");
+      output.push('');
     }
     return output.concat(comments);
   }
@@ -401,7 +400,7 @@ class StringWritable extends Writable {
   constructor(options: WritableOptions) {
     super(options);
     this._decoder = new StringDecoder();
-    this.data = "";
+    this.data = '';
   }
 
   _write(
@@ -409,7 +408,7 @@ class StringWritable extends Writable {
     encoding: string,
     callback: (error?: Error | null) => void,
   ): void {
-    if (encoding === "buffer") {
+    if (encoding === 'buffer') {
       chunk = this._decoder.write(chunk);
     }
 
@@ -424,5 +423,5 @@ class StringWritable extends Writable {
 }
 
 function md5Hash(val: string): string {
-  return crypto.createHash("md5").update(val).digest("hex");
+  return crypto.createHash('md5').update(val).digest('hex');
 }

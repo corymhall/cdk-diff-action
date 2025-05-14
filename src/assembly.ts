@@ -46,10 +46,10 @@ export class AssemblyManifestReader {
   public get stacks(): StackInfo[] {
     const stacks: StackInfo[] = [];
     this.assembly.stacks.forEach((stack)=> {
-      const stackName = stack.stackName ?? stack.id;
+      const stackName = stack.displayName;
       if (this.inDiff(stackName)) {
         stacks.push({
-          name: stack.stackName ?? stack.id,
+          name: stackName,
         });
       }
     });

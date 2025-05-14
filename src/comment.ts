@@ -31,7 +31,7 @@ export class Comments {
       ...this.context.repo,
       issue_number: this.issueNumber,
     });
-    return comments.data.find(comment => comment.body?.includes(hash))?.id;
+    return comments.data.find((comment) => comment.body?.includes(hash))?.id;
   }
 
   /**
@@ -41,7 +41,11 @@ export class Comments {
    * @param content the content of the comment
    * @param commentId the id of the comment to update
    */
-  public async updateComment(commentId: number, hash: string, content: string[]) {
+  public async updateComment(
+    commentId: number,
+    hash: string,
+    content: string[],
+  ) {
     await this.octokit.rest.issues.updateComment({
       ...this.context.repo,
       body: [
