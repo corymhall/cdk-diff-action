@@ -1,7 +1,11 @@
 import * as path from 'path';
 import * as core from '@actions/core';
 import { ResourceImpact } from '@aws-cdk/cloudformation-diff';
-import { DiffMethod, StackSelectionStrategy, Toolkit } from '@aws-cdk/toolkit-lib';
+import {
+  DiffMethod,
+  StackSelectionStrategy,
+  Toolkit,
+} from '@aws-cdk/toolkit-lib';
 import mock from 'mock-fs';
 import { FakeIoHost } from './util';
 import { StackDiff } from '../src/diff';
@@ -37,13 +41,12 @@ const cdkout = {
       },
     },
   }),
-
 };
 
 describe('StackDiff', () => {
   beforeEach(() => {
     mock({
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': cdkout,
     });
   });
@@ -58,10 +61,13 @@ describe('StackDiff', () => {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
       method: DiffMethod.LocalFile('cdk.out/test-stack.template.json'),
     });
-    const stackDiff = new StackDiff({
-      diff: templateDiffs['test-stack'],
-      stackName: 'test-stack',
-    }, []);
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+    );
 
     // WHEN
     const { diff, changes } = await stackDiff.diffStack();
@@ -91,7 +97,7 @@ describe('StackDiff', () => {
       },
     });
     mock({
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
@@ -99,10 +105,13 @@ describe('StackDiff', () => {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
       method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
     });
-    const stackDiff = new StackDiff({
-      diff: templateDiffs['test-stack'],
-      stackName: 'test-stack',
-    }, []);
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+    );
 
     // WHEN
     const { diff, changes } = await stackDiff.diffStack();
@@ -113,11 +122,13 @@ describe('StackDiff', () => {
       updatedResources: 0,
       removedResources: 1,
       createdResources: 1,
-      destructiveChanges: [{
-        impact: ResourceImpact.WILL_DESTROY,
-        logicalId: 'MyRole2',
-        stackName: 'test-stack',
-      }],
+      destructiveChanges: [
+        {
+          impact: ResourceImpact.WILL_DESTROY,
+          logicalId: 'MyRole2',
+          stackName: 'test-stack',
+        },
+      ],
     });
   });
 
@@ -136,7 +147,7 @@ describe('StackDiff', () => {
       },
     });
     mock({
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
@@ -144,10 +155,13 @@ describe('StackDiff', () => {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
       method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
     });
-    const stackDiff = new StackDiff({
-      diff: templateDiffs['test-stack'],
-      stackName: 'test-stack',
-    }, []);
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+    );
 
     // WHEN
     const { diff, changes } = await stackDiff.diffStack();
@@ -155,7 +169,9 @@ describe('StackDiff', () => {
     // THEN
     expect(diff.isEmpty).toEqual(false);
     expect(diff.differenceCount).toEqual(1);
-    expect(diff.resources.changes.MyRole.changeImpact).toEqual(ResourceImpact.WILL_UPDATE);
+    expect(diff.resources.changes.MyRole.changeImpact).toEqual(
+      ResourceImpact.WILL_UPDATE,
+    );
     expect(changes).toEqual({
       updatedResources: 1,
       removedResources: 0,
@@ -178,7 +194,7 @@ describe('StackDiff', () => {
       },
     });
     mock({
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
@@ -186,10 +202,13 @@ describe('StackDiff', () => {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
       method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
     });
-    const stackDiff = new StackDiff({
-      diff: templateDiffs['test-stack'],
-      stackName: 'test-stack',
-    }, []);
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+    );
 
     // WHEN
     const { diff, changes } = await stackDiff.diffStack();
@@ -197,17 +216,21 @@ describe('StackDiff', () => {
     // THEN
     expect(diff.isEmpty).toEqual(false);
     expect(diff.differenceCount).toEqual(1);
-    expect(diff.resources.changes.MyRole.changeImpact).toEqual(ResourceImpact.WILL_REPLACE);
+    expect(diff.resources.changes.MyRole.changeImpact).toEqual(
+      ResourceImpact.WILL_REPLACE,
+    );
     expect(changes).toEqual({
       updatedResources: 1,
       removedResources: 0,
       createdResources: 0,
       unknownEnvironment: undefined,
-      destructiveChanges: [{
-        impact: ResourceImpact.WILL_REPLACE,
-        logicalId: 'MyRole',
-        stackName: 'test-stack',
-      }],
+      destructiveChanges: [
+        {
+          impact: ResourceImpact.WILL_REPLACE,
+          logicalId: 'MyRole',
+          stackName: 'test-stack',
+        },
+      ],
     });
   });
 
@@ -225,7 +248,7 @@ describe('StackDiff', () => {
       },
     });
     mock({
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
@@ -233,10 +256,13 @@ describe('StackDiff', () => {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
       method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
     });
-    const stackDiff = new StackDiff({
-      diff: templateDiffs['test-stack'],
-      stackName: 'test-stack',
-    }, ['AWS::IAM::Role']);
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      ['AWS::IAM::Role'],
+    );
 
     // WHEN
     const { diff, changes } = await stackDiff.diffStack();
@@ -244,7 +270,9 @@ describe('StackDiff', () => {
     // THEN
     expect(diff.isEmpty).toEqual(false);
     expect(diff.differenceCount).toEqual(1);
-    expect(diff.resources.changes.MyRole.changeImpact).toEqual(ResourceImpact.WILL_REPLACE);
+    expect(diff.resources.changes.MyRole.changeImpact).toEqual(
+      ResourceImpact.WILL_REPLACE,
+    );
     expect(changes).toEqual({
       updatedResources: 1,
       removedResources: 0,
@@ -283,7 +311,7 @@ describe('StackDiff', () => {
       },
     });
     mock({
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
@@ -291,10 +319,13 @@ describe('StackDiff', () => {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
       method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
     });
-    const stackDiff = new StackDiff({
-      diff: templateDiffs['test-stack'],
-      stackName: 'test-stack',
-    }, []);
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+    );
 
     // WHEN
     const { diff, changes } = await stackDiff.diffStack();
@@ -346,7 +377,7 @@ describe('StackDiff', () => {
       },
     });
     mock({
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
@@ -354,10 +385,13 @@ describe('StackDiff', () => {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
       method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
     });
-    const stackDiff = new StackDiff({
-      diff: templateDiffs['test-stack'],
-      stackName: 'test-stack',
-    }, []);
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+    );
 
     // WHEN
     const { diff, changes } = await stackDiff.diffStack();
@@ -397,7 +431,7 @@ describe('StackDiff', () => {
       },
     });
     mock({
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
       'cdk.out': out,
     });
     const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
@@ -405,10 +439,13 @@ describe('StackDiff', () => {
       stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
       method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
     });
-    const stackDiff = new StackDiff({
-      diff: templateDiffs['test-stack'],
-      stackName: 'test-stack',
-    }, []);
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+    );
 
     // WHEN
     const { diff, changes } = await stackDiff.diffStack();

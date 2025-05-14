@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: "20"
       - name: Install dependencies
-        run: yarn install --check-files
+        run: npm install
       - name: build
         run: npx projen build
       - name: Find mutations
