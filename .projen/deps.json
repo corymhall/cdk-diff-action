@@ -1,11 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "@stylistic/eslint-plugin",
-      "version": "^2",
-      "type": "build"
-    },
-    {
       "name": "@swc/core",
       "type": "build"
     },
@@ -60,11 +55,19 @@
       "type": "build"
     },
     {
+      "name": "eslint-config-prettier",
+      "type": "build"
+    },
+    {
       "name": "eslint-import-resolver-typescript",
       "type": "build"
     },
     {
       "name": "eslint-plugin-import",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-prettier",
       "type": "build"
     },
     {
@@ -84,6 +87,10 @@
     {
       "name": "mock-fs",
       "version": "^5",
+      "type": "build"
+    },
+    {
+      "name": "prettier",
       "type": "build"
     },
     {
@@ -111,22 +118,7 @@
       "type": "runtime"
     },
     {
-      "name": "@actions/exec",
-      "version": "^1.1.1",
-      "type": "runtime"
-    },
-    {
       "name": "@actions/github",
-      "type": "runtime"
-    },
-    {
-      "name": "@actions/io",
-      "version": "^1.1.3",
-      "type": "runtime"
-    },
-    {
-      "name": "@actions/tool-cache",
-      "version": "^2.0.0",
       "type": "runtime"
     },
     {
@@ -147,11 +139,6 @@
     },
     {
       "name": "@octokit/webhooks-definitions",
-      "type": "runtime"
-    },
-    {
-      "name": "chalk",
-      "version": "^4",
       "type": "runtime"
     },
     {

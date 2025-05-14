@@ -1,7 +1,12 @@
 import * as fs from 'fs';
 import path from 'path';
 import * as core from '@actions/core';
-import { DifferenceCollection, ResourceDifference, ResourceImpact, TemplateDiff } from '@aws-cdk/cloudformation-diff';
+import {
+  DifferenceCollection,
+  ResourceDifference,
+  ResourceImpact,
+  TemplateDiff,
+} from '@aws-cdk/cloudformation-diff';
 import { Toolkit, DiffMethod } from '@aws-cdk/toolkit-lib';
 import mock from 'mock-fs';
 import { FakeIoHost } from './util';
@@ -27,7 +32,6 @@ jest.mock('../src/comment', () => {
     }),
   };
 });
-
 
 const cdkout = {
   'manifest.json': JSON.stringify({
@@ -98,14 +102,16 @@ describe('StageProcessor', () => {
     });
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
       defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
       failOnDestructiveChanges: true,
       stackSelectorPatterns: [],
       stackSelectionStrategy: 'all-stacks',
@@ -116,7 +122,9 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       SomeStage: expect.any(Object),
     });
-    expect(p.SomeStage.stackComments['SomeStage/test-stack']).toEqual(['No Changes for stack: SomeStage/test-stack :white_check_mark:']);
+    expect(p.SomeStage.stackComments['SomeStage/test-stack']).toEqual([
+      'No Changes for stack: SomeStage/test-stack :white_check_mark:',
+    ]);
   });
 
   test('stage with diff', async () => {
@@ -132,14 +140,16 @@ describe('StageProcessor', () => {
     });
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
       defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
       failOnDestructiveChanges: true,
       stackSelectorPatterns: [],
       stackSelectionStrategy: 'all-stacks',
@@ -150,7 +160,9 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       SomeStage: expect.any(Object),
     });
-    expect(p.SomeStage.stackComments['SomeStage/test-stack'].length).not.toEqual(0);
+    expect(
+      p.SomeStage.stackComments['SomeStage/test-stack'].length,
+    ).not.toEqual(0);
     expect(p.SomeStage.destructiveChanges).toEqual(1);
   });
 
@@ -167,14 +179,16 @@ describe('StageProcessor', () => {
     });
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
       defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
       failOnDestructiveChanges: true,
       stackSelectorPatterns: [],
       stackSelectionStrategy: 'all-stacks',
@@ -185,7 +199,9 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       SomeStage: expect.any(Object),
     });
-    expect(p.SomeStage.stackComments['SomeStage/test-stack'].length).not.toEqual(0);
+    expect(
+      p.SomeStage.stackComments['SomeStage/test-stack'].length,
+    ).not.toEqual(0);
     expect(p.SomeStage.destructiveChanges).toEqual(0);
   });
 
@@ -202,14 +218,16 @@ describe('StageProcessor', () => {
     });
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
       defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
       failOnDestructiveChanges: true,
       stackSelectorPatterns: [],
       stackSelectionStrategy: 'all-stacks',
@@ -235,14 +253,16 @@ describe('StageProcessor', () => {
     });
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
       defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
       failOnDestructiveChanges: true,
       stackSelectorPatterns: [],
       stackSelectionStrategy: 'all-stacks',
@@ -344,14 +364,16 @@ describe('StageProcessor', () => {
     };
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
       defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
       failOnDestructiveChanges: true,
       stackSelectorPatterns: ['!SomeOtherStage/*'],
       stackSelectionStrategy: 'pattern-must-match',
@@ -362,16 +384,18 @@ describe('StageProcessor', () => {
     expect(p).toEqual({
       SomeStage: expect.any(Object),
     });
-    expect(p.SomeStage.stackComments['SomeStage/test-stack'].length).not.toEqual(0);
-    expect(p.SomeStage.stackComments['SomeOtherStage/test-stack']).toEqual(undefined);
+    expect(
+      p.SomeStage.stackComments['SomeStage/test-stack'].length,
+    ).not.toEqual(0);
+    expect(p.SomeStage.stackComments['SomeOtherStage/test-stack']).toEqual(
+      undefined,
+    );
     expect(p.SomeStage.destructiveChanges).toEqual(1);
   });
-
 });
 
 describe('default stage', () => {
   beforeEach(() => {
-
     mockOutDir = {
       'manifest.json': JSON.stringify({
         version: '36.0.0',
@@ -415,14 +439,16 @@ describe('default stage', () => {
   test('with defaults', async () => {
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
       defaultStageDisplayName: 'DefaultStage',
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
       failOnDestructiveChanges: true,
       stackSelectorPatterns: [],
       stackSelectionStrategy: 'all-stacks',
@@ -433,13 +459,15 @@ describe('default stage', () => {
     expect(p).toEqual({
       DefaultStage: expect.any(Object),
     });
-    expect(p.DefaultStage.stackComments['test-stack']).toEqual(['No Changes for stack: test-stack :white_check_mark:']);
+    expect(p.DefaultStage.stackComments['test-stack']).toEqual([
+      'No Changes for stack: test-stack :white_check_mark:',
+    ]);
   });
 
   test('with custom', async () => {
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
     const processor = new AssemblyProcessor({
       defaultStageDisplayName: 'MyStage',
@@ -447,7 +475,9 @@ describe('default stage', () => {
       toolkit,
       allowedDestroyTypes: [],
       cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.LocalFile('cdk.out/SomeStage-test-stack.template.json'),
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
       failOnDestructiveChanges: true,
       stackSelectorPatterns: [],
       stackSelectionStrategy: 'all-stacks',
@@ -459,7 +489,9 @@ describe('default stage', () => {
       MyStage: expect.any(Object),
     });
     expect(p.MyStage.title).toEqual('Diff for MyStage');
-    expect(p.MyStage.stackComments['test-stack']).toEqual(['No Changes for stack: test-stack :white_check_mark:']);
+    expect(p.MyStage.stackComments['test-stack']).toEqual([
+      'No Changes for stack: test-stack :white_check_mark:',
+    ]);
   });
 });
 
@@ -476,7 +508,9 @@ describe('stack comments', () => {
 
     const stacks = createStacks(10);
     stacks.forEach((stack) => {
-      mockOutDir['assembly-SomeStage'][`SomeStage-${stack.name}.template.json`] = JSON.stringify(stack.content);
+      mockOutDir['assembly-SomeStage'][
+        `SomeStage-${stack.name}.template.json`
+      ] = JSON.stringify(stack.content);
       manifestJson.artifacts[`SomeStage-${stack.name}`] = {
         type: 'aws:cloudformation:stack',
         environment: 'aws://1234567891012/us-east-1',
@@ -488,18 +522,22 @@ describe('stack comments', () => {
         displayName: `SomeStage/${stack.name}`,
       };
     });
-    mockOutDir['assembly-SomeStage']['manifest.json'] = JSON.stringify(manifestJson);
+    mockOutDir['assembly-SomeStage']['manifest.json'] =
+      JSON.stringify(manifestJson);
     const diffInfo: { [stackName: string]: DiffInfo } = {};
     stacks.forEach((stack) => {
       diffInfo[`SomeStage/${stack.name}`] = {
         oldValue: 'MyCustomName',
-        newValue: fs.readFileSync(path.join(__dirname, '../', 'src', 'stage-processor.ts'), 'utf-8'),
+        newValue: fs.readFileSync(
+          path.join(__dirname, '../', 'src', 'stage-processor.ts'),
+          'utf-8',
+        ),
       };
     });
     const templateDiff = createTemplateDiffs(diffInfo);
     mock({
       'cdk.out': mockOutDir,
-      'node_modules': mock.load(path.join(__dirname, '..', 'node_modules')),
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
     });
 
     jest.spyOn(Toolkit.prototype, 'diff').mockResolvedValue(templateDiff);
@@ -528,17 +566,28 @@ interface DiffInfo {
   newValue: string;
 }
 
-function createTemplateDiffs(stacks: { [name: string]: DiffInfo}): { [name: string]: TemplateDiff } {
+function createTemplateDiffs(stacks: { [name: string]: DiffInfo }): {
+  [name: string]: TemplateDiff;
+} {
   const templateDiff: { [name: string]: TemplateDiff } = {};
   for (const [stackName, diffInfo] of Object.entries(stacks)) {
     const isreplace = diffInfo.oldValue !== diffInfo.newValue;
     templateDiff[stackName] = new TemplateDiff({
       resources: new DifferenceCollection({
         MyRole: new ResourceDifference(
-          { Type: 'AWS::IAM::Role', Properties: { RoleName: diffInfo.oldValue } },
-          { Type: 'AWS::IAM::Role', Properties: { RoleName: diffInfo.newValue } },
           {
-            resourceType: { newType: 'AWS::IAM::Role', oldType: 'AWS::IAM::Role' },
+            Type: 'AWS::IAM::Role',
+            Properties: { RoleName: diffInfo.oldValue },
+          },
+          {
+            Type: 'AWS::IAM::Role',
+            Properties: { RoleName: diffInfo.newValue },
+          },
+          {
+            resourceType: {
+              newType: 'AWS::IAM::Role',
+              oldType: 'AWS::IAM::Role',
+            },
             otherDiffs: {},
             propertyDiffs: {
               RoleName: {
@@ -548,7 +597,9 @@ function createTemplateDiffs(stacks: { [name: string]: DiffInfo}): { [name: stri
                 isRemoval: false,
                 newValue: diffInfo.newValue,
                 oldValue: diffInfo.oldValue,
-                changeImpact: isreplace ? ResourceImpact.WILL_REPLACE : ResourceImpact.NO_CHANGE,
+                changeImpact: isreplace
+                  ? ResourceImpact.WILL_REPLACE
+                  : ResourceImpact.NO_CHANGE,
               },
             },
           },
@@ -570,7 +621,10 @@ function createStacks(numStacks: number): any[] {
             Type: 'AWS::IAM::Role',
             Properties: {
               RoleName: 'MyNewCustomName2',
-              Property1: fs.readFileSync(path.join(__dirname, 'stage-processor.test.ts'), 'utf-8'),
+              Property1: fs.readFileSync(
+                path.join(__dirname, 'stage-processor.test.ts'),
+                'utf-8',
+              ),
             },
           },
         },
@@ -578,5 +632,4 @@ function createStacks(numStacks: number): any[] {
     });
   }
   return stacks;
-
 }

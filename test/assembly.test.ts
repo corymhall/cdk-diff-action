@@ -62,7 +62,6 @@ describe('cloud assembly manifest reader', () => {
     mock.restore();
   });
 
-
   test('get root stacks', () => {
     const assembly = new CloudAssembly('cdk.out', {
       skipVersionCheck: true,
@@ -90,9 +89,11 @@ describe('cloud assembly manifest reader', () => {
     expect(manifest.stages).toEqual([
       {
         name: 'SomeStage',
-        stacks: [{
-          name: 'SomeStage/test-stack2',
-        }],
+        stacks: [
+          {
+            name: 'SomeStage/test-stack2',
+          },
+        ],
       },
     ]);
   });

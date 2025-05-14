@@ -87,7 +87,7 @@
       "name": "copy-files",
       "steps": [
         {
-          "exec": "cp package.json dist/ && cp yarn.lock dist/ && cp -r projenrc dist/ && cp tsconfig.json dist/"
+          "exec": "cp package.json dist/ && cp package-lock.json dist/ && cp -r projenrc dist/ && cp tsconfig.json dist/"
         }
       ]
     },
@@ -120,7 +120,7 @@
       },
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools projenrc .projenrc.ts",
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ test build-tools projenrc .projenrc.ts",
           "receiveArgs": true
         }
       ]
@@ -252,13 +252,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@vercel/ncc,action-docs,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,projen-github-action-typescript,ts-jest,ts-node,typescript,@actions/core,@actions/github,@aws-cdk/cloudformation-diff,@aws-cdk/cx-api,@aws-cdk/toolkit-lib,@octokit/webhooks-definitions,fs-extra"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@vercel/ncc,action-docs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,projen-github-action-typescript,ts-jest,ts-node,typescript,@actions/core,@actions/github,@aws-cdk/cloudformation-diff,@aws-cdk/cx-api,@aws-cdk/toolkit-lib,@octokit/webhooks-definitions,fs-extra"
         },
         {
           "exec": "npm install"
         },
         {
-          "exec": "npm update @stylistic/eslint-plugin @swc/core @swc/jest @types/fs-extra @types/jest @types/mock-fs @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @vercel/ncc action-docs commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit mock-fs projen projen-github-action-typescript ts-jest ts-node typescript @actions/core @actions/exec @actions/github @actions/io @actions/tool-cache @aws-cdk/cloudformation-diff @aws-cdk/cx-api @aws-cdk/toolkit-lib @octokit/webhooks-definitions chalk fs-extra"
+          "exec": "npm update @swc/core @swc/jest @types/fs-extra @types/jest @types/mock-fs @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @vercel/ncc action-docs commit-and-tag-version constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit mock-fs prettier projen projen-github-action-typescript ts-jest ts-node typescript @actions/core @actions/github @aws-cdk/cloudformation-diff @aws-cdk/cx-api @aws-cdk/toolkit-lib @octokit/webhooks-definitions fs-extra"
         },
         {
           "exec": "npx projen"
@@ -278,10 +278,10 @@
           "exec": "npx npm-check-updates@16 --upgrade --target=latest --peer --dep=prod --filter=@aws-cdk/cloud-assembly-schema"
         },
         {
-          "exec": "yarn install --check-files"
+          "exec": "npm install"
         },
         {
-          "exec": "yarn upgrade @aws-cdk/cloud-assembly-schema"
+          "exec": "npm update @aws-cdk/cloud-assembly-schema"
         },
         {
           "exec": "npx projen"
