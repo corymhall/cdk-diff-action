@@ -3,7 +3,7 @@
 name: cdk-diff-action
 description: The CDK Diff GitHub Action allows you to run CDK diff as part of your CI/CD workflow.
 runs:
-  using: node22
+  using: node20
   main: dist/index.js
 author: Cory Hall
 branding:
