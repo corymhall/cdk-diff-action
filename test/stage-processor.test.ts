@@ -8,6 +8,12 @@ import {
   TemplateDiff,
 } from '@aws-cdk/cloudformation-diff';
 import { Toolkit, DiffMethod } from '@aws-cdk/toolkit-lib';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { RequestError } from '@octokit/request-error';
+import type {
+  RequestError as OctokitError,
+  OctokitResponse,
+} from '@octokit/types';
 import mock from 'mock-fs';
 import { FakeIoHost } from './util';
 import { Comments } from '../src/comment';
@@ -495,71 +501,144 @@ describe('default stage', () => {
   });
 });
 
-describe('stack comments', () => {
-  afterEach(() => {
-    jest.resetAllMocks(); // clears mock state
-    jest.restoreAllMocks(); // Restores original implementations
-  });
-  test('stack level comments', async () => {
-    const manifestJson = {
-      version: '36.0.0',
-      artifacts: {},
+function setupCommentTest(): AssemblyProcessor {
+  const manifestJson = {
+    version: '36.0.0',
+    artifacts: {},
+  };
+
+  const stacks = createStacks(10);
+  stacks.forEach((stack) => {
+    mockOutDir['assembly-SomeStage'][`SomeStage-${stack.name}.template.json`] =
+      JSON.stringify(stack.content);
+    manifestJson.artifacts[`SomeStage-${stack.name}`] = {
+      type: 'aws:cloudformation:stack',
+      environment: 'aws://1234567891012/us-east-1',
+      properties: {
+        templateFile: `${stack.name}.template.json`,
+        validateOnSynth: false,
+        stackName: `SomeStage-${stack.name}`,
+      },
+      displayName: `SomeStage/${stack.name}`,
     };
-
-    const stacks = createStacks(10);
-    stacks.forEach((stack) => {
-      mockOutDir['assembly-SomeStage'][
-        `SomeStage-${stack.name}.template.json`
-      ] = JSON.stringify(stack.content);
-      manifestJson.artifacts[`SomeStage-${stack.name}`] = {
-        type: 'aws:cloudformation:stack',
-        environment: 'aws://1234567891012/us-east-1',
-        properties: {
-          templateFile: `${stack.name}.template.json`,
-          validateOnSynth: false,
-          stackName: `SomeStage-${stack.name}`,
-        },
-        displayName: `SomeStage/${stack.name}`,
-      };
-    });
-    mockOutDir['assembly-SomeStage']['manifest.json'] =
-      JSON.stringify(manifestJson);
-    const diffInfo: { [stackName: string]: DiffInfo } = {};
-    stacks.forEach((stack) => {
-      diffInfo[`SomeStage/${stack.name}`] = {
-        oldValue: 'MyCustomName',
-        newValue: fs.readFileSync(
-          path.join(__dirname, '../', 'src', 'stage-processor.ts'),
-          'utf-8',
-        ),
-      };
-    });
-    const templateDiff = createTemplateDiffs(diffInfo);
-    mock({
-      'cdk.out': mockOutDir,
-      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
-    });
-
-    jest.spyOn(Toolkit.prototype, 'diff').mockResolvedValue(templateDiff);
-    const processor = new AssemblyProcessor({
-      defaultStageDisplayName: 'DefaultStage',
-      toolkit,
-      allowedDestroyTypes: [],
-      cdkOutDir: 'cdk.out',
-      diffMethod: DiffMethod.TemplateOnly(),
-      failOnDestructiveChanges: true,
-      stackSelectorPatterns: [],
-      stackSelectionStrategy: 'all-stacks',
-      noFailOnDestructiveChanges: [],
-    });
+  });
+  mockOutDir['assembly-SomeStage']['manifest.json'] =
+    JSON.stringify(manifestJson);
+  const diffInfo: { [stackName: string]: DiffInfo } = {};
+  stacks.forEach((stack) => {
+    diffInfo[`SomeStage/${stack.name}`] = {
+      oldValue: 'MyCustomName',
+      newValue: 'NewCustomName',
+    };
+  });
+  const templateDiff = createTemplateDiffs(diffInfo);
+  mock({
+    'cdk.out': mockOutDir,
+    node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
+  });
+  jest.spyOn(Toolkit.prototype, 'diff').mockResolvedValue(templateDiff);
+  return new AssemblyProcessor({
+    defaultStageDisplayName: 'DefaultStage',
+    toolkit,
+    allowedDestroyTypes: [],
+    cdkOutDir: 'cdk.out',
+    diffMethod: DiffMethod.TemplateOnly(),
+    failOnDestructiveChanges: true,
+    stackSelectorPatterns: [],
+    stackSelectionStrategy: 'all-stacks',
+    noFailOnDestructiveChanges: [],
+  });
+}
+describe('stack comments', () => {
+  test('stack level comments', async () => {
     findPreviousMock.mockResolvedValue(1);
+    updateCommentMock.mockRejectedValueOnce(requestError(422));
+    const processor = setupCommentTest();
     await processor.processStages(['SomeStage']);
     await processor.commentStages(new Comments({} as any, {} as any));
-    expect(findPreviousMock).toHaveBeenCalledTimes(10);
+    expect(findPreviousMock).toHaveBeenCalledTimes(11);
     expect(createCommentMock).toHaveBeenCalledTimes(0);
-    expect(updateCommentMock).toHaveBeenCalledTimes(10);
+    expect(updateCommentMock).toHaveBeenCalledTimes(11);
+  });
+
+  test('stage comment fails', async () => {
+    findPreviousMock.mockResolvedValue(1);
+    updateCommentMock.mockRejectedValueOnce(
+      requestError(400, 'Some other error failed'),
+    );
+    const processor = setupCommentTest();
+    await processor.processStages(['SomeStage']);
+    await expect(
+      processor.commentStages(new Comments({} as any, {} as any)),
+    ).rejects.toThrow(/Validation Error/);
+    expect(findPreviousMock).toHaveBeenCalledTimes(1);
+    expect(createCommentMock).toHaveBeenCalledTimes(0);
+    expect(updateCommentMock).toHaveBeenCalledTimes(1);
+  });
+
+  test('stack comment fails', async () => {
+    findPreviousMock.mockResolvedValue(1);
+    updateCommentMock.mockRejectedValueOnce(requestError(422));
+    updateCommentMock.mockRejectedValue(
+      requestError(400, 'Some other error failed'),
+    );
+    const processor = setupCommentTest();
+    await processor.processStages(['SomeStage']);
+    await expect(
+      processor.commentStages(new Comments({} as any, {} as any)),
+    ).rejects.toThrow(/Validation Error/);
+    expect(findPreviousMock).toHaveBeenCalledTimes(11);
+    expect(createCommentMock).toHaveBeenCalledTimes(0);
+    expect(updateCommentMock).toHaveBeenCalledTimes(11);
+  });
+
+  test('stack comment fails too long', async () => {
+    findPreviousMock.mockResolvedValue(1);
+    updateCommentMock.mockRejectedValueOnce(requestError(422));
+    updateCommentMock.mockRejectedValueOnce(requestError(422));
+    updateCommentMock.mockRejectedValueOnce(requestError(422));
+    const processor = setupCommentTest();
+    await processor.processStages(['SomeStage']);
+    await expect(
+      processor.commentStages(new Comments({} as any, {} as any)),
+    ).rejects.toThrow(/Comment for stack SomeStage\/my-stack1 is too long/);
+    expect(findPreviousMock).toHaveBeenCalledTimes(11);
+    expect(createCommentMock).toHaveBeenCalledTimes(0);
+    expect(updateCommentMock).toHaveBeenCalledTimes(11);
   });
 });
+
+function requestError(status: number, msg?: string): RequestError {
+  const message = msg ?? 'Body is too long (maximum is 65536 characters)';
+  const response: OctokitResponse<OctokitError, number> = {
+    headers: {},
+    status,
+    url: '',
+    data: {
+      documentation_url: '',
+      name: '',
+      status,
+      errors: [
+        {
+          code: 'unprocessable',
+          field: 'data',
+          resource: 'IssueComment',
+          message,
+        },
+      ],
+    },
+  };
+  return new RequestError('Validation Error', status, {
+    request: {
+      url: 'https://github.com',
+      headers: {
+        authorization: '1234567891201010',
+      },
+      method: 'POST',
+    },
+    response: response,
+  });
+}
 
 interface DiffInfo {
   oldValue: string;
@@ -621,10 +700,7 @@ function createStacks(numStacks: number): any[] {
             Type: 'AWS::IAM::Role',
             Properties: {
               RoleName: 'MyNewCustomName2',
-              Property1: fs.readFileSync(
-                path.join(__dirname, 'stage-processor.test.ts'),
-                'utf-8',
-              ),
+              Property1: 'SomeText',
             },
           },
         },
