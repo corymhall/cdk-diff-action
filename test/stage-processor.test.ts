@@ -690,10 +690,6 @@ function createTemplateDiffs(stacks: { [name: string]: DiffInfo }): {
 }
 
 function createStacks(numStacks: number): any[] {
-  const text = fs.readFileSync(
-    path.join(__dirname, 'test-data', 'stack-comment.txt'),
-    'utf-8',
-  );
   const stacks: any[] = [];
   for (let i = 0; i < numStacks; i++) {
     stacks.push({
@@ -704,7 +700,7 @@ function createStacks(numStacks: number): any[] {
             Type: 'AWS::IAM::Role',
             Properties: {
               RoleName: 'MyNewCustomName2',
-              Property1: text,
+              Property1: 'SomeText',
             },
           },
         },
