@@ -10,13 +10,11 @@ import {
   StackSelector,
   Toolkit,
 } from '@aws-cdk/toolkit-lib';
+import type { RequestError, OctokitResponse } from '@octokit/types';
 import { AssemblyManifestReader, StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
 import { ChangeDetails, StackDiff, StackDiffInfo, StageDiffInfo } from './diff';
 import { Inputs } from './inputs';
-
-// the max comment length allowed by GitHub
-const MAX_COMMENT_LENGTH = 65536;
 
 /**
  * Information needed to make a comment for a CDK Stage
@@ -206,34 +204,76 @@ export class AssemblyProcessor {
     }
   }
 
-  private async commentStacks(comments: Comments) {
-    for (const [stageName, stage] of Object.entries(this.stageComments)) {
-      for (const [stackName, comment] of Object.entries(stage.stackComments)) {
-        const hash = md5Hash(
-          JSON.stringify({
-            title: this.options.title,
-            stageName,
-            stackName,
-          }),
-        );
-        const stackComment = this.getCommentForStack(
-          stageName,
-          stackName,
-          comment,
-        );
-        if (stackComment.join('\n').length > MAX_COMMENT_LENGTH) {
-          throw new Error(
-            `Comment for stack ${stackName} is too long, please report this as a bug https://github.com/corymhall/cdk-diff-action/issues/new`,
-          );
-        }
-        const previous = await comments.findPrevious(hash);
-        if (previous) {
-          await comments.updateComment(previous, hash, stackComment);
-        } else {
-          await comments.createComment(hash, stackComment);
-        }
+  private async commentStack(
+    comments: Comments,
+    stageName: string,
+    stackName: string,
+    comment: string[],
+  ) {
+    const hash = md5Hash(
+      JSON.stringify({
+        title: this.options.title,
+        stageName,
+        stackName,
+      }),
+    );
+    const stackComment = this.getCommentForStack(stageName, stackName, comment);
+    const previous = await comments.findPrevious(hash);
+    try {
+      if (previous) {
+        await comments.updateComment(previous, hash, stackComment);
+      } else {
+        await comments.createComment(hash, stackComment);
       }
+    } catch (e: any) {
+      this.handleError(
+        e,
+        `Comment for stack ${stackName} is too long, please report this as a bug https://github.com/corymhall/cdk-diff-action/issues/new`,
+      );
     }
+  }
+
+  /**
+   * Try to comment all the individual stacks
+   * Do it in parallel so that we don't stop if one of them fails
+   */
+  private async commentStacks(
+    comments: Comments,
+    stageName: string,
+    stage: StageComment,
+  ) {
+    const commentPromises: Promise<void>[] = [];
+    for (const [stackName, comment] of Object.entries(stage.stackComments)) {
+      commentPromises.push(
+        this.commentStack(comments, stageName, stackName, comment),
+      );
+    }
+    const res = await Promise.allSettled(commentPromises);
+    const failed = res
+      .filter((r) => r.status === 'rejected')
+      .flatMap((r) => r.reason);
+    if (failed && failed.length > 0) {
+      throw new Error('Error commenting stacks: \n' + failed.join('\n'));
+    }
+  }
+
+  private bodyTooLongError(e: any): boolean {
+    if (e.response) {
+      const err = e.response as OctokitResponse<RequestError, number>;
+      return (
+        err.data.errors?.some((er) =>
+          er.message?.includes('Body is too long'),
+        ) ?? false
+      );
+    }
+    return false;
+  }
+
+  private handleError(e: any, message: string) {
+    if (this.bodyTooLongError(e)) {
+      throw new Error(message);
+    }
+    throw e;
   }
 
   private async commentStage(
@@ -258,10 +298,17 @@ export class AssemblyProcessor {
   public async commentStages(comments: Comments) {
     for (const [stageName, comment] of Object.entries(this.stageComments)) {
       const stageComment = this.getCommentForStage(stageName);
-      if (stageComment.join('\n').length > MAX_COMMENT_LENGTH) {
-        await this.commentStacks(comments);
-      } else {
+      try {
         await this.commentStage(comments, comment.hash, stageComment);
+      } catch (e: any) {
+        if (
+          this.bodyTooLongError(e) &&
+          Object.keys(comment.stackComments).length > 1
+        ) {
+          await this.commentStacks(comments, stageName, comment);
+        } else {
+          throw e;
+        }
       }
     }
   }
