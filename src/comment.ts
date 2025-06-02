@@ -46,13 +46,14 @@ export class Comments {
     hash: string,
     content: string[],
   ) {
+    const timestamp = new Date().toISOString();
     await this.octokit.rest.issues.updateComment({
       ...this.context.repo,
       body: [
         `<!-- cdk diff action with hash ${hash} -->`,
         ...content,
         '',
-        `_Generated for commit ${this.commitSha}_`,
+        `_Generated for commit ${this.commitSha} at ${timestamp}_`,
       ].join('\n'),
       comment_id: commentId,
     });
@@ -65,13 +66,14 @@ export class Comments {
    * @param content the content of the comment
    */
   public async createComment(hash: string, content: string[]) {
+    const timestamp = new Date().toISOString();
     await this.octokit.rest.issues.createComment({
       ...this.context.repo,
       body: [
         `<!-- cdk diff action with hash ${hash} -->`,
         ...content,
         '',
-        `_Generated for commit ${this.commitSha}_`,
+        `_Generated for commit ${this.commitSha} at ${timestamp}_`,
       ].join('\n'),
       issue_number: this.issueNumber,
     });

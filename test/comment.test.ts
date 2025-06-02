@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
-import { Context } from '@actions/github/lib/context';
-import { GitHub } from '@actions/github/lib/utils';
+import type { Context } from '@actions/github/lib/context';
+import type { GitHub } from '@actions/github/lib/utils';
 import { Comments } from '../src/comment';
 
 jest.spyOn(core, 'debug').mockImplementation(() => {});
@@ -12,6 +12,8 @@ const issues = { createComment, updateComment, listComments };
 
 const rest = { issues };
 const octokit = { rest } as unknown as InstanceType<typeof GitHub>;
+let timestamp = '';
+
 const context: Context = {
   sha: 'some-sha',
   payload: {
@@ -63,6 +65,11 @@ const commentDataWithUnMatchedTag = {
 beforeEach(() => {
   createComment.mockClear();
   updateComment.mockClear();
+  jest.useFakeTimers({
+    now: new Date('2021-02-26T22:42:16.652Z'),
+    advanceTimers: true,
+  });
+  timestamp = new Date().toISOString();
 });
 
 describe('comments', () => {
@@ -94,14 +101,14 @@ describe('comments', () => {
         `<!-- cdk diff action with hash ${hash} -->`,
         'message',
         '',
-        `_Generated for commit ${context.payload.pull_request?.head.sha}_`,
+        `_Generated for commit ${context.payload.pull_request?.head.sha} at ${timestamp}_`,
       ].join('\n'),
       comment_id: 1,
     });
   });
 
   test('create comment', async () => {
-    updateComment.mockResolvedValue({});
+    createComment.mockResolvedValue({});
     const comments = new Comments(octokit, context);
     expect(comments.createComment(hash, ['message'])).resolves;
     expect(createComment).toHaveBeenCalledWith({
@@ -110,7 +117,7 @@ describe('comments', () => {
         `<!-- cdk diff action with hash ${hash} -->`,
         'message',
         '',
-        `_Generated for commit ${context.payload.pull_request?.head.sha}_`,
+        `_Generated for commit ${context.payload.pull_request?.head.sha} at ${timestamp}_`,
       ].join('\n'),
       issue_number: context.payload.pull_request?.number,
     });
