@@ -3,7 +3,7 @@ import type { Context } from '@actions/github/lib/context';
 import type { GitHub } from '@actions/github/lib/utils';
 import { Comments } from '../src/comment';
 
-jest.spyOn(core, 'debug').mockImplementation(() => { });
+jest.spyOn(core, 'debug').mockImplementation(() => {});
 
 const createComment = jest.fn();
 const updateComment = jest.fn();
@@ -65,9 +65,8 @@ const commentDataWithUnMatchedTag = {
 beforeEach(() => {
   createComment.mockClear();
   updateComment.mockClear();
-  // const mockDateObject = ;
   jest.useFakeTimers({
-    now: new Date("2021-02-26T22:42:16.652Z"),
+    now: new Date('2021-02-26T22:42:16.652Z'),
     advanceTimers: true,
   });
   timestamp = new Date().toISOString();
