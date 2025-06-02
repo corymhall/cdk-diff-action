@@ -145,7 +145,7 @@ export class StageProcessor {
     return false;
   }
 
-  private async diffStack(stack: StackInfo): Promise<{comment: string[]; changes: number}> {
+  private async diffStack(stack: StackInfo): Promise<{ comment: string[]; changes: number }> {
     try {
       const stackDiff = new StackDiff(stack, this.allowedDestroyTypes);
       const { diff, changes } = await stackDiff.diffStack();
