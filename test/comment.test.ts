@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
-import { Context } from '@actions/github/lib/context';
-import { GitHub } from '@actions/github/lib/utils';
+import type { Context } from '@actions/github/lib/context';
+import type { GitHub } from '@actions/github/lib/utils';
 import { Comments } from '../src/comment';
 
 jest.spyOn(core, 'debug').mockImplementation(() => { });
@@ -65,6 +65,11 @@ const commentDataWithUnMatchedTag = {
 beforeEach(() => {
   createComment.mockClear();
   updateComment.mockClear();
+  // const mockDateObject = ;
+  jest.useFakeTimers({
+    now: new Date("2021-02-26T22:42:16.652Z"),
+    advanceTimers: true,
+  });
   timestamp = new Date().toISOString();
 });
 
@@ -104,7 +109,7 @@ describe('comments', () => {
   });
 
   test('create comment', async () => {
-    updateComment.mockResolvedValue({});
+    createComment.mockResolvedValue({});
     const comments = new Comments(octokit, context);
     expect(comments.createComment(hash, ['message'])).resolves;
     expect(createComment).toHaveBeenCalledWith({
