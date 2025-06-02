@@ -38,13 +38,14 @@ export interface BumpOptions {
  * @param options options
  */
 export async function release(cwd: string, options: BumpOptions) {
-  const releaseTagFile = join(cwd, options.releaseTagFile ?? 'dist/releasetag.txt');
+  const releaseTagFile = join(
+    cwd,
+    options.releaseTagFile ?? 'dist/releasetag.txt',
+  );
 
   const tagVersion = (await fs.readFile(releaseTagFile, 'utf-8')).trim();
 
-  logging.info(
-    `${releaseTagFile} has resolved version: ${tagVersion}`,
-  );
+  logging.info(`${releaseTagFile} has resolved version: ${tagVersion}`);
   logging.info(JSON.stringify(options));
 
   const [majorVersion, minorVersion] = tagVersion.split('.');
@@ -55,11 +56,11 @@ export async function release(cwd: string, options: BumpOptions) {
     tagCmd(options.githubRepo, `${majorVersion}.${minorVersion}`, cwd),
   ];
   if (options.dryRun) {
-    cmds.forEach(cmd => {
+    cmds.forEach((cmd) => {
       logging.info(cmd);
     });
   } else {
-    cmds.forEach(cmd => {
+    cmds.forEach((cmd) => {
       logging.info(cmd);
       exec(cmd, { cwd });
     });

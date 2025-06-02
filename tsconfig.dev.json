@@ -24,8 +24,7 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "stripInternal": true,
-    "target": "ES2020",
-    "skipLibCheck": true
+    "target": "ES2020"
   },
   "include": [
     "src/**/*.ts",
