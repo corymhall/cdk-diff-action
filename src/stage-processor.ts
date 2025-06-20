@@ -149,6 +149,7 @@ export class AssemblyProcessor {
         // we do and they pull in the new action version. Probably better to default to false
         // and see what happens
         loadAssemblyOptions: { checkVersion: false },
+        failOnMissingContext: false,
       },
     );
 
