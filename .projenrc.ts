@@ -1,12 +1,20 @@
 import { github, typescript } from 'projen';
-import { Transform, UpgradeDependenciesSchedule } from 'projen/lib/javascript';
+import {
+  NodePackageManager,
+  Transform,
+  UpgradeDependenciesSchedule,
+} from 'projen/lib/javascript';
 import { JsonPatch } from 'projen/lib/json-patch';
-import { GitHubActionTypeScriptProject, RunsUsing } from 'projen-github-action-typescript';
+import {
+  GitHubActionTypeScriptProject,
+  RunsUsing,
+} from 'projen-github-action-typescript';
 const project = new GitHubActionTypeScriptProject({
   majorVersion: 1,
   defaultReleaseBranch: 'main',
   authorEmail: '43035978+corymhall@users.noreply.github.com',
   authorName: 'Cory Hall',
+  packageManager: NodePackageManager.NPM,
   name: 'cdk-diff-action',
   githubOptions: {
     mergify: false,
@@ -38,7 +46,8 @@ const project = new GitHubActionTypeScriptProject({
         required: true,
       },
       allowedDestroyTypes: {
-        description: 'Comma delimited list of resource types that are allowed to be destroyed',
+        description:
+          'Comma delimited list of resource types that are allowed to be destroyed',
         required: false,
         default: '',
       },
@@ -47,20 +56,61 @@ const project = new GitHubActionTypeScriptProject({
         required: false,
         default: 'true',
       },
-      noDiffForStages: {
-        description: 'List of stages to ignore and not show a diff for',
+      stackSelectorPatterns: {
+        description:
+          'Comma delimited list of stack selector patterns. Use this to control which stages/stacks to diff. By default all stages & stacks are diffed\n\n' +
+          '@see https://github.com/aws/aws-cdk-cli/tree/main/packages/%40aws-cdk/toolkit-lib#stack-selection',
         required: false,
         default: '',
       },
-      noFailOnDestructiveChanges: {
-        description: '',
+      stackSelectionStrategy: {
+        description: [
+          'Used in combination with "stackSelectorPatterns" to control which stacks to diff.',
+          '',
+          'Valid values are "all-stacks", "main-assembly", "only-single", "pattern-match",',
+          '"pattern-must-match", "pattern-must-match-single"',
+          '',
+          '@default pattern-must-match if "stackSelectorPatterns" is provided, otherwise "all-stacks"',
+          '@see https://github.com/aws/aws-cdk-cli/tree/main/packages/%40aws-cdk/toolkit-lib#stack-selection',
+        ].join('\n'),
+        default: 'all-stacks',
         required: false,
-        default: 'List of stages where breaking changes will not fail the build',
+      },
+      noFailOnDestructiveChanges: {
+        description:
+          'List of stages where breaking changes will not fail the build',
+        required: false,
+        default: '',
       },
       cdkOutDir: {
         description: 'The location of the CDK output directory',
         required: false,
         default: 'cdk.out',
+      },
+      diffMethod: {
+        description: [
+          'The method to create a stack diff.',
+          '',
+          "Valid values are 'change-set' or 'template-only'.",
+          '',
+          'Use changeset diff for the highest fidelity, including analyze resource replacements.',
+          'In this method, diff will use the deploy role instead of the lookup role.',
+          '',
+          "Use template-only diff for a faster, less accurate diff that doesn't require",
+          'permissions to create a change-set.',
+        ].join('\n'),
+        required: false,
+        default: 'change-set',
+      },
+      defaultStageDisplayName: {
+        description: 'An optional display name for the CDK default stage.',
+        required: false,
+        default: 'DefaultStage',
+      },
+      title: {
+        description: 'An optional title for each diff comment on the PR.',
+        required: false,
+        default: '',
       },
     },
     runs: {
@@ -68,24 +118,26 @@ const project = new GitHubActionTypeScriptProject({
       main: 'dist/index.js',
     },
   },
+  prettier: true,
+  prettierOptions: {
+    settings: {
+      singleQuote: true,
+    },
+  },
+  eslintOptions: {
+    dirs: [],
+    prettier: true,
+  },
   deps: [
-    '@octokit/webhooks-definitions',
     '@aws-cdk/cloudformation-diff',
+    '@aws-cdk/cx-api',
+    '@aws-cdk/toolkit-lib',
+    '@octokit/webhooks-definitions',
     '@aws-cdk/cloud-assembly-schema',
-    '@actions/exec@^1.1.1',
-    '@actions/io@^1.1.3',
-    '@actions/tool-cache@^2.0.0',
     'fs-extra',
-    '@aws-sdk/client-cloudformation',
-    '@aws-sdk/client-sts',
-    '@smithy/types',
-    'chalk@^4',
-    '@aws-sdk/credential-providers',
   ],
   devDeps: [
-    'aws-sdk',
     'mock-fs@^5',
-    'aws-sdk-client-mock',
     '@types/mock-fs@^4',
     'projen-github-action-typescript',
     '@types/fs-extra',
@@ -93,36 +145,51 @@ const project = new GitHubActionTypeScriptProject({
     '@swc/core',
     '@swc/jest',
   ],
+  tsconfig: {
+    compilerOptions: {
+      lib: ['es2022', 'esnext'],
+    },
+  },
+  tsconfigDev: {
+    compilerOptions: {
+      lib: ['es2022', 'esnext'],
+    },
+  },
   jestOptions: {
     configFilePath: 'jest.config.json',
   },
   minNodeVersion: '20',
 });
 
-
 const projenProject = project as unknown as typescript.TypeScriptProject;
 
 // There doesn't seem to be a way to specify --target for individual dependencies so
 // adding a separate task to handle always doing a major upgrade to `@aws-cdk/cloud-assembly-schema`
 // @see https://github.com/aws/aws-cdk/blob/main/packages/aws-cdk-lib/cloud-assembly-schema/README.md#versioning
-project.upgradeWorkflow?.postUpgradeTask.prependSpawn(projenProject.addTask('upgrade-cloud-assembly-schema', {
-  env: {
-    CI: '0',
-  },
-  steps: [
-    { exec: 'npx npm-check-updates@16 --upgrade --target=latest --peer --dep=prod --filter=@aws-cdk/cloud-assembly-schema' },
-    { exec: 'yarn install --check-files' },
-    { exec: 'yarn upgrade @aws-cdk/cloud-assembly-schema' },
-    { exec: 'npx projen' },
-  ],
-}));
+project.upgradeWorkflow?.postUpgradeTask.prependSpawn(
+  projenProject.addTask('upgrade-cloud-assembly-schema', {
+    env: {
+      CI: '0',
+    },
+    steps: [
+      {
+        exec: 'npx npm-check-updates@16 --upgrade --target=latest --peer --dep=prod --filter=@aws-cdk/cloud-assembly-schema',
+      },
+      { exec: 'npm install' },
+      { exec: 'npm update @aws-cdk/cloud-assembly-schema' },
+      { exec: 'npx projen' },
+    ],
+  }),
+);
 
 const jestConfig = projenProject.tryFindObjectFile('jest.config.json');
 jestConfig?.patch(JsonPatch.remove('/preset'));
 jestConfig?.patch(JsonPatch.remove('/globals'));
-jestConfig?.patch(JsonPatch.add('/transform', {
-  '^.+\\.(t|j)sx?$': new Transform('@swc/jest'),
-}));
+jestConfig?.patch(
+  JsonPatch.add('/transform', {
+    '^.+\\.(t|j)sx?$': new Transform('@swc/jest'),
+  }),
+);
 project.tasks.addTask('gh-release', {
   exec: 'ts-node projenrc/release-version.ts',
 });
@@ -134,40 +201,47 @@ buildWorkflow?.on({
     branches: ['main'],
   },
 });
-buildWorkflow?.file?.patch(JsonPatch.replace(
-  '/jobs/build/steps/4/run', [
-    'git add .',
-    'git diff --staged --patch --binary --exit-code > repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT',
-  ].join('\n'),
-));
-buildWorkflow?.file?.patch(JsonPatch.add(
-  '/jobs/build/steps/5/with/retention-days', 1,
-));
+buildWorkflow?.file?.patch(
+  JsonPatch.replace(
+    '/jobs/build/steps/4/run',
+    [
+      'git add .',
+      'git diff --staged --patch --binary --exit-code > repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT',
+    ].join('\n'),
+  ),
+);
+buildWorkflow?.file?.patch(
+  JsonPatch.add('/jobs/build/steps/5/with/retention-days', 1),
+);
 
-project.tasks.tryFind('release')?.spawn(project.addTask('copy-files', {
-  exec: [
-    'cp package.json dist/',
-    'cp yarn.lock dist/',
-    'cp -r projenrc dist/',
-    'cp tsconfig.json dist/',
-  ].join(' && '),
-}));
+project.tasks.tryFind('release')?.spawn(
+  project.addTask('copy-files', {
+    exec: [
+      'cp package.json dist/',
+      'cp package-lock.json dist/',
+      'cp -r projenrc dist/',
+      'cp tsconfig.json dist/',
+    ].join(' && '),
+  }),
+);
 
 const releaseWorkflow = project.github?.tryFindWorkflow('release');
-releaseWorkflow?.file?.patch(JsonPatch.add(
-  '/jobs/release/steps/8/with/retention-days', 1,
-));
-releaseWorkflow?.file?.patch(JsonPatch.replace(
-  '/jobs/release_github/steps/3/run',
-  [
-    'mv dist/package.json ./',
-    'mv dist/yarn.lock ./',
-    'mv dist/projenrc ./',
-    'mv dist/tsconfig.json ./',
-    'yarn install --check-files --frozen-lockfile',
-    'npx ts-node projenrc/release-version.ts',
-  ].join('\n'),
-));
+releaseWorkflow?.file?.patch(
+  JsonPatch.add('/jobs/release/steps/8/with/retention-days', 1),
+);
+releaseWorkflow?.file?.patch(
+  JsonPatch.replace(
+    '/jobs/release_github/steps/3/run',
+    [
+      'mv dist/package.json ./',
+      'mv dist/yarn.lock ./',
+      'mv dist/projenrc ./',
+      'mv dist/tsconfig.json ./',
+      'npm ci',
+      'npx ts-node projenrc/release-version.ts',
+    ].join('\n'),
+  ),
+);
 
 project.gitignore.exclude('dist/package.json');
 project.gitignore.exclude('dist/projenrc');
@@ -183,7 +257,7 @@ const autoMergeJob: github.workflows.Job = {
     {
       uses: 'peter-evans/enable-pull-request-automerge@v2',
       with: {
-        'token': '${{ secrets.PROJEN_GITHUB_TOKEN }}',
+        token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
         'pull-request-number': '${{ github.event.number }}',
         'merge-method': 'SQUASH',
       },
@@ -191,7 +265,14 @@ const autoMergeJob: github.workflows.Job = {
   ],
 };
 
-projenProject.github?.tryFindWorkflow('auto-approve')?.file?.patch(JsonPatch.replace('/jobs/approve/steps/0/uses', 'hmarr/auto-approve-action@v3'));
+projenProject.github
+  ?.tryFindWorkflow('auto-approve')
+  ?.file?.patch(
+    JsonPatch.replace(
+      '/jobs/approve/steps/0/uses',
+      'hmarr/auto-approve-action@v3',
+    ),
+  );
 
 const workflow = projenProject.github?.addWorkflow('auto-merge');
 workflow?.on({
@@ -215,6 +296,8 @@ workflow?.on({
 });
 
 projenProject.packageTask.reset();
-projenProject.packageTask.exec('cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build --source-map --license licenses.txt');
+projenProject.packageTask.exec(
+  'cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build --external fsevents --source-map --license licenses.txt',
+);
 workflow?.addJobs({ enableAutoMerge: autoMergeJob });
 project.synth();

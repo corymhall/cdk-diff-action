@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: "20"
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile
+        run: npm ci
       - name: release
         run: npx projen release
       - name: Check if version has already been tagged
@@ -86,5 +86,5 @@ jobs:
           mv dist/yarn.lock ./
           mv dist/projenrc ./
           mv dist/tsconfig.json ./
-          yarn install --check-files --frozen-lockfile
+          npm ci
           npx ts-node projenrc/release-version.ts
