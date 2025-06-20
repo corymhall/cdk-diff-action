@@ -2,9 +2,6 @@
 
 GitHub action to comment on PRs with the stack diff.
 
-> [!INFO]
-> Try the [v2-beta](https://github.com/corymhall/cdk-diff-action/tree/v2-beta) for the latest features
-
 ![](./diff-screenshot.png)
 
 ## :sparkles: Features
@@ -56,7 +53,7 @@ jobs:
           role-to-assume: arn:aws:iam::1234567891012:role/cdk_github_actions
           role-session-name: github
       - name: Diff
-        uses: corymhall/cdk-diff-action@v2-beta
+        uses: corymhall/cdk-diff-action@v2
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -85,7 +82,7 @@ jobs:
   Synth:
     steps:
       - name: Diff
-        uses: corymhall/cdk-diff-action@v2-beta
+        uses: corymhall/cdk-diff-action@v2
         with:
           allowedDestroyTypes: |
             AWS::ECS::TaskDefinition
@@ -107,7 +104,7 @@ jobs:
   Synth:
     steps:
       - name: Diff
-        uses: corymhall/cdk-diff-action@v2-beta
+        uses: corymhall/cdk-diff-action@v2
         with:
           StackSelectorPatterns: |
             !Stage1/*
@@ -125,7 +122,7 @@ jobs:
   Synth:
     steps:
       - name: Diff
-        uses: corymhall/cdk-diff-action@v2-beta
+        uses: corymhall/cdk-diff-action@v2
         with:
           noFailOnDestructiveChanges: |
             Stage1
@@ -143,7 +140,7 @@ jobs:
   Synth:
     steps:
       - name: Diff
-        uses: corymhall/cdk-diff-action@v2-beta
+        uses: corymhall/cdk-diff-action@v2
         with:
           failOnDestructiveChanges: false
           githubToken: ${{ secrets.GITHUB_TOKEN }}
