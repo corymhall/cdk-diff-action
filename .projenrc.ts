@@ -234,7 +234,7 @@ releaseWorkflow?.file?.patch(
     '/jobs/release_github/steps/3/run',
     [
       'mv dist/package.json ./',
-      'mv dist/yarn.lock ./',
+      'mv dist/package-lock.json ./',
       'mv dist/projenrc ./',
       'mv dist/tsconfig.json ./',
       'npm ci',

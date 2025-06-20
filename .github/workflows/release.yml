@@ -83,7 +83,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
           mv dist/package.json ./
-          mv dist/yarn.lock ./
+          mv dist/package-lock.json ./
           mv dist/projenrc ./
           mv dist/tsconfig.json ./
           npm ci
