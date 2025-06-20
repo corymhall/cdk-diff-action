@@ -10,7 +10,7 @@ import {
   RunsUsing,
 } from 'projen-github-action-typescript';
 const project = new GitHubActionTypeScriptProject({
-  majorVersion: 1,
+  majorVersion: 2,
   defaultReleaseBranch: 'main',
   authorEmail: '43035978+corymhall@users.noreply.github.com',
   authorName: 'Cory Hall',
