@@ -29,7 +29,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@swc/core": "^1.12.4",
+    "@swc/core": "^1.12.5",
     "@swc/jest": "^0.2.38",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.14",
@@ -44,7 +44,7 @@
     "eslint": "^9",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-typescript": "^3.10.1",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.0",
     "jest": "^29.7.0",
     "jest-junit": "^16",
@@ -61,7 +61,7 @@
     "@actions/github": "^6.0.1",
     "@aws-cdk/cloud-assembly-schema": "44.7.0",
     "@aws-cdk/cloudformation-diff": "^2.182.0",
-    "@aws-cdk/cx-api": "^2.201.0",
+    "@aws-cdk/cx-api": "^2.202.0",
     "@aws-cdk/toolkit-lib": "^1.2.0",
     "@octokit/webhooks-definitions": "^3.67.3",
     "fs-extra": "^11.3.0"
