@@ -156,7 +156,7 @@
       "description": "Creates the distribution package",
       "steps": [
         {
-          "exec": "cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build --external fsevents --source-map --license licenses.txt"
+          "exec": "rm -rf dist && cp node_modules/@aws-cdk/aws-service-spec/db.json.gz ./ && ncc build --external fsevents --source-map --license licenses.txt"
         }
       ]
     },
