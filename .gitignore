@@ -51,5 +51,6 @@ junit.xml
 !/action.yml
 dist/package.json
 dist/projenrc
+dist/bin
 !/.github/workflows/auto-merge.yml
 !/.projenrc.ts
