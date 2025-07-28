@@ -245,6 +245,7 @@ releaseWorkflow?.file?.patch(
 
 project.gitignore.exclude('dist/package.json');
 project.gitignore.exclude('dist/projenrc');
+project.gitignore.exclude('dist/bin');
 
 const autoMergeJob: github.workflows.Job = {
   name: 'Set AutoMerge on PR #${{ github.event.number }}',
@@ -301,5 +302,4 @@ projenProject.packageTask.exec(
 );
 workflow?.addJobs({ enableAutoMerge: autoMergeJob });
 
-projenProject.preCompileTask.exec('rm -rf dist');
 project.synth();

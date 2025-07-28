@@ -175,12 +175,7 @@
     },
     "pre-compile": {
       "name": "pre-compile",
-      "description": "Prepare the project for compilation",
-      "steps": [
-        {
-          "exec": "rm -rf dist"
-        }
-      ]
+      "description": "Prepare the project for compilation"
     },
     "release": {
       "name": "release",
