@@ -46,7 +46,7 @@ export async function run() {
 
   const toolkit = new Toolkit({
     ioHost: new NonInteractiveIoHost({
-      logLevel: 'trace',
+      logLevel: 'info',
     }),
   });
   const method =
