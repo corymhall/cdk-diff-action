@@ -116,7 +116,8 @@
       "name": "eslint",
       "description": "Runs eslint against the codebase",
       "env": {
-        "ESLINT_USE_FLAT_CONFIG": "false"
+        "ESLINT_USE_FLAT_CONFIG": "false",
+        "NODE_NO_WARNINGS": "1"
       },
       "steps": [
         {
@@ -252,7 +253,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@vercel/ncc,action-docs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,projen-github-action-typescript,ts-jest,ts-node,typescript,@actions/core,@actions/github,@aws-cdk/cloudformation-diff,@aws-cdk/cx-api,@aws-cdk/toolkit-lib,@octokit/webhooks-definitions,fs-extra"
+          "exec": "npx npm-check-updates@18 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@vercel/ncc,action-docs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,projen-github-action-typescript,ts-jest,ts-node,typescript,@actions/core,@actions/github,@aws-cdk/cloudformation-diff,@aws-cdk/cx-api,@aws-cdk/toolkit-lib,@octokit/webhooks-definitions,fs-extra"
         },
         {
           "exec": "npm install"
