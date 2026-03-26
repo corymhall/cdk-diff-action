@@ -3,7 +3,7 @@ import { Writable, WritableOptions } from 'stream';
 import { StringDecoder } from 'string_decoder';
 import { debug } from '@actions/core';
 import { TemplateDiff, formatDifferences } from '@aws-cdk/cloudformation-diff';
-import { CloudAssembly } from '@aws-cdk/cx-api';
+import { CloudAssembly } from '@aws-cdk/cloud-assembly-api';
 import {
   DiffMethod,
   StackSelectionStrategy,

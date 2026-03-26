@@ -1,5 +1,5 @@
 import { TemplateDiff } from '@aws-cdk/cloudformation-diff';
-import { CloudAssembly } from '@aws-cdk/cx-api';
+import { CloudAssembly } from '@aws-cdk/cloud-assembly-api';
 
 /**
  * Information on the CDK Stage

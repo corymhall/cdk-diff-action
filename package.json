@@ -59,10 +59,11 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.1",
+    "@aws-cdk/cloud-assembly-api": "^2.2.1",
     "@aws-cdk/cloud-assembly-schema": "^53.8.0",
     "@aws-cdk/cloudformation-diff": "^2.186.0",
-    "@aws-cdk/cx-api": "^2.244.0",
     "@aws-cdk/toolkit-lib": "^1.19.2",
+    "@aws-sdk/client-cloudformation": "^3.934.0",
     "@octokit/webhooks-definitions": "^3.67.3",
     "fs-extra": "^11.3.4"
   },
