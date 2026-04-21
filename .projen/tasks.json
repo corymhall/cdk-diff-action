@@ -116,7 +116,8 @@
       "name": "eslint",
       "description": "Runs eslint against the codebase",
       "env": {
-        "ESLINT_USE_FLAT_CONFIG": "false"
+        "ESLINT_USE_FLAT_CONFIG": "false",
+        "NODE_NO_WARNINGS": "1"
       },
       "steps": [
         {
@@ -252,13 +253,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@vercel/ncc,action-docs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,projen-github-action-typescript,ts-jest,ts-node,typescript,@actions/core,@actions/github,@aws-cdk/cloudformation-diff,@aws-cdk/cx-api,@aws-cdk/toolkit-lib,@octokit/webhooks-definitions,fs-extra"
+          "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@swc/core,@swc/jest,@types/fs-extra,@types/jest,@vercel/ncc,action-docs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,projen-github-action-typescript,ts-jest,ts-node,typescript,@actions/core,@actions/github,@aws-cdk/cloud-assembly-api,@aws-cdk/cloudformation-diff,@aws-cdk/toolkit-lib,@aws-sdk/client-cloudformation,@octokit/webhooks-definitions,fs-extra"
         },
         {
           "exec": "npm install"
         },
         {
-          "exec": "npm update @swc/core @swc/jest @types/fs-extra @types/jest @types/mock-fs @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @vercel/ncc action-docs commit-and-tag-version constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit mock-fs prettier projen projen-github-action-typescript ts-jest ts-node typescript @actions/core @actions/github @aws-cdk/cloudformation-diff @aws-cdk/cx-api @aws-cdk/toolkit-lib @octokit/webhooks-definitions fs-extra"
+          "exec": "npm update @swc/core @swc/jest @types/fs-extra @types/jest @types/mock-fs @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @vercel/ncc action-docs commit-and-tag-version constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit mock-fs prettier projen projen-github-action-typescript ts-jest ts-node typescript @actions/core @actions/github @aws-cdk/cloud-assembly-api @aws-cdk/cloudformation-diff @aws-cdk/toolkit-lib @aws-sdk/client-cloudformation @octokit/webhooks-definitions fs-extra"
         },
         {
           "exec": "npx projen"

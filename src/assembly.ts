@@ -1,5 +1,5 @@
+import { CloudAssembly } from '@aws-cdk/cloud-assembly-api';
 import { TemplateDiff } from '@aws-cdk/cloudformation-diff';
-import { CloudAssembly } from '@aws-cdk/cx-api';
 
 /**
  * Information on the CDK Stage
@@ -45,7 +45,7 @@ export class AssemblyManifestReader {
    */
   public get stacks(): StackInfo[] {
     const stacks: StackInfo[] = [];
-    this.assembly.stacks.forEach((stack)=> {
+    this.assembly.stacks.forEach((stack) => {
       const stackName = stack.displayName;
       if (this.inDiff(stackName)) {
         stacks.push({
@@ -62,7 +62,10 @@ export class AssemblyManifestReader {
   public get stages(): StageInfo[] {
     const stages: StageInfo[] = [];
     this.assembly.nestedAssemblies.forEach((nestedAssembly) => {
-      const cloudAssembly = new AssemblyManifestReader(nestedAssembly.nestedAssembly, this.stackDiffs);
+      const cloudAssembly = new AssemblyManifestReader(
+        nestedAssembly.nestedAssembly,
+        this.stackDiffs,
+      );
       const stacks = cloudAssembly.stacks;
       if (stacks.length === 0) {
         return;

@@ -122,6 +122,10 @@
       "type": "runtime"
     },
     {
+      "name": "@aws-cdk/cloud-assembly-api",
+      "type": "runtime"
+    },
+    {
       "name": "@aws-cdk/cloud-assembly-schema",
       "type": "runtime"
     },
@@ -130,11 +134,11 @@
       "type": "runtime"
     },
     {
-      "name": "@aws-cdk/cx-api",
+      "name": "@aws-cdk/toolkit-lib",
       "type": "runtime"
     },
     {
-      "name": "@aws-cdk/toolkit-lib",
+      "name": "@aws-sdk/client-cloudformation",
       "type": "runtime"
     },
     {

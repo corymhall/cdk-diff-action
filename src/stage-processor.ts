@@ -2,8 +2,8 @@ import * as crypto from 'crypto';
 import { Writable, WritableOptions } from 'stream';
 import { StringDecoder } from 'string_decoder';
 import { debug } from '@actions/core';
+import { CloudAssembly } from '@aws-cdk/cloud-assembly-api';
 import { TemplateDiff, formatDifferences } from '@aws-cdk/cloudformation-diff';
-import { CloudAssembly } from '@aws-cdk/cx-api';
 import {
   DiffMethod,
   StackSelectionStrategy,
@@ -375,13 +375,13 @@ export class AssemblyProcessor {
     );
     if (changes.destructiveChanges.length) {
       output.push('');
-      output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),
+      (output.push('> [!WARNING]\n> ***Destructive Changes*** :bangbang:'),
         changes.destructiveChanges.forEach((change) => {
           output.push(
             `> **Stack: ${change.stackName} - Resource: ${change.logicalId} - Impact:** ***${change.impact}***`,
           );
           output.push('');
-        });
+        }));
     }
     const writable = new StringWritable({});
     formatDifferences(writable, diff);

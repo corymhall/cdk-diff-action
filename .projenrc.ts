@@ -130,8 +130,9 @@ const project = new GitHubActionTypeScriptProject({
   },
   deps: [
     '@aws-cdk/cloudformation-diff',
-    '@aws-cdk/cx-api',
+    '@aws-cdk/cloud-assembly-api',
     '@aws-cdk/toolkit-lib',
+    '@aws-sdk/client-cloudformation',
     '@octokit/webhooks-definitions',
     '@aws-cdk/cloud-assembly-schema',
     'fs-extra',

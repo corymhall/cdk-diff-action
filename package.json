@@ -1,27 +1,27 @@
 {
   "name": "cdk-diff-action",
   "scripts": {
-    "build": "npx projen build",
-    "bump": "npx projen bump",
-    "clobber": "npx projen clobber",
-    "compile": "npx projen compile",
-    "copy-files": "npx projen copy-files",
-    "default": "npx projen default",
-    "eject": "npx projen eject",
-    "eslint": "npx projen eslint",
-    "gh-release": "npx projen gh-release",
-    "package": "npx projen package",
-    "post-compile": "npx projen post-compile",
-    "post-upgrade": "npx projen post-upgrade",
-    "pre-compile": "npx projen pre-compile",
-    "release": "npx projen release",
-    "test": "npx projen test",
-    "test:watch": "npx projen test:watch",
-    "unbump": "npx projen unbump",
-    "upgrade": "npx projen upgrade",
-    "upgrade-cloud-assembly-schema": "npx projen upgrade-cloud-assembly-schema",
-    "watch": "npx projen watch",
-    "projen": "npx projen"
+    "build": "projen build",
+    "bump": "projen bump",
+    "clobber": "projen clobber",
+    "compile": "projen compile",
+    "copy-files": "projen copy-files",
+    "default": "projen default",
+    "eject": "projen eject",
+    "eslint": "projen eslint",
+    "gh-release": "projen gh-release",
+    "package": "projen package",
+    "post-compile": "projen post-compile",
+    "post-upgrade": "projen post-upgrade",
+    "pre-compile": "projen pre-compile",
+    "release": "projen release",
+    "test": "projen test",
+    "test:watch": "projen test:watch",
+    "unbump": "projen unbump",
+    "upgrade": "projen upgrade",
+    "upgrade-cloud-assembly-schema": "projen upgrade-cloud-assembly-schema",
+    "watch": "projen watch",
+    "projen": "projen"
   },
   "author": {
     "name": "Cory Hall",
@@ -29,7 +29,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@swc/core": "^1.13.5",
+    "@swc/core": "^1.15.30",
     "@swc/jest": "^0.2.39",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.14",
@@ -37,7 +37,7 @@
     "@types/node": "^20",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
-    "@vercel/ncc": "^0.38.3",
+    "@vercel/ncc": "^0.38.4",
     "action-docs": "^2.5.1",
     "commit-and-tag-version": "^12",
     "constructs": "^10.0.0",
@@ -45,29 +45,36 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^3.10.1",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-prettier": "^5.5.5",
     "jest": "^29.7.0",
     "jest-junit": "^16",
     "mock-fs": "^5",
-    "prettier": "^3.6.2",
-    "projen": "^0.95.2",
+    "prettier": "^3.8.3",
+    "projen": "^0.99.52",
     "projen-github-action-typescript": "^0.0.514",
-    "ts-jest": "^29.4.1",
+    "ts-jest": "^29.4.9",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.1",
-    "@aws-cdk/cloud-assembly-schema": "^48.5.0",
-    "@aws-cdk/cloudformation-diff": "^2.183.0",
-    "@aws-cdk/cx-api": "^2.212.0",
-    "@aws-cdk/toolkit-lib": "^1.6.0",
+    "@aws-cdk/cloud-assembly-api": "^2.2.2",
+    "@aws-cdk/cloud-assembly-schema": "^53.17.0",
+    "@aws-cdk/cloudformation-diff": "^2.187.1",
+    "@aws-cdk/toolkit-lib": "^1.23.0",
+    "@aws-sdk/client-cloudformation": "^3.1033.0",
     "@octokit/webhooks-definitions": "^3.67.3",
-    "fs-extra": "^11.3.1"
+    "fs-extra": "^11.3.4"
   },
   "engines": {
     "node": ">= 20"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "onFail": "ignore"
+    }
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",

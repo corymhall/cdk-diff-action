@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import { CloudAssembly } from '@aws-cdk/cx-api';
+import { CloudAssembly } from '@aws-cdk/cloud-assembly-api';
 import mock from 'mock-fs';
 import { AssemblyManifestReader } from '../src/assembly';
 
