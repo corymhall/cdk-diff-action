@@ -227,10 +227,24 @@ export class AssemblyProcessor {
         await comments.createComment(hash, stackComment);
       }
     } catch (e: any) {
-      this.handleError(
-        e,
-        `Comment for stack ${stackName} is too long, please report this as a bug https://github.com/corymhall/cdk-diff-action/issues/new`,
+      if (!this.bodyTooLongError(e)) {
+        throw e;
+      }
+      // A single stack's diff exceeds GitHub's comment-size limit -- e.g. a
+      // greenfield create of a very large stack where every resource is an
+      // addition. The stage->per-stack split (see commentStages) has already
+      // run and this one stack still doesn't fit. Rather than fail the whole
+      // job, post a truncated comment; the full diff is in the Action logs.
+      console.warn(
+        `Comment for stack ${stackName} exceeds GitHub's size limit; posting a truncated comment. The full diff is in the Action run logs.`,
       );
+      if (previous) {
+        await comments.updateComment(previous, hash, stackComment, {
+          truncate: true,
+        });
+      } else {
+        await comments.createComment(hash, stackComment, { truncate: true });
+      }
     }
   }
 
@@ -268,13 +282,6 @@ export class AssemblyProcessor {
       );
     }
     return false;
-  }
-
-  private handleError(e: any, message: string) {
-    if (this.bodyTooLongError(e)) {
-      throw new Error(message);
-    }
-    throw e;
   }
 
   private async commentStage(

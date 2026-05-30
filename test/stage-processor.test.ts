@@ -592,19 +592,40 @@ describe('stack comments', () => {
     expect(updateCommentMock).toHaveBeenCalledTimes(11);
   });
 
-  test('stack comment fails too long', async () => {
+  test('oversized stack comment is truncated, not failed', async () => {
     findPreviousMock.mockResolvedValue(1);
-    updateCommentMock.mockRejectedValueOnce(requestError(422));
-    updateCommentMock.mockRejectedValueOnce(requestError(422));
-    updateCommentMock.mockRejectedValueOnce(requestError(422));
+    // afterEach only mockClears, so a persistent implementation from an
+    // earlier test can leak; reset to make this test self-contained.
+    updateCommentMock.mockReset();
+    // A non-truncated update reports "body too long"; the truncated retry
+    // succeeds. The stage comment (first call) is too long and triggers the
+    // per-stack fallback; each per-stack comment is then posted truncated.
+    updateCommentMock.mockImplementation(
+      (
+        _id: number,
+        _hash: string,
+        _content: string[],
+        opts?: { truncate?: boolean },
+      ) =>
+        opts?.truncate ? Promise.resolve() : Promise.reject(requestError(422)),
+    );
     const processor = setupCommentTest();
     await processor.processStages(['SomeStage']);
+    // The action no longer fails the job when a single stack is too long --
+    // it posts a truncated comment instead.
     await expect(
       processor.commentStages(new Comments({} as any, {} as any)),
-    ).rejects.toThrow(/Comment for stack SomeStage\/my-stack1 is too long/);
+    ).resolves.toBeUndefined();
     expect(findPreviousMock).toHaveBeenCalledTimes(11);
     expect(createCommentMock).toHaveBeenCalledTimes(0);
-    expect(updateCommentMock).toHaveBeenCalledTimes(11);
+    // 1 stage attempt (too long -> fallback) + 10 stacks x (initial
+    // too-long attempt + a truncated retry that succeeds).
+    expect(updateCommentMock).toHaveBeenCalledTimes(21);
+    expect(
+      updateCommentMock.mock.calls.some(
+        (call: any[]) => call[3]?.truncate === true,
+      ),
+    ).toBe(true);
   });
 });
 
