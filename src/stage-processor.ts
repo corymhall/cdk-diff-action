@@ -10,7 +10,6 @@ import {
   StackSelector,
   Toolkit,
 } from '@aws-cdk/toolkit-lib';
-import type { RequestError, OctokitResponse } from '@octokit/types';
 import { AssemblyManifestReader, StackInfo, StageInfo } from './assembly';
 import { Comments } from './comment';
 import { ChangeDetails, StackDiff, StackDiffInfo, StageDiffInfo } from './diff';
@@ -220,31 +219,13 @@ export class AssemblyProcessor {
     );
     const stackComment = this.getCommentForStack(stageName, stackName, comment);
     const previous = await comments.findPrevious(hash);
-    try {
-      if (previous) {
-        await comments.updateComment(previous, hash, stackComment);
-      } else {
-        await comments.createComment(hash, stackComment);
-      }
-    } catch (e: any) {
-      if (!this.bodyTooLongError(e)) {
-        throw e;
-      }
-      // A single stack's diff exceeds GitHub's comment-size limit -- e.g. a
-      // greenfield create of a very large stack where every resource is an
-      // addition. The stage->per-stack split (see commentStages) has already
-      // run and this one stack still doesn't fit. Rather than fail the whole
-      // job, post a truncated comment; the full diff is in the Action logs.
-      console.warn(
-        `Comment for stack ${stackName} exceeds GitHub's size limit; posting a truncated comment. The full diff is in the Action run logs.`,
-      );
-      if (previous) {
-        await comments.updateComment(previous, hash, stackComment, {
-          truncate: true,
-        });
-      } else {
-        await comments.createComment(hash, stackComment, { truncate: true });
-      }
+    // Comments.buildBody drops the diff (keeping the surrounding text) if a
+    // single stack's comment still exceeds GitHub's size limit, so the post
+    // always fits -- no error handling needed here.
+    if (previous) {
+      await comments.updateComment(previous, hash, stackComment);
+    } else {
+      await comments.createComment(hash, stackComment);
     }
   }
 
@@ -272,18 +253,6 @@ export class AssemblyProcessor {
     }
   }
 
-  private bodyTooLongError(e: any): boolean {
-    if (e.response) {
-      const err = e.response as OctokitResponse<RequestError, number>;
-      return (
-        err.data.errors?.some((er) =>
-          er.message?.includes('Body is too long'),
-        ) ?? false
-      );
-    }
-    return false;
-  }
-
   private async commentStage(
     comments: Comments,
     hash: string,
@@ -298,25 +267,22 @@ export class AssemblyProcessor {
   }
 
   /**
-   * Create the GitHub comment for the stage
-   * This will try to create a single comment per stage, but if the comment
-   * is too long it will create a comment per stack
+   * Create the GitHub comment for the stage. Posts a single comment per stage,
+   * but if that comment would exceed GitHub's size limit and the stage has
+   * more than one stack, posts one comment per stack instead so each stack's
+   * diff gets its own size budget before any diff is dropped.
    * @param comments the comments object to use to create the comment
    */
   public async commentStages(comments: Comments) {
     for (const [stageName, comment] of Object.entries(this.stageComments)) {
       const stageComment = this.getCommentForStage(stageName);
-      try {
+      if (
+        Object.keys(comment.stackComments).length > 1 &&
+        !comments.fits(comment.hash, stageComment)
+      ) {
+        await this.commentStacks(comments, stageName, comment);
+      } else {
         await this.commentStage(comments, comment.hash, stageComment);
-      } catch (e: any) {
-        if (
-          this.bodyTooLongError(e) &&
-          Object.keys(comment.stackComments).length > 1
-        ) {
-          await this.commentStacks(comments, stageName, comment);
-        } else {
-          throw e;
-        }
       }
     }
   }

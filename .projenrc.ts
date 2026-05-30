@@ -29,7 +29,7 @@ const project = new GitHubActionTypeScriptProject({
   },
   autoApproveOptions: {
     label: 'auto-approve',
-    allowedUsernames: ['corymhall'],
+    allowedUsernames: ['pthrasher'],
   },
   actionMetadata: {
     author: 'Cory Hall',

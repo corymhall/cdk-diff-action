@@ -27,6 +27,7 @@ const toolkit = new Toolkit({
 let findPreviousMock = jest.fn();
 let updateCommentMock = jest.fn();
 let createCommentMock = jest.fn();
+let fitsMock = jest.fn();
 jest.mock('../src/comment', () => {
   return {
     Comments: jest.fn().mockImplementation(() => {
@@ -34,6 +35,7 @@ jest.mock('../src/comment', () => {
         findPrevious: findPreviousMock,
         updateComment: updateCommentMock,
         createComment: createCommentMock,
+        fits: fitsMock,
       };
     }),
   };
@@ -85,6 +87,9 @@ let mockOutDir: any;
 
 beforeEach(() => {
   mockOutDir = cdkout;
+  // Default: the assembled stage comment fits, so it is posted as one
+  // comment. Tests that exercise the per-stack split override this.
+  fitsMock.mockReturnValue(true);
 });
 
 afterEach(() => {
@@ -92,6 +97,7 @@ afterEach(() => {
   findPreviousMock.mockClear();
   updateCommentMock.mockClear();
   createCommentMock.mockClear();
+  fitsMock.mockReset();
 });
 
 describe('StageProcessor', () => {
@@ -550,15 +556,18 @@ function setupCommentTest(): AssemblyProcessor {
   });
 }
 describe('stack comments', () => {
-  test('stack level comments', async () => {
+  test('stage comment too long is split into one comment per stack', async () => {
     findPreviousMock.mockResolvedValue(1);
-    updateCommentMock.mockRejectedValueOnce(requestError(422));
+    // The assembled stage comment would exceed GitHub's size limit, so the
+    // stage is posted as one comment per stack instead.
+    fitsMock.mockReturnValue(false);
     const processor = setupCommentTest();
     await processor.processStages(['SomeStage']);
     await processor.commentStages(new Comments({} as any, {} as any));
-    expect(findPreviousMock).toHaveBeenCalledTimes(11);
+    // 10 stacks, each updated in place; no doomed stage-level post is made.
+    expect(findPreviousMock).toHaveBeenCalledTimes(10);
     expect(createCommentMock).toHaveBeenCalledTimes(0);
-    expect(updateCommentMock).toHaveBeenCalledTimes(11);
+    expect(updateCommentMock).toHaveBeenCalledTimes(10);
   });
 
   test('stage comment fails', async () => {
@@ -576,9 +585,10 @@ describe('stack comments', () => {
     expect(updateCommentMock).toHaveBeenCalledTimes(1);
   });
 
-  test('stack comment fails', async () => {
+  test('a real error while posting a per-stack comment fails the job', async () => {
     findPreviousMock.mockResolvedValue(1);
-    updateCommentMock.mockRejectedValueOnce(requestError(422));
+    fitsMock.mockReturnValue(false);
+    // Not a size error -- a genuine API failure must surface, not be swallowed.
     updateCommentMock.mockRejectedValue(
       requestError(400, 'Some other error failed'),
     );
@@ -586,46 +596,26 @@ describe('stack comments', () => {
     await processor.processStages(['SomeStage']);
     await expect(
       processor.commentStages(new Comments({} as any, {} as any)),
-    ).rejects.toThrow(/Validation Error/);
-    expect(findPreviousMock).toHaveBeenCalledTimes(11);
+    ).rejects.toThrow(/Error commenting stacks/);
+    expect(findPreviousMock).toHaveBeenCalledTimes(10);
     expect(createCommentMock).toHaveBeenCalledTimes(0);
-    expect(updateCommentMock).toHaveBeenCalledTimes(11);
+    expect(updateCommentMock).toHaveBeenCalledTimes(10);
   });
 
-  test('oversized stack comment is truncated, not failed', async () => {
+  test('oversized stage does not fail the job', async () => {
     findPreviousMock.mockResolvedValue(1);
-    // afterEach only mockClears, so a persistent implementation from an
-    // earlier test can leak; reset to make this test self-contained.
-    updateCommentMock.mockReset();
-    // A non-truncated update reports "body too long"; the truncated retry
-    // succeeds. The stage comment (first call) is too long and triggers the
-    // per-stack fallback; each per-stack comment is then posted truncated.
-    updateCommentMock.mockImplementation(
-      (
-        _id: number,
-        _hash: string,
-        _content: string[],
-        opts?: { truncate?: boolean },
-      ) =>
-        opts?.truncate ? Promise.resolve() : Promise.reject(requestError(422)),
-    );
+    fitsMock.mockReturnValue(false);
+    updateCommentMock.mockResolvedValue({});
     const processor = setupCommentTest();
     await processor.processStages(['SomeStage']);
-    // The action no longer fails the job when a single stack is too long --
-    // it posts a truncated comment instead.
+    // Posts always succeed: Comments.buildBody drops an oversized diff before
+    // posting, so the job never fails on comment size. The actual diff
+    // truncation is verified against the real Comments in comment.test.ts.
     await expect(
       processor.commentStages(new Comments({} as any, {} as any)),
     ).resolves.toBeUndefined();
-    expect(findPreviousMock).toHaveBeenCalledTimes(11);
     expect(createCommentMock).toHaveBeenCalledTimes(0);
-    // 1 stage attempt (too long -> fallback) + 10 stacks x (initial
-    // too-long attempt + a truncated retry that succeeds).
-    expect(updateCommentMock).toHaveBeenCalledTimes(21);
-    expect(
-      updateCommentMock.mock.calls.some(
-        (call: any[]) => call[3]?.truncate === true,
-      ),
-    ).toBe(true);
+    expect(updateCommentMock).toHaveBeenCalledTimes(10);
   });
 });
 

@@ -122,4 +122,53 @@ describe('comments', () => {
       issue_number: context.payload.pull_request?.number,
     });
   });
+
+  test('oversized diff is replaced with a run-log pointer; surrounding text kept', async () => {
+    createComment.mockResolvedValue({});
+    const comments = new Comments(octokit, context);
+    const hugeDiff = 'x'.repeat(70000);
+    const content = [
+      '### Diff for stack: SomeStage / my-stack',
+      '#### Diff for stack: my-stack - ***1 to add, 0 to update, 0 to destroy*** :sparkle:',
+      '<details><summary>Details</summary>',
+      '',
+      '```shell',
+      hugeDiff,
+      '```',
+      '</details>',
+      '',
+    ];
+    await comments.createComment(hash, content);
+    const body: string = createComment.mock.calls[0][0].body;
+    // Fits within GitHub's hard comment-size limit.
+    expect(body.length).toBeLessThanOrEqual(65536);
+    // Surrounding text survives: hash marker, headers, details wrapper, footer.
+    expect(body).toContain(`<!-- cdk diff action with hash ${hash} -->`);
+    expect(body).toContain('### Diff for stack: SomeStage / my-stack');
+    expect(body).toContain('</details>');
+    expect(body).toContain(
+      `_Generated for commit ${context.payload.pull_request?.head.sha}`,
+    );
+    // The raw diff is gone, replaced by a pointer to the run logs.
+    expect(body).not.toContain(hugeDiff);
+    expect(body).toContain('GitHub Actions run logs');
+  });
+
+  test('a comment that fits keeps its diff intact', async () => {
+    createComment.mockResolvedValue({});
+    const comments = new Comments(octokit, context);
+    const diff = 'Resources\n[+] AWS::IAM::Role MyRole';
+    await comments.createComment(hash, ['```shell', diff, '```']);
+    const body: string = createComment.mock.calls[0][0].body;
+    expect(body).toContain(diff);
+    expect(body).not.toContain('GitHub Actions run logs');
+  });
+
+  test('fits() reflects GitHub size limit', () => {
+    const comments = new Comments(octokit, context);
+    expect(comments.fits(hash, ['small diff'])).toBe(true);
+    expect(comments.fits(hash, ['```shell', 'x'.repeat(70000), '```'])).toBe(
+      false,
+    );
+  });
 });

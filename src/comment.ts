@@ -4,9 +4,49 @@ import { PullRequestEvent } from '@octokit/webhooks-definitions/schema';
 
 /**
  * GitHub's hard limit on the length of an issue/PR comment body. A request
- * with a longer body is rejected with a "Body is too long" validation error.
+ * with a longer body is rejected with a "body is too long" validation error.
  */
 const GITHUB_MAX_COMMENT_LENGTH = 65536;
+
+/**
+ * Substituted for a stack's diff when the assembled comment would exceed
+ * GitHub's size limit. Only the fenced diff block is replaced -- every other
+ * part of the comment (hash marker, headers, destructive-change warnings,
+ * commit footer) is preserved. The diff is the one unbounded part of a
+ * comment, so it is what we drop; the full diff is always in the run logs.
+ */
+const DIFF_OMITTED_NOTICE = [
+  '> [!NOTE]',
+  "> This stack's diff was omitted because the comment would exceed GitHub's",
+  `> ${GITHUB_MAX_COMMENT_LENGTH}-character limit. The full diff is in this job's GitHub Actions run logs.`,
+];
+
+/**
+ * Replace every fenced ```shell diff block in `content` with a short pointer
+ * to the run logs, leaving all other lines untouched. The diff is emitted as
+ * three discrete array elements ("```shell", the diff payload, "```") by
+ * AssemblyProcessor.formatStackComment, so matching the fence lines exactly
+ * isolates the diff from the surrounding scaffolding.
+ */
+function omitDiffBlocks(content: string[]): string[] {
+  const out: string[] = [];
+  let inDiff = false;
+  for (const line of content) {
+    if (!inDiff && line === '```shell') {
+      inDiff = true;
+      out.push(...DIFF_OMITTED_NOTICE);
+      continue;
+    }
+    if (inDiff) {
+      if (line === '```') {
+        inDiff = false;
+      }
+      continue;
+    }
+    out.push(line);
+  }
+  return out;
+}
 
 /**
  * Comments controls interacting with GitHub to make comments
@@ -41,68 +81,62 @@ export class Comments {
   }
 
   /**
-   * Assemble the full comment body (hash marker + content + footer).
-   *
-   * When `truncate` is set and the assembled body would exceed GitHub's
-   * comment-size limit, the body is cut to fit and a notice is appended
-   * pointing the reader at the Action run logs (which always contain the
-   * full, untruncated diff). The hash marker is at the very start, so it
-   * always survives truncation and `findPrevious` keeps working. If the cut
-   * falls inside a fenced code block, the fence is closed so the notice
-   * still renders as Markdown rather than being swallowed by the block.
+   * Whether a comment assembled from `content` fits within GitHub's size
+   * limit with its diff intact. Drives the stage->per-stack split: a stage
+   * comment that doesn't fit is posted as one comment per stack instead, so
+   * every stack's diff gets its own budget before any diff is dropped.
    */
-  private buildBody(
-    hash: string,
-    content: string[],
-    timestamp: string,
-    truncate: boolean,
-  ): string {
-    const footer = `_Generated for commit ${this.commitSha} at ${timestamp}_`;
-    const body = [
+  public fits(hash: string, content: string[]): boolean {
+    return this.compose(hash, content).length <= GITHUB_MAX_COMMENT_LENGTH;
+  }
+
+  /**
+   * Assemble the comment body: hash marker first (so findPrevious always
+   * matches even after a cut), then the content, then the commit footer.
+   */
+  private compose(hash: string, content: string[]): string {
+    const footer = `_Generated for commit ${this.commitSha} at ${new Date().toISOString()}_`;
+    return [
       `<!-- cdk diff action with hash ${hash} -->`,
       ...content,
       '',
       footer,
     ].join('\n');
-    if (!truncate || body.length <= GITHUB_MAX_COMMENT_LENGTH) {
+  }
+
+  /**
+   * Build the body to post. If the full body fits, post it verbatim. If not,
+   * drop the diff block(s) -- the only unbounded part -- and keep all the
+   * surrounding text. As a last resort, when there is no diff to drop and the
+   * body is still too long (e.g. a teardown with thousands of destructive-
+   * change lines), hard-cut to fit; the hash marker is first, so it survives.
+   */
+  private buildBody(hash: string, content: string[]): string {
+    const body = this.compose(hash, content);
+    if (body.length <= GITHUB_MAX_COMMENT_LENGTH) {
       return body;
     }
-    const notice = [
-      '',
-      '',
-      '> [!WARNING]',
-      "> **This stack's diff was truncated because it exceeds GitHub's",
-      `> ${GITHUB_MAX_COMMENT_LENGTH}-character comment limit.** The full, untruncated diff`,
-      '> is available in this job\'s GitHub Actions run logs.',
-      '',
-      footer,
-    ].join('\n');
-    // Reserve room for the notice and a possible closing code fence.
-    const budget = GITHUB_MAX_COMMENT_LENGTH - notice.length - 5;
-    const head = body.slice(0, budget);
-    const openFence = (head.match(/```/g) ?? []).length % 2 === 1;
-    return head + (openFence ? '\n```' : '') + notice;
+    const trimmed = this.compose(hash, omitDiffBlocks(content));
+    return trimmed.length <= GITHUB_MAX_COMMENT_LENGTH
+      ? trimmed
+      : trimmed.slice(0, GITHUB_MAX_COMMENT_LENGTH);
   }
 
   /**
    * Update an existing comment
    *
+   * @param commentId the id of the comment to update
    * @param hash the unique hash identifying the stage comment to look for
    * @param content the content of the comment
-   * @param commentId the id of the comment to update
-   * @param opts.truncate cut the body to fit GitHub's size limit instead of
-   * letting the request fail with "Body is too long"
    */
   public async updateComment(
     commentId: number,
     hash: string,
     content: string[],
-    opts: { truncate?: boolean } = {},
   ) {
-    const timestamp = new Date().toISOString();
     await this.octokit.rest.issues.updateComment({
       ...this.context.repo,
-      body: this.buildBody(hash, content, timestamp, opts.truncate ?? false),
+      body: this.buildBody(hash, content),
       comment_id: commentId,
     });
   }
@@ -112,18 +146,11 @@ export class Comments {
    *
    * @param hash the unique hash identifying the stage comment to look for
    * @param content the content of the comment
-   * @param opts.truncate cut the body to fit GitHub's size limit instead of
-   * letting the request fail with "Body is too long"
    */
-  public async createComment(
-    hash: string,
-    content: string[],
-    opts: { truncate?: boolean } = {},
-  ) {
-    const timestamp = new Date().toISOString();
+  public async createComment(hash: string, content: string[]) {
     await this.octokit.rest.issues.createComment({
       ...this.context.repo,
-      body: this.buildBody(hash, content, timestamp, opts.truncate ?? false),
+      body: this.buildBody(hash, content),
       issue_number: this.issueNumber,
     });
   }
