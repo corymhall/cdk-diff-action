@@ -24,6 +24,19 @@ export interface Inputs {
   failOnDestructiveChanges: boolean;
 
   /**
+   * Ignore resource changes whose only difference is a CDK asset hash.
+   *
+   * When true, a resource whose properties changed *only* in asset hashes
+   * (e.g. a `Custom::CDKBucketDeployment` `SourceObjectKeys`, a Lambda `Code`
+   * asset, or a custom-resource `CodeHash`) is dropped from the diff before it
+   * is counted, rendered, or classified for destructive changes. Resources
+   * with any non-asset change are left fully intact.
+   *
+   * @default false
+   */
+  ignoreAssetChanges: boolean;
+
+  /**
    * List of stack selector patterns
    *
    * @default - show diff for all stages

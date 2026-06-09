@@ -22,6 +22,7 @@ export async function run() {
     }),
     allowedDestroyTypes: getMultilineInput('allowedDestroyTypes'),
     failOnDestructiveChanges: getBooleanInput('failOnDestructiveChanges'),
+    ignoreAssetChanges: getBooleanInput('ignoreAssetChanges'),
     githubToken: getInput('githubToken'),
     stackSelectorPatterns: getMultilineInput('stackSelectorPatterns'),
     stackSelectionStrategy: getInput('stackSelectionStrategy', {

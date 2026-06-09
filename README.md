@@ -145,3 +145,31 @@ jobs:
           failOnDestructiveChanges: false
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+### Ignore asset-only changes
+
+CDK references its bundled assets by content hash, so rebuilding an asset
+changes the synthesized template even when no infrastructure changed. This is
+the common case for apps that deploy content through `BucketDeployment`, ship
+Lambda code as assets, or use custom-resource providers: every content change
+produces a diff in `SourceObjectKeys` / `Code` / `CodeHash`.
+
+These show up as updates, and — because CloudFormation classifies an asset
+replacement as `MAY_REPLACE` — as **destructive changes**, which trips
+`failOnDestructiveChanges` on routine content PRs.
+
+Set `ignoreAssetChanges: true` to drop resources whose *only* difference is an
+asset hash. They are removed before the diff is counted, rendered, and
+classified, so the comment, the change counts, and the destructive-change gate
+all ignore them. Resources with any non-asset change are left fully intact.
+
+```yml
+jobs:
+  Synth:
+    steps:
+      - name: Diff
+        uses: corymhall/cdk-diff-action@v2
+        with:
+          ignoreAssetChanges: true
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+```
