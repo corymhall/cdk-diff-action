@@ -330,7 +330,11 @@ export class AssemblyProcessor {
     stack: StackDiffInfo,
   ): Promise<{ comment: string[]; changes: number }> {
     try {
-      const stackDiff = new StackDiff(stack, this.options.allowedDestroyTypes);
+      const stackDiff = new StackDiff(
+        stack,
+        this.options.allowedDestroyTypes,
+        this.options.ignoreAssetChanges,
+      );
       const { diff, changes } = await stackDiff.diffStack();
       return {
         comment: this.formatStackComment(stack.stackName, diff, changes),

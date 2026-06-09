@@ -21,6 +21,21 @@ inputs:
     description: Whether or not destructive changes should fail the job
     required: false
     default: "true"
+  ignoreAssetChanges:
+    description: |-
+      Ignore resource changes whose only difference is a CDK asset hash.
+
+      When true, a resource whose properties changed *only* in asset
+      hashes (e.g. a Custom::CDKBucketDeployment SourceObjectKeys, a
+      Lambda Code asset, or a custom-resource CodeHash) is dropped from
+      the diff before it is counted, rendered, or classified. This keeps
+      routine content/asset rebuilds from showing up as updates and from
+      tripping the destructive-changes gate (asset replacements are
+      reported by cloudformation-diff as MAY_REPLACE).
+
+      Resources with any non-asset change are left fully intact.
+    required: false
+    default: "false"
   stackSelectorPatterns:
     description: |-
       Comma delimited list of stack selector patterns. Use this to control which stages/stacks to diff. By default all stages & stacks are diffed

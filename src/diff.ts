@@ -74,12 +74,53 @@ export interface DestructiveChange {
 }
 
 /**
+ * Resource property names that only ever hold a CDK asset hash. A resource
+ * whose update touches *nothing but* these is a content/asset rebuild, not an
+ * infrastructure change.
+ *
+ *  - `Code`             AWS::Lambda::Function (the S3Key/S3Bucket asset pointer)
+ *  - `Metadata`         the aws:asset:* metadata that rides along with it
+ *  - `SourceObjectKeys` Custom::CDKBucketDeployment (the deployed content)
+ *  - `CodeHash`         custom-resource provider handlers
+ */
+const ASSET_PROPERTY_NAMES = new Set([
+  'Code',
+  'Metadata',
+  'SourceObjectKeys',
+  'CodeHash',
+]);
+
+/**
+ * Whether a resource difference is an update whose *only* changes are asset
+ * hashes. Additions and removals are never asset-only (the resource itself is
+ * appearing/disappearing); an update qualifies only if it has at least one
+ * changed property and every difference it carries is an asset property.
+ */
+export function isAssetOnlyChange(change: ResourceDifference): boolean {
+  if (!change.isUpdate) {
+    return false;
+  }
+  const propertyNames = Object.keys(change.propertyUpdates);
+  if (propertyNames.length === 0) {
+    return false;
+  }
+  if (!propertyNames.every((name) => ASSET_PROPERTY_NAMES.has(name))) {
+    return false;
+  }
+  // `differenceCount` covers property *and* "other" (non-property) changes;
+  // if it exceeds the asset property count there is a non-asset change we
+  // must not hide.
+  return change.differenceCount === propertyNames.length;
+}
+
+/**
  * StackDiff performs the diff on a stack
  */
 export class StackDiff {
   constructor(
     private readonly stack: StackDiffInfo,
     private readonly allowedDestroyTypes: string[],
+    private readonly ignoreAssetChanges: boolean = false,
   ) {}
 
   /** Performs the diff on the CloudFormation stack
@@ -90,11 +131,27 @@ export class StackDiff {
     diff: TemplateDiff;
     changes: ChangeDetails;
   }> {
+    if (this.ignoreAssetChanges) {
+      this.dropAssetOnlyChanges(this.stack.diff);
+    }
     const changes = this.evaluateDiff(this.stack.stackName, this.stack.diff);
     return {
       diff: this.stack.diff,
       changes,
     };
+  }
+
+  /**
+   * Drop asset-hash-only resource changes from the diff, so they are absent
+   * from the rendered comment, the change counts, and the destructive change
+   * classification alike. Reassigning `resources` to a filtered collection is
+   * enough because the same diff object is what gets evaluated and rendered
+   * downstream.
+   */
+  private dropAssetOnlyChanges(templateDiff: TemplateDiff): void {
+    templateDiff.resources = templateDiff.resources.filter(
+      (change) => change === undefined || !isAssetOnlyChange(change),
+    );
   }
 
   private evaluateDiff(

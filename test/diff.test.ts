@@ -407,6 +407,141 @@ describe('StackDiff', () => {
     });
   });
 
+  // A BucketDeployment's SourceObjectKeys changes on every content rebuild.
+  // By default it is reported as an update (and, under the change-set diff
+  // method, CloudFormation additionally flags the custom-resource change as
+  // MAY_REPLACE -- a destructive change that trips failOnDestructiveChanges).
+  // Either way it is asset noise that ignoreAssetChanges should remove.
+  const bucketDeployment = (sourceObjectKey: string) =>
+    JSON.stringify({
+      Resources: {
+        MyDeployment: {
+          Type: 'Custom::CDKBucketDeployment',
+          Properties: {
+            ServiceToken: 'arn:aws:lambda:us-east-1:1234567891012:function:f',
+            SourceBucketNames: ['asset-bucket'],
+            SourceObjectKeys: [sourceObjectKey],
+            DestinationBucketName: 'dest-bucket',
+          },
+        },
+      },
+    });
+
+  test('asset-only change is reported as an update by default', async () => {
+    // GIVEN
+    const out = cdkout;
+    out['test-stack.template.json'] = bucketDeployment('new.zip');
+    out['test-stack2.template.json'] = bucketDeployment('old.zip');
+    mock({
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
+      'cdk.out': out,
+    });
+    const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
+    const templateDiffs = await toolkit.diff(assembly, {
+      stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
+      method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
+    });
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+      // ignoreAssetChanges defaults to false
+    );
+
+    // WHEN
+    const { diff, changes } = await stackDiff.diffStack();
+
+    // THEN - the asset change is present and counted (not ignored)
+    expect(diff.isEmpty).toEqual(false);
+    expect(diff.differenceCount).toEqual(1);
+    expect(changes.updatedResources).toEqual(1);
+  });
+
+  test('ignoreAssetChanges drops an asset-only change entirely', async () => {
+    // GIVEN
+    const out = cdkout;
+    out['test-stack.template.json'] = bucketDeployment('new.zip');
+    out['test-stack2.template.json'] = bucketDeployment('old.zip');
+    mock({
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
+      'cdk.out': out,
+    });
+    const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
+    const templateDiffs = await toolkit.diff(assembly, {
+      stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
+      method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
+    });
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+      true,
+    );
+
+    // WHEN
+    const { diff, changes } = await stackDiff.diffStack();
+
+    // THEN - the resource is gone from the diff, counts, and destructive list
+    expect(diff.isEmpty).toEqual(true);
+    expect(diff.differenceCount).toEqual(0);
+    expect(changes).toEqual({
+      updatedResources: 0,
+      removedResources: 0,
+      createdResources: 0,
+      destructiveChanges: [],
+    });
+  });
+
+  test('ignoreAssetChanges keeps a resource with a non-asset change', async () => {
+    // GIVEN - SourceObjectKeys (asset) AND DestinationBucketName (real) change
+    const out = cdkout;
+    const mixed = (sourceObjectKey: string, destination: string) =>
+      JSON.stringify({
+        Resources: {
+          MyDeployment: {
+            Type: 'Custom::CDKBucketDeployment',
+            Properties: {
+              ServiceToken: 'arn:aws:lambda:us-east-1:1234567891012:function:f',
+              SourceBucketNames: ['asset-bucket'],
+              SourceObjectKeys: [sourceObjectKey],
+              DestinationBucketName: destination,
+            },
+          },
+        },
+      });
+    out['test-stack.template.json'] = mixed('new.zip', 'new-dest-bucket');
+    out['test-stack2.template.json'] = mixed('old.zip', 'old-dest-bucket');
+    mock({
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
+      'cdk.out': out,
+    });
+    const assembly = await toolkit.fromAssemblyDirectory('cdk.out');
+    const templateDiffs = await toolkit.diff(assembly, {
+      stacks: { strategy: StackSelectionStrategy.ALL_STACKS },
+      method: DiffMethod.LocalFile('cdk.out/test-stack2.template.json'),
+    });
+    const stackDiff = new StackDiff(
+      {
+        diff: templateDiffs['test-stack'],
+        stackName: 'test-stack',
+      },
+      [],
+      true,
+    );
+
+    // WHEN
+    const { diff, changes } = await stackDiff.diffStack();
+
+    // THEN - the mixed-change resource is left intact
+    expect(diff.isEmpty).toEqual(false);
+    expect(diff.differenceCount).toEqual(1);
+    expect(changes.updatedResources).toEqual(1);
+  });
+
   test('diff with cdk metadata change equals no diff', async () => {
     // GIVEN
     const out = cdkout;
