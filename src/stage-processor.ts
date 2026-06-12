@@ -343,9 +343,13 @@ export class AssemblyProcessor {
   }
 
   private getEmoji(changes: ChangeDetails): string {
-    if (changes.destructiveChanges.length || changes.removedResources) {
+    // Only flag the stack with :x: for destructive changes that survived
+    // allowedDestroyTypes filtering. Removals of allowed types (e.g. the
+    // AWS::ApiGateway::Deployment roll CDK performs on every API change)
+    // are routine churn and render as :yellow_circle: like other updates.
+    if (changes.destructiveChanges.length) {
       return ':x:';
-    } else if (changes.updatedResources) {
+    } else if (changes.updatedResources || changes.removedResources) {
       return ':yellow_circle:';
     } else if (changes.createdResources) {
       return ':sparkle:';
