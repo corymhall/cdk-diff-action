@@ -211,6 +211,86 @@ describe('StageProcessor', () => {
     expect(p.SomeStage.destructiveChanges).toEqual(0);
   });
 
+  test('removal of an allowed destroy type renders yellow, not x', async () => {
+    // "deployed" template has an extra queue that the assembly no longer has
+    mockOutDir['SomeStage-test-stack.template.json'] = JSON.stringify({
+      Resources: {
+        MyRole: {
+          Type: 'AWS::IAM::Role',
+          Properties: {
+            RoleName: 'MyCustomName',
+          },
+        },
+        MyQueue: {
+          Type: 'AWS::SQS::Queue',
+        },
+      },
+    });
+    mock({
+      'cdk.out': mockOutDir,
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
+    });
+    const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
+      toolkit,
+      allowedDestroyTypes: ['AWS::SQS::Queue'],
+      cdkOutDir: 'cdk.out',
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
+      failOnDestructiveChanges: true,
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
+      noFailOnDestructiveChanges: [],
+    });
+    await processor.processStages();
+    const p = (processor as any).stageComments;
+    expect(p.SomeStage.destructiveChanges).toEqual(0);
+    const comment =
+      p.SomeStage.stackComments['SomeStage/test-stack'].join('\n');
+    expect(comment).toContain(':yellow_circle:');
+    expect(comment).not.toContain(':x:');
+  });
+
+  test('removal of a non-allowed type still renders x', async () => {
+    mockOutDir['SomeStage-test-stack.template.json'] = JSON.stringify({
+      Resources: {
+        MyRole: {
+          Type: 'AWS::IAM::Role',
+          Properties: {
+            RoleName: 'MyCustomName',
+          },
+        },
+        MyQueue: {
+          Type: 'AWS::SQS::Queue',
+        },
+      },
+    });
+    mock({
+      'cdk.out': mockOutDir,
+      node_modules: mock.load(path.join(__dirname, '..', 'node_modules')),
+    });
+    const processor = new AssemblyProcessor({
+      defaultStageDisplayName: 'DefaultStage',
+      toolkit,
+      allowedDestroyTypes: [],
+      cdkOutDir: 'cdk.out',
+      diffMethod: DiffMethod.LocalFile(
+        'cdk.out/SomeStage-test-stack.template.json',
+      ),
+      failOnDestructiveChanges: true,
+      stackSelectorPatterns: [],
+      stackSelectionStrategy: 'all-stacks',
+      noFailOnDestructiveChanges: [],
+    });
+    await processor.processStages();
+    const p = (processor as any).stageComments;
+    expect(p.SomeStage.destructiveChanges).toEqual(1);
+    const comment =
+      p.SomeStage.stackComments['SomeStage/test-stack'].join('\n');
+    expect(comment).toContain(':x:');
+  });
+
   test('new comment created', async () => {
     mockOutDir['SomeStage-test-stack.template.json'] = JSON.stringify({
       Resources: {
