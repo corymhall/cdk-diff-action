@@ -11,7 +11,7 @@
       "es2022",
       "esnext"
     ],
-    "module": "CommonJS",
+    "module": "nodenext",
     "noEmitOnError": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -30,7 +30,8 @@
       "jest",
       "mock-fs",
       "node"
-    ]
+    ],
+    "moduleResolution": "nodenext"
   },
   "include": [
     "src/**/*.ts",

@@ -1,9 +1,9 @@
-import * as core from '@actions/core';
-import type { Context } from '@actions/github/lib/context';
 import type { GitHub } from '@actions/github/lib/utils';
 import { Comments } from '../src/comment';
 
-jest.spyOn(core, 'debug').mockImplementation(() => {});
+type Context = typeof import('@actions/github').context;
+
+jest.mock('@actions/core', () => ({ debug: jest.fn() }));
 
 const createComment = jest.fn();
 const updateComment = jest.fn();

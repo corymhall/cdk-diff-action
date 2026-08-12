@@ -2,6 +2,7 @@ import { github, typescript } from 'projen';
 import {
   NodePackageManager,
   Transform,
+  TypeScriptModuleResolution,
   UpgradeDependenciesSchedule,
 } from 'projen/lib/javascript';
 import { JsonPatch } from 'projen/lib/json-patch';
@@ -143,18 +144,23 @@ const project = new GitHubActionTypeScriptProject({
     '@types/mock-fs@^4',
     'projen-github-action-typescript',
     '@types/fs-extra',
-    'action-docs',
     '@swc/core',
     '@swc/jest',
   ],
   tsconfig: {
     compilerOptions: {
       lib: ['es2022', 'esnext'],
+      // @octokit/core v7 (via @actions/github v8) publishes its types behind
+      // package-exports subpaths, which classic "node" resolution can't see.
+      module: 'nodenext',
+      moduleResolution: TypeScriptModuleResolution.NODE_NEXT,
     },
   },
   tsconfigDev: {
     compilerOptions: {
       lib: ['es2022', 'esnext'],
+      module: 'nodenext',
+      moduleResolution: TypeScriptModuleResolution.NODE_NEXT,
     },
   },
   jestOptions: {
@@ -165,6 +171,30 @@ const project = new GitHubActionTypeScriptProject({
 });
 
 const projenProject = project as unknown as typescript.TypeScriptProject;
+
+// @actions/core v2 and @actions/github v8 depend on undici 6; the 5.x line
+// pulled in by the projen-github-action-typescript defaults is EOL with
+// unpatched CVEs (GHSA-g9mf-h72j-4rw9 et al.). Stay below @actions/core v3 /
+// @actions/github v9: those are ESM-only with an import-only exports map,
+// which ncc's CJS bundling cannot resolve.
+project.addDeps('@actions/core@^2.0.3', '@actions/github@^8.0.1');
+
+// Force patched versions of transitive deps whose parents pin below the fix:
+// @aws-sdk/core exact-pins fast-xml-parser 4.4.1, @aws-cdk/cdk-assets-lib
+// exact-pins minimatch 10.0.1, and micromatch/anymatch/jest-util cap
+// picomatch at ^2.3.1. The picomatch overrides are scoped so the
+// picomatch@4 copy used for stack selection is left alone.
+projenProject.package.file.addOverride('overrides', {
+  'fast-xml-parser': '^5.7.1',
+  'fast-xml-builder': '^1.1.7',
+  'minimatch@3': '^3.1.5',
+  'minimatch@5': '^5.1.8',
+  'minimatch@9': '^9.0.7',
+  'minimatch@10': '^10.2.3',
+  micromatch: { picomatch: '^2.3.2' },
+  anymatch: { picomatch: '^2.3.2' },
+  'jest-util': { picomatch: '^2.3.2' },
+});
 
 // There doesn't seem to be a way to specify --target for individual dependencies so
 // adding a separate task to handle always doing a major upgrade to `@aws-cdk/cloud-assembly-schema`
@@ -192,6 +222,14 @@ jestConfig?.patch(
   JsonPatch.add('/transform', {
     '^.+\\.(t|j)sx?$': new Transform('@swc/jest'),
   }),
+);
+// The @octokit v7+ chain pulled in by @actions/github v8 is ESM-only; jest
+// resolves it via the "default" export condition, so it just needs @swc/jest
+// to transpile it to CJS instead of being ignored as node_modules.
+jestConfig?.patch(
+  JsonPatch.add('/transformIgnorePatterns', [
+    '/node_modules/(?!(@octokit|universal-user-agent|before-after-hook)/)',
+  ]),
 );
 project.tasks.addTask('gh-release', {
   exec: 'ts-node projenrc/release-version.ts',

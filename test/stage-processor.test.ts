@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 import path from 'path';
-import * as core from '@actions/core';
 import {
   DifferenceCollection,
   ResourceDifference,
@@ -18,7 +17,7 @@ import mock from 'mock-fs';
 import { FakeIoHost } from './util';
 import { Comments } from '../src/comment';
 import { AssemblyProcessor } from '../src/stage-processor';
-jest.spyOn(core, 'debug').mockImplementation(() => {});
+jest.mock('@actions/core', () => ({ debug: jest.fn() }));
 
 const toolkit = new Toolkit({
   ioHost: new FakeIoHost(),

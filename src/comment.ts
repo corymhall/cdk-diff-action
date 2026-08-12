@@ -1,5 +1,8 @@
-import { Context } from '@actions/github/lib/context';
 import { GitHub } from '@actions/github/lib/utils';
+
+// @actions/github v9 no longer exports ./lib/context; derive the type from
+// the main entry's `context` value instead.
+type Context = typeof import('@actions/github').context;
 import { PullRequestEvent } from '@octokit/webhooks-definitions/schema';
 
 /**

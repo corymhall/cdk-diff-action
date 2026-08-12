@@ -1,9 +1,8 @@
-import * as core from '@actions/core';
 import { CloudAssembly } from '@aws-cdk/cloud-assembly-api';
 import mock from 'mock-fs';
 import { AssemblyManifestReader } from '../src/assembly';
 
-jest.spyOn(core, 'debug').mockImplementation(() => {});
+jest.mock('@actions/core', () => ({ debug: jest.fn() }));
 
 describe('cloud assembly manifest reader', () => {
   beforeEach(() => {
