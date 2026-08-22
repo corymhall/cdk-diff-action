@@ -6,6 +6,7 @@ import {
 } from '@actions/core';
 import * as github from '@actions/github';
 import {
+  CdkAppMultiContext,
   DiffMethod,
   NonInteractiveIoHost,
   Toolkit,
@@ -49,6 +50,17 @@ export async function run() {
       logLevel: 'info',
     }),
   });
+  // toolkit-lib's fromAssemblyDirectory does not automatically load contexts
+  // from cdk.json; provide a context store rooted at the workspace so that
+  // users can pass CDK contexts through cdk.json.
+  const originalFromAssemblyDirectory = toolkit.fromAssemblyDirectory.bind(
+    toolkit,
+  );
+  toolkit.fromAssemblyDirectory = (assemblyDirectory, options) =>
+    originalFromAssemblyDirectory(assemblyDirectory, {
+      ...options,
+      contextStore: new CdkAppMultiContext(process.cwd()),
+    });
   const method =
     inputs.diffMethod === 'template-only'
       ? DiffMethod.TemplateOnly()
